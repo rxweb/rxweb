@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl } from
 import {
     contains,
     digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric
-} from "@rx/reactive-form-validators";
+} from "@rxweb/reactive-form-validators";
 export class Attendance {
     @prop() @required({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'" }) startTime: number;
 }

@@ -13,7 +13,7 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@rx/reactive-form-validators": [ "dist/reactive-form-validators" ]
+      "@rxweb/reactive-form-validators": [ "dist/reactive-form-validators" ]
     },
     "lib": [
       "es2017",

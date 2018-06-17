@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { RxFormBuilder, RxReactiveFormsModule } from "@rx/reactive-form-validators";
+import { RxFormBuilder, RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from "@angular/forms";
 
