@@ -11,7 +11,6 @@ import { AnnotationTypes } from "../core/validator.static";
 
 export function lowercaseValidator(config:MessageConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-        debugger;
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);

@@ -9,6 +9,6 @@ import { RxFormBuilder } from "./rx-form-builder";
     imports: [FormsModule, ReactiveFormsModule],
     providers: [RxFormBuilder],
 })
-export class RxFormsModule {
-    static forRoot(): ModuleWithProviders { return { ngModule: RxFormsModule, providers: [] }; }
+export class RxReactiveFormsModule {
+    static forRoot(): ModuleWithProviders { return { ngModule: RxReactiveFormsModule, providers: [] }; }
 }
