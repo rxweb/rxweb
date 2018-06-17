@@ -1,0 +1,27 @@
+
+<form [formGroup]="sampleFormGroup">
+  alpha   <input type="text" formControlName="firstName" /> {{sampleFormGroup.controls.firstName.errors | json}}<br />
+  alpha numeric <input type="text" formControlName="lastName" />{{sampleFormGroup.controls.lastName.errors | json}}<br />
+  contains <input type="text" formControlName="contains" />{{sampleFormGroup.controls.contains.errors | json}}<br />
+  digit <input type="text" formControlName="digit" />{{sampleFormGroup.controls.digit.errors | json}}<br />
+  email <input type="text" formControlName="email" />{{sampleFormGroup.controls.email.errors | json}}<br />
+  hexColor <input type="text" formControlName="hexColor" />{{sampleFormGroup.controls.hexColor.errors | json}}<br />
+  lowerCase <input type="text" formControlName="lowerCase" />{{sampleFormGroup.controls.lowerCase.errors | json}}<br />
+  maxDate <input type="text" formControlName="maxDate" />{{sampleFormGroup.controls.maxDate.errors | json}}<br />
+  maxLength <input type="text" formControlName="maxLength" />{{sampleFormGroup.controls.maxLength.errors | json}}<br />
+  maxNumber <input type="text" formControlName="maxNumber" />{{sampleFormGroup.controls.maxNumber.errors | json}}<br />
+  password <input type="text" formControlName="password" />{{sampleFormGroup.controls.password.errors | json}}<br />
+  pattern <input type="text" formControlName="pattern" />{{sampleFormGroup.controls.pattern.errors | json}}<br />
+  range <input type="text" formControlName="range" />{{sampleFormGroup.controls.range.errors | json}}<br />
+  required <input type="text" formControlName="required" />{{sampleFormGroup.controls.required.errors | json}}<br />
+  upperCase <input type="text" formControlName="upperCase" />{{sampleFormGroup.controls.upperCase.errors | json}}<br />
+  <div [formGroup]="sampleFormGroup.controls.employeeDetail">
+    propobject <input type="text" formControlName="areaName" />{{sampleFormGroup.controls.employeeDetail.controls.areaName.errors | json}}<br />
+  </div>
+
+  <div [formGroup]="sampleFormGroup.controls.attendances.controls[0]">
+    proparray <input type="text" formControlName="startTime" />{{sampleFormGroup.controls.attendances.controls[0].controls.startTime.errors | json}}<br />
+  </div>
+
+  <button [disabled]="!sampleFormGroup.valid">Submit</button>
+</form>

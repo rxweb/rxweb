@@ -1,0 +1,17 @@
+<div class="datepicker-months" style="display: block;">
+    <table class="table-condensed">
+        <thead>
+          <tr>
+            <th class="next" style="visibility: visible;" (click)="previousYear()"><i class="fa fa-chevron-left"></i></th>
+            <th colspan="5" class="datepicker-switch"><span *ngIf="isLabelYear">{{year}}</span> <input *ngIf="!isLabelYear" (blur)="showYearInput()" type="number" min="1900" max="5000" class="form-control" [(ngModel)]="year" /> </th>
+            <th class="next" style="visibility: visible;" (click)="nextYear()"><i class="fa fa-chevron-right"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="7"><span class="month" (click)="showDates(monthIndex)" *ngFor="let month of monthsShort; let monthIndex = index;" [class.focus]="monthIndex == currentMonth">{{month}} </span></td>
+            </tr>
+        </tbody>
+        <tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot>
+    </table>
+</div>

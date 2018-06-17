@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
+  "name": "@rx/reactive-form-validators",
+  "version": "1.0.0",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    },
+    "dest": "../../dist/reactive-form-validators"
+  }
+}
