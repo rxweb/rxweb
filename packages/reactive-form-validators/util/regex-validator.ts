@@ -12,6 +12,9 @@ const MAX_LENGTH: string = "maxLength";
 
 
 export class RegexValidator {
+    static isExits(value: any, regex: RegExp): boolean {
+        return value.match(regex) != null;
+    }
     static isValid(value: any, regex: RegExp): boolean {
         return regex.test(value);
     }
@@ -28,11 +31,11 @@ export class RegexValidator {
         for (let propertyName of objectProperties) {
             switch (propertyName) {
                 case ALPHABET:
-                    isValid = RegexValidator.isValid(value, RegExRule.Alpha);
+                    isValid = RegexValidator.isExits(value, RegExRule.Alpha);
                     keyName = ALPHABET;
                     break;
                 case DIGIT:
-                    isValid = RegexValidator.isValid(value, RegExRule.OnlyDigit);
+                    isValid = RegexValidator.isValid(value, RegExRule.IsDigitExits);
                     keyName = DIGIT;
                     break;
                 case CONTAINS:
@@ -40,15 +43,15 @@ export class RegexValidator {
                     keyName = CONTAINS;
                     break;
                 case LOWERCASE:
-                    isValid = RegexValidator.isValid(value, RegExRule.LowerCase);
+                    isValid = RegexValidator.isExits(value, RegExRule.LowerCase);
                     keyName = LOWERCASE;
                     break;
                 case UPPERCASE:
-                    isValid = RegexValidator.isValid(value, RegExRule.UpperCase);
+                    isValid = RegexValidator.isExits(value, RegExRule.UpperCase);
                     keyName = UPPERCASE;
                     break;
                 case SPECIAL_CHARACTER:
-                    isValid = RegexValidator.isValid(value, RegExRule.SpecialCharacter);
+                    isValid = RegexValidator.isExits(value, RegExRule.SpecialCharacter);
                     keyName = SPECIAL_CHARACTER;
                     break;
                 case MIN_LENGTH:

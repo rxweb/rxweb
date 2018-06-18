@@ -8,11 +8,13 @@ export const RegExRule: { [key: string]: any } = {
 
     OnlyDigit: /^[0-9]+$/,
 
-    LowerCase: /[^a-z]+/g,
+    IsDigitExits: /\d/g,
 
-    UpperCase: /[^A-Z]+/g,
+    LowerCase: /[a-z]/g,
 
-    SpecialCharacter: /[\w\s]+/g,
+    UpperCase: /[A-Z]/g,
+
+    SpecialCharacter: /[!@#$%^&*(),.?":{}|<>]/g,
 
     AdvancedEmail: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
 

@@ -1,4 +1,4 @@
 export interface DigitConfig {
-    conditionalExpressions: string | Function;
+    conditionalExpressions?: string | Function;
     message?: string;
 }

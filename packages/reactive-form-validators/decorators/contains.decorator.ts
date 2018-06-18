@@ -3,8 +3,9 @@ import { DecoratorConfiguration } from '../core/validator.interface';
 import { DecoratorName } from "../util/decorator-name";
 import { DefaultConfig } from "../models/config/default-config";
 import { AnnotationTypes } from "../core/validator.static";
+import { ContainsConfig } from "../models/config/contains-config";
 
-export function contains(config:DefaultConfig) {
+export function contains(config:ContainsConfig) {
     return function (
         target: Object,
         propertyKey: string, parameterIndex?: number
