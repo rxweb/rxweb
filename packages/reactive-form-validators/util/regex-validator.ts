@@ -43,11 +43,11 @@ export class RegexValidator {
                     keyName = CONTAINS;
                     break;
                 case LOWERCASE:
-                    isValid = RegexValidator.isExits(value, RegExRule.LowerCase);
+                    isValid = RegexValidator.isValid(value, RegExRule.LowerCase);
                     keyName = LOWERCASE;
                     break;
                 case UPPERCASE:
-                    isValid = RegexValidator.isExits(value, RegExRule.UpperCase);
+                    isValid = RegexValidator.isValid(value, RegExRule.UpperCase);
                     keyName = UPPERCASE;
                     break;
                 case SPECIAL_CHARACTER:
