@@ -19,11 +19,12 @@ export function compareValidator(config:CompareConfig): ValidatorFn {
     return (control: FormGroup): { [key: string]: any } => {
         const compareControl = control.root.get([config.fieldName]);
         const controlValue = control.value;
+        const compareControlValue = (compareControl) ? compareControl.value : '';
         if (RegexValidator.isNotBlank(controlValue) && compareControl && compareControl.value === controlValue) {
             if (compareControl.status === INVALID)
                 compareControl.updateValueAndValidity();
             return null;
         }
-        return ObjectMaker.toJson(AnnotationTypes.compare, config.message || null, [controlValue, compareControl.value]);
+        return ObjectMaker.toJson(AnnotationTypes.compare, config.message || null, [controlValue, compareControlValue]);
     }
 }

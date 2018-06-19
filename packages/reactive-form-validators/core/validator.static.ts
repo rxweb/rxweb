@@ -23,5 +23,7 @@ export const AnnotationTypes: { [key: string]: any } = {
     contains: 'contains',
     range: 'range',
     custom: 'custom',
-    digit:"digit"
+    digit:"digit",
+    creditCard:"creditCard",
+
 }

@@ -17,7 +17,7 @@ export function maxNumberValidator(config:NumberConfig): ValidatorFn {
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 if (!(parseFloat(controlValue) <= config.value))
-                    return ObjectMaker.toJson(AnnotationTypes.maxLength, config.message || null, [controlValue])
+                    return ObjectMaker.toJson(AnnotationTypes.maxNumber, config.message || null, [controlValue])
             }
         }
         return ObjectMaker.null();

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl } from "@angular/forms";
 import {
     contains,
-    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric
+    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare
 } from "@rxweb/reactive-form-validators";
 export class Attendance {
     @prop() @required({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'" }) startTime: number;
@@ -11,7 +11,7 @@ export class EmployeeDetail {
     @prop() @required() areaName: string;
 }
 export class Employee {
-    @prop() @alpha({ allowWhiteSpace: false, conditionalExpressions: "x => x.lastName == 'max'" }) firstName: string;
+    @prop() @alpha({ allowWhiteSpace: true  }) firstName: string;
     @prop() @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
     @prop() @contains({ value: "radix", conditionalExpressions: "x => x.firstName == 'john' && x.attendances[0].startTime == 10", message: "validation failed contains" }) contains: string;
     @prop() @digit({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'", message: "digit required" }) digit: string;
@@ -20,7 +20,7 @@ export class Employee {
     @prop() @lowerCase({ message: "lowercase", conditionalExpressions: "x => x.firstName == 'john'" }) lowerCase: string;
     @prop() @maxDate({ value: new Date(2016, 10, 5) }) maxDate: string; // do some work
     @prop() @maxLength({ value: 20, message: "length exceed", conditionalExpressions: "x => x.firstName == 'john'" }) maxLength: string;
-    @prop() @maxNumber({ value: 20, message: "number exceed {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) maxNumber: string;
+    @prop() @maxNumber({ value: 100000000}) maxNumber: string;
     @prop() @minDate({ value: new Date(2016, 10, 5) }) minDate: string;
     @prop() @minNumber({ value: 20, message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) minNumber: string;
     @prop() @password({ validation: { maxLength: 10, minLength: 5, digit: true, specialCharacter: true } }) password: string;
@@ -30,7 +30,8 @@ export class Employee {
     @prop() @upperCase({ message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) upperCase: string;
     @propObject(EmployeeDetail) employeeDetail: EmployeeDetail;
     @propArray(Attendance) attendances: Attendance[]
-
+    @prop() @compare({ fieldName: 'country' }) state: string;
+    @prop()  country: string;
 }
 @Component({
   selector: 'app-root',

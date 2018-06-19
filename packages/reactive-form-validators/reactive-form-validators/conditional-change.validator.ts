@@ -1,6 +1,7 @@
 import {
     ValidatorFn,
-    AbstractControl,
+    AbstractControl,
+
     FormArray
 } from "@angular/forms";
 
@@ -16,10 +17,11 @@ import { AnnotationTypes } from "../core/validator.static";
 export function conditionalChangeValidator(conditionalValidationProps: string[]): ValidatorFn {
     var timeOuts: number[] = [];
     var setTimeOut = (control:AbstractControl)=> {
-        var timeOut = window.setTimeout(t => {
-            control.updateValueAndValidity();
-        }, 50)
-        timeOuts.push(timeOut);
+        //var timeOut = window.setTimeout(t => {
+        //    control.updateValueAndValidity();
+        //    window.clearTimeout(timeOut);
+        //}, 50)
+        //timeOuts.push(timeOut);
     }
     return (control: AbstractControl): { [key: string]: any } => {
         const parentFormGroup = control.parent;

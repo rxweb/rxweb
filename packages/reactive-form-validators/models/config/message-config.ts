@@ -1,4 +1,4 @@
 export interface MessageConfig {
-    message: string;
+    message?: string;
     conditionalExpressions?: string | Function;
 }
