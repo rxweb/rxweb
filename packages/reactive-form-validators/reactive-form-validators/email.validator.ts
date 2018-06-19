@@ -18,7 +18,7 @@ export function emailValidator(config:EmailConfig): ValidatorFn {
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions)) {
             if (RegexValidator.isNotBlank(controlValue)) {
-                if (!RegexValidator.isValid(controlValue, RegExRule.BasicEmail ))
+                if (!RegexValidator.isValid(controlValue, RegExRule.basicEmail ))
                     return ObjectMaker.toJson(AnnotationTypes.email, config.message || null, [controlValue])
             }
         }

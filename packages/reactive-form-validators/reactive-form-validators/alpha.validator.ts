@@ -17,14 +17,13 @@ export function alphaValidator(config: AlphaConfig, conditionalValidationProps:s
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);
-        debugger;
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 var testResult = false;
                 if (!config.allowWhiteSpace)
-                    testResult = RegexValidator.isValid(controlValue, RegExRule.Alpha);
+                    testResult = RegexValidator.isValid(controlValue, RegExRule.alpha);
                 else
-                    testResult = RegexValidator.isValid(controlValue, RegExRule.AlphaWithSpace);
+                    testResult = RegexValidator.isValid(controlValue, RegExRule.alphaWithSpace);
                 if (!testResult)
                     return ObjectMaker.toJson(AnnotationTypes.alpha, config.message || null, [controlValue]);
             }

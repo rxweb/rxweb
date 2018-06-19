@@ -17,7 +17,7 @@ export function hexColorValidator(config:MessageConfig): ValidatorFn {
         config = ApplicationUtil.getConfigObject(config);
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions)) {
             if (RegexValidator.isNotBlank(controlValue)) {
-                if (!RegexValidator.isValid(controlValue, RegExRule.HexColor))
+                if (!RegexValidator.isValid(controlValue, RegExRule.hexColor))
                     return ObjectMaker.toJson(AnnotationTypes.hexColor, config.message || null, [controlValue])
             }
         }

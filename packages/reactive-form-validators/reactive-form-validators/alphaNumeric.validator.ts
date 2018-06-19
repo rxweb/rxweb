@@ -21,9 +21,9 @@ export function alphaNumericValidator(config: AlphaConfig): ValidatorFn {
             if (RegexValidator.isNotBlank(controlValue)) {
                 var testResult = true;
                 if (!config.allowWhiteSpace)
-                    testResult = RegexValidator.isValid(controlValue, RegExRule.AlphaNumeric);
+                    testResult = RegexValidator.isValid(controlValue, RegExRule.alphaNumeric);
                 else
-                    testResult = RegexValidator.isValid(controlValue, RegExRule.AlphaNumericWithSpace);
+                    testResult = RegexValidator.isValid(controlValue, RegExRule.alphaNumericWithSpace);
                 if (!testResult)
                     return ObjectMaker.toJson(AnnotationTypes.alphaNumeric, config.message || null, [controlValue]);
             }

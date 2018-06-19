@@ -31,11 +31,11 @@ export class RegexValidator {
         for (let propertyName of objectProperties) {
             switch (propertyName) {
                 case ALPHABET:
-                    isValid = RegexValidator.isExits(value, RegExRule.Alpha);
+                    isValid = RegexValidator.isExits(value, RegExRule.alpha);
                     keyName = ALPHABET;
                     break;
                 case DIGIT:
-                    isValid = RegexValidator.isValid(value, RegExRule.IsDigitExits);
+                    isValid = RegexValidator.isValid(value, RegExRule.isDigitExits);
                     keyName = DIGIT;
                     break;
                 case CONTAINS:
@@ -43,15 +43,15 @@ export class RegexValidator {
                     keyName = CONTAINS;
                     break;
                 case LOWERCASE:
-                    isValid = RegexValidator.isValid(value, RegExRule.LowerCase);
+                    isValid = RegexValidator.isValid(value, RegExRule.lowerCase);
                     keyName = LOWERCASE;
                     break;
                 case UPPERCASE:
-                    isValid = RegexValidator.isValid(value, RegExRule.UpperCase);
+                    isValid = RegexValidator.isValid(value, RegExRule.upperCase);
                     keyName = UPPERCASE;
                     break;
                 case SPECIAL_CHARACTER:
-                    isValid = RegexValidator.isExits(value, RegExRule.SpecialCharacter);
+                    isValid = RegexValidator.isExits(value, RegExRule.specialCharacter);
                     keyName = SPECIAL_CHARACTER;
                     break;
                 case MIN_LENGTH:

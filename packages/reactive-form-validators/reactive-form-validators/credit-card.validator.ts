@@ -23,25 +23,25 @@ export function creditCardValidator(config:CreditCardConfig): ValidatorFn {
                 for (let creditCardType of config.creditCardTypes) {
                     switch (creditCardType) {
                         case CreditCardType.AmericanExpress:
-                            isValid = RegexValidator.isValid(controlValue, RegExRule.CreditCard.AmericanExpress);
+                            isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.AmericanExpress);
                             break;
                         case CreditCardType.DinersClub:
-                            isValid = RegexValidator.isValid(controlValue, RegExRule.CreditCard.DinersClub);
+                            isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.DinersClub);
                             break;
                         case CreditCardType.Discover:
-                            isValid = RegexValidator.isValid(controlValue, RegExRule.CreditCard.Discover);
+                            isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Discover);
                             break;
                         case CreditCardType.JCB:
-                            isValid = RegexValidator.isValid(controlValue, RegExRule.CreditCard.JCB);
+                            isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.JCB);
                             break;
                         case CreditCardType.Maestro:
-                            isValid = RegexValidator.isValid(controlValue, RegExRule.CreditCard.Maestro);
+                            isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Maestro);
                             break;
                         case CreditCardType.MasterCard:
-                            isValid = RegexValidator.isValid(controlValue, RegExRule.CreditCard.MasterCard);
+                            isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.MasterCard);
                             break;
                         case CreditCardType.Visa:
-                            isValid = RegexValidator.isValid(controlValue, RegExRule.CreditCard.Visa);
+                            isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Visa);
                             break;
                     }
                 }
