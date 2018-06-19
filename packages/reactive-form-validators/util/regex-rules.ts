@@ -24,7 +24,7 @@ export const RegExRule: { [key: string]: any } = {
 
     AlphaNumericWithSpace: /^[0-9a-zA-Z\s]+$/,
 
-    HexColor: /^#?([0-9A-F]{3}|[0-9A-F]{6})$/,
+    HexColor: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/igm,
 
     Float: /^(?:[-+]?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$/,
 

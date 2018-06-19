@@ -1,5 +1,5 @@
 export interface AlphaConfig{
-    allowWhiteSpace: boolean;
+    allowWhiteSpace?: boolean;
     message?: string;
     conditionalExpressions?: string | Function;
 }

@@ -1,5 +1,5 @@
 export interface NumberConfig{
-    value: number;
+    value: number,
     message?: string;
     conditionalExpressions?: string | Function;
 }
