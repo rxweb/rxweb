@@ -25,5 +25,10 @@ export const AnnotationTypes: { [key: string]: any } = {
     custom: 'custom',
     digit:"digit",
     creditCard:"creditCard",
-
+    time:"time",
+    json: "json",
+    greaterThan: "greaterThan",
+    greaterThanEqualTo: "greaterThanEqualTo",
+    lessThan: "lessThan",
+    lessThanEqualTo: "lessThanEqualTo"
 }

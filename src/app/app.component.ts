@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl } from "@angular/forms";
 import {
     contains,
-    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare
+    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo
 } from "@rxweb/reactive-form-validators";
+import { time } from "packages/reactive-form-validators/decorators";
 export class Attendance {
     @prop() @required({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'" }) startTime: number;
 }
@@ -13,7 +14,7 @@ export class EmployeeDetail {
 export class Employee {
     @prop() @alpha({ allowWhiteSpace: true  }) firstName: string;
     @prop() @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
-    @prop() @contains({ value: "radix", conditionalExpressions: "x => x.firstName == 'john' && x.attendances[0].startTime == 10", message: "validation failed contains" }) contains: string;
+    @prop() @contains({ value: "radix", conditionalExpressions: (current, root) => { return current.firstName == 'ajay'; }, message: "validation failed contains" }) contains: string;
     @prop() @digit({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'", message: "digit required" }) digit: string;
     @prop() @email({ message: "email", conditionalExpressions: "x =>x.firstName == 'john'" }) email: string;
     @prop() @hexColor({ message: "hex", conditionalExpressions: "x => x.firstName == 'john'" }) hexColor: string;
@@ -31,7 +32,14 @@ export class Employee {
     @propObject(EmployeeDetail) employeeDetail: EmployeeDetail;
     @propArray(Attendance) attendances: Attendance[]
     @prop() @compare({ fieldName: 'country' }) state: string;
-    @prop()  country: string;
+    @prop() country: string;
+    @prop() @time({ allowSeconds: true }) time: string;
+    @prop() @url() url: string;
+    @prop() @json() json: string;
+    @prop() @greaterThan({ fieldName: 'minNumber' }) greaterThan: string;
+    @prop() @greaterThanEqualTo({ fieldName: 'minNumber' }) greaterThanEqualTo: string;
+    @prop() @lessThan({ fieldName: 'minNumber' }) lessThan: string;
+    @prop() @lessThanEqualTo({ fieldName: 'minNumber' }) lessThanEqualTo: string;
 }
 @Component({
   selector: 'app-root',

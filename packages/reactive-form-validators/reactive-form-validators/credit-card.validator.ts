@@ -17,7 +17,8 @@ export function creditCardValidator(config:CreditCardConfig): ValidatorFn {
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);
-        if ( Linq.IsPassed(formGroupValue, config.conditionalExpressions)) {
+        const parentObject = (control.parent) ? control.parent.value : undefined;
+        if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 let isValid = false;
                 for (let creditCardType of config.creditCardTypes) {

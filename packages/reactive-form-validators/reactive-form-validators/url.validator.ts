@@ -1,15 +1,18 @@
 import {
     ValidatorFn,
-    AbstractControl} from "@angular/forms";
+    AbstractControl
+} from "@angular/forms";
+
 import { RegexValidator } from "../util/regex-validator";
-import { MessageConfig } from "../models/config/message-config";
+import { RegExRule } from "../util/regex-rules";
+import { DecoratorName } from "../util/decorator-name"
+import { ObjectMaker } from "../util/object-maker";
+import { DefaultConfig } from "../models/config/default-config";
 import { Linq } from "../util/linq";
 import { ApplicationUtil } from "../util/app-util";
-import { DecoratorName } from "../util/decorator-name";
-import { ObjectMaker } from "../util/object-maker";
 import { AnnotationTypes } from "../core/validator.static";
 
-export function lowercaseValidator(config:MessageConfig): ValidatorFn {
+export function urlValidator(config: DefaultConfig, conditionalValidationProps: string[]): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
@@ -17,10 +20,9 @@ export function lowercaseValidator(config:MessageConfig): ValidatorFn {
         const parentObject = (control.parent) ? control.parent.value : undefined;
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
-                if (!(controlValue === controlValue.toLowerCase()))
-                    return ObjectMaker.toJson(AnnotationTypes.lowerCase, config.message || null, [controlValue])
+                if (!RegexValidator.isValid(controlValue, RegExRule.url))
+                    return ObjectMaker.toJson(AnnotationTypes.url, config.message || null, [controlValue]);
             }
-        }
-        return ObjectMaker.null();
+        } return ObjectMaker.null();
     }
 }

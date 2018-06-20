@@ -10,6 +10,7 @@
   maxDate <input type="text" formControlName="maxDate" />{{sampleFormGroup.controls.maxDate.errors | json}}<br />
   maxLength <input type="text" formControlName="maxLength" />{{sampleFormGroup.controls.maxLength.errors | json}}<br />
   maxNumber <input type="text" formControlName="maxNumber" />{{sampleFormGroup.controls.maxNumber.errors | json}}<br />
+  minNumber <input type="text" formControlName="minNumber" />{{sampleFormGroup.controls.minNumber.errors | json}}<br />
   password <input type="text" formControlName="password" />{{sampleFormGroup.controls.password.errors | json}}<br />
   pattern <input type="text" formControlName="pattern" />{{sampleFormGroup.controls.pattern.errors | json}}<br />
   range <input type="text" formControlName="range" />{{sampleFormGroup.controls.range.errors | json}}<br />
@@ -17,6 +18,12 @@
   upperCase <input type="text" formControlName="upperCase" />{{sampleFormGroup.controls.upperCase.errors | json}}<br />
   state <input type="text" formControlName="state" />{{sampleFormGroup.controls.state.errors | json}}<br />
   country<input type="text" formControlName="country" />{{sampleFormGroup.controls.country.errors | json}}<br />
+  time<input type="text" formControlName="time" />{{sampleFormGroup.controls.time.errors | json}}<br />
+  json<input type="text" formControlName="json" />{{sampleFormGroup.controls.json.errors | json}}<br />
+  greaterthan<input type="text" formControlName="greaterThan" />{{sampleFormGroup.controls.greaterThan.errors | json}}<br />
+  greaterthanequalto<input type="text" formControlName="greaterThanEqualTo" />{{sampleFormGroup.controls.greaterThanEqualTo.errors | json}}<br />
+  lessthan<input type="text" formControlName="lessThan" />{{sampleFormGroup.controls.lessThan.errors | json}}<br />
+  lessthanequalto<input type="text" formControlName="lessThanEqualTo" />{{sampleFormGroup.controls.lessThanEqualTo.errors | json}}<br />
   <div [formGroup]="sampleFormGroup.controls.employeeDetail">
     propobject <input type="text" formControlName="areaName" />{{sampleFormGroup.controls.employeeDetail.controls.areaName.errors | json}}<br />
   </div>

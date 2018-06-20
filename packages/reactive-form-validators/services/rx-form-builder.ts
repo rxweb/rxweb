@@ -5,7 +5,8 @@ import {
     alphaNumericValidator, alphaValidator, compareValidator, emailValidator, hexColorValidator, lowercaseValidator,
     maxDateValidator, maxNumberValidator, minDateValidator, minNumberValidator, containsValidator, uppercaseValidator,
     rangeValidator, patternValidator, requiredValidator, creditCardValidator, digitValidator,
-    maxLengthValidator, minLengthValidator, passwordValidator
+    maxLengthValidator, minLengthValidator, passwordValidator, timeValidator, urlValidator, jsonValidator,
+    greaterThanEqualToValidator, greaterThanValidator, lessThanEqualToValidator, lessThanValidator
 } from '../reactive-form-validators';
 
 import { defaultContainer } from '../core/defaultContainer';
@@ -15,6 +16,7 @@ import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY } from "../const"
 import { PropValidationConfig } from "../models/prop-validation-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { conditionalChangeValidator } from "../reactive-form-validators/conditional-change.validator";
+
 
 const APP_VALIDATORS: { [key: string]: Function } = {
     "alphaNumeric": alphaNumericValidator,
@@ -36,7 +38,14 @@ const APP_VALIDATORS: { [key: string]: Function } = {
     "required": requiredValidator,
     "creditCard": creditCardValidator,
     "digit": digitValidator,
-    "pattern": patternValidator
+    "pattern": patternValidator,
+    "time":timeValidator,
+    "url":urlValidator,
+    "json": jsonValidator,
+    "greaterThan": greaterThanValidator,
+    "greaterThanEqualTo": greaterThanEqualToValidator,
+    "lessThan": lessThanValidator,
+    "lessThanEqualTo": lessThanEqualToValidator
 }
 
 

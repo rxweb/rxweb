@@ -15,7 +15,8 @@ export function hexColorValidator(config:MessageConfig): ValidatorFn {
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);
-        if (Linq.IsPassed(formGroupValue, config.conditionalExpressions)) {
+        const parentObject = (control.parent) ? control.parent.value : undefined;
+        if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 if (!RegexValidator.isValid(controlValue, RegExRule.hexColor))
                     return ObjectMaker.toJson(AnnotationTypes.hexColor, config.message || null, [controlValue])

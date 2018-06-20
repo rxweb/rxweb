@@ -20,22 +20,30 @@ export class Linq {
             functionSetter = { accessFunction: new Function(match[1], "return " + match[2]) };
         return functionSetter;
     }
-    static IsPassed(jObject: { [key: string]: any }, expression: any): boolean {
-        if (jObject && expression) {
-            var expressionFunction = Linq.functionCreator(expression);
-            return expressionFunction(jObject);
-        }
+    static IsPassed(jObject: { [key: string]: any }, expression: any, parentObject: { [key: string]: any }): boolean {
+        let expressionFunction: Function = expression;
+        if (parentObject && typeof expression == "string")
+            expressionFunction = Linq.functionCreator(expression);
+        if (parentObject && expressionFunction)
+            return expressionFunction(parentObject, jObject);
         return true;
     }
 
     static expressionColumns(expression: any) {
         var columns = [];
         let splitExpressions = [];
+        if (typeof expression == "string")
         expression.split("=>")[1].split(" && ").forEach(t => {
             t.split(" || ").forEach(x => {
                 splitExpressions.push(x.trim().split(' ')[0])
             })
-        });
+            });
+        else
+            String(expression).split(" return ")[1].split(" && ").forEach(t => {
+                t.split(" || ").forEach(x => {
+                    splitExpressions.push(x.trim().split(' ')[0])
+                })
+            });
         splitExpressions.forEach(t => {
             var splitText = t.split('.');
             if (splitText.length == 2)
