@@ -198,7 +198,7 @@ export abstract class DataCollection {
         if (roundNumber == 0 || this.skip == 5)
           currentIndex = 1
         else
-          currentIndex = roundNumber * 5 + 1;
+          currentIndex =  roundNumber * 5 + 1;
         var currentLength = (this.length / this.pageSize);
         if (currentLength == 0 || currentLength == 1)
           currentLength = 1;
@@ -206,8 +206,9 @@ export abstract class DataCollection {
           if (Number.isInteger(currentLength))
             currentLength = currentLength;
           else
-            currentLength = currentLength + 1;
+            currentLength = ((currentLength * this.pageSize) >= this.length) ? Math.round(currentLength) : currentLength + 1;
         }
+        
         for (var i = 0; i < 5; i++) {
           if (currentIndex <= currentLength) {
             this.pageIndexs.push(currentIndex);

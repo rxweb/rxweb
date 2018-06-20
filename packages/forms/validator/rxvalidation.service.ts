@@ -76,13 +76,13 @@ export class RxValidation {
                                 validations.push(containsValidator(annotation.checkValue));
                                 break;
                             case AnnotationTypes.alpha:
-                                validations.push(alphaValidator(annotation.isWithWhiteSpace));
+                              validations.push(alphaValidator(annotation.isWithWhiteSpace));
                                 break;
                             case AnnotationTypes.numeric:
                                 validations.push(numericValidator());
-                                break;
+                              break;
                             case AnnotationTypes.alphaNumeric:
-                                validations.push(alphaNumericValidator(annotation.isWithWhiteSpace));
+                            validations.push(alphaNumericValidator(annotation.isWithWhiteSpace));
                                 break;
                             case AnnotationTypes.email:
                                 validations.push(emailValidator());
@@ -131,7 +131,7 @@ export class RxValidation {
                     }
                 if (requiredFileds && requiredFileds[key]) {
                     validations.push(requiredValidator(requiredFileds[key]));
-                }
+            }
             }
             if (customValidations) {
                 let result = customValidations.filter(t => t.changeProps && t.changeProps.indexOf(key) != -1);
@@ -147,7 +147,7 @@ export class RxValidation {
                     let annotationProp = annotation.annotationProps[key];
                     if (annotationProp)
                         this.additionalAnnotation(validations, key, annotationProp);
-                }
+            }
             }
             formGroupObject[key] = formArrayGroup || formChildGroup || [object[key], validations];
             formChildGroup = undefined;

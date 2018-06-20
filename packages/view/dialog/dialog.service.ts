@@ -11,7 +11,5 @@ export class RxDialog {
 
     saveConfirmation: (text: string, args: any[], type?: string) => Promise<DialogClick>;
 
-    validation: (messages: string[], type?: string,heading?:string) => Promise<boolean>;
-
-    
+    validation: (messages: string[], type?: string) => Promise<boolean>;
 }

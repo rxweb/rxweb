@@ -264,7 +264,7 @@ export class RxTagComponent extends Multilingual implements AfterContentInit, On
       var indexOf = this.selectedTags.indexOf(tag);
       this.selectedTags.splice(indexOf, 1);
       if (!tag.isRecordInvactive && tag.id != -1)
-          if (this.isServerCalled || !this.lookup)
+        if (this.isServerCalled || !this.lookup)
           this.dropSource.push(tag);
       this.updateFormValue();
     }
@@ -370,6 +370,7 @@ export class RxTagComponent extends Multilingual implements AfterContentInit, On
         var result = this.selectedTags.filter(t => t.text.toLowerCase() == value.toLowerCase())[0];
         if (!result) {
           this.selectedTags.push(tagModel);
+          this.added.emit(tagModel);
           this.updateFormValue();
         }
         this.clearValue(targetElement);

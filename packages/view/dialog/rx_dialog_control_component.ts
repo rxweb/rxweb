@@ -27,7 +27,6 @@ export class RxDialogComponent implements OnInit {
   primaryOnClick: (e: any) => void;
   secondaryOnClick: (e: any) => void;
   validationMessages: string[] = [];
-  messageHeading: string;
   constructor(dialogService: RxDialog, elementRef: ElementRef, @Inject(DOCUMENT) document: any, private applicationBroadcaster: ApplicationBroadcaster) {
     this.applicationBroadcaster.configurationSubscriber.subscribe(t => {
       this.setDialogConfiguration();
@@ -77,8 +76,7 @@ export class RxDialogComponent implements OnInit {
     return promise;
   }
 
-  validation(messages: string[], type: string = "validation", heading?: string): void {
-      this.messageHeading = heading;
+  validation(messages: string[], type: string = "validation"): void {
     this.validationMessages = messages;
     if (this.defaults[type] && this.defaults[type].style)
       this.setStyle(this.defaults[type].style);

@@ -9,7 +9,7 @@
         <th *ngIf="detailTemplate != undefined" style="width:30px"></th>
         <th [class.d-none]="!column.visible" [style.width.px]="column.width" *ngFor="let column of columns;">
 
-          <div class="filter" *ngIf="column.filter && !column.actionable" [class.left]="column.isOpenLeftFilter" [class.show]="column.isFilterOpen" style="float:left">
+          <div class="filter" *ngIf="column.filter && !column.actionable" [class.left]="column.isOpenLeftFilter" [class.show]="column.isFilterOpen" style="display:inline-block;">
             <div class="fltricn">
               <a>
                 <i class="fa fa-filter" [class.text-danger]="column.isSearchText" (click)="showFilter(column,$event);inputElement.focus()"></i>
@@ -37,7 +37,7 @@
               </div>
             </div>
           </div>
-          <div style="float:left;" (click)="sortColumn(column);closeFilter();"> {{column.title}} <i *ngIf="column.sortable != undefined" [ngClass]="column.sortClass"></i></div>
+          <div style="display:inline-block;" (click)="sortColumn(column);closeFilter();"> {{column.title}} <i *ngIf="column.sortable != undefined" [ngClass]="column.sortClass"></i></div>
         </th>
       </tr>
     </thead>
@@ -72,7 +72,7 @@
     </tbody>
   </table>
 </div>
-    <div class="row mx-0 align-items-center" *ngIf="total > pageSize" >
+    <div class="row mx-0 align-items-center" >
       <div class="col-12 col-xl-6 pt-3 text-center text-xl-left rws-pr-pg" *ngIf="showPagging">
         <ng-template *ngIf="currentFooter" [gridTemplateHost]="{templateRef:currentFooter.template}">
         </ng-template>
@@ -87,15 +87,15 @@
             <ul class="pagination mb-0" *ngIf="showPagging">
               <li class="page-item" [class.disabled]="isPrevious">
                 <a (click)="first();closeFilter();" class="page-link leftarrw">
-                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  <i class="mw-FirstPage" aria-hidden="true"></i>
                 </a>
               </li>
-              <li class="page-item" [class.disabled]="isPrevious"><a class="page-link" (click)="previous();closeFilter();"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+              <li class="page-item" [class.disabled]="isPrevious"><a class="page-link" (click)="previous();closeFilter();"><i class="mw-ChevronLeft" aria-hidden="true"></i></a></li>
               <li class="page-item" *ngFor="let pageIndex of pageIndexs;  let i=index;" (click)="goTo(pageIndex);closeFilter();" [class.active]="pageIndex == skip"><a class="page-link">{{pageIndex}}</a></li>
-              <li class="page-item" [class.disabled]="isNext"><a class="page-link" (click)="next();closeFilter();"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+              <li class="page-item" [class.disabled]="isNext"><a class="page-link" (click)="next();closeFilter();"><i class="mw-ChevronRight" aria-hidden="true"></i></a></li>
               <li class="page-item" [class.disabled]="isNext">
                 <a (click)="last();closeFilter();" class="page-link rightarrw">
-                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  <i class="mw-LastPage" aria-hidden="true"></i>
                 </a>
               </li>
             </ul>

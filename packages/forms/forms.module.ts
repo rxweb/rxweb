@@ -42,6 +42,7 @@ import { RouterModule } from "@angular/router";
     providers: [CurrencyPipe, DecimalPipe, RegularExpression
       , { provide: RxHttp, useClass: RxHttp }
     ],
+    entryComponents: [RxMessageComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class RxFormsModule {

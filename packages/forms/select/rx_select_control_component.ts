@@ -113,7 +113,7 @@ export class RxSelectComponent extends Multilingual implements AfterContentInit,
 
   setValue(isBlur: boolean = false, columnName: string = "key"): boolean {
     if (!this.autoComplete && this.currentValue && this.mainSource.length > 0) {
-      var text = this.mainSource.filter(t => String(t[columnName]).toLowerCase() == this.currentValue.toLowerCase())[0];
+      var text = this.mainSource.filter(t => String(t[columnName]).toLowerCase() == String(this.currentValue).toLowerCase())[0];
       if (text) {
         this.writeValue(text.value);
         if (isBlur) {

@@ -93,7 +93,7 @@ export class RxPopupComponent {
         this.overLayViewHost.createElement(elementClasses);
         this.overLayViewHost.setStyle({ 'display': 'block' });
         if (!BackDrop.isBackdrop() && !this.isValidationPopup) {
-            BackDrop.create();
+          BackDrop.create();
             document.body.classList.add("modal-open");
         }
         else
@@ -129,8 +129,8 @@ export class RxPopupComponent {
             this.componentView = undefined;
             this.overLayViewHost.destroy();
             if (BackDrop.isBackdrop() && !this.isValidationPopup) {
-                BackDrop.remove();
-                document.body.className.replace(" modal-open","");
+              BackDrop.remove();
+                document.body.className = document.body.className.replace(" modal-open","");
             }
             else
               if (this.isValidationPopup) {
