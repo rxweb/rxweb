@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl } from "@angular/forms";
 import {
     contains,
-    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo
+    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType
 } from "@rxweb/reactive-form-validators";
 import { time } from "packages/reactive-form-validators/decorators";
 export class Attendance {
@@ -33,13 +33,14 @@ export class Employee {
     @propArray(Attendance) attendances: Attendance[]
     @prop() @compare({ fieldName: 'country' }) state: string;
     @prop() country: string;
-    @prop() @time({ allowSeconds: true }) time: string;
+    @prop() @time({ allowSeconds: true, message:"time" }) time: string;
     @prop() @url() url: string;
     @prop() @json() json: string;
     @prop() @greaterThan({ fieldName: 'minNumber' }) greaterThan: string;
     @prop() @greaterThanEqualTo({ fieldName: 'minNumber' }) greaterThanEqualTo: string;
     @prop() @lessThan({ fieldName: 'minNumber' }) lessThan: string;
     @prop() @lessThanEqualTo({ fieldName: 'minNumber' }) lessThanEqualTo: string;
+    @prop() @creditCard({ creditCardTypes: [CreditCardType.AmericanExpress,] }) creditCard: string;
 }
 @Component({
   selector: 'app-root',

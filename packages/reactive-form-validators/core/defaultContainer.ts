@@ -1,5 +1,6 @@
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from './validator.interface';
 import { Linq } from "../util/linq";
+import { AnnotationTypes } from "./validator.static";
 
 export const defaultContainer:
     {
@@ -48,8 +49,19 @@ export const defaultContainer:
                 let columns = Linq.expressionColumns(decoratorConfiguration.config.conditionalExpressions);
                 this.addChangeValidation(instance, decoratorConfiguration.propertyName, columns);
             }
+            if (instance && decoratorConfiguration.config && (decoratorConfiguration.annotationType == AnnotationTypes.compare || decoratorConfiguration.annotationType == AnnotationTypes.greaterThan || decoratorConfiguration.annotationType == AnnotationTypes.greaterThanEqualTo || decoratorConfiguration.annotationType == AnnotationTypes.lessThan || decoratorConfiguration.annotationType == AnnotationTypes.lessThanEqualTo)) {
+                this.setConditionalValueProp(instance,decoratorConfiguration.config.fieldName, decoratorConfiguration.propertyName)
+            }
         }
 
+        private setConditionalValueProp(instance:InstanceContainer,propName: string, refPropName: string) {
+            if (!instance.conditionalValidationProps)
+                instance.conditionalValidationProps = {};
+            if (!instance.conditionalValidationProps[propName])
+                instance.conditionalValidationProps[propName] = [];
+            if (instance.conditionalValidationProps[propName].indexOf(refPropName) == -1)
+                instance.conditionalValidationProps[propName].push(refPropName);
+        }
         addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]) {
             if (instance) {
                 if (!instance.conditionalValidationProps)
