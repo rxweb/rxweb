@@ -48,6 +48,7 @@ export class RxSelectComponent extends Multilingual implements AfterContentInit,
   selectedTag: SelectModel;
   @Input() selectPlaceholder: string = "";
   @Input() showSelectItem:boolean = true;
+  @Input() textObject: { [key: string]: any };
   selectConfiguration: { [key: string]: any };
   selectId: number;
   constructor(public elementRef: ElementRef, public renderer: Renderer, public http: RxHttp, @Inject(API_HOST_URI) hostUri: string) {
@@ -94,7 +95,7 @@ export class RxSelectComponent extends Multilingual implements AfterContentInit,
       if (this.selectSearch && this.selectSearch.nativeElement)
         this.selectSearch.nativeElement.value = value;
       this.controlText = value;
-    }
+    } 
     
   };
 
@@ -108,13 +109,23 @@ export class RxSelectComponent extends Multilingual implements AfterContentInit,
     if(this.focus && this.selectSearch)
         this.renderer.invokeElementMethod(this.selectSearch.nativeElement, "focus", []);
     if (this.maxLength && this.selectSearch)
-        this.selectSearch.nativeElement.maxLength = this.maxLength;
+      this.selectSearch.nativeElement.maxLength = this.maxLength;
+    if (this.textObject) {
+      if (this.textObject[this.formControlName]) {
+        let value = this.textObject[this.formControlName];
+        if (this.selectSearch && this.selectSearch.nativeElement)
+          this.selectSearch.nativeElement.value = value;
+        this.controlText = value;
+      }
+    }
   } 
 
   setValue(isBlur: boolean = false, columnName: string = "key"): boolean {
     if (!this.autoComplete && this.currentValue && this.mainSource.length > 0) {
       var text = this.mainSource.filter(t => String(t[columnName]).toLowerCase() == String(this.currentValue).toLowerCase())[0];
       if (text) {
+        if (this.textObject)
+          this.textObject[this.formControlName] = text.value;
         this.writeValue(text.value);
         if (isBlur) {
           this.updateFormValue(text.key);
@@ -258,6 +269,9 @@ export class RxSelectComponent extends Multilingual implements AfterContentInit,
   }
 
   showItemBox() {
+    this.dropSource = [];
+    this.setMainSource(this.userSource);
+
     this.setActiveTabClass();
     var selectedItem = this.dropSource.filter(t => t.value == this.currentValue)[0];
     if (selectedItem)
@@ -265,26 +279,26 @@ export class RxSelectComponent extends Multilingual implements AfterContentInit,
   }
 
   onBlur(event: any, value: string): void {
-    
-    if (this.timeOutId)
-      window.clearTimeout(this.timeOutId);
-    this.timeOutId = window.setTimeout(() => {
-      this.clearActiveTabClass();
-    }, 200)
-    this.currentValue = value;
-    if (!this.setValue(true, "value") || value == "") {
-        if (value != "" && !this.enableFreeText) {
-      this.currentValue = "";
-      this.selectSearch.nativeElement.value = "";
-      this.updateFormValue(undefined);
-      this.selectedTag = undefined;
-    this.blur.emit({ item: this.selectedTag, text: this.currentValue });
-        } else {
-            this.updateFormValue(value);
-            this.blur.emit({ item: undefined, text: value });
-  }
-    }
-    
+
+      if (this.timeOutId)
+          window.clearTimeout(this.timeOutId);
+      this.timeOutId = window.setTimeout(() => {
+          this.clearActiveTabClass();
+      }, 200)
+      this.currentValue = value;
+      if (!this.setValue(true, "value") || value == "") {
+          if (value != "" && !this.enableFreeText) {
+              this.currentValue = "";
+              this.selectSearch.nativeElement.value = "";
+              this.updateFormValue(undefined);
+              this.selectedTag = undefined;
+              this.blur.emit({ item: this.selectedTag, text: this.currentValue });
+          } else {
+              this.updateFormValue(value);
+              this.blur.emit({ item: undefined, text: value });
+          }
+      }
+
   }
 
   onKeyup(event: KeyboardEvent, scroller: HTMLElement): void {
