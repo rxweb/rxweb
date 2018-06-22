@@ -79,7 +79,7 @@ export class RxValidation {
                               validations.push(alphaValidator(annotation.isWithWhiteSpace));
                                 break;
                             case AnnotationTypes.numeric:
-                                validations.push(numericValidator());
+                                validations.push(numericValidator(annotation.allowNegative));
                               break;
                             case AnnotationTypes.alphaNumeric:
                             validations.push(alphaNumericValidator(annotation.isWithWhiteSpace));

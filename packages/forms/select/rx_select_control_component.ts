@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter, AfterContentInit, OnChanges, Re
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, FormControl } from "@angular/forms"
 
 import { ApplicationConfiguration } from '../../core';
-import { TagModel, } from "@rx";
+import { TagModel, } from "../tag";
 import { RxHttp, } from '../../http';
 import { Multilingual } from "../multilingual";
 import { RandomNumber } from "../../core/random-number";

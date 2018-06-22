@@ -10,7 +10,7 @@ import { AuthorizeApi } from '../security/security.models';
 import { RequestHeaders, ResponseResult, LookupAction } from './rxhttp.interface'
 
 import { RequestQueryParams } from './rxhttp.models'
-import { ApplicationConfiguration } from "@rx/core";
+import { ApplicationConfiguration } from "../core";
 
 export const API_HOST_URI: string = 'API_URL';
 

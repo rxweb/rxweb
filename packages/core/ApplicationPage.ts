@@ -1,5 +1,5 @@
-﻿import { Subject, Observable } from 'rxjs/Rx';
-
+import { Subject, Observable } from 'rxjs/Rx';
+import '../linq'
 export class ApplicationPage {
     private static moduleContentSubject: Subject<boolean> = new Subject<boolean>();
 

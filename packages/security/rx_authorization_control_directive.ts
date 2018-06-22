@@ -1,5 +1,6 @@
 import {Component, Directive, OnInit, ContentChildren, AfterContentInit, ElementRef, AfterViewInit, QueryList, Input, ViewContainerRef} from "@angular/core";
-import { user, UserPermissionCache } from "./";
+import { user} from "./user";
+import { UserPermissionCache } from './security.models'
 import { ApplicationConfiguration, ApplicationBroadcaster } from "../core"
 
 

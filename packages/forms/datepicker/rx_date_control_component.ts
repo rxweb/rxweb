@@ -21,7 +21,7 @@ import { RxPickerComponent } from './rx_picker_control_component'
 import { DateDisabled } from './datepicker.models';
 import { OverlayViewHost, OverlayPositionHost, ElementOffsetModel, OffSetModel } from "../../core/view/overlay_view_host";
 import { ComponentView } from "../../core/view/view";
-import { Multilingual } from "@rx/forms/multilingual";
+import { Multilingual } from "../multilingual";
 
 
 @Component({
@@ -70,7 +70,7 @@ export class RxDateComponent extends Multilingual implements OnDestroy, OnInit {
         public componentFactoryResolver: ComponentFactoryResolver,
         @Inject(DOCUMENT) private document: any
     ) {
-      super();
+        super();
         this.format = ApplicationConfiguration.get("internationalization.date.format");
         this.seperator = ApplicationConfiguration.get("internationalization.date.seperator");
         this.overlayViewHost = new OverlayViewHost(document);
@@ -88,6 +88,7 @@ export class RxDateComponent extends Multilingual implements OnDestroy, OnInit {
     @Input() conditional: Observable<boolean>;
     @Input() pickerDisabled: boolean;
     @Input() showAddon: boolean;
+    @Input() beforeAddValidation: Function;
     
     
     private registerOnChange(fn) {
@@ -118,6 +119,12 @@ export class RxDateComponent extends Multilingual implements OnDestroy, OnInit {
             this.isInValid = isValid;
     }
 
+    checkBeforeAddValidation(value: Date) {
+        var result = true;
+        if (this.beforeAddValidation)
+            result = this.beforeAddValidation(value);
+        return result;
+    }
 
 
     private registerOnTouched() { }
@@ -217,7 +224,14 @@ export class RxDateComponent extends Multilingual implements OnDestroy, OnInit {
             let date = this.isValidDate(value);
             this.isValidationSuccess = date && date.toString() !== "Invalid Date"
             if (this.isValidationSuccess)
-                this.isInValid = false, this.propagateChange(this.utcDate(date.getFullYear(), date.getMonth(), date.getDate()));
+            {
+                this.isInValid = false;
+                date = this.utcDate(date.getFullYear(), date.getMonth(), date.getDate());
+                if (this.checkBeforeAddValidation(date)) {
+                    this.propagateChange(date);
+                } else
+                    this.propagateChange(undefined)
+            }
             else
                 this.isInValid = true, this.propagateChange(undefined);
         } else
@@ -292,9 +306,13 @@ export class RxDateComponent extends Multilingual implements OnDestroy, OnInit {
     }
 
     setValue(value: Date) {
-        this.isInValid = false;
-        this.propagateChange(value);
-        this.writeValue(value);
+        if (this.checkBeforeAddValidation(value)) {
+            this.isInValid = false;
+            this.propagateChange(value);
+            this.writeValue(value);
+        } else {
+            this.propagateChange(undefined);
+        }
         if (this.inputDate)
             this.inputDate.first.nativeElement.focus();
     }

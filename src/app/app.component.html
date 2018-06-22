@@ -1,4 +1,7 @@
-
+<rx-toast></rx-toast>
+<rx-dialog></rx-dialog>
+<rx-popup></rx-popup>
+<rx-spinner></rx-spinner>
 <form [formGroup]="sampleFormGroup">
   alpha   <input type="text" formControlName="firstName" /> {{sampleFormGroup.controls.firstName.errors | json}}<br />
   alpha numeric <input type="text" formControlName="lastName" />{{sampleFormGroup.controls.lastName.errors | json}}<br />
@@ -10,7 +13,7 @@
   maxDate <input type="text" formControlName="maxDate" />{{sampleFormGroup.controls.maxDate.errors | json}}<br />
   maxLength <input type="text" formControlName="maxLength" />{{sampleFormGroup.controls.maxLength.errors | json}}<br />
   maxNumber <input type="text" formControlName="maxNumber" />{{sampleFormGroup.controls.maxNumber.errors | json}}<br />
-  minNumber <input type="text" formControlName="minNumber" />{{sampleFormGroup.controls.minNumber.errors | json}}<br />
+  minNumber <input type="text" rxDecimal="0.0-2" formControlName="minNumber" />{{sampleFormGroup.controls.minNumber.errors | json}}<br />
   password <input type="text" formControlName="password" />{{sampleFormGroup.controls.password.errors | json}}<br />
   pattern <input type="text" formControlName="pattern" />{{sampleFormGroup.controls.pattern.errors | json}}<br />
   range <input type="text" formControlName="range" />{{sampleFormGroup.controls.range.errors | json}}<br />
@@ -27,7 +30,7 @@
   <div [formGroup]="sampleFormGroup.controls.employeeDetail">
     propobject <input type="text" formControlName="areaName" />{{sampleFormGroup.controls.employeeDetail.controls.areaName.errors | json}}<br />
   </div>
-
+  
   <div [formGroup]="sampleFormGroup.controls.attendances.controls[0]">
     proparray <input type="text" formControlName="startTime" />{{sampleFormGroup.controls.attendances.controls[0].controls.startTime.errors | json}}<br />
   </div>

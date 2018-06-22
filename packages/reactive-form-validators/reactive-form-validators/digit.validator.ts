@@ -19,7 +19,7 @@ export function digitValidator(config:DigitConfig): ValidatorFn {
         config = ApplicationUtil.getConfigObject(config);
         const parentObject = (control.parent) ? control.parent.value : undefined;
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
-            if (RegexValidator.isNotBlank(controlValue)) {
+            if (RegexValidator.isNotBlank(controlValue)) {  
                 if (!RegexValidator.isValid(controlValue, RegExRule.onlyDigit))
                     return ObjectMaker.toJson(AnnotationTypes.digit, config.message || null, [controlValue])
             }

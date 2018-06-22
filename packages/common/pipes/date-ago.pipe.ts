@@ -1,5 +1,5 @@
-﻿import { Pipe, PipeTransform } from "@angular/core";
-import { ApplicationConfiguration } from "@rx/core"
+import { Pipe, PipeTransform } from "@angular/core";
+import { ApplicationConfiguration } from "../../core"
 @Pipe({ name: 'rxDateAgo' })    
 export class RxDateAgoPipe implements PipeTransform {
     //format: string;

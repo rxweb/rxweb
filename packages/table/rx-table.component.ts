@@ -73,6 +73,7 @@ export class RxTableComponent extends DataCollection implements AfterContentInit
 
   @Output() onRowClick: EventEmitter<any> = new EventEmitter<any>();
 
+  
 
   totalCountValue: number = 0;
 

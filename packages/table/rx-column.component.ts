@@ -38,6 +38,8 @@ export class RxColumnComponent {
 
     @Input() applyAutoDataType: boolean = true;
 
+    @Input() dateFormat: string;
+
     get title(): string {
         var headerText = undefined
         if (!this.columnTitle) {

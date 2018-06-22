@@ -1,4 +1,4 @@
-import { RxStorage } from "@rx/storage";
+import { RxStorage } from "../storage";
 import { Injectable, Inject, ReflectiveInjector } from "@angular/core"
 
 const DOT_CHARACTER = ".";

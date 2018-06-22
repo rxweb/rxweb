@@ -83,7 +83,7 @@ export class RxDecimalDirective implements ControlValueAccessor {
     }
 
     private setDecimalFormatter(value: string): void {
-      if (this.digits && (/^[0-9]+$/i.test(value) || /^[0-9]\d*(\.\d+)?$/i.test(value))) {
+        if (this.digits && (/^[-|+]?[0-9]+$/i.test(value) || /^[-|+]?[0-9]\d*(\.\d+)?$/i.test(value))) {
             value = this.decimalPipe.transform(value, this.digits);
             this.setValueOnElement(value);
       } else {

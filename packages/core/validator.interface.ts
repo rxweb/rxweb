@@ -11,6 +11,7 @@ export interface AnnotationConfiguration {
     propertyConstructor?: any;
     patternType?: string;
     isWithWhiteSpace?: boolean;
+    allowNegative?:boolean
 }
 
 export interface InstanceContainer {

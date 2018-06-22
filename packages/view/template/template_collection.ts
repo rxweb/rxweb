@@ -1,5 +1,5 @@
 import { DataSearch } from '../../table/models/data-search.model'
-import { ApplicationConfiguration } from "@rx/core";
+import { ApplicationConfiguration } from "../../core";
 
 export class TemplateCollection {
     source: Array<any>;

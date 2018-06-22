@@ -1,7 +1,7 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
 import {HttpModule} from '@angular/http';
 
-import {RxHttp} from './';
+import {RxHttp} from './rxhttp.service';
 
 
 @NgModule({

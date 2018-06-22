@@ -36,7 +36,7 @@ export abstract class DataCollection {
   pageChanging: EventEmitter<any> = new EventEmitter<any>()
   isNextPage: boolean = false;
   isLastPage: boolean = true;
-
+  @Input() dateFormat: string;
   @Output() searching: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private http: RxHttp, private hostUri: string) {
@@ -74,7 +74,9 @@ export abstract class DataCollection {
     this.isStoreProc = isStoreProc;
     this.totalCount = totalCount;
     if (this.source.length == 0)
-      this.setFooter();
+        this.setFooter();
+    if (this.dateFormat)
+        this.format = this.dateFormat;
   }
 
   get total(): number {

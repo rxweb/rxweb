@@ -55,7 +55,7 @@
             <ng-template *ngIf="column.template" [gridTemplateHost]="{templateRef:column.template, columnName:column.field, config:column.config, isAdd:false, dataItem:item, rowIndex:rowIndex, $implicit: item}">
             </ng-template>
             <span rxTooltip="top" [tipMessage]="item[column.field]" tipTrigger="hover" [visible]="showTip"  class="ellipsis" [style.width.px]="column.width" style="display:block;" *ngIf="!column.template && !column.type">
-              {{item | valueOf : column.field : column.dataType }}
+              {{item | valueOf : column.field : column.dataType : column.dateFormat || format }}
             </span>
             <div *ngIf="column.type == 'html'" [rxHtml]="item[column.field]"></div>
             <a rxTooltip="top" [tipMessage]="item[column.field]" tipTrigger="hover" [visible]="showTip"  style="display:block;" [style.width.px]="column.width" class="ellipsis"  *ngIf="column.link" [routerLink]="getLink(item,column.link)" [queryParams]="getQueryParams(item,column.queryParams)">{{item | valueOf : column.field : column.dataType }} </a>
@@ -72,14 +72,16 @@
     </tbody>
   </table>
 </div>
-    <div class="row mx-0 align-items-center" >
+    <div  class="row mx-0 align-items-center" >
       <div class="col-12 col-xl-6 pt-3 text-center text-xl-left rws-pr-pg" *ngIf="showPagging">
         <ng-template *ngIf="currentFooter" [gridTemplateHost]="{templateRef:currentFooter.template}">
         </ng-template>
-        {{footerText}}
-        <select (change)="changePageSize($event.target.value);closeFilter();">
-          <option *ngFor="let size of pageSizes" [selected]="size == pageSize">{{size}}</option>
-        </select> rows per page
+        <span *ngIf="total > pageSize">
+          {{footerText}}
+          <select (change)="changePageSize($event.target.value);closeFilter();">
+            <option *ngFor="let size of pageSizes" [selected]="size == pageSize">{{size}}</option>
+          </select> rows per page
+        </span>
       </div>
       <div *ngIf="total > pageSize" class="col-12 col-xl-6 text-center text-xl-right">
         <div class="pagination my-0">
