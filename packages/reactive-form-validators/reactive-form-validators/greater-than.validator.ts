@@ -25,8 +25,8 @@ export function greaterThanValidator(config: RelationalOperatorConfig): Validato
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         const parentObject = (control.parent) ? control.parent.value : undefined;
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
-            if (RegexValidator.isNotBlank(controlValue)) {
-                if (!(matchControl && controlValue > matchControlValue))
+            if (RegexValidator.isNotBlank(controlValue) && RegexValidator.isNotBlank(matchControlValue)) {
+                if (!(matchControl && parseFloat(controlValue) > parseFloat(matchControlValue)))
                     return ObjectMaker.toJson(AnnotationTypes.greaterThan, config.message || null, [controlValue, matchControlValue]);
             }
         }

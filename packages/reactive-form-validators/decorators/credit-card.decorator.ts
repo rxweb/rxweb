@@ -12,7 +12,7 @@ export function creditCard(config:CreditCardConfig) {
         var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,
             propertyName: propertyKey,
-            annotationType: AnnotationTypes.crediCard,
+            annotationType: AnnotationTypes.creditCard,
             config: config
         }
         let isPropertyKey = (propertyKey != undefined);

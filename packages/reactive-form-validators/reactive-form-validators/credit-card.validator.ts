@@ -11,6 +11,7 @@ import { CreditCardType } from "../enums/credit-card-type";
 import { CreditCardConfig } from "../models/config/credit-card-config";
 import { ApplicationUtil } from "../util/app-util";
 import { Linq } from "../util/linq";
+import { AnnotationTypes } from "../core/validator.static";
 
 export function creditCardValidator(config:CreditCardConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
@@ -47,7 +48,7 @@ export function creditCardValidator(config:CreditCardConfig): ValidatorFn {
                     }
                 }
                 if (!isValid)
-                    return ObjectMaker.toJson(DecoratorName.crediCard, config.message || null, [controlValue])
+                    return ObjectMaker.toJson(AnnotationTypes.creditCard, config.message || null, [controlValue])
             }
         }
         return ObjectMaker.null();

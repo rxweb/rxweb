@@ -18,8 +18,8 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
     var timeOuts: number[] = [];
     var setTimeOut = (control: AbstractControl) => {
         var timeOut = window.setTimeout(t => {
-            control.updateValueAndValidity();
             window.clearTimeout(timeOut);
+            control.updateValueAndValidity();
         }, 100)
     }
     return (control: AbstractControl): { [key: string]: any } => {

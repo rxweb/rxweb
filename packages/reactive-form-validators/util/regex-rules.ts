@@ -38,7 +38,7 @@ export const RegExRule: { [key: string]: any } = {
 
     time: /(00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9])$/,
 
-    url: /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm,
+    url: /^^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm,
 
     creditCard: new CreditCardRegex(),
 }
