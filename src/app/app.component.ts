@@ -25,7 +25,7 @@ export class Employee {
     @prop() @maxLength({ value: 20, message: "length exceed", conditionalExpressions: "x => x.firstName == 'john'" }) maxLength: string;
     @prop() @maxNumber({ value: 100000000}) maxNumber: string;
     @prop() @minDate({ value: new Date(2016, 10, 5) }) minDate: string;
-    @prop() @minNumber({ value: 20, message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) minNumber: string;
+    @prop()  @minNumber({ value: 20, message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) minNumber: string;
     @prop() @password({ validation: { maxLength: 10, minLength: 5, digit: true, specialCharacter: true } }) password: string;
     @prop() @pattern({ pattern: { 'onlyDigit': /^[0-9]+$/ }, conditionalExpressions: "x => x.firstName == 'john'" }) pattern: string;
     @prop() @range({ minimumNumber: 5, maximumNumber: 10 }) range: string;

@@ -172,7 +172,7 @@ export class RxValidation {
         if (annotation.alpha)
             validations.push(alphaValidator(annotation.alpha.isWithWhiteSpace));
         if (annotation.numeric)
-            validations.push(numericValidator());
+            validations.push(numericValidator(annotation.numeric.allowNegative));
         if (annotation.alphaNumeric)
             validations.push(alphaNumericValidator(annotation.alphaNumeric.isWithWhiteSpace));
         if (annotation.email)

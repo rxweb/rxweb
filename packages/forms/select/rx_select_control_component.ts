@@ -297,7 +297,8 @@ export class RxSelectComponent extends Multilingual implements AfterContentInit,
               this.updateFormValue(value);
               this.blur.emit({ item: undefined, text: value });
           }
-      }
+      } else
+          this.blur.emit({ item: this.selectedTag, text: this.currentValue });
 
   }
 

@@ -33,4 +33,5 @@ export interface AnnotationParamConfig {
     minRangeValue?: number;
     maxRangeValue?: number;
     isWithWhiteSpace?: boolean;
+    allowNegative?: boolean
 }

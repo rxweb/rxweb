@@ -18,7 +18,7 @@ export function minNumberValidator(config:NumberConfig): ValidatorFn {
         const parentObject = (control.parent) ? control.parent.value : undefined;
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
         if (RegexValidator.isNotBlank(controlValue)) {
-            if (!(parseInt(controlValue) >= config.value))
+            if (!(parseFloat(controlValue) >= config.value))
                 return ObjectMaker.toJson(AnnotationTypes.minNumber, config.message || null, [controlValue])
             }
         }

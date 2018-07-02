@@ -45,6 +45,7 @@ export class ChangeDetectionGuard implements CanDeactivate<ComponentCanDeactivat
         component: ComponentCanDeactivate,
         route: ActivatedRouteSnapshot
     ): Observable<boolean> | Promise<boolean> | boolean {
+        return true;
     }
 }
 
