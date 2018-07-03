@@ -12,35 +12,35 @@ Reactive Form Validators will work in angular projects.
 * [Import Modules](#import-modules)
 * [Configure Global Validation Messages](#configure-global-validation-messages)
 * [Reactive Form Validators](#reactive-form-validators)
-  1.	[alpha](#alpha)
-     .	[alphaNumeric](#alphaNumeric)
-     .	[compare](#compare)
-     .	[contains](#contains)
-     .	[creditCard](#creditCard)
-     .	[digit](#digit)
-     .	[email](#email)
-     .	[greaterThan](#greaterThan)
-     .	[greaterThanEqualTo](#greaterThanEqualTo)
-     0.	[hexColor](#hexColor)
-        .	[json](#json)
-        .	[lessThan](#lessThan)
-        .	[lessThanEqualTo](#lessThanEqualTo)
-        .	[lowerCase](#lowerCase)
-        .	[maxLength](#maxLength)
-        .	[maxNumber](#maxNumber)
-        .	[minNumber](#minNumber)
-        .	[minLength](#minLength)
-        .	[password](#password)
-        .	[pattern](#pattern)
-        .	[prop](#prop)
-        .	[propArray](#propArray)
-        .	[propObject](#propObject)
-        .	[range](#range)
-        .	[required](#required)
-        .	[time](#time)
-        .	[upperCase](#upperCase)
-        .	[url](#url)
-
+	1.	[alpha](#alpha)
+	2.	[alphaNumeric](#alphaNumeric)
+	3.	[compare](#compare)
+	4.	[contains](#contains)
+	5.	[creditCard](#creditCard)
+	6.	[digit](#digit)
+	7.	[email](#email)
+	8.	[greaterThan](#greaterThan)
+	9.	[greaterThanEqualTo](#greaterThanEqualTo)
+	10.	[hexColor](#hexColor)
+	11.	[json](#json)
+	12.	[lessThan](#lessThan)
+	13.	[lessThanEqualTo](#lessThanEqualTo)
+	14.	[lowerCase](#lowerCase)
+	15.	[maxLength](#maxLength)
+	16.	[maxNumber](#maxNumber)
+	17.	[minNumber](#minNumber)
+	18.	[minLength](#minLength)
+	19.	[password](#password)
+	20.	[pattern](#pattern)
+	21.	[prop](#prop)
+	22.	[propArray](#propArray)
+	23.	[propObject](#propObject)
+	24.	[range](#range)
+	25.	[required](#required)
+	26.	[time](#time)
+	27.	[upperCase](#upperCase)
+	28.	[url](#url)
+	
 * [Documentation](#documentation)
 * [License](#license)
 
@@ -219,7 +219,6 @@ export class EmailInfoComponent implements OnInit {
     }
 }
 ```
-
 ### creditCard
 
 creditCard validation decorator will allow valid credit card number to be entered otherwise property will be invalid if incorrect value is entered. **[See more features and examples.](http://rxweb.github.io)**
@@ -312,4 +311,5 @@ export class StudentInfoComponent implements OnInit {
     }
 }
 ```
+
 
