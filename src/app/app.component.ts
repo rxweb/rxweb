@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl } from "@angular/forms";
 import {
     contains,
-    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType
+    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType, minLength
 } from "@rxweb/reactive-form-validators";
 import { time } from "packages/reactive-form-validators/decorators";
 import { ApplicationConfiguration } from "@rx/core";
@@ -14,35 +14,36 @@ export class EmployeeDetail {
     @prop() @required() areaName: string;
 }
 export class Employee {
-    @prop() @alpha({ allowWhiteSpace: true  }) firstName: string;
-    @prop() @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
-    @prop() @contains({ value: "radix", conditionalExpressions: (current, root) => { return current.firstName == 'ajay'; }, message: "validation failed contains" }) contains: string;
-    @prop() @digit({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'", message: "digit required" }) digit: string;
-    @prop() @email({ message: "email", conditionalExpressions: "x =>x.firstName == 'john'" }) email: string;
-    @prop() @hexColor({ message: "hex", conditionalExpressions: "x => x.firstName == 'john'" }) hexColor: string;
-    @prop() @lowerCase({ message: "lowercase", conditionalExpressions: "x => x.firstName == 'john'" }) lowerCase: string;
-    @prop() @maxDate({ value: new Date(2016, 10, 5) }) maxDate: string; // do some work
-    @prop() @maxLength({ value: 20, message: "length exceed", conditionalExpressions: "x => x.firstName == 'john'" }) maxLength: string;
-    @prop() @maxNumber({ value: 100000000}) maxNumber: string;
-    @prop() @minDate({ value: new Date(2016, 10, 5) }) minDate: string;
-    @prop()  @minNumber({ value: 20, message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) minNumber: string;
-    @prop() @password({ validation: { maxLength: 10, minLength: 5, digit: true, specialCharacter: true } }) password: string;
-    @prop() @pattern({ pattern: { 'onlyDigit': /^[0-9]+$/ }, conditionalExpressions: "x => x.firstName == 'john'" }) pattern: string;
-    @prop() @range({ minimumNumber: 5, maximumNumber: 10 }) range: string;
-    @prop() @required({ message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) required: string;
-    @prop() @upperCase({ message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) upperCase: string;
+    @alpha({ allowWhiteSpace: false }) firstName: string;
+     @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
+     @contains({ value: "radix", conditionalExpressions: (current, root) => { return current.firstName == 'ajay'; }, message: "validation failed contains" }) contains: string;
+     @digit({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'", message: "digit required" }) digit: string;
+     @email({ message: "email", conditionalExpressions: "x =>x.firstName == 'john'" }) email: string;
+     @hexColor({ message: "hex", conditionalExpressions: "x => x.firstName == 'john'" }) hexColor: string;
+     @lowerCase({ message: "lowercase", conditionalExpressions: "x => x.firstName == 'john'" }) lowerCase: string;
+     @maxDate({ value: new Date(2016, 10, 5) }) maxDate: string; // do some work
+     @maxLength({ value: 20, message: "length exceed", conditionalExpressions: "x => x.firstName == 'john'" }) maxLength: string;
+     @maxNumber({ value: 100000000}) maxNumber: string;
+     @minDate({ value: new Date(2016, 10, 5) }) minDate: string;
+     @minLength({ value: 10 }) minLength: number;
+     @minNumber({ value: 20, message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) minNumber: string;
+     @password({ validation: { maxLength: 10, minLength: 5, digit: true, specialCharacter: true } }) password: string;
+     @pattern({ pattern: { 'onlyDigit': /^[0-9]+$/ }, conditionalExpressions: "x => x.firstName == 'john'" }) pattern: string;
+     @range({ minimumNumber: 5, maximumNumber: 10 }) range: string;
+     @required({ message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) required: string;
+     @upperCase({ message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) upperCase: string;
     @propObject(EmployeeDetail) employeeDetail: EmployeeDetail;
     @propArray(Attendance) attendances: Attendance[]
-    @prop() @compare({ fieldName: 'country' }) state: string;
+    @compare({ fieldName: 'country' }) state: string;
     @prop() country: string;
-    @prop() @time({ allowSeconds: true, message:"time" }) time: string;
-    @prop() @url() url: string;
-    @prop() @json() json: string;
-    @prop() @greaterThan({ fieldName: 'minNumber' }) greaterThan: string;
-    @prop() @greaterThanEqualTo({ fieldName: 'minNumber' }) greaterThanEqualTo: string;
-    @prop() @lessThan({ fieldName: 'minNumber' }) lessThan: string;
-    @prop() @lessThanEqualTo({ fieldName: 'minNumber' }) lessThanEqualTo: string;
-    @prop() @creditCard({ creditCardTypes: [CreditCardType.AmericanExpress,] }) creditCard: string;
+    @time({ allowSeconds: true, message:"time" }) time: string;
+    @url() url: string;
+    @json() json: string;
+    @greaterThan({ fieldName: 'minNumber' }) greaterThan: string;
+    @greaterThanEqualTo({ fieldName: 'minNumber' }) greaterThanEqualTo: string;
+    @lessThan({ fieldName: 'minNumber' }) lessThan: string;
+    @lessThanEqualTo({ fieldName: 'minNumber' }) lessThanEqualTo: string;
+    @creditCard({ creditCardTypes: [CreditCardType.AmericanExpress,] }) creditCard: string;
 }
 @Component({
   selector: 'app-root',
@@ -78,7 +79,7 @@ export class AppComponent implements OnInit  {
             }
         });
         employee.lastName = "john";
-        this.sampleFormGroup = this.validation.formGroup(employee);
+        this.sampleFormGroup = this.validation.formGroup<Employee>(employee);
         console.log(this.sampleFormGroup);
     }
 

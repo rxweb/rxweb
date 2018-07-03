@@ -18,7 +18,7 @@ export function minLengthValidator(config:NumberConfig): ValidatorFn {
         const parentObject = (control.parent) ? control.parent.value : undefined;
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
-                if (!(controlValue.length >= config.value))
+                if (!(String(controlValue).length >= config.value))
                     return ObjectMaker.toJson(AnnotationTypes.minLength, config.message || null, [controlValue])
             }
         }

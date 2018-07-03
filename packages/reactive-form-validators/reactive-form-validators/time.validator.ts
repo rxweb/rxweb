@@ -21,10 +21,10 @@ export function timeValidator(config: TimeConfig, conditionalValidationProps:str
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 var testResult = false;
+                let valueLength = 5;
                 if (!config.allowSeconds)
-                    testResult = RegexValidator.isValid(controlValue, RegExRule.time);
-                else
-                    testResult = RegexValidator.isValid(controlValue, RegExRule.timeWithSeconds);
+                    valueLength = 8;
+                testResult = RegexValidator.isValid(controlValue, RegExRule.time) && controlValue.length == valueLength;
                 if (!testResult)
                     return ObjectMaker.toJson(AnnotationTypes.time, config.message || null, [controlValue]);
             }

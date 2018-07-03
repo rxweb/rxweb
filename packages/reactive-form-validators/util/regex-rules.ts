@@ -24,7 +24,9 @@ export const RegExRule: { [key: string]: any } = {
     
     alphaNumericWithSpace: /^[0-9a-zA-Z\s]+$/,
 
-    hexColor: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/igm,
+    hexColor: /#([a-f0-9]{3}|[a-f0-9]{4}(?:[a-f0-9]{2}){0,2})\b/gi,
+
+    strictHexColor: /^#([a-f0-9]{3,4}|[a-f0-9]{4}(?:[a-f0-9]{2}){1,2})\b$/i,
 
     float: /^(?:[-+]?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$/,
 
@@ -33,8 +35,6 @@ export const RegExRule: { [key: string]: any } = {
     hexaDecimal: /^[0-9A-F]+$/i,
 
     date: /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/,
-
-    timeWithSeconds: /(00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9]):([0-9]|[0-5][0-9])$/,
 
     time: /(00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9])$/,
 
