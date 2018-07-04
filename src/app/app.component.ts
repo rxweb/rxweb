@@ -79,7 +79,7 @@ export class AppComponent implements OnInit  {
             }
         });
         employee.lastName = "john";
-        this.sampleFormGroup = this.validation.formGroup<Employee>(employee);
+        this.sampleFormGroup = this.validation.formGroup<Employee>(Employee, employee);
         console.log(this.sampleFormGroup);
     }
 
