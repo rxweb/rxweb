@@ -164,8 +164,8 @@ export class RxFormBuilder {
             let isIncludeProp = true;
             if (formBuilderConfiguration && formBuilderConfiguration.excludeProps && formBuilderConfiguration.excludeProps.length > 0)
                 isIncludeProp = formBuilderConfiguration.excludeProps.indexOf(property.name) == -1
-            if (formBuilderConfiguration && formBuilderConfiguration.additionalValidations)
-                additionalValidations = formBuilderConfiguration.additionalValidations;
+            if (formBuilderConfiguration && formBuilderConfiguration.validations)
+                additionalValidations = formBuilderConfiguration.validations;
             if (isIncludeProp) {
                 switch (property.propertyType) {
                     case PROPERTY:

@@ -1,3 +1,13 @@
+---
+title: Introduction to Razor Pages in ASP.NET Core
+author: Rick-Anderson
+description: Learn how Razor Pages in ASP.NET Core makes coding page-focused scenarios easier and more productive than using MVC.
+monikerRange: '>= aspnetcore-2.0'
+ms.author: riande
+ms.date: 05/12/2018
+uid: reactive-form-validators/configure-global-validation-messages
+---
+
 ## Configure Global Validation Messages
 Apply global validation messages throughout the application, then configure the validation messages globaly(whenever application starts it will initialized automatically). 
 Below is the example to configure the validation messages in 'ReactiveFromConfig'.

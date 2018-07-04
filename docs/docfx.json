@@ -3,7 +3,7 @@
     "content": [
       {
         "files": [
-          "src/**.md",
+          "reactive-form-validators/**.md",
           "*.md"
         ]
       }

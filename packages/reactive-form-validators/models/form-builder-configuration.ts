@@ -13,5 +13,5 @@ export class FormBuilderConfiguration{
 
     excludeProps: string[];
 
-    additionalValidations: { [key: string]: PropValidationConfig }
+    validations: { [key: string]: PropValidationConfig }
 }

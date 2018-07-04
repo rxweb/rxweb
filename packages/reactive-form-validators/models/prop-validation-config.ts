@@ -26,5 +26,5 @@ export interface PropValidationConfig {
     minNumber?: NumberConfig;
     uppercase?: boolean;
     range?: RangeConfig;
-    custom: ValidatorFn;
+    custom?: ValidatorFn;
 }
