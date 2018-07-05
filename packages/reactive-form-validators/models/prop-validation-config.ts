@@ -9,14 +9,14 @@ import { ValidatorFn } from "@angular/forms";
 
 export interface PropValidationConfig {
     required?: boolean;
-    minLength?: NumberConfig;
-    maxLength?: NumberConfig;
-    pattern?: PatternConfig;
-    compare?: CompareConfig;
+    minLength?: NumberConfig ;
+    maxLength?: NumberConfig ;
+    pattern?: PatternConfig ;
+    compare?: CompareConfig ;
     contains?: DefaultConfig;
-    alpha?: AlphaConfig;
+    alpha?: AlphaConfig | boolean;
     numeric?: boolean;
-    alphaNumeric?: AlphaConfig;
+    alphaNumeric?: AlphaConfig | boolean;
     email?: boolean;
     hexColor?: boolean;
     lowercase?: boolean;

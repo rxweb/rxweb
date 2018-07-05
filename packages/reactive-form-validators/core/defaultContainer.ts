@@ -1,7 +1,7 @@
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from './validator.interface';
 import { Linq } from "../util/linq";
 import { AnnotationTypes } from "./validator.static";
-import { PROPERTY } from "packages/reactive-form-validators/const";
+import { PROPERTY } from "../const";
 
 export const defaultContainer:
     {

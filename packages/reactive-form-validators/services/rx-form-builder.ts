@@ -89,14 +89,16 @@ export class RxFormBuilder {
         }
         if (propValidationConfig)
             this.additionalValidation(validators, propValidationConfig);
+
         return validators;
     }
 
     private additionalValidation(validations: any[], propValidationConfig: PropValidationConfig) {
         for (var col in AnnotationTypes) {
-            if (propValidationConfig[AnnotationTypes[col]] && col != "custom")
+            if (propValidationConfig[AnnotationTypes[col]] && col != "custom") {
                 validations.push(APP_VALIDATORS[AnnotationTypes[col]](propValidationConfig[AnnotationTypes[col]]));
-            else if (col == AnnotationTypes.custom)
+            }
+            else if (col == AnnotationTypes.custom && propValidationConfig[AnnotationTypes[col]])
                 validations.push(propValidationConfig[col]);
         }
 

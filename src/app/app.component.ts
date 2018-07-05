@@ -14,7 +14,7 @@ export class EmployeeDetail {
     @prop() @required() areaName: string;
 }
 export class Employee {
-    @alpha({ allowWhiteSpace: false }) firstName: string;
+    @prop() firstName: string;
     @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
     @contains({ value: "radix", conditionalExpressions: (current, root) => { return current.firstName == 'ajay'; }, message: "validation failed contains" }) contains: string;
     @digit({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'", message: "digit required" }) digit: string;
@@ -81,18 +81,11 @@ export class AppComponent implements OnInit {
         employee.lastName = "john";
         var formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
-            'countryName': {
+            'firstName': {
                 alpha: true
-            },
-            'countryCode': {
-                alpha: { conditionalExpressions: (x, y) => x.countryName == 'America' }
-            },
-            'stateName': {
-                alpha: { allowWhiteSpace: true }
-            },
-
+            }
         };
-        this.sampleFormGroup = this.validation.formGroup<Employee>(Employee, employee);
+        this.sampleFormGroup = this.validation.formGroup<Employee>(Employee, employee, formBuilderConfiguration);
         console.log(this.sampleFormGroup);
     }
 

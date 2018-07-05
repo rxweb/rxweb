@@ -18,6 +18,6 @@ export class ApplicationUtil{
     }
 
     static getConfigObject(config: any): any {
-        return config || {};
+        return (config != undefined && config != true) ? config : {};
     }
 }
