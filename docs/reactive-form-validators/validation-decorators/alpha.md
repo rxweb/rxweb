@@ -1,3 +1,8 @@
+---
+title: Ajay Ojha
+uid: validation-decorators/alpha
+nOjha: aOjha-Alpha
+---
 # alpha
 
 Alpha validation decorator will allow only alphabets to be entered. It will not allow any number or special character. If user tries to do so the property will become invalid. To use the alpha decorator on particular property 
@@ -33,7 +38,7 @@ export class CountryComponent implements OnInit {
 </form>
 ```
 # [Basic Validation With Server Data](#tab/basic-validation-with-server-data)
-> app/models/country.model.ts
+> app/models/country.modedl.ts
 ```js
 export class Country{
     @alpha() countryName: string;
@@ -63,13 +68,14 @@ export class CountryComponent implements OnInit {
     </div>
 </form>
 ```
+---
 # AlphaConfig 
 Below options are not mandatory to use the options in the `@alpha()` decorator. If needed then use the below options.
 
 |Option | Description |
 |--- | ---- |
-|[allowWhiteSpace](#allowWhiteSpace) | This will allow whitespace in particular control property.The default value is `false`. |
-|[conditionalExpression](#conditionalExpression) | Alpha validation should be applied if the condition is matched in the `conditionalExpression' function.  |
+|[allowWhiteSpace] | This will allow whitespace in particular control property.The default value is `false`. |
+|[conditionalExpression] | Alpha validation should be applied if the condition is matched in the `conditionalExpression' function.  |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## allowWhiteSpace
