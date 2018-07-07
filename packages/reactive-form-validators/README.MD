@@ -43,7 +43,7 @@ To work on form it is require to import angular modules(FormsModule && ReactiveF
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'; // <-- #1 import module
+import { FormsModule, ReactiveFormsModule} from '@angular/forms'; // <-- #1 import module
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators'; // <-- #2 import module
 
 
@@ -92,206 +92,142 @@ export class AppComponent implements OnInit {
 }
 ```
 
-# Reactive Form Validators
-### 	alpha
-Alpha validation decorator will allow only alphabets to be entered. It will not allow any number or special character. If user tries to do so the property will become invalid. Below is the example for bind country form with alpha validation. **[See more features and examples.](http://rxweb.github.io)**
+## Implement Validation Decorators
 
-> Note : `@prop()` is used for define the property name, if `@prop()` decorator will not use then without validation decorator property will not bind in formgroup object. 
-
-> app/models/country.model.ts
+> user.model.ts
 ```js
-export class Country{
-    @prop() @alpha() countryName: string;
-}
-```
-> Note : Import all neccesary dependencies in the respective component. 
+import {
+    propObject,    prop, alphaNumeric, alpha, compare, contains, creditCard, CreditCardType, digit, email, greaterThanEqualTo,greaterThan, hexColor, json, lessThanEqualTo, lowerCase, maxLength,maxNumber,
+    minNumber, password, pattern, lessThan, range, required, time, upperCase, url, propArray, minLength
+} from "@rxweb/reactive-form-validators";
 
-> app/components/country.component.ts
-```js
-@Component({ ...})
-export class CountryComponent implements OnInit {
-    countryFormGroup: FormGroup;
-    constructor(private formBuilder: RxFormBuilder) { }
-    ngOnInit() {
-        let country = new Country();
-        this.countryFormGroup = this.formBuilder.formGroup(country);
-    }
-}
-```
+import { UserAddress } from "./user-address.model";
+import { UserRole } from "./user-role.model";
 
-### 	alphaNumeric
-alphaNumeric validation decorator will allow only alphanumeric to be entered. It will not allow any special character. If user tries to do so the property will become invalid. Below is the example for bind address info form with alphanumeric validation. **[See more features and examples.](http://rxweb.github.io)**
+export class User{
 
-> Note : `@prop()` is used for define the property name, if `@prop()` decorator will not use then without validation decorator property will not bind in formgroup object. 
+    @alpha()
+    userName: string;
 
-> app/models/address.model.ts
-```js
-export class Address {
-    @prop() @alphaNumeric() areaName: string;
-}
-```
-> Note : Import all neccesary dependencies in the respective component. 
+    @alphaNumeric()
+    areaCode: string;
 
-> app/components/address.component.ts
-```js
-@Component({ ...})
-export class AddressComponent implements OnInit {
-    addressFormGroup: FormGroup;
-    constructor(private formBuilder: RxFormBuilder) { }
-    ngOnInit() {
-        let address = new Address();
-        this.addressFormGroup = this.formBuilder.formGroup(address);
-    }
-}
-```
+    @prop() oldPassword: string;
 
-### 	compare
-compare validation decorator will match the entered value with compared field value. Property will valid if it matches the value. If not matched, then property will become invalid. **[See more features and examples.](http://rxweb.github.io)**
+    @compare({ fieldName: "oldPassword" })
+    newPassword: string;
 
-> Note : `@prop()` is used for define the property name, if `@prop()` decorator will not use then without validation decorator property will not bind in formgroup object. 
+    @contains({ value: "Admin" })
+    roleName: string;
 
-> app/models/reset-password.model.ts
-```js
-export class ResetPasswordModel {
+    @creditCard({ creditCardTypes: [CreditCardType.Visa] })
+    creditCardNo: string;
+
+    @digit()
+    joiningAge: number;
+
+    @email()
+    email: string;
+
+    @greaterThan({ fieldName: 'joiningAge' })
+    retirementAge: number;
+
+    @greaterThanEqualTo({ fieldName: 'joiningAge' })
+    currentAge: number;
+
+    @hexColor()
+    teamColorCode: string;
+
+    @json()
+    json: string;
+
     @prop()
+    currentExperience: number;
+
+    @lessThanEqualTo({ fieldName: 'currentExperience' })
+    minimumExperience: string;
+
+    @lessThan({ fieldName: "currentExperience" })
+    experience: string;
+
+    @lowerCase()
+    cityName: string;
+
+    @maxLength({ value: 10 })
+    mobileNumber: string;
+
+    @maxNumber({ value: 3 })
+    maximumBankAccount: string;
+
+    @minLength({ value: 8 })
+    landlineNo: string;
+
+    @minNumber({ value: 1 })
+    minimumBankAccount: string;
+
+    @password({ validation: { maxLength: 10, minLength: 5, alphabet: true } })
     password: string;
 
-    @prop() @compare({ fieldName: 'password' }) 
-    confirmPassword: string;
+    @pattern({ pattern: { 'zipCode': /^\d{5}(?:[-\s]\d{4})?$/ } })
+    zipCode: string
+
+    @range({ minimumNumber: 18, maximumNumber: 60 })
+    eligiblityAge: number;
+
+    @required()
+    stateName: string;
+
+    @time()
+    entryTime: string;
+
+    @upperCase()
+    countryCode: string;
+
+    @url()
+    socialProfileUrl: string
+
+    @propObject(UserAddress) userAddress: UserAddress;
+
+    @propArray(Course) courses: Array<Course>;
 }
 ```
-> Note : Import all neccesary dependencies in the respective component. 
-
-> app/components/forgot-password.component.ts
+> user.address.model.ts
 ```js
-@Component({ ...})
-export class ForgotPasswordComponent implements OnInit {
-    resetPasswordFormGroup: FormGroup;
-    constructor(private formBuilder: RxFormBuilder) { }
-    ngOnInit() {
-        let resetPassword = new ResetPasswordModel();
-        this.resetPasswordFormGroup = this.formBuilder.formGroup(resetPassword);
-    }
+import { prop } from "@rxweb/reactive-form-validators";
+
+export class UserAddress {
+    @prop() mobileNo: string;
 }
 ```
-
-### 	contains
-contains validation decorator will check the entered value with defined contains value. If contains value is not matched, then property will become invalid. **[See more features and examples.](http://rxweb.github.io)**
-
-> Note : `@prop()` is used for define the property name, if `@prop()` decorator will not use then without validation decorator property will not bind in formgroup object. 
-
-> app/models/email-info.model.ts
+> user.role.model.ts
 ```js
-export class EmailInfoModel {
-    @prop() @contains({ value: '@gmail.com' })
-    emailAddress: string;
+import { prop } from "@rxweb/reactive-form-validators";
+
+export class Course {
+    @required() courseName:string;
 }
 ```
-> Note : Import all neccesary dependencies in the respective component. 
-
-> app/component/email-info.component.ts
+> user.component.ts
 ```js
-@Component({ ...})
-export class EmailInfoComponent implements OnInit {
-    emailInfoFormGroup: FormGroup;
-    constructor(private formBuilder: RxFormBuilder) { }
-    ngOnInit() {
-        let emailInfo = new EmailInfoModel();
-        this.emailInfoFormGroup = this.formBuilder.formGroup(emailInfo);
-    }
-}
-```
-### creditCard
+import { Component, OnInit } from '@angular/core';
+import { RxFormBuilder } from '@rxweb/reactive-form-validators';
+import { FormGroup } from '@angular/forms';
+import { User } from "./user.model";
 
-creditCard validation decorator will allow valid credit card number to be entered otherwise property will be invalid if incorrect value is entered. **[See more features and examples.](http://rxweb.github.io)**
+@Component({...})
 
-> Note : `@prop()` is used for define the property name, if `@prop()` decorator will not use then without validation decorator property will not bind in formgroup object. 
+export class AllValidatorComponent implements OnInit { 
+  userFormGroup: FormGroup;
 
-> app/models/credit-card.model.ts
+  constructor(private formBuilder: RxFormBuilder) { }
 
-```js
-export class CreditCardModel {
-    @prop() @creditCard({ creditCardTypes: [CreditCardType.Visa] })
-    visaCard: number;
+  ngOnInit() {
+      let user = new User();
+      user.currentExperience = 5;
+      this.userFormGroup = this.formBuilder.formGroup(user);
+  }
 }
 ```
 
-> Note : Import all neccesary dependencies in the respective component. 
-
-> app/component/credit-card.component.ts
-
-```js
-@Component({ ...})
-export class CreditCardComponent implements OnInit {
-    creditCardFormGroup: FormGroup;
-    constructor(private formBuilder: RxFormBuilder) { }
-    ngOnInit() {
-        let creditCard = new CreditCardModel();
-        this.creditCardFormGroup = this.formBuilder.formGroup(creditCard);
-    }
-}
-```
-
-### digit
-
-digit validation decorator will allow only digits to be entered. It will not allow any alphabets or special character. If user tries to do so the property will become invalid.  **[See more features and examples.](http://rxweb.github.io)**
-
-> Note : `@prop()` is used for define the property name, if `@prop()` decorator will not use then without validation decorator property will not bind in formgroup object. 
-
-> app/models/student-info.model.ts
-
-```js
-export class StudentInfo {
-    @prop() @digit()
-    age: number;
-}
-```
-
-> Note : Import all neccesary dependencies in the respective component. 
-
-> app/component/student-info.component.ts
-
-```js
-@Component({ ...})
-export class StudentInfoComponent implements OnInit {
-    studentInfoFormGroup: FormGroup;
-    constructor(private formBuilder: RxFormBuilder) { }
-    ngOnInit() {
-        let studentInfo = new StudentInfo();
-        this.studentInfoFormGroup = this.formBuilder.formGroup(studentInfo);
-    }
-}
-```
-
-### email
-
-email validation decorator will allow valid email to be entered. If user tries to enter invalid email then, the property will become invalid.  **[See more features and examples.](http://rxweb.github.io)**
-
-> Note : `@prop()` is used for define the property name, if `@prop()` decorator will not use then without validation decorator property will not bind in formgroup object. 
-
-> app/models/student-info.model.ts
-
-```js
-export class StudentInfo {
-    @prop() @email()
-    emailId: string;
-}
-```
-
-> Note : Import all neccesary dependencies in the respective component. 
-
-> app/component/student-info.component.ts
-
-```js
-@Component({ ...})
-export class StudentInfoComponent implements OnInit {
-    studentInfoFormGroup: FormGroup;
-    constructor(private formBuilder: RxFormBuilder) { }
-    ngOnInit() {
-        let studentInfo = new StudentInfo();
-        this.studentInfoFormGroup = this.formBuilder.formGroup(studentInfo);
-    }
-}
-```
 
 
