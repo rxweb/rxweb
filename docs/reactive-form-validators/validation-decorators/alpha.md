@@ -1,8 +1,6 @@
 ---
 title: Ajay Ojha
 uid: validation-decorators/alpha
-nOjha: aOjha-Alpha
-
 remote-data-stackblitz: https://angular-mygipw.stackblitz.io
 ---
 # alpha
@@ -10,13 +8,13 @@ remote-data-stackblitz: https://angular-mygipw.stackblitz.io
 Alpha validation decorator will allow only alphabets to be entered. It will not allow any number or special character. If user tries to do so the property will become invalid. To use the alpha decorator on particular property 
 # [Basic Validation With Client Data Model](#tab/basic-validation-with-client-data-model)
 > app/components/basic-validation/country.model.ts
- [!code-typescript[](../../examples/reactive-form-validators/alpha/src/app/basic-validation/country.model.ts?highlight=5)]
+ [!code-typescript[](../../examples/reactive-form-validators/alpha-validation/src/app/basic-validation/country.model.ts?highlight=5)]
 > app/components/basic-validation//country.component.ts
- [!code-typescript[](../../examples/reactive-form-validators/alpha/src/app/basic-validation/client-data/client-data.component.ts)]
+ [!code-typescript[](../../examples/reactive-form-validators/alpha-validation/src/app/basic-validation/client-data/client-data.component.ts)]
 > app/components/country.component.html
- [!code-html[](../../examples/reactive-form-validators/alpha/src/app/basic-validation/client-data/client-data.component.html)]
+ [!code-html[](../../examples/reactive-form-validators/alpha-validation/src/app/basic-validation/client-data/client-data.component.html)]
 > Client Data Validation Example
-
+<iframe src="https://stackblitz.com/edit/complete-rxweb-angular-reactive-form-validator-example?embed=1&file=src/app/user/user.component.ts&hideNavigation=1&view=preview" width="100%" height="800">
 # [Basic Validation With Server Data](#tab/basic-validation-with-server-data)
 > app/models/country.modedl.ts
 ```js
