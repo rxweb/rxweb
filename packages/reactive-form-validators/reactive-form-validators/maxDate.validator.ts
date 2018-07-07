@@ -19,9 +19,10 @@ export function maxDateValidator(config:DateConfig): ValidatorFn {
         const parentObject = (control.parent) ? control.parent.value : undefined;
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
-                if (controlValue instanceof Date ||RegexValidator.isValid(controlValue, RegExRule.date)) {
+                if (RegexValidator.isValid(controlValue, RegExRule.date)) {
                     let maxDate = config.value;
-                    if (!(controlValue <= maxDate))
+                    let currentValueDate = new Date(controlValue);
+                    if (!(maxDate => controlValue))
                         return ObjectMaker.toJson(AnnotationTypes.maxDate, config.message || null, [control.value])
                 } else
                     return ObjectMaker.toJson(AnnotationTypes.maxDate, config.message || null, [control.value])

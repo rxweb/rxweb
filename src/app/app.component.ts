@@ -22,9 +22,9 @@ export class Employee {
     @hexColor({ message: "hex", conditionalExpressions: "x => x.firstName == 'john'" }) hexColor: string;
     @lowerCase({ message: "lowercase", conditionalExpressions: "x => x.firstName == 'john'" }) lowerCase: string;
     @maxDate({ value: new Date(2016, 10, 5) }) maxDate: string; // do some work
+    @minDate({ value: new Date(2016, 10, 5) }) minDates: string; // do some work
     @maxLength({ value: 20, message: "length exceed", conditionalExpressions: "x => x.firstName == 'john'" }) maxLength: string;
     @maxNumber({ value: 100000000 }) maxNumber: string;
-    @minDate({ value: new Date(2016, 10, 5) }) minDate: string;
     @minLength({ value: 10 }) minLength: number;
     @minNumber({ value: 20, message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) minNumber: string;
     @password({ validation: { maxLength: 10, minLength: 5, digit: true, specialCharacter: true } }) password: string;
@@ -61,10 +61,10 @@ export class AppComponent implements OnInit {
         ApplicationConfiguration.set(CLIENT_SETTINGS);
         var employee = new Employee();
         employee.employeeDetail = new EmployeeDetail();
-        employee.employeeDetail.areaName = "";
+        //employee.employeeDetail.areaName = "";
         employee.attendances = new Array<Attendance>();
         var employeeDetail = new Attendance()
-        employeeDetail.startTime = undefined
+        //employeeDetail.startTime = undefined
         employee.attendances.push(employeeDetail)
         ReactiveFormConfig.set({
             "internationalization": {

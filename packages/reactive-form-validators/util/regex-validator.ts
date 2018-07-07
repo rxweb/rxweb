@@ -20,7 +20,7 @@ export class RegexValidator {
     }
 
     static isNotBlank(value: any): boolean {
-        return value != undefined && value != "" && value != null && String(value).trim() != "";
+        return value != undefined && value != "" && value != null ;
     }
 
     static isValidPassword(passwordValidation: PasswordValidation, value: string): { [key: string]: any } {

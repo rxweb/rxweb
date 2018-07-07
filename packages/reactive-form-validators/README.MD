@@ -216,7 +216,7 @@ import { User } from "./user.model";
 
 @Component({...})
 
-export class AllValidatorComponent implements OnInit { 
+export class UserComponent implements OnInit { 
   userFormGroup: FormGroup;
 
   constructor(private formBuilder: RxFormBuilder) { }
@@ -224,6 +224,10 @@ export class AllValidatorComponent implements OnInit {
   ngOnInit() {
       let user = new User();
       user.currentExperience = 5;
+      user.userAddress = new UserAddress(); // create nested object, this will bind as a `FormGroup`.
+      let course = new Course();
+      user.courses = new Array<Course>(); // create nested array object, this will bind as a `FormArray`.
+      user.courses.push(course);
       this.userFormGroup = this.formBuilder.formGroup(user);
   }
 }

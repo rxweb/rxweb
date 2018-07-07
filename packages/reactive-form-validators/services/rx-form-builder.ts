@@ -183,17 +183,18 @@ export class RxFormBuilder {
                         }
                         break;
                     case ARRAY_PROPERTY:
-                        if (entityObject[property.name] && entityObject[property.name] instanceof Array)
+                        if (entityObject[property.name] && entityObject[property.name] instanceof Array) {
                             var formArrayGroup = [];
-                        let index = 0;
-                        for (let subObject of entityObject[property.name]) {
-                            if (instanceContainer && instanceContainer.conditionalObjectProps)
-                                this.conditionalObjectProps = instanceContainer.conditionalObjectProps.filter(t => t.objectPropName == property.name && t.arrayIndex == index)
-                            formArrayGroup.push(this.formGroup(property.entity, subObject, formBuilderConfiguration));
-                            index++;
-                            this.conditionalObjectProps = [];
+                            let index = 0;
+                            for (let subObject of entityObject[property.name]) {
+                                if (instanceContainer && instanceContainer.conditionalObjectProps)
+                                    this.conditionalObjectProps = instanceContainer.conditionalObjectProps.filter(t => t.objectPropName == property.name && t.arrayIndex == index)
+                                formArrayGroup.push(this.formGroup(property.entity, subObject, formBuilderConfiguration));
+                                index++;
+                                this.conditionalObjectProps = [];
+                            }
+                            formGroupObject[property.name] = this.formBuilder.array(formArrayGroup);
                         }
-                        formGroupObject[property.name] = this.formBuilder.array(formArrayGroup);
                         break;
                 }
             }
