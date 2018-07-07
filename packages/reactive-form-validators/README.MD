@@ -102,7 +102,7 @@ import {
 } from "@rxweb/reactive-form-validators";
 
 import { UserAddress } from "./user-address.model";
-import { UserRole } from "./user-role.model";
+import { Course } from "./course.model";
 
 export class User{
 
@@ -199,7 +199,7 @@ export class UserAddress {
     @prop() mobileNo: string;
 }
 ```
-> user.role.model.ts
+> course.model.ts
 ```js
 import { prop } from "@rxweb/reactive-form-validators";
 
