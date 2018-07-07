@@ -21,7 +21,7 @@ export function containsValidator(config:DefaultConfig): ValidatorFn {
         if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 if (controlValue.indexOf(config.value) == -1)
-                    return ObjectMaker.toJson(AnnotationTypes.contains, config.message || null, [controlValue]);
+                    return ObjectMaker.toJson(AnnotationTypes.contains, config.message || null, [config.value,controlValue]);
             }
         }
         return ObjectMaker.null();

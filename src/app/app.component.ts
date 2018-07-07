@@ -21,8 +21,8 @@ export class Employee {
     @email({ message: "email", conditionalExpressions: "x =>x.firstName == 'john'" }) email: string;
     @hexColor({ message: "hex", conditionalExpressions: "x => x.firstName == 'john'" }) hexColor: string;
     @lowerCase({ message: "lowercase", conditionalExpressions: "x => x.firstName == 'john'" }) lowerCase: string;
-    @maxDate({ value: new Date(2016, 10, 5) }) maxDate: string; // do some work
-    @minDate({ value: new Date(2016, 10, 5) }) minDates: string; // do some work
+    @maxDate({ value: new Date(2000, 1, 1) }) maxDate: string; // do some work
+    @minDate({ value: new Date(2000, 0, 1) }) minDates: string; // do some work
     @maxLength({ value: 20, message: "length exceed", conditionalExpressions: "x => x.firstName == 'john'" }) maxLength: string;
     @maxNumber({ value: 100000000 }) maxNumber: string;
     @minLength({ value: 10 }) minLength: number;
