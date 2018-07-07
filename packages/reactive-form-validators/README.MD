@@ -23,12 +23,13 @@ Reactive Form Validators will work in angular projects.
     * [Import Modules](#import-modules)
     * [Configure Global Validation Messages](#configure-global-validation-messages)
     * [Implement Validation Decorators](#implement-validation-decorators)
+    * [Validation Example Demo](#validation-example-demo)
 * [Documentation](#documentation)
 * [License](#license)
 
 ## Introduction
 Smart way to validate the forms with `@rxweb/reactive-form-validators`. RxWeb Reactive Forms Validation provides several different approaches to validate your application's data. It supports client side validations with reactive form in angular and also manage to useful validation messages. 
-**[Documentation](http://rxweb.github.io)**
+
 
 ## Installation
 ```bash
@@ -93,6 +94,7 @@ export class AppComponent implements OnInit {
 ```
 
 ## Implement Validation Decorators
+**[Demo Code Walkthrough and Download the code](https://stackblitz.com/edit/complete-rxweb-angular-reactive-form-validator-example?embed=1&file=src/app/user/user.component.ts&hideNavigation=1&view=preview)**
 
 > user.model.ts
 ```js
@@ -185,10 +187,18 @@ export class User{
 
     @url()
     socialProfileUrl: string
+    
+    @minDate({ value: new Date(2000, 0, 1) }) 
+    licenseDate: Date;
 
-    @propObject(UserAddress) userAddress: UserAddress;
+    @maxDate({ value: new Date(2018, 5, 6) }) 
+    licenseExpiration: Date
 
-    @propArray(Course) courses: Array<Course>;
+    @propObject(UserAddress) 
+    userAddress: UserAddress;
+
+    @propArray(Course) 
+    courses: Array<Course>;
 }
 ```
 > user.address.model.ts
@@ -201,7 +211,7 @@ export class UserAddress {
 ```
 > course.model.ts
 ```js
-import { prop } from "@rxweb/reactive-form-validators";
+import { required } from "@rxweb/reactive-form-validators";
 
 export class Course {
     @required() courseName:string;
@@ -212,7 +222,11 @@ export class Course {
 import { Component, OnInit } from '@angular/core';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormGroup } from '@angular/forms';
+
 import { User } from "./user.model";
+import { UserAddress } from "./models/user-address.model";
+import { Course } from "./models/course.model";
+
 
 @Component({...})
 
@@ -232,6 +246,9 @@ export class UserComponent implements OnInit {
   }
 }
 ```
+## Validation Example 
+**[Demo Code Walkthrough and Download the code](https://stackblitz.com/edit/complete-rxweb-angular-reactive-form-validator-example?embed=1&file=src/app/user/user.component.ts&hideNavigation=1&view=preview)**
 
+<img src="https://rxweb.blob.core.windows.net/test/CompleteValidator.gif"/>
 
 
