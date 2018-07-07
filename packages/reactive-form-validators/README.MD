@@ -1,6 +1,17 @@
 [![npm version](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators.svg)](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators)
 [![Gitter](https://badges.gitter.im/rx-web/Lobby.svg)](https://gitter.im/rx-web/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
+<h3>rxweb</h3>
+Advanced, conditional and dynamic validation framework for faster and easier web development.
+
+* Basic validations.
+* Advance validations.
+* Conditional validations.
+* Dynamic validations.
+* Configure application wide validation messages.
+* Set per control custom validation message.
+* Make `FormGroup` object with default values and control validations.
+
 # Prerequisites
 Reactive Form Validators will work in angular projects.
 
@@ -9,38 +20,9 @@ Reactive Form Validators will work in angular projects.
 * [Introduction](#introduction)
 * [Installation](#installation)
 * [Validation Quick Start](#validation-quick-start)
-* [Import Modules](#import-modules)
-* [Configure Global Validation Messages](#configure-global-validation-messages)
-* [Reactive Form Validators](#reactive-form-validators)
-	1.	[alpha](#alpha)
-	2.	[alphaNumeric](#alphaNumeric)
-	3.	[compare](#compare)
-	4.	[contains](#contains)
-	5.	[creditCard](#creditCard)
-	6.	[digit](#digit)
-	7.	[email](#email)
-	8.	[greaterThan](#greaterThan)
-	9.	[greaterThanEqualTo](#greaterThanEqualTo)
-	10.	[hexColor](#hexColor)
-	11.	[json](#json)
-	12.	[lessThan](#lessThan)
-	13.	[lessThanEqualTo](#lessThanEqualTo)
-	14.	[lowerCase](#lowerCase)
-	15.	[maxLength](#maxLength)
-	16.	[maxNumber](#maxNumber)
-	17.	[minNumber](#minNumber)
-	18.	[minLength](#minLength)
-	19.	[password](#password)
-	20.	[pattern](#pattern)
-	21.	[prop](#prop)
-	22.	[propArray](#propArray)
-	23.	[propObject](#propObject)
-	24.	[range](#range)
-	25.	[required](#required)
-	26.	[time](#time)
-	27.	[upperCase](#upperCase)
-	28.	[url](#url)
-	
+    * [Import Modules](#import-modules)
+    * [Configure Global Validation Messages](#configure-global-validation-messages)
+    * [Implement Validation Decorators](#implement-validation-decorators)
 * [Documentation](#documentation)
 * [License](#license)
 
@@ -50,7 +32,7 @@ Smart way to validate the forms with `@rxweb/reactive-form-validators`. RxWeb Re
 
 ## Installation
 ```bash
-$ npm install @rxweb/reactive-form-validators
+$ npm install @rxweb/reactive-form-validators@1.1.2-beta.2
 ```
 ## Validation Quick Start
 To learn more about Rx Web powerful validation features, let us look at a complete example of validating a form and displaying the error messages back to the user. 
