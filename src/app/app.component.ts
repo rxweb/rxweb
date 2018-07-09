@@ -17,7 +17,9 @@ export class Employee {
     @prop() firstName: string;
     @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
     @contains({ value: "radix", conditionalExpressions: (current, root) => { return current.firstName == 'ajay'; }, message: "validation failed contains" }) contains: string;
-    @digit({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'", message: "digit required" }) digit: string;
+    //@digit({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'", message: "digit required" })
+    @prop()
+    digit: string;
     @email({ message: "email", conditionalExpressions: "x =>x.firstName == 'john'" }) email: string;
     @hexColor({ message: "hex", conditionalExpressions: "x => x.firstName == 'john'" }) hexColor: string;
     @lowerCase({ message: "lowercase", conditionalExpressions: "x => x.firstName == 'john'" }) lowerCase: string;
@@ -83,6 +85,11 @@ export class AppComponent implements OnInit {
         formBuilderConfiguration.validations = {
             'firstName': {
                 alpha: true
+            },
+            'digit': {
+                digit: {
+                    conditionalExpressions:"x => x.firstName == 'john'"
+                }
             }
         };
         this.sampleFormGroup = this.validation.formGroup<Employee>(Employee, employee, formBuilderConfiguration);

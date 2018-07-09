@@ -9,6 +9,7 @@ export const defaultContainer:
         addAnnotation(instanceFunc: any, decoratorConfiguration: DecoratorConfiguration): void,
         addInstanceContainer(instanceFunc: any): void
         addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void
+        addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]):void
     } = new (class {
         private instances: InstanceContainer[] = [];
 
@@ -26,6 +27,7 @@ export const defaultContainer:
             this.instances.push(instanceContainer);
             return instanceContainer;
         }
+
 
         addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void {
             let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
@@ -70,7 +72,7 @@ export const defaultContainer:
             if (instance.conditionalValidationProps[propName].indexOf(refPropName) == -1)
                 instance.conditionalValidationProps[propName].push(refPropName);
         }
-        addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]) {
+        addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]) :void {
             if (instance) {
                 if (!instance.conditionalValidationProps)
                     instance.conditionalValidationProps = {};

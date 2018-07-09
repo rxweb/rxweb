@@ -24,22 +24,21 @@ Reactive Form Validators will work in angular projects.
     * [Configure Global Validation Messages](#configure-global-validation-messages)
     * [Implement Validation Decorators](#implement-validation-decorators)
     * [Validation Example Demo](#validation-example-demo)
-* [Documentation](#documentation)
 * [License](#license)
 
 ## Introduction
-Smart way to validate the forms with `@rxweb/reactive-form-validators`. RxWeb Reactive Forms Validation provides several different approaches to validate your application's data. It supports client side validations with reactive form in angular and also manage to useful validation messages. 
+Smart way to validate the forms with `@rxweb/reactive-form-validators`. RxWeb Reactive Forms Validation provides several different approaches to validate your application form data. It supports client side reactive form validation in angular and also manage the useful validation messages. 
 
 
 ## Installation
 ```bash
-$ npm install @rxweb/reactive-form-validators@1.1.2-beta.2
+$ npm install @rxweb/reactive-form-validators
 ```
 ## Validation Quick Start
-To learn more about Rx Web powerful validation features, let us look at a complete example of validating a form and displaying the error messages back to the user. 
+To learn more about `rxweb` powerful validation features, let us look at a complete example of validating a form and displaying the error messages back to the user. 
 
 ## Import modules
-To work on form it is require to import angular modules(FormsModule && ReactiveFormsModule) and for rxweb reactive form validation to import 'RxReactiveFormsModule' module and register that in the NgModule decorator imports property.
+To work on form it is require to import angular modules(`FormsModule` and `ReactiveFormsModule`) and also import 'RxReactiveFormsModule' which provides advanced/dynamic level validation features. All three modules register in the `NgModule` decorator `imports` property.
 ```js
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -64,8 +63,8 @@ export class AppModule { }
 ```
 
 ## Configure Global Validation Messages
-Apply global validation messages throughout the application, then configure the validation messages globaly(whenever application starts it will initialized automatically). 
-Below is the example to configure the validation messages in 'ReactiveFromConfig'.
+Consitency is required any enterprise level application. It is good to manage the error message on application wide, So configure and register the validation messages at the start of the application. 
+Below is the example to configure the validation messages in 'ReactiveFromConfig'. 
 ```js
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -94,7 +93,7 @@ export class AppComponent implements OnInit {
 ```
 
 ## Implement Validation Decorators
-**[Demo Code Walkthrough and Download the code](https://stackblitz.com/edit/complete-rxweb-angular-reactive-form-validator-example?embed=1&file=src/app/user/user.component.ts&hideNavigation=1&view=preview)**
+**[Demo Code Walkthrough and Download the code](https://stackblitz.com/edit/complete-rxweb-angular-reactive-form-validator-example)**
 
 > user.model.ts
 ```js
@@ -247,8 +246,11 @@ export class UserComponent implements OnInit {
 }
 ```
 ## Validation Example 
-**[Demo Code Walkthrough and Download the code](https://stackblitz.com/edit/complete-rxweb-angular-reactive-form-validator-example?embed=1&file=src/app/user/user.component.ts&hideNavigation=1&view=preview)**
+This example only covers the basic validations. For advanced, conditional and dynamic validations goto the **[rxweb](https://rxweb.github.io)** .
+**[Demo Code Walkthrough and Download the code](https://stackblitz.com/edit/complete-rxweb-angular-reactive-form-validator-example)**
 
 <img src="https://rxweb.blob.core.windows.net/test/CompleteValidator.gif"/>
 
 
+# License
+MIT
