@@ -5,6 +5,9 @@ import { AlphaConfig } from "./config/alpha-config";
 import { RangeConfig } from "./config/range-config";
 import { NumberConfig } from "./config/number-config";
 import { DateConfig } from "./config/date-config";
+import { DigitConfig } from "./config/digit-config";
+import { EmailConfig } from "./config/email-config";
+import { MessageConfig } from "./config/message-config";
 import { ValidatorFn } from "@angular/forms";
 
 export interface PropValidationConfig {
@@ -15,16 +18,16 @@ export interface PropValidationConfig {
     compare?: CompareConfig ;
     contains?: DefaultConfig;
     alpha?: AlphaConfig | boolean;
-    numeric?: boolean;
+    digit?: DigitConfig | boolean;
     alphaNumeric?: AlphaConfig | boolean;
-    email?: boolean;
-    hexColor?: boolean;
-    lowercase?: boolean;
+    email?: EmailConfig | boolean;
+    hexColor?: MessageConfig | boolean;
+    lowercase?: MessageConfig | boolean;
     maxDate?: DateConfig;
     maxNumber?: NumberConfig;
     minDate?: DateConfig;
     minNumber?: NumberConfig;
-    uppercase?: boolean;
+    uppercase?: MessageConfig | boolean;
     range?: RangeConfig;
     custom?: ValidatorFn;
 }
