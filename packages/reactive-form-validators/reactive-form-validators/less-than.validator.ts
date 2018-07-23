@@ -24,7 +24,7 @@ export function lessThanValidator(config: RelationalOperatorConfig): ValidatorFn
         const matchControlValue = (matchControl) ? matchControl.value : '';
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         const parentObject = (control.parent) ? control.parent.value : undefined;
-        if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
+        if (Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject)) {
             if ((RegexValidator.isNotBlank(controlValue) && RegexValidator.isNotBlank(matchControlValue))) {
                 if (!(matchControl && parseFloat(controlValue) < parseFloat(matchControlValue)))
                     return ObjectMaker.toJson(AnnotationTypes.lessThan, config.message || null, [controlValue, matchControlValue]);        

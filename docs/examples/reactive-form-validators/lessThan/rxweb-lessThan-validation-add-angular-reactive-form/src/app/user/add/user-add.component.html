@@ -1,0 +1,10 @@
+<h1 class="bd-title" id="content">lessThan Validator Example</h1>
+<br/>
+<form *ngIf="userFormGroup" [formGroup]="userFormGroup">
+<div class="form-group">
+    <label>Marks</label>
+    <input type="text" formControlName="marks" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.marks.errors">{{userFormGroup.controls.marks.errors.lessThan.message}}<br/></small>
+</div>
+<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>

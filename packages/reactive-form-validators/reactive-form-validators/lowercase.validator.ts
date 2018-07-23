@@ -15,7 +15,7 @@ export function lowercaseValidator(config:MessageConfig): ValidatorFn {
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);
         const parentObject = (control.parent) ? control.parent.value : undefined;
-        if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
+        if (Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 if (!(controlValue === controlValue.toLowerCase()))
                     return ObjectMaker.toJson(AnnotationTypes.lowerCase, config.message || null, [controlValue])

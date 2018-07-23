@@ -55,8 +55,8 @@ export const defaultContainer:
                 instance = this.addInstanceContainer(instanceFunc);
                 instance.propertyAnnotations.push(decoratorConfiguration);
             }
-            if (decoratorConfiguration.config && decoratorConfiguration.config.conditionalExpressions) {
-                let columns = Linq.expressionColumns(decoratorConfiguration.config.conditionalExpressions);
+            if (decoratorConfiguration.config && decoratorConfiguration.config.conditionalExpression) {
+                let columns = Linq.expressionColumns(decoratorConfiguration.config.conditionalExpression);
                 this.addChangeValidation(instance, decoratorConfiguration.propertyName, columns);
             }
             if (instance && decoratorConfiguration.config && (decoratorConfiguration.annotationType == AnnotationTypes.compare || decoratorConfiguration.annotationType == AnnotationTypes.greaterThan || decoratorConfiguration.annotationType == AnnotationTypes.greaterThanEqualTo || decoratorConfiguration.annotationType == AnnotationTypes.lessThan || decoratorConfiguration.annotationType == AnnotationTypes.lessThanEqualTo)) {

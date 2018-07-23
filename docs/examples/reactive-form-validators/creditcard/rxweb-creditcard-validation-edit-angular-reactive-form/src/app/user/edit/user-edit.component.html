@@ -1,0 +1,11 @@
+<h1 class="bd-title" id="content">creditcard Validator Example</h1>
+<br/>
+<form *ngIf="userFormGroup" [formGroup]="userFormGroup">
+<div class="form-group">
+    <label>Credit Card No.</label>
+    <input type="text" formControlName="creditCardNumber" class="form-control"  />
+    <small class="form-text text-muted">Enter Visa Card No<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.creditCardNumber.errors">{{userFormGroup.controls.creditCardNumber.errors.creditcard.message}}<br/></small>
+</div>
+<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>

@@ -1,4 +1,4 @@
 export interface RequiredConfig {
     message?: string;
-    conditionalExpressions?: string | Function;
+    conditionalExpression?: string | Function;
 }

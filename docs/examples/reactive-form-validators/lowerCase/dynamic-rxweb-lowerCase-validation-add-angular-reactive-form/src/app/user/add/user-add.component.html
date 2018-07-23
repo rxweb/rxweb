@@ -1,0 +1,21 @@
+<h1 class="bd-title" id="content">lowerCase Validator Example</h1>
+<br/>
+<form *ngIf="userFormGroup" [formGroup]="userFormGroup">
+<div class="form-group">
+    <label>Username</label>
+    <input type="text" formControlName="username" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.username.errors">{{userFormGroup.controls.username.errors.lowerCase.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>First name</label>
+    <input type="text" formControlName="firstName" class="form-control"  />
+    <small class="form-text text-muted">To apply the validation of lowerCase on 'First Name' field, then enter the value of 'jonathan.feldman' in username textbox.<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstName.errors">{{userFormGroup.controls.firstName.errors.lowerCase.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Last name</label>
+    <input type="text" formControlName="lastName" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.lastName.errors">{{userFormGroup.controls.lastName.errors.lowerCase.message}}<br/></small>
+</div>
+<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>

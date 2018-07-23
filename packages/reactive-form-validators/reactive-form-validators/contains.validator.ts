@@ -18,7 +18,7 @@ export function containsValidator(config:DefaultConfig): ValidatorFn {
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);
         const parentObject = (control.parent) ? control.parent.value : undefined;
-        if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
+        if (Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 if (controlValue.indexOf(config.value) == -1)
                     return ObjectMaker.toJson(AnnotationTypes.contains, config.message || null, [config.value,controlValue]);

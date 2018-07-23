@@ -1,0 +1,10 @@
+<h1 class="bd-title" id="content">json Validator Example</h1>
+<br/>
+<form *ngIf="jsonInfoFormGroup" [formGroup]="jsonInfoFormGroup">
+<div class="form-group">
+    <label>Name</label>
+    <input type="text" formControlName="name" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.name.errors">{{jsonInfoFormGroup.controls.name.errors.json.message}}<br/></small>
+</div>
+<button [disabled]="!jsonInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>

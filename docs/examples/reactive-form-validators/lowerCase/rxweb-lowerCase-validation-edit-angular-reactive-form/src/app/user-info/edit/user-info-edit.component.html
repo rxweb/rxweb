@@ -1,0 +1,10 @@
+<h1 class="bd-title" id="content">lowerCase Validator Example</h1>
+<br/>
+<form *ngIf="userInfoFormGroup" [formGroup]="userInfoFormGroup">
+<div class="form-group">
+    <label>Username</label>
+    <input type="text" formControlName="username" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.username.errors">{{userInfoFormGroup.controls.username.errors.lowerCase.message}}<br/></small>
+</div>
+<button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>

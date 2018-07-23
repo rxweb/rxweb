@@ -1,5 +1,5 @@
 export interface CompareConfig{
     fieldName: string;
     message?: string;
-    conditionalExpressions?: string | Function;
+    conditionalExpression?: string | Function;
 }
