@@ -26,7 +26,7 @@ export class SubjectDetailsAddComponent implements OnInit {
 				maxNumber : true  
 			},
 			maximumMarks : {
-				maxNumber :  {value:100,conditionalExpressions:'x => x.subjectCode == '8CS5A'',} 
+				maxNumber :  {value:100,conditionalExpressions:'x => x.subjectCode == "8CS5A"',} 
 			},
 			numberOfStudents : {
 				maxNumber :  {value:50,message:'{{0}} exceeds the Maximum Students Limit',} 

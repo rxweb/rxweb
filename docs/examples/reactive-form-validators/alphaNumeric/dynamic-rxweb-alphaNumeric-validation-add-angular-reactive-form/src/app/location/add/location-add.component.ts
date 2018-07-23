@@ -32,7 +32,7 @@ export class LocationAddComponent implements OnInit {
 				alphaNumeric :  {allowWhiteSpace:true,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.',} 
 			},
 			cityCode : {
-				alphaNumeric :  {conditionalExpressions:'x => x.areaName == 'Boston'',} 
+				alphaNumeric :  {conditionalExpressions:'x => x.areaName =="Boston"',} 
 			},
         };
 		this.locationFormGroup = this.formBuilder.formGroup(location,formBuilderConfiguration);

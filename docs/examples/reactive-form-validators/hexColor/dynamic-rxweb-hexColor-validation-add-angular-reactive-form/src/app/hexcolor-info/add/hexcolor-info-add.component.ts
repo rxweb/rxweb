@@ -26,7 +26,7 @@ export class HexcolorInfoAddComponent implements OnInit {
 				hexColor : true  
 			},
 			headerHexcolorCode : {
-				hexColor :  {conditionalExpressions:'x => x.age == 'Hexcolor'',} 
+				hexColor :  {conditionalExpressions:'x => x.age == "Hexcolor"',} 
 			},
 			bodyHexcolorCode : {
 				hexColor :  {message:'Please enter the right format of hexcode for body like '#AFAFAF'',} 

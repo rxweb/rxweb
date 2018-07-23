@@ -26,7 +26,7 @@ export class UserAddComponent implements OnInit {
 				required : true  
 			},
 			lastName : {
-				required :  {conditionalExpressions:'x => x.FirstName == 'John'',} 
+				required :  {conditionalExpressions:'x => x.FirstName == "John"',} 
 			},
 			userName : {
 				required :  {message:'Username cannot be blank.',} 

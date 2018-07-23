@@ -29,7 +29,7 @@ export class ResultInfoAddComponent implements OnInit {
 				minNumber :  {value:35,message:'Number should not be less than 35',} 
 			},
 			statastics : {
-				minNumber :  {value:35,conditionalExpressions:'x => x.maths == '50'',} 
+				minNumber :  {value:35,conditionalExpressions:'x => x.maths == 50',} 
 			},
         };
 		this.resultInfoFormGroup = this.formBuilder.formGroup(resultInfo,formBuilderConfiguration);

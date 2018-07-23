@@ -26,7 +26,7 @@ export class UserAddComponent implements OnInit {
 				contains :  {value:'@gmail.com',} 
 			},
 			recoveryEmailAddress : {
-				contains :  {value:'@gmail.com',conditionalExpressions:'x => x.emailAddress == 'abc@gmail.com'',} 
+				contains :  {value:'@gmail.com',conditionalExpressions:'x => x.emailAddress == "abc@gmail.com"',} 
 			},
 			otherEmailAddress : {
 				contains :  {value:'@gmail.com',message:'Please enter valid gmailId',} 

@@ -26,7 +26,7 @@ export class LocationAddComponent implements OnInit {
 				upperCase : true  
 			},
 			stateName : {
-				upperCase :  {conditionalExpressions:'x => x.countryName == 'INDIA'',} 
+				upperCase :  {conditionalExpressions:'x => x.countryName == "INDIA"',} 
 			},
 			cityName : {
 				upperCase :  {message:'You can enter only upperCase letters.',} 
