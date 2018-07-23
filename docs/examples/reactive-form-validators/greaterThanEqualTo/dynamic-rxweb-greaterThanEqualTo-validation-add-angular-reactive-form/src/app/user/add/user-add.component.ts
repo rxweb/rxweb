@@ -26,7 +26,7 @@ export class UserAddComponent implements OnInit {
 				greaterThanEqualTo : true  
 			},
 			voterAge : {
-				greaterThanEqualTo :  {fieldName:age,conditionalExpressions:'x => x.age >= 18 ',} 
+				greaterThanEqualTo :  {'fieldName':'age',conditionalExpressions:'x => x.age >= 18 ',} 
 			},
 			otherAge : {
 				greaterThanEqualTo :  {fieldName:age,message:'Please enter number greater than or equal to 1.',} 

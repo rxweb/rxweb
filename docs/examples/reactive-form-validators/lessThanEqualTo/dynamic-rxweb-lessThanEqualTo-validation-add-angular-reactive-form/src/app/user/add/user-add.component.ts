@@ -26,10 +26,10 @@ export class UserAddComponent implements OnInit {
 				lessThanEqualTo : true  
 			},
 			totalMarks : {
-				lessThanEqualTo :  {fieldName:obtainedMarks,conditionalExpressions:'x => x.obtainedMarks <= 100 ',} 
+				lessThanEqualTo :  {'fieldName':'obtainedMarks',conditionalExpressions:'x => x.obtainedMarks <= 100 ',} 
 			},
 			otherMarks : {
-				lessThanEqualTo :  {fieldName:obtainedMarks,message:'Please enter number less than 100.',} 
+				lessThanEqualTo :  {'fieldName':'obtainedMarks',message:'Please enter number less than 100.',} 
 			},
         };
 		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
