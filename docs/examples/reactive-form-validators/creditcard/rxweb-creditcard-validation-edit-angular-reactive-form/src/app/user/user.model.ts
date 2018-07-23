@@ -1,7 +1,7 @@
-import {  creditcard, } from "@rxweb/reactive-form-validators"
+import {  creditCard, } from "@rxweb/reactive-form-validators"
 export class User {
 
-	@creditcard({creditCardTypes:[ CreditCardType.Visa ]  ,conditionalExpressions:x => x.cardType == "visa" }) 
+	@creditCard({creditCardTypes:[ CreditCardType.Visa ]  ,conditionalExpressions:x => x.cardType == "visa" }) 
 	creditCardNumber: string;
 
 }

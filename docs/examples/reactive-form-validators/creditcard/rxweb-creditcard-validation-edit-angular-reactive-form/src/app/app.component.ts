@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     ReactiveFormConfig.set({
       "validationMessage": {
-          "creditcard": "Invalid creditcard no.",
+          "creditCard": "Invalid creditcard no.",
       }
   });
   }
