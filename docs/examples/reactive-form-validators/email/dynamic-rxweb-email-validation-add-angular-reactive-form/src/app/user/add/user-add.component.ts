@@ -26,7 +26,7 @@ export class UserAddComponent implements OnInit {
 				email : true  
 			},
 			recoveryEmailAddress : {
-				email :  {conditionalExpressions:'x,y => x.email >= "abc@gmail.com" ',} 
+				email :  {conditionalExpressions:'x,y => x.email == "abc@gmail.com" ',} 
 			},
 			otherEmailAddress : {
 				email :  {message:'Please enter valid email',} 

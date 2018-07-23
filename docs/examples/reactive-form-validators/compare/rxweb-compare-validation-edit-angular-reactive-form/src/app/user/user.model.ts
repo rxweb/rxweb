@@ -4,7 +4,7 @@ export class User {
 	@compare() 
 	password: string;
 
-	@compare({fieldName:password }) 
+	@compare({'fieldName':'password' }) 
 	confirmPassword: string;
 
 }
