@@ -26,7 +26,7 @@ export class UserAddComponent implements OnInit {
 				lessThanEqualTo : true  
 			},
 			obtainedMarks : {
-				lessThanEqualTo :  {fieldName:'totalMarks',conditionalExpression:x => x.totalMarks == 100,} 
+				lessThanEqualTo :  {fieldName:'totalMarks',conditionalExpressions:'x => x.totalMarks == 100',} 
 			},
 			otherMarks : {
 				lessThanEqualTo :  {fieldName:'totalMarks',message:'Please enter number less than 100.',} 
