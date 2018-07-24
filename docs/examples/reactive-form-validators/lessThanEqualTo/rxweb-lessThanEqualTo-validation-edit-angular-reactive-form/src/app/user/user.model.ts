@@ -2,9 +2,9 @@ import {  lessThanEqualTo, } from "@rxweb/reactive-form-validators"
 export class User {
 
 	@lessThanEqualTo() 
-	marks: number;
+	totalMarks: number;
 
 	@lessThanEqualTo({fieldName:'marks' }) 
-	totalMarks: number;
+	marks: number;
 
 }

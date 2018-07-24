@@ -22,11 +22,11 @@ export class UserAddComponent implements OnInit {
         let user = new User();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
-			obtainedMarks : {
+			totalMarks : {
 				lessThanEqualTo : true  
 			},
-			totalMarks : {
-				lessThanEqualTo :  {fieldName:'obtainedMarks',} 
+			obtainedMarks : {
+				lessThanEqualTo :  {fieldName:'obtainedMarks',conditionalExpression:x => x.totalMarks == 100,} 
 			},
 			otherMarks : {
 				lessThanEqualTo :  {fieldName:'obtainedMarks',message:'Please enter number less than 100.',} 
