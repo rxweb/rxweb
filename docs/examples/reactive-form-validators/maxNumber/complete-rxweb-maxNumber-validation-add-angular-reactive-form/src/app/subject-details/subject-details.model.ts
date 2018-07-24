@@ -8,6 +8,6 @@ export class SubjectDetails {
 	maximumMarks: number;
 
 	@maxNumber({value:50  ,message:'{{0}} exceeds the Maximum Students Limit' }) 
-	numberOfStudents: number;
+	passingMarks: number;
 
 }

@@ -9,6 +9,6 @@ export class SubjectDetails {
 	maximumMarks: number;
 
 	@prop()
-	numberOfStudents: number;
+	passingMarks: number;
 
 }

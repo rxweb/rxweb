@@ -2,9 +2,10 @@
 <br/>
 <form *ngIf="subjectDetailsFormGroup" [formGroup]="subjectDetailsFormGroup">
 <div class="form-group">
-    <label>Subject Code</label>
-    <input type="text" formControlName="subjectCode" class="form-control"  />
-    <small class="form-text text-danger" *ngIf="subjectDetailsFormGroup.controls.subjectCode.errors">{{subjectDetailsFormGroup.controls.subjectCode.errors.maxNumber.message}}<br/></small>
+    <label>Passing Marks</label>
+    <input type="text" formControlName="passingMarks" class="form-control"  />
+    <small class="form-text text-muted">you can enter maxNumber upto 50<br/></small>
+    <small class="form-text text-danger" *ngIf="subjectDetailsFormGroup.controls.passingMarks.errors">{{subjectDetailsFormGroup.controls.passingMarks.errors.maxNumber.message}}<br/></small>
 </div>
 <button [disabled]="!subjectDetailsFormGroup.valid" class="btn btn-primary">Submit</button>
 </form>
