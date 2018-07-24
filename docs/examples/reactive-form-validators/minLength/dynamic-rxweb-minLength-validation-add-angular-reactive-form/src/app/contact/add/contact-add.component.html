@@ -9,11 +9,15 @@
 <div class="form-group">
     <label>Mobile No.</label>
     <input type="text" formControlName="mobileNo" class="form-control"  />
+    <small class="form-text text-muted">Minimum length upto 10 characters.<br/></small>
+    <small class="form-text text-muted">Shows message from ReactiveFormConfig.<br/></small>
     <small class="form-text text-danger" *ngIf="contactFormGroup.controls.mobileNo.errors">{{contactFormGroup.controls.mobileNo.errors.minLength.message}}<br/></small>
 </div>
 <div class="form-group">
     <label>Land line No</label>
     <input type="text" formControlName="landLineNo" class="form-control"  />
+    <small class="form-text text-muted">Minimum length upto 8 characters.<br/></small>
+    <small class="form-text text-muted">Shows custom message.<br/></small>
     <small class="form-text text-danger" *ngIf="contactFormGroup.controls.landLineNo.errors">{{contactFormGroup.controls.landLineNo.errors.minLength.message}}<br/></small>
 </div>
 <div class="form-group">

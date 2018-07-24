@@ -26,7 +26,7 @@ export class ContactAddComponent implements OnInit {
 				minLength : true  
 			},
 			mobileNo : {
-				minLength :  {value:10,message:'Minimum 10 characters are allowed',} 
+				minLength :  {value:10,} 
 			},
 			landLineNo : {
 				minLength :  {value:8,message:'Minimum 8 characters are allowed',} 

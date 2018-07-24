@@ -4,7 +4,7 @@ export class Contact {
 	@minLength() 
 	countryName: string;
 
-	@minLength({value:10  ,message:'Minimum 10 characters are allowed' }) 
+	@minLength({value:10 }) 
 	mobileNo: string;
 
 	@minLength({value:8  ,message:'Minimum 8 characters are allowed' }) 

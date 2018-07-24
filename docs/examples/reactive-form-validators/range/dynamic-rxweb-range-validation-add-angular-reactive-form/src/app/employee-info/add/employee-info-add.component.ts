@@ -29,7 +29,7 @@ export class EmployeeInfoAddComponent implements OnInit {
 				range :  {minimumNumber:2,maximumNumber:20,conditionalExpressions:'x => x.age >=25',} 
 			},
 			salary : {
-				range :  {minimumNumber:1000',maximumNumber:200000,message:'Your Salary should be between 10000 to 200000.',} 
+				range :  {minimumNumber:1000,maximumNumber:200000,message:'Your Salary should be between 10000 to 200000.',} 
 			},
         };
 		this.employeeInfoFormGroup = this.formBuilder.formGroup(employeeInfo,formBuilderConfiguration);
