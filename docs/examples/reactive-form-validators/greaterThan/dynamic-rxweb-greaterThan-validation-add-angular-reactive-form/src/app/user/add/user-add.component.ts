@@ -26,10 +26,10 @@ export class UserAddComponent implements OnInit {
 				greaterThan : true  
 			},
 			voterAge : {
-				greaterThan :  {'fieldName':'age',conditionalExpressions:'x => x.age > 17',} 
+				greaterThan :  {fieldName:'age',conditionalExpressions:'x => x.age > 17',} 
 			},
 			otherAge : {
-				greaterThan :  {'fieldName':'age',message:'Please enter number greater than 0.',} 
+				greaterThan :  {fieldName:'age',message:'Please enter number greater than 0.',} 
 			},
         };
 		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);

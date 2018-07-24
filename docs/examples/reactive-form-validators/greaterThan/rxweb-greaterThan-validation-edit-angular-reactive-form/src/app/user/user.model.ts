@@ -4,4 +4,7 @@ export class User {
 	@greaterThan() 
 	age: number;
 
+	@greaterThan({fieldName:'age' }) 
+	voterAge: number;
+
 }

@@ -6,5 +6,11 @@
     <input type="text" formControlName="marks" class="form-control"  />
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.marks.errors">{{userFormGroup.controls.marks.errors.lessThan.message}}<br/></small>
 </div>
+<div class="form-group">
+    <label>Passing Marks</label>
+    <input type="text" formControlName="passingMarks" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply less than equal to validation then PassingMarks must be less than to marks.<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.passingMarks.errors">{{userFormGroup.controls.passingMarks.errors.lessThan.message}}<br/></small>
+</div>
 <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
 </form>

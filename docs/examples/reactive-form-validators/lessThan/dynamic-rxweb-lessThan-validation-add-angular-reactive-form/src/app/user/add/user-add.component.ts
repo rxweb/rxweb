@@ -26,7 +26,7 @@ export class UserAddComponent implements OnInit {
 				lessThan : true  
 			},
 			passingMarks : {
-				lessThan :  {'fieldName':'obtainedMarks',conditionalExpressions:'x => x.obtainedMarks < 35 ',} 
+				lessThan :  {fieldName:'obtainedMarks',conditionalExpressions:'x => x.obtainedMarks < 35 ',} 
 			},
 			otherMarks : {
 				lessThan :  {fieldName:'obtainedMarks',message:'Please enter number greater than 100.',} 
