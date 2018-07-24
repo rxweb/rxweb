@@ -4,7 +4,7 @@ export class User {
 	@lessThanEqualTo() 
 	totalMarks: number;
 
-	@lessThanEqualTo({fieldName:'marks' }) 
+	@lessThanEqualTo({fieldName:'totalMarks' }) 
 	marks: number;
 
 }

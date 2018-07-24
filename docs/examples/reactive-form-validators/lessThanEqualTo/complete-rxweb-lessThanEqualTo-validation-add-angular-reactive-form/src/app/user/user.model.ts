@@ -4,10 +4,10 @@ export class User {
 	@lessThanEqualTo() 
 	totalMarks: number;
 
-	@lessThanEqualTo({fieldName:'obtainedMarks'  ,conditionalExpression:x => x.totalMarks == 100 }) 
+	@lessThanEqualTo({fieldName:'totalMarks'  ,conditionalExpression:x => x.totalMarks == 100 }) 
 	obtainedMarks: number;
 
-	@lessThanEqualTo({fieldName:'obtainedMarks'  ,message:'Please enter number less than 100.' }) 
+	@lessThanEqualTo({fieldName:'totalMarks'  ,message:'Please enter number less than 100.' }) 
 	otherMarks: number;
 
 }
