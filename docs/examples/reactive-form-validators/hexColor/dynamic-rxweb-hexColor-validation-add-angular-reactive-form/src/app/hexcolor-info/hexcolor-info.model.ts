@@ -12,6 +12,6 @@ export class HexcolorInfo {
 	bodyHexcolorCode: string;
 
 	@prop()
-	bodyHexcolorCode: string;
+	strictHexcolorCode: string;
 
 }
