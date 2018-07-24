@@ -9,7 +9,7 @@
 <div class="form-group">
     <label>Total Marks</label>
     <input type="text" formControlName="totalMarks" class="form-control"  />
-    <small class="form-text text-muted">If you want to apply less than equal to validation then Total Marks must be less than equal to Marks.<br/></small>
+    <small class="form-text text-muted">This is checking less than equal to validation for  Total Marks must be less than equal to Marks.<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.totalMarks.errors">{{userFormGroup.controls.totalMarks.errors.lessThanEqualTo.message}}<br/></small>
 </div>
 <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
