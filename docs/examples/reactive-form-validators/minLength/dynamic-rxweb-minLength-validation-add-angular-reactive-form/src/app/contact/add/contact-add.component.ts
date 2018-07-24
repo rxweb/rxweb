@@ -26,10 +26,10 @@ export class ContactAddComponent implements OnInit {
 				minLength : true  
 			},
 			mobileNo : {
-				minLength :  {value:10,message:'Only 10 characters are allowed',} 
+				minLength :  {value:10,message:'Minimum 10 characters are allowed',} 
 			},
 			landLineNo : {
-				minLength :  {value:8,message:'Only 8 characters are allowed',} 
+				minLength :  {value:8,message:'Minimum 8 characters are allowed',} 
 			},
 			countryCode : {
 				minLength :  {value:3,conditionalExpressions:'x,y=>x.countryName == "India"',} 
