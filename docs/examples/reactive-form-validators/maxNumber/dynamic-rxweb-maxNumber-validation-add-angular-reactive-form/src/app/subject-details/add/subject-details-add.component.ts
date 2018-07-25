@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { SubjectDetails } from '../subject-details.model';
 
@@ -22,9 +22,6 @@ export class SubjectDetailsAddComponent implements OnInit {
         let subjectDetails = new SubjectDetails();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
-			subjectCode : {
-				maxNumber : true  
-			},
 			maximumMarks : {
 				maxNumber :  {value:100,conditionalExpressions:'x => x.subjectCode == "8CS5A"',} 
 			},

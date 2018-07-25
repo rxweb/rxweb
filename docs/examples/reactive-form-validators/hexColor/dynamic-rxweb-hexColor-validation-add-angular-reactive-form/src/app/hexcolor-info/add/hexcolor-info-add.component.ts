@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { HexcolorInfo } from '../hexcolor-info.model';
 

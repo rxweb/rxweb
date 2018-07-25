@@ -1,7 +1,7 @@
-import {  lessThan, } from "@rxweb/reactive-form-validators"
+import {  lessThan, prop  } from "@rxweb/reactive-form-validators"
 export class User {
 
-	@lessThan() 
+	@prop()
 	obtainedMarks: number;
 
 	@lessThan({fieldName:'obtainedMarks'  ,conditionalExpressions:x => x.obtainedMarks < 35  }) 

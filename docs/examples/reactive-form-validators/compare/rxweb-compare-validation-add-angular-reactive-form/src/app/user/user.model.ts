@@ -1,7 +1,7 @@
-import {  compare, } from "@rxweb/reactive-form-validators"
+import {  compare, prop  } from "@rxweb/reactive-form-validators"
 export class User {
 
-	@compare() 
+	@prop()
 	password: string;
 
 	@compare({fieldName:'password' }) 

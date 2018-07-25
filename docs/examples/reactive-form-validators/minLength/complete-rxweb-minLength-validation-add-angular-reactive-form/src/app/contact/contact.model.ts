@@ -1,7 +1,7 @@
-import {  minLength, } from "@rxweb/reactive-form-validators"
+import {  minLength, prop  } from "@rxweb/reactive-form-validators"
 export class Contact {
 
-	@minLength() 
+	@prop()
 	countryName: string;
 
 	@minLength({value:10 }) 

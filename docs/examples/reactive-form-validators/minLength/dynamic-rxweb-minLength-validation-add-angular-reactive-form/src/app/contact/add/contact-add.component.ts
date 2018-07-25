@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { Contact } from '../contact.model';
 
@@ -22,9 +22,6 @@ export class ContactAddComponent implements OnInit {
         let contact = new Contact();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
-			countryName : {
-				minLength : true  
-			},
 			mobileNo : {
 				minLength :  {value:10,} 
 			},
