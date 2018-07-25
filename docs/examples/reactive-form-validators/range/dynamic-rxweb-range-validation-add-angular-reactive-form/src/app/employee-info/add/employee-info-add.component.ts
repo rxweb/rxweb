@@ -23,7 +23,7 @@ export class EmployeeInfoAddComponent implements OnInit {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
 			age : {
-				range :  {minimumNumber:'18',maximumNumber:'60',} 
+				range :  {minimumNumber:18,maximumNumber:60,} 
 			},
 			experience : {
 				range :  {minimumNumber:2,maximumNumber:20,conditionalExpressions:'x => x.age >=25',} 
