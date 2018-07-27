@@ -7,8 +7,8 @@ uid: validation-decorators/maxNumber
 MaxNumber validation decorator will allow only maximum number be entered upto value parameter. If user tries to enter any number that greater then the value then the property will become invalid. To use the maxNumber decorator on particular property.
  
 # [Basic validation on SubjectDetails add form  ](#tab/basic-validation-on-SubjectDetails-add-form)
-let's create a subjectdetails add form with maxNumber validation. The form will allow only maximum number upto value parameter in the `FormControl` of `subjectCode`. 
-Create SubjectDetails data model and set the maxNumber decorator on `subjectCode` property.
+let's create a subjectdetails add form with maxNumber validation. The form will allow only maximum number upto value parameter in the `FormControl` of `passingMarks`. 
+Create SubjectDetails data model and set the maxNumber decorator on `passingMarks` property.
 <header class="header-tab-title">app/SubjectDetails/subject-details.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/maxNumber/rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts?highlight=5)]
@@ -24,8 +24,8 @@ Create subject details add component and add `RxFormBuilder` service parameter i
 <iframe src="https://stackblitz.com/edit/rxweb-maxnumber-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on SubjectDetails edit  form](#tab/basic-validation-on-SubjectDetails-edit-form)
-let's create a subjectdetails edit form with maxNumber validation. The form will allow only maximum number upto value parameter in the `FormControl` of `subjectCode`. 
-Create SubjectDetails data model and set the maxNumber decorator on `subjectCode` property.
+let's create a subjectdetails edit form with maxNumber validation. The form will allow only maximum number upto value parameter in the `FormControl` of `passingMarks`. 
+Create SubjectDetails data model and set the maxNumber decorator on `passingMarks` property.
 <header class="header-tab-title">app/SubjectDetails/subject-details.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/maxNumber/rxweb-maxNumber-validation-edit-angular-reactive-form/src/app/subject-details/subject-details.model.ts?highlight=5)]
@@ -61,13 +61,13 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `Function` object.
 <header class="header-title">subject-details.model.ts (SubjectDetails class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts#L7-L8)]
+[!code-typescript[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts#L4-L8)]
 
  
 > Binding `conditionalExpression` with `string` datatype.
 <header class="header-title">subject-details.model.ts (SubjectDetails class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts#L7-L8)]
+[!code-typescript[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts#L4-L8)]
 
 ## message 
 Type :  `string` 
