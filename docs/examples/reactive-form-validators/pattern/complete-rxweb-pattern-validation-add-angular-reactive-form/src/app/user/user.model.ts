@@ -1,7 +1,7 @@
 import {  pattern, } from "@rxweb/reactive-form-validators"
 export class User {
 
-	@pattern({pattern:{'onlyAlpha': /^[A-Z]+$/} }) 
+	@pattern({pattern:{'onlyAlpha': /^[A-Za-z]+$/} }) 
 	userName: string;
 
 	@pattern({pattern:{'zipCode':/^\d{5}(?:[-\s]\d{4})?$/ }  ,message:'Zipcode must be 5 digits' }) 

@@ -23,7 +23,7 @@ export class UserAddComponent implements OnInit {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
 			userName : {
-				pattern :  {pattern:{'onlyAlpha': /^[A-Z]+$/},} 
+				pattern :  {pattern:{'onlyAlpha': /^[A-Za-z]+$/},} 
 			},
 			zipCode : {
 				pattern :  {pattern:{'zipCode':/^\d{5}(?:[-\s]\d{4})?$/ },message:'Zipcode must be 5 digits',} 
