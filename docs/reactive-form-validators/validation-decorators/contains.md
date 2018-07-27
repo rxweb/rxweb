@@ -24,9 +24,12 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 <iframe src="https://stackblitz.com/edit/rxweb-contains-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on User edit  form](#tab/basic-validation-on-User-edit-form)
+let's create a user edit form with contains validation. The form will allow only inputs contains in the `FormControl` of `emailAddress`. 
+Create user data model and set the contains decorator on `emailAddress` property.
 <header class="header-tab-title">app/User/user.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/contains/rxweb-contains-validation-edit-angular-reactive-form/src/app/user/user.model.ts?highlight=5)]
+Create user edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<User>(User,user)`
 <header class="header-tab-title">app/user/edit/user-edit.component.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/contains/rxweb-contains-validation-edit-angular-reactive-form/src/app/user/edit/user-edit.component.ts?highlight=17,21-22)]
@@ -106,7 +109,7 @@ To override the global configuration message and show the custom message on part
 
 ---
 
-# Dynamic Alpha Validation Complete Example
+# Dynamic contains Validation Complete Example
 # [User Model](#tab/dynamic-user)
 <header class="header-tab-title">app/user/user.model.ts</header>
 

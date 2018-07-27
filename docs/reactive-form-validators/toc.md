@@ -6,7 +6,7 @@
 ### [alpha](xref:validation-decorators/alpha)
 ### [alphaNumeric](xref:validation-decorators/alphaNumeric)
 ### [contains](xref:validation-decorators/contains)
-### [creditcard](xref:validation-decorators/creditcard)
+### [creditCard](xref:validation-decorators/creditCard)
 ### [digit](xref:validation-decorators/digit)
 ### [email](xref:validation-decorators/email)
 ### [greaterThan](xref:validation-decorators/greaterThan)

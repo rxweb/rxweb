@@ -21,12 +21,15 @@ Create ResultInfo add component and add `RxFormBuilder` service parameter in con
 [!code-html[](../../examples/reactive-form-validators/minNumber/rxweb-minNumber-validation-add-angular-reactive-form/src/app/result-info/add/result-info-add.component.html)]
 
 <h3>ResultInfo Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-minNumber-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-minnumber-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on ResultInfo edit  form](#tab/basic-validation-on-ResultInfo-edit-form)
+let's create a ResultInfo edit form with minNumber validation. The form will allow only minimum number of the value parameter in the `FormControl` of `maths`. 
+Create country data model and set the minNumber decorator on `maths` property.
 <header class="header-tab-title">app/ResultInfo/result-info.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/minNumber/rxweb-minNumber-validation-edit-angular-reactive-form/src/app/result-info/result-info.model.ts?highlight=5)]
+Create ResultInfo edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<ResultInfo>(ResultInfo,resultInfo)`
 <header class="header-tab-title">app/result-info/edit/result-info-edit.component.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/minNumber/rxweb-minNumber-validation-edit-angular-reactive-form/src/app/result-info/edit/result-info-edit.component.ts?highlight=17,21-22)]
@@ -35,7 +38,7 @@ Create ResultInfo add component and add `RxFormBuilder` service parameter in con
 [!code-html[](../../examples/reactive-form-validators/minNumber/rxweb-minNumber-validation-edit-angular-reactive-form/src/app/result-info/edit/result-info-edit.component.html)]
 
 <h3>ResultInfo Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-minNumber-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-minnumber-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -102,11 +105,11 @@ enter value which you want to restrict number in the property
 [!code-html[](../../examples/reactive-form-validators/minNumber/complete-rxweb-minNumber-validation-add-angular-reactive-form/src/app/result-info/add/result-info-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-minNumber-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-minnumber-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
-# Dynamic Alpha Validation Complete Example
+# Dynamic minNumber Validation Complete Example
 # [ResultInfo Model](#tab/dynamic-result-info)
 <header class="header-tab-title">app/result-info/result-info.model.ts</header>
 
@@ -123,7 +126,7 @@ enter value which you want to restrict number in the property
 [!code-html[](../../examples/reactive-form-validators/minNumber/dynamic-rxweb-minNumber-validation-add-angular-reactive-form/src/app/result-info/add/result-info-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-minNumber-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-minnumber-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

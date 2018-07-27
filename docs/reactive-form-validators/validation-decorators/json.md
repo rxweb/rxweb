@@ -24,9 +24,12 @@ Create JsonInfo add component and add `RxFormBuilder` service parameter in const
 <iframe src="https://stackblitz.com/edit/rxweb-json-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on JsonInfo edit  form](#tab/basic-validation-on-JsonInfo-edit-form)
+let's create a JsonInfo edit form with json validation. The form will allow only json in the `FormControl` of `name`. 
+Create JsonInfo data model and set the `json` decorator on `name` property.
 <header class="header-tab-title">app/JsonInfo/json-info.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/json/rxweb-json-validation-edit-angular-reactive-form/src/app/json-info/json-info.model.ts?highlight=5)]
+Create JsonInfo edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<JsonInfo>(JsonInfo,jsonInfo)`
 <header class="header-tab-title">app/json-info/edit/json-info-edit.component.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/json/rxweb-json-validation-edit-angular-reactive-form/src/app/json-info/edit/json-info-edit.component.ts?highlight=17,21-22)]
@@ -96,7 +99,7 @@ To override the global configuration message and show the custom message on part
 
 ---
 
-# Dynamic Alpha Validation Complete Example
+# Dynamic json Validation Complete Example
 # [JsonInfo Model](#tab/dynamic-json-info)
 <header class="header-tab-title">app/json-info/json-info.model.ts</header>
 
