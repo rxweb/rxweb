@@ -26,7 +26,7 @@ export class SubjectDetailsAddComponent implements OnInit {
 				maxNumber :  {value:100,conditionalExpressions:'x => x.subjectCode == "8CS5A"',} 
 			},
 			passingMarks : {
-				maxNumber :  {value:50,message:'{{0}} exceeds the Maximum Students Limit',} 
+				maxNumber :  {value:50,message:'{{0}} exceeds the Maximum marks Limit',} 
 			},
         };
 		this.subjectDetailsFormGroup = this.formBuilder.formGroup(subjectDetails,formBuilderConfiguration);
