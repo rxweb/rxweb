@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rxweb-creditcard-validation-add-angular-reactive-form": {
+    "rxweb-creditCard-validation-add-angular-reactive-form": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rxweb-creditcard-validation-add-angular-reactive-form",
+            "outputPath": "dist/rxweb-creditCard-validation-add-angular-reactive-form",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rxweb-creditcard-validation-add-angular-reactive-form:build"
+            "browserTarget": "rxweb-creditCard-validation-add-angular-reactive-form:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rxweb-creditcard-validation-add-angular-reactive-form:build:production"
+              "browserTarget": "rxweb-creditCard-validation-add-angular-reactive-form:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rxweb-creditcard-validation-add-angular-reactive-form:build"
+            "browserTarget": "rxweb-creditCard-validation-add-angular-reactive-form:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "rxweb-creditcard-validation-add-angular-reactive-form-e2e": {
+    "rxweb-creditCard-validation-add-angular-reactive-form-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "rxweb-creditcard-validation-add-angular-reactive-form:serve"
+            "devServerTarget": "rxweb-creditCard-validation-add-angular-reactive-form:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "rxweb-creditcard-validation-add-angular-reactive-form:serve:production"
+              "devServerTarget": "rxweb-creditCard-validation-add-angular-reactive-form:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "rxweb-creditcard-validation-add-angular-reactive-form"
+  "defaultProject": "rxweb-creditCard-validation-add-angular-reactive-form"
 }

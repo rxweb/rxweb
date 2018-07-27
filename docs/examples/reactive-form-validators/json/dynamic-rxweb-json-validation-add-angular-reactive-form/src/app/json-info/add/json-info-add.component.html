@@ -2,22 +2,22 @@
 <br/>
 <form *ngIf="jsonInfoFormGroup" [formGroup]="jsonInfoFormGroup">
 <div class="form-group">
-    <label>Name</label>
-    <input type="text" formControlName="name" class="form-control"  />
-    <small class="form-text text-muted">'To apply the validation of JSON on 'Age' field, then enter the value of &#123; 'firstName': 'John', 'lastName': 'Doe' &#125;  in Name textbox.<br/></small>
-    <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.name.errors">{{jsonInfoFormGroup.controls.name.errors.json.message}}<br/></small>
+    <label>Location Json</label>
+    <input type="text" formControlName="locationJson" class="form-control"  />
+    <small class="form-text text-muted">'To apply the validation of JSON on 'addressJson' field, then enter the value of &#123; &quot;firstName&quot;: &quot;John&quot;, &quot;lastName&quot;: &quot;Doe&quot; &#125;  in Location Json textbox.<br/></small>
+    <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.locationJson.errors">{{jsonInfoFormGroup.controls.locationJson.errors.json.message}}<br/></small>
 </div>
 <div class="form-group">
-    <label>Age</label>
-    <input type="text" formControlName="age" class="form-control"  />
-    <small class="form-text text-muted">Conditional validation will be applied if the 'buildingName' field have value of &#123; 'firstName': 'John', 'lastName': 'Doe' &#125; <br/></small>
-    <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.age.errors">{{jsonInfoFormGroup.controls.age.errors.json.message}}<br/></small>
+    <label>Address Json</label>
+    <input type="text" formControlName="addressJson" class="form-control"  />
+    <small class="form-text text-muted">Conditional validation will be applied if the 'locationJson' field have value of &#123;&quot;firstName&quot;: &quot;John&quot;, &quot;lastName&quot;: &quot;Doe&quot; &#125; <br/></small>
+    <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.addressJson.errors">{{jsonInfoFormGroup.controls.addressJson.errors.json.message}}<br/></small>
 </div>
 <div class="form-group">
-    <label>Address</label>
-    <input type="text" formControlName="address" class="form-control"  />
+    <label>Contact Json</label>
+    <input type="text" formControlName="contactJson" class="form-control"  />
     <small class="form-text text-muted">Shows custom message<br/></small>
-    <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.address.errors">{{jsonInfoFormGroup.controls.address.errors.json.message}}<br/></small>
+    <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.contactJson.errors">{{jsonInfoFormGroup.controls.contactJson.errors.json.message}}<br/></small>
 </div>
 <button [disabled]="!jsonInfoFormGroup.valid" class="btn btn-primary">Submit</button>
 </form>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { User } from '../user.model';
 
@@ -26,7 +26,7 @@ export class UserAddComponent implements OnInit {
 				required : true  
 			},
 			lastName : {
-				required :  {conditionalExpressions:'x => x.FirstName == 'John'',} 
+				required :  {conditionalExpressions:'x => x.firstName == "John"',} 
 			},
 			userName : {
 				required :  {message:'Username cannot be blank.',} 

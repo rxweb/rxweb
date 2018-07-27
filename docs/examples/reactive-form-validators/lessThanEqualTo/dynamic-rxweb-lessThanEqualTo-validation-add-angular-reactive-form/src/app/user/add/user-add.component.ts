@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { User } from '../user.model';
 
@@ -23,13 +23,10 @@ export class UserAddComponent implements OnInit {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
 			obtainedMarks : {
-				lessThanEqualTo : true  
-			},
-			totalMarks : {
-				lessThanEqualTo :  {fieldName:obtainedMarks,conditionalExpressions:'x => x.obtainedMarks <= 100 ',} 
+				lessThanEqualTo :  {fieldName:'totalMarks',conditionalExpressions:'x => x.totalMarks == 100',} 
 			},
 			otherMarks : {
-				lessThanEqualTo :  {fieldName:obtainedMarks,message:'Please enter number less than 100.',} 
+				lessThanEqualTo :  {fieldName:'totalMarks',message:'Please enter number less than 100.',} 
 			},
         };
 		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);

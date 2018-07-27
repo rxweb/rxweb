@@ -24,9 +24,12 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 <iframe src="https://stackblitz.com/edit/rxweb-required-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on UserInfo edit  form](#tab/basic-validation-on-UserInfo-edit-form)
+let's create a user edit form with required validation. The form will check that `FormControl` of `firstName` has value or not. 
+Create user data model and set the required decorator on `firstName` property.
 <header class="header-tab-title">app/UserInfo/user-info.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/required/rxweb-required-validation-edit-angular-reactive-form/src/app/user-info/user-info.model.ts?highlight=5)]
+Create user edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<UserInfo>(UserInfo,userInfo)`
 <header class="header-tab-title">app/user-info/edit/user-info-edit.component.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/required/rxweb-required-validation-edit-angular-reactive-form/src/app/user-info/edit/user-info-edit.component.ts?highlight=17,21-22)]
@@ -96,7 +99,7 @@ To override the global configuration message and show the custom message on part
 
 ---
 
-# Dynamic Alpha Validation Complete Example
+# Dynamic required Validation Complete Example
 # [User Model](#tab/dynamic-user)
 <header class="header-tab-title">app/user/user.model.ts</header>
 

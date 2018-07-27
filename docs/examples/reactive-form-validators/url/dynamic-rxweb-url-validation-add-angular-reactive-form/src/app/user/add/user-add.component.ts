@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { User } from '../user.model';
 
@@ -26,7 +26,7 @@ export class UserAddComponent implements OnInit {
 				url : true  
 			},
 			customerWebsiteUrl : {
-				url :  {conditionalExpressions:'x => x.adminWebsiteUrl == 'https://google.co.in'',} 
+				url :  {conditionalExpressions:'x => x.adminWebsiteUrl == "https://google.co.in" ',} 
 			},
 			maintenanceWebSiteUrl : {
 				url :  {message:'Is not the correct url pattern.',} 

@@ -1,13 +1,13 @@
-import {  lessThanEqualTo, } from "@rxweb/reactive-form-validators"
+import {  lessThanEqualTo, prop  } from "@rxweb/reactive-form-validators"
 export class User {
 
-	@lessThanEqualTo() 
-	obtainedMarks: number;
-
-	@lessThanEqualTo({fieldName:obtainedMarks  ,conditionalExpressions:x => x.obtainedMarks <= 100  }) 
+	@prop()
 	totalMarks: number;
 
-	@lessThanEqualTo({fieldName:obtainedMarks  ,message:'Please enter number less than 100.' }) 
+	@lessThanEqualTo({fieldName:'totalMarks'  ,conditionalExpressions:x => x.totalMarks == 100 }) 
+	obtainedMarks: number;
+
+	@lessThanEqualTo({fieldName:'totalMarks'  ,message:'Please enter number less than 100.' }) 
 	otherMarks: number;
 
 }

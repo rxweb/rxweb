@@ -1,4 +1,3 @@
-import {  maxNumber, } from "@rxweb/reactive-form-validators"
 import {prop} from '@rxweb/reactive-form-validators'
 export class SubjectDetails {
 
@@ -9,6 +8,6 @@ export class SubjectDetails {
 	maximumMarks: number;
 
 	@prop()
-	numberOfStudents: number;
+	passingMarks: number;
 
 }

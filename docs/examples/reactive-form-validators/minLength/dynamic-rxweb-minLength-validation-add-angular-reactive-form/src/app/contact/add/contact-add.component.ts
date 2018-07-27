@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { Contact } from '../contact.model';
 
@@ -22,14 +22,11 @@ export class ContactAddComponent implements OnInit {
         let contact = new Contact();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
-			countryName : {
-				minLength : true  
-			},
 			mobileNo : {
-				minLength :  {value:10,message:'Only 10 characters are allowed',} 
+				minLength :  {value:10,} 
 			},
 			landLineNo : {
-				minLength :  {value:8,message:'Only 8 characters are allowed',} 
+				minLength :  {value:8,message:'Minimum 8 characters are allowed',} 
 			},
 			countryCode : {
 				minLength :  {value:3,conditionalExpressions:'x,y=>x.countryName == "India"',} 

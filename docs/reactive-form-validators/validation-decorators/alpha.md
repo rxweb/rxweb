@@ -24,9 +24,12 @@ Create country add component and add `RxFormBuilder` service parameter in constr
 <iframe src="https://stackblitz.com/edit/rxweb-alpha-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on Country edit  form](#tab/basic-validation-on-Country-edit-form)
+let's create a country edit form with alpha validation. The form will allow only alphabets in the `FormControl` of `countryName`. 
+Create country data model and set the alpha decorator on `countryName` property.
 <header class="header-tab-title">app/Country/country.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/alpha/rxweb-alpha-validation-edit-angular-reactive-form/src/app/country/country.model.ts?highlight=5)]
+Create country edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<Country>(Country,country)`
 <header class="header-tab-title">app/country/edit/country-edit.component.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/alpha/rxweb-alpha-validation-edit-angular-reactive-form/src/app/country/edit/country-edit.component.ts?highlight=17,21-22)]
@@ -106,7 +109,7 @@ To override the global configuration message and show the custom message on part
 
 ---
 
-# Dynamic Alpha Validation Complete Example
+# Dynamic alpha Validation Complete Example
 # [AddressInfo Model](#tab/dynamic-address-info)
 <header class="header-tab-title">app/address-info/address-info.model.ts</header>
 

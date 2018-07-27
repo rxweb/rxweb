@@ -21,12 +21,15 @@ Create location add component and add `RxFormBuilder` service parameter in const
 [!code-html[](../../examples/reactive-form-validators/alphaNumeric/rxweb-alphaNumeric-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 <h3>Location Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-alphaNumeric-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-alphanumeric-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on Location edit  form](#tab/basic-validation-on-Location-edit-form)
+let's create a location edit form with alphaNumeric validation. The form will allow only alphabets and numbers in the `FormControl` of `areaName`. 
+Create location data model and set the alphaNumeric decorator on `areaName` property.
 <header class="header-tab-title">app/Location/location.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/alphaNumeric/rxweb-alphaNumeric-validation-edit-angular-reactive-form/src/app/location/location.model.ts?highlight=5)]
+Create location edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<Location>(Location,location);`
 <header class="header-tab-title">app/location/edit/location-edit.component.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/alphaNumeric/rxweb-alphaNumeric-validation-edit-angular-reactive-form/src/app/location/edit/location-edit.component.ts?highlight=17,21-22)]
@@ -35,7 +38,7 @@ Create location add component and add `RxFormBuilder` service parameter in const
 [!code-html[](../../examples/reactive-form-validators/alphaNumeric/rxweb-alphaNumeric-validation-edit-angular-reactive-form/src/app/location/edit/location-edit.component.html)]
 
 <h3>Location Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-alphaNumeric-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-alphanumeric-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -102,11 +105,11 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/alphaNumeric/complete-rxweb-alphaNumeric-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-alphaNumeric-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-alphanumeric-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
-# Dynamic Alpha Validation Complete Example
+# Dynamic alphaNumeric Validation Complete Example
 # [Location Model](#tab/dynamic-location)
 <header class="header-tab-title">app/location/location.model.ts</header>
 
@@ -123,7 +126,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/alphaNumeric/dynamic-rxweb-alphaNumeric-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-alphaNumeric-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-alphanumeric-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

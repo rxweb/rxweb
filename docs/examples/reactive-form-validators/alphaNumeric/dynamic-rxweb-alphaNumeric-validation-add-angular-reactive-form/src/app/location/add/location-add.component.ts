@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { Location } from '../location.model';
 
@@ -32,7 +32,7 @@ export class LocationAddComponent implements OnInit {
 				alphaNumeric :  {allowWhiteSpace:true,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.',} 
 			},
 			cityCode : {
-				alphaNumeric :  {conditionalExpressions:'x => x.areaName == 'Boston'',} 
+				alphaNumeric :  {conditionalExpressions:'x => x.areaName =="Boston"',} 
 			},
         };
 		this.locationFormGroup = this.formBuilder.formGroup(location,formBuilderConfiguration);

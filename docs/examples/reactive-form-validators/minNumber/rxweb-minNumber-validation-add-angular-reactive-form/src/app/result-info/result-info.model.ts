@@ -1,7 +1,7 @@
 import {  minNumber, } from "@rxweb/reactive-form-validators"
 export class ResultInfo {
 
-	@minNumber() 
+	@minNumber({value:35 }) 
 	maths: number;
 
 }

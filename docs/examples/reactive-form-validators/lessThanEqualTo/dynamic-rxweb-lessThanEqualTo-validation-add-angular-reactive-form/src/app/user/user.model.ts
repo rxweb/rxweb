@@ -1,12 +1,11 @@
-import {  lessThanEqualTo, } from "@rxweb/reactive-form-validators"
 import {prop} from '@rxweb/reactive-form-validators'
 export class User {
 
 	@prop()
-	obtainedMarks: number;
+	totalMarks: number;
 
 	@prop()
-	totalMarks: number;
+	obtainedMarks: number;
 
 	@prop()
 	otherMarks: number;

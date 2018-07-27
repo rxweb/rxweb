@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { User } from '../user.model';
 
@@ -26,7 +26,7 @@ export class UserAddComponent implements OnInit {
 				email : true  
 			},
 			recoveryEmailAddress : {
-				email :  {conditionalExpressions:'x,y => x.email >= "abc@gmail.com" ',} 
+				email :  {conditionalExpressions:'x,y => x.email == "abc@gmail.com" ',} 
 			},
 			otherEmailAddress : {
 				email :  {message:'Please enter valid email',} 

@@ -21,12 +21,15 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 [!code-html[](../../examples/reactive-form-validators/maxLength/rxweb-maxLength-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 <h3>Location Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-maxLength-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-maxlength-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on Location edit  form](#tab/basic-validation-on-Location-edit-form)
+let's create a user edit form with maxLength validation. The form will allow only maximum length upto value parameter in the `FormControl` of `firstName`. 
+Create user data model and set the maxLength decorator on `firstName` property.
 <header class="header-tab-title">app/Location/location.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/maxLength/rxweb-maxLength-validation-edit-angular-reactive-form/src/app/location/location.model.ts?highlight=5)]
+Create user edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<Location>(Location,location)`
 <header class="header-tab-title">app/location/edit/location-edit.component.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/maxLength/rxweb-maxLength-validation-edit-angular-reactive-form/src/app/location/edit/location-edit.component.ts?highlight=17,21-22)]
@@ -35,7 +38,7 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 [!code-html[](../../examples/reactive-form-validators/maxLength/rxweb-maxLength-validation-edit-angular-reactive-form/src/app/location/edit/location-edit.component.html)]
 
 <h3>Location Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-maxLength-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-maxlength-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -102,11 +105,11 @@ enter value which you want to restrict string length in the property
 [!code-html[](../../examples/reactive-form-validators/maxLength/complete-rxweb-maxLength-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-maxLength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-maxlength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
-# Dynamic Alpha Validation Complete Example
+# Dynamic maxLength Validation Complete Example
 # [User Model](#tab/dynamic-user)
 <header class="header-tab-title">app/user/user.model.ts</header>
 
@@ -123,7 +126,7 @@ enter value which you want to restrict string length in the property
 [!code-html[](../../examples/reactive-form-validators/maxLength/dynamic-rxweb-maxLength-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-maxLength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-maxlength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

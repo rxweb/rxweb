@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { AttandanceDetail } from '../attandance-detail.model';
 
@@ -26,7 +26,7 @@ export class AttandanceDetailAddComponent implements OnInit {
 				time : true  
 			},
 			entryTime : {
-				time :  {conditionalExpressions:'x => x.entryPlace == 'Lunch Room'',} 
+				time :  {conditionalExpressions:'x => x.entryPlace == "Lunch Room"',} 
 			},
 			totalOutTime : {
 				time :  {allowSeconds:true,} 

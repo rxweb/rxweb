@@ -1,7 +1,7 @@
 import {  range, } from "@rxweb/reactive-form-validators"
 export class EmployeeInfo {
 
-	@range() 
+	@range({minimumNumber:18  ,maximumNumber:60 }) 
 	age: number;
 
 }

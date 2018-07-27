@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { HexcolorInfo } from '../hexcolor-info.model';
 
@@ -26,12 +26,12 @@ export class HexcolorInfoAddComponent implements OnInit {
 				hexColor : true  
 			},
 			headerHexcolorCode : {
-				hexColor :  {conditionalExpressions:'x => x.age == 'Hexcolor'',} 
+				hexColor :  {conditionalExpressions:'x => x.color == "#AFAFAF"',} 
 			},
 			bodyHexcolorCode : {
-				hexColor :  {message:'Please enter the right format of hexcode for body like '#AFAFAF'',} 
+				hexColor :  {message:'Please enter the right format of hexcode for body like "#AFAFAF"',} 
 			},
-			bodyHexcolorCode : {
+			strictHexcolorCode : {
 				hexColor :  {isStrict:true,} 
 			},
         };

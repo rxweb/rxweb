@@ -7,7 +7,7 @@ uid: validation-decorators/time
 time validation decorator will allow only time format to be entered. If user tries to enter any string except json then the property will become invalid. To use the json decorator on particular property.
  
 # [Basic validation on AttandanceDetail add form  ](#tab/basic-validation-on-AttandanceDetail-add-form)
-let's create a attandance detail add form with time validation. The form will allow only time in the `FormControl` of `entryPlace`. 
+let's create a AttandanceDetail add form with time validation. The form will allow only time in the `FormControl` of `entryPlace`. 
 Create AttandanceDetail data model and set the `time` decorator on `entryPlace` property.
 <header class="header-tab-title">app/AttandanceDetail/attandance-detail.model.ts</header>
 
@@ -24,9 +24,12 @@ Create AttandanceDetail add component and add `RxFormBuilder` service parameter 
 <iframe src="https://stackblitz.com/edit/rxweb-time-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on AttandanceDetail edit  form](#tab/basic-validation-on-AttandanceDetail-edit-form)
+let's create a AttandanceDetail edit form with time validation. The form will allow only time in the `FormControl` of `entryPlace`. 
+Create AttandanceDetail data model and set the time decorator on `entryPlace` property.
 <header class="header-tab-title">app/AttandanceDetail/attandance-detail.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/time/rxweb-time-validation-edit-angular-reactive-form/src/app/attandance-detail/attandance-detail.model.ts?highlight=5)]
+Create AttandanceDetail edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<AttandanceDetail>(AttandanceDetail,attandanceDetail)`
 <header class="header-tab-title">app/attandance-detail/edit/attandance-detail-edit.component.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/time/rxweb-time-validation-edit-angular-reactive-form/src/app/attandance-detail/edit/attandance-detail-edit.component.ts?highlight=17,21-22)]
@@ -106,7 +109,7 @@ To override the global configuration message and show the custom message on part
 
 ---
 
-# Dynamic Alpha Validation Complete Example
+# Dynamic time Validation Complete Example
 # [AttandanceDetail Model](#tab/dynamic-attandance-detail)
 <header class="header-tab-title">app/attandance-detail/attandance-detail.model.ts</header>
 

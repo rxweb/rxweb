@@ -4,11 +4,11 @@ author: ajayojha
 uid: validation-decorators/url
 ---
 # url
-Url validation decorator will check that value is url or not in the property. If user not enter url value then the property will become invalid. To use the required decorator on particular property.
+Url validation decorator will check that value is url or not in the property. If user not enter url value then the property will become invalid. To use the url decorator on particular property.
  
 # [Basic validation on WebSiteInfoModel add form  ](#tab/basic-validation-on-WebSiteInfoModel-add-form)
 let's create a user add form with url validation. The form will check that `FormControl` of `adminWebsiteUrl` has url or not. 
-Create user data model and set the required decorator on `adminWebsiteUrl` property.
+Create user data model and set the url decorator on `adminWebsiteUrl` property.
 <header class="header-tab-title">app/WebSiteInfoModel/web-site-info-model.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/url/rxweb-url-validation-add-angular-reactive-form/src/app/web-site-info-model/web-site-info-model.model.ts?highlight=5)]
@@ -24,9 +24,12 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 <iframe src="https://stackblitz.com/edit/rxweb-url-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on WebSiteInfoModel edit  form](#tab/basic-validation-on-WebSiteInfoModel-edit-form)
+let's create a user edit form with url validation. The form will check that `FormControl` of `adminWebsiteUrl` has url or not. 
+Create user data model and set the url decorator on `adminWebsiteUrlS` property.
 <header class="header-tab-title">app/WebSiteInfoModel/web-site-info-model.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/url/rxweb-url-validation-edit-angular-reactive-form/src/app/web-site-info-model/web-site-info-model.model.ts?highlight=5)]
+Create user edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<WebSiteInfoModel>(WebSiteInfoModel,webSiteInfoModel)`
 <header class="header-tab-title">app/web-site-info-model/edit/web-site-info-model-edit.component.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/url/rxweb-url-validation-edit-angular-reactive-form/src/app/web-site-info-model/edit/web-site-info-model-edit.component.ts?highlight=17,21-22)]
@@ -96,7 +99,7 @@ To override the global configuration message and show the custom message on part
 
 ---
 
-# Dynamic Alpha Validation Complete Example
+# Dynamic url Validation Complete Example
 # [User Model](#tab/dynamic-user)
 <header class="header-tab-title">app/user/user.model.ts</header>
 

@@ -8,7 +8,7 @@ lowerCase validation decorator will allow only lowercase to be entered. If user 
  
 # [Basic validation on UserInfo add form  ](#tab/basic-validation-on-UserInfo-add-form)
 let's create a user add form with lowerCase validation. The form will allow only lowerCase in the `FormControl` of `userName`. 
-Create user data model and set the email decorator on `userName` property.
+Create user data model and set the lowercase decorator on `userName` property.
 <header class="header-tab-title">app/UserInfo/user-info.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/lowerCase/rxweb-lowerCase-validation-add-angular-reactive-form/src/app/user-info/user-info.model.ts?highlight=5)]
@@ -21,12 +21,15 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 [!code-html[](../../examples/reactive-form-validators/lowerCase/rxweb-lowerCase-validation-add-angular-reactive-form/src/app/user-info/add/user-info-add.component.html)]
 
 <h3>UserInfo Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-lowerCase-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-lowercase-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on UserInfo edit  form](#tab/basic-validation-on-UserInfo-edit-form)
+let's create a user edit form with lowerCase validation. The form will allow only lowerCase in the `FormControl` of `userName`. 
+Create user data model and set the lowercase decorator on `userName` property.
 <header class="header-tab-title">app/UserInfo/user-info.model.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/lowerCase/rxweb-lowerCase-validation-edit-angular-reactive-form/src/app/user-info/user-info.model.ts?highlight=5)]
+Create user edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<UserInfo>(UserInfo,userInfo)`
 <header class="header-tab-title">app/user-info/edit/user-info-edit.component.ts</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/lowerCase/rxweb-lowerCase-validation-edit-angular-reactive-form/src/app/user-info/edit/user-info-edit.component.ts?highlight=17,21-22)]
@@ -35,7 +38,7 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 [!code-html[](../../examples/reactive-form-validators/lowerCase/rxweb-lowerCase-validation-edit-angular-reactive-form/src/app/user-info/edit/user-info-edit.component.html)]
 
 <h3>UserInfo Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-lowerCase-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-lowercase-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -92,11 +95,11 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/lowerCase/complete-rxweb-lowerCase-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-lowerCase-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-lowercase-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
-# Dynamic Alpha Validation Complete Example
+# Dynamic lowerCase Validation Complete Example
 # [User Model](#tab/dynamic-user)
 <header class="header-tab-title">app/user/user.model.ts</header>
 
@@ -113,7 +116,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/lowerCase/dynamic-rxweb-lowerCase-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-lowerCase-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-lowercase-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

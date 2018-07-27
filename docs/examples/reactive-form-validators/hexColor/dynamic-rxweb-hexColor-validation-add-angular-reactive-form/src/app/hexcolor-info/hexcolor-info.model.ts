@@ -1,4 +1,3 @@
-import {  hexColor, } from "@rxweb/reactive-form-validators"
 import {prop} from '@rxweb/reactive-form-validators'
 export class HexcolorInfo {
 
@@ -12,6 +11,6 @@ export class HexcolorInfo {
 	bodyHexcolorCode: string;
 
 	@prop()
-	bodyHexcolorCode: string;
+	strictHexcolorCode: string;
 
 }

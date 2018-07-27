@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration  } from '@rxweb/reactive-form-validators';
 
 import { JsonInfo } from '../json-info.model';
 
@@ -22,13 +22,13 @@ export class JsonInfoAddComponent implements OnInit {
         let jsonInfo = new JsonInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
-			name : {
+			locationJson : {
 				json :  {message:'Enter the text in JSON format --> {key:value}',} 
 			},
-			age : {
-				json :  {conditionalExpressions:'x,y=>x.name ==  "firstName": "John", "lastName": "Doe"  ',} 
+			addressJson : {
+				json :  {conditionalExpressions:'x,y=>x.locationJson == ' "firstName": "John", "lastName": "Doe" ' ',} 
 			},
-			address : {
+			contactJson : {
 				json :  {message:'Enter only JSON type data',} 
 			},
         };
