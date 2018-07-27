@@ -21,7 +21,7 @@
 ### [minLength](xref:validation-decorators/minLength)
 ### [minNumber](xref:validation-decorators/minNumber)
 ### [password](xref:validation-decorators/password)
-### [password](xref:validation-decorators/pattern)
+### [pattern](xref:validation-decorators/pattern)
 ### [range](xref:validation-decorators/range)
 ### [required](xref:validation-decorators/required)
 ### [time](xref:validation-decorators/time)
