@@ -49,7 +49,8 @@ message,conditionalExpression options are not mandatory to use in the `@pattern(
 |Option | Description |
 |--- | ---- |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
-|[validation](#validation) | Password Validation is used for parameters for password validation, In Password validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength. |
+|[conditionalExpression](#conditionalExpression) | Pattern validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[pattern](#pattern) | enter specific regex pattern |
 
 ## message 
 Type :  `string` 
@@ -60,14 +61,31 @@ To override the global configuration message and show the custom message on part
 
 [!code-typescript[](../../examples/reactive-form-validators/pattern/complete-rxweb-pattern-validation-add-angular-reactive-form/src/app/user/user.model.ts#L7-L8)]
 
-## validation 
-Type :  `PasswordValidation` 
+## conditionalExpression 
+Type :  `Function`  |  `string` 
 
-Password Validation is used for parameters for password validation, In Password validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
+Pattern validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
+ 
+> Binding `conditionalExpression` with `Function` object.
+<header class="header-title">user.model.ts (User class property)</header>
+
+[!code-typescript[](../../examples/reactive-form-validators/pattern/complete-rxweb-pattern-validation-add-angular-reactive-form/src/app/user/user.model.ts#L10-L11)]
+
+ 
+> Binding `conditionalExpression` with `string` datatype.
+<header class="header-title">user.model.ts (User class property)</header>
+
+[!code-typescript[](../../examples/reactive-form-validators/pattern/complete-rxweb-pattern-validation-add-angular-reactive-form/src/app/user/user.model.ts#L10-L11)]
+
+## pattern 
+Type :  `string` 
+
+enter specific regex pattern
  
 <header class="header-title">user.model.ts (User class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/pattern/complete-rxweb-pattern-validation-add-angular-reactive-form/src/app/user/user.model.ts#L4-L5)]
+[!code-typescript[](../../examples/reactive-form-validators/pattern/complete-rxweb-pattern-validation-add-angular-reactive-form/src/app/user/user.model.ts#L7-L8)]
 
 
 # pattern Validation Complete Example
