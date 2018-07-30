@@ -5,12 +5,12 @@ export class AttandanceDetail {
 	entryPlace: string;
 
 	@time({conditionalExpressions:x => x.entryPlace == "Lunch Room" }) 
-	entryTime: Time;
+	entryTime: string;
 
 	@time({allowSeconds:true }) 
-	totalOutTime: Time;
+	totalOutTime: string;
 
 	@time({message:'You can enter only time format data' }) 
-	exitTime: Time;
+	exitTime: string;
 
 }

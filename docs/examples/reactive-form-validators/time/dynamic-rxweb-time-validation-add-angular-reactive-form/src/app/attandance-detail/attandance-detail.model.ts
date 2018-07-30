@@ -5,12 +5,12 @@ export class AttandanceDetail {
 	entryPlace: string;
 
 	@prop()
-	entryTime: Time;
+	entryTime: string;
 
 	@prop()
-	totalOutTime: Time;
+	totalOutTime: string;
 
 	@prop()
-	exitTime: Time;
+	exitTime: string;
 
 }
