@@ -60,13 +60,13 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `Function` object.
 <header class="header-title">json-info.model.ts (JsonInfo class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/json/complete-rxweb-json-validation-add-angular-reactive-form/src/app/json-info/json-info.model.ts#L7-L8)]
+[!code-typescript[](../../examples/reactive-form-validators/json/complete-rxweb-json-validation-add-angular-reactive-form/src/app/json-info/json-info.model.ts#L7-L11)]
 
  
 > Binding `conditionalExpression` with `string` datatype.
 <header class="header-title">json-info.model.ts (JsonInfo class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/json/complete-rxweb-json-validation-add-angular-reactive-form/src/app/json-info/json-info.model.ts#L7-L8)]
+[!code-typescript[](../../examples/reactive-form-validators/json/complete-rxweb-json-validation-add-angular-reactive-form/src/app/json-info/json-info.model.ts#L7-L11)]
 
 ## message 
 Type :  `string` 
@@ -75,7 +75,7 @@ To override the global configuration message and show the custom message on part
  
 <header class="header-title">json-info.model.ts (JsonInfo class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/json/complete-rxweb-json-validation-add-angular-reactive-form/src/app/json-info/json-info.model.ts#L10-L11)]
+[!code-typescript[](../../examples/reactive-form-validators/json/complete-rxweb-json-validation-add-angular-reactive-form/src/app/json-info/json-info.model.ts#L13-L14)]
 
 
 # json Validation Complete Example

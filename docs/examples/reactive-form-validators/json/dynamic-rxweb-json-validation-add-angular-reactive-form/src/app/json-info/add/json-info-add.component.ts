@@ -26,7 +26,7 @@ export class JsonInfoAddComponent implements OnInit {
 				json :  {message:'Enter the text in JSON format --> {key:value}',} 
 			},
 			addressJson : {
-				json :  {conditionalExpressions:'x,y=>x.locationJson == ' "firstName": "John", "lastName": "Doe" ' ',} 
+				json :  {conditionalExpressions:'x,y=>x.location == "India" ',} 
 			},
 			contactJson : {
 				json :  {message:'Enter only JSON type data',} 
