@@ -23,10 +23,10 @@ export class userAddComponent implements OnInit {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
 			birthDate : {
-				maxDate :  {value:2018,07,30,conditionalExpressions:'x => x.userName == "John"',} 
+				maxDate :  {value:new Date(2018,07,30),conditionalExpressions:'x => x.userName == "John"',} 
 			},
 			registrationDate : {
-				maxDate :  {value:2018,07,30,message:'{{0}} exceeds the Maximum Date Limit',} 
+				maxDate :  {value:new Date(2018,07,30),message:'{{0}} exceeds the Maximum Date Limit',} 
 			},
         };
 		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
