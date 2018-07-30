@@ -1,0 +1,11 @@
+<h1 class="bd-title" id="content">maxDate Validator Example</h1>
+<br/>
+<form *ngIf="userFormGroup" [formGroup]="userFormGroup">
+<div class="form-group">
+    <label>Registration Date</label>
+    <input type="text" formControlName="registrationDate" class="form-control"  />
+    <small class="form-text text-muted">you can enter Max Date upto 30th july 2018<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.registrationDate.errors">{{userFormGroup.controls.registrationDate.errors.maxDate.message}}<br/></small>
+</div>
+<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
