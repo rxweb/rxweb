@@ -21,7 +21,7 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 [!code-html[](../../examples/reactive-form-validators/greaterThan/rxweb-greaterThan-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 <h3>User Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-greaterThan-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-greaterthan-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on User edit  form](#tab/basic-validation-on-User-edit-form)
 let's create a user edit form with greater than validation. The form will check for greater than in the `FormControl` of `age`. 
@@ -38,7 +38,7 @@ Create user edit component and add `RxFormBuilder` and `HttpClient` service para
 [!code-html[](../../examples/reactive-form-validators/greaterThan/rxweb-greaterThan-validation-edit-angular-reactive-form/src/app/user/edit/user-edit.component.html)]
 
 <h3>User Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-greaterThan-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-greaterthan-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -106,7 +106,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/greaterThan/complete-rxweb-greaterThan-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-greaterThan-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-greaterthan-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -127,7 +127,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/greaterThan/dynamic-rxweb-greaterThan-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-greaterThan-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-greaterthan-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

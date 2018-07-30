@@ -21,7 +21,7 @@ Create contact add component and add `RxFormBuilder` service parameter in constr
 [!code-html[](../../examples/reactive-form-validators/minLength/rxweb-minLength-validation-add-angular-reactive-form/src/app/contact/add/contact-add.component.html)]
 
 <h3>Contact Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-minLength-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-minlength-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on Contact edit  form](#tab/basic-validation-on-Contact-edit-form)
 let's create a contact edit form with minLength validation. The form will allow only minimum length upto value parameter in the `FormControl` of `countryName`. 
@@ -38,7 +38,7 @@ Create contact edit component and add `RxFormBuilder` and `HttpClient` service p
 [!code-html[](../../examples/reactive-form-validators/minLength/rxweb-minLength-validation-edit-angular-reactive-form/src/app/contact/edit/contact-edit.component.html)]
 
 <h3>Contact Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-minLength-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-minlength-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -105,7 +105,7 @@ enter value which you want to restrict string length in the property
 [!code-html[](../../examples/reactive-form-validators/minLength/complete-rxweb-minLength-validation-add-angular-reactive-form/src/app/contact/add/contact-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-minLength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-minlength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -126,7 +126,7 @@ enter value which you want to restrict string length in the property
 [!code-html[](../../examples/reactive-form-validators/minLength/dynamic-rxweb-minLength-validation-add-angular-reactive-form/src/app/contact/add/contact-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-minLength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-minlength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

@@ -21,7 +21,7 @@ Create location add component and add `RxFormBuilder` service parameter in const
 [!code-html[](../../examples/reactive-form-validators/upperCase/rxweb-upperCase-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 <h3>Location Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-upperCase-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-uppercase-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on Location edit  form](#tab/basic-validation-on-Location-edit-form)
 let's create a location edit form with uppercase validation. The form will allow only uppercase in the `FormControl` of `countryName`. 
@@ -38,7 +38,7 @@ Create location edit component and add `RxFormBuilder` and `HttpClient` service 
 [!code-html[](../../examples/reactive-form-validators/upperCase/rxweb-upperCase-validation-edit-angular-reactive-form/src/app/location/edit/location-edit.component.html)]
 
 <h3>Location Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-upperCase-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-uppercase-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -95,7 +95,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/upperCase/complete-rxweb-upperCase-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-upperCase-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-uppercase-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -116,7 +116,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/upperCase/dynamic-rxweb-upperCase-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-upperCase-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-uppercase-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

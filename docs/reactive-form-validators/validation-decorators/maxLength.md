@@ -21,7 +21,7 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 [!code-html[](../../examples/reactive-form-validators/maxLength/rxweb-maxLength-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 <h3>Location Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-maxLength-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-maxlength-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on Location edit  form](#tab/basic-validation-on-Location-edit-form)
 let's create a user edit form with maxLength validation. The form will allow only maximum length upto value parameter in the `FormControl` of `firstName`. 
@@ -38,7 +38,7 @@ Create user edit component and add `RxFormBuilder` and `HttpClient` service para
 [!code-html[](../../examples/reactive-form-validators/maxLength/rxweb-maxLength-validation-edit-angular-reactive-form/src/app/location/edit/location-edit.component.html)]
 
 <h3>Location Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-maxLength-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-maxlength-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -105,7 +105,7 @@ enter value which you want to restrict string length in the property
 [!code-html[](../../examples/reactive-form-validators/maxLength/complete-rxweb-maxLength-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-maxLength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-maxlength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -126,7 +126,7 @@ enter value which you want to restrict string length in the property
 [!code-html[](../../examples/reactive-form-validators/maxLength/dynamic-rxweb-maxLength-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-maxLength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-maxlength-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

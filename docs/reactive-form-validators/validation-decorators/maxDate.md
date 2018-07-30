@@ -21,7 +21,7 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 [!code-html[](../../examples/reactive-form-validators/maxDate/rxweb-maxDate-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 <h3>User Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-maxDate-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-maxdate-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on User edit  form](#tab/basic-validation-on-User-edit-form)
 let's create a user edit form with maxDate validation. The form will allow only maximum date upto value parameter in the `FormControl` of `registrationDate`. 
@@ -38,7 +38,7 @@ Create user edit component and add `RxFormBuilder` and `HttpClient` service para
 [!code-html[](../../examples/reactive-form-validators/maxDate/rxweb-maxDate-validation-edit-angular-reactive-form/src/app/user/edit/user-edit.component.html)]
 
 <h3>User Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-maxDate-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-maxdate-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -105,7 +105,7 @@ enter value which you want to restrict number in the property
 [!code-html[](../../examples/reactive-form-validators/maxDate/complete-rxweb-maxDate-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-maxDate-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-maxdate-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -126,7 +126,7 @@ enter value which you want to restrict number in the property
 [!code-html[](../../examples/reactive-form-validators/maxDate/dynamic-rxweb-maxDate-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-maxDate-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-maxdate-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
