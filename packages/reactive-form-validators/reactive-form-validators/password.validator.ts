@@ -18,7 +18,7 @@ export function passwordValidator(config:PasswordConfig): ValidatorFn {
         if (RegexValidator.isNotBlank(controlValue)) {
             let validation = RegexValidator.isValidPassword(config.validation, controlValue);
             if (!validation.isValid)
-                return ObjectMaker.toJson(validation.keyName, config.message || null, [controlValue])
+                return ObjectMaker.toJson(AnnotationTypes.password, config.message || null, [controlValue])
             }
         return ObjectMaker.null();
 
