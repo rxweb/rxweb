@@ -22,9 +22,6 @@ export class AttandanceDetailAddComponent implements OnInit {
         let attandanceDetail = new AttandanceDetail();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
-			entryPlace : {
-				time : true  
-			},
 			entryTime : {
 				time :  {conditionalExpressions:'x => x.entryPlace == "Lunch Room"',} 
 			},

@@ -21,7 +21,7 @@ Create location add component and add `RxFormBuilder` service parameter in const
 [!code-html[](../../examples/reactive-form-validators/alphaNumeric/rxweb-alphaNumeric-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 <h3>Location Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-alphanumeric-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-alphaNumeric-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on Location edit  form](#tab/basic-validation-on-Location-edit-form)
 let's create a location edit form with alphaNumeric validation. The form will allow only alphabets and numbers in the `FormControl` of `areaName`. 
@@ -38,7 +38,7 @@ Create location edit component and add `RxFormBuilder` and `HttpClient` service 
 [!code-html[](../../examples/reactive-form-validators/alphaNumeric/rxweb-alphaNumeric-validation-edit-angular-reactive-form/src/app/location/edit/location-edit.component.html)]
 
 <h3>Location Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-alphanumeric-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-alphaNumeric-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -48,8 +48,8 @@ Below options are not mandatory to use in the `@alphaNumeric()` decorator. If ne
 
 |Option | Description |
 |--- | ---- |
-|[allowWhiteSpace](#allowWhiteSpace) | This will allow whitespace in particular control property.The default value is `false`. |
-|[conditionalExpression](#conditionalExpression) | AlphaNumeric validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[allowWhiteSpace](#allowwhitespace) | This will allow whitespace in particular control property.The default value is `false`. |
+|[conditionalExpression](#conditionalexpression) | AlphaNumeric validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## allowWhiteSpace 
@@ -105,7 +105,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/alphaNumeric/complete-rxweb-alphaNumeric-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-alphanumeric-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-alphaNumeric-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -126,7 +126,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/alphaNumeric/dynamic-rxweb-alphaNumeric-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-alphanumeric-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-alphaNumeric-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

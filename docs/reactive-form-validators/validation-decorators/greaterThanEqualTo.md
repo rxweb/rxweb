@@ -21,7 +21,7 @@ Create user add component and add `RxFormBuilder` service parameter in construct
 [!code-html[](../../examples/reactive-form-validators/greaterThanEqualTo/rxweb-greaterThanEqualTo-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 <h3>User Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-greaterthanequalto-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-greaterThanEqualTo-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 # [Basic validation on User edit  form](#tab/basic-validation-on-User-edit-form)
 let's create a user edit form with greater than equal to validation. The form will check for greater than equal to in the `FormControl` of `age`. 
@@ -38,7 +38,7 @@ Create user edit component and add `RxFormBuilder` and `HttpClient` service para
 [!code-html[](../../examples/reactive-form-validators/greaterThanEqualTo/rxweb-greaterThanEqualTo-validation-edit-angular-reactive-form/src/app/user/edit/user-edit.component.html)]
 
 <h3>User Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-greaterthanequalto-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
+<iframe src="https://stackblitz.com/edit/rxweb-greaterThanEqualTo-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
 
 ---
 
@@ -48,8 +48,8 @@ message and conditionalExpression options are not mandatory but fieldName is man
 
 |Option | Description |
 |--- | ---- |
-|[fieldName](#fieldName) | Greater than Equal to validation should be applied based on the `fieldName` for compare other field value |
-|[conditionalExpression](#conditionalExpression) | Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[fieldName](#fieldname) | Greater than Equal to validation should be applied based on the `fieldName` for compare other field value |
+|[conditionalExpression](#conditionalexpression) | Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## fieldName 
@@ -106,7 +106,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/greaterThanEqualTo/complete-rxweb-greaterThanEqualTo-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-greaterthanequalto-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-greaterThanEqualTo-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -127,7 +127,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/greaterThanEqualTo/dynamic-rxweb-greaterThanEqualTo-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-greaterthanequalto-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-greaterThanEqualTo-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

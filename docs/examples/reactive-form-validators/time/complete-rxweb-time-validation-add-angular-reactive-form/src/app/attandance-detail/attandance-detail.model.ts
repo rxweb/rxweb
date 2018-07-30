@@ -1,7 +1,7 @@
 import {  time, } from "@rxweb/reactive-form-validators"
 export class AttandanceDetail {
 
-	@time() 
+	@prop()
 	entryPlace: string;
 
 	@time({conditionalExpressions:x => x.entryPlace == "Lunch Room" }) 
