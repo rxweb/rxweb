@@ -6,12 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { AppComponent } from './app.component';
-import { userAddComponent } from './user/add/user-add.component';
+import { UserAddComponent } from './user/add/user-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-	userAddComponent,
+	UserAddComponent,
   ],
   imports: [
     BrowserModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule

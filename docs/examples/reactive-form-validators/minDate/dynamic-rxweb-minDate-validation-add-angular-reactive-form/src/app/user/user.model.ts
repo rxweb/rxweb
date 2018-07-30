@@ -1,5 +1,5 @@
 import {prop} from '@rxweb/reactive-form-validators'
-export class user {
+export class User {
 
 	@prop()
 	userName: string;

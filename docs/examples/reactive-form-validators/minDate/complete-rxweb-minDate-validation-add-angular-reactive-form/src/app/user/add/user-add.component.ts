@@ -3,13 +3,13 @@ import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
-import { user } from '../user.model';
+import { User } from '../user.model';
 
 @Component({
     selector: 'app-user-add',
     templateUrl: './user-add.component.html'
 })
-export class userAddComponent implements OnInit {
+export class UserAddComponent implements OnInit {
 
     userFormGroup: FormGroup
 
@@ -18,7 +18,7 @@ export class userAddComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        let user = new user();
+        let user = new User();
         this.userFormGroup = this.formBuilder.formGroup(user);
     }
 }

@@ -6,12 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { AppComponent } from './app.component';
-import { userEditComponent } from './user/edit/user-edit.component';
+import { UserEditComponent } from './user/edit/user-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-	userEditComponent,
+	UserEditComponent,
   ],
   imports: [
     BrowserModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
