@@ -85,7 +85,7 @@ enter value which you want to restrict number in the property
  
 <header class="header-title">user.model.ts (User class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/maxDate/complete-rxweb-maxDate-validation-add-angular-reactive-form/src/app/user/user.model.ts#L10-L11)]
+[!code-typescript[](../../examples/reactive-form-validators/maxDate/complete-rxweb-maxDate-validation-add-angular-reactive-form/src/app/user/user.model.ts#L4-L8)]
 
 
 # maxDate Validation Complete Example

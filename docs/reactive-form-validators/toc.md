@@ -6,7 +6,6 @@
 ### [alpha](xref:validation-decorators/alpha)
 ### [alphaNumeric](xref:validation-decorators/alphaNumeric)
 ### [contains](xref:validation-decorators/contains)
-
 ### [creditCard](xref:validation-decorators/creditCard)
 ### [digit](xref:validation-decorators/digit)
 ### [email](xref:validation-decorators/email)
@@ -19,6 +18,8 @@
 ### [lowerCase](xref:validation-decorators/lowerCase)
 ### [maxLength](xref:validation-decorators/maxLength)
 ### [maxNumber](xref:validation-decorators/maxNumber)
+### [maxDate](xref:validation-decorators/maxDate)
+### [minDate](xref:validation-decorators/minDate)
 ### [minLength](xref:validation-decorators/minLength)
 ### [minNumber](xref:validation-decorators/minNumber)
 ### [password](xref:validation-decorators/password)

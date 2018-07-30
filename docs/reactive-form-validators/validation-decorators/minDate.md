@@ -61,13 +61,13 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `Function` object.
 <header class="header-title">user.model.ts (User class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/minDate/complete-rxweb-minDate-validation-add-angular-reactive-form/src/app/user/user.model.ts#L10-L11)]
+[!code-typescript[](../../examples/reactive-form-validators/minDate/complete-rxweb-minDate-validation-add-angular-reactive-form/src/app/user/user.model.ts#L4-L8)]
 
  
 > Binding `conditionalExpression` with `string` datatype.
 <header class="header-title">user.model.ts (User class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/minDate/complete-rxweb-minDate-validation-add-angular-reactive-form/src/app/user/user.model.ts#L10-L11)]
+[!code-typescript[](../../examples/reactive-form-validators/minDate/complete-rxweb-minDate-validation-add-angular-reactive-form/src/app/user/user.model.ts#L4-L8)]
 
 ## message 
 Type :  `string` 
@@ -76,7 +76,7 @@ To override the global configuration message and show the custom message on part
  
 <header class="header-title">user.model.ts (User class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/minDate/complete-rxweb-minDate-validation-add-angular-reactive-form/src/app/user/user.model.ts#L7-L8)]
+[!code-typescript[](../../examples/reactive-form-validators/minDate/complete-rxweb-minDate-validation-add-angular-reactive-form/src/app/user/user.model.ts#L10-L11)]
 
 ## value 
 Type :  `Date` 
@@ -85,7 +85,7 @@ enter value which you want to restrict number in the property
  
 <header class="header-title">user.model.ts (User class property)</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/minDate/complete-rxweb-minDate-validation-add-angular-reactive-form/src/app/user/user.model.ts#L7-L8)]
+[!code-typescript[](../../examples/reactive-form-validators/minDate/complete-rxweb-minDate-validation-add-angular-reactive-form/src/app/user/user.model.ts#L4-L8)]
 
 
 # minDate Validation Complete Example
