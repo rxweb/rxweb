@@ -8,7 +8,7 @@ import { time } from "packages/reactive-form-validators/decorators";
 import { ApplicationConfiguration } from "@rx/core";
 import { CLIENT_SETTINGS } from './client-setting'
 export class Attendance {
-    @prop() @required({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'" }) startTime: number;
+    @prop() @required({ conditionalExpression: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'" }) startTime: number;
 }
 export class EmployeeDetail {
     @prop() @required() areaName: string;
@@ -16,24 +16,24 @@ export class EmployeeDetail {
 export class Employee {
     @prop() firstName: string;
     @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
-    @contains({ value: "radix", conditionalExpressions: (current, root) => { return current.firstName == 'ajay'; }, message: "validation failed contains" }) contains: string;
-    //@digit({ conditionalExpressions: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'", message: "digit required" })
+    @contains({ value: "radix", conditionalExpression: (current, root) => { return current.firstName == 'ajay'; }, message: "validation failed contains" }) contains: string;
+    //@digit({ conditionalExpression: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'", message: "digit required" })
     @prop()
     digit: string;
-    @email({ message: "email", conditionalExpressions: "x =>x.firstName == 'john'" }) email: string;
-    @hexColor({ message: "hex", conditionalExpressions: "x => x.firstName == 'john'" }) hexColor: string;
-    @lowerCase({ message: "lowercase", conditionalExpressions: "x => x.firstName == 'john'" }) lowerCase: string;
+    @email({ message: "email", conditionalExpression: "x =>x.firstName == 'john'" }) email: string;
+    @hexColor({ message: "hex", conditionalExpression: "x => x.firstName == 'john'" }) hexColor: string;
+    @lowerCase({ message: "lowercase", conditionalExpression: "x => x.firstName == 'john'" }) lowerCase: string;
     @maxDate({ value: new Date(2000, 1, 1) }) maxDate: string; // do some work
     @minDate({ value: new Date(2000, 0, 1) }) minDates: string; // do some work
-    @maxLength({ value: 20, message: "length exceed", conditionalExpressions: "x => x.firstName == 'john'" }) maxLength: string;
+    @maxLength({ value: 20, message: "length exceed", conditionalExpression: "x => x.firstName == 'john'" }) maxLength: string;
     @maxNumber({ value: 100000000 }) maxNumber: string;
     @minLength({ value: 10 }) minLength: number;
-    @minNumber({ value: 20, message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) minNumber: string;
+    @minNumber({ value: 20, message: "minimum number {{0}}", conditionalExpression: "x => x.firstName == 'john'" }) minNumber: string;
     @password({ validation: { maxLength: 10, minLength: 5, digit: true, specialCharacter: true } }) password: string;
-    @pattern({ pattern: { 'onlyDigit': /^[0-9]+$/ }, conditionalExpressions: "x => x.firstName == 'john'" }) pattern: string;
+    @pattern({ pattern: { 'onlyDigit': /^[0-9]+$/ }, conditionalExpression: "x => x.firstName == 'john'" }) pattern: string;
     @range({ minimumNumber: 5, maximumNumber: 10 }) range: string;
-    @required({ message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) required: string;
-    @upperCase({ message: "minimum number {{0}}", conditionalExpressions: "x => x.firstName == 'john'" }) upperCase: string;
+    @required({ message: "minimum number {{0}}", conditionalExpression: "x => x.firstName == 'john'" }) required: string;
+    @upperCase({ message: "minimum number {{0}}", conditionalExpression: "x => x.firstName == 'john'" }) upperCase: string;
     @propObject(EmployeeDetail) employeeDetail: EmployeeDetail;
     @propArray(Attendance) attendances: Attendance[]
     @compare({ fieldName: 'country' }) state: string;
@@ -88,7 +88,7 @@ export class AppComponent implements OnInit {
             },
             'digit': {
                 digit: {
-                    conditionalExpressions:"x => x.firstName == 'john'"
+                    conditionalExpression:"x => x.firstName == 'john'"
                 }
             }
         };

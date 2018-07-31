@@ -16,7 +16,7 @@ export function rangeValidator(config:RangeConfig): ValidatorFn {
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);
         const parentObject = (control.parent) ? control.parent.value : undefined;
-        if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
+        if (Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 if (!(String(controlValue).indexOf(".") == -1 && parseInt(controlValue) >= config.minimumNumber && parseInt(controlValue) <= config.maximumNumber))
                     return ObjectMaker.toJson(AnnotationTypes.range, config.message || null, [config.minimumNumber, config.maximumNumber, controlValue])

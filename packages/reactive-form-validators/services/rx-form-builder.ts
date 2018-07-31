@@ -76,8 +76,8 @@ export class RxFormBuilder {
         if (fomrBuilderConfiguration && fomrBuilderConfiguration.validations) {
             for (var property in fomrBuilderConfiguration.validations) {
                 for (var decorator in fomrBuilderConfiguration.validations[property]) {
-                    if (fomrBuilderConfiguration.validations[property][decorator].conditionalExpressions) {
-                        let columns = Linq.expressionColumns(fomrBuilderConfiguration.validations[property][decorator].conditionalExpressions);
+                    if (fomrBuilderConfiguration.validations[property][decorator].conditionalExpression) {
+                        let columns = Linq.expressionColumns(fomrBuilderConfiguration.validations[property][decorator].conditionalExpression);
                         defaultContainer.addChangeValidation(this.conditionalValidationInstance, property, columns);
                     }
                 }

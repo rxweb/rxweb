@@ -18,7 +18,7 @@ export function timeValidator(config: TimeConfig, conditionalValidationProps:str
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);
         const parentObject = (control.parent) ? control.parent.value : undefined;
-        if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
+        if (Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 var testResult = false;
                 let valueLength = 5;

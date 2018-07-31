@@ -1,5 +1,5 @@
 export interface DefaultConfig{
     value?: string;
     message?: string;
-    conditionalExpressions?: string | Function;
+    conditionalExpression?: string | Function;
 }

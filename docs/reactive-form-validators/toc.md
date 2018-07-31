@@ -1,6 +1,32 @@
 
-# Reactive Form Validators
+# REACTIVE FORM VALIDATORS
 ## [Import Modules](xref:import-modules)
-## [Configure Global Validation Messages](xref:configure-global-validation-messages)
-## Validation Decorators
-### [Alpha](xref:validation-decorators/alpha)
+## [Global Validation Messages](xref:configure-global-validation-messages)
+## VALIDATION DECORATORS
+### [alpha](xref:validation-decorators/alpha)
+### [alphaNumeric](xref:validation-decorators/alphaNumeric)
+### [contains](xref:validation-decorators/contains)
+### [creditCard](xref:validation-decorators/creditCard)
+### [digit](xref:validation-decorators/digit)
+### [email](xref:validation-decorators/email)
+### [greaterThan](xref:validation-decorators/greaterThan)
+### [greaterThanEqualTo](xref:validation-decorators/greaterThanEqualTo)
+### [hexColor](xref:validation-decorators/hexColor)
+### [json](xref:validation-decorators/json)
+### [lessThan](xref:validation-decorators/lessThan)
+### [lessThanEqualTo](xref:validation-decorators/lessThanEqualTo)
+### [lowerCase](xref:validation-decorators/lowerCase)
+### [maxLength](xref:validation-decorators/maxLength)
+### [maxNumber](xref:validation-decorators/maxNumber)
+### [maxDate](xref:validation-decorators/maxDate)
+### [minDate](xref:validation-decorators/minDate)
+### [minLength](xref:validation-decorators/minLength)
+### [minNumber](xref:validation-decorators/minNumber)
+### [password](xref:validation-decorators/password)
+### [pattern](xref:validation-decorators/pattern)
+### [range](xref:validation-decorators/range)
+### [required](xref:validation-decorators/required)
+### [time](xref:validation-decorators/time)
+### [upperCase](xref:validation-decorators/upperCase)
+### [url](xref:validation-decorators/url)
+

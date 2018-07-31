@@ -1,4 +1,4 @@
 export interface EmailConfig{
     message?: string
-    conditionalExpressions?: string | Function;
+    conditionalExpression?: string | Function;
 }
