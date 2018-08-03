@@ -112,6 +112,7 @@ Password Validation is used for parameters for password validation, In Password 
 
 ---
 
+<iframe src="http://gitlogin.azurewebsites.net/#!/issue/validator/password" width="100%" height="500">
 
 
 

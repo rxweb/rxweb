@@ -130,6 +130,7 @@ enter specific regex pattern
 
 ---
 
+<iframe src="http://gitlogin.azurewebsites.net/#!/issue/validator/pattern" width="100%" height="500">
 
 
 
