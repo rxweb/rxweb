@@ -1,15 +1,15 @@
 ---
-title: Introduction to Razor Pages in ASP.NET Core
+title: reactive form validators
 uid: import-modules
 ---
 ## Import modules
-To work on form it is require to import angular modules(FormsModule && ReactiveFormsModule) and for rxweb reactive form validation to import 'RxReactiveFormsModule' module and register that in the NgModule decorator imports property.
+To work on reactive form it is require to import angular modules (FormsModule & ReactiveFormsModule) and for rxweb reactive form validation to import 'RxReactiveFormsModule' module and register that in the NgModule decorator imports property.
 ```js
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-`import {FormsModule, ReactiveFormsModule} from '@angular/forms'; `
-`import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';`
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'; 
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
 import {AppComponent} from './app.component';
@@ -17,9 +17,9 @@ import {AppComponent} from './app.component';
 @NgModule({
   declarations:[AppComponent],
   imports:[ BrowserModule, 
-	`FormsModule`,
-	`ReactiveFormsModule`, 
-	`RxReactiveFormsModule`
+	FormsModule,
+	ReactiveFormsModule, 
+	RxReactiveFormsModule
 	] 
   providers: [], 
   bootstrap: [AppComponent]
