@@ -130,8 +130,6 @@ enter value which you want to restrict number in the property
 
 ---
 
-<iframe src="http://gitlogin.azurewebsites.net/#!/issue/validator/maxNumber" width="100%" height="500">
-
 
 
 

@@ -11,7 +11,7 @@ Below is the example to configure the validation messages in 'ReactiveFromConfig
 ```js
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { `ReactiveFormConfig` } from '@rxweb/reactive-form-validators'; 
+import { ReactiveFormConfig } from '@rxweb/reactive-form-validators'; 
 
 
 @Component({

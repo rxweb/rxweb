@@ -130,8 +130,6 @@ To override the global configuration message and show the custom message on part
 
 ---
 
-<iframe src="http://gitlogin.azurewebsites.net/#!/issue/validator/time" width="100%" height="500">
-
 
 
 

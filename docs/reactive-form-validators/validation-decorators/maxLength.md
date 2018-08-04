@@ -130,8 +130,6 @@ enter value which you want to restrict string length in the property
 
 ---
 
-<iframe src="http://gitlogin.azurewebsites.net/#!/issue/validator/maxLength" width="100%" height="500">
-
 
 
 
