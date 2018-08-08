@@ -23,7 +23,7 @@ export class Employee {
     @email({ message: "email", conditionalExpression: "x =>x.firstName == 'john'" }) email: string;
     @hexColor({ message: "hex", conditionalExpression: "x => x.firstName == 'john'" }) hexColor: string;
     @lowerCase({ message: "lowercase", conditionalExpression: "x => x.firstName == 'john'" }) lowerCase: string;
-    @maxDate({ value: new Date(2000, 1, 1) }) maxDate: string; // do some work
+    @maxDate({ value: new Date(2018,7-1,30) }) maxDate: string; // do some work
     @minDate({ value: new Date(2000, 0, 1) }) minDates: string; // do some work
     @maxLength({ value: 20, message: "length exceed", conditionalExpression: "x => x.firstName == 'john'" }) maxLength: string;
     @maxNumber({ value: 100000000 }) maxNumber: string;

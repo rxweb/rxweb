@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 
 
-export const INPUTMASK_VALUE_ACCESSOR: any = {
+export const RXMASK_VALUE_ACCESSOR: any = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => RxMaskDirective),
     multi: true
@@ -11,15 +11,11 @@ export const INPUTMASK_VALUE_ACCESSOR: any = {
 
 @Component({
     selector: 'rx-mask',
-    template: `<input pInputText  [attr.type]="type" [attr.name]="name" [value]="value||''" [ngStyle]="style" [ngClass]="styleClass" [attr.placeholder]="placeholder"
+    template: `<input [attr.type]="type" [attr.name]="name" [value]="value||''" [ngStyle]="style" [ngClass]="styleClass" [attr.placeholder]="placeholder"
         [attr.size]="size" [attr.maxlength]="maxlength" [attr.tabindex]="tabindex" [disabled]="disabled" [readonly]="readonly"
         (focus)="onFocus($event)" (blur)="onBlur($event)" (keydown)="onKeyDown($event)" (keypress)="onKeyPress($event)"
         (input)="onInput($event)" (paste)="handleInputChange($event)">`,
-    host: {
-        '[class.ui-inputwrapper-filled]': 'filled',
-        '[class.ui-inputwrapper-focus]': 'focus'
-    },
-    providers: [INPUTMASK_VALUE_ACCESSOR]
+    providers: [RXMASK_VALUE_ACCESSOR]
 })
 export class RxMaskDirective implements AfterViewInit, OnDestroy, ControlValueAccessor {
 
