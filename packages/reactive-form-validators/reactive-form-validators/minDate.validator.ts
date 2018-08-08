@@ -9,19 +9,20 @@ import { ApplicationUtil } from "../util/app-util";
 import { ObjectMaker } from "../util/object-maker";
 import { DecoratorName } from "../util/decorator-name";
 import { AnnotationTypes } from "../core/validator.static";
-import { RegExRule } from "../util/index";
+import { RegExRule,DateProvider } from "../util/index";
 
 export function minDateValidator(config: DateConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
+        var dateProvider = new DateProvider();
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);
         const parentObject = (control.parent) ? control.parent.value : undefined;
         if (Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
-                if (RegexValidator.isValid(controlValue, RegExRule.date)) {
-                    let minDate = new Date(config.value);
-                    let currentControlValue = new Date(controlValue);
+                if (dateProvider.isValid(controlValue)) {
+                    let minDate = config.value;
+                    let currentControlValue = dateProvider.getDate(controlValue);
                     if (!(currentControlValue >= minDate))
                         return ObjectMaker.toJson(AnnotationTypes.minDate, config.message || null, [control.value])
                 } else
