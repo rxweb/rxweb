@@ -22,7 +22,7 @@ export function timeValidator(config: TimeConfig, conditionalValidationProps:str
             if (RegexValidator.isNotBlank(controlValue)) {
                 var testResult = false;
                 let valueLength = 5;
-                if (!config.allowSeconds)
+                if (config.allowSeconds)
                     valueLength = 8;
                 testResult = RegexValidator.isValid(controlValue, RegExRule.time) && controlValue.length == valueLength;
                 if (!testResult)
