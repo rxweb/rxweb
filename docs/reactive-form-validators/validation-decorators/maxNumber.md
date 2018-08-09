@@ -105,7 +105,7 @@ enter value which you want to restrict number in the property
 [!code-html[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/add/subject-details-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-maxnumber-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-maxnumber-validation-add-angular-reactive-form?embed=1&file=src/app/subject-details/subject-details.model.ts&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -126,7 +126,7 @@ enter value which you want to restrict number in the property
 [!code-html[](../../examples/reactive-form-validators/maxNumber/dynamic-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/add/subject-details-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-maxnumber-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-maxnumber-validation-add-angular-reactive-form?embed=1&file=src/app/subject-details/subject-details.model.ts&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

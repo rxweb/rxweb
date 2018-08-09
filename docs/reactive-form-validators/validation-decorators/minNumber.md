@@ -105,7 +105,7 @@ enter value which you want to restrict number in the property
 [!code-html[](../../examples/reactive-form-validators/minNumber/complete-rxweb-minNumber-validation-add-angular-reactive-form/src/app/result-info/add/result-info-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-minnumber-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-minnumber-validation-add-angular-reactive-form?embed=1&file=src/app/result-info/result-info.model.ts&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -126,7 +126,7 @@ enter value which you want to restrict number in the property
 [!code-html[](../../examples/reactive-form-validators/minNumber/dynamic-rxweb-minNumber-validation-add-angular-reactive-form/src/app/result-info/add/result-info-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-minnumber-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-minnumber-validation-add-angular-reactive-form?embed=1&file=src/app/result-info/result-info.model.ts&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

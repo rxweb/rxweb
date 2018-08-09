@@ -87,7 +87,7 @@ Password Validation is used for parameters for password validation, In Password 
 [!code-html[](../../examples/reactive-form-validators/password/complete-rxweb-password-validation-add-angular-reactive-form/src/app/login-info/add/login-info-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-password-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-password-validation-add-angular-reactive-form?embed=1&file=src/app/login-info/login-info.model.ts&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -108,7 +108,7 @@ Password Validation is used for parameters for password validation, In Password 
 [!code-html[](../../examples/reactive-form-validators/password/dynamic-rxweb-password-validation-add-angular-reactive-form/src/app/login-info/add/login-info-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-password-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-password-validation-add-angular-reactive-form?embed=1&file=src/app/login-info/login-info.model.ts&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 

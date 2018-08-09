@@ -95,7 +95,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/upperCase/complete-rxweb-upperCase-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 # [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-uppercase-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/complete-rxweb-uppercase-validation-add-angular-reactive-form?embed=1&file=src/app/location/location.model.ts&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
@@ -116,7 +116,7 @@ To override the global configuration message and show the custom message on part
 [!code-html[](../../examples/reactive-form-validators/upperCase/dynamic-rxweb-upperCase-validation-add-angular-reactive-form/src/app/location/add/location-add.component.html)]
 
 # [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-uppercase-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
+<iframe src="https://stackblitz.com/edit/dynamic-rxweb-uppercase-validation-add-angular-reactive-form?embed=1&file=src/app/location/location.model.ts&hideNavigation=1&view=preview" width="100%" height="500">
 
 ---
 
