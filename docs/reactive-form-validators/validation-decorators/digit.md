@@ -1,10 +1,11 @@
 ---
 title: Digit Validation in Angular Reactive Forms
-author: ajayojha
-uid: validation-decorators/digit
+description: Digit validation decorator will allow only digits to be entered. It will not allow any alphabets or special character. If user tries to do so the property will become invalid. To use the digit decorator on particular property.
+author: rxcontributorone
+
 ---
-# digit
-Digit validation decorator will allow only digits to be entered. It will not allow any alphabets or special character. If user tries to do so the property will become invalid. To use the digit decorator on particular property.
+# When to use
+Let's assume that you are creating
  
 # [Basic validation on User add form  ](#tab/basic-validation-on-User-add-form)
 let's create a user add form with digit validation. The form will allow only digits in the `FormControl` of `age`. 

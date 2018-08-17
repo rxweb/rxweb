@@ -1,120 +1,49 @@
 ---
 title: Compare Validation in Angular Reactive Forms
-author: ajayojha
-uid: validation-decorators/compare
----
-# compare
-Compare validation decorator will compare two inputs. If user enter unmatched value then the property will become invalid. To use the compare decorator on particular property.
- 
-# [Basic validation on User add form  ](#tab/basic-validation-on-User-add-form)
-let's create a user add form with compare validation. The form will compare inputs `FormControl` of `confirmPassword` with `password`. 
-Create user data model and set the compare decorator on `confirmPassword` property.
-Create user data model and set the compare decorator on `confirmPassword` property.
-Pass parameters in compare decorator where `fieldName` is `password` for matched input field.
-<header class="header-tab-title">app/User/user.model.ts</header>
+description: Compare validation decorator will compare two inputs. If user enter unmatched value then the property will become invalid. To use the compare decorator on particular property.
+author: rxcontributorone
 
+---
+# When to use
+Let's assume that you are creating a form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.
+1.	The Name of Password field on which comparison is done.
+2.  The Custom Message on ConfirmPassword field.  
+3.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+
+Let’s see how compare validator fulfil the need.
+
+# Basic Compare Validation
+First we need to create a User Model class and define property of Password and Confirm Password in the model to achieve the functional need of point 1.
 [!code-typescript[](../../examples/reactive-form-validators/compare/rxweb-compare-validation-add-angular-reactive-form/src/app/user/user.model.ts?highlight=5)]
-Create user add component and add `RxFormBuilder` service parameter in constructor. Create a `FormGroup` object of `User` data model in `ngOnInit` method.
-<header class="header-tab-title">app/user/add/user-add.component.ts</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/compare/rxweb-compare-validation-add-angular-reactive-form/src/app/user/add/user-add.component.ts?highlight=17,21-22)]
-<header class="header-tab-title">app/user/add/user-add.component.html</header>
+Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Here we have covered Add and Edit form operations. 
 
-[!code-html[](../../examples/reactive-form-validators/compare/rxweb-compare-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
-
-<h3>User Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-compare-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
-
-# [Basic validation on User edit  form](#tab/basic-validation-on-User-edit-form)
-let's create a user edit form with compare validation. The form will compare inputs `FormControl` of `confirmPassword` with `password`. 
-Create user data model and set the compare decorator on `confirmPassword` property.
-Create user data model and set the compare decorator on `confirmPassword` property.
-Pass parameters in compare decorator where `fieldName` is `password` for matched input field.
-<header class="header-tab-title">app/User/user.model.ts</header>
-
-[!code-typescript[](../../examples/reactive-form-validators/compare/rxweb-compare-validation-edit-angular-reactive-form/src/app/user/user.model.ts?highlight=5)]
-Create user edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<User>(User,user)`
-<header class="header-tab-title">app/user/edit/user-edit.component.ts</header>
-
-[!code-typescript[](../../examples/reactive-form-validators/compare/rxweb-compare-validation-edit-angular-reactive-form/src/app/user/edit/user-edit.component.ts?highlight=17,21-22)]
-<header class="header-tab-title">app/user/edit/user-edit.component.html</header>
-
-[!code-html[](../../examples/reactive-form-validators/compare/rxweb-compare-validation-edit-angular-reactive-form/src/app/user/edit/user-edit.component.html)]
-
-<h3>User Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-compare-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
-
----
-
-# CompareConfig 
-Below options are use in the `@compare()` decorator. If needed then use the below options.
-
+# CompareConfig
+Below options are not mandatory to use in the `@compare()` decorator. If needed then use the below options.
 
 |Option | Description |
 |--- | ---- |
-|[fieldName](#fieldname) | Current property is matched with the particular property. so we need to pass particular property name. |
+|[fieldName](#fieldName) | Current property is matched with the particular property. so we need to pass particular property name. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
+ 
 ## fieldName 
 Type :  `string` 
-
 Current property is matched with the particular property. so we need to pass particular property name.
- 
-<header class="header-title">user.model.ts (User class property)</header>
-
 [!code-typescript[](../../examples/reactive-form-validators/compare/complete-rxweb-compare-validation-add-angular-reactive-form/src/app/user/user.model.ts#L7-L8)]
 
-## message 
+## message
 Type :  `string` 
-
 To override the global configuration message and show the custom message on particular control property.
- 
-<header class="header-title">user.model.ts (User class property)</header>
-
 [!code-typescript[](../../examples/reactive-form-validators/compare/complete-rxweb-compare-validation-add-angular-reactive-form/src/app/user/user.model.ts#L7-L8)]
 
+# Complete Compare Example
 
-# compare Validation Complete Example
-# [User Model](#tab/complete-user)
-<header class="header-tab-title">app/user/user.model.ts</header>
+# Dynamic Compare Example
 
-[!code-typescript[](../../examples/reactive-form-validators/compare/complete-rxweb-compare-validation-add-angular-reactive-form/src/app/user/user.model.ts)]
 
-# [Address Info Add Component](#tab/complete-user-add-component)
-<header class="header-tab-title">app/user/add/user-add.component.ts</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/compare/complete-rxweb-compare-validation-add-angular-reactive-form/src/app/user/add/user-add.component.ts)]
-
-# [Address Info Add Html Component](#tab/complete-user-add-html-component)
-<header class="header-tab-title">app/user/add/user-add.component.html</header>
-
-[!code-html[](../../examples/reactive-form-validators/compare/complete-rxweb-compare-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
-
-# [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-compare-validation-add-angular-reactive-form?embed=1&file=src/app/user/user.model.ts&hideNavigation=1&view=preview" width="100%" height="500">
-
----
-
-# Dynamic compare Validation Complete Example
-# [User Model](#tab/dynamic-user)
-<header class="header-tab-title">app/user/user.model.ts</header>
-
-[!code-typescript[](../../examples/reactive-form-validators/compare/dynamic-rxweb-compare-validation-add-angular-reactive-form/src/app/user/user.model.ts)]
-
-# [Address Info Add Component](#tab/dynamic-user-add-component)
-<header class="header-tab-title">app/user/add/user-add.component.ts</header>
-
-[!code-typescript[](../../examples/reactive-form-validators/compare/dynamic-rxweb-compare-validation-add-angular-reactive-form/src/app/user/add/user-add.component.ts)]
-
-# [Address Info Add Html Component](#tab/dynamic-user-add-html-component)
-<header class="header-tab-title">app/user/add/user-add.component.html</header>
-
-[!code-html[](../../examples/reactive-form-validators/compare/dynamic-rxweb-compare-validation-add-angular-reactive-form/src/app/user/add/user-add.component.html)]
-
-# [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-compare-validation-add-angular-reactive-form?embed=1&file=src/app/user/user.model.ts&hideNavigation=1&view=preview" width="100%" height="500">
-
----
 
 
 
