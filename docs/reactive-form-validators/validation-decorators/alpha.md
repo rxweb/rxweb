@@ -1,7 +1,7 @@
 ---
 title: Alpha Validation in Angular Reactive Forms
-author: ajayojha
-uid: validation-decorators/alpha
+description: Alpha validation decorator will allow only alphabets to be entered. It will not allow any number or special character. If user tries to do so the property will become invalid. To use the alpha decorator on particular property.
+author: rxcontributortwo
 ---
 # alpha
 Alpha validation decorator will allow only alphabets to be entered. It will not allow any number or special character. If user tries to do so the property will become invalid. To use the alpha decorator on particular property.
