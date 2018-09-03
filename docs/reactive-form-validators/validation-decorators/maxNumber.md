@@ -1,50 +1,28 @@
 ---
 title: MaxNumber Validation in Angular Reactive Forms
-author: ajayojha
-uid: validation-decorators/maxNumber
+description: MaxNumber validation decorator will allow only maximum number be entered upto value parameter. If user tries to enter any number that greater then the value then the property will become invalid. To use the maxNumber decorator on particular property.
+author: rxcontributorone
+
 ---
-# maxNumber
-MaxNumber validation decorator will allow only maximum number be entered upto value parameter. If user tries to enter any number that greater then the value then the property will become invalid. To use the maxNumber decorator on particular property.
+# When to use
+ Let’s assume that you are creating a Subject-detail form, which contains fields like subjectCode, maximumMarks, PassingMarks and you want the user to enter valid  Number which does not exceed the Maximum number. Here depending upon the requirement these scenarios may arise.
+1. Adding field of PassingMarks without any conditional expression.
+1. 	Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .
+2. Adding Custom Message on PassingMarks Field.
+3. Adding value which you want to restrict number in the property. The maximum number is '100s'. 
+4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
  
-# [Basic validation on SubjectDetails add form  ](#tab/basic-validation-on-SubjectDetails-add-form)
-let's create a subjectdetails add form with maxNumber validation. The form will allow only maximum number upto value parameter in the `FormControl` of `passingMarks`. 
-Create SubjectDetails data model and set the maxNumber decorator on `passingMarks` property.
-<header class="header-tab-title">app/SubjectDetails/subject-details.model.ts</header>
+Let’s see how maxNumber validator fulfil the need.
 
+# Basic MaxNumber Validation
+First we need to create subject-detail model class define a property of PassingMarks in the model to achieve the functional need of point 1.
 [!code-typescript[](../../examples/reactive-form-validators/maxNumber/rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts?highlight=5)]
-Create subject details add component and add `RxFormBuilder` service parameter in constructor. Create a `FormGroup` object of `SubjectDetails` data model in `ngOnInit` method.
-<header class="header-tab-title">app/subject-details/add/subject-details-add.component.ts</header>
 
-[!code-typescript[](../../examples/reactive-form-validators/maxNumber/rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/add/subject-details-add.component.ts?highlight=17,21-22)]
-<header class="header-tab-title">app/subject-details/add/subject-details-add.component.html</header>
+Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Here we have covered Add and Edit form operations.
 
-[!code-html[](../../examples/reactive-form-validators/maxNumber/rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/add/subject-details-add.component.html)]
-
-<h3>SubjectDetails Add Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-maxnumber-validation-add-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
-
-# [Basic validation on SubjectDetails edit  form](#tab/basic-validation-on-SubjectDetails-edit-form)
-let's create a subjectdetails edit form with maxNumber validation. The form will allow only maximum number upto value parameter in the `FormControl` of `passingMarks`. 
-Create SubjectDetails data model and set the maxNumber decorator on `passingMarks` property.
-<header class="header-tab-title">app/SubjectDetails/subject-details.model.ts</header>
-
-[!code-typescript[](../../examples/reactive-form-validators/maxNumber/rxweb-maxNumber-validation-edit-angular-reactive-form/src/app/subject-details/subject-details.model.ts?highlight=5)]
-Create subjectdetails edit component and add `RxFormBuilder` and `HttpClient` service parameter  in constructor. On `ngOnInit` method get request method for getting data from json or server and that data pass in `this.formBuilder.formGroup<SubjectDetails>(SubjectDetails,subjectDetails)`
-<header class="header-tab-title">app/subject-details/edit/subject-details-edit.component.ts</header>
-
-[!code-typescript[](../../examples/reactive-form-validators/maxNumber/rxweb-maxNumber-validation-edit-angular-reactive-form/src/app/subject-details/edit/subject-details-edit.component.ts?highlight=17,21-22)]
-<header class="header-tab-title">app/subject-details/edit/subject-details-edit.component.html</header>
-
-[!code-html[](../../examples/reactive-form-validators/maxNumber/rxweb-maxNumber-validation-edit-angular-reactive-form/src/app/subject-details/edit/subject-details-edit.component.html)]
-
-<h3>SubjectDetails Edit Form Validation Example</h3>
-<iframe src="https://stackblitz.com/edit/rxweb-maxnumber-validation-edit-angular-reactive-form?embed=1&file=src/styles.css&hideExplorer=1&hideNavigation=1&view=preview" width="100%" height="300">
-
----
-
-# NumberConfig 
+# MaxNumberConfig 
 message and conditional expression options are not mandatory to use in the `@maxNumber()` decorator but value is mandatory. If needed then use the below options.
-
 
 |Option | Description |
 |--- | ---- |
@@ -54,83 +32,26 @@ message and conditional expression options are not mandatory to use in the `@max
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
-
 Max Number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
- 
-> Binding `conditionalExpression` with `Function` object.
-<header class="header-title">subject-details.model.ts (SubjectDetails class property)</header>
-
-[!code-typescript[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts#L4-L8)]
-
- 
-> Binding `conditionalExpression` with `string` datatype.
-<header class="header-title">subject-details.model.ts (SubjectDetails class property)</header>
 
 [!code-typescript[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts#L4-L8)]
 
 ## message 
 Type :  `string` 
-
-To override the global configuration message and show the custom message on particular control property.
- 
-<header class="header-title">subject-details.model.ts (SubjectDetails class property)</header>
+To override the global configuration message and show the custom message on particular control property. 
 
 [!code-typescript[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts#L10-L11)]
 
 ## value 
 Type :  `number` 
-
-enter value which you want to restrict number in the property
- 
-<header class="header-title">subject-details.model.ts (SubjectDetails class property)</header>
+enter value which you want to restrict number in the property.
 
 [!code-typescript[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts#L10-L11)]
 
 
-# maxNumber Validation Complete Example
-# [SubjectDetails Model](#tab/complete-subject-details)
-<header class="header-tab-title">app/subject-details/subject-details.model.ts</header>
+# Complete MaxNumber Example
 
-[!code-typescript[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts)]
-
-# [Address Info Add Component](#tab/complete-subject-details-add-component)
-<header class="header-tab-title">app/subject-details/add/subject-details-add.component.ts</header>
-
-[!code-typescript[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/add/subject-details-add.component.ts)]
-
-# [Address Info Add Html Component](#tab/complete-subject-details-add-html-component)
-<header class="header-tab-title">app/subject-details/add/subject-details-add.component.html</header>
-
-[!code-html[](../../examples/reactive-form-validators/maxNumber/complete-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/add/subject-details-add.component.html)]
-
-# [Working Example](#tab/complete-working-example)
-<iframe src="https://stackblitz.com/edit/complete-rxweb-maxnumber-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
-
----
-
-# Dynamic maxNumber Validation Complete Example
-# [SubjectDetails Model](#tab/dynamic-subject-details)
-<header class="header-tab-title">app/subject-details/subject-details.model.ts</header>
-
-[!code-typescript[](../../examples/reactive-form-validators/maxNumber/dynamic-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/subject-details.model.ts)]
-
-# [Address Info Add Component](#tab/dynamic-subject-details-add-component)
-<header class="header-tab-title">app/subject-details/add/subject-details-add.component.ts</header>
-
-[!code-typescript[](../../examples/reactive-form-validators/maxNumber/dynamic-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/add/subject-details-add.component.ts)]
-
-# [Address Info Add Html Component](#tab/dynamic-subject-details-add-html-component)
-<header class="header-tab-title">app/subject-details/add/subject-details-add.component.html</header>
-
-[!code-html[](../../examples/reactive-form-validators/maxNumber/dynamic-rxweb-maxNumber-validation-add-angular-reactive-form/src/app/subject-details/add/subject-details-add.component.html)]
-
-# [Working Example](#tab/dynamic-working-example)
-<iframe src="https://stackblitz.com/edit/dynamic-rxweb-maxnumber-validation-add-angular-reactive-form?embed=1&file=src/app/address-info/address&hideNavigation=1&view=preview" width="100%" height="500">
-
----
-
-
-
+# Dynamic MaxNumber Example
 
 
