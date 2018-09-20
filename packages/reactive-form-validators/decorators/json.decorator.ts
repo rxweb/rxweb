@@ -7,7 +7,7 @@ import { DefaultConfig } from "../models/config/default-config";
 export function json(config?: DefaultConfig) {
     return function (
         target: Object,
-        propertyKey: string, parameterIndex?: number
+        propertyKey: string, parameterIndex?: any
     ) {
         var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,

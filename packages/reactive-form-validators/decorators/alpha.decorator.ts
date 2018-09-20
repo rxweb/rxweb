@@ -7,7 +7,7 @@ import { AlphaConfig } from "../models/config/alpha-config";
 export function alpha(config?:AlphaConfig) {
     return function (
         target: Object,
-        propertyKey: string, parameterIndex?: number
+        propertyKey: string, parameterIndex?: any
     ) {
         var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,

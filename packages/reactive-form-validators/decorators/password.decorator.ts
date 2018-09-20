@@ -7,7 +7,7 @@ import { AnnotationTypes } from "../core/validator.static";
 export function password(config:PasswordConfig) {
     return function (
         target: Object,
-        propertyKey: string, parameterIndex?: number
+        propertyKey: string, parameterIndex?: any
     ) {
         var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,

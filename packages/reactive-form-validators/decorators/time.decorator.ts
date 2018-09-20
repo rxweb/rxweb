@@ -7,7 +7,7 @@ import { TimeConfig } from "../models/config/time-config";
 export function time(config?: TimeConfig) {
     return function (
         target: Object,
-        propertyKey: string, parameterIndex?: number
+        propertyKey: string, parameterIndex?: any
     ) {
         var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,

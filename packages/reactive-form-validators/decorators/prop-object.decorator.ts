@@ -7,7 +7,7 @@ export function propObject<T>(entity: Type<T>) {
     var entityType = entity;
     return function (
         target: Object,
-        propertyKey: string, parameterIndex?: number
+        propertyKey: string, parameterIndex?: any
     ) {
         var propertyInfo: PropertyInfo = {
             name: propertyKey,

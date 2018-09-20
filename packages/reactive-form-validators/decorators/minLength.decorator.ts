@@ -6,7 +6,7 @@ import { AnnotationTypes } from "../core/validator.static";
 export function minLength(config:NumberConfig) {
     return function (
         target: Object,
-        propertyKey: string, parameterIndex?: number
+        propertyKey: string, parameterIndex?: any
     ) {
         var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,

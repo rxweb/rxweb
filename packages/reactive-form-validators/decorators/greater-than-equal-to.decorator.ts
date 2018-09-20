@@ -7,7 +7,7 @@ import { RelationalOperatorConfig } from "../models/config/relational-operator-c
 export function greaterThanEqualTo(config:RelationalOperatorConfig) {
     return function (
         target: Object,
-        propertyKey: string, parameterIndex?: number
+        propertyKey: string, parameterIndex?: any
     ) {
         var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,

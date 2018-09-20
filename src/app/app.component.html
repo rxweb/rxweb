@@ -5,6 +5,7 @@
 <form [formGroup]="sampleFormGroup">
   alpha   <input type="text" formControlName="firstName" /> {{sampleFormGroup.controls.firstName.errors | json}}<br />
   alpha numeric <input type="text" formControlName="lastName" />{{sampleFormGroup.controls.lastName.errors | json}}<br />
+  accessor <input type="text" formControlName="classProperty" />{{sampleFormGroup.controls.classProperty.errors | json}}<br />
   contains <input type="text" formControlName="contains" />{{sampleFormGroup.controls.contains.errors | json}}<br />
   digit <input type="text" formControlName="digit" />{{sampleFormGroup.controls.digit.errors | json}}<br />
   email <input type="text" formControlName="email" />{{sampleFormGroup.controls.email.errors | json}}<br />
@@ -34,22 +35,25 @@
   <div [formGroup]="sampleFormGroup.controls.employeeDetail">
     propobject <input type="text" formControlName="areaName" />{{sampleFormGroup.controls.employeeDetail.controls.areaName.errors | json}}<br />
   </div>
-  
+
   <div [formGroup]="sampleFormGroup.controls.attendances.controls[0]">
     proparray <input type="text" formControlName="startTime" />{{sampleFormGroup.controls.attendances.controls[0].controls.startTime.errors | json}}<br />
   </div>
-
-  <button [disabled]="!sampleFormGroup.valid">Submit</button>
+  {{sampleFormGroup.dirty}}
+  {{sampleFormGroup.isDirty()}}
+  <button (click)="resetData()">Submit</button>
+  <button (click)="setDefault()">Change</button>
 </form>
 
 
 <h1 class="bd-title" id="content">Alpha Validator Example</h1>
 <br/>
 <form *ngIf="countryFormGroup" [formGroup]="countryFormGroup">
-<div class="form-group">
+  <div class="form-group">
     <label>Country Name</label>
-    <input type="text" formControlName="countryName" class="form-control"  />
-    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.countryName.errors">{{countryFormGroup.controls.countryName.errors.alpha.message}}<br/></small>
-</div>
-<button [disabled]="!countryFormGroup.valid" class="btn btn-primary">Submit</button>
+    <input type="text" formControlName="countryName" class="form-control" />
+    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.countryName.errors">{{countryFormGroup.controls.countryName.errors.alpha.message}}<br /></small>
+  </div>
+  <!--[disabled]="!countryFormGroup.valid"-->
+  <button class="btn btn-primary" >Submit</button>
 </form>

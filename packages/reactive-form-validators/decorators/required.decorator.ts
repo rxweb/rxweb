@@ -8,7 +8,7 @@ import { RequiredConfig } from "../models/config/required-config";
 export function required(config?:RequiredConfig) {
     return function (
         target: Object,
-        propertyKey: string,parameterIndex?: number
+        propertyKey: string,parameterIndex?: any
     ) {
         var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,

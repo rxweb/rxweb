@@ -4,7 +4,7 @@ import { Injectable, Inject, ReflectiveInjector } from "@angular/core"
 import { AppComponent } from './app.component';
 import { RxFormBuilder, RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
 import { ReactiveFormsModule } from "@angular/forms";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, FormBuilder } from "@angular/forms";
 import { RequestHeaders } from "@rx/http";
 import { ResponseResult } from "@rx/http";
 import { API_HOST_URI, RxHttp, APP_VERSION } from '@rx/http';
@@ -76,7 +76,7 @@ export class ChangeDetectionGuard implements CanDeactivate<ComponentCanDeactivat
       { provide: 'RequestHeaders', useClass: ApplicationRequestHeaders },
       { provide: 'ResponseResult', useClass: ApplicationResponse }, RxHttp,
       { provide: 'PageAccess', useClass: PageAccess },
-      { provide: 'ChangeDetectionGuard', useClass: ChangeDetectionGuard }
+      { provide: 'ChangeDetectionGuard', useClass: ChangeDetectionGuard },
   ],
   bootstrap: [AppComponent]
 })

@@ -17,7 +17,7 @@ import { PropValidationConfig } from "../models/prop-validation-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { conditionalChangeValidator } from "../reactive-form-validators/conditional-change.validator";
 import { Linq } from '../util/linq'
-
+import { BuilderForm} from './builder-form';
 
 const APP_VALIDATORS: { [key: string]: Function } = {
     "alphaNumeric": alphaNumericValidator,
@@ -58,7 +58,9 @@ export class RxFormBuilder {
     private conditionalValidationInstance: any = {};
     private builderConfigurationConditionalObjectProps: any[] = [];
     private isNested: boolean = false;
-    constructor(private formBuilder: FormBuilder) { }
+    private formBuilder:BuilderForm
+    constructor() {
+    }
 
     private getInstanceContainer(instanceFunc: any): InstanceContainer {
         return defaultContainer.get(instanceFunc);
@@ -232,7 +234,7 @@ export class RxFormBuilder {
                                 this.conditionalObjectProps = [];
                                 this.builderConfigurationConditionalObjectProps = [];
                             }
-                            formGroupObject[property.name] = this.formBuilder.array(formArrayGroup);
+                            formGroupObject[property.name] = new BuilderForm(entityObject,formGroupObject).array(formArrayGroup);
                             this.isNested = false;
                         }
                         break;
@@ -244,6 +246,7 @@ export class RxFormBuilder {
             this.conditionalValidationInstance = {};
             this.builderConfigurationConditionalObjectProps = [];
         }
-        return this.formBuilder.group(formGroupObject);
+        var formBuilder = new BuilderForm(entityObject,formGroupObject);
+        return formBuilder.group(formGroupObject,undefined);
     }
 }

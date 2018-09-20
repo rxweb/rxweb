@@ -8,7 +8,7 @@ import { ContainsConfig } from "../models/config/contains-config";
 export function contains(config:ContainsConfig) {
     return function (
         target: Object,
-        propertyKey: string, parameterIndex?: number
+        propertyKey: string, parameterIndex?: any
     ) {
         var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,

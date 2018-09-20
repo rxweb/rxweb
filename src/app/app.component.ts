@@ -13,6 +13,18 @@ export class Attendance {
 export class EmployeeDetail {
     @prop() @required() areaName: string;
 }
+export class ExternalClass{
+static convert(value:any) : any{
+return 1;
+}
+}
+function configurable() {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        //descriptor.configurable = value;
+console.log(propertyKey)
+console.log(target);
+    };
+}
 export class Employee {
     @prop() firstName: string;
     @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
@@ -46,6 +58,16 @@ export class Employee {
     @lessThan({ fieldName: 'minNumber' }) lessThan: string;
     @lessThanEqualTo({ fieldName: 'minNumber' }) lessThanEqualTo: string;
     @creditCard({ creditCardTypes: [CreditCardType.AmericanExpress,] }) creditCard: string;
+   private _classProperty: ExternalClass;
+
+
+  set classProperty(property: number | any | ExternalClass) {
+      this._classProperty = property;
+    }
+@alphaNumeric({ allowWhiteSpace: false, message: "test message" }) 
+    get classProperty() {
+      return this._classProperty;
+    }
 }
 @Component({
     selector: 'app-root',
@@ -57,7 +79,10 @@ export class AppComponent implements OnInit {
     sampleFormGroup: FormGroup;
 
     constructor(private formBuilder: FormBuilder, private validation: RxFormBuilder) {
+
     }
+
+    secondEmployee:any = {};
 
     ngOnInit() {
         ApplicationConfiguration.set(CLIENT_SETTINGS);
@@ -68,6 +93,14 @@ export class AppComponent implements OnInit {
         var employeeDetail = new Attendance()
         //employeeDetail.startTime = undefined
         employee.attendances.push(employeeDetail)
+        this.secondEmployee = new Employee();
+        this.secondEmployee.employeeDetail = new EmployeeDetail();
+        //employee.employeeDetail.areaName = "";
+        this.secondEmployee.attendances = new Array<Attendance>();
+        var employeeDetails = new Attendance()
+        employeeDetails.startTime = 12;
+        //employeeDetail.startTime = undefined
+        this.secondEmployee.attendances.push(employeeDetails)
         ReactiveFormConfig.set({
             "internationalization": {
                 "dateFormat": "dmy",
@@ -81,6 +114,7 @@ export class AppComponent implements OnInit {
             }
         });
         employee.lastName = "john";
+        console.log(employee)
         var formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.validations = {
             'firstName': {
@@ -100,4 +134,14 @@ export class AppComponent implements OnInit {
         var t = this.sampleFormGroup;
         return null;
     }
+
+  resetData(){
+      this.sampleFormGroup.reset(this.secondEmployee);
+  }
+
+  setDefault(){
+        this.sampleFormGroup.controls.digit.setValue(123)
+  }
 }
+
+
