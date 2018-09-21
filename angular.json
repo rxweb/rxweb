@@ -3,6 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "reactive-form-validators": {
+      "root": "packages/reactive-form-validators",
+      "sourceRoot": "packages/reactive-form-validators",
+      "projectType": "library",
+      "prefix": "enl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "packages/reactive-form-validators/tsconfig.lib.json",
+            "project": "packages/reactive-form-validators/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/reactive-form-validators/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/example-ng6-lib/src/test.ts",
+            "tsConfig": "projects/example-ng6-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/example-ng6-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/reactive-form-validators/tsconfig.lib.json",
+              "packages/reactive-form-validators/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "rx": {
       "root": "",
       "sourceRoot": "src",

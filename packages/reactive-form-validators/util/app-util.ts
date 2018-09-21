@@ -20,4 +20,8 @@ export class ApplicationUtil{
     static getConfigObject(config: any): any {
         return (config != undefined && config != true) ? config : {};
     }
+
+    static isNumeric(value:any){
+       return (value - parseFloat(value) + 1) >= 0;
+    }
 }

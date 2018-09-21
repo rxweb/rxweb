@@ -9,11 +9,17 @@ export class BuilderForm extends FormBuilder {
     private entityService : EntityService
     private currentFormGroup:RxFormGroup;
     private objectKeys:string[] = [];
-    constructor(private entityObject:{[key:string]:any},private formControls){
+    private entityObject:{[key:string]:any};
+    private formControls:any;
+    constructor(){
         super();
-        this.keys = Object.keys(formControls)
         this.entityService = new EntityService();
-        this.baseObject = this.entityService.clone(this.entityObject);
+    }
+
+    init(entityObject:{[key:string]:any},formControls:any){
+        this.entityObject = entityObject;
+        this.keys = Object.keys(formControls)
+        this.baseObject = this.entityService.clone(entityObject);
         this.cleanBaseObject();
     }
 

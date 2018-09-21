@@ -60,6 +60,7 @@ export class RxFormBuilder {
     private isNested: boolean = false;
     private formBuilder:BuilderForm
     constructor() {
+     this.formBuilder = new BuilderForm();
     }
 
     private getInstanceContainer(instanceFunc: any): InstanceContainer {
@@ -234,7 +235,9 @@ export class RxFormBuilder {
                                 this.conditionalObjectProps = [];
                                 this.builderConfigurationConditionalObjectProps = [];
                             }
-                            formGroupObject[property.name] = new BuilderForm(entityObject,formGroupObject).array(formArrayGroup);
+                            let formBuilder = new BuilderForm();
+                            formBuilder.init(entityObject,formGroupObject);
+                            formGroupObject[property.name] = formBuilder.array(formArrayGroup);
                             this.isNested = false;
                         }
                         break;
@@ -246,7 +249,8 @@ export class RxFormBuilder {
             this.conditionalValidationInstance = {};
             this.builderConfigurationConditionalObjectProps = [];
         }
-        var formBuilder = new BuilderForm(entityObject,formGroupObject);
+        let formBuilder  = new BuilderForm();
+        formBuilder.init(entityObject,formGroupObject)
         return formBuilder.group(formGroupObject,undefined);
     }
 }

@@ -11,7 +11,6 @@ import { DefaultConfig } from "../models/config/default-config";
 import { Linq } from "../util/linq";
 import { ApplicationUtil } from "../util/app-util";
 import { AnnotationTypes } from "../core/validator.static";
-import { isNumeric } from "../../../node_modules/rxjs/internal-compatibility";
 
 export function jsonValidator(config: DefaultConfig, conditionalValidationProps: string[]): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
@@ -22,7 +21,7 @@ export function jsonValidator(config: DefaultConfig, conditionalValidationProps:
         if (Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 try {
-                var parseValue = isNumeric(controlValue);
+                var parseValue = ApplicationUtil.isNumeric(controlValue);
                 if(parseValue || controlValue == "true" || controlValue == "false"){
                     throw "invalid value";
                 }
