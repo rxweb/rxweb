@@ -5,7 +5,7 @@ import {
     digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType, minLength
 } from "@rxweb/reactive-form-validators";
 import { time } from "packages/reactive-form-validators/decorators";
-import { ApplicationConfiguration } from "@rx/core";
+
 import { CLIENT_SETTINGS } from './client-setting'
 export class Attendance {
     @prop() @required({ conditionalExpression: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'" }) startTime: number;
@@ -85,7 +85,7 @@ export class AppComponent implements OnInit {
     secondEmployee:any = {};
 
     ngOnInit() {
-        ApplicationConfiguration.set(CLIENT_SETTINGS);
+        
         var employee = new Employee();
         employee.employeeDetail = new EmployeeDetail();
         //employee.employeeDetail.areaName = "";

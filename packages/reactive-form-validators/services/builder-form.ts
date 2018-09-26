@@ -17,6 +17,7 @@ export class BuilderForm extends FormBuilder {
     }
 
     init(entityObject:{[key:string]:any},formControls:any){
+        this.formControls = formControls;
         this.entityObject = entityObject;
         this.keys = Object.keys(formControls)
         this.baseObject = this.entityService.clone(entityObject);
