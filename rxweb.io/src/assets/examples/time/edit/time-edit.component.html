@@ -1,0 +1,10 @@
+<div>
+<form *ngIf="attandanceDetailFormGroup" [formGroup]="attandanceDetailFormGroup">
+<div class="form-group">
+    <label>Entry Time</label>
+    <input type="text" formControlName="entryTime" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="attandanceDetailFormGroup.controls.entryTime.errors">{{attandanceDetailFormGroup.controls.entryTime.errors.time.message}}<br/></small>
+</div>
+<button [disabled]="!attandanceDetailFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

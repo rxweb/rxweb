@@ -1,0 +1,23 @@
+<div>
+<form *ngIf="hexcolorInfoFormGroup" [formGroup]="hexcolorInfoFormGroup">
+<div class="form-group">
+    <label>Color Picker</label>
+    <input type="text" formControlName="color" class="form-control"  />
+    <small class="form-text text-muted">Enter the '#AFAFAF' in Color Picker text box to see the validation in 'Header Hexcode'<br/></small>
+    <small class="form-text text-danger" *ngIf="hexcolorInfoFormGroup.controls.color.errors">{{hexcolorInfoFormGroup.controls.color.errors.hexColor.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Header Hexcode</label>
+    <input type="text" formControlName="headerHexcolorCode" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Header Hexcode' then need to add 'Color Picker' input as 'Hexcolor'<br/></small>
+    <small class="form-text text-danger" *ngIf="hexcolorInfoFormGroup.controls.headerHexcolorCode.errors">{{hexcolorInfoFormGroup.controls.headerHexcolorCode.errors.hexColor.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Body Hexcode</label>
+    <input type="text" formControlName="bodyHexcolorCode" class="form-control"  />
+    <small class="form-text text-muted">Shows custom message<br/></small>
+    <small class="form-text text-danger" *ngIf="hexcolorInfoFormGroup.controls.bodyHexcolorCode.errors">{{hexcolorInfoFormGroup.controls.bodyHexcolorCode.errors.hexColor.message}}<br/></small>
+</div>
+<button [disabled]="!hexcolorInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

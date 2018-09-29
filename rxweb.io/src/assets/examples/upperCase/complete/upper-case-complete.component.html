@@ -1,0 +1,22 @@
+<div>
+<form *ngIf="locationFormGroup" [formGroup]="locationFormGroup">
+<div class="form-group">
+    <label>Country Name</label>
+    <input type="text" formControlName="countryName" class="form-control"  />
+    <small class="form-text text-muted">Enter the 'INDIA' in 'Country Name' text box to see the validation in 'State Name' text box.<br/></small>
+    <small class="form-text text-danger" *ngIf="locationFormGroup.controls.countryName.errors">{{locationFormGroup.controls.countryName.errors.upperCase.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>State Name</label>
+    <input type="text" formControlName="stateName" class="form-control"  />
+    <small class="form-text text-muted">To apply the validation of upperCase on 'State Name' field, then enter the value of 'INDIA' in 'Country Name' textbox.<br/></small>
+    <small class="form-text text-danger" *ngIf="locationFormGroup.controls.stateName.errors">{{locationFormGroup.controls.stateName.errors.upperCase.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>City Name</label>
+    <input type="text" formControlName="cityName" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="locationFormGroup.controls.cityName.errors">{{locationFormGroup.controls.cityName.errors.upperCase.message}}<br/></small>
+</div>
+<button [disabled]="!locationFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

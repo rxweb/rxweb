@@ -1,0 +1,37 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { exportNgVar } from '../../dom/util';
+import { AngularProfiler } from './common_tools';
+var PROFILER_GLOBAL_NAME = 'profiler';
+/**
+ * Enabled Angular debug tools that are accessible via your browser's
+ * developer console.
+ *
+ * Usage:
+ *
+ * 1. Open developer console (e.g. in Chrome Ctrl + Shift + j)
+ * 1. Type `ng.` (usually the console will show auto-complete suggestion)
+ * 1. Try the change detection profiler `ng.profiler.timeChangeDetection()`
+ *    then hit Enter.
+ *
+ * @experimental All debugging apis are currently experimental.
+ */
+export function enableDebugTools(ref) {
+    exportNgVar(PROFILER_GLOBAL_NAME, new AngularProfiler(ref));
+    return ref;
+}
+/**
+ * Disables Angular tools.
+ *
+ * @experimental All debugging apis are currently experimental.
+ */
+export function disableDebugTools() {
+    exportNgVar(PROFILER_GLOBAL_NAME, null);
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidG9vbHMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9wYWNrYWdlcy9wbGF0Zm9ybS1icm93c2VyL3NyYy9icm93c2VyL3Rvb2xzL3Rvb2xzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUdILE9BQU8sRUFBQyxXQUFXLEVBQUMsTUFBTSxnQkFBZ0IsQ0FBQztBQUMzQyxPQUFPLEVBQUMsZUFBZSxFQUFDLE1BQU0sZ0JBQWdCLENBQUM7QUFFL0MsSUFBTSxvQkFBb0IsR0FBRyxVQUFVLENBQUM7QUFFeEM7Ozs7Ozs7Ozs7OztHQVlHO0FBQ0gsTUFBTSwyQkFBOEIsR0FBb0I7SUFDdEQsV0FBVyxDQUFDLG9CQUFvQixFQUFFLElBQUksZUFBZSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7SUFDNUQsT0FBTyxHQUFHLENBQUM7QUFDYixDQUFDO0FBRUQ7Ozs7R0FJRztBQUNILE1BQU07SUFDSixXQUFXLENBQUMsb0JBQW9CLEVBQUUsSUFBSSxDQUFDLENBQUM7QUFDMUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgSW5jLiBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtDb21wb25lbnRSZWZ9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHtleHBvcnROZ1Zhcn0gZnJvbSAnLi4vLi4vZG9tL3V0aWwnO1xuaW1wb3J0IHtBbmd1bGFyUHJvZmlsZXJ9IGZyb20gJy4vY29tbW9uX3Rvb2xzJztcblxuY29uc3QgUFJPRklMRVJfR0xPQkFMX05BTUUgPSAncHJvZmlsZXInO1xuXG4vKipcbiAqIEVuYWJsZWQgQW5ndWxhciBkZWJ1ZyB0b29scyB0aGF0IGFyZSBhY2Nlc3NpYmxlIHZpYSB5b3VyIGJyb3dzZXInc1xuICogZGV2ZWxvcGVyIGNvbnNvbGUuXG4gKlxuICogVXNhZ2U6XG4gKlxuICogMS4gT3BlbiBkZXZlbG9wZXIgY29uc29sZSAoZS5nLiBpbiBDaHJvbWUgQ3RybCArIFNoaWZ0ICsgailcbiAqIDEuIFR5cGUgYG5nLmAgKHVzdWFsbHkgdGhlIGNvbnNvbGUgd2lsbCBzaG93IGF1dG8tY29tcGxldGUgc3VnZ2VzdGlvbilcbiAqIDEuIFRyeSB0aGUgY2hhbmdlIGRldGVjdGlvbiBwcm9maWxlciBgbmcucHJvZmlsZXIudGltZUNoYW5nZURldGVjdGlvbigpYFxuICogICAgdGhlbiBoaXQgRW50ZXIuXG4gKlxuICogQGV4cGVyaW1lbnRhbCBBbGwgZGVidWdnaW5nIGFwaXMgYXJlIGN1cnJlbnRseSBleHBlcmltZW50YWwuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBlbmFibGVEZWJ1Z1Rvb2xzPFQ+KHJlZjogQ29tcG9uZW50UmVmPFQ+KTogQ29tcG9uZW50UmVmPFQ+IHtcbiAgZXhwb3J0TmdWYXIoUFJPRklMRVJfR0xPQkFMX05BTUUsIG5ldyBBbmd1bGFyUHJvZmlsZXIocmVmKSk7XG4gIHJldHVybiByZWY7XG59XG5cbi8qKlxuICogRGlzYWJsZXMgQW5ndWxhciB0b29scy5cbiAqXG4gKiBAZXhwZXJpbWVudGFsIEFsbCBkZWJ1Z2dpbmcgYXBpcyBhcmUgY3VycmVudGx5IGV4cGVyaW1lbnRhbC5cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGRpc2FibGVEZWJ1Z1Rvb2xzKCk6IHZvaWQge1xuICBleHBvcnROZ1ZhcihQUk9GSUxFUl9HTE9CQUxfTkFNRSwgbnVsbCk7XG59XG4iXX0=

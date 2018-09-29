@@ -1,0 +1,10 @@
+<div>
+<form *ngIf="locationFormGroup" [formGroup]="locationFormGroup">
+<div class="form-group">
+    <label>Country Name</label>
+    <input type="text" formControlName="countryName" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="locationFormGroup.controls.countryName.errors">{{locationFormGroup.controls.countryName.errors.upperCase.message}}<br/></small>
+</div>
+<button [disabled]="!locationFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

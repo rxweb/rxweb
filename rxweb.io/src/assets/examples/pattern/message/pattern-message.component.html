@@ -1,0 +1,11 @@
+<div>
+<form *ngIf="userFormGroup" [formGroup]="userFormGroup">
+<div class="form-group">
+    <label>Zip Code</label>
+    <input type="text" formControlName="zipCode" class="form-control"  />
+    <small class="form-text text-muted">It checked that zipcode match zipcode regex or not and it shows custom message<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.zipCode.errors">{{userFormGroup.controls.zipCode.errors.pattern.message}}<br/></small>
+</div>
+<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

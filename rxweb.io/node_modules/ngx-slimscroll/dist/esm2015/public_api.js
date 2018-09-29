@@ -1,0 +1,10 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+export { SlimScrollEvent } from './app/ngx-slimscroll/classes/slimscroll-event.class';
+export { SLIMSCROLL_DEFAULTS, SlimScrollOptions } from './app/ngx-slimscroll/classes/slimscroll-options.class';
+export { easing, SlimScrollDirective } from './app/ngx-slimscroll/directives/slimscroll.directive';
+export { NgSlimScrollModule } from './app/ngx-slimscroll/module/ngx-slimscroll.module';
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL25neC1zbGltc2Nyb2xsLyIsInNvdXJjZXMiOlsicHVibGljX2FwaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUEsZ0NBQWMscURBQXFELENBQUM7QUFDcEUsdURBQWMsdURBQXVELENBQUM7QUFDdEUsNENBQWMsc0RBQXNELENBQUM7QUFDckUsbUNBQWMsbURBQW1ELENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tICcuL2FwcC9uZ3gtc2xpbXNjcm9sbC9jbGFzc2VzL3NsaW1zY3JvbGwtZXZlbnQuY2xhc3MnO1xuZXhwb3J0ICogZnJvbSAnLi9hcHAvbmd4LXNsaW1zY3JvbGwvY2xhc3Nlcy9zbGltc2Nyb2xsLW9wdGlvbnMuY2xhc3MnO1xuZXhwb3J0ICogZnJvbSAnLi9hcHAvbmd4LXNsaW1zY3JvbGwvZGlyZWN0aXZlcy9zbGltc2Nyb2xsLmRpcmVjdGl2ZSc7XG5leHBvcnQgKiBmcm9tICcuL2FwcC9uZ3gtc2xpbXNjcm9sbC9tb2R1bGUvbmd4LXNsaW1zY3JvbGwubW9kdWxlJztcbiJdfQ==

@@ -1,0 +1,19 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { diPublic } from '../di';
+/**
+ * This feature publishes the directive (or component) into the DI system, making it visible to
+ * others for injection.
+ *
+ * @param definition
+ */
+export function PublicFeature(definition) {
+    definition.diPublic = diPublic;
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2ZlYXR1cmUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9wYWNrYWdlcy9jb3JlL3NyYy9yZW5kZXIzL2ZlYXR1cmVzL3B1YmxpY19mZWF0dXJlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUNILE9BQU8sRUFBQyxRQUFRLEVBQUMsTUFBTSxPQUFPLENBQUM7QUFHL0I7Ozs7O0dBS0c7QUFDSCxNQUFNLHdCQUEyQixVQUFtQztJQUNsRSxVQUFVLENBQUMsUUFBUSxHQUFHLFFBQVEsQ0FBQztBQUNqQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBJbmMuIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuaW1wb3J0IHtkaVB1YmxpY30gZnJvbSAnLi4vZGknO1xuaW1wb3J0IHtEaXJlY3RpdmVEZWZJbnRlcm5hbH0gZnJvbSAnLi4vaW50ZXJmYWNlcy9kZWZpbml0aW9uJztcblxuLyoqXG4gKiBUaGlzIGZlYXR1cmUgcHVibGlzaGVzIHRoZSBkaXJlY3RpdmUgKG9yIGNvbXBvbmVudCkgaW50byB0aGUgREkgc3lzdGVtLCBtYWtpbmcgaXQgdmlzaWJsZSB0b1xuICogb3RoZXJzIGZvciBpbmplY3Rpb24uXG4gKlxuICogQHBhcmFtIGRlZmluaXRpb25cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIFB1YmxpY0ZlYXR1cmU8VD4oZGVmaW5pdGlvbjogRGlyZWN0aXZlRGVmSW50ZXJuYWw8VD4pIHtcbiAgZGVmaW5pdGlvbi5kaVB1YmxpYyA9IGRpUHVibGljO1xufVxuIl19
