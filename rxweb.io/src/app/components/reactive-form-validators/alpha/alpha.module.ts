@@ -7,12 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { ALPHA_ROUTING } from './alpha.routing';
 import { AlphaComponent } from './alpha.component';
 import { AlphaExtendedModule } from '../../../../assets/examples/alpha/alpha.module';
+import { DisqusComponent } from '../../shared/disqus/disqus.component';
 
 @NgModule({
   imports: [
     ALPHA_ROUTING,
     CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaExtendedModule, ClipboardModule],
-  declarations: [AlphaComponent],
+  declarations: [AlphaComponent,DisqusComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

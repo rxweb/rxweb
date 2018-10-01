@@ -1,6 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AlphaCompleteComponent } from '../../../../assets/examples/alpha/complete/alpha-complete.component';
+import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { ResponseType } from '@angular/http';
 
@@ -8,7 +9,8 @@ import { ResponseType } from '@angular/http';
   templateUrl: './alpha.component.html',
   entryComponents: [
   	AlphaCompleteComponent,
-     ]
+   DisqusComponent
+  ]
 })
 export class AlphaComponent implements OnInit {
   showComponent: boolean = false;
