@@ -4,7 +4,7 @@ description: Pattern validation decorator will allow only match input as pattern
 author: rxcontributortwo
 
 ---
-# When to use?
+# When to use
 Let’s assume that you are creating a User form, which contains fields like Username, Zipcode, Age and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.
 1.	Allow input which contains only Alphabet in Username.
 2.	Apply pattern validation based on matched condition in the form, like if the Username is `John`, then only the the pattern validation must be applied to Age value(i.e., Age field must only be a digit).

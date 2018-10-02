@@ -4,7 +4,7 @@ description: Minimum Date validation decorator will allow only minimum date be e
 author: rxcontributortwo
 
 ---
-# When to use?
+# When to use
 Let’s assume that you are creating a User form, which contains fields like Username, BirthDate, RegistrationDate and you want the user to enter date which must be greater rhan a minimum date. Here depending upon the requirement these scenarios may arise.
 1.	Allow date greater than `30/07/2018 ` in RegistrationDate.
 2.	Apply minDate validation based on matched condition in the form, like if the UserName is `john`, then only the minDate validation will be applied to BirthDate field (i.e., BirthDate must be greater than `30/07/2018 `).

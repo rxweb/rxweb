@@ -36,7 +36,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-json-edit></app-json-edit>
 
-#JsonConfig
+# DefaultConfig
 
 Below options are not mandatory to use in the `@json()` decorator. If needed then use the below options.
 

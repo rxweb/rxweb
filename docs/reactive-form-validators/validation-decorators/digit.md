@@ -4,7 +4,7 @@ description: Digit validation decorator will allow only digits to be entered. It
 author: rxcontributortwo
 
 ---
-# When to use?
+# When to use
 Let’s assume that you are creating a User form, which contains fields like Age, PhoneNumber, MobileNumberand you want the user to enter only numbers. Here depending upon the requirement these scenarios may arise.
 1.	Allow only numbers in Age.
 2.	Apply digit validation based on matched condition in the form, like if the Age is greater than equal to 25 then only the digit validation will be applied to the PhoneNumber value.

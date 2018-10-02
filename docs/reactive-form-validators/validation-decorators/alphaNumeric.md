@@ -4,7 +4,7 @@ description: Alpha Numeric validation decorator will allow only alphabets and nu
 author: rxcontributortwo
 
 ---
-# When to use?
+# When to use
 Let’s assume that you are creating a Location form, which contains fields like AreaName, FlatAddress, PostalAddress, CityCode and you want the user to enter only alphabets and numbers. Here depending upon the requirement these scenarios may arise.
 1.	Allow only alphabets and numbers in AreaName without space.
 2.	Allowing WhiteSpace in FlatAddress.

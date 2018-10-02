@@ -38,7 +38,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-greaterThanEqualTo-edit></app-greaterThanEqualTo-edit>
 
-#GreaterThanEqualToConfig
+# RelationalOperatorConfig
 
 Below options are not mandatory to use in the `@greaterThanEqualTo()` decorator. If needed then use the below options.
 

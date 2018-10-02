@@ -4,7 +4,7 @@ description: Greater than validation decorator will check that input property is
 author: rxcontributortwo
 
 ---
-#  When to use?
+#  When to use
 Let’s assume that you are creating a User form, which contains fields like Age, VoterAge, OtherAge and you want the user to enter the numbers which are greater than a related field. Here depending upon the requirement these scenarios may arise.
 1.	Allow numbers which are greater than a perticular field like in VoterAge.
 2.	Apply greaterThan validation based on matched condition in the form, like if the Age is greater than    17, then only the greater than validation will be applied to VoterAge field.
