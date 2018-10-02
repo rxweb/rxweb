@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl } from
 import {
     contains,
     digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType, minLength
+,  FormGroupExtension
 } from "@rxweb/reactive-form-validators";
 import { time } from "packages/reactive-form-validators/decorators";
 
@@ -91,7 +92,7 @@ export class AppComponent implements OnInit {
         //employee.employeeDetail.areaName = "";
         employee.attendances = new Array<Attendance>();
         var employeeDetail = new Attendance()
-        //employeeDetail.startTime = undefined
+        employeeDetail.startTime = 1
         employee.attendances.push(employeeDetail)
         this.secondEmployee = new Employee();
         this.secondEmployee.employeeDetail = new EmployeeDetail();
@@ -134,9 +135,10 @@ export class AppComponent implements OnInit {
         var t = this.sampleFormGroup;
         return null;
     }
-
-  resetData(){
-      this.sampleFormGroup.reset(this.secondEmployee);
+errorObject = {}
+  resetData() {
+      this.errorObject = (<FormGroupExtension>this.sampleFormGroup).getErrorSummary(true) ;
+      //(<FormGroupExtension>this.sampleFormGroup).resetForm();
   }
 
   setDefault(){

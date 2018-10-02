@@ -1,7 +1,8 @@
 
 <form [formGroup]="sampleFormGroup">
-  alpha   <input type="text" formControlName="firstName" /> {{sampleFormGroup.controls.firstName.errors | json}}<br />
-  alpha numeric <input type="text" formControlName="lastName" />{{sampleFormGroup.controls.lastName.errors | json}}<br />
+  alpha   <input type="text" formControlName="firstName" /> {{sampleFormGroup.controls.firstName.errors | json}} {{sampleFormGroup.controls.firstName.errorMessage}}<br />
+  alpha numeric <input type="text" formControlName="lastName" />{{sampleFormGroup.controls.lastName.errors | json
+  }}<br />
   accessor <input type="text" formControlName="classProperty" />{{sampleFormGroup.controls.classProperty.errors | json}}<br />
   contains <input type="text" formControlName="contains" />{{sampleFormGroup.controls.contains.errors | json}}<br />
   digit <input type="text" formControlName="digit" />{{sampleFormGroup.controls.digit.errors | json}}<br />
@@ -17,7 +18,7 @@
   password <input type="text" formControlName="password" />{{sampleFormGroup.controls.password.errors | json}}<br />
   pattern <input type="text" formControlName="pattern" />{{sampleFormGroup.controls.pattern.errors | json}}<br />
   range <input type="text" formControlName="range" />{{sampleFormGroup.controls.range.errors | json}}<br />
-  required <input type="text" formControlName="required" />{{sampleFormGroup.controls.required.errors | json}}<br />
+  required <input type="text" formControlName="required" />{{sampleFormGroup.controls.required.errors | json}}<br /> {{errorObject.required}}
   upperCase <input type="text" formControlName="upperCase" />{{sampleFormGroup.controls.upperCase.errors | json}}<br />
   state <input type="text" formControlName="state" />{{sampleFormGroup.controls.state.errors | json}}<br />
   country<input type="text" formControlName="country" />{{sampleFormGroup.controls.country.errors | json}}<br />
@@ -38,8 +39,11 @@
   </div>
   {{sampleFormGroup.dirty}}
   {{sampleFormGroup.isDirty()}}
+  {{sampleFormGroup.error}}
+  {{sampleFormGroup.getError() | json}}
   <button (click)="resetData()">Submit</button>
   <button (click)="setDefault()">Change</button>
+  <button (click)="resetData()">Reset</button>
 </form>
 
 

@@ -1,6 +1,7 @@
 import { FormGroup } from "@angular/forms";
 
-export class RxFormGroup extends FormGroup {
+export interface FormGroupExtension extends FormGroup {
     isDirty: () => boolean;
     resetForm: () => void;
+    getErrorSummary: (onlyMessage:boolean) => { [key:string] : any };
 }

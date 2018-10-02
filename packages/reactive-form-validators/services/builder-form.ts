@@ -1,13 +1,14 @@
 import { FormBuilder,FormGroup,FormArray,FormControl } from "@angular/forms";
 import { RxFormControl } from "./form-control";
 import { EntityService } from './entity.service';
-import { RxFormGroup } from './form-group';
+import { FormGroupExtension } from './form-group';
+import { RegexValidator } from '../util/regex-validator'
 export class BuilderForm extends FormBuilder {
     private keys:string[]
     private keyIndex : number = -1;
     private baseObject:{[key:string]:any} = {};
     private entityService : EntityService
-    private currentFormGroup:RxFormGroup;
+    private currentFormGroup:FormGroupExtension;
     private objectKeys:string[] = [];
     private entityObject:{[key:string]:any};
     private formControls:any;
@@ -26,30 +27,74 @@ export class BuilderForm extends FormBuilder {
 
 
     group(controlsConfig:any, extra:any) : FormGroup {
-      this.currentFormGroup = <RxFormGroup> super.group(controlsConfig, extra);
+      this.currentFormGroup = <FormGroupExtension> super.group(controlsConfig, extra);
       this.currentFormGroup.isDirty = this.dirty(this.baseObject,this.objectKeys);
       this.currentFormGroup.resetForm = this.resetForm(this.baseObject,this.objectKeys);
+      this.currentFormGroup.getErrorSummary = this.errorSummary();
       return this.currentFormGroup;
     }
 
-    
+    errorSummary(){
+      return function(onlyMessage: boolean ) {
+        let jObject : {[key:string]:any}  = {};
+        Object.keys(this.controls).forEach(columnName=>{
+          if(this.controls[columnName] instanceof FormGroup){
+            let error  = this.controls[columnName].getErrorSummary();
+            if(Object.keys(error).length > 0)
+            jObject[columnName] = error;
+          }
+          else if(this.controls[columnName] instanceof FormArray)
+          {
+              
+              let index = 0;
+              for(let formGroup of this.controls[columnName].controls){
+                let error = formGroup.getErrorSummary();
+                if(Object.keys(error).length > 0){
+                error.index = index;
+                if(!jObject[columnName])
+                    jObject[columnName] = [];
+                jObject[columnName].push(error);  
+              }
+              index++;
+              }
+          }else{
+            if(this.controls[columnName].errors){
+              let error = this.controls[columnName].errors;
+              if(onlyMessage)
+              for(let validationName in error)
+                jObject[columnName] = error[validationName].message;
+              else
+                jObject[columnName] = error;
+              }
+          }
+        })
+        return jObject;
+      }
+    }
+
+   
+
     control(formState:any, validator:any, asyncValidator:any){
         var keyName = this.nextKey()
         return  new RxFormControl(formState, validator, asyncValidator,this.entityObject,this.baseObject,keyName);
     }
 
     resetForm(baseObject:{[key:string]:any},objectKeys:string[]) {
-      return function():void{
-      this.reset(baseObject);
-      for(var name in objectKeys)
+      return function (): void{
+      for(let name in this.controls)
       {
         if(this.controls[name] instanceof FormGroup)
           this.controls[name].resetForm();
-        else
+        else if(this.controls[name] instanceof FormArray)
           {
               for(let formGroup of this.controls[name].controls){
                 formGroup.resetForm();
               }
+          }else{
+          if (RegexValidator.isNotBlank(baseObject[name]))
+            this.controls[name].setValue(baseObject[name]);
+          else
+            this.controls[name].setValue(undefined);
           }
       }
     }
