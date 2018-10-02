@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\creditCard\edit\credit-card-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-creditcard-add></app-creditcard-add>
+<app-creditCard-add></app-creditCard-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-creditcard-edit></app-creditcard-edit>
+<app-creditCard-edit></app-creditCard-edit>
 
 # CreditCardConfig
 Below options are not mandatory to use in the `@CreditCard()` decorator. If needed then use the below options.
@@ -60,7 +60,7 @@ Credit card type has different Card types e.g. Visa, AmericanExpress, Maestro, J
 ***
 
 [!example(?type=section&clickEventCode="creditCardTypesShow=!creditCardTypesShow")]
-<app-creditcard-creditCardTypes></app-creditcard-creditCardTypes>
+<app-creditCard-creditCardTypes></app-creditCard-creditCardTypes>
 
 
 ## conditionalExpression 
@@ -78,7 +78,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-creditcard-conditionalExpressions></app-creditcard-conditionalExpressions>
+<app-creditCard-conditionalExpressions></app-creditCard-conditionalExpressions>
 
 ## message 
 Type :  `string` 
@@ -94,12 +94,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-creditcard-message></app-creditcard-message>
+<app-creditCard-message></app-creditCard-message>
 
 # Complete CreditCard Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-creditcard-complete></app-creditcard-complete>
+<app-creditCard-complete></app-creditCard-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\creditCard\complete\user.model.ts)]
 # [Component](#tab\completecomponent)

@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\lessThan\edit\less-than-add.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-lessthan-add></app-lessthan-add>
+<app-lessThan-add></app-lessThan-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-lessthan-edit></app-lessthan-edit>
+<app-lessThan-edit></app-lessThan-edit>
 
 # RelationalOperatorConfig 
 message and conditionalExpression options are not mandatory but fieldName is mandatory to use in the `@lessThan()` decorator. If needed then use the below options.
@@ -61,7 +61,7 @@ Less than validation should be applied based on the `fieldName` for compare othe
 ***
 
 [!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow")]
-<app-lessthan-fieldName></app-lessthan-fieldName>
+<app-lessThan-fieldName></app-lessThan-fieldName>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 

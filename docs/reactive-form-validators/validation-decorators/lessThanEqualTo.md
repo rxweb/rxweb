@@ -34,10 +34,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\lessThanEqualTo\edit\less-than-equal-to-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-lessthanequalto-add></app-lessthanequalto-add>
+<app-lessThanEqualTo-add></app-lessThanEqualTo-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-lessthanequalto-edit></app-lessthanequalto-edit>
+<app-lessThanEqualTo-edit></app-lessThanEqualTo-edit>
 
 # LessThanEqualToConfig 
 message and conditionalExpression options are not mandatory but fieldName is mandatory to use in the `@lessThanEqualTo()` decorator. If needed then use the below options.
@@ -78,7 +78,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-lessthanequalto-conditionalExpressions></app-lessthanequalto-conditionalExpressions>
+<app-lessThanEqualTo-conditionalExpressions></app-lessThanEqualTo-conditionalExpressions>
 
 ## message 
 Type :  `string` 
@@ -94,12 +94,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-lessthanequalto-message></app-lessthanequalto-message>
+<app-lessThanEqualTo-message></app-lessThanEqualTo-message>
 
 # Complete lessThanEqualTo Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-lessthanequalto-complete></app-lessthanequalto-complete>
+<app-lessThanEqualTo-complete></app-lessThanEqualTo-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\lessThanEqualTo\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
