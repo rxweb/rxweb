@@ -4,5 +4,4 @@ export class Location {
 
 	@upperCase() 
 	countryName: string;
-
 }

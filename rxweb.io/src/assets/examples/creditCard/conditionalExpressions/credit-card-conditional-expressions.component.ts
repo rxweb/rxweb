@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-creditcard-conditionalExpressions',
+    selector: 'app-creditCard-conditionalExpressions',
     templateUrl: './credit-card-conditional-expressions.component.html'
 })
 export class CreditCardConditionalExpressionsComponent implements OnInit {

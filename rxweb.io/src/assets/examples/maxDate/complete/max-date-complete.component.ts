@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-maxdate-complete',
+    selector: 'app-maxDate-complete',
     templateUrl: './max-date-complete.component.html'
 })
 export class MaxDateCompleteComponent implements OnInit {

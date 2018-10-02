@@ -4,5 +4,4 @@ export class User {
 
 	@required({message:'Username cannot be blank.' }) 
 	userName: string;
-
 }

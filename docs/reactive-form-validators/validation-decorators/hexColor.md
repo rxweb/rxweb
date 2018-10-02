@@ -34,10 +34,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\hexColor\edit\hex-color-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-hexcolor-add></app-hexcolor-add>
+<app-hexColor-add></app-hexColor-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-hexcolor-edit></app-hexcolor-edit>
+<app-hexColor-edit></app-hexColor-edit>
 
 # HexColorConfig 
 Below options are not mandatory to use in the `@hexColor()` decorator. If needed then use the below options.
@@ -63,7 +63,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-hexcolor-conditionalExpressions></app-hexcolor-conditionalExpressions>
+<app-hexColor-conditionalExpressions></app-hexColor-conditionalExpressions>
  
 ## message 
 Type :  `string` 
@@ -80,12 +80,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-hexcolor-message></app-hexcolor-message>
+<app-hexColor-message></app-hexColor-message>
 
 # Complete hexColor Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-hexcolor-complete></app-hexcolor-complete>
+<app-hexColor-complete></app-hexColor-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\hexColor\complete\hexcolor-info.model.ts)]
 # [Component](#tab\completecomponent)

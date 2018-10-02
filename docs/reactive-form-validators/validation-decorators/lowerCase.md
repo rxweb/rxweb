@@ -32,12 +32,12 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\lowerCase\edit\lower-case-add.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-lowercase-add></app-lowercase-add>
+<app-lowerCase-add></app-lowerCase-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-lowercase-edit></app-lowercase-edit>
+<app-lowerCase-edit></app-lowerCase-edit>
 
-# LowerCaseConfig 
+# MessageConfig 
 Below options are not mandatory to use in the `@lowerCase()` decorator. If needed then use the below options.
 
 |Option | Description |
@@ -61,7 +61,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-lowercase-conditionalExpressions></app-lowercase-conditionalExpressions>
+<app-lowerCase-conditionalExpressions></app-lowerCase-conditionalExpressions>
  
 ## message 
 Type :  `string` 
@@ -77,12 +77,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-lowercase-message></app-lowercase-message>
+<app-lowerCase-message></app-lowerCase-message>
 
 # Complete lowercase Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-lowercase-complete></app-lowercase-complete>
+<app-lowerCase-complete></app-lowerCase-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\lowerCase\complete\user.model.ts)]
 # [Component](#tab\completecomponent)

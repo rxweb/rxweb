@@ -32,12 +32,12 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\upperCase\edit\upper-case-add.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-uppercase-add></app-uppercase-add>
+<app-upperCase-add></app-upperCase-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-uppercase-edit></app-uppercase-edit>
+<app-upperCase-edit></app-upperCase-edit>
  
-# UpperCaseConfig 
+# MessageConfig 
 Below options are not mandatory to use in the `@upperCase()` decorator. If needed then use the below options.
 
 |Option | Description |
@@ -61,7 +61,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-uppercase-conditionalExpressions></app-uppercase-conditionalExpressions>
+<app-upperCase-conditionalExpressions></app-upperCase-conditionalExpressions>
  
 ## message 
 Type :  `string` 
@@ -79,12 +79,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-uppercase-message></app-uppercase-message>
+<app-upperCase-message></app-upperCase-message>
 
 # Complete upperCase Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-uppercase-complete></app-uppercase-complete>
+<app-upperCase-complete></app-upperCase-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\upperCase\complete\location.model.ts)]
 # [Component](#tab\completecomponent)

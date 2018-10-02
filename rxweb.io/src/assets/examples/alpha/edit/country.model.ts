@@ -4,5 +4,4 @@ export class Country {
 
 	@alpha() 
 	countryName: string;
-
 }

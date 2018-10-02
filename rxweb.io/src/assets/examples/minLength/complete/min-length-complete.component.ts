@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { Contact } from './contact.model';
 
 @Component({
-    selector: 'app-minlength-complete',
+    selector: 'app-minLength-complete',
     templateUrl: './min-length-complete.component.html'
 })
 export class MinLengthCompleteComponent implements OnInit {

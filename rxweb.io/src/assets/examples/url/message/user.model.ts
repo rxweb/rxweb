@@ -4,5 +4,4 @@ export class User {
 
 	@url({message:'Is not the correct url pattern.' }) 
 	maintenanceWebSiteUrl: string;
-
 }

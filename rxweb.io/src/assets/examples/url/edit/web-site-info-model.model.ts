@@ -4,5 +4,4 @@ export class WebSiteInfoModel {
 
 	@url() 
 	adminWebsiteUrl: string;
-
 }

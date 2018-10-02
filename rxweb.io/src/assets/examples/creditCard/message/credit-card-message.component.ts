@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-creditcard-message',
+    selector: 'app-creditCard-message',
     templateUrl: './credit-card-message.component.html'
 })
 export class CreditCardMessageComponent implements OnInit {

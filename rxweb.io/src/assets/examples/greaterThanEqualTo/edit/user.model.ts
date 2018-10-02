@@ -4,8 +4,6 @@ export class User {
 
 	@prop()
 	age: number;
-
 	@greaterThanEqualTo({fieldName:'age' }) 
 	voterAge: number;
-
 }

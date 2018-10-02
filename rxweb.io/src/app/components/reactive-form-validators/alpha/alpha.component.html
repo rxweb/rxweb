@@ -52,11 +52,11 @@
 </div>
 <p>Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
 <p>Here we have covered Add and Edit form operations. </p>
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" >
 	<li [class.active]="tab_1=='basicadd'" (click)="tab_1='basicadd'"><a>Add</a></li>
 	<li [class.active]="tab_1=='basicedit'" (click)="tab_1='basicedit'"><a>Edit</a></li>
 </ul>
-<div class="tab-content">
+<div class="tab-content" >
 			  <div class="tab-pane" [class.active]="tab_1=='basicadd'">
 			<div  >
 	<div class="code">
@@ -135,12 +135,12 @@
 
 <p>Type :  <span class='highlighted'>boolean</span> </p>
 <p>This will allow whitespace in particular control property.The default value is <span class='highlighted'>false</span>.</p>
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" *ngIf="allowWhiteSpaceShow">
 	<li [class.active]="tab_2=='allowWhiteSpacemodel'" (click)="tab_2='allowWhiteSpacemodel'"><a>Model</a></li>
 	<li [class.active]="tab_2=='allowWhiteSpaceComponent'" (click)="tab_2='allowWhiteSpaceComponent'"><a>Component</a></li>
 	<li [class.active]="tab_2=='allowWhiteSpaceHtml'" (click)="tab_2='allowWhiteSpaceHtml'"><a>Html</a></li>
 </ul>
-<div class="tab-content">
+<div class="tab-content" *ngIf="allowWhiteSpaceShow">
 			  <div class="tab-pane" [class.active]="tab_2=='allowWhiteSpacemodel'">
 			<div  >
 	<div class="code">
@@ -176,8 +176,8 @@
 		  </div>
 	</div>																											
 <div class="model-ts" >
-<a class="float-right copy-icon" href="#"><i aria-hidden="true" class="fa fa-code"></i></a>
-<a class="float-right copy-icon" href="#"><i aria-hidden="true" class="fa fa-external-link"></i></a>
+<a class="float-right copy-icon" (click)="allowWhiteSpaceShow=!allowWhiteSpaceShow"><i aria-hidden="true" class="fa fa-code"></i></a>
+
 	<div class="code-example">
 			 <app-alpha-allowWhiteSpace></app-alpha-allowWhiteSpace>
 
@@ -192,12 +192,12 @@
 <p>Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span> </p>
 <p>AlphaNumeric validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpressions</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpressions</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
 <p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpressions</span> will work as same as client function.</p>
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" *ngIf="conditionalExpressions">
 	<li [class.active]="tab_3=='conditionalExpressionsmodel'" (click)="tab_3='conditionalExpressionsmodel'"><a>Model</a></li>
 	<li [class.active]="tab_3=='conditionalExpressionsComponent'" (click)="tab_3='conditionalExpressionsComponent'"><a>Component</a></li>
 	<li [class.active]="tab_3=='conditionalExpressionsHtml'" (click)="tab_3='conditionalExpressionsHtml'"><a>Html</a></li>
 </ul>
-<div class="tab-content">
+<div class="tab-content" *ngIf="conditionalExpressions">
 			  <div class="tab-pane" [class.active]="tab_3=='conditionalExpressionsmodel'">
 			<div  >
 	<div class="code">
@@ -233,8 +233,8 @@
 		  </div>
 	</div>																											
 <div class="model-ts" >
-<a class="float-right copy-icon" href="#"><i aria-hidden="true" class="fa fa-code"></i></a>
-<a class="float-right copy-icon" href="#"><i aria-hidden="true" class="fa fa-external-link"></i></a>
+<a class="float-right copy-icon" (click)="conditionalExpressions=!conditionalExpressions"><i aria-hidden="true" class="fa fa-code"></i></a>
+
 	<div class="code-example">
 			 <app-alpha-conditionalExpressions></app-alpha-conditionalExpressions>
 
@@ -248,12 +248,12 @@
 
 <p>Type :  <span class='highlighted'>string</span> </p>
 <p>To override the global configuration message and show the custom message on particular control property.</p>
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" *ngIf="message">
 	<li [class.active]="tab_4=='messageModel'" (click)="tab_4='messageModel'"><a>Model</a></li>
 	<li [class.active]="tab_4=='messageComponent'" (click)="tab_4='messageComponent'"><a>Component</a></li>
 	<li [class.active]="tab_4=='messageHtml'" (click)="tab_4='messageHtml'"><a>Html</a></li>
 </ul>
-<div class="tab-content">
+<div class="tab-content" *ngIf="message">
 			  <div class="tab-pane" [class.active]="tab_4=='messageModel'">
 			<div  >
 	<div class="code">
@@ -266,7 +266,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_4=='messageComponent'">
-			<div>
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Component" (cbOnSuccess)="codeContent.message.ComponentCopied = true" [class.copied]="codeContent.message.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -289,8 +289,8 @@
 		  </div>
 	</div>																											
 <div class="model-ts" >
-<a class="float-right copy-icon" href="#"><i aria-hidden="true" class="fa fa-code"></i></a>
-<a class="float-right copy-icon" href="#"><i aria-hidden="true" class="fa fa-external-link"></i></a>
+<a class="float-right copy-icon" (click)="message=!message"><i aria-hidden="true" class="fa fa-code"></i></a>
+
 	<div class="code-example">
 			 <app-alpha-message></app-alpha-message>
 
@@ -302,13 +302,13 @@
 <div class='col-lg-12'>
 <h2>Complete Alpha Example</h2>
 
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" >
 	<li [class.active]="tab_5=='completeexample'" (click)="tab_5='completeexample'"><a>Example</a></li>
 	<li [class.active]="tab_5=='completemodel'" (click)="tab_5='completemodel'"><a>Model</a></li>
 	<li [class.active]="tab_5=='completecomponent'" (click)="tab_5='completecomponent'"><a>Component</a></li>
 	<li [class.active]="tab_5=='completehtml'" (click)="tab_5='completehtml'"><a>Html</a></li>
 </ul>
-<div class="tab-content">
+<div class="tab-content" >
 			  <div class="tab-pane" [class.active]="tab_5=='completeexample'">
 			<app-alpha-complete></app-alpha-complete>
 
@@ -346,7 +346,7 @@
 </div>
 
 		  </div>
-	</div>																						
+	</div>																											
 	  
 							<app-disqus></app-disqus>
 						</div>

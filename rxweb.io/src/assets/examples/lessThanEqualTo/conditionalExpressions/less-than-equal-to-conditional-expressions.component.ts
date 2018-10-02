@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-lessthanequalto-conditionalExpressions',
+    selector: 'app-lessThanEqualTo-conditionalExpressions',
     templateUrl: './less-than-equal-to-conditional-expressions.component.html'
 })
 export class LessThanEqualToConditionalExpressionsComponent implements OnInit {

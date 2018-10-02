@@ -1,0 +1,374 @@
+<div id="wrapper" *ngIf="showComponent">
+	<div class="content">
+		<div class="title">
+			<ul class="nav navbar-nav no-borders pull-right top-icon">
+				<li>
+					<a title="Edit"><i class="fa fa-pencil font-size-15"></i></a>
+				</li>
+			</ul>
+			<h1> Contains Validation </h1>
+			<p> Contains validation decorator will check that value is in the input. It will not allow to enter input that not contains value. If user tries to do so the property will become invalid. To use the contains decorator on particular property.</p>
+		</div>
+		<div class="bg-white py-3 border-radius">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="hpanel">
+						<div class="panel-body validation-tab">
+							<div class='row' id= 'whentouse?'>
+<div class='col-lg-12'>
+<h2>When to use?</h2>
+
+<p>Let’s assume that you are creating a User form, which contains fields like EmailAddress, RecoveryEmailAddress, OtherEmailAddress and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.</p>
+<ol>
+	<li>	Allow input which contains the predefined value in EmailAddress.</li>
+	<li>	Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the the contains validation must be applied to RecoveryEmailAddress value.</li>
+	<li>	Adding Custom Message on OtherEmailAddress Field.</li>
+	<li>	Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+</ol>
+<p>Let’s see how contains validator fulfil the need.</p>
+</div>
+</div>
+<div class='row' id= 'basiccontainsvalidation'>
+<div class='col-lg-12'>
+<h2>Basic Contains Validation</h2>
+
+<p>First we need to create a User class and define a property of EmailAddress in the model to achieve the functional need of point 1.</p>
+<div class="model-ts" *ngIf="tab_1=='basicadd'">
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Model" (cbOnSuccess)="codeContent.add.ModelCopied = true" [class.copied]="codeContent.add.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.add.Model"></code></pre>
+			</div>
+	</div>
+</div>
+<div class="model-ts" *ngIf="tab_1=='basicedit'">
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Model" (cbOnSuccess)="codeContent.edit.ModelCopied = true" [class.copied]="codeContent.edit.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.edit.Model"></code></pre>
+			</div>
+	</div>
+</div>
+<p>Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
+<ul class="nav nav-tabs" >
+	<li [class.active]="tab_1=='basicadd'" (click)="tab_1='basicadd'"><a>Add</a></li>
+	<li [class.active]="tab_1=='basicedit'" (click)="tab_1='basicedit'"><a>Edit</a></li>
+</ul>
+<div class="tab-content" >
+			  <div class="tab-pane" [class.active]="tab_1=='basicadd'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.add.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_1=='basicedit'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Component" (cbOnSuccess)="codeContent.edit.ComponentCopied = true" [class.copied]="codeContent.edit.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.edit.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+	</div>																											
+<p>Next, we need to write html code.</p>
+<div class="model-ts" *ngIf="tab_1=='basicadd'">
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Html" (cbOnSuccess)="codeContent.add.HtmlCopied = true" [class.copied]="codeContent.add.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.add.Html"></code></pre>
+			</div>
+	</div>
+</div>
+<div class="model-ts" *ngIf="tab_1=='basicedit'">
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Html" (cbOnSuccess)="codeContent.edit.HtmlCopied = true" [class.copied]="codeContent.edit.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.edit.Html"></code></pre>
+			</div>
+	</div>
+</div>
+<div class="model-ts" *ngIf="tab_1=='basicadd'">
+	<div class="code-example">
+			 <app-contains-add></app-contains-add>
+
+	</div>
+</div>
+<div class="model-ts" *ngIf="tab_1=='basicedit'">
+	<div class="code-example">
+			 <app-contains-edit></app-contains-edit>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'containsconfig'>
+<div class='col-lg-12'>
+<h2>ContainsConfig</h2>
+
+<p>conditionalExpression and message options are not mandatory but value is mandatory to use in the <span class='highlighted'>@contains()</span> decorator. If needed then use the below options.</p>
+ <table class="table table-bordered table-striped">
+			<thead>
+		<tr>
+					<th>Option</th>
+					<th>Description </th>
+				</tr>
+		</thead>
+		<tbody>
+			<tr>	<td><a href='#value' title='value'>value</a></td> 	<td>This is substring value. </td> </tr>	<tr>	<td><a href='#conditionalexpression' title='conditionalExpression'>conditionalExpression</a></td> 	<td>Contains validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
+	 </table>
+
+</div>
+</div>
+<div class='row' id= 'value'>
+<div class='col-lg-12'>
+<h2>value</h2>
+
+<p>Type :  <span class='highlighted'>string</span> </p>
+<p>This is substring value.</p>
+<ul class="nav nav-tabs" *ngIf="valueShow">
+	<li [class.active]="tab_2=='valuemodel'" (click)="tab_2='valuemodel'"><a>Model</a></li>
+	<li [class.active]="tab_2=='valueComponent'" (click)="tab_2='valueComponent'"><a>Component</a></li>
+	<li [class.active]="tab_2=='valueHtml'" (click)="tab_2='valueHtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" *ngIf="valueShow">
+			  <div class="tab-pane" [class.active]="tab_2=='valuemodel'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.value.Model" (cbOnSuccess)="codeContent.value.ModelCopied = true" [class.copied]="codeContent.value.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.value.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_2=='valueComponent'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.value.Component" (cbOnSuccess)="codeContent.value.ComponentCopied = true" [class.copied]="codeContent.value.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.value.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_2=='valueHtml'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.value.Html" (cbOnSuccess)="codeContent.value.HtmlCopied = true" [class.copied]="codeContent.value.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.value.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+	</div>																											
+<div class="model-ts" >
+<a class="float-right copy-icon" (click)="valueShow=!valueShow"><i aria-hidden="true" class="fa fa-code"></i></a>
+
+	<div class="code-example">
+			 <app-contains-value></app-contains-value>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'conditionalexpression'>
+<div class='col-lg-12'>
+<h2>conditionalExpression</h2>
+
+<p>Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span> </p>
+<p>Contains validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
+<p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
+<ul class="nav nav-tabs" *ngIf="conditionalExpressions">
+	<li [class.active]="tab_3=='conditionalExpressionsmodel'" (click)="tab_3='conditionalExpressionsmodel'"><a>Model</a></li>
+	<li [class.active]="tab_3=='conditionalExpressionsComponent'" (click)="tab_3='conditionalExpressionsComponent'"><a>Component</a></li>
+	<li [class.active]="tab_3=='conditionalExpressionsHtml'" (click)="tab_3='conditionalExpressionsHtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" *ngIf="conditionalExpressions">
+			  <div class="tab-pane" [class.active]="tab_3=='conditionalExpressionsmodel'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpressions.Model" (cbOnSuccess)="codeContent.conditionalExpressions.ModelCopied = true" [class.copied]="codeContent.conditionalExpressions.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.conditionalExpressions.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_3=='conditionalExpressionsComponent'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpressions.Component" (cbOnSuccess)="codeContent.conditionalExpressions.ComponentCopied = true" [class.copied]="codeContent.conditionalExpressions.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.conditionalExpressions.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_3=='conditionalExpressionsHtml'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpressions.Html" (cbOnSuccess)="codeContent.conditionalExpressions.HtmlCopied = true" [class.copied]="codeContent.conditionalExpressions.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.conditionalExpressions.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+	</div>																											
+<div class="model-ts" >
+<a class="float-right copy-icon" (click)="conditionalExpressions=!conditionalExpressions"><i aria-hidden="true" class="fa fa-code"></i></a>
+
+	<div class="code-example">
+			 <app-contains-conditionalExpressions></app-contains-conditionalExpressions>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'message'>
+<div class='col-lg-12'>
+<h2>message</h2>
+
+<p>Type :  <span class='highlighted'>string</span> </p>
+<p>To override the global configuration message and show the custom message on particular control property.</p>
+<ul class="nav nav-tabs" *ngIf="message">
+	<li [class.active]="tab_4=='messageModel'" (click)="tab_4='messageModel'"><a>Model</a></li>
+	<li [class.active]="tab_4=='messageComponent'" (click)="tab_4='messageComponent'"><a>Component</a></li>
+	<li [class.active]="tab_4=='messageHtml'" (click)="tab_4='messageHtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" *ngIf="message">
+			  <div class="tab-pane" [class.active]="tab_4=='messageModel'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Model" (cbOnSuccess)="codeContent.message.ModelCopied = true" [class.copied]="codeContent.message.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.message.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_4=='messageComponent'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Component" (cbOnSuccess)="codeContent.message.ComponentCopied = true" [class.copied]="codeContent.message.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.message.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_4=='messageHtml'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Html" (cbOnSuccess)="codeContent.message.HtmlCopied = true" [class.copied]="codeContent.message.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.message.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+	</div>																											
+<div class="model-ts" >
+<a class="float-right copy-icon" (click)="message=!message"><i aria-hidden="true" class="fa fa-code"></i></a>
+
+	<div class="code-example">
+			 <app-contains-message></app-contains-message>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'completecontainsexample'>
+<div class='col-lg-12'>
+<h2>Complete Contains Example</h2>
+
+<ul class="nav nav-tabs" >
+	<li [class.active]="tab_5=='completeexample'" (click)="tab_5='completeexample'"><a>Example</a></li>
+	<li [class.active]="tab_5=='completemodel'" (click)="tab_5='completemodel'"><a>Model</a></li>
+	<li [class.active]="tab_5=='completecomponent'" (click)="tab_5='completecomponent'"><a>Component</a></li>
+	<li [class.active]="tab_5=='completehtml'" (click)="tab_5='completehtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" >
+			  <div class="tab-pane" [class.active]="tab_5=='completeexample'">
+			<app-contains-complete></app-contains-complete>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_5=='completemodel'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Model" (cbOnSuccess)="codeContent.complete.ModelCopied = true" [class.copied]="codeContent.complete.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.complete.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_5=='completecomponent'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Component" (cbOnSuccess)="codeContent.complete.ComponentCopied = true" [class.copied]="codeContent.complete.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.complete.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_5=='completehtml'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Html" (cbOnSuccess)="codeContent.complete.HtmlCopied = true" [class.copied]="codeContent.complete.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.complete.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+	</div>																											
+	  
+							<app-disqus></app-disqus>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer class="footer">
+	<span class="pull-right">© Copyright 2018. Rx Web</span>
+</footer>
+</div>
+	<div id="right-sidebar" class="p-1">
+		<div class="border-left">
+												<p><a data-target="whentouse?"> When to use?</a></p>
+																				<p><a data-target="basiccontainsvalidation"> Basic Contains Validation</a></p>
+																							<ul class="list-unstyled sidebar-link  p-1">
+					<li class="active"><a data-target="containsconfig"> ContainsConfig </a></li>
+											<li class="px-1"><a data-target="value"> value </a></li>
+											<li class="px-1"><a data-target="conditionalexpression"> conditionalExpression </a></li>
+											<li class="px-1"><a data-target="message"> message </a></li>
+									</ul>
+																<p><a data-target="completecontainsexample"> Complete Contains Example</a></p>
+													 </div>
+	</div>
+</div>

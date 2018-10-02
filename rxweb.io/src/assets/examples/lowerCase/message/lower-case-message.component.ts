@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-lowercase-message',
+    selector: 'app-lowerCase-message',
     templateUrl: './lower-case-message.component.html'
 })
 export class LowerCaseMessageComponent implements OnInit {

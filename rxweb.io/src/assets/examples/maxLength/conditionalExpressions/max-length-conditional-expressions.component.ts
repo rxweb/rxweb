@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-maxlength-conditionalExpressions',
+    selector: 'app-maxLength-conditionalExpressions',
     templateUrl: './max-length-conditional-expressions.component.html'
 })
 export class MaxLengthConditionalExpressionsComponent implements OnInit {

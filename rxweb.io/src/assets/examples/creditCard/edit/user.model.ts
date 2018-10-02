@@ -4,5 +4,4 @@ export class User {
 
 	@creditCard({creditCardTypes:[ CreditCardType.Visa ] }) 
 	creditCardNumber: string;
-
 }

@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-lowercase-conditionalExpressions',
+    selector: 'app-lowerCase-conditionalExpressions',
     templateUrl: './lower-case-conditional-expressions.component.html'
 })
 export class LowerCaseConditionalExpressionsComponent implements OnInit {

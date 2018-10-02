@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { SubjectDetails } from './subject-details.model';
 
 @Component({
-    selector: 'app-maxnumber-conditionalExpressions',
+    selector: 'app-maxNumber-conditionalExpressions',
     templateUrl: './max-number-conditional-expressions.component.html'
 })
 export class MaxNumberConditionalExpressionsComponent implements OnInit {

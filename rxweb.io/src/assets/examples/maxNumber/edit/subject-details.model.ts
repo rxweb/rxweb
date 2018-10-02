@@ -4,5 +4,4 @@ export class SubjectDetails {
 
 	@maxNumber({value:50 }) 
 	passingMarks: number;
-
 }

@@ -7,7 +7,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-maxdate-edit',
+    selector: 'app-maxDate-edit',
     templateUrl: './max-date-edit.component.html'
 })
 export class MaxDateEditComponent implements OnInit {

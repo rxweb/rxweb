@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-lessthanequalto-complete',
+    selector: 'app-lessThanEqualTo-complete',
     templateUrl: './less-than-equal-to-complete.component.html'
 })
 export class LessThanEqualToCompleteComponent implements OnInit {

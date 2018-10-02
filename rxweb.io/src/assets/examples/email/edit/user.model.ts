@@ -4,5 +4,4 @@ export class User {
 
 	@email() 
 	email: string;
-
 }

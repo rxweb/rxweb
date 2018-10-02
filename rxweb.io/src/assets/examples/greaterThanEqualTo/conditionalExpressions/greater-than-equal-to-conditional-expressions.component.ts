@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-greaterthanequalto-conditionalExpressions',
+    selector: 'app-greaterThanEqualTo-conditionalExpressions',
     templateUrl: './greater-than-equal-to-conditional-expressions.component.html'
 })
 export class GreaterThanEqualToConditionalExpressionsComponent implements OnInit {

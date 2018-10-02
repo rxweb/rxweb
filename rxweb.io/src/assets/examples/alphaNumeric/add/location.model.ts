@@ -4,5 +4,4 @@ export class Location {
 
 	@alphaNumeric() 
 	areaName: string;
-
 }

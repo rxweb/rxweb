@@ -7,7 +7,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { Location } from './location.model';
 
 @Component({
-    selector: 'app-maxlength-edit',
+    selector: 'app-maxLength-edit',
     templateUrl: './max-length-edit.component.html'
 })
 export class MaxLengthEditComponent implements OnInit {

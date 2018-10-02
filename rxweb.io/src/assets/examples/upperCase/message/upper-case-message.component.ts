@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { Location } from './location.model';
 
 @Component({
-    selector: 'app-uppercase-message',
+    selector: 'app-upperCase-message',
     templateUrl: './upper-case-message.component.html'
 })
 export class UpperCaseMessageComponent implements OnInit {

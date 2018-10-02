@@ -4,5 +4,4 @@ export class UserInfo {
 
 	@required() 
 	firstName: string;
-
 }

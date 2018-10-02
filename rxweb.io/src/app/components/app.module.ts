@@ -13,13 +13,15 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { NgSlimScrollModule, SLIMSCROLL_DEFAULTS } from 'ngx-slimscroll';
 
 
+
 @NgModule({
   declarations: [
     AppComponent, SideBarComponent, TopBarComponent, DashboardComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule, APP_LAZY_ROUTING,
     HighlightModule.forRoot({ theme: 'default' }), ClipboardModule,
-    NgSlimScrollModule
+    NgSlimScrollModule,
+    
   ],
   providers: [{
     provide: SLIMSCROLL_DEFAULTS,

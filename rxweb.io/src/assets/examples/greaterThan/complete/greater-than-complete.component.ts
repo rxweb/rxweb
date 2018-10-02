@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-greaterthan-complete',
+    selector: 'app-greaterThan-complete',
     templateUrl: './greater-than-complete.component.html'
 })
 export class GreaterThanCompleteComponent implements OnInit {

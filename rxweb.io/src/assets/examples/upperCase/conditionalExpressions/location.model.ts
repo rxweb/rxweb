@@ -4,8 +4,6 @@ export class Location {
 
 	@upperCase() 
 	countryName: string;
-
 	@upperCase({conditionalExpressions:x => x.countryName == "INDIA" }) 
 	stateName: string;
-
 }

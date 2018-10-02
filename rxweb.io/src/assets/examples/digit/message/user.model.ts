@@ -4,5 +4,4 @@ export class User {
 
 	@digit({message:'Please enter only digit.' }) 
 	mobileNumber: number;
-
 }

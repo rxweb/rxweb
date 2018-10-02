@@ -4,8 +4,6 @@ export class JsonInfo {
 
 	@prop()
 	location: string;
-
 	@json({conditionalExpressions:(x,y)=>{ return x.location == "India" } }) 
 	addressJson: string;
-
 }

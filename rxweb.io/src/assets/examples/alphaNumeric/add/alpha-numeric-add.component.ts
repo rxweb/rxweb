@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { Location } from './location.model';
 
 @Component({
-    selector: 'app-alphanumeric-add',
+    selector: 'app-alphaNumeric-add',
     templateUrl: './alpha-numeric-add.component.html'
 })
 export class AlphaNumericAddComponent implements OnInit {

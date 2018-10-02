@@ -32,12 +32,12 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\minNumber\edit\min-number-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-minnumber-add></app-minnumber-add>
+<app-minNumber-add></app-minNumber-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-minnumber-edit></app-minnumber-edit>
+<app-minNumber-edit></app-minNumber-edit>
 
-# MinNumberConfig 
+# NumberConfig 
 message and conditional expression options are not mandatory to use in the `@minNumber()` decorator but value is mandatory. If needed then use the below options.
 
 |Option | Description |
@@ -62,7 +62,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-minnumber-conditionalExpressions></app-minnumber-conditionalExpressions>
+<app-minNumber-conditionalExpressions></app-minNumber-conditionalExpressions>
 
 ## message 
 Type :  `string` 
@@ -79,7 +79,7 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-minnumber-message></app-minnumber-message>
+<app-minNumber-message></app-minNumber-message>
 
 ## value 
 Type :  `number` 
@@ -95,12 +95,12 @@ enter value which you want to restrict number in the property
 ***
 
 [!example(?type=section&clickEventCode="valueShow=!valueShow")]
-<app-minnumber-value></app-minnumber-value>
+<app-minNumber-value></app-minNumber-value>
 
 # Complete minNumber Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-minnumber-complete></app-minnumber-complete>
+<app-minNumber-complete></app-minNumber-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\minNumber\complete\result-info.model.ts)]
 # [Component](#tab\completecomponent)

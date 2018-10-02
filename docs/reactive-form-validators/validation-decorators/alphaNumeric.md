@@ -33,12 +33,12 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\alphaNumeric\editalpha-numeric-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-alphanumeric-add></app-alphanumeric-add>
+<app-alphaNumeric-add></app-alphaNumeric-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-alphanumeric-edit></app-alphanumeric-edit>
+<app-alphaNumeric-edit></app-alphaNumeric-edit>
 
-# AlphaNumericConfig 
+# AlphaConfig 
 Below options are not mandatory to use in the `@alphaNumeric()` decorator. If needed then use the below options.
 
 |Option | Description |
@@ -62,7 +62,7 @@ This will allow whitespace in particular control property.The default value is `
 ***
 
 [!example(?type=section&clickEventCode="allowWhiteSpaceShow=!allowWhiteSpaceShow")]
-<app-alphanumeric-allowWhiteSpace></app-alphanumeric-allowWhiteSpace>
+<app-alphaNumeric-allowWhiteSpace></app-alphaNumeric-allowWhiteSpace>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -80,7 +80,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-alphanumeric-conditionalExpressions></app-alphanumeric-conditionalExpressions>
+<app-alphaNumeric-conditionalExpressions></app-alphaNumeric-conditionalExpressions>
 
 ## message 
 Type :  `string` 
@@ -97,12 +97,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-alphanumeric-message></app-alphanumeric-message>
+<app-alphaNumeric-message></app-alphaNumeric-message>
 
 # Complete AlphaNumeric Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-alphanumeric-complete></app-alphanumeric-complete>
+<app-alphaNumeric-complete></app-alphaNumeric-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\alphaNumeric\complete\location.model.ts)]
 # [Component](#tab\completecomponent)

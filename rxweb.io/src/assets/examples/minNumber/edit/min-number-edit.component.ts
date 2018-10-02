@@ -7,7 +7,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { ResultInfo } from './result-info.model';
 
 @Component({
-    selector: 'app-minnumber-edit',
+    selector: 'app-minNumber-edit',
     templateUrl: './min-number-edit.component.html'
 })
 export class MinNumberEditComponent implements OnInit {

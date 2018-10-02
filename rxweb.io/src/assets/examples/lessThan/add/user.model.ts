@@ -4,8 +4,6 @@ export class User {
 
 	@prop()
 	marks: number;
-
 	@lessThan({fieldName:'marks' }) 
 	passingMarks: number;
-
 }

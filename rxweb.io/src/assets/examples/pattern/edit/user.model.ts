@@ -4,5 +4,4 @@ export class User {
 
 	@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} }) 
 	userName: string;
-
 }

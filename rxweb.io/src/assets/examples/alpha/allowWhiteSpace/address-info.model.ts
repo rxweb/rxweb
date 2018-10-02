@@ -4,5 +4,4 @@ export class AddressInfo {
 
 	@alpha({allowWhiteSpace:true }) 
 	stateName: string;
-
 }

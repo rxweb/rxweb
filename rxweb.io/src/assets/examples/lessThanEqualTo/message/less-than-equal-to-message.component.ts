@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-lessthanequalto-message',
+    selector: 'app-lessThanEqualTo-message',
     templateUrl: './less-than-equal-to-message.component.html'
 })
 export class LessThanEqualToMessageComponent implements OnInit {

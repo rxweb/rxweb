@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-mindate-value',
+    selector: 'app-minDate-value',
     templateUrl: './min-date-value.component.html'
 })
 export class MinDateValueComponent implements OnInit {

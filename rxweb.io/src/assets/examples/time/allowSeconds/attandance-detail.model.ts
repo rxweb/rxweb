@@ -4,5 +4,4 @@ export class AttandanceDetail {
 
 	@time({allowSeconds:true }) 
 	totalOutTime: string;
-
 }

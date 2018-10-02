@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { Location } from './location.model';
 
 @Component({
-    selector: 'app-alphanumeric-complete',
+    selector: 'app-alphaNumeric-complete',
     templateUrl: './alpha-numeric-complete.component.html'
 })
 export class AlphaNumericCompleteComponent implements OnInit {
