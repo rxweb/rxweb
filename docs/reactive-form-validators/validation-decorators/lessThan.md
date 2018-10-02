@@ -14,7 +14,7 @@ Let’s assume that you are creating a User form, which contains fields like Obt
 Let’s see how lessThan validator fulfil the need.
 
 # Basic LessThan Validation
-First we need to create a User class and define a property of Marks and PasdsingMarks with the requirement of PassingMarks must be less than Marks field in the model to achieve the functional need of point 1.
+First we need to create a User class and define a property of Marks and PassingMarks with the requirement of PassingMarks must be less than Marks field in the model to achieve the functional need of point 1.
 [!code-typescript[](\assets\examples\lessThan\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\lessThan\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 

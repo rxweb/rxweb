@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let’s assume that you are creating a User form, which contains fields like Age, PhoneNumber, MobileNumberand you want the user to enter only numbers. Here depending upon the requirement these scenarios may arise.
+Let’s assume that you are creating a User form, which contains fields like Age, PhoneNumber, MobileNumber and you want the user to enter only numbers. Here depending upon the requirement these scenarios may arise.
 1.	Allow only numbers in Age.
 2.	Apply digit validation based on matched condition in the form, like if the Age is greater than equal to 25 then only the digit validation will be applied to the PhoneNumber value.
 3.	Adding Custom Message on MobileNumber Field.

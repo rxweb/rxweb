@@ -1,5 +1,5 @@
 ---
-title: Alpha Validation in Angular Reactive Forms
+title: Alpha Validation
 description: Alpha validation decorator will allow only alphabets to be entered. It will not allow any number or special character. If user tries to do so the property will become invalid. To use the alpha decorator on particular property.
 author: rxcontributorone
 
@@ -68,7 +68,7 @@ This will allow whitespace in particular control property.The default value is `
 ## conditionalExpressions 
 Type :  `Function`  |  `string` 
 
-AlphaNumeric validation should be applied if the condition is matched in the `conditionalExpressions` function. Validation framework will pass two parameters at the time of `conditionalExpressions` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
+Alpha validation should be applied if the condition is matched in the `conditionalExpressions` function. Validation framework will pass two parameters at the time of `conditionalExpressions` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpressions` will work as same as client function.
 
 [!TabGroup(?showHideCondition="conditionalExpressions")]
