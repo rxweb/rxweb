@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { MAX_NUMBER_ROUTING } from './maxNumber.routing';
 import { MaxNumberComponent } from './maxNumber.component';
 import { MaxNumberExtendedModule } from '../../../../assets/examples/maxNumber/maxNumber.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     MAX_NUMBER_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MaxNumberExtendedModule, ClipboardModule],
-  declarations: [MaxNumberComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MaxNumberExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [MaxNumberComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

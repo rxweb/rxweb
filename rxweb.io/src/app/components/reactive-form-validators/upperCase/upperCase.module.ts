@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { UPPER_CASE_ROUTING } from './upperCase.routing';
 import { UpperCaseComponent } from './upperCase.component';
 import { UpperCaseExtendedModule } from '../../../../assets/examples/upperCase/upperCase.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     UPPER_CASE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, UpperCaseExtendedModule, ClipboardModule],
-  declarations: [UpperCaseComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, UpperCaseExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [UpperCaseComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

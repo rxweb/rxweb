@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { MIN_LENGTH_ROUTING } from './minLength.routing';
 import { MinLengthComponent } from './minLength.component';
 import { MinLengthExtendedModule } from '../../../../assets/examples/minLength/minLength.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     MIN_LENGTH_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinLengthExtendedModule, ClipboardModule],
-  declarations: [MinLengthComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinLengthExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [MinLengthComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

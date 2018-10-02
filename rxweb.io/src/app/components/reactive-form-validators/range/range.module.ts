@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { RANGE_ROUTING } from './range.routing';
 import { RangeComponent } from './range.component';
 import { RangeExtendedModule } from '../../../../assets/examples/range/range.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     RANGE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, RangeExtendedModule, ClipboardModule],
-  declarations: [RangeComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, RangeExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [RangeComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

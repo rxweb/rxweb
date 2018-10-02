@@ -38,7 +38,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-alphaNumeric-edit></app-alphaNumeric-edit>
 
-# AlphaNumericConfig 
+# AlphaConfig 
 Below options are not mandatory to use in the `@alphaNumeric()` decorator. If needed then use the below options.
 
 |Option | Description |

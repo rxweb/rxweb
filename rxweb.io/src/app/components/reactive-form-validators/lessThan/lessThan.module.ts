@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { LESS_THAN_ROUTING } from './lessThan.routing';
 import { LessThanComponent } from './lessThan.component';
 import { LessThanExtendedModule } from '../../../../assets/examples/lessThan/lessThan.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     LESS_THAN_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LessThanExtendedModule, ClipboardModule],
-  declarations: [LessThanComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LessThanExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [LessThanComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

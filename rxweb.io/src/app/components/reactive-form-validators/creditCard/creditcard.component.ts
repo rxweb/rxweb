@@ -1,18 +1,18 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { CreditcardCompleteComponent } from '../../../../assets/examples/creditcard/complete/creditcard-complete.component';
+import { CreditCardCompleteComponent } from '../../../../assets/examples/creditCard/complete/credit-card-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { ResponseType } from '@angular/http';
 
 @Component({
-  templateUrl: './creditcard.component.html',
+  templateUrl: './creditCard.component.html',
   entryComponents: [
-  	CreditcardCompleteComponent,
+  	CreditCardCompleteComponent,
    DisqusComponent
   ]
 })
-export class CreditcardComponent implements OnInit {
+export class CreditCardComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {}
@@ -27,7 +27,7 @@ export class CreditcardComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/creditcard/creditcard.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/creditCard/creditcard.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  this.showComponent = true;
     })

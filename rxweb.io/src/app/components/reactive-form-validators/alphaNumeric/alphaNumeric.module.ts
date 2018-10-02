@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { ALPHA_NUMERIC_ROUTING } from './alphaNumeric.routing';
 import { AlphaNumericComponent } from './alphaNumeric.component';
 import { AlphaNumericExtendedModule } from '../../../../assets/examples/alphaNumeric/alphaNumeric.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     ALPHA_NUMERIC_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaNumericExtendedModule, ClipboardModule],
-  declarations: [AlphaNumericComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaNumericExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [AlphaNumericComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

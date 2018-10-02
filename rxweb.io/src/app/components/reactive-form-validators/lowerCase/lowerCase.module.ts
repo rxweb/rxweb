@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { LOWER_CASE_ROUTING } from './lowerCase.routing';
 import { LowerCaseComponent } from './lowerCase.component';
 import { LowerCaseExtendedModule } from '../../../../assets/examples/lowerCase/lowerCase.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     LOWER_CASE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LowerCaseExtendedModule, ClipboardModule],
-  declarations: [LowerCaseComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LowerCaseExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [LowerCaseComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

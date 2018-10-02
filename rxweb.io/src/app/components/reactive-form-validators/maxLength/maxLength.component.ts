@@ -1,6 +1,6 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MaxlengthCompleteComponent } from '../../../../assets/examples/maxLength/complete/max-length-complete.component';
+import { MaxLengthCompleteComponent } from '../../../../assets/examples/maxLength/complete/max-length-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { ResponseType } from '@angular/http';
@@ -8,7 +8,7 @@ import { ResponseType } from '@angular/http';
 @Component({
   templateUrl: './maxLength.component.html',
   entryComponents: [
-  	MaxlengthCompleteComponent,
+  	MaxLengthCompleteComponent,
    DisqusComponent
   ]
 })
@@ -27,7 +27,7 @@ export class MaxLengthComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/maxLength/maxLength.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/maxLength/maxlength.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  this.showComponent = true;
     })

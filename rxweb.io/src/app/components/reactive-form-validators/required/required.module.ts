@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { REQUIRED_ROUTING } from './required.routing';
 import { RequiredComponent } from './required.component';
 import { RequiredExtendedModule } from '../../../../assets/examples/required/required.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     REQUIRED_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, RequiredExtendedModule, ClipboardModule],
-  declarations: [RequiredComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, RequiredExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [RequiredComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

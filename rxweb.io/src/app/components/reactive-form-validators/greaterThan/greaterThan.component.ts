@@ -27,7 +27,7 @@ export class GreaterThanComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/greaterThan/greaterThan.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/greaterThan/greaterthan.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  this.showComponent = true;
     })

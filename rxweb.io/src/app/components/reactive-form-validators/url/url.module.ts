@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { URL_ROUTING } from './url.routing';
 import { UrlComponent } from './url.component';
 import { UrlExtendedModule } from '../../../../assets/examples/url/url.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     URL_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, UrlExtendedModule, ClipboardModule],
-  declarations: [UrlComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, UrlExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [UrlComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

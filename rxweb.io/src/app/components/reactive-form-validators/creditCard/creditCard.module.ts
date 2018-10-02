@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { CREDIT_CARD_ROUTING } from './creditCard.routing';
 import { CreditCardComponent } from './creditCard.component';
 import { CreditCardExtendedModule } from '../../../../assets/examples/creditCard/creditCard.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     CREDIT_CARD_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, CreditCardExtendedModule, ClipboardModule],
-  declarations: [CreditCardComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, CreditCardExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [CreditCardComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

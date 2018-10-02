@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { MIN_DATE_ROUTING } from './minDate.routing';
 import { MinDateComponent } from './minDate.component';
 import { MinDateExtendedModule } from '../../../../assets/examples/minDate/minDate.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     MIN_DATE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinDateExtendedModule, ClipboardModule],
-  declarations: [MinDateComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinDateExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [MinDateComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

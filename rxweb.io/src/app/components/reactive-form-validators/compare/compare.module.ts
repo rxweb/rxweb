@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { COMPARE_ROUTING } from './compare.routing';
 import { CompareComponent } from './compare.component';
 import { CompareExtendedModule } from '../../../../assets/examples/compare/compare.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     COMPARE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, CompareExtendedModule, ClipboardModule],
-  declarations: [CompareComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, CompareExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [CompareComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

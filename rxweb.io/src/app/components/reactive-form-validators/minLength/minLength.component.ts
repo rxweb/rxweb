@@ -1,6 +1,6 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MinlengthCompleteComponent } from '../../../../assets/examples/minLength/complete/min-length-complete.component';
+import { MinLengthCompleteComponent } from '../../../../assets/examples/minLength/complete/min-length-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { ResponseType } from '@angular/http';
@@ -8,7 +8,7 @@ import { ResponseType } from '@angular/http';
 @Component({
   templateUrl: './minLength.component.html',
   entryComponents: [
-  	MinlengthCompleteComponent,
+  	MinLengthCompleteComponent,
    DisqusComponent
   ]
 })
@@ -26,7 +26,7 @@ export class MinLengthComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/minLength/minLength.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/minLength/minlength.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  this.showComponent = true;
     })

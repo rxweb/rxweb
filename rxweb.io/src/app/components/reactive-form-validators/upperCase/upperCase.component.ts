@@ -1,6 +1,6 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { UppercaseCompleteComponent } from '../../../../assets/examples/upperCase/complete/upper-case-complete.component';
+import { UpperCaseCompleteComponent } from '../../../../assets/examples/upperCase/complete/upper-case-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { ResponseType } from '@angular/http';
@@ -8,7 +8,7 @@ import { ResponseType } from '@angular/http';
 @Component({
   templateUrl: './upperCase.component.html',
   entryComponents: [
-  	UppercaseCompleteComponent,
+  	UpperCaseCompleteComponent,
    DisqusComponent
   ]
 })
@@ -26,7 +26,7 @@ export class UpperCaseComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/upperCase/upperCase.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/upperCase/uppercase.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  this.showComponent = true;
     })

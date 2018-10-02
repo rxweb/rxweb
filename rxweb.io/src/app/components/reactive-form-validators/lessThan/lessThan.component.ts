@@ -27,7 +27,7 @@ export class LessThanComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/lessThan/lessThan.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/lessThan/lessthan.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  this.showComponent = true;
     })

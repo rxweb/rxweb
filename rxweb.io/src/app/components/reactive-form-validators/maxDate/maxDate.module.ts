@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { MAX_DATE_ROUTING } from './maxDate.routing';
 import { MaxDateComponent } from './maxDate.component';
 import { MaxDateExtendedModule } from '../../../../assets/examples/maxDate/maxDate.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     MAX_DATE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MaxDateExtendedModule, ClipboardModule],
-  declarations: [MaxDateComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MaxDateExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [MaxDateComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

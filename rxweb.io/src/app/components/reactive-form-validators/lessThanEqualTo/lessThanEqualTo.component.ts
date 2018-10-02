@@ -1,6 +1,6 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { LessthanequaltoCompleteComponent } from '../../../../assets/examples/lessThanEqualTo/complete/less-than-equal-to-complete.component';
+import { LessThanEqualToCompleteComponent } from '../../../../assets/examples/lessThanEqualTo/complete/less-than-equal-to-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { ResponseType } from '@angular/http';
@@ -8,7 +8,7 @@ import { ResponseType } from '@angular/http';
 @Component({
   templateUrl: './lessThanEqualTo.component.html',
   entryComponents: [
-  	LessthanequaltoCompleteComponent,
+  	LessThanEqualToCompleteComponent,
    DisqusComponent
   ]
 })
@@ -27,7 +27,7 @@ export class LessThanEqualToComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/lessThanEqualTo/lessThanEqualTo.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/lessThanEqualTo/lessthanequalto.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  this.showComponent = true;
     })

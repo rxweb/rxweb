@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { GREATER_THAN_EQUAL_TO_ROUTING } from './greaterThanEqualTo.routing';
 import { GreaterThanEqualToComponent } from './greaterThanEqualTo.component';
 import { GreaterThanEqualToExtendedModule } from '../../../../assets/examples/greaterThanEqualTo/greaterThanEqualTo.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     GREATER_THAN_EQUAL_TO_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, GreaterThanEqualToExtendedModule, ClipboardModule],
-  declarations: [GreaterThanEqualToComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, GreaterThanEqualToExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [GreaterThanEqualToComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

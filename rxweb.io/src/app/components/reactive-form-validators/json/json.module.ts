@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { JSON_ROUTING } from './json.routing';
 import { JsonComponent } from './json.component';
 import { JsonExtendedModule } from '../../../../assets/examples/json/json.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     JSON_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, JsonExtendedModule, ClipboardModule],
-  declarations: [JsonComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, JsonExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [JsonComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -1,6 +1,6 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MindateCompleteComponent } from '../../../../assets/examples/minDate/complete/min-date-complete.component';
+import { MinDateCompleteComponent } from '../../../../assets/examples/minDate/complete/min-date-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { ResponseType } from '@angular/http';
@@ -8,7 +8,7 @@ import { ResponseType } from '@angular/http';
 @Component({
   templateUrl: './minDate.component.html',
   entryComponents: [
-  	MindateCompleteComponent,
+  	MinDateCompleteComponent,
    DisqusComponent
   ]
 })
@@ -27,7 +27,7 @@ export class MinDateComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/minDate/minDate.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/minDate/mindate.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  this.showComponent = true;
     })

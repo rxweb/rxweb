@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { CONTAINS_ROUTING } from './contains.routing';
 import { ContainsComponent } from './contains.component';
 import { ContainsExtendedModule } from '../../../../assets/examples/contains/contains.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     CONTAINS_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, ContainsExtendedModule, ClipboardModule],
-  declarations: [ContainsComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, ContainsExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [ContainsComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

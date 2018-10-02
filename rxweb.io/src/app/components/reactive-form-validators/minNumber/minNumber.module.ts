@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { MIN_NUMBER_ROUTING } from './minNumber.routing';
 import { MinNumberComponent } from './minNumber.component';
 import { MinNumberExtendedModule } from '../../../../assets/examples/minNumber/minNumber.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     MIN_NUMBER_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinNumberExtendedModule, ClipboardModule],
-  declarations: [MinNumberComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinNumberExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [MinNumberComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

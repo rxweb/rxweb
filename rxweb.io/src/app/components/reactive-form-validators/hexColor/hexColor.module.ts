@@ -7,13 +7,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { HEX_COLOR_ROUTING } from './hexColor.routing';
 import { HexColorComponent } from './hexColor.component';
 import { HexColorExtendedModule } from '../../../../assets/examples/hexColor/hexColor.module';
-import { DisqusComponent } from '../../shared/disqus/disqus.component';
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 @NgModule({
   imports: [
     HEX_COLOR_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, HexColorExtendedModule, ClipboardModule],
-  declarations: [HexColorComponent,DisqusComponent],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, HexColorExtendedModule, ClipboardModule,DisqusSharedModule],
+  declarations: [HexColorComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
