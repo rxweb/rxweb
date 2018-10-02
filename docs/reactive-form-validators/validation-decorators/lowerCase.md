@@ -1,7 +1,8 @@
 ---
-title: LowerCase Validation in Angular Reactive Forms
+title: LowerCase Validation 
 description: lowerCase validation decorator will allow only lowercase to be entered. If user tries to enter any case except lower then the property will become invalid. To use the lowercase decorator on particular property.
 author: rxcontributortwo
+
 ---
 # When to use?
 Let’s assume that you are creating a User form, which contains fields like Username, FirstName, LastName and you want the user to enter any string only in lowercase. Here depending upon the requirement these scenarios may arise.
@@ -14,10 +15,27 @@ Let’s see how lowerCase validator fulfil the need.
 
 # Basic LowerCase Validation
 First we need to create a User class and define a property of Username in the model to achieve the functional need of point 1.
-
-[!code-typescript[](../../examples/reactive-form-validators/lowerCase/rxweb-lowerCase-validation-add-angular-reactive-form/src/app/user-info/user-info.model.ts?highlight=5)]
+[!code-typescript[](\assets\examples\lowerCase\add\user-info.model.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\lowerCase\edit\user-info.model.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+
+[!TabGroup]
+# [Add](#tab\basicadd)
+[!code-typescript[](\assets\examples\lowerCase\add\lower-case-add.component.ts)]
+# [Edit](#tab\basicedit)
+[!code-typescript[](\assets\examples\lowerCase\edit\lower-case-edit.component.ts)]
+***
+
+Next, we need to write html code.
+[!code-typescript[](\assets\examples\lowerCase\add\lower-case-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\lowerCase\edit\lower-case-add.component.html?condition="tab_1=='basicedit'"&type=section)]
+
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
+<app-lowercase-add></app-lowercase-add>
+
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
+<app-lowercase-edit></app-lowercase-edit>
 
 # LowerCaseConfig 
 Below options are not mandatory to use in the `@lowerCase()` decorator. If needed then use the below options.
@@ -32,15 +50,43 @@ Type :  `Function`  |  `string`
 
 Lowercase validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
+
+[!TabGroup(?showHideCondition="conditionalExpressions")]
+# [Model](#tab\conditionalExpressionsmodel)
+[!code-typescript[](\assets\examples\lowerCase\conditionalExpressions\user.model.ts)]
+# [Component](#tab\conditionalExpressionsComponent)
+[!code-typescript[](\assets\examples\lowerCase\conditionalExpressions\lower-case-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionsHtml)
+[!code-typescript[](\assets\examples\lowerCase\conditionalExpressions\lower-case-conditional-expressions.component.html)]
+***
+
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+<app-lowercase-conditionalExpressions></app-lowercase-conditionalExpressions>
  
 ## message 
 Type :  `string` 
 
 To override the global configuration message and show the custom message on particular control property.
- 
-[!code-typescript[](../../examples/reactive-form-validators/lowerCase/complete-rxweb-lowerCase-validation-add-angular-reactive-form/src/app/user/user.model.ts#L10-L11)]
+[!TabGroup(?showHideCondition="message")]
+# [Model](#tab\messageModel)
+[!code-typescript[](\assets\examples\lowerCase\message\user.model.ts)]
+# [Component](#tab\messageComponent)
+[!code-typescript[](\assets\examples\lowerCase\message\lower-case-message.component.ts)]
+# [Html](#tab\messageHtml)
+[!code-typescript[](\assets\examples\lowerCase\message\lower-case-message.component.html)]
+***
 
+[!example(?type=section&clickEventCode="message=!message")]
+<app-lowercase-message></app-lowercase-message>
 
-# lowerCase Validation Complete Example
-
-# Dynamic lowerCase Validation Complete Example
+# Complete lowercase Example
+[!TabGroup]
+# [Example](#tab\completeexample)
+<app-lowercase-complete></app-lowercase-complete>
+# [Model](#tab\completemodel)
+[!code-typescript[](\assets\examples\lowerCase\complete\user.model.ts)]
+# [Component](#tab\completecomponent)
+[!code-typescript[](\assets\examples\lowerCase\complete\lower-case-complete.component.ts)]
+# [Html](#tab\completehtml)
+[!code-typescript[](\assets\examples\lowerCase\complete\lower-case-complete.component.html)]
+***
