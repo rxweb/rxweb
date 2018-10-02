@@ -7,7 +7,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-creditcard-edit',
+    selector: 'app-creditCard-edit',
     templateUrl: './credit-card-edit.component.html'
 })
 export class CreditCardEditComponent implements OnInit {

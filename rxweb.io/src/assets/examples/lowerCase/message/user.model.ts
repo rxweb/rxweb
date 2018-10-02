@@ -4,5 +4,4 @@ export class User {
 
 	@lowerCase({message:'You can enter only lowerCase letters.' }) 
 	lastName: string;
-
 }

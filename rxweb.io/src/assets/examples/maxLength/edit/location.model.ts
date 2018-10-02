@@ -4,5 +4,4 @@ export class Location {
 
 	@maxLength({value:10 }) 
 	firstName: string;
-
 }

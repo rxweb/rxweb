@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { HexcolorInfo } from './hexcolor-info.model';
 
 @Component({
-    selector: 'app-hexcolor-message',
+    selector: 'app-hexColor-message',
     templateUrl: './hex-color-message.component.html'
 })
 export class HexColorMessageComponent implements OnInit {

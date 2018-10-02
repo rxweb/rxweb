@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { Contact } from './contact.model';
 
 @Component({
-    selector: 'app-minlength-message',
+    selector: 'app-minLength-message',
     templateUrl: './min-length-message.component.html'
 })
 export class MinLengthMessageComponent implements OnInit {

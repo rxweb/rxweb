@@ -7,7 +7,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { Location } from './location.model';
 
 @Component({
-    selector: 'app-alphanumeric-edit',
+    selector: 'app-alphaNumeric-edit',
     templateUrl: './alpha-numeric-edit.component.html'
 })
 export class AlphaNumericEditComponent implements OnInit {

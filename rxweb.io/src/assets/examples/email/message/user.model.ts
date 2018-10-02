@@ -4,5 +4,4 @@ export class User {
 
 	@email({message:'Please enter valid email' }) 
 	otherEmailAddress: string;
-
 }

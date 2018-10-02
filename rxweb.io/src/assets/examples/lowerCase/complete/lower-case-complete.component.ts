@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-lowercase-complete',
+    selector: 'app-lowerCase-complete',
     templateUrl: './lower-case-complete.component.html'
 })
 export class LowerCaseCompleteComponent implements OnInit {

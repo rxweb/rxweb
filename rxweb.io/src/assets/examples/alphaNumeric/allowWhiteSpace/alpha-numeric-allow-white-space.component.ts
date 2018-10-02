@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { Location } from './location.model';
 
 @Component({
-    selector: 'app-alphanumeric-allowWhiteSpace',
+    selector: 'app-alphaNumeric-allowWhiteSpace',
     templateUrl: './alpha-numeric-allow-white-space.component.html'
 })
 export class AlphaNumericAllowWhiteSpaceComponent implements OnInit {

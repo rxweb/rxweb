@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { SubjectDetails } from './subject-details.model';
 
 @Component({
-    selector: 'app-maxnumber-complete',
+    selector: 'app-maxNumber-complete',
     templateUrl: './max-number-complete.component.html'
 })
 export class MaxNumberCompleteComponent implements OnInit {

@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-mindate-conditionalExpressions',
+    selector: 'app-minDate-conditionalExpressions',
     templateUrl: './min-date-conditional-expressions.component.html'
 })
 export class MinDateConditionalExpressionsComponent implements OnInit {

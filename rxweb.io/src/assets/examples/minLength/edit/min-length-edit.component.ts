@@ -7,7 +7,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { Contact } from './contact.model';
 
 @Component({
-    selector: 'app-minlength-edit',
+    selector: 'app-minLength-edit',
     templateUrl: './min-length-edit.component.html'
 })
 export class MinLengthEditComponent implements OnInit {

@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-hexcolor-add',
+    selector: 'app-hexColor-add',
     templateUrl: './hex-color-add.component.html'
 })
 export class HexColorAddComponent implements OnInit {

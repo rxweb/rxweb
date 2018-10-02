@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-maxdate-conditionalExpressions',
+    selector: 'app-maxDate-conditionalExpressions',
     templateUrl: './max-date-conditional-expressions.component.html'
 })
 export class MaxDateConditionalExpressionsComponent implements OnInit {

@@ -4,5 +4,4 @@ export class JsonInfo {
 
 	@json({message:'Enter only JSON type data' }) 
 	contactJson: string;
-
 }

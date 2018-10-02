@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-maxlength-complete',
+    selector: 'app-maxLength-complete',
     templateUrl: './max-length-complete.component.html'
 })
 export class MaxLengthCompleteComponent implements OnInit {

@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { SubjectDetails } from './subject-details.model';
 
 @Component({
-    selector: 'app-maxnumber-value',
+    selector: 'app-maxNumber-value',
     templateUrl: './max-number-value.component.html'
 })
 export class MaxNumberValueComponent implements OnInit {

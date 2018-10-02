@@ -4,5 +4,4 @@ export class AttandanceDetail {
 
 	@time() 
 	entryTime: string;
-
 }

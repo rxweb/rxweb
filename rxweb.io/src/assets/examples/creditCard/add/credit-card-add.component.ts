@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-creditcard-add',
+    selector: 'app-creditCard-add',
     templateUrl: './credit-card-add.component.html'
 })
 export class CreditCardAddComponent implements OnInit {

@@ -4,8 +4,6 @@ export class HexcolorInfo {
 
 	@hexColor() 
 	color: string;
-
 	@hexColor({conditionalExpressions:x => x.color == "#AFAFAF" }) 
 	headerHexcolorCode: string;
-
 }

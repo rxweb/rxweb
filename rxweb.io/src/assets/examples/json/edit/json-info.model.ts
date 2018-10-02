@@ -4,5 +4,4 @@ export class JsonInfo {
 
 	@json() 
 	locationJson: string;
-
 }

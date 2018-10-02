@@ -4,5 +4,4 @@ export class ResultInfo {
 
 	@minNumber({value:35 }) 
 	maths: number;
-
 }

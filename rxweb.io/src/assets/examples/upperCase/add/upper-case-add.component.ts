@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { Location } from './location.model';
 
 @Component({
-    selector: 'app-uppercase-add',
+    selector: 'app-upperCase-add',
     templateUrl: './upper-case-add.component.html'
 })
 export class UpperCaseAddComponent implements OnInit {

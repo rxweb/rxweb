@@ -7,7 +7,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { UserInfo } from './user-info.model';
 
 @Component({
-    selector: 'app-lowercase-edit',
+    selector: 'app-lowerCase-edit',
     templateUrl: './lower-case-edit.component.html'
 })
 export class LowerCaseEditComponent implements OnInit {

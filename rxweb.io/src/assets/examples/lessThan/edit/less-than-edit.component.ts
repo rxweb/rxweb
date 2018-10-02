@@ -7,7 +7,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-lessthan-edit',
+    selector: 'app-lessThan-edit',
     templateUrl: './less-than-edit.component.html'
 })
 export class LessThanEditComponent implements OnInit {

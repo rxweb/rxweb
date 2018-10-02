@@ -4,8 +4,6 @@ export class AddressInfo {
 
 	@alpha() 
 	countryName: string;
-
 	@alpha({conditionalExpressions:(x, y) => x.countryName == "Australia"  }) 
 	countryCode: string;
-
 }

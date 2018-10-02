@@ -4,5 +4,4 @@ export class Contact {
 
 	@minLength({value:3  ,conditionalExpressions:(x,y)=>{ return x.countryName == "India"} }) 
 	countryCode: string;
-
 }

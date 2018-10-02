@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { HexcolorInfo } from './hexcolor-info.model';
 
 @Component({
-    selector: 'app-hexcolor-conditionalExpressions',
+    selector: 'app-hexColor-conditionalExpressions',
     templateUrl: './hex-color-conditional-expressions.component.html'
 })
 export class HexColorConditionalExpressionsComponent implements OnInit {

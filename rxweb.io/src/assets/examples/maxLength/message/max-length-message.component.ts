@@ -6,7 +6,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-maxlength-message',
+    selector: 'app-maxLength-message',
     templateUrl: './max-length-message.component.html'
 })
 export class MaxLengthMessageComponent implements OnInit {

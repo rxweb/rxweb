@@ -4,5 +4,4 @@ export class User {
 
 	@contains({value:'@gmail.com' }) 
 	emailAddress: string;
-
 }
