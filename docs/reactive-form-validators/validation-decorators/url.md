@@ -36,7 +36,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-url-edit></app-url-edit>
 
-# urlConfig
+# DefaultConfig
  Below options are not mandatory to use in the `@url()` decorator. If needed then use the below options.
 
 |Option | Description |

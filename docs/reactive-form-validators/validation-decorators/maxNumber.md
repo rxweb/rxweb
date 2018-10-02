@@ -39,7 +39,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-maxNumber-edit></app-maxNumber-edit>
 
-# MaxNumberConfig 
+# NumberConfig 
 message and conditional expression options are not mandatory to use in the `@maxNumber()` decorator but value is mandatory. If needed then use the below options.
 
 |Option | Description |

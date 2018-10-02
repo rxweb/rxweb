@@ -37,7 +37,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-minNumber-edit></app-minNumber-edit>
 
-# MinNumberConfig 
+# NumberConfig 
 message and conditional expression options are not mandatory to use in the `@minNumber()` decorator but value is mandatory. If needed then use the below options.
 
 |Option | Description |

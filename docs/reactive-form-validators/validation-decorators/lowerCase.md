@@ -37,7 +37,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-lowerCase-edit></app-lowerCase-edit>
 
-# LowerCaseConfig 
+# MessageConfig 
 Below options are not mandatory to use in the `@lowerCase()` decorator. If needed then use the below options.
 
 |Option | Description |

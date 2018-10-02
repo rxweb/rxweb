@@ -37,7 +37,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-upperCase-edit></app-upperCase-edit>
  
-# UpperCaseConfig 
+# MessageConfig 
 Below options are not mandatory to use in the `@upperCase()` decorator. If needed then use the below options.
 
 |Option | Description |
