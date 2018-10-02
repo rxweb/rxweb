@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\greaterThanEqualTo\edit\greater-than-equal-to-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-greaterthanequalto-add></app-greaterthanequalto-add>
+<app-greaterThanEqualTo-add></app-greaterThanEqualTo-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-greaterthanequalto-edit></app-greaterthanequalto-edit>
+<app-greaterThanEqualTo-edit></app-greaterThanEqualTo-edit>
 
 #GreaterThanEqualToConfig
 
@@ -76,7 +76,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-greaterthanequalto-conditionalExpressions></app-greaterthanequalto-conditionalExpressions>
+<app-greaterThanEqualTo-conditionalExpressions></app-greaterThanEqualTo-conditionalExpressions>
 
 ## message 
 Type :  `string`
@@ -92,12 +92,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-greaterthanequalto-message></app-greaterthanequalto-message>
+<app-greaterThanEqualTo-message></app-greaterThanEqualTo-message>
 
 # Complete greaterThanEqualTo Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-greaterthanequalto-complete></app-greaterthanequalto-complete>
+<app-greaterThanEqualTo-complete></app-greaterThanEqualTo-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\greaterThanEqualTo\complete\user.model.ts)]
 # [Component](#tab\completecomponent)

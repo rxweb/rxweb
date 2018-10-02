@@ -26,10 +26,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\minLength\edit\min-length-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-minlength-add></app-minlength-add>
+<app-minLength-add></app-minLength-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-minlength-edit></app-minlength-edit>
+<app-minLength-edit></app-minLength-edit>
 
 # MinLengthConfig 
 
@@ -57,7 +57,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-minlength-conditionalExpressions></app-minlength-conditionalExpressions>
+<app-minLength-conditionalExpressions></app-minLength-conditionalExpressions>
 
 ## message 
 Type :  `string` 
@@ -73,7 +73,7 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-minlength-message></app-minlength-message>
+<app-minLength-message></app-minLength-message>
 
 ## value 
 Type :  `number` 
@@ -89,12 +89,12 @@ enter value which you want to restrict string length in the property.
 ***
 
 [!example(?type=section&clickEventCode="value=!value")]
-<app-minlength-value></app-minlength-value>
+<app-minLength-value></app-minLength-value>
 
 # Complete MinLength Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-minlength-complete></app-minlength-complete>
+<app-minLength-complete></app-minLength-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\minLength\complete\contact.model.ts)]
 # [Component](#tab\completecomponent)

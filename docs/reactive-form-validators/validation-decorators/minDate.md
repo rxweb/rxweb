@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\minDate\edit\min-date-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-mindate-add></app-mindate-add>
+<app-minDate-add></app-minDate-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-mindate-edit></app-mindate-edit>
+<app-minDate-edit></app-minDate-edit>
 
 # MinDateConfig 
 message and conditional expression options are not mandatory to use in the `@minDate()` decorator but value is mandatory. If needed then use the below options.
@@ -62,7 +62,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-mindate-conditionalExpressions></app-mindate-conditionalExpressions>
+<app-minDate-conditionalExpressions></app-minDate-conditionalExpressions>
 
 ## message 
 Type :  `string` 
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-mindate-message></app-mindate-message>
+<app-minDate-message></app-minDate-message>
 
 ## value 
 Type :  `Date` 
@@ -95,13 +95,13 @@ enter value which you want to restrict number in the property
 ***
 
 [!example(?type=section&clickEventCode="valueShow=!valueShow")]
-<app-mindate-value></app-mindate-value>
+<app-minDate-value></app-minDate-value>
 
 
 # Complete mindate Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-mindate-complete></app-mindate-complete>
+<app-minDate-complete></app-minDate-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\mindate\complete\user.model.ts)]
 # [Component](#tab\completecomponent)

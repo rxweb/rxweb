@@ -34,10 +34,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\maxNumber\edit\max-number-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-maxnumber-add></app-maxnumber-add>
+<app-maxNumber-add></app-maxNumber-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-maxnumber-edit></app-maxnumber-edit>
+<app-maxNumber-edit></app-maxNumber-edit>
 
 # MaxNumberConfig 
 message and conditional expression options are not mandatory to use in the `@maxNumber()` decorator but value is mandatory. If needed then use the below options.
@@ -63,7 +63,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-maxnumber-conditionalExpressions></app-maxnumber-conditionalExpressions>
+<app-maxNumber-conditionalExpressions></app-maxNumber-conditionalExpressions>
 
 ## message 
 Type :  `string` 
@@ -79,7 +79,7 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-maxnumber-message></app-maxnumber-message>
+<app-maxNumber-message></app-maxNumber-message>
 
 ## value 
 Type :  `number` 
@@ -95,12 +95,12 @@ enter value which you want to restrict number in the property.
 ***
 
 [!example(?type=section&clickEventCode="value=!value")]
-<app-maxnumber-value></app-maxnumber-value>
+<app-maxNumber-value></app-maxNumber-value>
 
 # Complete MaxNumber Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-maxnumber-complete></app-maxnumber-complete>
+<app-maxNumber-complete></app-maxNumber-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\maxNumber\complete\subject-details.model.ts)]
 # [Component](#tab\completecomponent)

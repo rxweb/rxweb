@@ -34,10 +34,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\maxDate\edit\max-date-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-maxdate-add></app-maxdate-add>
+<app-maxDate-add></app-maxDate-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-maxdate-edit></app-maxdate-edit>
+<app-maxDate-edit></app-maxDate-edit>
 
 # MaxDateConfig
 Below options are not mandatory to use in the `@maxDate()` decorator. If needed then use the below options.
@@ -63,7 +63,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-maxdate-conditionalExpressions></app-maxdate-conditionalExpressions>
+<app-maxDate-conditionalExpressions></app-maxDate-conditionalExpressions>
 
 ## message 
 Type :  `string` 
@@ -79,7 +79,7 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-maxdate-message></app-maxdate-message>
+<app-maxDate-message></app-maxDate-message>
 
 ## value 
 Type :  `number` 
@@ -95,12 +95,12 @@ enter value which you want to restrict number in the property.
 ***
 
 [!example(?type=section&clickEventCode="value=!value")]
-<app-maxdate-value></app-maxdate-value>
+<app-maxDate-value></app-maxDate-value>
 
 # Complete MaxDate Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-maxdate-complete></app-maxdate-complete>
+<app-maxDate-complete></app-maxDate-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\maxDate\complete\user.model.ts)]
 # [Component](#tab\completecomponent)

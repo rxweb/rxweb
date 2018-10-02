@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\greaterThan\edit\greater-than-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-greaterthan-add></app-greaterthan-add>
+<app-greaterThan-add></app-greaterThan-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-greaterthan-edit></app-greaterthan-edit>
+<app-greaterThan-edit></app-greaterThan-edit>
 
 # GreaterThanConfig 
 message and conditionalExpression options are not mandatory but fieldName is mandatory to use in the `@greaterThan()` decorator. If needed then use the below options.
@@ -61,7 +61,7 @@ Greater than validation should be applied based on the `fieldName` for compare o
 ***
 
 [!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow")]
-<app-greaterthan-fieldName></app-greaterthan-fieldName>
+<app-greaterThan-fieldName></app-greaterThan-fieldName>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -79,7 +79,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-greaterthan-conditionalExpressions></app-greaterthan-conditionalExpressions>
+<app-greaterThan-conditionalExpressions></app-greaterThan-conditionalExpressions>
 
 ## message 
 Type :  `string` 

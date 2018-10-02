@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\maxLength\edit\max-length-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
-<app-maxlength-add></app-maxlength-add>
+<app-maxLength-add></app-maxLength-add>
 
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-maxlength-edit></app-maxlength-edit>
+<app-maxLength-edit></app-maxLength-edit>
 
 # MaxLengthConfig 
 message and conditional expression options are not mandatory to use in the `@maxLength()` decorator but value is mandatory. If needed then use the below options.
@@ -62,7 +62,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-maxlength-conditionalExpressions></app-maxlength-conditionalExpressions>
+<app-maxLength-conditionalExpressions></app-maxLength-conditionalExpressions>
  
  ## message 
 Type :  `string` 
@@ -79,7 +79,7 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message")]
-<app-maxlength-message></app-maxlength-message>
+<app-maxLength-message></app-maxLength-message>
 
 ## value 
 Type :  `number` 
@@ -96,13 +96,13 @@ enter value which you want to restrict string length in the property
 ***
 
 [!example(?type=section&clickEventCode="valueShow=!valueShow")]
-<app-maxlength-value></app-maxlength-value>
+<app-maxLength-value></app-maxLength-value>
 
 
 # Complete maxlength Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-maxlength-complete></app-maxlength-complete>
+<app-maxLength-complete></app-maxLength-complete>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\maxLength\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
