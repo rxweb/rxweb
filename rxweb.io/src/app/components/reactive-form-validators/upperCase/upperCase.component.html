@@ -108,9 +108,9 @@
 </div>
 </div>
 </div>
-<div class='row' id= 'uppercaseconfig'>
+<div class='row' id= 'messageconfig'>
 <div class='col-lg-12'>
-<h2>UpperCaseConfig</h2>
+<h2>MessageConfig</h2>
 
 <p>Below options are not mandatory to use in the <span class='highlighted'>@upperCase()</span> decorator. If needed then use the below options.</p>
  <table class="table table-bordered table-striped">
@@ -303,14 +303,14 @@
 </div>
 	<div id="right-sidebar" class="p-1">
 		<div class="border-left">
-												<p><a data-target="whentouse?"> When to use?</a></p>
-																				<p><a data-target="basicuppercasevalidation"> Basic UpperCase Validation</a></p>
+												<p><a data-target="whentouse?" (click)="scrollTo('whentouse?')"> When to use?</a></p>
+																				<p><a data-target="basicuppercasevalidation" (click)="scrollTo('basicuppercasevalidation')"> Basic UpperCase Validation</a></p>
 																							<ul class="list-unstyled sidebar-link  p-1">
-					<li class="active"><a data-target="uppercaseconfig"> UpperCaseConfig </a></li>
-											<li class="px-1"><a data-target="conditionalexpression"> conditionalExpression </a></li>
-											<li class="px-1"><a data-target="message"> message </a></li>
+					<li class="active"><a data-target="messageconfig" (click)="scrollTo('messageconfig')"> MessageConfig </a></li>
+											<li class="px-1"><a data-target="conditionalexpression" (click)="scrollTo('conditionalexpression')"> conditionalExpression </a></li>
+											<li class="px-1"><a data-target="message" (click)="scrollTo('message')"> message </a></li>
 									</ul>
-																<p><a data-target="completeuppercaseexample"> Complete upperCase Example</a></p>
+																<p><a data-target="completeuppercaseexample" (click)="scrollTo('completeuppercaseexample')"> Complete upperCase Example</a></p>
 													 </div>
 	</div>
 </div>

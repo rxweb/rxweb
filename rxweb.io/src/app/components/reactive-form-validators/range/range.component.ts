@@ -33,4 +33,12 @@ export class RangeComponent implements OnInit {
 	  this.showComponent = true;
     })
   }
+  scrollTo(section) {  
+    var node = document.querySelector('#' + section);
+    node.scrollIntoView(true);
+    var scrolledY = window.scrollY;
+    if(scrolledY){
+      window.scroll(0, scrolledY - 62);
+    }
+  }
 }

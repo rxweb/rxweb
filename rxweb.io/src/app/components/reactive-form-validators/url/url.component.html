@@ -108,9 +108,9 @@
 </div>
 </div>
 </div>
-<div class='row' id= 'urlconfig'>
+<div class='row' id= 'defaultconfig'>
 <div class='col-lg-12'>
-<h2>urlConfig</h2>
+<h2>DefaultConfig</h2>
 
  <table class="table table-bordered table-striped">
 			<thead>
@@ -302,14 +302,14 @@
 </div>
 	<div id="right-sidebar" class="p-1">
 		<div class="border-left">
-												<p><a data-target="whentouse"> When to use</a></p>
-																				<p><a data-target="basicurlvalidation"> Basic url Validation</a></p>
+												<p><a data-target="whentouse" (click)="scrollTo('whentouse')"> When to use</a></p>
+																				<p><a data-target="basicurlvalidation" (click)="scrollTo('basicurlvalidation')"> Basic url Validation</a></p>
 																							<ul class="list-unstyled sidebar-link  p-1">
-					<li class="active"><a data-target="urlconfig"> urlConfig</a></li>
-											<li class="px-1"><a data-target="conditionalexpression"> conditionalExpression </a></li>
-											<li class="px-1"><a data-target="message"> message </a></li>
+					<li class="active"><a data-target="defaultconfig" (click)="scrollTo('defaultconfig')"> DefaultConfig</a></li>
+											<li class="px-1"><a data-target="conditionalexpression" (click)="scrollTo('conditionalexpression')"> conditionalExpression </a></li>
+											<li class="px-1"><a data-target="message" (click)="scrollTo('message')"> message </a></li>
 									</ul>
-																<p><a data-target="completeurlnumericexample"> Complete url Numeric Example</a></p>
+																<p><a data-target="completeurlnumericexample" (click)="scrollTo('completeurlnumericexample')"> Complete url Numeric Example</a></p>
 													 </div>
 	</div>
 </div>

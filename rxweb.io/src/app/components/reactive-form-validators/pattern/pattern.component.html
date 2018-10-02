@@ -43,9 +43,9 @@
 </div>
 <div class="model-ts" *ngIf="tab_1=='basicedit'">
 	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit." (cbOnSuccess)="codeContent.edit.Copied = true" [class.copied]="codeContent.edit.Copied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Model" (cbOnSuccess)="codeContent.edit.ModelCopied = true" [class.copied]="codeContent.edit.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.edit."></code></pre>
+				<pre><code [textContent]="codeContent.edit.Model"></code></pre>
 			</div>
 	</div>
 </div>
@@ -376,15 +376,15 @@
 </div>
 	<div id="right-sidebar" class="p-1">
 		<div class="border-left">
-												<p><a data-target="whentouse?"> When to use?</a></p>
-																				<p><a data-target="basiccontainsvalidation"> Basic Contains Validation</a></p>
+												<p><a data-target="whentouse?" (click)="scrollTo('whentouse?')"> When to use?</a></p>
+																				<p><a data-target="basiccontainsvalidation" (click)="scrollTo('basiccontainsvalidation')"> Basic Contains Validation</a></p>
 																							<ul class="list-unstyled sidebar-link  p-1">
-					<li class="active"><a data-target="patternconfig"> PatternConfig </a></li>
-											<li class="px-1"><a data-target="message"> message </a></li>
-											<li class="px-1"><a data-target="conditionalexpression"> conditionalExpression </a></li>
-											<li class="px-1"><a data-target="pattern"> pattern </a></li>
+					<li class="active"><a data-target="patternconfig" (click)="scrollTo('patternconfig')"> PatternConfig </a></li>
+											<li class="px-1"><a data-target="message" (click)="scrollTo('message')"> message </a></li>
+											<li class="px-1"><a data-target="conditionalexpression" (click)="scrollTo('conditionalexpression')"> conditionalExpression </a></li>
+											<li class="px-1"><a data-target="pattern" (click)="scrollTo('pattern')"> pattern </a></li>
 									</ul>
-																<p><a data-target="completepatternexample"> Complete pattern Example</a></p>
+																<p><a data-target="completepatternexample" (click)="scrollTo('completepatternexample')"> Complete pattern Example</a></p>
 													 </div>
 	</div>
 </div>

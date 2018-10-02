@@ -303,14 +303,14 @@
 </div>
 	<div id="right-sidebar" class="p-1">
 		<div class="border-left">
-												<p><a data-target="whentouse"> When to use</a></p>
-																				<p><a data-target="basicjsonvalidation"> Basic Json Validation</a></p>
+												<p><a data-target="whentouse" (click)="scrollTo('whentouse')"> When to use</a></p>
+																				<p><a data-target="basicjsonvalidation" (click)="scrollTo('basicjsonvalidation')"> Basic Json Validation</a></p>
 																							<ul class="list-unstyled sidebar-link  p-1">
-					<li class="active"><a data-target="jsonconfig">JsonConfig</a></li>
-											<li class="px-1"><a data-target="conditionalexpression"> conditionalExpression </a></li>
-											<li class="px-1"><a data-target="message"> message </a></li>
+					<li class="active"><a data-target="jsonconfig" (click)="scrollTo('jsonconfig')">JsonConfig</a></li>
+											<li class="px-1"><a data-target="conditionalexpression" (click)="scrollTo('conditionalexpression')"> conditionalExpression </a></li>
+											<li class="px-1"><a data-target="message" (click)="scrollTo('message')"> message </a></li>
 									</ul>
-																<p><a data-target="completejsonexample"> Complete Json Example</a></p>
+																<p><a data-target="completejsonexample" (click)="scrollTo('completejsonexample')"> Complete Json Example</a></p>
 													 </div>
 	</div>
 </div>
