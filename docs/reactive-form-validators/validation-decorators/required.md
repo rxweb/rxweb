@@ -23,12 +23,12 @@ Now, we need to create a FormGroup in the component. To achieve this, we need to
 # [Add](#tab\basicadd)
 [!code-typescript[](\assets\examples\required\add\required-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\required\edit\required-add.component.ts)]
+[!code-typescript[](\assets\examples\required\edit\required-edit.component.ts)]
 ***
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\required\add\required-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\required\edit\required-add.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\required\edit\required-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-required-add></app-required-add>

@@ -39,7 +39,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-maxDate-edit></app-maxDate-edit>
 
-# MaxDateConfig
+# DateConfig
 Below options are not mandatory to use in the `@maxDate()` decorator. If needed then use the below options.
 
 |Option | Description |
