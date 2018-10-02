@@ -4,7 +4,7 @@ description: HexColor validation decorator will allow only Hex Color to be enter
 author: rxcontributortwo
 
 ---
-# When to use?
+# When to use
 Let’s assume that you are creating a User form, which contains fields like ColorPicker, HeaderHexColorCode, BodyHexColorCode, StrictHexColorCode and you want the user to enter only the hex color format. Here depending upon the requirement these scenarios may arise.
 
 1.	Allow string which is a hex color format like in ColorPicker field.

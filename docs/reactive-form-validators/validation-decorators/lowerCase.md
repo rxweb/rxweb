@@ -4,7 +4,7 @@ description: lowerCase validation decorator will allow only lowercase to be ente
 author: rxcontributortwo
 
 ---
-# When to use?
+# When to use
 Let’s assume that you are creating a User form, which contains fields like Username, FirstName, LastName and you want the user to enter any string only in lowercase. Here depending upon the requirement these scenarios may arise.
 1.	Allow only lowercase alphabets in Username.
 2.	Apply lowerCase validation based on matched condition in the form, like if the Username is `jonathan.feldman`, then only the lowerCase validation will be applied to FirstName field.

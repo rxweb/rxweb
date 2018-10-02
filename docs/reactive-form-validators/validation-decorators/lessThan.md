@@ -4,7 +4,7 @@ description: Less than validation decorator will check that input property is le
 author: rxcontributortwo
 
 ---
-# When to use?
+# When to use
 Let’s assume that you are creating a User form, which contains fields like ObtainedMarks, PassingMarks, OtherMarks and you want the user to enter the numbers which are less than a related field. Here depending upon the requirement these scenarios may arise.
 1.	Allow numbers which are less than a perticular field like in PassingMarks.
 2.	Apply lessThan validation based on matched condition in the form, like if the ObtainedMarks is less than 35, then only the greater than validation will be applied to PassingMarks field.

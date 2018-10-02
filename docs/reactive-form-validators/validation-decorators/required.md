@@ -3,7 +3,7 @@ title: Required Validation
 description: Required validation decorator will check that value is entered or not in the property. If user not enter any value then the property will become invalid. To use the required decorator on particular property.
 author: rxcontributortwo
 ---
-# When to use?
+# When to use
 Let’s assume that you are creating a User form, which contains fields like FirstName, LastName, Username and you want the user to must enter anything in that field. That field can not be empty. Here depending upon the requirement these scenarios may arise.
 1. Make the FirstName a required field without any condition.
 1.	Apply required validation based on matched condition in the form, like if the FirstName is `John`, then only the required validation will be applied to LastName field.

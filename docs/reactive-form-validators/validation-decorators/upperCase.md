@@ -4,7 +4,7 @@ description: Upper Case validation decorator will allow only uppercase to be ent
 author: rxcontributortwo
 
 ---
-# When to use?
+# When to use
 Let’s assume that you are creating a Location form, which contains fields like CountryName, StateName, CityName and you want the user to must enter string only in the Upper case. Here depending upon the requirement these scenarios may arise.
 1. Apply upperCase validation in the CountryName without any condition.
 1.	Apply upperCase validation based on matched condition in the form, like if the CountryName is `INDIA`, then only the upperCase validation will be applied to StateName field.
