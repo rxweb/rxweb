@@ -37,7 +37,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-greaterthan-edit></app-greaterthan-edit>
 
-# GreaterThanConfig 
+# RelationalOperatorConfig 
 message and conditionalExpression options are not mandatory but fieldName is mandatory to use in the `@greaterThan()` decorator. If needed then use the below options.
 
 |Option | Description |

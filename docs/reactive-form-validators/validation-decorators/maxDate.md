@@ -21,7 +21,7 @@ First we need to create a User class and define a property of registarionDate in
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
 
-# MaxDateConfig
+# DateConfig
 Below options are not mandatory to use in the `@maxDate()` decorator. If needed then use the below options.
 
 |Option | Description |

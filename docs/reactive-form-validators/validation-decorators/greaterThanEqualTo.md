@@ -20,7 +20,7 @@ First we need to create User model class define a property of Age and VoterAge  
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-#GreaterThanEqualToConfig
+#RelationalOperatorConfig
 
 Below options are not mandatory to use in the `@greaterThanEqualTo()` decorator. If needed then use the below options.
 

@@ -22,7 +22,7 @@ Now, we need to create a FormGroup in the component. To achieve this we need to 
 Here we have covered Add and Edit form operations. 
 
 
-# LessThanEqualToConfig 
+# RelationalOperatorConfig 
 message and conditionalExpression options are not mandatory but fieldName is mandatory to use in the `@lessThanEqualTo()` decorator. If needed then use the below options.
 
 

@@ -18,7 +18,7 @@ First we need to create location model class define a property of LocationJson i
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-#JsonConfig
+#DefaultConfig
 
 Below options are not mandatory to use in the `@json()` decorator. If needed then use the below options.
 
