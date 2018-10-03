@@ -8,11 +8,12 @@ import { CONTAINS_ROUTING } from './contains.routing';
 import { ContainsComponent } from './contains.component';
 import { ContainsExtendedModule } from '../../../../assets/examples/contains/contains.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     CONTAINS_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, ContainsExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, ContainsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [ContainsComponent],
   exports: [RouterModule],
   schemas: [

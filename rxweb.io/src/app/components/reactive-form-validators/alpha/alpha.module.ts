@@ -8,11 +8,12 @@ import { ALPHA_ROUTING } from './alpha.routing';
 import { AlphaComponent } from './alpha.component';
 import { AlphaExtendedModule } from '../../../../assets/examples/alpha/alpha.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     ALPHA_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [AlphaComponent],
   exports: [RouterModule],
   schemas: [

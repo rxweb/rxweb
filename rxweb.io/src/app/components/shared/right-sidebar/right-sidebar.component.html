@@ -1,0 +1,12 @@
+<div id="rightsidebar" class="p-1" *ngIf="showComponent">
+    <div class="border-left">
+        <ul class="list-unstyled">
+            <li class="nav-item" *ngFor="let item of sidebarItem">
+                <a class="nav-link" href="#{{item.parentLinkId}}" (click)="scrollTo(item.parentLinkId)">{{item.parentLink}}</a>
+                <ul class="list-unstyled">
+                    <li *ngFor="let obj of item.childLink" class="nav-item"><a class="nav-link" href="#{{obj.id}}" (click)="scrollTo(obj.id)">{{obj.value}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

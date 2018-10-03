@@ -8,11 +8,12 @@ import { DIGIT_ROUTING } from './digit.routing';
 import { DigitComponent } from './digit.component';
 import { DigitExtendedModule } from '../../../../assets/examples/digit/digit.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     DIGIT_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, DigitExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, DigitExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [DigitComponent],
   exports: [RouterModule],
   schemas: [

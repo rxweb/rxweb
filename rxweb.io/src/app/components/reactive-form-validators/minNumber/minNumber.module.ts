@@ -8,11 +8,12 @@ import { MIN_NUMBER_ROUTING } from './minNumber.routing';
 import { MinNumberComponent } from './minNumber.component';
 import { MinNumberExtendedModule } from '../../../../assets/examples/minNumber/minNumber.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     MIN_NUMBER_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinNumberExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinNumberExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [MinNumberComponent],
   exports: [RouterModule],
   schemas: [

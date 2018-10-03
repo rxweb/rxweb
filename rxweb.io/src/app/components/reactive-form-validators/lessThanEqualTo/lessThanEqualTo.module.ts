@@ -8,11 +8,12 @@ import { LESS_THAN_EQUAL_TO_ROUTING } from './lessThanEqualTo.routing';
 import { LessThanEqualToComponent } from './lessThanEqualTo.component';
 import { LessThanEqualToExtendedModule } from '../../../../assets/examples/lessThanEqualTo/lessThanEqualTo.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     LESS_THAN_EQUAL_TO_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LessThanEqualToExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LessThanEqualToExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [LessThanEqualToComponent],
   exports: [RouterModule],
   schemas: [

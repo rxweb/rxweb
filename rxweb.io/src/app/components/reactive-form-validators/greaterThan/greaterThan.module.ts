@@ -8,11 +8,12 @@ import { GREATER_THAN_ROUTING } from './greaterThan.routing';
 import { GreaterThanComponent } from './greaterThan.component';
 import { GreaterThanExtendedModule } from '../../../../assets/examples/greaterThan/greaterThan.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     GREATER_THAN_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, GreaterThanExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, GreaterThanExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [GreaterThanComponent],
   exports: [RouterModule],
   schemas: [

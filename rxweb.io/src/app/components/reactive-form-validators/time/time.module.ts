@@ -8,11 +8,12 @@ import { TIME_ROUTING } from './time.routing';
 import { TimeComponent } from './time.component';
 import { TimeExtendedModule } from '../../../../assets/examples/time/time.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     TIME_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, TimeExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, TimeExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [TimeComponent],
   exports: [RouterModule],
   schemas: [

@@ -8,11 +8,12 @@ import { CREDIT_CARD_ROUTING } from './creditCard.routing';
 import { CreditCardComponent } from './creditCard.component';
 import { CreditCardExtendedModule } from '../../../../assets/examples/creditCard/creditCard.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     CREDIT_CARD_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, CreditCardExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, CreditCardExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [CreditCardComponent],
   exports: [RouterModule],
   schemas: [

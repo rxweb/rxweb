@@ -8,11 +8,12 @@ import { MAX_DATE_ROUTING } from './maxDate.routing';
 import { MaxDateComponent } from './maxDate.component';
 import { MaxDateExtendedModule } from '../../../../assets/examples/maxDate/maxDate.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     MAX_DATE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MaxDateExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MaxDateExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [MaxDateComponent],
   exports: [RouterModule],
   schemas: [

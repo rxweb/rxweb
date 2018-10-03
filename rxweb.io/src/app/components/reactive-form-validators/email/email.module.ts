@@ -8,11 +8,12 @@ import { EMAIL_ROUTING } from './email.routing';
 import { EmailComponent } from './email.component';
 import { EmailExtendedModule } from '../../../../assets/examples/email/email.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     EMAIL_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, EmailExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, EmailExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [EmailComponent],
   exports: [RouterModule],
   schemas: [

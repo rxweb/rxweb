@@ -8,11 +8,12 @@ import { MAX_LENGTH_ROUTING } from './maxLength.routing';
 import { MaxLengthComponent } from './maxLength.component';
 import { MaxLengthExtendedModule } from '../../../../assets/examples/maxLength/maxLength.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     MAX_LENGTH_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MaxLengthExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MaxLengthExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [MaxLengthComponent],
   exports: [RouterModule],
   schemas: [

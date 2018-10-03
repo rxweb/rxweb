@@ -8,11 +8,12 @@ import { URL_ROUTING } from './url.routing';
 import { UrlComponent } from './url.component';
 import { UrlExtendedModule } from '../../../../assets/examples/url/url.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     URL_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, UrlExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, UrlExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [UrlComponent],
   exports: [RouterModule],
   schemas: [

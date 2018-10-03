@@ -26,6 +26,8 @@
               "src/styles.css"
             ],
             "scripts": [
+              "src/assets/scripts/jquery.min.js",
+              "src/assets/scripts/bootstrap.min.js",
               "src/assets/scripts/highlight.pack.js"
             ]
           },

@@ -8,11 +8,12 @@ import { COMPARE_ROUTING } from './compare.routing';
 import { CompareComponent } from './compare.component';
 import { CompareExtendedModule } from '../../../../assets/examples/compare/compare.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     COMPARE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, CompareExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, CompareExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [CompareComponent],
   exports: [RouterModule],
   schemas: [

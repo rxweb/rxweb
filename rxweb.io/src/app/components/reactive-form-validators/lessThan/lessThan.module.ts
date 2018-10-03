@@ -8,11 +8,12 @@ import { LESS_THAN_ROUTING } from './lessThan.routing';
 import { LessThanComponent } from './lessThan.component';
 import { LessThanExtendedModule } from '../../../../assets/examples/lessThan/lessThan.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     LESS_THAN_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LessThanExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LessThanExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [LessThanComponent],
   exports: [RouterModule],
   schemas: [

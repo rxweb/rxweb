@@ -8,11 +8,12 @@ import { MIN_LENGTH_ROUTING } from './minLength.routing';
 import { MinLengthComponent } from './minLength.component';
 import { MinLengthExtendedModule } from '../../../../assets/examples/minLength/minLength.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     MIN_LENGTH_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinLengthExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinLengthExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [MinLengthComponent],
   exports: [RouterModule],
   schemas: [

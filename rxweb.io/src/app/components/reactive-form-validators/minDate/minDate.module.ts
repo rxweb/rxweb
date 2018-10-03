@@ -8,11 +8,12 @@ import { MIN_DATE_ROUTING } from './minDate.routing';
 import { MinDateComponent } from './minDate.component';
 import { MinDateExtendedModule } from '../../../../assets/examples/minDate/minDate.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     MIN_DATE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinDateExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinDateExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [MinDateComponent],
   exports: [RouterModule],
   schemas: [

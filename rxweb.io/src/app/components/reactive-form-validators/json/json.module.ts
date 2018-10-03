@@ -8,11 +8,12 @@ import { JSON_ROUTING } from './json.routing';
 import { JsonComponent } from './json.component';
 import { JsonExtendedModule } from '../../../../assets/examples/json/json.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     JSON_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, JsonExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, JsonExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [JsonComponent],
   exports: [RouterModule],
   schemas: [

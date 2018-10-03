@@ -2275,12 +2275,12 @@ p.alpha-con-title {
 .sidebar-link li.active a, .sidebar-link li:hover a, .sidebar-link li:focus a, .sidebar-link li:active a {
     color: #e74c3c;
 }
-#right-sidebar p {
+#rightsidebar p {
     font-size: 15px;
     line-height: 21px;
 	padding: 0px 20px;
 }
-#right-sidebar .contributors p {
+#rightsidebar .contributors p {
     padding: 0;
 }
 .sidebar-link {
@@ -3906,7 +3906,7 @@ body {
     }
 }
 
-#right-sidebar {
+#rightsidebar {
       background-color: #ffffff;
     position: fixed;
     top: 62px;
@@ -3919,7 +3919,7 @@ body {
     padding-top: 10px;
 }
 
-#right-sidebar.sidebar-open {
+#rightsidebar.sidebar-open {
     display: block
 }
 
@@ -5271,7 +5271,7 @@ body.light-skin.fixed-footer .footer {
   padding-bottom:20px;
    padding-top:0px !important;
 }
-#right-sidebar p {
+#rightsidebar p {
   color:blue;
 }
 .model-ts p {
@@ -5326,3 +5326,20 @@ pre {
 #navigation {
   height: 100%;
 }
+
+.nav-link.active
+{
+    color: #e74c3c;
+    background-color: white;
+}
+/*.child-padding {
+    padding: 5px 20px;
+    line-height: 24px;
+}
+.parent-padding > li {
+    font-size: 15px;
+    line-height: 21px;
+    padding: 0px 20px;
+    font-weight: 100;
+    margin:0 0 10px;
+}*/

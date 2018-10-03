@@ -15,12 +15,13 @@ import { ResponseType } from '@angular/http';
 export class MaxLengthComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
-  codeContent:any = {}
-  	tab_1:string = "basicadd";
-   	tab_2:string = "conditionalExpressionsmodel";
-   	tab_3:string = "messageModel";
-   	tab_4:string = "messageModel";
-   	tab_5:string = "completeexample";
+  codeContent:any = {};
+  sidebarLinks:any = {"When to use":null,"Basic MaxLength Validation":null,"NumberConfig":["conditionalExpression","value"],"Complete maxlength Example":null};
+  tab_1:string = "basicadd";
+   tab_2:string = "conditionalExpressionsmodel";
+   tab_3:string = "messageModel";
+   tab_4:string = "messageModel";
+   tab_5:string = "completeexample";
    
   constructor(
     private http: HttpClient
@@ -33,11 +34,12 @@ export class MaxLengthComponent implements OnInit {
     })
   }
   scrollTo(section) {  
-    var node = document.querySelector('#' + section);
+    var node = document.querySelector(section);
     node.scrollIntoView(true);
     var scrolledY = window.scrollY;
     if(scrolledY){
       window.scroll(0, scrolledY - 62);
     }
+	return false;
   }
 }

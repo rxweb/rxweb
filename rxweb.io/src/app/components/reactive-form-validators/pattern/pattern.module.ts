@@ -8,11 +8,12 @@ import { PATTERN_ROUTING } from './pattern.routing';
 import { PatternComponent } from './pattern.component';
 import { PatternExtendedModule } from '../../../../assets/examples/pattern/pattern.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 
 @NgModule({
   imports: [
     PATTERN_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PatternExtendedModule, ClipboardModule,DisqusSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PatternExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [PatternComponent],
   exports: [RouterModule],
   schemas: [

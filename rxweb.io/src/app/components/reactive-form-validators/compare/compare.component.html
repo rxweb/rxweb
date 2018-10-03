@@ -122,7 +122,7 @@
 				</tr>
 		</thead>
 		<tbody>
-			<tr>	<td><a href='#fieldName' title='fieldName'>fieldName</a></td> 	<td>Current property is matched with the particular property. so we need to pass particular property name. </td> </tr>	<tr>	<td><a href='#message' title='message'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
+			<tr>	<td><a href='#fieldName' title='fieldName' (click)='scrollTo("#fieldName")'>fieldName</a></td> 	<td>Current property is matched with the particular property. so we need to pass particular property name. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
 	 </table>
 
 </div>
@@ -297,20 +297,5 @@
 		</div>
 	</div>
 </div>
-<footer class="footer">
-	<span class="pull-right">© Copyright 2018. Rx Web</span>
-</footer>
 </div>
-	<div id="right-sidebar" class="p-1">
-		<div class="border-left">
-												<p><a data-target="whentouse" (click)="scrollTo('whentouse')"> When to use</a></p>
-																				<p><a data-target="basiccomparevalidation" (click)="scrollTo('basiccomparevalidation')"> Basic Compare Validation</a></p>
-																							<ul class="list-unstyled sidebar-link  p-1">
-					<li class="active"><a data-target="compareconfig" (click)="scrollTo('compareconfig')"> CompareConfig</a></li>
-											<li class="px-1"><a data-target="fieldname" (click)="scrollTo('fieldname')"> fieldName </a></li>
-											<li class="px-1"><a data-target="message" (click)="scrollTo('message')"> message</a></li>
-									</ul>
-																<p><a data-target="completecompareexample" (click)="scrollTo('completecompareexample')"> Complete Compare Example</a></p>
-													 </div>
-	</div>
-</div>
+<app-right-sidebar [sidebarLinks]="sidebarLinks"></app-right-sidebar>
