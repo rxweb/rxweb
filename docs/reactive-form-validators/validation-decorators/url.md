@@ -5,11 +5,11 @@ author: rxcontributorone
 
 ---
 # When to use
- Let’s assume that you are creating a website-info form, which contains fields like AdminWebsiteUrl,CustomerWebsiteUrl,MaintenanceWebsiteUrl and you want the user to enter valid url. Here depending upon the requirement these scenarios may arise.
-1.  Adding AdminWebsiteUrl without any conditional expression.
-2.	Apply url validation based on matched condition in the form, like if the adminWebsiteUrl is ‘https://google.co.in’ then the customerWebsiteUrl value should be in proper format of url .
-3.	Adding Custom Message on MaintenanceWebsiteUrl Field.
-4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+Let’s assume that you are creating a website-info form, which contains fields like AdminWebsiteUrl,CustomerWebsiteUrl,MaintenanceWebsiteUrl and you want the user to enter valid url. Here depending upon the requirement these scenarios may arise.
+1. Adding AdminWebsiteUrl without any conditional expression.
+2. Apply url validation based on matched condition in the form, like if the adminWebsiteUrl is ‘https://google.co.in’ then the customerWebsiteUrl value should be in proper format of url.
+3. Adding Custom Message on MaintenanceWebsiteUrl Field.
+4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
 Let’s see how url validator fulfil the need.
 

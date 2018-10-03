@@ -7,7 +7,7 @@ author:  rxcontributorone
 # When to use
  Let’s assume that you are creating a User form, which contains fields like userName, birthDate, RegistrationDate and you want the user to enter valid date which does not exceed the maximum date. Here depending upon the requirement these scenarios may arise.
 1. Adding field registrationDate without any conditional expression.
-2. 	Apply MaxDate validation based on matched condition in the form, like if the userName is ‘John’ then the birthDate value should be valid date does not exceed the maximum date.
+2. Apply MaxDate validation based on matched condition in the form, like if the userName is ‘John’ then the birthDate value should be valid date does not exceed the maximum date.
 3. Adding Custom Message on registrationDate Field.
 4. Adding value which you want to restrict number in the property. The maximum date is '2018,7,30'. 
 5. Apply dynamic validation, If the validation will be changed based on some criteria in the application.

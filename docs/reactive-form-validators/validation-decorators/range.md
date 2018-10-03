@@ -6,8 +6,8 @@ author: rxcontributorone
 ---
 # When to use
  Let’s assume that you are creating a employeeInfo form, which contains field of employeeAge,employeeExperience,salary and you want the user to enter value in a specified range. Here depending upon the requirement these scenarios may arise.
-1. Adding value which you want to restrict number in the property. The minimum number is 18 and maximum number is 60 . 
-2. 	Apply range validation based on matched condition in the form, like if the age is greater than ‘25’ then the employeeExperience value should be between 2 to 20 .
+1. Adding value which you want to restrict number in the property. The minimum number is 18 and maximum number is 60. 
+2. Apply range validation based on matched condition in the form, like if the age is greater than ‘25’ then the employeeExperience value should be between 2 to 20.
 3. Adding Custom Message on Salary Field.
 4. Apply dynamic validation, the validation will be changed based on some criteria in the application.
 

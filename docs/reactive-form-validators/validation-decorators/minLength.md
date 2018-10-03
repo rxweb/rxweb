@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 # When to use
  Let’s assume that you are creating a Contact form, which contains fields like countryName, MobileNo,LandlineNo and you want the user to enter valid  Number which should be of the minimum specified length. Here depending upon the requirement these scenarios may arise.
-1. 	Apply MinLength validation based on matched condition in the form, like if the CountryName is ‘India’ then the countryCode value  should be of the minimum specified length. .
+1. Apply MinLength validation based on matched condition in the form, like if the CountryName is ‘India’ then the countryCode value  should be of the minimum specified length. .
 2. Adding Custom Message on LandlineNo Field.
 3. Adding value which you want to restrict number in the property. The Minimum length is '10'. 
 4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.

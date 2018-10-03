@@ -5,13 +5,13 @@ author: rxcontributorone
 
 ---
 # When to use
- Let’s assume that you are creating a Subject-detail form, which contains fields like subjectCode, maximumMarks, PassingMarks and you want the user to enter valid  Number which does not exceed the Maximum number. Here depending upon the requirement these scenarios may arise.
-1. Adding field of PassingMarks without any conditional expression.
-2. 	Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .
-3. Adding Custom Message on PassingMarks Field.
-4. Adding value which you want to restrict number in the property. The maximum number is '100s'. 
-5. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
- 
+Let’s assume that you are creating a Subject-detail form, which contains fields like subjectCode, maximumMarks, PassingMarks and you want the user to enter valid  Number which does not exceed the Maximum number. Here depending upon the requirement these scenarios may arise.
+1.	Adding field of PassingMarks without any conditional expression.
+2.	Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .
+3.	Adding Custom Message on PassingMarks Field.
+4.	Adding value which you want to restrict number in the property. The maximum number is '100s'. 
+5.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+
 Let’s see how maxNumber validator fulfil the need.
 
 # Basic MaxNumber Validation

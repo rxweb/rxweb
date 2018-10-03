@@ -5,12 +5,13 @@ author: rxcontributorone
 
 ---
 # When to use
- Let’s assume that you are creating a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
+Let’s assume that you are creating a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
 1. Adding Custom Message on oldPassword Field.
 2. Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
 3. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
-Let’s see how password validator fulfil the need.
+Let’s see how password  validator fulfil the need.
+
 # Basic password Validation
 First we need to create LoginInfo model class define a property of password in the model to achieve the functional need of point 1.
 [!code-typescript[](\assets\examples\password\add\login-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
