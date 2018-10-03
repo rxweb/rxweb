@@ -7,7 +7,7 @@
 				</li>
 			</ul>
 			<h1> MinLength Validation </h1>
-			<p> MinLength validation decorator will allow only minimum length be entered upto value parameter. If user tries to enter any string that length exceed then the value then the property will become invalid. To use the minLength decorator on particular property.</p>
+			<p> MinLength validation decorator will allow only minimum length be entered upto value parameter. If user tries to enter any string having length less then the value then the property will become invalid. To use the minLength decorator on particular property.</p>
 		</div>
 		<div class="bg-white py-3 border-radius">
 			<div class="row">
@@ -50,6 +50,34 @@
 </div>
 <p>Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
 <p>Here we have covered Add and Edit form operations.</p>
+<ul class="nav nav-tabs" >
+	<li [class.active]="tab_1=='basicadd'" (click)="tab_1='basicadd'"><a>Add</a></li>
+	<li [class.active]="tab_1=='basicedit'" (click)="tab_1='basicedit'"><a>Edit</a></li>
+</ul>
+<div class="tab-content" >
+			  <div class="tab-pane" [class.active]="tab_1=='basicadd'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.add.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_1=='basicedit'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Component" (cbOnSuccess)="codeContent.edit.ComponentCopied = true" [class.copied]="codeContent.edit.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.edit.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+		  </div>
+	</div>																											
 <p>Next, we need to write html code.</p>
 <div class="model-ts" *ngIf="tab_1=='basicadd'">
 	<div class="code">
@@ -107,12 +135,12 @@
 <p>Min Length validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
 <p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
 <ul class="nav nav-tabs" *ngIf="conditionalExpressions">
-	<li [class.active]="tab_1=='conditionalExpressionsmodel'" (click)="tab_1='conditionalExpressionsmodel'"><a>Model</a></li>
-	<li [class.active]="tab_1=='conditionalExpressionsComponent'" (click)="tab_1='conditionalExpressionsComponent'"><a>Component</a></li>
-	<li [class.active]="tab_1=='conditionalExpressionsHtml'" (click)="tab_1='conditionalExpressionsHtml'"><a>Html</a></li>
+	<li [class.active]="tab_2=='conditionalExpressionsmodel'" (click)="tab_2='conditionalExpressionsmodel'"><a>Model</a></li>
+	<li [class.active]="tab_2=='conditionalExpressionsComponent'" (click)="tab_2='conditionalExpressionsComponent'"><a>Component</a></li>
+	<li [class.active]="tab_2=='conditionalExpressionsHtml'" (click)="tab_2='conditionalExpressionsHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="conditionalExpressions">
-			  <div class="tab-pane" [class.active]="tab_1=='conditionalExpressionsmodel'">
+			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionsmodel'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpressions.Model" (cbOnSuccess)="codeContent.conditionalExpressions.ModelCopied = true" [class.copied]="codeContent.conditionalExpressions.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -123,7 +151,7 @@
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_1=='conditionalExpressionsComponent'">
+			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionsComponent'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpressions.Component" (cbOnSuccess)="codeContent.conditionalExpressions.ComponentCopied = true" [class.copied]="codeContent.conditionalExpressions.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -134,7 +162,7 @@
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_1=='conditionalExpressionsHtml'">
+			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionsHtml'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpressions.Html" (cbOnSuccess)="codeContent.conditionalExpressions.HtmlCopied = true" [class.copied]="codeContent.conditionalExpressions.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -163,12 +191,12 @@
 <p>Type :  <span class='highlighted'>string</span> </p>
 <p>To override the global configuration message and show the custom message on particular control property.</p>
 <ul class="nav nav-tabs" *ngIf="message">
-	<li [class.active]="tab_2=='messageModel'" (click)="tab_2='messageModel'"><a>Model</a></li>
-	<li [class.active]="tab_2=='messageComponent'" (click)="tab_2='messageComponent'"><a>Component</a></li>
-	<li [class.active]="tab_2=='messageHtml'" (click)="tab_2='messageHtml'"><a>Html</a></li>
+	<li [class.active]="tab_3=='messageModel'" (click)="tab_3='messageModel'"><a>Model</a></li>
+	<li [class.active]="tab_3=='messageComponent'" (click)="tab_3='messageComponent'"><a>Component</a></li>
+	<li [class.active]="tab_3=='messageHtml'" (click)="tab_3='messageHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="message">
-			  <div class="tab-pane" [class.active]="tab_2=='messageModel'">
+			  <div class="tab-pane" [class.active]="tab_3=='messageModel'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Model" (cbOnSuccess)="codeContent.message.ModelCopied = true" [class.copied]="codeContent.message.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -179,7 +207,7 @@
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_2=='messageComponent'">
+			  <div class="tab-pane" [class.active]="tab_3=='messageComponent'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Component" (cbOnSuccess)="codeContent.message.ComponentCopied = true" [class.copied]="codeContent.message.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -190,7 +218,7 @@
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_2=='messageHtml'">
+			  <div class="tab-pane" [class.active]="tab_3=='messageHtml'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Html" (cbOnSuccess)="codeContent.message.HtmlCopied = true" [class.copied]="codeContent.message.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -219,12 +247,12 @@
 <p>Type :  <span class='highlighted'>number</span> </p>
 <p>enter value which you want to restrict string length in the property.</p>
 <ul class="nav nav-tabs" *ngIf="value">
-	<li [class.active]="tab_3=='valueModel'" (click)="tab_3='valueModel'"><a>Model</a></li>
-	<li [class.active]="tab_3=='valueComponent'" (click)="tab_3='valueComponent'"><a>Component</a></li>
-	<li [class.active]="tab_3=='valueHtml'" (click)="tab_3='valueHtml'"><a>Html</a></li>
+	<li [class.active]="tab_4=='valueModel'" (click)="tab_4='valueModel'"><a>Model</a></li>
+	<li [class.active]="tab_4=='valueComponent'" (click)="tab_4='valueComponent'"><a>Component</a></li>
+	<li [class.active]="tab_4=='valueHtml'" (click)="tab_4='valueHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="value">
-			  <div class="tab-pane" [class.active]="tab_3=='valueModel'">
+			  <div class="tab-pane" [class.active]="tab_4=='valueModel'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.value.Model" (cbOnSuccess)="codeContent.value.ModelCopied = true" [class.copied]="codeContent.value.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -235,7 +263,7 @@
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_3=='valueComponent'">
+			  <div class="tab-pane" [class.active]="tab_4=='valueComponent'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.value.Component" (cbOnSuccess)="codeContent.value.ComponentCopied = true" [class.copied]="codeContent.value.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -246,7 +274,7 @@
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_3=='valueHtml'">
+			  <div class="tab-pane" [class.active]="tab_4=='valueHtml'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.value.Html" (cbOnSuccess)="codeContent.value.HtmlCopied = true" [class.copied]="codeContent.value.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -273,17 +301,17 @@
 <h2>Complete MinLength Example</h2>
 
 <ul class="nav nav-tabs" >
-	<li [class.active]="tab_4=='completeexample'" (click)="tab_4='completeexample'"><a>Example</a></li>
-	<li [class.active]="tab_4=='completemodel'" (click)="tab_4='completemodel'"><a>Model</a></li>
-	<li [class.active]="tab_4=='completecomponent'" (click)="tab_4='completecomponent'"><a>Component</a></li>
-	<li [class.active]="tab_4=='completehtml'" (click)="tab_4='completehtml'"><a>Html</a></li>
+	<li [class.active]="tab_5=='completeexample'" (click)="tab_5='completeexample'"><a>Example</a></li>
+	<li [class.active]="tab_5=='completemodel'" (click)="tab_5='completemodel'"><a>Model</a></li>
+	<li [class.active]="tab_5=='completecomponent'" (click)="tab_5='completecomponent'"><a>Component</a></li>
+	<li [class.active]="tab_5=='completehtml'" (click)="tab_5='completehtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" >
-			  <div class="tab-pane" [class.active]="tab_4=='completeexample'">
+			  <div class="tab-pane" [class.active]="tab_5=='completeexample'">
 			<app-minLength-complete></app-minLength-complete>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_4=='completemodel'">
+			  <div class="tab-pane" [class.active]="tab_5=='completemodel'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Model" (cbOnSuccess)="codeContent.complete.ModelCopied = true" [class.copied]="codeContent.complete.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -294,7 +322,7 @@
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_4=='completecomponent'">
+			  <div class="tab-pane" [class.active]="tab_5=='completecomponent'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Component" (cbOnSuccess)="codeContent.complete.ComponentCopied = true" [class.copied]="codeContent.complete.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -305,7 +333,7 @@
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_4=='completehtml'">
+			  <div class="tab-pane" [class.active]="tab_5=='completehtml'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Html" (cbOnSuccess)="codeContent.complete.HtmlCopied = true" [class.copied]="codeContent.complete.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>

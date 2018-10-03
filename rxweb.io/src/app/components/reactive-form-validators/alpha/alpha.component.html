@@ -6,7 +6,7 @@
 					<a title="Edit"><i class="fa fa-pencil font-size-15"></i></a>
 				</li>
 			</ul>
-			<h1> Alpha Validation in Angular Reactive Forms</h1>
+			<h1> Alpha Validation</h1>
 			<p> Alpha validation decorator will allow only alphabets to be entered. It will not allow any number or special character. If user tries to do so the property will become invalid. To use the alpha decorator on particular property.</p>
 		</div>
 		<div class="bg-white py-3 border-radius">
@@ -190,7 +190,7 @@
 <h2>conditionalExpressions</h2>
 
 <p>Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span> </p>
-<p>AlphaNumeric validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpressions</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpressions</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
+<p>Alpha validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpressions</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpressions</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
 <p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpressions</span> will work as same as client function.</p>
 <ul class="nav nav-tabs" *ngIf="conditionalExpressions">
 	<li [class.active]="tab_3=='conditionalExpressionsmodel'" (click)="tab_3='conditionalExpressionsmodel'"><a>Model</a></li>

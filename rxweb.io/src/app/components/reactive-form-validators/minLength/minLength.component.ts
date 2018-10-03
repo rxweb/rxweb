@@ -17,10 +17,11 @@ export class MinLengthComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic MinLength Validation":null,"NumberConfig":["conditionalExpression","message","value"],"Complete MinLength Example":null};
-  tab_1:string = "conditionalExpressionsmodel";
-   tab_2:string = "messageModel";
-   tab_3:string = "valueModel";
-   tab_4:string = "completeexample";
+  tab_1:string = "basicadd";
+   tab_2:string = "conditionalExpressionsmodel";
+   tab_3:string = "messageModel";
+   tab_4:string = "valueModel";
+   tab_5:string = "completeexample";
    
   constructor(
     private http: HttpClient
