@@ -1,6 +1,6 @@
 ---
 title: Range Validation
-description: Range validation decorator will allow only in specify range will be entered. If EmployeeInfo tries to enter any value without in range then the property will become invalid. To use the range decorator on particular property.
+description: Range validation decorator will allow only in specify range will be entered. If EmployeeInfo tries to enter any value which exceed the range then the property will become invalid. To use the range decorator on particular property.
 author: rxcontributorone
 
 ---
@@ -9,7 +9,9 @@ author: rxcontributorone
 1. Adding value which you want to restrict number in the property. The minimum number is 18 and maximum number is 60 . 
 2. 	Apply range validation based on matched condition in the form, like if the age is greater than ‘25’ then the employeeExperience value should be between 2 to 20 .
 3. Adding Custom Message on Salary Field.
-4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+4. Apply dynamic validation, the validation will be changed based on some criteria in the application.
+
+Let’s see how range validator fulfil the need.
 
 # Basic range Validation
 First we need to create employeeInfo model class define a property of employeeAge in the model to achieve the functional need of point 1.
@@ -41,14 +43,14 @@ conditionalExpression and message options are not mandatory to use in the `@rang
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpression](#conditionalexpression) | Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpression) | Range validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 |[minimumNumber](#minimumnumber) | Minimum number is for define a minimum number of range |
 |[maximumNumber](#maximumnumber) | Maximum number is for define a maximum number of range |
 
 ## conditionalExpression 
 Type :  `Function`  |  `string`
-Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
+Range validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
 [!TabGroup(?showHideCondition="conditionalExpressions")]

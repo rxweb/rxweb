@@ -12,6 +12,8 @@ Let’s assume that you are creating a AttendanceDetail form, which contains fie
 4.	Adding Custom Message on exitTime Field.
 5.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
+Let’s see how time validator fulfil the need.
+
 # Basic time Validation
 First we need to create a AttendanceDetail class and define a property of EntryTime in the model to achieve the functional need of point 1.
 [!code-typescript[](\assets\examples\time\add\attandance-detail.model.ts?condition="tab_1=='basicadd'"&type=section)]

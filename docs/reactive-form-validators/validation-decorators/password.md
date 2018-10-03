@@ -5,11 +5,12 @@ author: rxcontributorone
 
 ---
 # When to use
- Let’s assume that you are creating a User form, which contains fields like EntryPlace,EntryTime,TotalTimeOut,ExitTime and you want the user to enter valid time. Here depending upon the requirement these scenarios may arise.	
-1. Adding Custom Message on password Field.
-2. Apply validation in Password validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
+ Let’s assume that you are creating a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
+1. Adding Custom Message on oldPassword Field.
+2. Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
 3. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
+Let’s see how password validator fulfil the need.
 # Basic password Validation
 First we need to create LoginInfo model class define a property of password in the model to achieve the functional need of point 1.
 [!code-typescript[](\assets\examples\password\add\login-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
@@ -41,7 +42,7 @@ message options are not mandatory to use in the `@password()` decorator but vali
 |Option | Description |
 |--- | ---- |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
-|[validation](#validation) | Password Validation is used for parameters for password validation, In Password validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength. |
+|[validation](#validation) | Validation is used for setting the parameters for password validation, In Password validation there is validations on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength. |
 
 ## message 
 Type :  `string` 
@@ -61,7 +62,7 @@ To override the global configuration message and show the custom message on part
 
 ## validation 
 Type :  `PasswordValidation`
-Password Validation is used for parameters for password validation, In Password validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
+Password Validation is used for setting the parameters for password validation, In Password validation there is validation on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
 
 [!TabGroup(?showHideCondition="validation")]
 # [Model](#tab\validationModel)

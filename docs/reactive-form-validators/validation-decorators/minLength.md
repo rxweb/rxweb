@@ -1,6 +1,6 @@
 ---
 title: MinLength Validation 
-description: MinLength validation decorator will allow only minimum length be entered upto value parameter. If user tries to enter any string that length exceed then the value then the property will become invalid. To use the minLength decorator on particular property.
+description: MinLength validation decorator will allow only minimum length be entered upto value parameter. If user tries to enter any string having length less then the value then the property will become invalid. To use the minLength decorator on particular property.
 author: rxcontributorone
 
 ---
@@ -20,6 +20,13 @@ First we need to create Contact model class define a property of CountryName in 
 
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
+
+[!TabGroup]
+# [Add](#tab\basicadd)
+[!code-typescript[](\assets\examples\minLength\add\min-length-add.component.ts)]
+# [Edit](#tab\basicedit)
+[!code-typescript[](\assets\examples\minLength\edit\min-length-edit.component.ts)]
+***
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\minLength\add\min-length-add.component.html?condition="tab_1=='basicadd'"&type=section)]

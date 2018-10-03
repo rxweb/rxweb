@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.
+Let's assume that you are creating a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.
 1.	The Name of Password field on which comparison is done.
 2.  The Custom Message on ConfirmPassword field.  
 3.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
@@ -50,7 +50,7 @@ Below options are not mandatory to use in the `@compare()` decorator. If needed 
 Type :  `string` 
 Current property is matched with the particular property. so we need to pass particular property name.
 
-[!TabGroup(?showHideCondition="fieldNameShow")]
+[!TabGroup(?showHideCondition="fieldName")]
 # [Model](#tab\fieldNamemodel)
 [!code-typescript[](\assets\examples\compare\fieldName\user.model.ts)]
 # [Component](#tab\fieldNameComponent)
@@ -59,7 +59,7 @@ Current property is matched with the particular property. so we need to pass par
 [!code-typescript[](\assets\examples\compare\fieldName\compare-field-name.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow")]
+[!example(?type=section&clickEventCode="fieldName=!fieldName")]
 <app-compare-fieldName></app-compare-fieldName>
 
 ## message

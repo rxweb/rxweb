@@ -5,11 +5,13 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating location form and you have fields like locationJson,location,AddressJson,ContactJson and you want the user to enter only Json value i.e in key and value form. Here depending upon the requirement these scenarios may arise.
+Let's assume that you are creating a location based jsonInfo form and you have fields like locationJson,location,AddressJson,ContactJson and you want the user to enter only Json value i.e in key and value form. Here depending upon the requirement these scenarios may arise.
 1. Adding LocationJson without any conditional expression.
-1. 	Apply json validation based on matched condition in the form, like if the location is ‘India’ then the AddressJson value should be valid Json value.
-2. Adding Custom Message on ContactJson Field.
-3. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+2. 	Apply json validation based on matched condition in the form, like if the location is ‘India’ then the AddressJson value should be valid Json value.
+3. Adding Custom Message on ContactJson Field.
+4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+
+Let’s see how json validator fulfil the need.
 
 # Basic Json Validation
 First we need to create location model class define a property of LocationJson in the model to achieve the functional need of point 1

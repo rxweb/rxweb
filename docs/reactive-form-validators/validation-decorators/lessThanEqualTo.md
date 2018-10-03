@@ -11,7 +11,6 @@ Let's assume that you are creating a user form and you have fields like TotalMar
 3. Adding Custom Message on OtherMarks Field.
 4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
-
 Let’s see how lessThanEqualTo validator fulfil the need.
 
 # Basic LessThanEqualTo Validation
@@ -46,7 +45,7 @@ message and conditionalExpression options are not mandatory but fieldName is man
 |Option | Description |
 |--- | ---- |
 |[fieldName](#fieldname) | Less than Equal to validation should be applied based on the `fieldName` for compare other field value |
-|[conditionalExpression](#conditionalexpression) | Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpression) | Less than Equal to validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 
@@ -54,7 +53,7 @@ message and conditionalExpression options are not mandatory but fieldName is man
 Type :  `string` 
 Less than Equal to validation should be applied based on the `fieldName` for compare other field value. 
 
-[!TabGroup(?showHideCondition="fieldNameShow")]
+[!TabGroup(?showHideCondition="fieldName")]
 # [Model](#tab\fieldNamemodel)
 [!code-typescript[](\assets\examples\lessThanEqualTo\fieldName\user.model.ts)]
 # [Component](#tab\fieldNameComponent)
@@ -62,6 +61,9 @@ Less than Equal to validation should be applied based on the `fieldName` for com
 # [Html](#tab\fieldNameHtml)
 [!code-typescript[](\assets\examples\lessThanEqualTo\fieldName\less-than-equal-to-field-name.component.html)]
 ***
+
+[!example(?type=section&clickEventCode="fieldName=!fieldName")]
+<app-lessThanEqualTo-fieldName></app-lessThanEqualTo-fieldName>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
