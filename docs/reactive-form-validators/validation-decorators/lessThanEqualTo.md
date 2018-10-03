@@ -11,7 +11,6 @@ Let's assume that you are creating a user form and you have fields like TotalMar
 3. Adding Custom Message on OtherMarks Field.
 4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
-
 Let’s see how lessThanEqualTo validator fulfil the need.
 
 # Basic LessThanEqualTo Validation
@@ -54,7 +53,7 @@ message and conditionalExpression options are not mandatory but fieldName is man
 Type :  `string` 
 Less than Equal to validation should be applied based on the `fieldName` for compare other field value. 
 
-[!TabGroup(?showHideCondition="fieldNameShow")]
+[!TabGroup(?showHideCondition="fieldName")]
 # [Model](#tab\fieldNamemodel)
 [!code-typescript[](\assets\examples\lessThanEqualTo\fieldName\user.model.ts)]
 # [Component](#tab\fieldNameComponent)
@@ -62,6 +61,9 @@ Less than Equal to validation should be applied based on the `fieldName` for com
 # [Html](#tab\fieldNameHtml)
 [!code-typescript[](\assets\examples\lessThanEqualTo\fieldName\less-than-equal-to-field-name.component.html)]
 ***
+
+[!example(?type=section&clickEventCode="fieldName=!fieldName")]
+<app-lessThanEqualTo-fieldName></app-lessThanEqualTo-fieldName>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
