@@ -10,7 +10,7 @@ Let’s assume that you are creating a login form, which contains fields like ne
 2. Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
 3. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
-Let’s see how password  validator fulfil the need.
+Let’s see how password validator fulfil the need.
 
 # Basic password Validation
 First we need to create LoginInfo model class define a property of password in the model to achieve the functional need of point 1.
