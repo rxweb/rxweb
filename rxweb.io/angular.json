@@ -28,7 +28,9 @@
             "scripts": [
               "src/assets/scripts/jquery.min.js",
               "src/assets/scripts/bootstrap.min.js",
-              "src/assets/scripts/highlight.pack.js"
+              "src/assets/scripts/highlight.pack.js",
+              "src/assets/scripts/moment.js",
+              "src/assets/scripts/showdown.js"
             ]
           },
           "configurations": {

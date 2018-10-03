@@ -2267,12 +2267,12 @@ p.alpha-con-title {
     font-size: 17px;
     line-height: 23px;
 }
-.sidebar-link li a {
+.sidebar-list li a {
     font-size: 15px;
     line-height: 21px;
     color: #34495e;
 }
-.sidebar-link li.active a, .sidebar-link li:hover a, .sidebar-link li:focus a, .sidebar-link li:active a {
+.sidebar-list li.active a, .sidebar-list li:hover a, .sidebar-list li:focus a, .sidebar-list li:active a {
     color: #e74c3c;
 }
 #rightsidebar p {
@@ -2283,7 +2283,7 @@ p.alpha-con-title {
 #rightsidebar .contributors p {
     padding: 0;
 }
-.sidebar-link {
+.sidebar-list {
     border-left: 1px solid #34495e;
 }
 .contributors .btn {
@@ -2305,7 +2305,7 @@ p.alpha-con-title {
   margin-bottom: 25px;
   color: #242424
 }
-.sidebar-link li {
+.sidebar-list li {
     padding-bottom: 5px;
 }
 .validation-example .nav-tabs {
@@ -2338,15 +2338,7 @@ p.alpha-con-title {
 .panel-title.que {
     padding: 20px 0;
 }
-.comment-section a.collapsed i.fa-angle-down {
-    display: none;
-}
-.comment-section a.collapsed i.fa-angle-right {
-    display: inline-block;
-}
-.comment-section a i.fa-angle-right {
-    display: none;
-}
+
 .comment-section .panel{
     border-bottom: 1px solid #eaeaea;
     border-right: 1px solid #eaeaea;
@@ -5332,14 +5324,44 @@ pre {
     color: #e74c3c;
     background-color: white;
 }
-/*.child-padding {
-    padding: 5px 20px;
-    line-height: 24px;
+input.ng-invalid{
+    background-color:#DA5235;
+    color:white;
+  }
+
+ select.ng-invalid{
+    background-color:#DA5235;
+    color:white;
+  }
+  
+  .fade.show {
+    opacity: 1;
 }
-.parent-padding > li {
+.sidebar-link{
     font-size: 15px;
     line-height: 21px;
-    padding: 0px 20px;
+    padding-top: 0px;
+    padding-right: 20px;
+    padding-bottom: 8px;
+    padding-left: 20px;
+    color: #6a6c6f;
     font-weight: 100;
-    margin:0 0 10px;
-}*/
+}
+.nav-item {
+    padding-bottom: 8px;
+}
+.child-item-list {
+    font-weight: normal;
+}
+.child-list{
+    padding-left: 28px;
+    padding-top: 9px;
+}
+#rightsidebar p {
+    font-size: 15px;
+    line-height: 21px;
+	padding: 0px 20px;
+}
+#rightsidebar .contributors p {
+    padding: 0;
+}
