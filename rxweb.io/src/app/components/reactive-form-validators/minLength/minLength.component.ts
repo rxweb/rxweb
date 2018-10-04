@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { MinLengthCompleteComponent } from '../../../../assets/examples/minLength/complete/min-length-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './minLength.component.html',
@@ -16,7 +15,7 @@ export class MinLengthComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic MinLength Validation":null,"NumberConfig":["conditionalExpression","message","value"],"Complete MinLength Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic MinLength Validation":null,"NumberConfig":["conditionalExpressions","message","value"],"Complete MinLength Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

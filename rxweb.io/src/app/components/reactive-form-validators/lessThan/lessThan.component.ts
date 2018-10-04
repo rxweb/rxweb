@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { LessThanCompleteComponent } from '../../../../assets/examples/lessThan/complete/less-than-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './lessThan.component.html',
@@ -16,7 +15,7 @@ export class LessThanComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic LessThan Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpression","message"],"Complete lessThan Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic LessThan Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpressions","message"],"Complete lessThan Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "fieldNamemodel";
    tab_3:string = "conditionalExpressionsmodel";

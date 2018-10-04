@@ -9,13 +9,15 @@
             </li>
         </ul>
     </div>
-    <div class="contributors">
+	<div class="contributors">
 		  <h4>Contributors</h4>
 		  <div class="row">
 			<div class="col-xs-12 col-sm-6 text-center" *ngFor="let item of contributorList">
+			<a href="{{item.html_url}}" target="_blank">
 				<img class="img-responsive d-inline-block" src="{{item.avatar_url}}" width="50" height="50">
 				<p class="my-2">{{item.login}}</p>
+			</a>
 			</div>
 		  </div>
-	  </div>
+	 </div>
 </div>

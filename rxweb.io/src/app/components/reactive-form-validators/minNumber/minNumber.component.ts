@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { MinNumberCompleteComponent } from '../../../../assets/examples/minNumber/complete/min-number-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './minNumber.component.html',
@@ -16,7 +15,7 @@ export class MinNumberComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic MinNumber Validation":null,"NumberConfig":["conditionalExpression","message","value"],"Complete minNumber Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic MinNumber Validation":null,"NumberConfig":["conditionalExpressions","message","value"],"Complete minNumber Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

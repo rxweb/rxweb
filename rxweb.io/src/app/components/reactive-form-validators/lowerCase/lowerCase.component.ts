@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { LowerCaseCompleteComponent } from '../../../../assets/examples/lowerCase/complete/lower-case-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './lowerCase.component.html',
@@ -16,7 +15,7 @@ export class LowerCaseComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic LowerCase Validation":null,"MessageConfig":["conditionalExpression","message"],"Complete lowercase Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic LowerCase Validation":null,"MessageConfig":["conditionalExpressions","message"],"Complete lowercase Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

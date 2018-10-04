@@ -20,7 +20,7 @@ export class LowerCaseEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/lowercase/edit/user-info-data.json').subscribe(userInfo => {
+        this.http.get('assets/examples/lowerCase/edit/user-info-data.json').subscribe(userInfo => {
             this.userInfoFormGroup = this.formBuilder.formGroup<UserInfo>(UserInfo,userInfo);
         })
     }

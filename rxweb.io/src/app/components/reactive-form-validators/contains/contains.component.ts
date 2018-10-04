@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { ContainsCompleteComponent } from '../../../../assets/examples/contains/complete/contains-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './contains.component.html',
@@ -16,7 +15,7 @@ export class ContainsComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Contains Validation":null,"ContainsConfig":["value","conditionalExpression","message"],"Complete Contains Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic Contains Validation":null,"ContainsConfig":["value","conditionalExpressions","message"],"Complete Contains Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "valuemodel";
    tab_3:string = "conditionalExpressionsmodel";

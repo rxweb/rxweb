@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { RequiredCompleteComponent } from '../../../../assets/examples/required/complete/required-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './required.component.html',
@@ -16,7 +15,7 @@ export class RequiredComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Required Validation":null,"RequiredConfig":["conditionalExpression","message"],"Complete required Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic Required Validation":null,"RequiredConfig":["conditionalExpressions","message"],"Complete required Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { DigitCompleteComponent } from '../../../../assets/examples/digit/complete/digit-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './digit.component.html',
@@ -16,7 +15,7 @@ export class DigitComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic digit Validation":null,"DigitConfig":["conditionalExpression","message"],"Complete digit Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic digit Validation":null,"DigitConfig":["conditionalExpressions","message"],"Complete digit Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

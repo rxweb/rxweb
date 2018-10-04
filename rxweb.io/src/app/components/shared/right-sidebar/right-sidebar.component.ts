@@ -15,7 +15,7 @@ export class RightSideBarComponent implements OnInit {
     @Input('sidebarLinks') sidebarLinks: any={};
     sidebarItem: any = [];
     showComponent: boolean = false;
-    contributorList:any;
+    contributorList:any=[];
     ngOnInit(): void {
         for (var key in this.sidebarLinks) {
             if (this.sidebarLinks.hasOwnProperty(key)) {
@@ -31,11 +31,21 @@ export class RightSideBarComponent implements OnInit {
                 this.sidebarItem.push(currentObject);
             }
         }
-        this.http.get('https://api.github.com/repos/rxweb/rxweb/contributors').subscribe((response: any[]) => {
-            this.contributorList = response;
+        let url = 'https://api.github.com/repos/rxweb/rxweb/';
+        if (location.pathname.split('/')[2])
+            url += 'commits?path=docs/reactive-form-validators/validation-decorators/' + location.pathname.split('/')[2] + ".md"
+        this.http.get(url).subscribe((response: any[]) => {
+            const author = response.map(data => data.author);
+            author.forEach(element => {
+                if(element)                
+                {
+                    let indexObj = this.contributorList.find(a=>a.id == element.id);
+                    if(!indexObj)
+                        this.contributorList.push(element);
+                }
+            });
             this.showComponent = true;
         })
-        
     }
     scrollTo(section) {
         var node = document.querySelector('#' + section);

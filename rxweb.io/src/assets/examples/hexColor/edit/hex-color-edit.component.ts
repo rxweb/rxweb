@@ -20,7 +20,7 @@ export class HexColorEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/hexcolor/edit/user-data.json').subscribe(user => {
+        this.http.get('assets/examples/hexColor/edit/user-data.json').subscribe(user => {
             this.userFormGroup = this.formBuilder.formGroup<User>(User,user);
         })
     }

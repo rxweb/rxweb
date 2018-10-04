@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { EmailCompleteComponent } from '../../../../assets/examples/email/complete/email-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './email.component.html',
@@ -16,7 +15,7 @@ export class EmailComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Email Validation":null,"EmailConfig":["conditionalExpression","message"],"Complete Email Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic Email Validation":null,"EmailConfig":["conditionalExpressions","message"],"Complete Email Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { TimeCompleteComponent } from '../../../../assets/examples/time/complete/time-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './time.component.html',
@@ -16,7 +15,7 @@ export class TimeComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic time Validation":null,"TimeConfig":["conditionalExpression","allowSeconds","message"],"Complete time Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic time Validation":null,"TimeConfig":["conditionalExpressions","allowSeconds","message"],"Complete time Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "allowSecondsmodel";

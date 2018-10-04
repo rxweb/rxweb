@@ -20,7 +20,7 @@ export class MaxDateEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/maxdate/edit/user-data.json').subscribe(user => {
+        this.http.get('assets/examples/maxDate/edit/user-data.json').subscribe(user => {
             this.userFormGroup = this.formBuilder.formGroup<User>(User,user);
         })
     }

@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { MinDateCompleteComponent } from '../../../../assets/examples/minDate/complete/min-date-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './minDate.component.html',
@@ -16,7 +15,7 @@ export class MinDateComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic MinDate Validation":null,"DateConfig":["conditionalExpression","message","value"],"Complete mindate Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic MinDate Validation":null,"DateConfig":["conditionalExpressions","message","value"],"Complete mindate Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

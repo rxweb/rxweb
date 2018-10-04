@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { RangeCompleteComponent } from '../../../../assets/examples/range/complete/range-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './range.component.html',
@@ -16,7 +15,7 @@ export class RangeComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic range Validation":null,"RangeConfig":["conditionalExpression","message","minimumNumber","maximumNumber"],"Complete range Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic range Validation":null,"RangeConfig":["conditionalExpressions","message","minimumNumber","maximumNumber"],"Complete range Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

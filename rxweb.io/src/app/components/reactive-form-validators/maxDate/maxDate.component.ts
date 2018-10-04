@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { MaxDateCompleteComponent } from '../../../../assets/examples/maxDate/complete/max-date-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './maxDate.component.html',
@@ -16,7 +15,7 @@ export class MaxDateComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic MaxDate Validation":null,"DateConfig":["conditionalExpression","message","value"],"Complete MaxDate Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic MaxDate Validation":null,"DateConfig":["conditionalExpressions","message","value"],"Complete MaxDate Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

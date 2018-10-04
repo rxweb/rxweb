@@ -20,7 +20,7 @@ export class UpperCaseEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/uppercase/edit/location-data.json').subscribe(location => {
+        this.http.get('assets/examples/upperCase/edit/location-data.json').subscribe(location => {
             this.locationFormGroup = this.formBuilder.formGroup<Location>(Location,location);
         })
     }

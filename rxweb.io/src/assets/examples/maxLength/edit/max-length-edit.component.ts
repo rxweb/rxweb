@@ -20,7 +20,7 @@ export class MaxLengthEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/maxlength/edit/location-data.json').subscribe(location => {
+        this.http.get('assets/examples/maxLength/edit/location-data.json').subscribe(location => {
             this.locationFormGroup = this.formBuilder.formGroup<Location>(Location,location);
         })
     }

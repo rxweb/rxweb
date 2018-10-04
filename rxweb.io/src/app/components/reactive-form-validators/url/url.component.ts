@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { UrlCompleteComponent } from '../../../../assets/examples/url/complete/url-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './url.component.html',
@@ -16,7 +15,7 @@ export class UrlComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic url Validation":null,"DefaultConfig":["conditionalExpression","message"],"Complete url Numeric Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic url Validation":null,"DefaultConfig":["conditionalExpressions","message"],"Complete url Numeric Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

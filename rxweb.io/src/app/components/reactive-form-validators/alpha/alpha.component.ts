@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { AlphaCompleteComponent } from '../../../../assets/examples/alpha/complete/alpha-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './alpha.component.html',

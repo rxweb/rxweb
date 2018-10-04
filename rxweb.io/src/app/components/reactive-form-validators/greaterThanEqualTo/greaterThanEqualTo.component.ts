@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { GreaterThanEqualToCompleteComponent } from '../../../../assets/examples/greaterThanEqualTo/complete/greater-than-equal-to-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './greaterThanEqualTo.component.html',
@@ -16,7 +15,7 @@ export class GreaterThanEqualToComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic GreaterThanEqualTo Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpression","message"],"Complete greaterThanEqualTo Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic GreaterThanEqualTo Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpressions","message"],"Complete greaterThanEqualTo Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "fieldNamemodel";
    tab_3:string = "conditionalExpressionsmodel";

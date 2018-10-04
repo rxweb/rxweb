@@ -20,7 +20,7 @@ export class MinNumberEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/minnumber/edit/result-info-data.json').subscribe(resultInfo => {
+        this.http.get('assets/examples/minNumber/edit/result-info-data.json').subscribe(resultInfo => {
             this.resultInfoFormGroup = this.formBuilder.formGroup<ResultInfo>(ResultInfo,resultInfo);
         })
     }

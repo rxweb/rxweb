@@ -20,7 +20,7 @@ export class MinLengthEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/minlength/edit/contact-data.json').subscribe(contact => {
+        this.http.get('assets/examples/minLength/edit/contact-data.json').subscribe(contact => {
             this.contactFormGroup = this.formBuilder.formGroup<Contact>(Contact,contact);
         })
     }

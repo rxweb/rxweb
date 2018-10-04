@@ -20,7 +20,7 @@ export class MinDateEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/mindate/edit/user-data.json').subscribe(user => {
+        this.http.get('assets/examples/minDate/edit/user-data.json').subscribe(user => {
             this.userFormGroup = this.formBuilder.formGroup<User>(User,user);
         })
     }

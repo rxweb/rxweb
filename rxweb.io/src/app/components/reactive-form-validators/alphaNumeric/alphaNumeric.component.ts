@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { AlphaNumericCompleteComponent } from '../../../../assets/examples/alphaNumeric/complete/alpha-numeric-complete.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { ResponseType } from '@angular/http';
 
 @Component({
   templateUrl: './alphaNumeric.component.html',
@@ -16,7 +15,7 @@ export class AlphaNumericComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic AlphaNumeric Validation":null,"AlphaConfig":["allowWhiteSpace","conditionalExpression","message"],"Complete AlphaNumeric Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic AlphaNumeric Validation":null,"AlphaConfig":["allowWhiteSpace","conditionalExpressions","message"],"Complete AlphaNumeric Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "allowWhiteSpacemodel";
    tab_3:string = "conditionalExpressionsmodel";
