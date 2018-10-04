@@ -85,9 +85,9 @@
 </div>
 <div class="model-ts" *ngIf="tab_1=='basicedit'">
 	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.alphaNumeric.Html" (cbOnSuccess)="codeContent.alphaNumeric.HtmlCopied = true" [class.copied]="codeContent.alphaNumeric.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Html" (cbOnSuccess)="codeContent.edit.HtmlCopied = true" [class.copied]="codeContent.edit.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.alphaNumeric.Html"></code></pre>
+				<pre><code [textContent]="codeContent.edit.Html"></code></pre>
 			</div>
 	</div>
 </div>

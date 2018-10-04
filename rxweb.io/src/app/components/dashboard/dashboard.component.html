@@ -1,28 +1,14 @@
-<div id="wrapper">
-  <div class="normalheader ">
-    <div class="hpanel">
-      <div class="panel-body">
-        <a class="small-header-action" href="">
-          <div class="clip-header">
-            <i class="fa fa-arrow-up"></i>
-          </div>
-        </a>
-        <div id="hbreadcrumb" class="pull-right m-t-lg">
-          <ol class="hbreadcrumb breadcrumb">
-            <li><a href="index.html">Ishani</a></li>
-            <li>
-              <span>App views</span>
-            </li>
-            <li class="active">
-              <span>Profile </span>
-            </li>
-          </ol>
-        </div>
-        <h2 class="font-light m-b-xs">
-          Profile
-        </h2>
-        <small>Show user data in clear profile design</small>
-      </div>
-    </div>
-  </div>
+<div id="wrapper" class="dashboard">
+	<div class="validators"  *ngIf="validators.length > 0">
+		<div class="bg-white py-3 border-radius">
+			<div class="d-flex flex-wrap space-y" >
+				<div class="border-green w-23 p-2" *ngFor = "let validator of validators">
+				  <span class="label label-success pull-right">NEW</span>
+				  <p class="das-title" >{{validator.title}}</p>
+				  <p>{{validator.description}}<a routerLink="/reactive-form-validators/{{validator.title | lowercase}}">VIEW MORE</a></p>
+				</div>
+			</div>
+		</div>
+	 </div>
+	 <div class="emptyList validators" *ngIf="validators.length == 0"><div>No Records found.</div></div>
 </div>
