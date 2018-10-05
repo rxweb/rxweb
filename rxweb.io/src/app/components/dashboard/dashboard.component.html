@@ -1,14 +1,28 @@
-<div id="wrapper" class="dashboard">
+<!--<div id="wrapper" class="dashboard" *ngIf="showComponent">
 	<div class="validators"  *ngIf="validators.length > 0">
 		<div class="bg-white py-3 border-radius">
 			<div class="d-flex flex-wrap space-y" >
 				<div class="border-green w-23 p-2" *ngFor = "let validator of validators">
 				  <span class="label label-success pull-right">NEW</span>
 				  <p class="das-title" >{{validator.title}}</p>
-				  <p>{{validator.description}}<a routerLink="/reactive-form-validators/{{validator.title | lowercase}}">VIEW MORE</a></p>
+				  <p>{{validator.description}}<a routerLink="/reactive-form-validators/{{validator.path}}">...</a></p>
 				</div>
 			</div>
 		</div>
 	 </div>
 	 <div class="emptyList validators" *ngIf="validators.length == 0"><div>No Records found.</div></div>
-</div>
+</div>-->
+
+<div id="wrapper" class="dashboard" *ngIf="showComponent">
+	<div class="content animate-panel">
+		<div class="row" *ngIf="validators.length > 0">
+			<div class="col-lg-3" *ngFor="let validator of validators">
+				<div class="hpanel">
+					<div class="panel-body h-100">
+						  <p class="das-title" >{{validator.title}}</p>
+				  		<p>{{validator.description}}<a routerLink="/reactive-form-validators/{{validator.path}}">...</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit, OnChanges {
-
+  showComponent:boolean = false;
   validators: any
   @Input() searchText: any;
   masterList: any;
@@ -29,10 +29,12 @@ export class DashboardComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.http.get('assets/validation.json')
-      .subscribe(response => {
-        this.validators = response;
+    this.http.get('assets/json/validation.json')
+      .subscribe((response:any) => {
+        debugger
+        this.validators = response.routes;
         this.masterList = this.validators.map(x => Object.assign({}, x));
+        this.showComponent = true;
       });
   }
 

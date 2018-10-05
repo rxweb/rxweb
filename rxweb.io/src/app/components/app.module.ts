@@ -12,6 +12,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { NgSlimScrollModule, SLIMSCROLL_DEFAULTS } from 'ngx-slimscroll';
 import { FooterComponent } from "src/app/components/shared/footer/footer.component";
+import { HttpClientModule } from "@angular/common/http";
 
 
 
@@ -20,7 +21,7 @@ import { FooterComponent } from "src/app/components/shared/footer/footer.compone
   declarations: [
     AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule, APP_LAZY_ROUTING,
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,
     HighlightModule.forRoot({ theme: 'default' }), ClipboardModule ,
     NgSlimScrollModule,
     

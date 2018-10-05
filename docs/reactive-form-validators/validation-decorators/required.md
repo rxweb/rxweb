@@ -7,8 +7,8 @@ author: rxcontributortwo
 Let’s assume that you are creating a UserInfo form, which contains fields like FirstName, LastName, Username and you want the user to must enter anything in that field. That field can not be empty. Here depending upon the requirement these scenarios may arise.
 1. Make the FirstName a required field without any condition.
 2.	Apply required validation based on matched condition in the form, like if the FirstName is `John`, then only the required validation will be applied to LastName field.
-2.	Adding Custom Message on Username Field.
-3.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+3.	Adding Custom Message on Username Field.
+4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
 Let’s see how required validator fulfil the need.
 
@@ -51,8 +51,8 @@ Required validation should be applied if the condition is matched in the `condit
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
  [!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\required\conditionalExpressions\user-info.model.ts)]
+# [Model](#tab\conditionalExpressionsModel)
+[!code-typescript[](\assets\examples\required\conditionalExpressions\user.model.ts)]
 # [Component](#tab\conditionalExpressionsComponent)
 [!code-typescript[](\assets\examples\required\conditionalExpressions\required-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionsHtml)
@@ -69,7 +69,7 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\required\message\user-info.model.ts)]
+[!code-typescript[](\assets\examples\required\message\user.model.ts)]
 # [Component](#tab\messageComponent)
 [!code-typescript[](\assets\examples\required\message\required-message.component.ts)]
 # [Html](#tab\messageHtml)
@@ -81,12 +81,12 @@ To override the global configuration message and show the custom message on part
 
 # Complete required Example
 [!TabGroup]
-# [Example](#tab\completeexample)
+# [Example](#tab\completeExample)
 <app-required-complete></app-required-complete>
-# [Model](#tab\completemodel)
+# [Model](#tab\completeModel)
 [!code-typescript[](\assets\examples\required\complete\user.model.ts)]
-# [Component](#tab\completecomponent)
+# [Component](#tab\completeComponent)
 [!code-typescript[](\assets\examples\required\complete\required-complete.component.ts)]
-# [Html](#tab\completehtml)
+# [Html](#tab\completeHtml)
 [!code-typescript[](\assets\examples\required\complete\required-complete.component.html)]
 ***
