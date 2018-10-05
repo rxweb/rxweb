@@ -2384,9 +2384,23 @@ p.alpha-con-title {
 }
 .comment-section .que a{
     padding: 0 20px;
+
 }
 .comment-section .issue p {
-	padding:20px;
+    padding: 18px;
+    margin-top: 0;
+    margin-bottom: 0px;
+    padding-left: 0;
+}
+
+.comment-section .issue p h1{
+    margin-top: 0 !important;
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eaecef;
+    margin-bottom: -4px;
+    font-weight: 600 !important;
+    line-height: 1.25;
 }
 .comment-section .nav-tabs>li.active>a, .comment-section .nav-tabs>li.active>a:hover, .comment-section .nav-tabs>li.active>a:focus {
     border-top: 2px solid #000;
