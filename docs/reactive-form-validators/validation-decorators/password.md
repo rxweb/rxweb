@@ -79,12 +79,12 @@ Password Validation is used for setting the parameters for password validation, 
 
 # Complete password Example
 [!TabGroup]
-# [Example](#tab\completeexample)
+# [Example](#tab\completeExample)
 <app-password-complete></app-password-complete>
-# [Model](#tab\completemodel)
+# [Model](#tab\completeModel)
 [!code-typescript[](\assets\examples\password\complete\login-info.model.ts)]
-# [Component](#tab\completecomponent)
+# [Component](#tab\completeComponent)
 [!code-typescript[](\assets\examples\password\complete\password-complete.component.ts)]
-# [Html](#tab\completehtml)
+# [Html](#tab\completeHtml)
 [!code-typescript[](\assets\examples\password\complete\password-complete.component.html)]
 ***
