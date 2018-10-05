@@ -2,7 +2,7 @@
 [![Gitter](https://badges.gitter.im/rx-web/Lobby.svg)](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 <h3>rxweb</h3>
-Advanced, conditional and dynamic validation framework for faster and easier web development.
+Advanced, conditional, model based and dynamic validation framework for faster and easier web development.
 
 * Basic validations.
 * Advance validations.
@@ -11,6 +11,8 @@ Advanced, conditional and dynamic validation framework for faster and easier web
 * Configure application wide validation messages.
 * Set per control custom validation message.
 * Make `FormGroup` object with default values and control validations.
+* Dirty Check
+
 
 # Prerequisites
 Reactive Form Validators will work in angular projects.
@@ -19,6 +21,7 @@ Reactive Form Validators will work in angular projects.
 
 * [Introduction](#introduction)
 * [Installation](#installation)
+* [Validation Decorators](#validation-decorators)
 * [Validation Quick Start](#validation-quick-start)
     * [Import Modules](#import-modules)
     * [Configure Global Validation Messages](#configure-global-validation-messages)
@@ -34,6 +37,52 @@ Smart way to validate the forms with `@rxweb/reactive-form-validators`. RxWeb Re
 ```bash
 $ npm install @rxweb/reactive-form-validators
 ```
+## Validation Decorators
+| Validation Decorator      |
+| ----------- |
+| allOf      |
+| alpha   |
+| alphaNumeric   |
+| choice   |
+| compare   |
+| contains   |
+| creditCard   |
+| different   |
+| digit   |
+| email   |
+| even   |
+| factor   |
+| greaterThanEqualTo   |
+| greaterThan   |
+| hexColor   |
+| json   |
+| leapYear   |
+| lessThanEqualTo   |
+| lessThan   |
+| lowerCase   |
+| mac   |
+| maxDate   |
+| maxLength   |
+| maxNumber   |
+| minDate   |
+| minLength   |
+| minNumber   |
+| noneOf   |
+| numeric   |
+| odd   |
+| oneOf   |
+| password   |
+| pattern   |
+| prop   |
+| propArray   |
+| propObject   |
+| range   |
+| required   |
+| time   |
+| upperCase   |
+| url   |
+
+
 ## Validation Quick Start
 To learn more about `rxweb` powerful validation features, let us look at a complete example of validating a form and displaying the error messages back to the user. 
 
