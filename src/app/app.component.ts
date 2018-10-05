@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl } from "@angular/forms";
 import {
+  choice,
     contains,
     digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType, minLength
-,  FormGroupExtension
+,  FormGroupExtension, different, numeric, NumericValueType,even,odd,factor,leapYear
 } from "@rxweb/reactive-form-validators";
 import { time } from "packages/reactive-form-validators/decorators";
 
@@ -27,6 +28,13 @@ console.log(target);
     };
 }
 export class Employee {
+    @leapYear() leapYear:number;
+@factor({fieldName:'odd'}) factor:number;
+    @odd() odd:number;
+   @even() even:number;
+    @numeric({acceptValue:NumericValueType.NegativeNumber}) numeric:number;
+    @different({ fieldName:'firstName' }) different: string;
+    @choice({ minLength: 1, maxLength:2 }) skills: number[];
     @prop() firstName: string;
     @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
     @contains({ value: "radix", conditionalExpression: (current, root) => { return current.firstName == 'ajay'; }, message: "validation failed contains" }) contains: string;
@@ -60,6 +68,7 @@ export class Employee {
     @lessThanEqualTo({ fieldName: 'minNumber' }) lessThanEqualTo: string;
     @creditCard({ creditCardTypes: [CreditCardType.AmericanExpress,] }) creditCard: string;
    private _classProperty: ExternalClass;
+
 
 
   set classProperty(property: number | any | ExternalClass) {
@@ -144,6 +153,23 @@ errorObject = {}
   setDefault(){
         this.sampleFormGroup.controls.digit.setValue(123)
   }
+index = 0;
+  addItem(element:any) {
+    var value = this.sampleFormGroup.controls.skills.value;
+    if(!value)
+      value = [];
+      if(element.checked) {
+            value.push(element.value);
+            this.index++;
+      }
+      else
+      {
+      var indexOf = value.indexOf(element.value);
+      value.splice(indexOf,1);
+      }
+    this.sampleFormGroup.controls.skills.setValue(value)
+ }
+    
 }
 
 

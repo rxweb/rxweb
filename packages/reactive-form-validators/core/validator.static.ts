@@ -30,5 +30,15 @@ export const AnnotationTypes: { [key: string]: any } = {
     greaterThan: "greaterThan",
     greaterThanEqualTo: "greaterThanEqualTo",
     lessThan: "lessThan",
-    lessThanEqualTo: "lessThanEqualTo"
+    lessThanEqualTo: "lessThanEqualTo",
+    choice: "choice",
+    different: "different",
+    even:"even",
+    odd:"odd",
+    factor:"factor",
+    leapYear:"leapYear",
+    allOf:"allOf",
+    oneOf:"oneOf",
+    noneOf:"noneOf",
+    mac:"mac",
 }

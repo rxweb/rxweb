@@ -6,7 +6,8 @@ import {
     maxDateValidator, maxNumberValidator, minDateValidator, minNumberValidator, containsValidator, uppercaseValidator,
     rangeValidator, patternValidator, requiredValidator, creditCardValidator, digitValidator,
     maxLengthValidator, minLengthValidator, passwordValidator, timeValidator, urlValidator, jsonValidator,
-    greaterThanEqualToValidator, greaterThanValidator, lessThanEqualToValidator, lessThanValidator
+  greaterThanEqualToValidator, greaterThanValidator, lessThanEqualToValidator, lessThanValidator,
+  choiceValidator,differentValidator, numericValidator,evenValidator,oddValidator,factorValidator,leapYearValidator,allOfValidator, oneOfValidator, noneOfValidator, macValidator
 } from '../reactive-form-validators';
 
 import { defaultContainer } from '../core/defaultContainer';
@@ -46,7 +47,18 @@ const APP_VALIDATORS: { [key: string]: Function } = {
     "greaterThan": greaterThanValidator,
     "greaterThanEqualTo": greaterThanEqualToValidator,
     "lessThan": lessThanValidator,
-    "lessThanEqualTo": lessThanEqualToValidator
+    "lessThanEqualTo": lessThanEqualToValidator,
+    "choice": choiceValidator,
+    "different": differentValidator,
+    "numeric":numericValidator,
+    "even":evenValidator,
+    "odd":oddValidator,
+    "factor":factorValidator,
+    "leapYear":leapYearValidator,
+    "allOf":allOfValidator,
+    "oneOf":oneOfValidator,
+    "noneOf":noneOfValidator,
+    "mac":macValidator
 }
 
 

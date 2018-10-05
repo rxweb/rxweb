@@ -1,7 +1,14 @@
 
 <form [formGroup]="sampleFormGroup">
+  leapYear <input type="text" formControlName="leapYear" /> {{sampleFormGroup.controls.leapYear.errors | json}}<br />
+  factor <input type="text" formControlName="factor" /> {{sampleFormGroup.controls.factor.errors | json}}<br />
+  odd <input type="text" formControlName="odd" /> {{sampleFormGroup.controls.odd.errors | json}}<br />
+  even <input type="text" formControlName="even" /> {{sampleFormGroup.controls.even.errors | json}}<br />
+  numeric <input type="text" formControlName="numeric" /> {{sampleFormGroup.controls.numeric.errors | json}}<br />
+  different <input type="text" formControlName="different" /> {{sampleFormGroup.controls.different.errors | json}}<br />
   alpha   <input type="text" formControlName="firstName" /> {{sampleFormGroup.controls.firstName.errors | json}} {{sampleFormGroup.controls.firstName.errorMessage}}<br />
-  alpha numeric <input type="text" formControlName="lastName" />{{sampleFormGroup.controls.lastName.errors | json
+  alpha numeric <input type="text" formControlName="lastName" />{{
+sampleFormGroup.controls.lastName.errors | json
   }}<br />
   accessor <input type="text" formControlName="classProperty" />{{sampleFormGroup.controls.classProperty.errors | json}}<br />
   contains <input type="text" formControlName="contains" />{{sampleFormGroup.controls.contains.errors | json}}<br />
@@ -37,10 +44,16 @@
   <div [formGroup]="sampleFormGroup.controls.attendances.controls[0]">
     proparray <input type="text" formControlName="startTime" />{{sampleFormGroup.controls.attendances.controls[0].controls.startTime.errors | json}}<br />
   </div>
+
+  <input (click)="addItem($event.target)" type="checkbox" value="ajay" /> Ajay
+  <input (click)="addItem($event.target)" type="checkbox" value="ojha" /> Ojha
+  <input (click)="addItem($event.target)" type="checkbox" value="abhay" /> Abhay
+
+  {{sampleFormGroup.controls.skills.value}}
   {{sampleFormGroup.dirty}}
   {{sampleFormGroup.isDirty()}}
   {{sampleFormGroup.error}}
-  {{sampleFormGroup.getError() | json}}
+
   <button (click)="resetData()">Submit</button>
   <button (click)="setDefault()">Change</button>
   <button (click)="resetData()">Reset</button>

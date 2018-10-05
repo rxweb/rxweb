@@ -20,7 +20,7 @@ export function compareValidator(config:CompareConfig): ValidatorFn {
         const compareControl = control.root.get([config.fieldName]);
         const controlValue = control.value;
         const compareControlValue = (compareControl) ? compareControl.value : '';
-        if (RegexValidator.isNotBlank(controlValue)) {
+        if (RegexValidator.isNotBlank(controlValue) || RegexValidator.isNotBlank(compareControlValue)) {
             if (!(compareControl && compareControl.value === controlValue))
                 return ObjectMaker.toJson(AnnotationTypes.compare, config.message || null, [controlValue, compareControlValue]);
         }

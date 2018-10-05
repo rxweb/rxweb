@@ -8,13 +8,6 @@ export function minNumber(config:NumberConfig) {
         target: Object,
         propertyKey: string, parameterIndex?: any
     ) {
-        var decoratorConfiguration: DecoratorConfiguration = {
-            propertyIndex: parameterIndex,
-            propertyName: propertyKey,
-            annotationType: AnnotationTypes.minNumber,
-            config:config
-        }
-        let isPropertyKey = (propertyKey != undefined);
-        defaultContainer.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);
+      defaultContainer.init(target, parameterIndex, propertyKey, AnnotationTypes.minNumber, config)    
     }
 }

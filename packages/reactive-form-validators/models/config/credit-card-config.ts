@@ -1,7 +1,5 @@
 import { CreditCardType } from "../../enums/credit-card-type";
-
-export class CreditCardConfig{
+import { BaseConfig } from './base-config'
+export interface CreditCardConfig extends BaseConfig {
     creditCardTypes: CreditCardType[];
-    message?: string;
-    conditionalExpression?: string | Function;
 }

@@ -9,13 +9,6 @@ export function greaterThanEqualTo(config:RelationalOperatorConfig) {
         target: Object,
         propertyKey: string, parameterIndex?: any
     ) {
-        var decoratorConfiguration: DecoratorConfiguration = {
-            propertyIndex: parameterIndex,
-            propertyName: propertyKey,
-            annotationType: AnnotationTypes.greaterThanEqualTo,
-            config:config
-        }
-        let isPropertyKey = (propertyKey != undefined);
-        defaultContainer.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);
+      defaultContainer.init(target, parameterIndex, propertyKey, AnnotationTypes.greaterThanEqualTo, config)    
     }
 }

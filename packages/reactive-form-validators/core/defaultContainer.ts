@@ -9,13 +9,26 @@ export const defaultContainer:
         addAnnotation(instanceFunc: any, decoratorConfiguration: DecoratorConfiguration): void,
         addInstanceContainer(instanceFunc: any): void
         addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void
-        addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]):void
+        addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]): void
+        init(target: any,parameterIndex:any,propertyKey:string, annotationType:string, config:any) : void
     } = new (class {
         private instances: InstanceContainer[] = [];
 
         get<T>(instanceFunc: any): InstanceContainer {
             let instance: InstanceContainer = this.instances.filter(instance => instance.instance === instanceFunc)[0];
             return instance;
+        }
+
+
+        init(target:any,parameterIndex: any, propertyKey: string, annotationType: string, config: any): void {
+          var decoratorConfiguration: DecoratorConfiguration = {
+            propertyIndex: parameterIndex,
+            propertyName: propertyKey,
+            annotationType: annotationType,
+            config: config
+          }
+          let isPropertyKey = (propertyKey != undefined);
+          this.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);  
         }
 
         addInstanceContainer(instanceFunc: any): InstanceContainer {
@@ -59,7 +72,7 @@ export const defaultContainer:
                 let columns = Linq.expressionColumns(decoratorConfiguration.config.conditionalExpression);
                 this.addChangeValidation(instance, decoratorConfiguration.propertyName, columns);
             }
-            if (instance && decoratorConfiguration.config && (decoratorConfiguration.annotationType == AnnotationTypes.compare || decoratorConfiguration.annotationType == AnnotationTypes.greaterThan || decoratorConfiguration.annotationType == AnnotationTypes.greaterThanEqualTo || decoratorConfiguration.annotationType == AnnotationTypes.lessThan || decoratorConfiguration.annotationType == AnnotationTypes.lessThanEqualTo)) {
+            if (instance && decoratorConfiguration.config && (decoratorConfiguration.annotationType == AnnotationTypes.compare || decoratorConfiguration.annotationType == AnnotationTypes.greaterThan || decoratorConfiguration.annotationType == AnnotationTypes.greaterThanEqualTo || decoratorConfiguration.annotationType == AnnotationTypes.lessThan || decoratorConfiguration.annotationType == AnnotationTypes.lessThanEqualTo  || decoratorConfiguration.annotationType == AnnotationTypes.different  || decoratorConfiguration.annotationType == AnnotationTypes.factor)) {
                 this.setConditionalValueProp(instance, decoratorConfiguration.config.fieldName, decoratorConfiguration.propertyName)
             }
         }

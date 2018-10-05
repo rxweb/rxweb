@@ -9,13 +9,6 @@ export function time(config?: TimeConfig) {
         target: Object,
         propertyKey: string, parameterIndex?: any
     ) {
-        var decoratorConfiguration: DecoratorConfiguration = {
-            propertyIndex: parameterIndex,
-            propertyName: propertyKey,
-            annotationType: AnnotationTypes.time,
-            config: config
-        }
-        let isPropertyKey = (propertyKey != undefined);
-        defaultContainer.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);
+      defaultContainer.init(target, parameterIndex, propertyKey, AnnotationTypes.time, config)    
     }
 }

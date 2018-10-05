@@ -8,13 +8,6 @@ export function pattern(config:PatternConfig) {
         target: Object,
         propertyKey: string, parameterIndex?: any
     ) {
-        var decoratorConfiguration: DecoratorConfiguration = {
-            propertyIndex: parameterIndex,
-            propertyName: propertyKey,
-            annotationType: AnnotationTypes.pattern,
-            config:config
-        }
-        let isPropertyKey = (propertyKey != undefined);
-        defaultContainer.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);
+      defaultContainer.init(target, parameterIndex, propertyKey, AnnotationTypes.pattern, config)    
     }
 }

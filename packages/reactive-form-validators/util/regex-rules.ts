@@ -6,6 +6,8 @@ export const RegExRule: { [key: string]: any } = {
 
     alphaWithSpace: /^[a-zA-Z\s]+$/,
 
+    macId : /^[a-fA-F0-9:]{17}|[a-fA-F0-9]{12}$/,
+
     onlyDigit: /^[0-9]+$/,
 
     isDigitExits: /\d/g,
