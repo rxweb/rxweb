@@ -1,5 +1,5 @@
 ---
-title: Alpha Validation
+title: alpha
 description: Alpha validation decorator will allow only alphabets to be entered. It will not allow any number or special character. If user tries to do so the property will become invalid. To use the alpha decorator on particular property.
 author: rxcontributorone
 
@@ -62,7 +62,7 @@ This will allow whitespace in particular control property.The default value is `
 [!code-typescript[](\assets\examples\alpha\allowWhiteSpace\alpha-allow-white-space.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="allowWhiteSpaceShow=!allowWhiteSpaceShow")]
+[!example(?type=section&clickEventCode="allowWhiteSpaceShow=!allowWhiteSpaceShow"&title="alpha decorator with allowWhiteSpace")]
 <app-alpha-allowWhiteSpace></app-alpha-allowWhiteSpace>
 
 ## conditionalExpressions 
@@ -80,7 +80,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\alpha\conditionalExpressions\alpha-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title="alpha decorator with conditionalExpression")]
 <app-alpha-conditionalExpressions></app-alpha-conditionalExpressions>
 
 ## message 
@@ -97,7 +97,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\alpha\message\alpha-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title="alpha decorator with custom message")]
 <app-alpha-message></app-alpha-message>
 
 # Complete Alpha Example

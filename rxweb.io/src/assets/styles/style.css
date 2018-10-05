@@ -1298,6 +1298,8 @@ a.list-group-item.active:focus {
   position: relative;
   padding-right: 20px;
   padding-bottom: 20px;
+
+  
 }
 
 .hpanel.panel-group .panel-body:first-child {
@@ -2399,7 +2401,8 @@ p.alpha-con-title {
     height: 100px;
 }
 .fixed-navbar .dashboard#wrapper {
-    top: 63px;
+    /*top: 13px;*/
+    top:62px;
 }
 .dashboard#wrapper{
     margin: 0 0 0 247px;
@@ -5362,4 +5365,78 @@ input.ng-invalid{
 }
 #rightsidebar .contributors p {
     padding: 0;
+}
+.searchMenu{
+    display: flex;
+    justify-content: space-around;
+    overflow: auto;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1010;
+    box-shadow: 0 1px 5px 10px rgba(0,0,0,.1);
+    background-color: #f1f3f6 !important;
+}
+
+.searchMenu app-dashboard > .dashboard#wrapper{
+    margin: 0px !important;
+}
+
+
+.searchMenu app-dashboard > .dashboard#wrapper .emptyList{
+    font-size: 25px;
+    width: 100%;
+   overflow: hidden !important;
+   padding-top: 80px;
+}
+.dashboard .border-green {
+    border-top: 2px solid #a0a19f;
+    margin: 20px 10px;
+    -moz-box-shadow: 0 10px 6px -6px #dadada;
+    box-shadow: 0 10px 6px -6px #dadada;
+}
+.w-23{
+	width: 23%;
+}
+
+.dashboard .content{
+        padding: 25px 40px 40px 40px;
+    min-width: 320px;
+}
+.dashboard .content .hpanel .panel-body{
+        background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+.comment-section .issue p {
+    padding: 18px;
+    margin-top: 0;
+    margin-bottom: 0px;
+    padding-left: 0;
+}
+
+.comment-section .issue p h1{
+    margin-top: 0 !important;
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eaecef;
+    margin-bottom: -4px;
+    font-weight: 600 !important;
+    line-height: 1.25;
+}
+.code-exmple-title {
+    padding-left: 25px;
+    padding-bottom: 0px;
+    padding-top: 19px;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 15px;
 }
