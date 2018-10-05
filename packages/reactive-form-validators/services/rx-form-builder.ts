@@ -8,7 +8,7 @@ import {
     maxLengthValidator, minLengthValidator, passwordValidator, timeValidator, urlValidator, jsonValidator,
   greaterThanEqualToValidator, greaterThanValidator, lessThanEqualToValidator, lessThanValidator,
   choiceValidator,differentValidator, numericValidator,evenValidator,oddValidator,factorValidator,leapYearValidator,allOfValidator, oneOfValidator, noneOfValidator, macValidator
-} from '../reactive-form-validators';
+} from '../reactive-form-validators/index';
 
 import { defaultContainer } from '../core/defaultContainer';
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from '../core/validator.interface';

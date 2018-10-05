@@ -21,7 +21,7 @@ export function oddValidator(config: BaseConfig, conditionalValidationProps:stri
         if (Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 var testResult = !(controlValue % 2 == 0);
-                if (!testResult)
+              if (!testResult || !ApplicationUtil.isNumeric(controlValue))
                     return ObjectMaker.toJson(AnnotationTypes.odd, config.message || null, [controlValue]);
             }
         } return ObjectMaker.null();

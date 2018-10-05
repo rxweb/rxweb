@@ -14,6 +14,8 @@ import { ObjectMaker } from "../util/object-maker";
 import { INVALID } from "../const/validator.const"
 import { FactorConfig } from "../models/config/factor-config";
 import { AnnotationTypes } from "../core/validator.static";
+import { ApplicationUtil } from "../util/app-util";
+import { Linq } from "../util/linq";
 
 export function factorValidator(config:FactorConfig): ValidatorFn {
 
@@ -34,13 +36,18 @@ export function factorValidator(config:FactorConfig): ValidatorFn {
     }
 
     return (control: FormGroup): { [key: string]: any } => {
-        const dividendField = control.root.get([config.fieldName]);
-        const dividend = (config.fieldName && dividendField) ? dividendField.value : config.dividend;
-        const controlValue =  control.value;
+      const dividendField = control.root.get([config.fieldName]);
+      const dividend = (config.fieldName && dividendField) ? dividendField.value : config.dividend;
+      const controlValue = control.value;
+      const formGroupValue = ApplicationUtil.getParentObjectValue(control);
+      config = ApplicationUtil.getConfigObject(config);
+      const parentObject = (control.parent) ? control.parent.value : undefined;
+      if (Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject)) {
         if (RegexValidator.isNotBlank(controlValue) && dividend > 0) {
-            if (positiveFactors(dividend).indexOf(parseInt(controlValue)) == -1)
-                return ObjectMaker.toJson(AnnotationTypes.factor, config.message || null, [controlValue]);
+          if (positiveFactors(dividend).indexOf(parseInt(controlValue)) == -1)
+            return ObjectMaker.toJson(AnnotationTypes.factor, config.message || null, [controlValue]);
         }
+      }
         return ObjectMaker.null();
     }
 }

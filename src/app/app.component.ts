@@ -4,9 +4,8 @@ import {
   choice,
     contains,
     digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType, minLength
-,  FormGroupExtension, different, numeric, NumericValueType,even,odd,factor,leapYear
+  , FormGroupExtension, different, numeric, NumericValueType, even, odd, factor, leapYear, time
 } from "@rxweb/reactive-form-validators";
-import { time } from "packages/reactive-form-validators/decorators";
 
 import { CLIENT_SETTINGS } from './client-setting'
 export class Attendance {

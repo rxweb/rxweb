@@ -38,3 +38,5 @@ testem.log
 .DS_Store
 Thumbs.db
 /package-lock.json
+/node_modules.rar
+/packages/reactive-form-validators/.ng_build
