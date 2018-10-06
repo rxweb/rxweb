@@ -56,11 +56,11 @@ Type :  `string`
 
 [!TabGroup(?showHideCondition="dividend")]
 # [Model](#tab\dividendmodel)
-[!code-typescript[](\assets\examples\factor\fieldName\user.model.ts)]
+[!code-typescript[](\assets\examples\factor\dividend\user.model.ts)]
 # [Component](#tab\dividendComponent)
-[!code-typescript[](\assets\examples\factor\fieldName\factor-dividend.component.ts)]
+[!code-typescript[](\assets\examples\factor\dividend\factor-dividend.component.ts)]
 # [Html](#tab\dividendHtml)
-[!code-typescript[](\assets\examples\factor\fieldName\factor-dividend.component.html)]
+[!code-typescript[](\assets\examples\factor\dividend\factor-dividend.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="dividend=!dividend")]
