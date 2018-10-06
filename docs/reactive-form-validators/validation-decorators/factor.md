@@ -54,17 +54,17 @@ Below options are not mandatory to use in the `@factor()` decorator. If needed t
 Type :  `string` 
  Dividend is the value for which factors are calculated.
 
-[!TabGroup(?showHideCondition="fieldName")]
+[!TabGroup(?showHideCondition="dividend")]
 # [Model](#tab\dividendmodel)
 [!code-typescript[](\assets\examples\factor\fieldName\user.model.ts)]
 # [Component](#tab\dividendComponent)
-[!code-typescript[](\assets\examples\factor\fieldName\factor-name.component.ts)]
+[!code-typescript[](\assets\examples\factor\fieldName\factor-dividend.component.ts)]
 # [Html](#tab\dividendHtml)
-[!code-typescript[](\assets\examples\factor\fieldName\factor-name.component.html)]
+[!code-typescript[](\assets\examples\factor\fieldName\factor-dividend.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="fieldName=!fieldName")]
-<app-factor-fieldName></app-factor-fieldName>
+[!example(?type=section&clickEventCode="dividend=!dividend")]
+<app-factor-dividend></app-factor-dividend>
 
 ## fieldName 
 Type :  `string` 
