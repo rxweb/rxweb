@@ -1,4 +1,17 @@
-
+<h1>Angular FormGroup</h1>
+<form [formGroup]="angularFormGroup">
+  <input type="text" formControlName="firstName" />{{angularFormGroup.controls.firstName.errors | json}}<br />
+  <input type="text" formControlName="lastName" />{{angularFormGroup.controls.lastName.errors | json}}<br />
+  <div [formGroup]="angularFormGroup.controls.address">
+    <input type="text" formControlName="city" />{{angularFormGroup.controls.address.controls.city.errors | json}}<br />
+    <input type="text" formControlName="country" />{{angularFormGroup.controls.address.controls.country.errors | json}}<br />
+  </div>
+  <div [formGroup]="skill" *ngFor="let skill of angularFormGroup.controls.skills.controls">
+    skill  <input type="text" formControlName="skillName" />{{skill.controls.skillName.errors | json}}<br />
+      
+  </div>
+</form>
+<h1>RxWeb FormGroup</h1>
 <form [formGroup]="sampleFormGroup">
   leapYear <input type="text" formControlName="leapYear" /> {{sampleFormGroup.controls.leapYear.errors | json}}<br />
   factor <input type="text" formControlName="factor" /> {{sampleFormGroup.controls.factor.errors | json}}<br />
@@ -61,7 +74,7 @@ sampleFormGroup.controls.lastName.errors | json
 
 
 <h1 class="bd-title" id="content">Alpha Validator Example</h1>
-<br/>
+<br />
 <form *ngIf="countryFormGroup" [formGroup]="countryFormGroup">
   <div class="form-group">
     <label>Country Name</label>
@@ -69,5 +82,5 @@ sampleFormGroup.controls.lastName.errors | json
     <small class="form-text text-danger" *ngIf="countryFormGroup.controls.countryName.errors">{{countryFormGroup.controls.countryName.errors.alpha.message}}<br /></small>
   </div>
   <!--[disabled]="!countryFormGroup.valid"-->
-  <button class="btn btn-primary" >Submit</button>
+  <button class="btn btn-primary">Submit</button>
 </form>

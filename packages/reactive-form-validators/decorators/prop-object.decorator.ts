@@ -9,11 +9,6 @@ export function propObject<T>(entity: Type<T>) {
         target: Object,
         propertyKey: string, parameterIndex?: any
     ) {
-        var propertyInfo: PropertyInfo = {
-            name: propertyKey,
-            propertyType: OBJECT_PROPERTY,
-            entity: entity
-        }
-        defaultContainer.addProperty(target.constructor, propertyInfo);
+        defaultContainer.initPropertyObject(propertyKey,OBJECT_PROPERTY,entity,target);
     }
 }

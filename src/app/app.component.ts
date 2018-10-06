@@ -4,7 +4,7 @@ import {
   choice,
     contains,
     digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType, minLength
-  , FormGroupExtension, different, numeric, NumericValueType, even, odd, factor, leapYear, time
+  , FormGroupExtension, different, numeric, NumericValueType, even, odd, factor, leapYear, time, RxwebValidators
 } from "@rxweb/reactive-form-validators";
 
 import { CLIENT_SETTINGS } from './client-setting'
@@ -78,6 +78,9 @@ export class Employee {
       return this._classProperty;
     }
 }
+
+
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -86,7 +89,7 @@ export class Employee {
 export class AppComponent implements OnInit {
     title = 'app';
     sampleFormGroup: FormGroup;
-
+    angularFormGroup:FormGroup;
     constructor(private formBuilder: FormBuilder, private validation: RxFormBuilder) {
 
     }
@@ -94,7 +97,18 @@ export class AppComponent implements OnInit {
     secondEmployee:any = {};
 
     ngOnInit() {
-        
+        this.angularFormGroup = this.validation.group({
+          firstName:['',[Validators.required,RxwebValidators.alpha()]],
+          lastName:['',RxwebValidators.alpha({conditionalExpression:(x, y) => x.firstName == "Ajay"  })],
+          address:this.validation.group({
+            city:['',Validators.required],
+            country:['']
+          }),
+          skills:this.formBuilder.array([this.validation.group({
+            skillName:['',Validators.required]
+          })])
+        })
+      console.log(this.angularFormGroup);
         var employee = new Employee();
         employee.employeeDetail = new EmployeeDetail();
         //employee.employeeDetail.areaName = "";

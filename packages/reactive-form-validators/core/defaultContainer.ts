@@ -1,7 +1,7 @@
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from './validator.interface';
 import { Linq } from "../util/linq";
 import { AnnotationTypes } from "./validator.static";
-import { PROPERTY } from "../const";
+import { PROPERTY,OBJECT_PROPERTY } from "../const";
 
 export const defaultContainer:
     {
@@ -11,9 +11,11 @@ export const defaultContainer:
         addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void
         addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]): void
         init(target: any,parameterIndex:any,propertyKey:string, annotationType:string, config:any) : void
+        initPropertyObject(name:string,propertyType:string,entity:any,target) : void
+        modelIncrementCount:number;
     } = new (class {
         private instances: InstanceContainer[] = [];
-
+        modelIncrementCount:number = 0;
         get<T>(instanceFunc: any): InstanceContainer {
             let instance: InstanceContainer = this.instances.filter(instance => instance.instance === instanceFunc)[0];
             return instance;
@@ -29,6 +31,15 @@ export const defaultContainer:
           }
           let isPropertyKey = (propertyKey != undefined);
           this.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);  
+        }
+
+        initPropertyObject(name:string,propertyType:string,entity:any,target){
+            var propertyInfo: PropertyInfo = {
+                name: name,
+                propertyType: propertyType,
+                entity: entity
+            }
+            defaultContainer.addProperty(target.constructor, propertyInfo);
         }
 
         addInstanceContainer(instanceFunc: any): InstanceContainer {
