@@ -15,7 +15,7 @@ export class JsonComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Json Validation":null,"DefaultConfig":["conditionalExpression","message"],"Complete Json Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic Json Validation":null,"DefaultConfig":["conditionalExpressions","message"],"Complete Json Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionsmodel";
    tab_3:string = "messageModel";

@@ -2246,7 +2246,7 @@ h1, .h1 {
     font-size: 15px;
     line-height: 31px;
     color: #c0c0c0;
-    margin-top:2px;
+    margin-top:12px;
     margin-right:9px;
 }
 .validation-tab p {
@@ -2261,7 +2261,6 @@ h1, .h1 {
     width: 50%;
 }
 .alphaconfig {
-   padding: 10px 20px;
    margin-bottom: 30px;
 }
 p.alpha-con-title {
@@ -5447,10 +5446,17 @@ input.ng-invalid{
     font-weight: 600 !important;
     line-height: 1.25;
 }
-.code-exmple-title {
-    padding-left: 25px;
+.code-example-title {
+   padding-left: 25px;
     padding-bottom: 0px;
     padding-top: 19px;
-    border-bottom: 2px solid #eaeaea;
+    border: 2px solid #eaeaea;
     padding-bottom: 15px;
+    font-weight: 500;
+    font-size: 15px;
+    background-color: #eaeaea;
+    color: #343438;
+}
+div#comment-policy{
+    display: none;
 }

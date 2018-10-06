@@ -17,6 +17,7 @@
 <ol>
 	<li> Make the FirstName a required field without any condition.</li>
 	<li>	Apply required validation based on matched condition in the form, like if the FirstName is `John`, then only the required validation will be applied to LastName field.</li>
+	<li>	Adding Custom Message on Username Field.</li>
 	<li>	Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
 </ol>
 <p>Let’s see how required validator fulfil the need.</p>
@@ -116,7 +117,7 @@
 				</tr>
 		</thead>
 		<tbody>
-			<tr>	<td><a href='#conditionalexpression' title='conditionalExpressions' (click)='scrollTo("#conditionalexpression")'>conditionalExpressions</a></td> 	<td>Required validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
+			<tr>	<td><a href='#conditionalexpressions' title='conditionalExpressions' (click)='scrollTo("#conditionalexpressions")'>conditionalExpressions</a></td> 	<td>Required validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
 	 </table>
 
 </div>
@@ -129,12 +130,12 @@
 <p>Required validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
 <p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
 <ul class="nav nav-tabs" >
-	<li [class.active]="tab_2=='conditionalExpressionsmodel'" (click)="tab_2='conditionalExpressionsmodel'"><a>Model</a></li>
+	<li [class.active]="tab_2=='conditionalExpressionsModel'" (click)="tab_2='conditionalExpressionsModel'"><a>Model</a></li>
 	<li [class.active]="tab_2=='conditionalExpressionsComponent'" (click)="tab_2='conditionalExpressionsComponent'"><a>Component</a></li>
 	<li [class.active]="tab_2=='conditionalExpressionsHtml'" (click)="tab_2='conditionalExpressionsHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" >
-			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionsmodel'">
+			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionsModel'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Component" (cbOnSuccess)="codeContent.edit.ComponentCopied = true" [class.copied]="codeContent.edit.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -247,17 +248,17 @@
 <h2>Complete required Example</h2>
 
 <ul class="nav nav-tabs" >
-	<li [class.active]="tab_4=='completeexample'" (click)="tab_4='completeexample'"><a>Example</a></li>
-	<li [class.active]="tab_4=='completemodel'" (click)="tab_4='completemodel'"><a>Model</a></li>
-	<li [class.active]="tab_4=='completecomponent'" (click)="tab_4='completecomponent'"><a>Component</a></li>
-	<li [class.active]="tab_4=='completehtml'" (click)="tab_4='completehtml'"><a>Html</a></li>
+	<li [class.active]="tab_4=='completeExample'" (click)="tab_4='completeExample'"><a>Example</a></li>
+	<li [class.active]="tab_4=='completeModel'" (click)="tab_4='completeModel'"><a>Model</a></li>
+	<li [class.active]="tab_4=='completeComponent'" (click)="tab_4='completeComponent'"><a>Component</a></li>
+	<li [class.active]="tab_4=='completeHtml'" (click)="tab_4='completeHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" >
-			  <div class="tab-pane" [class.active]="tab_4=='completeexample'">
+			  <div class="tab-pane" [class.active]="tab_4=='completeExample'">
 			<app-required-complete></app-required-complete>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_4=='completemodel'">
+			  <div class="tab-pane" [class.active]="tab_4=='completeModel'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Model" (cbOnSuccess)="codeContent.complete.ModelCopied = true" [class.copied]="codeContent.complete.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -268,7 +269,7 @@
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_4=='completecomponent'">
+			  <div class="tab-pane" [class.active]="tab_4=='completeComponent'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Component" (cbOnSuccess)="codeContent.complete.ComponentCopied = true" [class.copied]="codeContent.complete.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -279,7 +280,7 @@
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_4=='completehtml'">
+			  <div class="tab-pane" [class.active]="tab_4=='completeHtml'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Html" (cbOnSuccess)="codeContent.complete.HtmlCopied = true" [class.copied]="codeContent.complete.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -292,6 +293,10 @@
 		  </div>
 	</div>																											
 	  
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
 							<app-disqus></app-disqus>
 						</div>
 					</div>
