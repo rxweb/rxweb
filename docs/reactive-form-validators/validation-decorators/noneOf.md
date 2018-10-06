@@ -1,5 +1,5 @@
 ---
-title : nnoneof validation
+title : noneOf validation
 description : nnoneof validation decorator will check whether the user has entered none of the value is selected from the given inputs. if user tries to enter any of the values it  will be invalid. to use the choice decorator on particular property.
 author : rxcontributorone
 
@@ -62,7 +62,7 @@ matchValue is the value based on which the value is matched for validation. Acco
 [!code-typescript[](\assets\examples\noneof\minLength\noneof-match-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="matchValue=!matchValue")]
+[!example(?type=section&clickEventCode="matchValue=!matchValue"&title=noneOf decorator with matchValue)]
 <app-noneof-matchValue></app-noneof-matchValue>
 
 ## conditionalExpressions 
@@ -80,7 +80,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\noneof\conditionalExpressions\noneof-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=noneOf decorator with conditionalExpression)]
 <app-noneof-conditionalExpressions></app-noneof-conditionalExpressions>
 
 ## message
@@ -96,7 +96,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\noneof\message\noneof-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=noneOf decorator with custom message)]
 <app-noneof-message></app-noneof-message>
 
 # Complete noneof Example

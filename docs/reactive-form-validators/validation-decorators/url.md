@@ -1,5 +1,5 @@
 ---
-title: Url Validation
+title: url 
 description: Url validation decorator will check that value is url or not in the property. If user does not enter url value then the property will become invalid. To use the url decorator on particular property.
 author: rxcontributorone
 
@@ -60,7 +60,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\url\conditionalExpressions\url-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=url decorator with conditionalExpression)]
 <app-url-conditionalExpressions></app-url-conditionalExpressions>
 
 ## message 
@@ -76,7 +76,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\url\message\url-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=url decorator with custom message)]
 <app-url-message></app-url-message>
 
 # Complete url Numeric Example

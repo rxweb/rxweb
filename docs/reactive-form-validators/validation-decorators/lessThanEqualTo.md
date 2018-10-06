@@ -1,5 +1,5 @@
 ---
-title: LessThanEqualTo Validation
+title: lessThanEqualTo Validation
 description: Less than equal to validation decorator will check that input property is less than equal to value. If user tries to enter greater than value then the property will become invalid. To use the lessThanEqualTo decorator on particular property.
 author: rxcontributorone
 
@@ -62,7 +62,7 @@ Less than Equal to validation should be applied based on the `fieldName` for com
 [!code-typescript[](\assets\examples\lessThanEqualTo\fieldName\less-than-equal-to-field-name.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="fieldName=!fieldName")]
+[!example(?type=section&clickEventCode="fieldName=!fieldName"&title=lessThanEqualTo decorator with fieldName)]
 <app-lessThanEqualTo-fieldName></app-lessThanEqualTo-fieldName>
 
 ## conditionalExpressions 
@@ -79,7 +79,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\lessThanEqualTo\conditionalExpressions\less-than-equal-to-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=lessThanEqualTo decorator with conditionalExpression)]
 <app-lessThanEqualTo-conditionalExpressions></app-lessThanEqualTo-conditionalExpressions>
 
 ## message 
@@ -95,7 +95,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\lessThanEqualTo\message\less-than-equal-to-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=lessThanEqualTo decorator with custom message)]
 <app-lessThanEqualTo-message></app-lessThanEqualTo-message>
 
 # Complete lessThanEqualTo Example

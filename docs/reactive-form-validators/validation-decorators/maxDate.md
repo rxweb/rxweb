@@ -1,5 +1,5 @@
 ---
-title: MaxDate Validation  
+title: maxDate Validation  
 description: MaxDate validation decorator will allow only maximum date be entered upto value parameter. If user tries to enter any number that greater then the value then the property will become invalid. To use the maxDate decorator on particular property.
 author:  rxcontributorone
 
@@ -62,7 +62,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\maxDate\conditionalExpressions\max-date-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=maxDate decorator with conditionalExpression)]
 <app-maxDate-conditionalExpressions></app-maxDate-conditionalExpressions>
 
 ## message 
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\maxDate\message\max-date-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=maxDate decorator with custom message)]
 <app-maxDate-message></app-maxDate-message>
 
 ## value 
@@ -94,7 +94,7 @@ enter value which you want to restrict number in the property.
 [!code-typescript[](\assets\examples\maxDate\value\max-date-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="value=!value")]
+[!example(?type=section&clickEventCode="value=!value"&title=maxDate decorator with value)]
 <app-maxDate-value></app-maxDate-value>
 
 # Complete MaxDate Example

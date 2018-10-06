@@ -62,7 +62,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\mac\conditionalExpressions\mac-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=mac decorator with conditionalExpression)]
 <app-mac-conditionalExpressions></app-mac-conditionalExpressions>
 
 
@@ -79,7 +79,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\mac\message\mac-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=mac decorator with custom message)]
 <app-mac-message></app-mac-message>
 
 # Complete mac Example

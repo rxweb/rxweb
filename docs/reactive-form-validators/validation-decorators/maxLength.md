@@ -1,5 +1,5 @@
 ---
-title: MaxLength Validation 
+title: maxLength Validation 
 description: MaxLength validation decorator will allow only maximum length be entered upto value parameter. If user tries to enter any string that length exceed then the value then the property will become invalid. To use the maxLength decorator on particular property.
 author: rxcontributortwo
 
@@ -61,7 +61,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\maxLength\conditionalExpressions\max-length-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=maxLength decorator with conditionalExpression)]
 <app-maxLength-conditionalExpressions></app-maxLength-conditionalExpressions>
  
  ## message 
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\maxLength\message\max-length-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=maxLength decorator with custom message)]
 <app-maxLength-message></app-maxLength-message>
 
 ## value 
@@ -95,7 +95,7 @@ enter value which you want to restrict string length in the property
 [!code-typescript[](\assets\examples\maxLength\value\max-length-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="valueShow=!valueShow")]
+[!example(?type=section&clickEventCode="valueShow=!valueShow"&title=maxLength decorator with value)]
 <app-maxLength-value></app-maxLength-value>
 
 

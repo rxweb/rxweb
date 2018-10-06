@@ -1,5 +1,5 @@
 ---
-title: GreaterThanEqualTo Validation
+title: greaterThanEqualTo 
 description: Greater than equal to validation decorator will check that input property is greater than equal to value. If user tries to enter less than value then the property will become invalid. To use the greaterThanEqualTo decorator on particular property. 
 author: rxcontributorone
 
@@ -60,6 +60,8 @@ Greater than Equal to validation should be applied based on the `fieldName` for 
 # [Html](#tab\fieldNameHtml)
 [!code-typescript[](\assets\examples\greaterThanEqualTo\fieldName\greater-than-equal-to-field-name.component.html)]
 ***
+[!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow"&title=greaterThanEqualTo decorator with fieldName)]
+<app-greaterThanEqualTo-fieldName></app-greaterThanEqualTo-fieldName>
 
 ## conditionalExpressions 
 Type :  `Function`  |  `string` 
@@ -75,7 +77,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\greaterThanEqualTo\conditionalExpressions\greater-than-equal-to-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=greaterThanEqualTo decorator with conditionalExpression)]
 <app-greaterThanEqualTo-conditionalExpressions></app-greaterThanEqualTo-conditionalExpressions>
 
 ## message 
@@ -91,7 +93,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\greaterThanEqualTo\message\greater-than-equal-to-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=greaterThanEqualTo decorator with custom message)]
 <app-greaterThanEqualTo-message></app-greaterThanEqualTo-message>
 
 # Complete greaterThanEqualTo Example

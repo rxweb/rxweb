@@ -82,7 +82,7 @@ This will allow decimal in particular control property.The default value is `fal
 [!code-typescript[](\assets\examples\numeric\allowDecimal\numeric-allow-decimal.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="allowDecimal=!allowDecimal"&title="alpha decorator with allowDecimal")]
+[!example(?type=section&clickEventCode="allowDecimal=!allowDecimal"&title=alpha decorator with allowDecimal)]
 <app-numeric-allowDecimal></app-numeric-allowDecimal>
 
 ## conditionalExpressions 
@@ -100,7 +100,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\numeric\conditionalExpressions\numeric-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title="numeric decorator with conditionalExpression")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=numeric decorator with conditionalExpression)]
 <app-numeric-conditionalExpressions></app-numeric-conditionalExpressions>
 
 ## message 
@@ -117,7 +117,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\numeric\message\numeric-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message"&title="numeric decorator with custom message")]
+[!example(?type=section&clickEventCode="message=!message"&title=numeric decorator with custom message)]
 <app-numeric-message></app-numeric-message>
 
 # Complete numeric Example

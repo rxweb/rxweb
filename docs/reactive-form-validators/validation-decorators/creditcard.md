@@ -1,5 +1,5 @@
 ---
-title: CreditCard Validation
+title: creditCard 
 description: creditCard validation decorator will check property value is creditcardtype or not. It will not allow to enter any value rather than credit card. If user tries to do so the property will become invalid. To use the credit card decorator on particular property.
 author:  rxcontributorone
 
@@ -77,7 +77,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\creditCard\conditionalExpressions\credit-card-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=creditCard decorator with conditionalExpression)]
 <app-creditCard-conditionalExpressions></app-creditCard-conditionalExpressions>
 
 ## message 
@@ -93,7 +93,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\creditCard\message\credit-card-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=creditCard decorator with custom message)]
 <app-creditCard-message></app-creditCard-message>
 
 # Complete CreditCard Example

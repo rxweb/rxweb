@@ -1,5 +1,5 @@
 ---
-title: MinNumber Validation 
+title: minNumber Validation 
 description: MinNumber validation decorator will allow only minimum number be entered upto value parameter. If user tries to enter any number that less then the value then the property will become invalid. To use the minNumber decorator on particular property.
 author: rxcontributortwo
 
@@ -61,7 +61,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\minNumber\conditionalExpressions\min-number-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=minNumber decorator with conditionalExpression)]
 <app-minNumber-conditionalExpressions></app-minNumber-conditionalExpressions>
 
 ## message 
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\minNumber\message\min-number-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=minNumber decorator with custom message)]
 <app-minNumber-message></app-minNumber-message>
 
 ## value 
@@ -94,7 +94,7 @@ enter value which you want to restrict number in the property
 [!code-typescript[](\assets\examples\minNumber\value\min-number-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="valueShow=!valueShow")]
+[!example(?type=section&clickEventCode="valueShow=!valueShow"&title=minNumber decorator with value)]
 <app-minNumber-value></app-minNumber-value>
 
 # Complete minNumber Example

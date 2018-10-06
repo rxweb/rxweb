@@ -1,5 +1,5 @@
 ---
-title: MinLength Validation 
+title: minLength Validation 
 description: MinLength validation decorator will allow only minimum length be entered upto value parameter. If user tries to enter any string having length less then the value then the property will become invalid. To use the minLength decorator on particular property.
 author: rxcontributorone
 
@@ -63,7 +63,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\minLength\conditionalExpressions\min-length-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=minLength decorator with conditionalExpression)]
 <app-minLength-conditionalExpressions></app-minLength-conditionalExpressions>
 
 ## message 
@@ -79,7 +79,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\minLength\message\min-length-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=minLength decorator with custom message)]
 <app-minLength-message></app-minLength-message>
 
 ## value 
@@ -95,7 +95,7 @@ enter value which you want to restrict string length in the property.
 [!code-typescript[](\assets\examples\minLength\value\min-length-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="value=!value")]
+[!example(?type=section&clickEventCode="value=!value"&title=minLength decorator with value)]
 <app-minLength-value></app-minLength-value>
 
 # Complete MinLength Example

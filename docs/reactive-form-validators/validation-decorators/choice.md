@@ -1,5 +1,5 @@
 ---
-title : choice validation
+title : choice 
 description : choice validation decorator will check whether the value entered is in proper choice of property defined . if user tries to enter value which is not proper choice then the property will be invalid. to use the choice decorator on particular property.
 author : rxcontributorone
 
@@ -62,7 +62,7 @@ minLength  is to define a minLength of field which is in form of array
 [!code-typescript[](\assets\examples\choice\minLength\choice-min-length.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="minLength=!minLength")]
+[!example(?type=section&clickEventCode="minLength=!minLength"&title=choice decorator with minLength)]
 <app-choice-minLength></app-choice-minLength>
 
 ## maxLength 
@@ -78,7 +78,7 @@ maxLength number is for define a maxLength number of range
 [!code-typescript[](\assets\examples\choice\maxLength\choice-max-number.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="maxLength=!maxLength")]
+[!example(?type=section&clickEventCode="maxLength=!maxLength"&title=choice decorator with maxLength)]
 <app-choice-maxLength></app-choice-maxLength>
 
 ## conditionalExpressions 
@@ -96,7 +96,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\choice\conditionalExpressions\choice-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=choice decorator with conditionalExpression)]
 <app-choice-conditionalExpressions></app-choice-conditionalExpressions>
 
 ## message
@@ -112,7 +112,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\choice\message\choice-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=choice decorator with custom message)]
 <app-choice-message></app-choice-message>
 
 # Complete choice Example

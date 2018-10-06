@@ -1,5 +1,5 @@
 ---
-title: UpperCase Validation 
+title: upperCase Validation 
 description: Upper Case validation decorator will allow only uppercase to be entered. If user tries to enter any string except uppercase then the property will become invalid. To use the uppercase decorator on particular property.
 author: rxcontributortwo
 
@@ -60,7 +60,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\upperCase\conditionalExpressions\upper-case-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=upperCase decorator with conditionalExpression)]
 <app-upperCase-conditionalExpressions></app-upperCase-conditionalExpressions>
  
 ## message 
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\upperCase\message\upper-case-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=upperCase decorator with custom message)]
 <app-upperCase-message></app-upperCase-message>
 
 # Complete upperCase Example

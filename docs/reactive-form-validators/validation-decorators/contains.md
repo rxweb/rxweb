@@ -1,5 +1,5 @@
 ---
-title: Contains Validation 
+title: contains  
 description: Contains validation decorator will check that value is in the input. It will not allow to enter input that not contains value. If user tries to do so the property will become invalid. To use the contains decorator on particular property.
 author: rxcontributortwo
 
@@ -60,7 +60,7 @@ This is substring value.
 [!code-typescript[](\assets\examples\contains\value\contains-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="valueShow=!valueShow")]
+[!example(?type=section&clickEventCode="valueShow=!valueShow"&title=contains decorator with value)]
 <app-contains-value></app-contains-value>
 
 ## conditionalExpressions 
@@ -78,7 +78,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\contains\conditionalExpressions\contains-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=contains decorator with conditionalExpression)]
 <app-contains-conditionalExpressions></app-contains-conditionalExpressions>
 
 ## message 
@@ -95,7 +95,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\contains\message\contains-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=contains decorator with custom message)]
 <app-contains-message></app-contains-message>
 
 # Complete Contains Example

@@ -1,5 +1,5 @@
 ---
-title: MinDate Validation 
+title: minDate Validation 
 description: Minimum Date validation decorator will allow only minimum date be entered upto value parameter. If user tries to enter any date that less then the value then the property will become invalid. To use the minDate decorator on particular property.
 author: rxcontributortwo
 
@@ -61,7 +61,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\minDate\conditionalExpressions\min-date-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=minDate decorator with conditionalExpression)]
 <app-minDate-conditionalExpressions></app-minDate-conditionalExpressions>
 
 ## message 
@@ -77,7 +77,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\minDate\message\min-date-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=minDate decorator with custom message)]
 <app-minDate-message></app-minDate-message>
 
 ## value 
@@ -94,7 +94,7 @@ enter value which you want to restrict number in the property
 [!code-typescript[](\assets\examples\minDate\value\min-date-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="valueShow=!valueShow")]
+[!example(?type=section&clickEventCode="valueShow=!valueShow"&title=minDate decorator with value)]
 <app-minDate-value></app-minDate-value>
 
 

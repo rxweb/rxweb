@@ -1,5 +1,5 @@
 ---
-title : factor validation
+title : factor 
 description : factor validation decorator will check whether the value entered is factor of the particular value. if user tries to enter value which is not factor of the value  the property will be invalid. to use the factor decorator on particular property.
 author : rxcontributorone
 
@@ -63,7 +63,7 @@ Type :  `string`
 [!code-typescript[](\assets\examples\factor\dividend\factor-dividend.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="dividend=!dividend")]
+[!example(?type=section&clickEventCode="dividend=!dividend"&title=factor decorator with dividend)]
 <app-factor-dividend></app-factor-dividend>
 
 ## fieldName 
@@ -79,7 +79,7 @@ Current property is matched with the particular property. so we need to pass par
 [!code-typescript[](\assets\examples\factor\fieldName\factor-field-name.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="fieldName=!fieldName")]
+[!example(?type=section&clickEventCode="fieldName=!fieldName"&title=factor decorator with fieldName)]
 <app-factor-fieldName></app-factor-fieldName>
 
 ## conditionalExpressions 
@@ -97,7 +97,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\factor\conditionalExpressions\factor-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=factor decorator with conditionalExpression)]
 <app-factor-conditionalExpressions></app-factor-conditionalExpressions>
 
 ## message
@@ -113,7 +113,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\factor\message\factor-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=factor decorator with custom message)]
 <app-factor-message></app-factor-message>
 
 # Complete Factor Example

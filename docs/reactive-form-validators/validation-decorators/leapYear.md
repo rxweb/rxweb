@@ -1,5 +1,5 @@
 ---
-title : LeapYear validation
+title : leapYear validation
 description : LeapYear validation decorator will check whether the value entered is a leap year or not. if user tries to enter value which is not a leap year the property will be invalid. to use the leapyear decorator on particular property.
 author : rxcontributorone
 
@@ -61,7 +61,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\leap-year\conditionalExpressions\leap-year-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=leapYear decorator with conditionalExpression)]
 <app-leap-year-conditionalExpressions></app-leap-year-conditionalExpressions>
 
 ## message 
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\leap-year\message\leap-year-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=leapYear decorator with custom message)]
 <app-leap-year-message></app-leap-year-message>
 
 # Complete LeapYear Example

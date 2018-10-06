@@ -1,5 +1,5 @@
 ---
-title: Time Validation
+title: time 
 description: time validation decorator will allow only time format to be entered. If user tries to enter any string except json then the property will become invalid. To use the json decorator on particular property.
 author: rxcontributorone
 
@@ -62,7 +62,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\time\conditionalExpressions\time-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=time decorator with conditionalExpression)]
 <app-time-conditionalExpressions></app-time-conditionalExpressions>
 
 ## allowSeconds 
@@ -78,7 +78,7 @@ If you are allowed seconds in time format then you need to put this as true.
 [!code-typescript[](\assets\examples\time\allowSeconds\time-allow-seconds.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="allowSeconds=!allowSeconds")]
+[!example(?type=section&clickEventCode="allowSeconds=!allowSeconds"&title=time decorator with allowSeconds)]
 <app-time-allowSeconds></app-time-allowSeconds>
 
 ## message 
@@ -94,7 +94,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\time\message\time-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=time decorator with custom message)]
 <app-time-message></app-time-message>
 
 # Complete time Example

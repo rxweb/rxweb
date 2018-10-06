@@ -1,5 +1,5 @@
 ---
-title: Required Validation
+title: required 
 description: Required validation decorator will check that value is entered or not in the property. If user not enter any value then the property will become invalid. To use the required decorator on particular property.
 author: rxcontributortwo
 ---
@@ -59,7 +59,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\required\conditionalExpressions\required-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=required decorator with conditionalExpression)]
 <app-required-conditionalExpressions></app-required-conditionalExpressions>
  
 ## message 
@@ -76,7 +76,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\required\message\required-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=required decorator with custom message)]
 <app-required-message></app-required-message>
 
 # Complete required Example

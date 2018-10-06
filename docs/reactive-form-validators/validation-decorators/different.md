@@ -1,5 +1,5 @@
 ---
-title : Different validation
+title : different 
 description : Different validation decorator will check whether two value if they are different it will be valid.it is opposite of compare validator. if user tries to enter value which is same as field which is compared  the property will be invalid. to use the different decorator on particular property.
 author : rxcontributorone
 
@@ -59,7 +59,7 @@ Current property is matched with the particular property. so we need to pass par
 [!code-typescript[](\assets\examples\different\fieldName\different-field-name.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="fieldName=!fieldName")]
+[!example(?type=section&clickEventCode="fieldName=!fieldName"&title=different decorator with fieldName)]
 <app-different-fieldName></app-different-fieldName>
 
 ## message
@@ -75,7 +75,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\different\message\different-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=different decorator with custom message)]
 <app-different-message></app-different-message>
 
 # Complete Different Example

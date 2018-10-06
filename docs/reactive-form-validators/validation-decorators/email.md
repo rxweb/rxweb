@@ -1,5 +1,5 @@
 ---
-title: Email Validation
+title: email 
 description: Email validation decorator will allow only emails to be entered. If user tries to enter any string except email then the property will become invalid. To use the email decorator on particular property.
 author: rxcontributorone
 ---
@@ -61,7 +61,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\email\conditionalExpressions\email-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=email decorator with conditionalExpression)]
 <app-email-conditionalExpressions></app-email-conditionalExpressions>
 
 ## message 
@@ -77,7 +77,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\email\message\email-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=email decorator with custom message)]
 <app-email-message></app-email-message>
 
 # Complete Email Example

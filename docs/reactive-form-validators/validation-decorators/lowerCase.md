@@ -1,5 +1,5 @@
 ---
-title: LowerCase Validation 
+title: lowerCase Validation 
 description: lowerCase validation decorator will allow only lowercase to be entered. If user tries to enter any case except lower then the property will become invalid. To use the lowercase decorator on particular property.
 author: rxcontributortwo
 
@@ -60,7 +60,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\lowerCase\conditionalExpressions\lower-case-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=lowerCase decorator with conditionalExpression)]
 <app-lowerCase-conditionalExpressions></app-lowerCase-conditionalExpressions>
  
 ## message 
@@ -76,7 +76,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\lowerCase\message\lower-case-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=lowerCase decorator with custom message)]
 <app-lowerCase-message></app-lowerCase-message>
 
 # Complete lowercase Example

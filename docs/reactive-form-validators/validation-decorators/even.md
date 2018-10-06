@@ -1,5 +1,5 @@
 ---
-title : Even validation
+title : even 
 description : Even validation decorator will check whether the value entered is a Even or not. if user tries to enter value which is not a Even the property will be invalid. to use the Even decorator on particular property.
 author : rxcontributorone
 
@@ -63,7 +63,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\even\conditionalExpressions\even-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=even decorator with conditionalExpression)]
 <app-even-conditionalExpressions></app-even-conditionalExpressions>
 
 ## message 
@@ -80,7 +80,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\even\message\even-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=even decorator with custom message)]
 <app-even-message></app-even-message>
 
 # Complete even Example

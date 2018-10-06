@@ -1,5 +1,5 @@
 ---
-title: AlphaNumeric Validation 
+title: alphaNumeric
 description: Alpha Numeric validation decorator will allow only alphabets and numbers to be entered. It will not allow any special character. If user tries to do so the property will become invalid. To use the alphaNumeric decorator on particular property.
 author: rxcontributortwo
 
@@ -61,7 +61,7 @@ This will allow whitespace in particular control property.The default value is `
 [!code-typescript[](\assets\examples\alphaNumeric\allowWhiteSpace\alpha-numeric-allow-white-space.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="allowWhiteSpaceShow=!allowWhiteSpaceShow")]
+[!example(?type=section&clickEventCode="allowWhiteSpaceShow=!allowWhiteSpaceShow"&title=alphaNumeric decorator with allowWhiteSpace)]
 <app-alphaNumeric-allowWhiteSpace></app-alphaNumeric-allowWhiteSpace>
 
 ## conditionalExpressions 
@@ -79,7 +79,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\alphaNumeric\conditionalExpressions\alpha-numeric-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=alphaNumeric decorator with conditionalExpression)]
 <app-alphaNumeric-conditionalExpressions></app-alphaNumeric-conditionalExpressions>
 
 ## message 
@@ -96,7 +96,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\alphaNumeric\message\alpha-numeric-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=alphaNumeric decorator with custom message)]
 <app-alphaNumeric-message></app-alphaNumeric-message>
 
 # Complete AlphaNumeric Example

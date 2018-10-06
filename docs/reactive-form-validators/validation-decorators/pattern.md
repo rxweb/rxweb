@@ -1,5 +1,5 @@
 ---
-title: Pattern Validation
+title: pattern 
 description: Pattern validation decorator will allow only match input as pattern to be entered. If user tries to enter any string which is not matched pattern then the property will become invalid. To use the pattern decorator on particular property.
 author: rxcontributortwo
 
@@ -60,7 +60,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\pattern\message\pattern-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=pattern decorator with custom message)]
 <app-pattern-message></app-pattern-message>
 
 ## conditionalExpressions 
@@ -78,7 +78,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\pattern\conditionalExpressions\pattern-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=pattern decorator with conditionalExpression)]
 <app-pattern-conditionalExpressions></app-pattern-conditionalExpressions>
  
 ## pattern 
@@ -95,7 +95,7 @@ enter specific regex pattern
 [!code-typescript[](\assets\examples\pattern\pattern\pattern-pattern.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="pattern=!pattern")]
+[!example(?type=section&clickEventCode="pattern=!pattern"&title=pattern decorator with pattern)]
 <app-pattern-pattern></app-pattern-pattern>
 
 # Complete pattern Example

@@ -1,5 +1,5 @@
 ---
-title : Odd validation
+title : odd validation
 description : Odd validation decorator will check whether the value entered is a odd or not. if user tries to enter value which is not a odd the property will be invalid. to use the odd decorator on particular property.
 author : rxcontributorone
 
@@ -62,7 +62,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!code-typescript[](\assets\examples\odd\conditionalExpressions\odd-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
+[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=odd decorator with conditionalExpression)]
 <app-odd-conditionalExpressions></app-odd-conditionalExpressions>
 
 ## message 
@@ -79,7 +79,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\odd\message\odd-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=odd decorator with custom message)]
 <app-odd-message></app-odd-message>
 
 # Complete Odd Example
