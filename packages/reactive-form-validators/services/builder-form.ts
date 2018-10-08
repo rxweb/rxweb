@@ -3,6 +3,7 @@ import { RxFormControl } from "./form-control";
 import { EntityService } from './entity.service';
 import { FormGroupExtension } from './form-group';
 import { RegexValidator } from '../util/regex-validator'
+import { ApplicationUtil } from '../util/app-util'
 export class BuilderForm extends FormBuilder {
     private keys:string[]
     private keyIndex : number = -1;
@@ -26,7 +27,7 @@ export class BuilderForm extends FormBuilder {
     }
 
 
-    group(controlsConfig:any, extra:any) : FormGroup {
+  group(controlsConfig: any, extra: any): FormGroup {
       this.currentFormGroup = <FormGroupExtension> super.group(controlsConfig, extra);
       this.currentFormGroup.isDirty = this.dirty(this.baseObject,this.objectKeys);
       this.currentFormGroup.resetForm = this.resetForm(this.baseObject,this.objectKeys);
@@ -108,27 +109,29 @@ export class BuilderForm extends FormBuilder {
           for(let name in this.value)
             {
               let currentValue = this.controls[name].value;
-              if(currentValue != null && currentValue != undefined && currentValue  != "" ) {
                if(!(this.controls[name] instanceof FormGroup || this.controls[name] instanceof FormArray)){
-                  isDirty = baseObject[name] != currentValue ;
+                 isDirty = ApplicationUtil.notEqualTo(baseObject[name],currentValue);
                 }
-              } else
-                isDirty = !((currentValue  == null || currentValue  == undefined || currentValue  == "") && (baseObject[name] == undefined || baseObject[name] == null))
                   if(isDirty)
                     break;
             }
-
-          for(let name of objectKeys) {
-            if(otherKeys[name] instanceof FormGroup)
-             isDirty = this.controls[name].isDirty();
-            else{
-              for(let formGroup of this.controls[name].controls){
+        if (!isDirty) {
+          for (let name of objectKeys) {
+            if (this.controls[name] instanceof FormGroup) {
+              console.log(name);
+              isDirty = this.controls[name].isDirty();
+              console.log(isDirty);
+            }
+            else {
+              for (let formGroup of this.controls[name].controls) {
                 isDirty = formGroup.isDirty();
               }
             }
-          if(isDirty)
-            break; 
+            if (isDirty)
+              break;
           }
+        }
+        
           return isDirty;
           }
     }

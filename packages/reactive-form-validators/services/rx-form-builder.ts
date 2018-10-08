@@ -193,25 +193,28 @@ export class RxFormBuilder extends BaseFormBuilder {
     createValidatorFormGroup(groupObject:{[key:string]:any},entityObject:{[key:string]:any},modelInstance:any,validatorConfig:FormBuilderConfiguration){
           for(var propName in groupObject){
             var prop = groupObject[propName];
-            if(prop instanceof Array && prop.length > 0 && typeof prop[0] != "object")
-            {
-              let propValidators = (prop.length > 1 &&  prop[1] instanceof Array)? prop[1] : (prop.length == 2)? [prop[1]] : [];
-              let propertyAdded :boolean = false;
-              for(var i=0;i<propValidators.length;i++){
-                if(propValidators[i].name == "rxwebValidator"){
-                  propValidators[i](propName,modelInstance);
+            if (prop instanceof Array && prop.length > 0 && typeof prop[0] != "object") {
+              let propValidators = (prop.length > 1 && prop[1] instanceof Array) ? prop[1] : (prop.length == 2) ? [prop[1]] : [];
+              let propertyAdded: boolean = false;
+              for (var i = 0; i < propValidators.length; i++) {
+                if (propValidators[i].name == "rxwebValidator") {
+                  propValidators[i](propName, modelInstance);
                   propertyAdded = true;
                 }
-                else{
-                  if(!this.currentFormGroupPropOtherValidator[propName])
+                else {
+                  if (!this.currentFormGroupPropOtherValidator[propName])
                     this.currentFormGroupPropOtherValidator[propName] = [];
                   this.currentFormGroupPropOtherValidator[propName].push(propValidators[i])
                 }
               }
-              if(!propertyAdded)
-                defaultContainer.initPropertyObject(propName,PROPERTY,undefined, typeof modelInstance == "object"? modelInstance : {constructor:modelInstance});
-              this.applyAllPropValidator(propName,validatorConfig,modelInstance)
-            }else if(prop instanceof Array){
+              if (!propertyAdded)
+                defaultContainer.initPropertyObject(propName, PROPERTY, undefined, typeof modelInstance == "object" ? modelInstance : { constructor: modelInstance });
+              this.applyAllPropValidator(propName, validatorConfig, modelInstance)
+            } else if (typeof prop == "string" || typeof prop == "number" || typeof prop == "boolean") {
+              if (!propertyAdded)
+                defaultContainer.initPropertyObject(propName, PROPERTY, undefined, typeof modelInstance == "object" ? modelInstance : { constructor: modelInstance });
+              this.applyAllPropValidator(propName, validatorConfig, modelInstance)
+            } else if (prop instanceof Array) {
                 if(prop instanceof FormArray){
                   entityObject[propName] = prop;
                 } else {
@@ -241,7 +244,10 @@ export class RxFormBuilder extends BaseFormBuilder {
                 this.createValidatorFormGroup(groupObject[propName],entityObject[propName],entityObject[propName].constructor,validatorConfig);
                 }
             }
-          if((prop && prop.length > 0 && ( typeof prop[0] != "object") && !(prop instanceof FormControl) && !(prop instanceof FormArray))) {
+          if (typeof prop == "string" || typeof prop == "number" || typeof prop == "boolean") {
+              entityObject[propName] = prop
+            }
+          else if((prop && prop.length > 0 && ( typeof prop[0] != "object") && !(prop instanceof FormControl) && !(prop instanceof FormArray))) {
             entityObject[propName] = prop[0]
           }else if(prop instanceof FormArray){
               entityObject[propName] = prop    

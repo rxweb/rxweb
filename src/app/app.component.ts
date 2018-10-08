@@ -96,6 +96,8 @@ export class AppComponent implements OnInit {
 
     secondEmployee:any = {};
 
+  userInfoFormGroup: FormGroup
+
     ngOnInit() {
         this.angularFormGroup = this.validation.group({
           firstName:[''],
@@ -107,7 +109,12 @@ export class AppComponent implements OnInit {
           skills:this.formBuilder.array([this.validation.group({
             skillName:['']
           })])
-        },new FormBuilderConfiguration({dynamicValidation:{firstName:{alpha:true}}}))
+      }, new FormBuilderConfiguration({ dynamicValidation: { firstName: { alpha: true } } }))
+
+      this.userInfoFormGroup = this.validation.group({
+        firstName: '',
+        lastName: ''
+      });
       console.log(this.angularFormGroup);
         var employee = new Employee();
         employee.employeeDetail = new EmployeeDetail();

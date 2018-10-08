@@ -23,7 +23,13 @@ export class ApplicationUtil{
 
     static isNumeric(value:any){
        return (value - parseFloat(value) + 1) >= 0;
-    }
+  }
+
+  static notEqualTo(primaryValue: any, secondaryValue: any) {
+    let firstValue = (primaryValue == undefined || primaryValue == null) ? "" : primaryValue;
+    let secondValue = (secondaryValue == undefined || secondaryValue == null) ? "" : secondaryValue;
+    return (firstValue != secondValue)
+  }
 
     static numericValidation(allowDecimal:boolean, acceptValue:NumericValueType) {
         acceptValue = (acceptValue == undefined) ? NumericValueType.PositiveNumber : acceptValue;
