@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl } from "@angular/forms";
+import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl,FormControl } from "@angular/forms";
 import {
   choice,
     contains,
@@ -98,16 +98,16 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.angularFormGroup = this.validation.group({
-          firstName:['',[Validators.required,RxwebValidators.alpha()]],
-          lastName:['',RxwebValidators.alpha({conditionalExpression:(x, y) => x.firstName == "Ajay"  })],
+          firstName:[''],
+          lastName:[''],
           address:this.validation.group({
-            city:['',Validators.required],
+            city:[''],
             country:['']
           }),
           skills:this.formBuilder.array([this.validation.group({
-            skillName:['',Validators.required]
+            skillName:['']
           })])
-        })
+        },{applyAllProps:[Validators.required,RxwebValidators.alpha()]})
       console.log(this.angularFormGroup);
         var employee = new Employee();
         employee.employeeDetail = new EmployeeDetail();

@@ -27,7 +27,7 @@ export function noneOfValidator(config: ArrayConfig, conditionalValidationProps:
                      break;
                 }
                 if (testResult)
-                    return ObjectMaker.toJson(AnnotationTypes.oneOf, config.message || null, [controlValue]);
+                    return ObjectMaker.toJson(AnnotationTypes.noneOf, config.message || null, [controlValue]);
             }
         } return ObjectMaker.null();
     }

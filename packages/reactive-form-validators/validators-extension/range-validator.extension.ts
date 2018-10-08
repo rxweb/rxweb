@@ -1,17 +1,17 @@
 import {
     ValidatorFn,AbstractControl
 } from "@angular/forms";
-import { AlphaConfig } from "../models/config/alpha-config";
-import { alphaValidator } from '../reactive-form-validators/index'
+import { RangeConfig } from "../models/config/range-config";
+import { rangeValidator  } from '../reactive-form-validators/index'
 import { defaultContainer } from "../core/defaultContainer"
 import { AnnotationTypes } from "../core/validator.static"
 import {STRING } from '../const/validator.const';
 
-export function allOfValidatorExtension(config?: AlphaConfig): ValidatorFn {
-    var validator = alphaValidator(config,null);
+export function rangeValidatorExtension(config?: RangeConfig): ValidatorFn {
+    var validator = rangeValidator(config,null);
     var rxwebValidator = (control:AbstractControl,target?:object): { [key: string]: any } => {
         if (typeof control == STRING)
-          defaultContainer.init(target, 0, control, AnnotationTypes.alpha, config);
+          defaultContainer.init(target, 0, control, AnnotationTypes.range, config);
         else
           return validator(control);
       return null

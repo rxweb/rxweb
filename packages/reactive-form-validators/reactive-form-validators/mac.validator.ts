@@ -7,12 +7,12 @@ import { RegexValidator } from "../util/regex-validator";
 import { RegExRule } from "../util/regex-rules";
 import { DecoratorName } from "../util/decorator-name"
 import { ObjectMaker } from "../util/object-maker";
-import { AlphaConfig } from "../models/config/alpha-config";
+import { BaseConfig } from "../models/config/base-config";
 import { Linq } from "../util/linq";
 import { ApplicationUtil } from "../util/app-util";
 import { AnnotationTypes } from "../core/validator.static";
 
-export function macValidator(config: AlphaConfig, conditionalValidationProps:string[]): ValidatorFn {
+export function macValidator(config: BaseConfig, conditionalValidationProps:string[]): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
