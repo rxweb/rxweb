@@ -2,7 +2,7 @@
 [![Gitter](https://badges.gitter.im/rx-web/Lobby.svg)](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 <h3>rxweb</h3>
-40+ Validation Decorator and 40+ Validators for angular reactive form based validation. All Validators/Decorators provides extensive features like conditional validation, dynamic validation and advanced validation, also it includes dirty check and better way to show error message on `FormControl` or `FormGroup` level.
+40+ Validation Decorator and 40+ Validators for angular reactive form based validation. All Validators/Decorators provides extensive features like conditional validation, dynamic validation and advanced validation, also it includes dirty check and better way to show error message on FormControl or FormGroup level.
 
 # Prerequisites
 Reactive Form Validators will work in angular projects.
@@ -20,9 +20,10 @@ Reactive Form Validators will work in angular projects.
     * [Conditional Validation](#conditional-validation)
     * [Single Validation Configuration for All Properties](#single-validation-configuration-for-all-properties)
     * [Better Way To Show Error Message](#better-way-to-show-error-message)
-    * [Complete Example of Model Based Decorator Validation](#complete-example-of-model- based-decorator-validation)
+    * [Dirty Check](#dirty-check)
+    * [Complete Example of Model Based Decorator Validation](#complete-example-of-model-based-decorator-validation)
     * [More Information about validators and validation decorators](#more-information-about-validators-and-validation-decorators)
-    * [Dirty Check(Example Coming Soon)](#dirty-check)
+    
 * [License](#license)
 
 ## Installation
@@ -130,7 +131,7 @@ export class AppComponent implements OnInit {
 }
 ```
 ## Validator Based Validation
-There are 40+ validators, but the below code example is for alpha validation. The input text field will is valid, if the entered value is in alphabets. see the complete code example on **[stackblitz](https://stackblitz.com/edit/rxweb-alpha-validator-angular-reactive-form?file=src%2Fapp%2Fuser-info%2Fadd%2Fuser-info-add.component.ts)**.
+There are 40+ validators, but the below code example is for alpha validation. The field will only valid, if the entered value is in alphabets. see the complete code example on **[stackblitz](https://stackblitz.com/edit/rxweb-alpha-validator-angular-reactive-form?file=src%2Fapp%2Fuser-info%2Fadd%2Fuser-info-add.component.ts)**.
 ```js
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
@@ -245,12 +246,12 @@ export class UserInfoAddComponent implements OnInit {
 
 ```
 ## Conditional Validation
-Some fields are required based on some other fields value, like if the `firstName` field contains the value of 'John' then the `lastName` field is required. see the working code example on ***[stackblitz](https://stackblitz.com/edit/rxweb-required-validator-once-all-properties?file=src%2Fapp%2Fuser-info%2Fadd%2Fuser-info-add.component.ts)***
+Some fields are required based on some other fields value, like if the `firstName` field contains the value of 'John' then the `lastName` field is required. see the working code example on ***[stackblitz](https://stackblitz.com/edit/rxweb-conditional-required-validator-angular-reactive-form?file=src%2Fapp%2Fuser-info%2Fadd%2Fuser-info-add.component.ts)***
 ```js
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,Validators } from "@angular/forms"
+import { FormGroup } from "@angular/forms"
 
-import { RxFormBuilder,FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
+import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
 
 
 @Component({
@@ -267,11 +268,12 @@ export class UserInfoAddComponent implements OnInit {
 
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({
-          firstName:[''],
-          lastName:['']
-        }, new FormBuilderConfiguration({applyAllProps:[Validators.required]}));
+          firstName:['',[RxwebValidators.required()]],
+          lastName:['',[RxwebValidators.required({conditionalExpression:(x)=> x.firstName == 'John'})]]
+        });
     }
 }
+
 
 ```
 ## Single Validation Configuration for All Properties
@@ -313,7 +315,26 @@ If you are generating a `FormGroup` via `RxFormBuilder` then you will get one ex
     <small class="form-text text-danger" >{{userInfoFormGroup.controls.firstName.errorMessage}}<br/></small>
 </div>
 ```
-
+## Dirty Check
+Check the form is dirty or not. On component side you have to create a FormGroup object via `RxFormBuilder`, afterthat you can use `isDirty` method from FormGroup object. See the dirty code example on ***[stackblitz](https://stackblitz.com/edit/rxweb-dirty-check-angular-reactive-form?file=src%2Fapp%2Fuser-info%2Fadd%2Fuser-info-add.component.html)***
+```html
+<h3 class="bd-title" id="content">required Validator once for all properties</h3>
+<br/>
+<form [formGroup]="userInfoFormGroup">
+<div class="form-group">
+    <label>First Name</label>
+    <input type="text" formControlName="firstName" class="form-control"  />
+    <small class="form-text text-danger" >{{userInfoFormGroup.controls.firstName.errorMessage}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Last Name</label>
+    <input type="text" formControlName="lastName" class="form-control"  />
+    <small class="form-text text-danger" >{{userInfoFormGroup.controls.lastName.errorMessage}}<br/></small>
+    
+</div>
+<button [disabled]="!userInfoFormGroup.isDirty()" class="btn btn-primary">Submit</button>
+</form>
+```
 ## Complete Example of Model Based Decorator Validation
 **[Demo Code Walkthrough and Download the code](https://stackblitz.com/edit/complete-rxweb-angular-reactive-form-validator-example)**
 
