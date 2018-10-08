@@ -7,7 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { MaxDateCompleteComponent } from './complete/max-date-complete.component';
 import { MaxDateValueComponent } from './value/max-date-value.component';
-import { MaxDateConditionalExpressionsComponent } from './conditionalExpressions/max-date-conditional-expressions.component';
+import { MaxDateConditionalExpressionComponent } from './conditionalExpression/max-date-conditional-expression.component';
 import { MaxDateMessageComponent } from './message/max-date-message.component';
 import { MaxDateAddComponent } from './add/max-date-add.component';
 import { MaxDateEditComponent } from './edit/max-date-edit.component';
@@ -16,7 +16,7 @@ import { MaxDateEditComponent } from './edit/max-date-edit.component';
   declarations: [
 	MaxDateCompleteComponent,
 	MaxDateValueComponent,
-	MaxDateConditionalExpressionsComponent,
+	MaxDateConditionalExpressionComponent,
 	MaxDateMessageComponent,
 	MaxDateAddComponent,
 	MaxDateEditComponent,
@@ -24,7 +24,7 @@ import { MaxDateEditComponent } from './edit/max-date-edit.component';
 entryComponents: [
 	MaxDateCompleteComponent,
 	MaxDateValueComponent,
-	MaxDateConditionalExpressionsComponent,
+	MaxDateConditionalExpressionComponent,
 	MaxDateMessageComponent,
 	MaxDateAddComponent,
 	MaxDateEditComponent,
@@ -38,7 +38,7 @@ entryComponents: [
   exports: [
 	MaxDateCompleteComponent,
 	MaxDateValueComponent,
-	MaxDateConditionalExpressionsComponent,
+	MaxDateConditionalExpressionComponent,
 	MaxDateMessageComponent,
 	MaxDateAddComponent,
 	MaxDateEditComponent,

@@ -45,7 +45,7 @@ Below options are not mandatory to use in the `@greaterThanEqualTo()` decorator.
 |Option | Description |
 |--- | ---- |
 |[fieldName](#fieldname) | Greater than Equal to validation should be applied based on the `fieldName` for compare other field value |
-|[conditionalExpressions](#conditionalexpressions) | Greater than Equal to validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Greater than Equal to validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## fieldName 
@@ -63,22 +63,22 @@ Greater than Equal to validation should be applied based on the `fieldName` for 
 [!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow"&title=greaterThanEqualTo decorator with fieldName)]
 <app-greaterThanEqualTo-fieldName></app-greaterThanEqualTo-fieldName>
 
-## conditionalExpressions 
+## conditionalExpression 
 Type :  `Function`  |  `string` 
 Greater than Equal to validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\greaterThanEqualTo\conditionalExpressions\user.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\greaterThanEqualTo\conditionalExpressions\greater-than-equal-to-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\greaterThanEqualTo\conditionalExpressions\greater-than-equal-to-conditional-expressions.component.html)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\greaterThanEqualTo\conditionalExpression\user.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\greaterThanEqualTo\conditionalExpression\greater-than-equal-to-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\greaterThanEqualTo\conditionalExpression\greater-than-equal-to-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=greaterThanEqualTo decorator with conditionalExpression)]
-<app-greaterThanEqualTo-conditionalExpressions></app-greaterThanEqualTo-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=greaterThanEqualTo decorator with conditionalExpression)]
+<app-greaterThanEqualTo-conditionalExpression></app-greaterThanEqualTo-conditionalExpression>
 
 ## message 
 Type :  `string`

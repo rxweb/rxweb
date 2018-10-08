@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { DigitCompleteComponent } from './complete/digit-complete.component';
-import { DigitConditionalExpressionsComponent } from './conditionalExpressions/digit-conditional-expressions.component';
+import { DigitConditionalExpressionComponent } from './conditionalExpression/digit-conditional-expression.component';
 import { DigitMessageComponent } from './message/digit-message.component';
 import { DigitAddComponent } from './add/digit-add.component';
 import { DigitEditComponent } from './edit/digit-edit.component';
@@ -14,14 +14,14 @@ import { DigitEditComponent } from './edit/digit-edit.component';
 @NgModule({
   declarations: [
 	DigitCompleteComponent,
-	DigitConditionalExpressionsComponent,
+	DigitConditionalExpressionComponent,
 	DigitMessageComponent,
 	DigitAddComponent,
 	DigitEditComponent,
   ],
 entryComponents: [
 	DigitCompleteComponent,
-	DigitConditionalExpressionsComponent,
+	DigitConditionalExpressionComponent,
 	DigitMessageComponent,
 	DigitAddComponent,
 	DigitEditComponent,
@@ -34,7 +34,7 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	DigitCompleteComponent,
-	DigitConditionalExpressionsComponent,
+	DigitConditionalExpressionComponent,
 	DigitMessageComponent,
 	DigitAddComponent,
 	DigitEditComponent,

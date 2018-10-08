@@ -7,7 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { MaxNumberCompleteComponent } from './complete/max-number-complete.component';
 import { MaxNumberValueComponent } from './value/max-number-value.component';
-import { MaxNumberConditionalExpressionsComponent } from './conditionalExpressions/max-number-conditional-expressions.component';
+import { MaxNumberConditionalExpressionComponent } from './conditionalExpression/max-number-conditional-expression.component';
 import { MaxNumberMessageComponent } from './message/max-number-message.component';
 import { MaxNumberAddComponent } from './add/max-number-add.component';
 import { MaxNumberEditComponent } from './edit/max-number-edit.component';
@@ -16,7 +16,7 @@ import { MaxNumberEditComponent } from './edit/max-number-edit.component';
   declarations: [
 	MaxNumberCompleteComponent,
 	MaxNumberValueComponent,
-	MaxNumberConditionalExpressionsComponent,
+	MaxNumberConditionalExpressionComponent,
 	MaxNumberMessageComponent,
 	MaxNumberAddComponent,
 	MaxNumberEditComponent,
@@ -24,7 +24,7 @@ import { MaxNumberEditComponent } from './edit/max-number-edit.component';
 entryComponents: [
 	MaxNumberCompleteComponent,
 	MaxNumberValueComponent,
-	MaxNumberConditionalExpressionsComponent,
+	MaxNumberConditionalExpressionComponent,
 	MaxNumberMessageComponent,
 	MaxNumberAddComponent,
 	MaxNumberEditComponent,
@@ -38,7 +38,7 @@ entryComponents: [
   exports: [
 	MaxNumberCompleteComponent,
 	MaxNumberValueComponent,
-	MaxNumberConditionalExpressionsComponent,
+	MaxNumberConditionalExpressionComponent,
 	MaxNumberMessageComponent,
 	MaxNumberAddComponent,
 	MaxNumberEditComponent,

@@ -7,7 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { CreditCardCompleteComponent } from './complete/credit-card-complete.component';
 import { CreditCardCreditCardTypesComponent } from './creditCardTypes/credit-card-credit-card-types.component';
-import { CreditCardConditionalExpressionsComponent } from './conditionalExpressions/credit-card-conditional-expressions.component';
+import { CreditCardConditionalExpressionComponent } from './conditionalExpression/credit-card-conditional-expression.component';
 import { CreditCardMessageComponent } from './message/credit-card-message.component';
 import { CreditCardAddComponent } from './add/credit-card-add.component';
 import { CreditCardEditComponent } from './edit/credit-card-edit.component';
@@ -16,7 +16,7 @@ import { CreditCardEditComponent } from './edit/credit-card-edit.component';
   declarations: [
 	CreditCardCompleteComponent,
 	CreditCardCreditCardTypesComponent,
-	CreditCardConditionalExpressionsComponent,
+	CreditCardConditionalExpressionComponent,
 	CreditCardMessageComponent,
 	CreditCardAddComponent,
 	CreditCardEditComponent,
@@ -24,7 +24,7 @@ import { CreditCardEditComponent } from './edit/credit-card-edit.component';
 entryComponents: [
 	CreditCardCompleteComponent,
 	CreditCardCreditCardTypesComponent,
-	CreditCardConditionalExpressionsComponent,
+	CreditCardConditionalExpressionComponent,
 	CreditCardMessageComponent,
 	CreditCardAddComponent,
 	CreditCardEditComponent,
@@ -38,7 +38,7 @@ entryComponents: [
   exports: [
 	CreditCardCompleteComponent,
 	CreditCardCreditCardTypesComponent,
-	CreditCardConditionalExpressionsComponent,
+	CreditCardConditionalExpressionComponent,
 	CreditCardMessageComponent,
 	CreditCardAddComponent,
 	CreditCardEditComponent,

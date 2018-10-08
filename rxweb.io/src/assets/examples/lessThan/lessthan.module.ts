@@ -7,7 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { LessThanCompleteComponent } from './complete/less-than-complete.component';
 import { LessThanFieldNameComponent } from './fieldName/less-than-field-name.component';
-import { LessThanConditionalExpressionsComponent } from './conditionalExpressions/less-than-conditional-expressions.component';
+import { LessThanConditionalExpressionComponent } from './conditionalExpression/less-than-conditional-expression.component';
 import { LessThanMessageComponent } from './message/less-than-message.component';
 import { LessThanAddComponent } from './add/less-than-add.component';
 import { LessThanEditComponent } from './edit/less-than-edit.component';
@@ -16,7 +16,7 @@ import { LessThanEditComponent } from './edit/less-than-edit.component';
   declarations: [
 	LessThanCompleteComponent,
 	LessThanFieldNameComponent,
-	LessThanConditionalExpressionsComponent,
+	LessThanConditionalExpressionComponent,
 	LessThanMessageComponent,
 	LessThanAddComponent,
 	LessThanEditComponent,
@@ -24,7 +24,7 @@ import { LessThanEditComponent } from './edit/less-than-edit.component';
 entryComponents: [
 	LessThanCompleteComponent,
 	LessThanFieldNameComponent,
-	LessThanConditionalExpressionsComponent,
+	LessThanConditionalExpressionComponent,
 	LessThanMessageComponent,
 	LessThanAddComponent,
 	LessThanEditComponent,
@@ -38,7 +38,7 @@ entryComponents: [
   exports: [
 	LessThanCompleteComponent,
 	LessThanFieldNameComponent,
-	LessThanConditionalExpressionsComponent,
+	LessThanConditionalExpressionComponent,
 	LessThanMessageComponent,
 	LessThanAddComponent,
 	LessThanEditComponent,

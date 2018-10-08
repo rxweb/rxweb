@@ -43,7 +43,7 @@ Below options are not mandatory to use in the `@CreditCard()` decorator. If need
 |Option | Description |
 |--- | ---- |
 |[creditCardTypes](#creditcardtypes) | Credit card type has different Card types e.g. Visa, AmericanExpress, Maestro, JCB, Discover, DinersClub, MasterCard. |
-|[conditionalExpressions](#conditionalexpressions) | Credit Card validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Credit Card validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## creditCardTypes 
@@ -63,22 +63,22 @@ Credit card type has different Card types e.g. Visa, AmericanExpress, Maestro, J
 <app-creditCard-creditCardTypes></app-creditCard-creditCardTypes>
 
 
-## conditionalExpressions 
+## conditionalExpression 
 Type :  `Function`  |  `string`
 Credit Card validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\creditCard\conditionalExpressions\user.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\creditCard\conditionalExpressions\credit-card-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\creditCard\conditionalExpressions\credit-card-conditional-expressions.component.html)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\creditCard\conditionalExpression\user.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\creditCard\conditionalExpression\credit-card-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\creditCard\conditionalExpression\credit-card-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions"&title=creditCard decorator with conditionalExpression)]
-<app-creditCard-conditionalExpressions></app-creditCard-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=creditCard decorator with conditionalExpression)]
+<app-creditCard-conditionalExpression></app-creditCard-conditionalExpression>
 
 ## message 
 Type :  `string` 

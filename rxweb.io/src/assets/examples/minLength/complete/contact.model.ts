@@ -8,6 +8,6 @@ export class Contact {
 	mobileNo: string;
 	@minLength({value:8  ,message:'Minimum 8 characters are allowed' }) 
 	landLineNo: string;
-	@minLength({value:3  ,conditionalExpressions:(x,y)=>{ return x.countryName == "India"} }) 
+	@minLength({value:3  ,conditionalExpression:(x,y)=>{ return x.countryName == "India"} }) 
 	countryCode: string;
 }

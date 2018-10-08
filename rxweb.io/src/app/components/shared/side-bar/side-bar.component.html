@@ -1,48 +1,25 @@
-<aside id="menu">
+<aside id="menu" *ngIf="showComponent">
 	<div id="navigation" slimScroll>
 		<ul class="nav" id="side-menu">
-			<li>
-				<a routerLink="reactive-form-validators"><span class="nav-label">REACTIVE FORM VALIDATORS</span><span class="fa arrow"></span></a>
-				<ul class="nav nav-second-level collapse in" aria-expanded="false">
-					<li>
-						<a routerLink="import-modules"><span class="nav-label">Import Modules</span></a>
-				</li>
-					<li>
-						<a routerLink="configure-global-validation-messages"><span class="nav-label">Global Validation Messages</span></a>
-				</li>
-					<li>
-						<a routerLink=""><span class="nav-label">VALIDATION DECORATORS</span><span class="fa arrow"></span></a>
-						<ul class="nav nav-third-level collapse in" aria-expanded="false">
-							<li><a routerLink="reactive-form-validators/alpha"><span class="nav-label">alpha</span></a></li>
-							<li><a routerLink="reactive-form-validators/alphaNumeric"><span class="nav-label">alphaNumeric</span></a></li>
-							<li><a routerLink="reactive-form-validators/contains"><span class="nav-label">contains</span></a></li>
-							<li><a routerLink="reactive-form-validators/compare"><span class="nav-label">compare</span></a></li>
-							<li><a routerLink="reactive-form-validators/creditCard"><span class="nav-label">creditCard</span></a></li>
-							<li><a routerLink="reactive-form-validators/digit"><span class="nav-label">digit</span></a></li>
-							<li><a routerLink="reactive-form-validators/email"><span class="nav-label">email</span></a></li>
-							<li><a routerLink="reactive-form-validators/greaterThan"><span class="nav-label">greaterThan</span></a></li>
-							<li><a routerLink="reactive-form-validators/greaterThanEqualTo"><span class="nav-label">greaterThanEqualTo</span></a></li>
-							<li><a routerLink="reactive-form-validators/hexColor"><span class="nav-label">hexColor</span></a></li>
-							<li><a routerLink="reactive-form-validators/json"><span class="nav-label">json</span></a></li>
-							<li><a routerLink="reactive-form-validators/lessThan"><span class="nav-label">lessThan</span></a></li>
-							<li><a routerLink="reactive-form-validators/lessThanEqualTo"><span class="nav-label">lessThanEqualTo</span></a></li>
-							<li><a routerLink="reactive-form-validators/lowerCase"><span class="nav-label">lowerCase</span></a></li>
-							<li><a routerLink="reactive-form-validators/maxLength"><span class="nav-label">maxLength</span></a></li>
-							<li><a routerLink="reactive-form-validators/maxNumber"><span class="nav-label">maxNumber</span></a></li>
-							<li><a routerLink="reactive-form-validators/maxDate"><span class="nav-label">maxDate</span></a></li>
-							<li><a routerLink="reactive-form-validators/minDate"><span class="nav-label">minDate</span></a></li>
-							<li><a routerLink="reactive-form-validators/minLength"><span class="nav-label">minLength</span></a></li>
-							<li><a routerLink="reactive-form-validators/minNumber"><span class="nav-label">minNumber</span></a></li>
-							<li><a routerLink="reactive-form-validators/password"><span class="nav-label">password</span></a></li>
-							<li><a routerLink="reactive-form-validators/pattern"><span class="nav-label">pattern</span></a></li>
-							<li><a routerLink="reactive-form-validators/range"><span class="nav-label">range</span></a></li>
-							<li><a routerLink="reactive-form-validators/required"><span class="nav-label">required</span></a></li>
-							<li><a routerLink="reactive-form-validators/time"><span class="nav-label">time</span></a></li>
-							<li><a routerLink="reactive-form-validators/upperCase"><span class="nav-label">upperCase</span></a></li>
-							<li><a routerLink="reactive-form-validators/url"><span class="nav-label">url</span></a></li>
-					</ul>
-				</li>
-		</ul>
+			<li *ngFor="let link of links">
+				<a [routerLink]="link.uri"><span class="nav-label">{{link.title}}</span><span class="fa arrow" *ngIf="link.childrens?.length > 0"></span></a>
+				<ul class="nav nav-second-level collapse in" aria-expanded="false" *ngIf="link.childrens?.length > 0">
+					<li *ngFor="let secondLevel of link.childrens">
+						<a [routerLink]="secondLevel.uri"><span class="nav-label">{{secondLevel.title}}</span><span class="fa arrow" *ngIf="secondLevel.childrens?.length > 0"></span>
+						<span class="fa fa-filter ml-15" (click)="isSearch=!isSearch" *ngIf="secondLevel.childrens?.length > 0 && secondLevel.title == 'VALIDATION DECORATORS'"></span>
+						</a>
+						<div class="input-group" *ngIf="secondLevel.title == 'VALIDATION DECORATORS' && isSearch">
+							<input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Search..." id="search-input">
+						</div>
+						<ul class="nav nav-third-level collapse in" aria-expanded="false" *ngIf="secondLevel.childrens?.length > 0">
+							<li *ngFor="let thirdLevel of secondLevel.childrens | filter:searchText:'title'">
+								<a [routerLink]="thirdLevel.uri">
+										<span class="nav-label">{{thirdLevel.title}}</span>
+									</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</li>
 		</ul>
 	</div>

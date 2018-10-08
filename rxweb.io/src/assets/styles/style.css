@@ -5457,6 +5457,13 @@ input.ng-invalid{
     background-color: #eaeaea;
     color: #343438;
 }
-div#comment-policy{
-    display: none;
+.tab-content + .combined {
+    margin-top: -10px;
+}
+#search-input{
+    height: 43px;
+    width: 247px;
+}
+.ml-15{
+    margin-left:15px;
 }

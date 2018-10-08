@@ -8,7 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { MinLengthCompleteComponent } from './complete/min-length-complete.component';
 import { MinLengthValueComponent } from './value/min-length-value.component';
 import { MinLengthMessageComponent } from './message/min-length-message.component';
-import { MinLengthConditionalExpressionsComponent } from './conditionalExpressions/min-length-conditional-expressions.component';
+import { MinLengthConditionalExpressionComponent } from './conditionalExpression/min-length-conditional-expression.component';
 import { MinLengthAddComponent } from './add/min-length-add.component';
 import { MinLengthEditComponent } from './edit/min-length-edit.component';
 
@@ -17,7 +17,7 @@ import { MinLengthEditComponent } from './edit/min-length-edit.component';
 	MinLengthCompleteComponent,
 	MinLengthValueComponent,
 	MinLengthMessageComponent,
-	MinLengthConditionalExpressionsComponent,
+	MinLengthConditionalExpressionComponent,
 	MinLengthAddComponent,
 	MinLengthEditComponent,
   ],
@@ -25,7 +25,7 @@ entryComponents: [
 	MinLengthCompleteComponent,
 	MinLengthValueComponent,
 	MinLengthMessageComponent,
-	MinLengthConditionalExpressionsComponent,
+	MinLengthConditionalExpressionComponent,
 	MinLengthAddComponent,
 	MinLengthEditComponent,
   ],
@@ -39,7 +39,7 @@ entryComponents: [
 	MinLengthCompleteComponent,
 	MinLengthValueComponent,
 	MinLengthMessageComponent,
-	MinLengthConditionalExpressionsComponent,
+	MinLengthConditionalExpressionComponent,
 	MinLengthAddComponent,
 	MinLengthEditComponent,
   ],

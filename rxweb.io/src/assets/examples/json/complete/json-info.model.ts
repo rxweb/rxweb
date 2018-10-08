@@ -6,7 +6,7 @@ export class JsonInfo {
 	locationJson: string;
 	@prop()
 	location: string;
-	@json({conditionalExpressions:(x,y)=>{ return x.location == "India" } }) 
+	@json({conditionalExpression:(x,y)=>{ return x.location == "India" } }) 
 	addressJson: string;
 	@json({message:'Enter only JSON type data' }) 
 	contactJson: string;

@@ -8,7 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { MinNumberCompleteComponent } from './complete/min-number-complete.component';
 import { MinNumberValueComponent } from './value/min-number-value.component';
 import { MinNumberMessageComponent } from './message/min-number-message.component';
-import { MinNumberConditionalExpressionsComponent } from './conditionalExpressions/min-number-conditional-expressions.component';
+import { MinNumberConditionalExpressionComponent } from './conditionalExpression/min-number-conditional-expression.component';
 import { MinNumberAddComponent } from './add/min-number-add.component';
 import { MinNumberEditComponent } from './edit/min-number-edit.component';
 
@@ -17,7 +17,7 @@ import { MinNumberEditComponent } from './edit/min-number-edit.component';
 	MinNumberCompleteComponent,
 	MinNumberValueComponent,
 	MinNumberMessageComponent,
-	MinNumberConditionalExpressionsComponent,
+	MinNumberConditionalExpressionComponent,
 	MinNumberAddComponent,
 	MinNumberEditComponent,
   ],
@@ -25,7 +25,7 @@ entryComponents: [
 	MinNumberCompleteComponent,
 	MinNumberValueComponent,
 	MinNumberMessageComponent,
-	MinNumberConditionalExpressionsComponent,
+	MinNumberConditionalExpressionComponent,
 	MinNumberAddComponent,
 	MinNumberEditComponent,
   ],
@@ -39,7 +39,7 @@ entryComponents: [
 	MinNumberCompleteComponent,
 	MinNumberValueComponent,
 	MinNumberMessageComponent,
-	MinNumberConditionalExpressionsComponent,
+	MinNumberConditionalExpressionComponent,
 	MinNumberAddComponent,
 	MinNumberEditComponent,
   ],

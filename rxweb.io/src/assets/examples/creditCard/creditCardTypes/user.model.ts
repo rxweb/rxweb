@@ -2,6 +2,6 @@ import {  creditCard,prop, CreditCardType,} from "@rxweb/reactive-form-validator
 
 export class User {
 
-	@creditCard({creditCardTypes:[ CreditCardType.DinersClub ]  ,conditionalExpressions:x => x.cardType == "dinersClubCard" }) 
+	@creditCard({creditCardTypes:[ CreditCardType.DinersClub ]  ,conditionalExpression:x => x.cardType == "dinersClubCard" }) 
 	dinersClubCard: string;
 }

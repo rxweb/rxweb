@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { LowerCaseCompleteComponent } from './complete/lower-case-complete.component';
-import { LowerCaseConditionalExpressionsComponent } from './conditionalExpressions/lower-case-conditional-expressions.component';
+import { LowerCaseConditionalExpressionComponent } from './conditionalExpression/lower-case-conditional-expression.component';
 import { LowerCaseMessageComponent } from './message/lower-case-message.component';
 import { LowerCaseAddComponent } from './add/lower-case-add.component';
 import { LowerCaseEditComponent } from './edit/lower-case-edit.component';
@@ -14,14 +14,14 @@ import { LowerCaseEditComponent } from './edit/lower-case-edit.component';
 @NgModule({
   declarations: [
 	LowerCaseCompleteComponent,
-	LowerCaseConditionalExpressionsComponent,
+	LowerCaseConditionalExpressionComponent,
 	LowerCaseMessageComponent,
 	LowerCaseAddComponent,
 	LowerCaseEditComponent,
   ],
 entryComponents: [
 	LowerCaseCompleteComponent,
-	LowerCaseConditionalExpressionsComponent,
+	LowerCaseConditionalExpressionComponent,
 	LowerCaseMessageComponent,
 	LowerCaseAddComponent,
 	LowerCaseEditComponent,
@@ -34,7 +34,7 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	LowerCaseCompleteComponent,
-	LowerCaseConditionalExpressionsComponent,
+	LowerCaseConditionalExpressionComponent,
 	LowerCaseMessageComponent,
 	LowerCaseAddComponent,
 	LowerCaseEditComponent,

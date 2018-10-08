@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { UrlCompleteComponent } from './complete/url-complete.component';
-import { UrlConditionalExpressionsComponent } from './conditionalExpressions/url-conditional-expressions.component';
+import { UrlConditionalExpressionComponent } from './conditionalExpression/url-conditional-expression.component';
 import { UrlMessageComponent } from './message/url-message.component';
 import { UrlAddComponent } from './add/url-add.component';
 import { UrlEditComponent } from './edit/url-edit.component';
@@ -14,14 +14,14 @@ import { UrlEditComponent } from './edit/url-edit.component';
 @NgModule({
   declarations: [
 	UrlCompleteComponent,
-	UrlConditionalExpressionsComponent,
+	UrlConditionalExpressionComponent,
 	UrlMessageComponent,
 	UrlAddComponent,
 	UrlEditComponent,
   ],
 entryComponents: [
 	UrlCompleteComponent,
-	UrlConditionalExpressionsComponent,
+	UrlConditionalExpressionComponent,
 	UrlMessageComponent,
 	UrlAddComponent,
 	UrlEditComponent,
@@ -34,7 +34,7 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	UrlCompleteComponent,
-	UrlConditionalExpressionsComponent,
+	UrlConditionalExpressionComponent,
 	UrlMessageComponent,
 	UrlAddComponent,
 	UrlEditComponent,

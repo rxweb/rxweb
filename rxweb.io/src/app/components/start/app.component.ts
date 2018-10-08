@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
         "seperator": "/"
       },
       "validationMessage": {
-        "alpha": "Only aphabelts are allowed.",
+        "alpha": "Only alphabets are allowed.",
         "alphaNumeric": "Only Alpha Numerics are allowed.",
         "contains": "Input does not contain pre defined string",
         "compare": "Input does not match",

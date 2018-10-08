@@ -31,7 +31,6 @@ export class DashboardComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.http.get('assets/json/validation.json')
       .subscribe((response:any) => {
-        debugger
         this.validators = response.routes;
         this.masterList = this.validators.map(x => Object.assign({}, x));
         this.showComponent = true;

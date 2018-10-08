@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { TimeCompleteComponent } from './complete/time-complete.component';
-import { TimeConditionalExpressionsComponent } from './conditionalExpressions/time-conditional-expressions.component';
+import { TimeConditionalExpressionComponent } from './conditionalExpression/time-conditional-expression.component';
 import { TimeAllowSecondsComponent } from './allowSeconds/time-allow-seconds.component';
 import { TimeMessageComponent } from './message/time-message.component';
 import { TimeAddComponent } from './add/time-add.component';
@@ -15,7 +15,7 @@ import { TimeEditComponent } from './edit/time-edit.component';
 @NgModule({
   declarations: [
 	TimeCompleteComponent,
-	TimeConditionalExpressionsComponent,
+	TimeConditionalExpressionComponent,
 	TimeAllowSecondsComponent,
 	TimeMessageComponent,
 	TimeAddComponent,
@@ -23,7 +23,7 @@ import { TimeEditComponent } from './edit/time-edit.component';
   ],
 entryComponents: [
 	TimeCompleteComponent,
-	TimeConditionalExpressionsComponent,
+	TimeConditionalExpressionComponent,
 	TimeAllowSecondsComponent,
 	TimeMessageComponent,
 	TimeAddComponent,
@@ -37,7 +37,7 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	TimeCompleteComponent,
-	TimeConditionalExpressionsComponent,
+	TimeConditionalExpressionComponent,
 	TimeAllowSecondsComponent,
 	TimeMessageComponent,
 	TimeAddComponent,

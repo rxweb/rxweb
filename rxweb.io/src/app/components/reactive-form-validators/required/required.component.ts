@@ -15,9 +15,9 @@ export class RequiredComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Required Validation":null,"RequiredConfig":["conditionalExpressions","message"],"Complete required Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic Required Validation":null,"RequiredConfig":["conditionalExpression","message"],"Complete required Example":null};
   tab_1:string = "basicadd";
-   tab_2:string = "conditionalExpressionsModel";
+   tab_2:string = "conditionalExpressionModel";
    tab_3:string = "messageModel";
    tab_4:string = "completeExample";
    

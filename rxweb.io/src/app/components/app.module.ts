@@ -13,13 +13,14 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { NgSlimScrollModule, SLIMSCROLL_DEFAULTS } from 'ngx-slimscroll';
 import { FooterComponent } from "src/app/components/shared/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
+import { FilterPipe } from "src/app/pipes/filter.pipe";
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent
+    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,
     HighlightModule.forRoot({ theme: 'default' }), ClipboardModule ,
