@@ -15,9 +15,9 @@ export class MaxLengthComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic MaxLength Validation":null,"NumberConfig":["conditionalExpressions","value"],"Complete maxlength Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic MaxLength Validation":null,"NumberConfig":["conditionalExpression","value"],"Complete maxlength Example":null};
   tab_1:string = "basicadd";
-   tab_2:string = "conditionalExpressionsmodel";
+   tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";
    tab_4:string = "messageModel";
    tab_5:string = "completeexample";

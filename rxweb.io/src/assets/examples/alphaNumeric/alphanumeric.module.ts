@@ -8,7 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { AlphaNumericCompleteComponent } from './complete/alpha-numeric-complete.component';
 import { AlphaNumericAllowWhiteSpaceComponent } from './allowWhiteSpace/alpha-numeric-allow-white-space.component';
 import { AlphaNumericMessageComponent } from './message/alpha-numeric-message.component';
-import { AlphaNumericConditionalExpressionsComponent } from './conditionalExpressions/alpha-numeric-conditional-expressions.component';
+import { AlphaNumericConditionalExpressionComponent } from './conditionalExpression/alpha-numeric-conditional-expression.component';
 import { AlphaNumericAddComponent } from './add/alpha-numeric-add.component';
 import { AlphaNumericEditComponent } from './edit/alpha-numeric-edit.component';
 
@@ -17,7 +17,7 @@ import { AlphaNumericEditComponent } from './edit/alpha-numeric-edit.component';
 	AlphaNumericCompleteComponent,
 	AlphaNumericAllowWhiteSpaceComponent,
 	AlphaNumericMessageComponent,
-	AlphaNumericConditionalExpressionsComponent,
+	AlphaNumericConditionalExpressionComponent,
 	AlphaNumericAddComponent,
 	AlphaNumericEditComponent,
   ],
@@ -25,7 +25,7 @@ entryComponents: [
 	AlphaNumericCompleteComponent,
 	AlphaNumericAllowWhiteSpaceComponent,
 	AlphaNumericMessageComponent,
-	AlphaNumericConditionalExpressionsComponent,
+	AlphaNumericConditionalExpressionComponent,
 	AlphaNumericAddComponent,
 	AlphaNumericEditComponent,
   ],
@@ -39,7 +39,7 @@ entryComponents: [
 	AlphaNumericCompleteComponent,
 	AlphaNumericAllowWhiteSpaceComponent,
 	AlphaNumericMessageComponent,
-	AlphaNumericConditionalExpressionsComponent,
+	AlphaNumericConditionalExpressionComponent,
 	AlphaNumericAddComponent,
 	AlphaNumericEditComponent,
   ],

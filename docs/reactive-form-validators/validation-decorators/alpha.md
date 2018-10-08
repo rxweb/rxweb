@@ -1,5 +1,5 @@
 ---
-title: Alpha Validation
+title: alpha
 description: Alpha validation decorator will allow only alphabets to be entered. It will not allow any number or special character. If user tries to do so the property will become invalid. To use the alpha decorator on particular property.
 author: rxcontributorone
 
@@ -45,7 +45,7 @@ Below options are not mandatory to use in the `@alpha()` decorator. If needed th
 |Option | Description |
 |--- | ---- |
 |[allowWhiteSpace](#allowwhitespace) | This will allow whitespace in particular control property.The default value is `false`. |
-|[conditionalExpressions](#conditionalexpressions) | Alpha validation should be applied if the condition is matched in the `conditionalExpressions` function. Validation framework will pass two parameters at the time of `conditionalExpressions` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpressions` will work as same as client function. |
+|[conditionalExpression](#conditionalExpression) | Alpha validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## allowWhiteSpace 
@@ -62,26 +62,26 @@ This will allow whitespace in particular control property.The default value is `
 [!code-typescript[](\assets\examples\alpha\allowWhiteSpace\alpha-allow-white-space.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="allowWhiteSpaceShow=!allowWhiteSpaceShow")]
+[!example(?type=section&clickEventCode="allowWhiteSpaceShow=!allowWhiteSpaceShow"&title=alpha decorator with allowWhiteSpace)]
 <app-alpha-allowWhiteSpace></app-alpha-allowWhiteSpace>
 
-## conditionalExpressions 
+## conditionalExpression 
 Type :  `Function`  |  `string` 
 
-Alpha validation should be applied if the condition is matched in the `conditionalExpressions` function. Validation framework will pass two parameters at the time of `conditionalExpressions` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpressions` will work as same as client function.
+Alpha validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\alpha\conditionalExpressions\address-info.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\alpha\conditionalExpressions\alpha-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\alpha\conditionalExpressions\alpha-conditional-expressions.component.html)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\alpha\conditionalExpression\address-info.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\alpha\conditionalExpression\alpha-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\alpha\conditionalExpression\alpha-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-alpha-conditionalExpressions></app-alpha-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=alpha decorator with conditionalExpression)]
+<app-alpha-conditionalExpression></app-alpha-conditionalExpression>
 
 ## message 
 Type :  `string` 
@@ -97,7 +97,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\alpha\message\alpha-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=alpha decorator with custom message)]
 <app-alpha-message></app-alpha-message>
 
 # Complete Alpha Example

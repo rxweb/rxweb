@@ -1,5 +1,5 @@
 ---
-title: Compare Validation
+title: compare 
 description: Compare validation decorator will compare two inputs. If user enter unmatched value then the property will become invalid. To use the compare decorator on particular property.
 author: rxcontributorone
 
@@ -59,7 +59,7 @@ Current property is matched with the particular property. so we need to pass par
 [!code-typescript[](\assets\examples\compare\fieldName\compare-field-name.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="fieldName=!fieldName")]
+[!example(?type=section&clickEventCode="fieldName=!fieldName"&title=compare decorator with fieldName)]
 <app-compare-fieldName></app-compare-fieldName>
 
 ## message
@@ -75,7 +75,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\compare\message\compare-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=compare decorator with custom message)]
 <app-compare-message></app-compare-message>
 
 # Complete Compare Example

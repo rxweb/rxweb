@@ -4,7 +4,7 @@ export class User {
 
 	@prop()
 	age: number;
-	@greaterThanEqualTo({fieldName:'age'  ,conditionalExpressions:x => x.age >= 18  }) 
+	@greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:x => x.age >= 18  }) 
 	voterAge: number;
 	@greaterThanEqualTo({fieldName:'age'  ,message:'Please enter number greater than or equal to 1.' }) 
 	otherAge: number;

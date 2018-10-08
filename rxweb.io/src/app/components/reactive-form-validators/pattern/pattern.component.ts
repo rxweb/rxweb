@@ -15,12 +15,12 @@ export class PatternComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Contains Validation":null,"PatternConfig":["message","conditionalExpressions","pattern"],"Complete pattern Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic Pattern Validation":null,"PatternConfig":["message","conditionalExpression","pattern"],"Complete pattern Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "messageModel";
-   tab_3:string = "conditionalExpressionsmodel";
-   tab_4:string = "conditionalExpressionsmodel";
-   tab_5:string = "completeexample";
+   tab_3:string = "conditionalExpressionModel";
+   tab_4:string = "patternModel";
+   tab_5:string = "completeExample";
    
   constructor(
     private http: HttpClient

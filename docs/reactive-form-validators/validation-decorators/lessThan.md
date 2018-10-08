@@ -1,5 +1,5 @@
 ---
-title: LessThan Validation
+title: lessThan Validation
 description: Less than validation decorator will check that input property is less than value. If user tries to enter greater than equal to value then the property will become invalid. To use the lessThan decorator on particular property.
 author: rxcontributortwo
 
@@ -43,7 +43,7 @@ message and conditionalExpression options are not mandatory but fieldName is man
 |Option | Description |
 |--- | ---- |
 |[fieldName](#fieldname) | Less than validation should be applied based on the `fieldName` for compare other field value |
-|[conditionalExpressions](#conditionalexpressions) | Less than validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Less than validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## fieldName 
@@ -60,26 +60,26 @@ Less than validation should be applied based on the `fieldName` for compare othe
 [!code-typescript[](\assets\examples\lessThan\fieldName\less-than-field-name.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow")]
+[!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow"&title=lessThan decorator with fieldName)]
 <app-lessThan-fieldName></app-lessThan-fieldName>
 
-## conditionalExpressions 
+## conditionalExpression 
 Type :  `Function`  |  `string` 
 
 Less than validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\lessThan\conditionalExpressions\user.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\lessThan\conditionalExpressions\less-than-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\lessThan\conditionalExpressions\less-than-conditional-expressions.component.html)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\lessThan\conditionalExpression\user.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\lessThan\conditionalExpression\less-than-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\lessThan\conditionalExpression\less-than-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-lessThan-conditionalExpressions></app-lessThan-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=lessThan decorator with conditionalExpression)]
+<app-lessThan-conditionalExpression></app-lessThan-conditionalExpression>
  
 ## message 
 Type :  `string` 
@@ -95,7 +95,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\lessThan\message\less-than-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=lessThan decorator with custom message)]
 <app-lessThan-message></app-lessThan-message>
 
 # Complete lessThan Example

@@ -19,7 +19,7 @@ export class PasswordComponent implements OnInit {
   tab_1:string = "basicadd";
    tab_2:string = "messageModel";
    tab_3:string = "validationModel";
-   tab_4:string = "completeexample";
+   tab_4:string = "completeExample";
    
   constructor(
     private http: HttpClient

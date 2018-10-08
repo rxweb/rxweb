@@ -1,5 +1,5 @@
 ---
-title: Password Validation 
+title: password  
 description: Password validation decorator will allow only password to be entered. If user tries to enter any string rather than password pattern according for PasswordValidation parameters then the property will become invalid. To use the password decorator on particular property.
 author: rxcontributorone
 
@@ -58,7 +58,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\password\message\password-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=password decorator with custom message)]
 <app-password-message></app-password-message>
 
 ## validation 
@@ -74,7 +74,7 @@ Password Validation is used for setting the parameters for password validation, 
 [!code-typescript[](\assets\examples\password\validation\password-validation.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="validation=!validation")]
+[!example(?type=section&clickEventCode="validation=!validation"&title=password decorator with validation)]
 <app-password-validation></app-password-validation>
 
 # Complete password Example

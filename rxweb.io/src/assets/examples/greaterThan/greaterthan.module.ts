@@ -7,7 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { GreaterThanCompleteComponent } from './complete/greater-than-complete.component';
 import { GreaterThanFieldNameComponent } from './fieldName/greater-than-field-name.component';
-import { GreaterThanConditionalExpressionsComponent } from './conditionalExpressions/greater-than-conditional-expressions.component';
+import { GreaterThanConditionalExpressionComponent } from './conditionalExpression/greater-than-conditional-expression.component';
 import { GreaterThanMessageComponent } from './message/greater-than-message.component';
 import { GreaterThanAddComponent } from './add/greater-than-add.component';
 import { GreaterThanEditComponent } from './edit/greater-than-edit.component';
@@ -16,7 +16,7 @@ import { GreaterThanEditComponent } from './edit/greater-than-edit.component';
   declarations: [
 	GreaterThanCompleteComponent,
 	GreaterThanFieldNameComponent,
-	GreaterThanConditionalExpressionsComponent,
+	GreaterThanConditionalExpressionComponent,
 	GreaterThanMessageComponent,
 	GreaterThanAddComponent,
 	GreaterThanEditComponent,
@@ -24,7 +24,7 @@ import { GreaterThanEditComponent } from './edit/greater-than-edit.component';
 entryComponents: [
 	GreaterThanCompleteComponent,
 	GreaterThanFieldNameComponent,
-	GreaterThanConditionalExpressionsComponent,
+	GreaterThanConditionalExpressionComponent,
 	GreaterThanMessageComponent,
 	GreaterThanAddComponent,
 	GreaterThanEditComponent,
@@ -38,7 +38,7 @@ entryComponents: [
   exports: [
 	GreaterThanCompleteComponent,
 	GreaterThanFieldNameComponent,
-	GreaterThanConditionalExpressionsComponent,
+	GreaterThanConditionalExpressionComponent,
 	GreaterThanMessageComponent,
 	GreaterThanAddComponent,
 	GreaterThanEditComponent,

@@ -8,7 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { RangeCompleteComponent } from './complete/range-complete.component';
 import { RangeMinimumNumberComponent } from './minimumNumber/range-minimum-number.component';
 import { RangeMaximumNumberComponent } from './maximumNumber/range-maximum-number.component';
-import { RangeConditionalExpressionsComponent } from './conditionalExpressions/range-conditional-expressions.component';
+import { RangeConditionalExpressionComponent } from './conditionalExpression/range-conditional-expression.component';
 import { RangeMessageComponent } from './message/range-message.component';
 import { RangeAddComponent } from './add/range-add.component';
 import { RangeEditComponent } from './edit/range-edit.component';
@@ -18,7 +18,7 @@ import { RangeEditComponent } from './edit/range-edit.component';
 	RangeCompleteComponent,
 	RangeMinimumNumberComponent,
 	RangeMaximumNumberComponent,
-	RangeConditionalExpressionsComponent,
+	RangeConditionalExpressionComponent,
 	RangeMessageComponent,
 	RangeAddComponent,
 	RangeEditComponent,
@@ -27,7 +27,7 @@ entryComponents: [
 	RangeCompleteComponent,
 	RangeMinimumNumberComponent,
 	RangeMaximumNumberComponent,
-	RangeConditionalExpressionsComponent,
+	RangeConditionalExpressionComponent,
 	RangeMessageComponent,
 	RangeAddComponent,
 	RangeEditComponent,
@@ -42,7 +42,7 @@ entryComponents: [
 	RangeCompleteComponent,
 	RangeMinimumNumberComponent,
 	RangeMaximumNumberComponent,
-	RangeConditionalExpressionsComponent,
+	RangeConditionalExpressionComponent,
 	RangeMessageComponent,
 	RangeAddComponent,
 	RangeEditComponent,

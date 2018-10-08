@@ -1,5 +1,5 @@
 ---
-title: MinLength Validation 
+title: minLength Validation 
 description: MinLength validation decorator will allow only minimum length be entered upto value parameter. If user tries to enter any string having length less then the value then the property will become invalid. To use the minLength decorator on particular property.
 author: rxcontributorone
 
@@ -45,26 +45,26 @@ message and conditional expression options are not mandatory to use in the `@min
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpressions](#conditionalexpressions) | Min Length validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Min Length validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 |[value](#value) | enter value which you want to restrict string length in the property |
 
-## conditionalExpressions 
+## conditionalExpression 
 Type :  `Function`  |  `string` 
 Min Length validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\minLength\conditionalExpressions\contact.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\minLength\conditionalExpressions\min-length-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\minLength\conditionalExpressions\min-length-conditional-expressions.component.html)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\minLength\conditionalExpression\contact.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\minLength\conditionalExpression\min-length-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\minLength\conditionalExpression\min-length-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-minLength-conditionalExpressions></app-minLength-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=minLength decorator with conditionalExpression)]
+<app-minLength-conditionalExpression></app-minLength-conditionalExpression>
 
 ## message 
 Type :  `string` 
@@ -79,7 +79,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\minLength\message\min-length-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=minLength decorator with custom message)]
 <app-minLength-message></app-minLength-message>
 
 ## value 
@@ -95,7 +95,7 @@ enter value which you want to restrict string length in the property.
 [!code-typescript[](\assets\examples\minLength\value\min-length-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="value=!value")]
+[!example(?type=section&clickEventCode="value=!value"&title=minLength decorator with value)]
 <app-minLength-value></app-minLength-value>
 
 # Complete MinLength Example

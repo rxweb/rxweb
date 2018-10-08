@@ -1,7 +1,7 @@
 <div id="wrapper" *ngIf="showComponent">
 	<div class="content">
 		<div class="title">
-	<h1> MaxDate Validation  </h1>
+	<h1> maxDate Validation  </h1>
 	<p> MaxDate validation decorator will allow only maximum date be entered upto value parameter. If user tries to enter any number that greater then the value then the property will become invalid. To use the maxDate decorator on particular property.</p>
 </div>
 		<div class="bg-white py-3 border-radius">
@@ -92,13 +92,13 @@
 			</div>
 	</div>
 </div>
-<div class="model-ts" *ngIf="tab_1=='basicadd'">
+<div class="model-ts " *ngIf="tab_1=='basicadd'">
 	<div class="code-example">
 			 <app-maxDate-add></app-maxDate-add>
 
 	</div>
 </div>
-<div class="model-ts" *ngIf="tab_1=='basicedit'">
+<div class="model-ts " *ngIf="tab_1=='basicedit'">
 	<div class="code-example">
 			 <app-maxDate-edit></app-maxDate-edit>
 
@@ -119,63 +119,66 @@
 				</tr>
 		</thead>
 		<tbody>
-			<tr>	<td><a href='#conditionalexpression' title='conditionalExpressions' (click)='scrollTo("#conditionalexpression")'>conditionalExpressions</a></td> 	<td>Max Date validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>	<tr>	<td><a href='#value' title='value' (click)='scrollTo("#value")'>value</a></td> 	<td>enter value which you want to restrict number in the property </td> </tr>		</tbody>
+			<tr>	<td><a href='#conditionalexpressions' title='conditionalExpression' (click)='scrollTo("#conditionalexpressions")'>conditionalExpression</a></td> 	<td>Max Date validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>	<tr>	<td><a href='#value' title='value' (click)='scrollTo("#value")'>value</a></td> 	<td>enter value which you want to restrict number in the property </td> </tr>		</tbody>
 	 </table>
 
 </div>
 </div>
-<div class='row' id= 'conditionalexpressions'>
+<div class='row' id= 'conditionalexpression'>
 <div class='col-lg-12'>
-<h2>conditionalExpressions</h2>
+<h2>conditionalExpression</h2>
 
 <p>Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span></p>
 <p>Max Date validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
 <p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
-<ul class="nav nav-tabs" *ngIf="conditionalExpressions">
-	<li [class.active]="tab_2=='conditionalExpressionsmodel'" (click)="tab_2='conditionalExpressionsmodel'"><a>Model</a></li>
-	<li [class.active]="tab_2=='conditionalExpressionsComponent'" (click)="tab_2='conditionalExpressionsComponent'"><a>Component</a></li>
-	<li [class.active]="tab_2=='conditionalExpressionsHtml'" (click)="tab_2='conditionalExpressionsHtml'"><a>Html</a></li>
+<ul class="nav nav-tabs" *ngIf="conditionalExpression">
+	<li [class.active]="tab_2=='conditionalExpressionmodel'" (click)="tab_2='conditionalExpressionmodel'"><a>Model</a></li>
+	<li [class.active]="tab_2=='conditionalExpressionComponent'" (click)="tab_2='conditionalExpressionComponent'"><a>Component</a></li>
+	<li [class.active]="tab_2=='conditionalExpressionHtml'" (click)="tab_2='conditionalExpressionHtml'"><a>Html</a></li>
 </ul>
-<div class="tab-content" *ngIf="conditionalExpressions">
-			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionsmodel'">
+<div class="tab-content" *ngIf="conditionalExpression">
+			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionmodel'">
 			<div  >
 	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpressions.Model" (cbOnSuccess)="codeContent.conditionalExpressions.ModelCopied = true" [class.copied]="codeContent.conditionalExpressions.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Model" (cbOnSuccess)="codeContent.conditionalExpression.ModelCopied = true" [class.copied]="codeContent.conditionalExpression.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.conditionalExpressions.Model"></code></pre>
+				<pre><code [textContent]="codeContent.conditionalExpression.Model"></code></pre>
 			</div>
 	</div>
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionsComponent'">
+			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionComponent'">
 			<div  >
 	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpressions.Component" (cbOnSuccess)="codeContent.conditionalExpressions.ComponentCopied = true" [class.copied]="codeContent.conditionalExpressions.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Component" (cbOnSuccess)="codeContent.conditionalExpression.ComponentCopied = true" [class.copied]="codeContent.conditionalExpression.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.conditionalExpressions.Component"></code></pre>
+				<pre><code [textContent]="codeContent.conditionalExpression.Component"></code></pre>
 			</div>
 	</div>
 </div>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionsHtml'">
+			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionHtml'">
 			<div  >
 	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpressions.Html" (cbOnSuccess)="codeContent.conditionalExpressions.HtmlCopied = true" [class.copied]="codeContent.conditionalExpressions.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Html" (cbOnSuccess)="codeContent.conditionalExpression.HtmlCopied = true" [class.copied]="codeContent.conditionalExpression.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.conditionalExpressions.Html"></code></pre>
+				<pre><code [textContent]="codeContent.conditionalExpression.Html"></code></pre>
 			</div>
 	</div>
 </div>
 
 		  </div>
 	</div>																											
-<div class="model-ts" >
-<a class="float-right copy-icon" (click)="conditionalExpressions=!conditionalExpressions"><i aria-hidden="true" class="fa fa-code"></i></a>
+<div class="model-ts combined " >
+<a class="float-right copy-icon" (click)="conditionalExpression=!conditionalExpression"><i aria-hidden="true" class="fa fa-code"></i></a>
 
+	<div class="code-example-title">
+		maxDate decorator with conditionalExpression
+	</div>
 	<div class="code-example">
-			 <app-maxDate-conditionalExpressions></app-maxDate-conditionalExpressions>
+			 <app-maxDate-conditionalExpression></app-maxDate-conditionalExpression>
 
 	</div>
 </div>
@@ -227,9 +230,12 @@
 
 		  </div>
 	</div>																											
-<div class="model-ts" >
+<div class="model-ts combined " >
 <a class="float-right copy-icon" (click)="message=!message"><i aria-hidden="true" class="fa fa-code"></i></a>
 
+	<div class="code-example-title">
+		maxDate decorator with custom message
+	</div>
 	<div class="code-example">
 			 <app-maxDate-message></app-maxDate-message>
 
@@ -283,9 +289,12 @@
 
 		  </div>
 	</div>																											
-<div class="model-ts" >
+<div class="model-ts combined " >
 <a class="float-right copy-icon" (click)="value=!value"><i aria-hidden="true" class="fa fa-code"></i></a>
 
+	<div class="code-example-title">
+		maxDate decorator with value
+	</div>
 	<div class="code-example">
 			 <app-maxDate-value></app-maxDate-value>
 
@@ -343,6 +352,10 @@
 		  </div>
 	</div>																											
 	  
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
 							<app-disqus></app-disqus>
 						</div>
 					</div>

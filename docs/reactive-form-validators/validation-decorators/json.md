@@ -1,5 +1,5 @@
 ---
-title: Json Validation 
+title: json  
 description: json validation decorator will allow only Json to be entered. If user tries to enter any string except json then the property will become invalid. To use the json decorator on particular property.
 author: rxcontributorone
 
@@ -44,26 +44,26 @@ Below options are not mandatory to use in the `@json()` decorator. If needed the
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpressions](#conditionalexpressions) | Json validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Json validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
-## conditionalExpressions
+## conditionalExpression
 Type :  `Function`  |  `string` 
 
 Json validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\json\conditionalExpressions\json-info.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\json\conditionalExpressions\json-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\json\conditionalExpressions\json-conditional-expressions.component.html)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\json\conditionalExpression\json-info.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\json\conditionalExpression\json-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\json\conditionalExpression\json-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-json-conditionalExpressions></app-json-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=json decorator with conditionalExpression)]
+<app-json-conditionalExpression></app-json-conditionalExpression>
 
 ## message 
 Type :  `string` 
@@ -79,7 +79,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\json\message\json-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=json decorator with custom message)]
 <app-json-message></app-json-message>
 
 # Complete Json Example

@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { RequiredCompleteComponent } from './complete/required-complete.component';
-import { RequiredConditionalExpressionsComponent } from './conditionalExpressions/required-conditional-expressions.component';
+import { RequiredConditionalExpressionComponent } from './conditionalExpression/required-conditional-expression.component';
 import { RequiredMessageComponent } from './message/required-message.component';
 import { RequiredAddComponent } from './add/required-add.component';
 import { RequiredEditComponent } from './edit/required-edit.component';
@@ -14,14 +14,14 @@ import { RequiredEditComponent } from './edit/required-edit.component';
 @NgModule({
   declarations: [
 	RequiredCompleteComponent,
-	RequiredConditionalExpressionsComponent,
+	RequiredConditionalExpressionComponent,
 	RequiredMessageComponent,
 	RequiredAddComponent,
 	RequiredEditComponent,
   ],
 entryComponents: [
 	RequiredCompleteComponent,
-	RequiredConditionalExpressionsComponent,
+	RequiredConditionalExpressionComponent,
 	RequiredMessageComponent,
 	RequiredAddComponent,
 	RequiredEditComponent,
@@ -34,7 +34,7 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	RequiredCompleteComponent,
-	RequiredConditionalExpressionsComponent,
+	RequiredConditionalExpressionComponent,
 	RequiredMessageComponent,
 	RequiredAddComponent,
 	RequiredEditComponent,

@@ -7,7 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { MaxLengthCompleteComponent } from './complete/max-length-complete.component';
 import { MaxLengthValueComponent } from './value/max-length-value.component';
-import { MaxLengthConditionalExpressionsComponent } from './conditionalExpressions/max-length-conditional-expressions.component';
+import { MaxLengthConditionalExpressionComponent } from './conditionalExpression/max-length-conditional-expression.component';
 import { MaxLengthMessageComponent } from './message/max-length-message.component';
 import { MaxLengthAddComponent } from './add/max-length-add.component';
 import { MaxLengthEditComponent } from './edit/max-length-edit.component';
@@ -16,7 +16,7 @@ import { MaxLengthEditComponent } from './edit/max-length-edit.component';
   declarations: [
 	MaxLengthCompleteComponent,
 	MaxLengthValueComponent,
-	MaxLengthConditionalExpressionsComponent,
+	MaxLengthConditionalExpressionComponent,
 	MaxLengthMessageComponent,
 	MaxLengthAddComponent,
 	MaxLengthEditComponent,
@@ -24,7 +24,7 @@ import { MaxLengthEditComponent } from './edit/max-length-edit.component';
 entryComponents: [
 	MaxLengthCompleteComponent,
 	MaxLengthValueComponent,
-	MaxLengthConditionalExpressionsComponent,
+	MaxLengthConditionalExpressionComponent,
 	MaxLengthMessageComponent,
 	MaxLengthAddComponent,
 	MaxLengthEditComponent,
@@ -38,7 +38,7 @@ entryComponents: [
   exports: [
 	MaxLengthCompleteComponent,
 	MaxLengthValueComponent,
-	MaxLengthConditionalExpressionsComponent,
+	MaxLengthConditionalExpressionComponent,
 	MaxLengthMessageComponent,
 	MaxLengthAddComponent,
 	MaxLengthEditComponent,

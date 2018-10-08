@@ -15,9 +15,9 @@ export class RangeComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic range Validation":null,"RangeConfig":["conditionalExpressions","message","minimumNumber","maximumNumber"],"Complete range Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic range Validation":null,"RangeConfig":["conditionalExpression","message","minimumNumber","maximumNumber"],"Complete range Example":null};
   tab_1:string = "basicadd";
-   tab_2:string = "conditionalExpressionsmodel";
+   tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";
    tab_4:string = "minimumNumberModel";
    tab_5:string = "maximumNumberModel";

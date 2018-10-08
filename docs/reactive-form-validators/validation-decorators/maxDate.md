@@ -1,5 +1,5 @@
 ---
-title: MaxDate Validation  
+title: maxDate Validation  
 description: MaxDate validation decorator will allow only maximum date be entered upto value parameter. If user tries to enter any number that greater then the value then the property will become invalid. To use the maxDate decorator on particular property.
 author:  rxcontributorone
 
@@ -44,26 +44,26 @@ Below options are not mandatory to use in the `@maxDate()` decorator. If needed 
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpressions](#conditionalexpressions) | Max Date validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Max Date validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 |[value](#value) | enter value which you want to restrict number in the property |
 
-## conditionalExpressions 
+## conditionalExpression 
 Type :  `Function`  |  `string`
 Max Date validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\maxDate\conditionalExpressions\user.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\maxDate\conditionalExpressions\max-date-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\maxDate\conditionalExpressions\max-date-conditional-expressions.component.html)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\maxDate\conditionalExpression\user.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\maxDate\conditionalExpression\max-date-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\maxDate\conditionalExpression\max-date-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-maxDate-conditionalExpressions></app-maxDate-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=maxDate decorator with conditionalExpression)]
+<app-maxDate-conditionalExpression></app-maxDate-conditionalExpression>
 
 ## message 
 Type :  `string` 
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\maxDate\message\max-date-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=maxDate decorator with custom message)]
 <app-maxDate-message></app-maxDate-message>
 
 ## value 
@@ -94,7 +94,7 @@ enter value which you want to restrict number in the property.
 [!code-typescript[](\assets\examples\maxDate\value\max-date-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="value=!value")]
+[!example(?type=section&clickEventCode="value=!value"&title=maxDate decorator with value)]
 <app-maxDate-value></app-maxDate-value>
 
 # Complete MaxDate Example

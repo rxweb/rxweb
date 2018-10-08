@@ -8,7 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { PatternCompleteComponent } from './complete/pattern-complete.component';
 import { PatternPatternComponent } from './pattern/pattern-pattern.component';
 import { PatternMessageComponent } from './message/pattern-message.component';
-import { PatternConditionalExpressionsComponent } from './conditionalExpressions/pattern-conditional-expressions.component';
+import { PatternConditionalExpressionComponent } from './conditionalExpression/pattern-conditional-expression.component';
 import { PatternAddComponent } from './add/pattern-add.component';
 import { PatternEditComponent } from './edit/pattern-edit.component';
 
@@ -17,7 +17,7 @@ import { PatternEditComponent } from './edit/pattern-edit.component';
 	PatternCompleteComponent,
 	PatternPatternComponent,
 	PatternMessageComponent,
-	PatternConditionalExpressionsComponent,
+	PatternConditionalExpressionComponent,
 	PatternAddComponent,
 	PatternEditComponent,
   ],
@@ -25,7 +25,7 @@ entryComponents: [
 	PatternCompleteComponent,
 	PatternPatternComponent,
 	PatternMessageComponent,
-	PatternConditionalExpressionsComponent,
+	PatternConditionalExpressionComponent,
 	PatternAddComponent,
 	PatternEditComponent,
   ],
@@ -39,7 +39,7 @@ entryComponents: [
 	PatternCompleteComponent,
 	PatternPatternComponent,
 	PatternMessageComponent,
-	PatternConditionalExpressionsComponent,
+	PatternConditionalExpressionComponent,
 	PatternAddComponent,
 	PatternEditComponent,
   ],

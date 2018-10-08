@@ -7,7 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { ContainsCompleteComponent } from './complete/contains-complete.component';
 import { ContainsValueComponent } from './value/contains-value.component';
-import { ContainsConditionalExpressionsComponent } from './conditionalExpressions/contains-conditional-expressions.component';
+import { ContainsConditionalExpressionComponent } from './conditionalExpression/contains-conditional-expression.component';
 import { ContainsMessageComponent } from './message/contains-message.component';
 import { ContainsAddComponent } from './add/contains-add.component';
 import { ContainsEditComponent } from './edit/contains-edit.component';
@@ -16,7 +16,7 @@ import { ContainsEditComponent } from './edit/contains-edit.component';
   declarations: [
 	ContainsCompleteComponent,
 	ContainsValueComponent,
-	ContainsConditionalExpressionsComponent,
+	ContainsConditionalExpressionComponent,
 	ContainsMessageComponent,
 	ContainsAddComponent,
 	ContainsEditComponent,
@@ -24,7 +24,7 @@ import { ContainsEditComponent } from './edit/contains-edit.component';
 entryComponents: [
 	ContainsCompleteComponent,
 	ContainsValueComponent,
-	ContainsConditionalExpressionsComponent,
+	ContainsConditionalExpressionComponent,
 	ContainsMessageComponent,
 	ContainsAddComponent,
 	ContainsEditComponent,
@@ -38,7 +38,7 @@ entryComponents: [
   exports: [
 	ContainsCompleteComponent,
 	ContainsValueComponent,
-	ContainsConditionalExpressionsComponent,
+	ContainsConditionalExpressionComponent,
 	ContainsMessageComponent,
 	ContainsAddComponent,
 	ContainsEditComponent,

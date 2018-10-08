@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { AlphaCompleteComponent } from './complete/alpha-complete.component';
-import { AlphaConditionalExpressionsComponent } from './conditionalExpressions/alpha-conditional-expressions.component';
+import { AlphaConditionalExpressionComponent } from './conditionalExpression/alpha-conditional-expression.component';
 import { AlphaAllowWhiteSpaceComponent } from './allowWhiteSpace/alpha-allow-white-space.component';
 import { AlphaMessageComponent } from './message/alpha-message.component';
 import { AlphaAddComponent } from './add/alpha-add.component';
@@ -15,7 +15,7 @@ import { AlphaEditComponent } from './edit/alpha-edit.component';
 @NgModule({
   declarations: [
 	AlphaCompleteComponent,
-	AlphaConditionalExpressionsComponent,
+	AlphaConditionalExpressionComponent,
 	AlphaAllowWhiteSpaceComponent,
 	AlphaMessageComponent,
 	AlphaAddComponent,
@@ -23,7 +23,7 @@ import { AlphaEditComponent } from './edit/alpha-edit.component';
   ],
 entryComponents: [
 	AlphaCompleteComponent,
-	AlphaConditionalExpressionsComponent,
+	AlphaConditionalExpressionComponent,
 	AlphaAllowWhiteSpaceComponent,
 	AlphaMessageComponent,
 	AlphaAddComponent,
@@ -37,7 +37,7 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	AlphaCompleteComponent,
-	AlphaConditionalExpressionsComponent,
+	AlphaConditionalExpressionComponent,
 	AlphaAllowWhiteSpaceComponent,
 	AlphaMessageComponent,
 	AlphaAddComponent,

@@ -4,7 +4,7 @@ export class AttandanceDetail {
 
 	@prop()
 	entryPlace: string;
-	@time({conditionalExpressions:x => x.entryPlace == "Lunch Room" }) 
+	@time({conditionalExpression:x => x.entryPlace == "Lunch Room" }) 
 	entryTime: string;
 	@time({allowSeconds:true }) 
 	totalOutTime: string;

@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { HexColorCompleteComponent } from './complete/hex-color-complete.component';
-import { HexColorConditionalExpressionsComponent } from './conditionalExpressions/hex-color-conditional-expressions.component';
+import { HexColorConditionalExpressionComponent } from './conditionalExpression/hex-color-conditional-expression.component';
 import { HexColorMessageComponent } from './message/hex-color-message.component';
 import { HexColorAddComponent } from './add/hex-color-add.component';
 import { HexColorEditComponent } from './edit/hex-color-edit.component';
@@ -14,14 +14,14 @@ import { HexColorEditComponent } from './edit/hex-color-edit.component';
 @NgModule({
   declarations: [
 	HexColorCompleteComponent,
-	HexColorConditionalExpressionsComponent,
+	HexColorConditionalExpressionComponent,
 	HexColorMessageComponent,
 	HexColorAddComponent,
 	HexColorEditComponent,
   ],
 entryComponents: [
 	HexColorCompleteComponent,
-	HexColorConditionalExpressionsComponent,
+	HexColorConditionalExpressionComponent,
 	HexColorMessageComponent,
 	HexColorAddComponent,
 	HexColorEditComponent,
@@ -34,7 +34,7 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	HexColorCompleteComponent,
-	HexColorConditionalExpressionsComponent,
+	HexColorConditionalExpressionComponent,
 	HexColorMessageComponent,
 	HexColorAddComponent,
 	HexColorEditComponent,

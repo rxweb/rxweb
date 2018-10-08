@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { EmailCompleteComponent } from './complete/email-complete.component';
-import { EmailConditionalExpressionsComponent } from './conditionalExpressions/email-conditional-expressions.component';
+import { EmailConditionalExpressionComponent } from './conditionalExpression/email-conditional-expression.component';
 import { EmailMessageComponent } from './message/email-message.component';
 import { EmailAddComponent } from './add/email-add.component';
 import { EmailEditComponent } from './edit/email-edit.component';
@@ -14,14 +14,14 @@ import { EmailEditComponent } from './edit/email-edit.component';
 @NgModule({
   declarations: [
 	EmailCompleteComponent,
-	EmailConditionalExpressionsComponent,
+	EmailConditionalExpressionComponent,
 	EmailMessageComponent,
 	EmailAddComponent,
 	EmailEditComponent,
   ],
 entryComponents: [
 	EmailCompleteComponent,
-	EmailConditionalExpressionsComponent,
+	EmailConditionalExpressionComponent,
 	EmailMessageComponent,
 	EmailAddComponent,
 	EmailEditComponent,
@@ -34,7 +34,7 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	EmailCompleteComponent,
-	EmailConditionalExpressionsComponent,
+	EmailConditionalExpressionComponent,
 	EmailMessageComponent,
 	EmailAddComponent,
 	EmailEditComponent,

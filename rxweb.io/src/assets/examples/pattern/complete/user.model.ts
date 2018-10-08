@@ -6,6 +6,6 @@ export class User {
 	userName: string;
 	@pattern({pattern:{'zipCode':RegExp('/^\d{5}(?:[-\s]\d{4})?$/') }  ,message:'Zipcode must be 5 digits' }) 
 	zipCode: string;
-	@pattern({pattern:{'onlyDigit': RegExp('/^[0-9]*$/')}  ,conditionalExpressions:x=>x.userName=="John" }) 
+	@pattern({pattern:{'onlyDigit': RegExp('/^[0-9]*$/')}  ,conditionalExpression:x=>x.userName=="John" }) 
 	age: string;
 }

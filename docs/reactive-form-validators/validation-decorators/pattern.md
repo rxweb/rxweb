@@ -1,5 +1,5 @@
 ---
-title: Pattern Validation
+title: pattern 
 description: Pattern validation decorator will allow only match input as pattern to be entered. If user tries to enter any string which is not matched pattern then the property will become invalid. To use the pattern decorator on particular property.
 author: rxcontributortwo
 
@@ -43,7 +43,7 @@ message,conditionalExpression options are not mandatory to use in the `@pattern(
 |Option | Description |
 |--- | ---- |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
-|[conditionalExpressions](#conditionalexpressions) | Pattern validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Pattern validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[pattern](#pattern) | enter specific regex pattern |
 
 ## message 
@@ -60,26 +60,26 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\pattern\message\pattern-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=pattern decorator with custom message)]
 <app-pattern-message></app-pattern-message>
 
-## conditionalExpressions 
+## conditionalExpression 
 Type :  `Function`  |  `string` 
 
-Pattern validation should be applied if the condition is matched in the `conditionalExpressions` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpressions` will work as same as client function.
+Pattern validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
- [!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsModel)
-[!code-typescript[](\assets\examples\pattern\conditionalExpressions\user.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\pattern\conditionalExpressions\pattern-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\pattern\conditionalExpressions\pattern-conditional-expressions.component.html)]
+ [!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionModel)
+[!code-typescript[](\assets\examples\pattern\conditionalExpression\user.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\pattern\conditionalExpression\pattern-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\pattern\conditionalExpression\pattern-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-pattern-conditionalExpressions></app-pattern-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=pattern decorator with conditionalExpression)]
+<app-pattern-conditionalExpression></app-pattern-conditionalExpression>
  
 ## pattern 
 Type :  `string` 
@@ -95,7 +95,7 @@ enter specific regex pattern
 [!code-typescript[](\assets\examples\pattern\pattern\pattern-pattern.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="pattern=!pattern")]
+[!example(?type=section&clickEventCode="pattern=!pattern"&title=pattern decorator with pattern)]
 <app-pattern-pattern></app-pattern-pattern>
 
 # Complete pattern Example

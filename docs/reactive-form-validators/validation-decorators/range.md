@@ -1,5 +1,5 @@
 ---
-title: Range Validation
+title: range 
 description: Range validation decorator will allow only in specify range will be entered. If EmployeeInfo tries to enter any value which exceed the range then the property will become invalid. To use the range decorator on particular property.
 author: rxcontributorone
 
@@ -43,27 +43,27 @@ conditionalExpression and message options are not mandatory to use in the `@rang
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpressions](#conditionalexpressions) | Range validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Range validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 |[minimumNumber](#minimumnumber) | Minimum number is for define a minimum number of range |
 |[maximumNumber](#maximumnumber) | Maximum number is for define a maximum number of range |
 
-## conditionalExpressions 
+## conditionalExpression 
 Type :  `Function`  |  `string`
 Range validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\range\conditionalExpressions\employee-info.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\range\conditionalExpressions\range-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\range\conditionalExpressions\range-conditional-expressions.component.html)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\range\conditionalExpression\employee-info.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\range\conditionalExpression\range-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\range\conditionalExpression\range-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-range-conditionalExpressions></app-range-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=range decorator with conditionalExpression)]
+<app-range-conditionalExpression></app-range-conditionalExpression>
 
 ## message 
 Type :  `string` 
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\range\message\range-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=range decorator with custom message)]
 <app-range-message></app-range-message>
 
 ## minimumNumber 
@@ -94,7 +94,7 @@ Minimum number is for define a minimum number of range
 [!code-typescript[](\assets\examples\range\minimumNumber\range-minimum-number.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="minimumNumber=!minimumNumber")]
+[!example(?type=section&clickEventCode="minimumNumber=!minimumNumber"&title=range decorator with minimumNumber)]
 <app-range-minimumNumber></app-range-minimumNumber>
 
 ## maximumNumber 
@@ -110,7 +110,7 @@ Maximum number is for define a maximum number of range
 [!code-typescript[](\assets\examples\range\maximumNumber\range-maximum-number.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="maximumNumber=!maximumNumber")]
+[!example(?type=section&clickEventCode="maximumNumber=!maximumNumber"&title=range decorator with maximumNumber)]
 <app-range-maximumNumber></app-range-maximumNumber>
 
 # Complete range Example

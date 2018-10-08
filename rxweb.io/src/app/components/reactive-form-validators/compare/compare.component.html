@@ -1,7 +1,7 @@
 <div id="wrapper" *ngIf="showComponent">
 	<div class="content">
 		<div class="title">
-	<h1> Compare Validation</h1>
+	<h1> compare </h1>
 	<p> Compare validation decorator will compare two inputs. If user enter unmatched value then the property will become invalid. To use the compare decorator on particular property.</p>
 </div>
 		<div class="bg-white py-3 border-radius">
@@ -90,13 +90,13 @@
 			</div>
 	</div>
 </div>
-<div class="model-ts" *ngIf="tab_1=='basicadd'">
+<div class="model-ts " *ngIf="tab_1=='basicadd'">
 	<div class="code-example">
 			 <app-compare-add></app-compare-add>
 
 	</div>
 </div>
-<div class="model-ts" *ngIf="tab_1=='basicedit'">
+<div class="model-ts " *ngIf="tab_1=='basicedit'">
 	<div class="code-example">
 			 <app-compare-edit></app-compare-edit>
 
@@ -168,9 +168,12 @@
 
 		  </div>
 	</div>																											
-<div class="model-ts" >
+<div class="model-ts combined " >
 <a class="float-right copy-icon" (click)="fieldName=!fieldName"><i aria-hidden="true" class="fa fa-code"></i></a>
 
+	<div class="code-example-title">
+		compare decorator with fieldName
+	</div>
 	<div class="code-example">
 			 <app-compare-fieldName></app-compare-fieldName>
 
@@ -224,9 +227,12 @@
 
 		  </div>
 	</div>																											
-<div class="model-ts" >
+<div class="model-ts combined " >
 <a class="float-right copy-icon" (click)="message=!message"><i aria-hidden="true" class="fa fa-code"></i></a>
 
+	<div class="code-example-title">
+		compare decorator with custom message
+	</div>
 	<div class="code-example">
 			 <app-compare-message></app-compare-message>
 
@@ -284,6 +290,10 @@
 		  </div>
 	</div>																											
 	  
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
 							<app-disqus></app-disqus>
 						</div>
 					</div>

@@ -1,5 +1,5 @@
 ---
-title: LessThanEqualTo Validation
+title: lessThanEqualTo Validation
 description: Less than equal to validation decorator will check that input property is less than equal to value. If user tries to enter greater than value then the property will become invalid. To use the lessThanEqualTo decorator on particular property.
 author: rxcontributorone
 
@@ -45,7 +45,7 @@ message and conditionalExpression options are not mandatory but fieldName is man
 |Option | Description |
 |--- | ---- |
 |[fieldName](#fieldname) | Less than Equal to validation should be applied based on the `fieldName` for compare other field value |
-|[conditionalExpressions](#conditionalexpressions) | Less than Equal to validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Less than Equal to validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 
@@ -62,25 +62,25 @@ Less than Equal to validation should be applied based on the `fieldName` for com
 [!code-typescript[](\assets\examples\lessThanEqualTo\fieldName\less-than-equal-to-field-name.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="fieldName=!fieldName")]
+[!example(?type=section&clickEventCode="fieldName=!fieldName"&title=lessThanEqualTo decorator with fieldName)]
 <app-lessThanEqualTo-fieldName></app-lessThanEqualTo-fieldName>
 
-## conditionalExpressions 
+## conditionalExpression 
 Type :  `Function`  |  `string` 
 Less than Equal to validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. 
 
-[!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\lessThanEqualTo\conditionalExpressions\user.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\lessThanEqualTo\conditionalExpressions\less-than-equal-to-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\lessThanEqualTo\conditionalExpressions\less-than-equal-to-conditional-expressions.component.html)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\lessThanEqualTo\conditionalExpression\user.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\lessThanEqualTo\conditionalExpression\less-than-equal-to-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\lessThanEqualTo\conditionalExpression\less-than-equal-to-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-lessThanEqualTo-conditionalExpressions></app-lessThanEqualTo-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=lessThanEqualTo decorator with conditionalExpression)]
+<app-lessThanEqualTo-conditionalExpression></app-lessThanEqualTo-conditionalExpression>
 
 ## message 
 Type :  `string` 
@@ -95,7 +95,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\lessThanEqualTo\message\less-than-equal-to-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=lessThanEqualTo decorator with custom message)]
 <app-lessThanEqualTo-message></app-lessThanEqualTo-message>
 
 # Complete lessThanEqualTo Example

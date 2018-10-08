@@ -15,9 +15,9 @@ export class UpperCaseComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic UpperCase Validation":null,"MessageConfig":["conditionalExpressions","message"],"Complete upperCase Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic UpperCase Validation":null,"MessageConfig":["conditionalExpression","message"],"Complete upperCase Example":null};
   tab_1:string = "basicadd";
-   tab_2:string = "conditionalExpressionsmodel";
+   tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";
    tab_4:string = "completeexample";
    

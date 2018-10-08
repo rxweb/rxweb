@@ -7,7 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { GreaterThanEqualToCompleteComponent } from './complete/greater-than-equal-to-complete.component';
 import { GreaterThanEqualToFieldNameComponent } from './fieldName/greater-than-equal-to-field-name.component';
-import { GreaterThanEqualToConditionalExpressionsComponent } from './conditionalExpressions/greater-than-equal-to-conditional-expressions.component';
+import { GreaterThanEqualToConditionalExpressionComponent } from './conditionalExpression/greater-than-equal-to-conditional-expression.component';
 import { GreaterThanEqualToMessageComponent } from './message/greater-than-equal-to-message.component';
 import { GreaterThanEqualToAddComponent } from './add/greater-than-equal-to-add.component';
 import { GreaterThanEqualToEditComponent } from './edit/greater-than-equal-to-edit.component';
@@ -16,7 +16,7 @@ import { GreaterThanEqualToEditComponent } from './edit/greater-than-equal-to-ed
   declarations: [
 	GreaterThanEqualToCompleteComponent,
 	GreaterThanEqualToFieldNameComponent,
-	GreaterThanEqualToConditionalExpressionsComponent,
+	GreaterThanEqualToConditionalExpressionComponent,
 	GreaterThanEqualToMessageComponent,
 	GreaterThanEqualToAddComponent,
 	GreaterThanEqualToEditComponent,
@@ -24,7 +24,7 @@ import { GreaterThanEqualToEditComponent } from './edit/greater-than-equal-to-ed
 entryComponents: [
 	GreaterThanEqualToCompleteComponent,
 	GreaterThanEqualToFieldNameComponent,
-	GreaterThanEqualToConditionalExpressionsComponent,
+	GreaterThanEqualToConditionalExpressionComponent,
 	GreaterThanEqualToMessageComponent,
 	GreaterThanEqualToAddComponent,
 	GreaterThanEqualToEditComponent,
@@ -38,7 +38,7 @@ entryComponents: [
   exports: [
 	GreaterThanEqualToCompleteComponent,
 	GreaterThanEqualToFieldNameComponent,
-	GreaterThanEqualToConditionalExpressionsComponent,
+	GreaterThanEqualToConditionalExpressionComponent,
 	GreaterThanEqualToMessageComponent,
 	GreaterThanEqualToAddComponent,
 	GreaterThanEqualToEditComponent,

@@ -1,5 +1,5 @@
 ---
-title: MinDate Validation 
+title: minDate Validation 
 description: Minimum Date validation decorator will allow only minimum date be entered upto value parameter. If user tries to enter any date that less then the value then the property will become invalid. To use the minDate decorator on particular property.
 author: rxcontributortwo
 
@@ -42,27 +42,27 @@ message and conditional expression options are not mandatory to use in the `@min
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpressions](#conditionalexpressions) | Min Date validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Min Date validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 |[value](#value) | enter value which you want to restrict date in the property |
 
-## conditionalExpressions 
+## conditionalExpression 
 Type :  `Function`  |  `string` 
 
 Min Date validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!TabGroup(?showHideCondition="conditionalExpressions")]
-# [Model](#tab\conditionalExpressionsmodel)
-[!code-typescript[](\assets\examples\minDate\conditionalExpressions\user.model.ts)]
-# [Component](#tab\conditionalExpressionsComponent)
-[!code-typescript[](\assets\examples\minDate\conditionalExpressions\min-date-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionsHtml)
-[!code-typescript[](\assets\examples\minDate\conditionalExpressions\min-date-conditional-expressions.component.html)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\minDate\conditionalExpression\user.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\minDate\conditionalExpression\min-date-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\minDate\conditionalExpression\min-date-conditional-expressions.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="conditionalExpressions=!conditionalExpressions")]
-<app-minDate-conditionalExpressions></app-minDate-conditionalExpressions>
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=minDate decorator with conditionalExpression)]
+<app-minDate-conditionalExpression></app-minDate-conditionalExpression>
 
 ## message 
 Type :  `string` 
@@ -77,7 +77,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\minDate\message\min-date-message.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="message=!message")]
+[!example(?type=section&clickEventCode="message=!message"&title=minDate decorator with custom message)]
 <app-minDate-message></app-minDate-message>
 
 ## value 
@@ -94,7 +94,7 @@ enter value which you want to restrict number in the property
 [!code-typescript[](\assets\examples\minDate\value\min-date-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="valueShow=!valueShow")]
+[!example(?type=section&clickEventCode="valueShow=!valueShow"&title=minDate decorator with value)]
 <app-minDate-value></app-minDate-value>
 
 

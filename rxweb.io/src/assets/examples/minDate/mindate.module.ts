@@ -7,7 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { MinDateCompleteComponent } from './complete/min-date-complete.component';
 import { MinDateValueComponent } from './value/min-date-value.component';
-import { MinDateConditionalExpressionsComponent } from './conditionalExpressions/min-date-conditional-expressions.component';
+import { MinDateConditionalExpressionComponent } from './conditionalExpression/min-date-conditional-expression.component';
 import { MinDateMessageComponent } from './message/min-date-message.component';
 import { MinDateAddComponent } from './add/min-date-add.component';
 import { MinDateEditComponent } from './edit/min-date-edit.component';
@@ -16,7 +16,7 @@ import { MinDateEditComponent } from './edit/min-date-edit.component';
   declarations: [
 	MinDateCompleteComponent,
 	MinDateValueComponent,
-	MinDateConditionalExpressionsComponent,
+	MinDateConditionalExpressionComponent,
 	MinDateMessageComponent,
 	MinDateAddComponent,
 	MinDateEditComponent,
@@ -24,7 +24,7 @@ import { MinDateEditComponent } from './edit/min-date-edit.component';
 entryComponents: [
 	MinDateCompleteComponent,
 	MinDateValueComponent,
-	MinDateConditionalExpressionsComponent,
+	MinDateConditionalExpressionComponent,
 	MinDateMessageComponent,
 	MinDateAddComponent,
 	MinDateEditComponent,
@@ -38,7 +38,7 @@ entryComponents: [
   exports: [
 	MinDateCompleteComponent,
 	MinDateValueComponent,
-	MinDateConditionalExpressionsComponent,
+	MinDateConditionalExpressionComponent,
 	MinDateMessageComponent,
 	MinDateAddComponent,
 	MinDateEditComponent,
