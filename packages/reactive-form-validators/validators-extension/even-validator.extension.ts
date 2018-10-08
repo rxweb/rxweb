@@ -7,9 +7,9 @@ import { defaultContainer } from "../core/defaultContainer"
 import { AnnotationTypes } from "../core/validator.static"
 import {STRING } from '../const/validator.const';
 
-export function evenValidatorExtension(config?: AlphaConfig): ValidatorFn {
-    var validator = evenValidator(config,null);
-    var rxwebValidator = (control:AbstractControl,target?:object): { [key: string]: any } => {
+export function evenValidatorExtension(config?: BaseConfig): ValidatorFn {
+    var validator = evenValidator(config);
+    var rxwebValidator = (control:any,target?:object): { [key: string]: any } => {
         if (typeof control == STRING)
           defaultContainer.init(target, 0, control, AnnotationTypes.even, config);
         else

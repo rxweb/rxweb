@@ -12,7 +12,7 @@ import { Linq } from "../util/linq";
 import { ApplicationUtil } from "../util/app-util";
 import { AnnotationTypes } from "../core/validator.static";
 
-export function choiceValidator(config: ChoiceConfig, conditionalValidationProps:string[]): ValidatorFn {
+export function choiceValidator(config: ChoiceConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);

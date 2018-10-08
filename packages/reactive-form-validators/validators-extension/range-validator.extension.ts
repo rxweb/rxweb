@@ -8,8 +8,8 @@ import { AnnotationTypes } from "../core/validator.static"
 import {STRING } from '../const/validator.const';
 
 export function rangeValidatorExtension(config?: RangeConfig): ValidatorFn {
-    var validator = rangeValidator(config,null);
-    var rxwebValidator = (control:AbstractControl,target?:object): { [key: string]: any } => {
+    var validator = rangeValidator(config);
+    var rxwebValidator = (control:any,target?:object): { [key: string]: any } => {
         if (typeof control == STRING)
           defaultContainer.init(target, 0, control, AnnotationTypes.range, config);
         else

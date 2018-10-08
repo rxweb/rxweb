@@ -107,7 +107,7 @@ export class AppComponent implements OnInit {
           skills:this.formBuilder.array([this.validation.group({
             skillName:['']
           })])
-        },{applyAllProps:[Validators.required,RxwebValidators.alpha()]})
+        },new FormBuilderConfiguration({dynamicValidation:{firstName:{alpha:true}}}))
       console.log(this.angularFormGroup);
         var employee = new Employee();
         employee.employeeDetail = new EmployeeDetail();
@@ -139,7 +139,7 @@ export class AppComponent implements OnInit {
         employee.lastName = "john";
         console.log(employee)
         var formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.validations = {
+        formBuilderConfiguration.dynamicValidation = {
             'firstName': {
                 alpha: true
             },

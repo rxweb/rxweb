@@ -14,7 +14,7 @@ import { AnnotationTypes } from "../core/validator.static";
 import {NumericValueType } from '../enums'
 
 
-export function numericValidator(config: NumericConfig, conditionalValidationProps:string[]): ValidatorFn {
+export function numericValidator(config: NumericConfig): ValidatorFn {
 
 
     

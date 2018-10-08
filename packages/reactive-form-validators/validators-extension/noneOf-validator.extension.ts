@@ -8,8 +8,8 @@ import { AnnotationTypes } from "../core/validator.static"
 import {STRING } from '../const/validator.const';
 
 export function noneOfValidatorExtension(config?: ArrayConfig): ValidatorFn {
-    var validator = noneOfValidator(config,null);
-    var rxwebValidator = (control:AbstractControl,target?:object): { [key: string]: any } => {
+    var validator = noneOfValidator(config);
+    var rxwebValidator = (control:any,target?:object): { [key: string]: any } => {
         if (typeof control == STRING)
           defaultContainer.init(target, 0, control, AnnotationTypes.noneOf, config);
         else

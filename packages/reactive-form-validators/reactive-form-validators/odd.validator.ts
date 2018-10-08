@@ -12,7 +12,7 @@ import { Linq } from "../util/linq";
 import { ApplicationUtil } from "../util/app-util";
 import { AnnotationTypes } from "../core/validator.static";
 
-export function oddValidator(config: BaseConfig, conditionalValidationProps:string[]): ValidatorFn {
+export function oddValidator(config: BaseConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
