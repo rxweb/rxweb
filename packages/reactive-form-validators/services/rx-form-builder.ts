@@ -211,8 +211,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                 defaultContainer.initPropertyObject(propName, PROPERTY, undefined, typeof modelInstance == "object" ? modelInstance : { constructor: modelInstance });
               this.applyAllPropValidator(propName, validatorConfig, modelInstance)
             } else if (typeof prop == "string" || typeof prop == "number" || typeof prop == "boolean") {
-              if (!propertyAdded)
-                defaultContainer.initPropertyObject(propName, PROPERTY, undefined, typeof modelInstance == "object" ? modelInstance : { constructor: modelInstance });
+              defaultContainer.initPropertyObject(propName, PROPERTY, undefined, typeof modelInstance == "object" ? modelInstance : { constructor: modelInstance });
               this.applyAllPropValidator(propName, validatorConfig, modelInstance)
             } else if (prop instanceof Array) {
                 if(prop instanceof FormArray){
