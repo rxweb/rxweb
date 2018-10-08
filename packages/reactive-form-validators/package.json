@@ -1,6 +1,6 @@
 {
   "name": "@rxweb/reactive-form-validators",
-  "version": "1.1.5-beta.3",
+  "version": "1.1.5-beta.4",
   "ngPackage": {
     "lib": {
       "entryFile": "index.ts"
@@ -25,7 +25,11 @@
     "formcontrol",
     "dirty check",
     "reset form",
-    "reset nested form"
+    "reset nested form",
+    "model based validation",
+    "angular validators",
+    "angular advanced validators",
+    "pattern based validation"
   ],
   "repository": {
     "type": "git",
