@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
       "validationMessage": {
         "alpha": "Only alphabets are allowed.",
         "alphaNumeric": "Only Alpha Numerics are allowed.",
-        "contains": "Input does not contain pre defined string",
+        "contains": "Input does not contain defined string",
         "compare": "Input does not match",
         "creditCard": "Input is not in the credit card format",
         "digit": "Only digits are allowed",

@@ -1,0 +1,16 @@
+<div>
+<form *ngIf="macAddressInfoFormGroup" [formGroup]="macAddressInfoFormGroup">
+<div class="form-group">
+    <label>First Username</label>
+    <input type="text" formControlName="username1" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="macAddressInfoFormGroup.controls.username1.errors">{{macAddressInfoFormGroup.controls.username1.errors.mac.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>System MAC Address</label>
+    <input type="text" formControlName="systemMacAddress" class="form-control"  />
+    <small class="form-text text-muted">You must enter a MAC address<br/></small>
+    <small class="form-text text-danger" *ngIf="macAddressInfoFormGroup.controls.systemMacAddress.errors">{{macAddressInfoFormGroup.controls.systemMacAddress.errors.mac.message}}<br/></small>
+</div>
+<button [disabled]="!macAddressInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

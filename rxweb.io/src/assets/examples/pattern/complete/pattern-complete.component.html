@@ -4,6 +4,7 @@
     <label>User Name</label>
     <input type="text" formControlName="userName" class="form-control"  />
     <small class="form-text text-muted">It checked that username match alpha regex or not<br/></small>
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Contact Number' or 'Age', then you need to add 'userName' input as 'John<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.userName.errors">{{userFormGroup.controls.userName.errors.pattern.message}}<br/></small>
 </div>
 <div class="form-group">
@@ -13,9 +14,17 @@
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.zipCode.errors">{{userFormGroup.controls.zipCode.errors.pattern.message}}<br/></small>
 </div>
 <div class="form-group">
+    <label>Contact Number</label>
+    <input type="text" formControlName="contactNumber" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Number' then you need to add 'UserName' input as 'John'.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.contactNumber.errors">{{userFormGroup.controls.contactNumber.errors.pattern.message}}<br/></small>
+</div>
+<div class="form-group">
     <label>Age</label>
     <input type="text" formControlName="age" class="form-control"  />
     <small class="form-text text-muted">It checked that age match with digit regex or not and it conditionaly applied when userName is John<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.age.errors">{{userFormGroup.controls.age.errors.pattern.message}}<br/></small>
 </div>
 <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>

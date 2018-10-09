@@ -3,12 +3,21 @@
 <div class="form-group">
     <label>Entry Place</label>
     <input type="text" formControlName="entryPlace" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Total In' or 'Entry Time', then you need to add 'Entry Place' input as 'Lunch Room'<br/></small>
     <small class="form-text text-danger" *ngIf="attandanceDetailFormGroup.controls.entryPlace.errors">{{attandanceDetailFormGroup.controls.entryPlace.errors.time.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Total In</label>
+    <input type="text" formControlName="totalIn" class="form-control"  />
+    <small class="form-text text-muted">To apply the validation of time on 'Entry Time' field, then enter the value of 'Lunch Room' in Entry Place textbox.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
+    <small class="form-text text-danger" *ngIf="attandanceDetailFormGroup.controls.totalIn.errors">{{attandanceDetailFormGroup.controls.totalIn.errors.time.message}}<br/></small>
 </div>
 <div class="form-group">
     <label>Entry Time</label>
     <input type="text" formControlName="entryTime" class="form-control"  />
     <small class="form-text text-muted">To apply the validation of time on 'Entry Time' field, then enter the value of 'Lunch Room' in Entry Place textbox.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
     <small class="form-text text-danger" *ngIf="attandanceDetailFormGroup.controls.entryTime.errors">{{attandanceDetailFormGroup.controls.entryTime.errors.time.message}}<br/></small>
 </div>
 <div class="form-group">

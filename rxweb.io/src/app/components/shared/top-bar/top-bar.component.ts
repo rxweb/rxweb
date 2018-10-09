@@ -1,4 +1,6 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input, Inject } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-top-bar',
@@ -6,11 +8,23 @@ import { Component, OnChanges, SimpleChanges, OnInit, Input, Inject } from '@ang
 })
 
 export class TopBarComponent implements OnInit {
-  constructor(
+  searchFormGroup: FormGroup
+  showComponent: boolean = false;
+  showSearchMenu:boolean =false;
+  FormValidators: any;
+  constructor(private _formBuilder: FormBuilder,private http: HttpClient
   ) {
+    this.searchFormGroup = this._formBuilder.group({
+      search: ''
+    })
   }
 
   ngOnInit(): void {
+    this.http.get('assets/json/validation.json')
+    .subscribe(response => {
+      this.FormValidators = response;
+    }) ;
+  this.showComponent = true;
   }
 
   hideSideBar(): void {

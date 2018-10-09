@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   }
 
   filterList(search: any) {
-    this.validators = this.masterList.filter(t => t.title.toLowerCase().startsWith(search.toLowerCase()))
+    this.validators = this.masterList.filter(t => t.title.toLowerCase().includes(search.toLowerCase()))
   }
 
   ngOnInit(): void {
@@ -37,6 +37,4 @@ export class DashboardComponent implements OnInit, OnChanges {
       });
   }
 
-  logOut(): void {
-  }
 }

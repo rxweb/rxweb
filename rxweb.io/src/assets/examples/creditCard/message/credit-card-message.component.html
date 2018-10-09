@@ -5,6 +5,7 @@
     <input type="text" formControlName="visaCard" class="form-control"  />
     <small class="form-text text-muted">If you want to apply conditional validation on 'Visa Card' then you need to add 'card type' input as 'visa'.<br/></small>
     <small class="form-text text-muted">It shows custom message<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.visaCard.errors">{{userFormGroup.controls.visaCard.errors.creditCard.message}}<br/></small>
 </div>
 <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>

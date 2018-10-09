@@ -1,0 +1,11 @@
+<div>
+<form *ngIf="userInfoFormGroup" [formGroup]="userInfoFormGroup">
+<div class="form-group">
+    <label>Integer Number</label>
+    <input type="text" formControlName="integerNumber" class="form-control"  />
+    <small class="form-text text-muted">you can enter only a non decimal positive number<br/></small>
+    <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.integerNumber.errors">{{userInfoFormGroup.controls.integerNumber.errors.numeric.message}}<br/></small>
+</div>
+<button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>
