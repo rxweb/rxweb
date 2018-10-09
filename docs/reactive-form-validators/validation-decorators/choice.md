@@ -1,7 +1,7 @@
 ---
-title : choice 
-description : choice validation decorator will check whether the value entered is in proper choice of property defined . if user tries to enter value which is not proper choice then the property will be invalid. to use the choice decorator on particular property.
-author : rxcontributorone
+title: choice 
+description: choice validation decorator will check whether the value entered is in proper choice of property defined . if user tries to enter value which is not proper choice then the property will be invalid. to use the choice decorator on particular property.
+author: rxcontributorone
 
 ---
 

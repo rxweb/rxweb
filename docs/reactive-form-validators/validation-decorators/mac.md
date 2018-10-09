@@ -1,7 +1,7 @@
 ---
-title : mac validation
-description : mac validation decorator will check whether the value entered is in proper format of mac address. if user tries to enter value which is not proper mac address  the property will be invalid. to use the mac decorator on particular property.
-author : rxcontributorone
+title: mac validation
+description: mac validation decorator will check whether the value entered is in proper format of mac address. if user tries to enter value which is not proper mac address  the property will be invalid. to use the mac decorator on particular property.
+author: rxcontributorone
 
 ---
 

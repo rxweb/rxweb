@@ -1,7 +1,7 @@
 ---
-title : different 
-description : Different validation decorator will check  two values if they are different it will be valid.it is opposite of compare validator. if user tries to enter value which is same as field which is compared  the property will be invalid. to use the different decorator on particular property.
-author : rxcontributorone
+title: different 
+description: Different validation decorator will check  two values if they are different it will be valid.it is opposite of compare validator. if user tries to enter value which is same as field which is compared  the property will be invalid. to use the different decorator on particular property.
+author: rxcontributorone
 
 ---
 

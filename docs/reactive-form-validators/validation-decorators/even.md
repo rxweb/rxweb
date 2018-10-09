@@ -1,7 +1,7 @@
 ---
-title : even 
-description : Even validation decorator will check whether the value entered is a Even or not. if user tries to enter value which is not a Even the property will be invalid. to use the Even decorator on particular property.
-author : rxcontributorone
+title: even 
+description: Even validation decorator will check whether the value entered is a Even or not. if user tries to enter value which is not a Even the property will be invalid. to use the Even decorator on particular property.
+author: rxcontributorone
 
 ---
 

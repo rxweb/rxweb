@@ -1,7 +1,7 @@
 ---
-title : oneOf
-description : oneof validation decorator will check whether the user has entered any one of the given inputs. if user tries to enter value which is more  then the given value  property will be invalid. to use the oneOf decorator on particular property.
-author : rxcontributorone
+title: oneOf
+description: oneof validation decorator will check whether the user has entered any one of the given inputs. if user tries to enter value which is more  then the given value  property will be invalid. to use the oneOf decorator on particular property.
+author: rxcontributorone
 
 ---
 

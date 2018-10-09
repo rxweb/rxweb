@@ -1,7 +1,7 @@
 ---
-title : numeric validation
-description : numeric validation decorator will check whether the value entered is a valid number or not. if user tries to enter value which is not a proper numeric value it will be invalid. to use the numeric decorator on particular property.
-author : rxcontributorone
+title: numeric validation
+description: numeric validation decorator will check whether the value entered is a valid number or not. if user tries to enter value which is not a proper numeric value it will be invalid. to use the numeric decorator on particular property.
+author: rxcontributorone
 
 ---
 
