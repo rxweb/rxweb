@@ -15,11 +15,12 @@ export class DifferentComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Different Validation":null,"DifferentConfig":["fieldName","message"],"Complete Different Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic Different Validation":null,"DifferentConfig":["conditionalExpression","fieldName","message"],"Complete Different Example":null};
   tab_1:string = "basicadd";
-   tab_2:string = "fieldNamemodel";
-   tab_3:string = "messageModel";
-   tab_4:string = "completeexample";
+   tab_2:string = "conditionalExpressionmodel";
+   tab_3:string = "fieldNamemodel";
+   tab_4:string = "messageModel";
+   tab_5:string = "completeexample";
    
   constructor(
     private http: HttpClient
