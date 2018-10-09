@@ -1,5 +1,5 @@
 ---
-title: lessThan Validation
+title: lessThan
 description: Less than validation decorator will check that input property is less than value. If user tries to enter greater than equal to value then the property will become invalid. To use the lessThan decorator on particular property.
 author: rxcontributortwo
 

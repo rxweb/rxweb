@@ -1,5 +1,5 @@
 ---
-title: maxNumber Validation
+title: maxNumber
 description: MaxNumber validation decorator will allow only maximum number be entered upto value parameter. If user tries to enter any number that greater then the value then the property will become invalid. To use the maxNumber decorator on particular property.
 author: rxcontributorone
 

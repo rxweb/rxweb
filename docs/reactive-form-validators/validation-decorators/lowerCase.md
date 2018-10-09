@@ -1,5 +1,5 @@
 ---
-title: lowerCase Validation 
+title: lowerCase 
 description: lowerCase validation decorator will allow only lowercase to be entered. If user tries to enter any case except lower then the property will become invalid. To use the lowercase decorator on particular property.
 author: rxcontributortwo
 

@@ -1,7 +1,7 @@
 ---
-title : leapYear validation
-description : LeapYear validation decorator will check whether the value entered is a leap year or not. if user tries to enter value which is not a leap year the property will be invalid. to use the leapyear decorator on particular property.
-author : rxcontributorone
+title: leapYear
+description: LeapYear validation decorator will check whether the value entered is a leap year or not. if user tries to enter value which is not a leap year the property will be invalid. to use the leapyear decorator on particular property.
+author: rxcontributorone
 
 ---
 # When to use
