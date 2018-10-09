@@ -25,16 +25,22 @@
               "uri": "reactive-form-validators/alphaNumeric"
             },
             {
-              "title": "contains",
-              "uri": "reactive-form-validators/contains"
-            },
-            {
               "title": "compare",
               "uri": "reactive-form-validators/compare"
             },
             {
+              "title": "contains",
+              "uri": "reactive-form-validators/contains"
+            },
+           
+            {
               "title": "creditCard",
               "uri": "reactive-form-validators/creditCard"
+            },
+         
+            {
+              "title": "different",
+              "uri": "reactive-form-validators/different"
             },
             {
               "title": "digit",
@@ -45,13 +51,22 @@
               "uri": "reactive-form-validators/email"
             },
             {
-              "title": "greaterThan",
-              "uri": "reactive-form-validators/greaterThan"
+              "title": "even",
+              "uri": "reactive-form-validators/even"
+            },
+            {
+              "title": "factor",
+              "uri": "reactive-form-validators/factor"
             },
             {
               "title": "greaterThanEqualTo",
               "uri": "reactive-form-validators/greaterThanEqualTo"
             },
+            {
+              "title": "greaterThan",
+              "uri": "reactive-form-validators/greaterThan"
+            },
+           
             {
               "title": "hexColor",
               "uri": "reactive-form-validators/hexColor"
@@ -61,16 +76,28 @@
               "uri": "reactive-form-validators/json"
             },
             {
-              "title": "lessThan",
-              "uri": "reactive-form-validators/lessThan"
-            },
+              "title": "leapYear",
+              "uri": "reactive-form-validators/leapYear"
+            },   
             {
               "title": "lessThanEqualTo",
               "uri": "reactive-form-validators/lessThanEqualTo"
-            },
+            },     
+            {
+              "title": "lessThan",
+              "uri": "reactive-form-validators/lessThan"
+            },          
             {
               "title": "lowerCase",
               "uri": "reactive-form-validators/lowerCase"
+            },
+            {
+              "title": "mac",
+              "uri": "reactive-form-validators/mac"
+            },
+            {
+              "title": "maxDate",
+              "uri": "reactive-form-validators/maxDate"
             },
             {
               "title": "maxLength",
@@ -80,10 +107,7 @@
               "title": "maxNumber",
               "uri": "reactive-form-validators/maxNumber"
             },
-            {
-              "title": "maxDate",
-              "uri": "reactive-form-validators/maxDate"
-            },
+           
             {
               "title": "minDate",
               "uri": "reactive-form-validators/minDate"
@@ -95,6 +119,14 @@
             {
               "title": "minNumber",
               "uri": "reactive-form-validators/minNumber"
+            },
+            {
+              "title": "numeric",
+              "uri": "reactive-form-validators/numeric"
+            },
+            {
+              "title": "odd",
+              "uri": "reactive-form-validators/odd"
             },
             {
               "title": "password",
@@ -123,7 +155,7 @@
             {
               "title": "url",
               "uri": "reactive-form-validators/url"
-            }
+            }   
           ]
         }
       ]

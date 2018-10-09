@@ -1,21 +1,24 @@
 <div>
 <form *ngIf="jsonInfoFormGroup" [formGroup]="jsonInfoFormGroup">
 <div class="form-group">
-    <label>Location Json</label>
-    <input type="text" formControlName="locationJson" class="form-control"  />
-    <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.locationJson.errors">{{jsonInfoFormGroup.controls.locationJson.errors.json.message}}<br/></small>
-</div>
-<div class="form-group">
     <label>Location</label>
     <input type="text" formControlName="location" class="form-control"  />
-    <small class="form-text text-muted">'To apply the validation of JSON on 'addressJson' field, then enter the value of location is 'India'  in Location textbox.<br/></small>
+    <small class="form-text text-muted">'To apply the validation of JSON on 'addressJson' or 'locationJson' field, then enter the value of location is '{CountryName:India}'  in Location textbox.<br/></small>
     <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.location.errors">{{jsonInfoFormGroup.controls.location.errors.json.message}}<br/></small>
 </div>
 <div class="form-group">
     <label>Address Json</label>
     <input type="text" formControlName="addressJson" class="form-control"  />
-    <small class="form-text text-muted">Conditional validation will be applied if the 'location' field have value India<br/></small>
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Address Json' then you need to add 'Location' input as '{CountryName:India}'.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
     <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.addressJson.errors">{{jsonInfoFormGroup.controls.addressJson.errors.json.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Location Json</label>
+    <input type="text" formControlName="locationJson" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Location Json' then you need to add 'Location' input as '{CountryName:India}'.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+    <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.locationJson.errors">{{jsonInfoFormGroup.controls.locationJson.errors.json.message}}<br/></small>
 </div>
 <div class="form-group">
     <label>Contact Json</label>

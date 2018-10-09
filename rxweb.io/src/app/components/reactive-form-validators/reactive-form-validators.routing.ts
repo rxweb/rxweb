@@ -11,16 +11,20 @@ const REACTIVE_FORM_VALIDATORS_ROUTES: Routes = [
 	loadChildren: './alphaNumeric/alphaNumeric.module#AlphaNumericModule',
 },
  {
-	path:'contains',
-	loadChildren: './contains/contains.module#ContainsModule',
-},
- {
 	path:'compare',
 	loadChildren: './compare/compare.module#CompareModule',
 },
  {
+	path:'contains',
+	loadChildren: './contains/contains.module#ContainsModule',
+},
+ {
 	path:'creditCard',
 	loadChildren: './creditCard/creditCard.module#CreditCardModule',
+},
+ {
+	path:'different',
+	loadChildren: './different/different.module#DifferentModule',
 },
  {
 	path:'digit',
@@ -31,12 +35,20 @@ const REACTIVE_FORM_VALIDATORS_ROUTES: Routes = [
 	loadChildren: './email/email.module#EmailModule',
 },
  {
-	path:'greaterThan',
-	loadChildren: './greaterThan/greaterThan.module#GreaterThanModule',
+	path:'even',
+	loadChildren: './even/even.module#EvenModule',
+},
+ {
+	path:'factor',
+	loadChildren: './factor/factor.module#FactorModule',
 },
  {
 	path:'greaterThanEqualTo',
 	loadChildren: './greaterThanEqualTo/greaterThanEqualTo.module#GreaterThanEqualToModule',
+},
+ {
+	path:'greaterThan',
+	loadChildren: './greaterThan/greaterThan.module#GreaterThanModule',
 },
  {
 	path:'hexColor',
@@ -47,16 +59,28 @@ const REACTIVE_FORM_VALIDATORS_ROUTES: Routes = [
 	loadChildren: './json/json.module#JsonModule',
 },
  {
-	path:'lessThan',
-	loadChildren: './lessThan/lessThan.module#LessThanModule',
+	path:'leapYear',
+	loadChildren: './leapYear/leapYear.module#LeapYearModule',
 },
  {
 	path:'lessThanEqualTo',
 	loadChildren: './lessThanEqualTo/lessThanEqualTo.module#LessThanEqualToModule',
 },
  {
+	path:'lessThan',
+	loadChildren: './lessThan/lessThan.module#LessThanModule',
+},
+ {
 	path:'lowerCase',
 	loadChildren: './lowerCase/lowerCase.module#LowerCaseModule',
+},
+ {
+	path:'mac',
+	loadChildren: './mac/mac.module#MacModule',
+},
+ {
+	path:'maxDate',
+	loadChildren: './maxDate/maxDate.module#MaxDateModule',
 },
  {
 	path:'maxLength',
@@ -65,10 +89,6 @@ const REACTIVE_FORM_VALIDATORS_ROUTES: Routes = [
  {
 	path:'maxNumber',
 	loadChildren: './maxNumber/maxNumber.module#MaxNumberModule',
-},
- {
-	path:'maxDate',
-	loadChildren: './maxDate/maxDate.module#MaxDateModule',
 },
  {
 	path:'minDate',
@@ -81,6 +101,14 @@ const REACTIVE_FORM_VALIDATORS_ROUTES: Routes = [
  {
 	path:'minNumber',
 	loadChildren: './minNumber/minNumber.module#MinNumberModule',
+},
+ {
+	path:'numeric',
+	loadChildren: './numeric/numeric.module#NumericModule',
+},
+ {
+	path:'odd',
+	loadChildren: './odd/odd.module#OddModule',
 },
  {
 	path:'password',

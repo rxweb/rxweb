@@ -2150,7 +2150,7 @@ h1, .h1 {
     padding: 0px 20px;
 }
 .p-2{
-    padding: 20px;
+    padding: 10px;
 }
 .px-1{
 	padding-left:10px;
@@ -2421,7 +2421,6 @@ p.alpha-con-title {
     margin: 0 0 0 247px;
 }
 .dashboard p a {
-    color: #e74c3c;
     font-size: 14px;
     line-height: 20px;
     font-weight: 600;
@@ -2435,9 +2434,11 @@ p.alpha-con-title {
     color: #333333;
 }
 .dashboard .das-title {
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 24px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #6a6c6f;
+    padding: 10px 0 10px 0;
+    line-height: 10px;
 }
 .dashboard .border {
     border-color: #333333;
@@ -3855,7 +3856,7 @@ body {
 .fixed-navbar #header {
     width: 100%;
     position: fixed;
-    z-index: 1000
+    z-index: 1011
 }
 
 .fixed-navbar #wrapper {
@@ -5379,17 +5380,17 @@ input.ng-invalid{
 #rightsidebar .contributors p {
     padding: 0;
 }
-.searchMenu{
-    display: flex;
-    justify-content: space-around;
-    overflow: auto;
+.searchMenu {   
+    justify-content: space-around; 
     height: auto;
     position: fixed;
+    overflow: auto;
+    width: 100%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1010;
+    z-index: 1010; 
     box-shadow: 0 1px 5px 10px rgba(0,0,0,.1);
     background-color: #f1f3f6 !important;
 }
@@ -5398,12 +5399,12 @@ input.ng-invalid{
     margin: 0px !important;
 }
 
-
 .searchMenu app-dashboard > .dashboard#wrapper .emptyList{
     font-size: 25px;
     width: 100%;
    overflow: hidden !important;
    padding-top: 80px;
+   padding-left : 800px;
 }
 .dashboard .border-green {
     border-top: 2px solid #a0a19f;
@@ -5466,4 +5467,8 @@ input.ng-invalid{
 }
 .ml-15{
     margin-left:15px;
+}
+#searchContent::-webkit-scrollbar
+{
+	width: 0px;
 }
