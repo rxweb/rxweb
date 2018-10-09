@@ -2,6 +2,15 @@
 .h-modal-icon {
     font-size: 66px
 }
+.searchclose
+{
+    border: none;
+    outline: none;
+    margin-left: 1855px;
+    margin-top: 63px;
+    background-color: white;
+    font-size: 20px;
+}
 
 .inmodal .color-line {
     border-radius: 4px 4px 0 0
@@ -5397,8 +5406,12 @@ input.ng-invalid{
 
 .searchMenu app-dashboard > .dashboard#wrapper{
     margin: 0px !important;
+    top: 0px!important;
 }
-
+.slimscroll-wrapper
+{
+    height: 1000px!important;
+}
 .searchMenu app-dashboard > .dashboard#wrapper .emptyList{
     font-size: 25px;
     width: 100%;
