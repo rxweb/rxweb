@@ -173,7 +173,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         return formGroup;
     }
 
-    applyAllPropValidator(propName:string,validatorConfig:FormBuilderConfiguration,modelInstance:any){
+    private applyAllPropValidator(propName:string,validatorConfig:FormBuilderConfiguration,modelInstance:any){
         if(validatorConfig && validatorConfig.applyAllProps)
         {
             if(!(validatorConfig.excludeProps && validatorConfig.excludeProps.length > 0 && validatorConfig.excludeProps.indexOf(propName) == -1)){
@@ -190,7 +190,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         }
     }
 
-    createValidatorFormGroup(groupObject:{[key:string]:any},entityObject:{[key:string]:any},modelInstance:any,validatorConfig:FormBuilderConfiguration){
+    private createValidatorFormGroup(groupObject:{[key:string]:any},entityObject:{[key:string]:any},modelInstance:any,validatorConfig:FormBuilderConfiguration){
           for(var propName in groupObject){
             var prop = groupObject[propName];
             if (prop instanceof Array && prop.length > 0 && typeof prop[0] != "object") {

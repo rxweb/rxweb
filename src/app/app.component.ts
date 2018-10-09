@@ -156,7 +156,8 @@ export class AppComponent implements OnInit {
                     conditionalExpression:"x => x.firstName == 'john'"
                 }
             }
-        };
+    };
+    
         this.sampleFormGroup = this.validation.formGroup<Employee>(Employee, employee, formBuilderConfiguration);
         console.log(this.sampleFormGroup);
     }

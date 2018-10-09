@@ -4,7 +4,7 @@ export class BaseFormBuilder{
 
   constructor(){}
 
-  createInstance(){
+  private createInstance(){
     let instance = {};
     defaultContainer.modelIncrementCount = defaultContainer.modelIncrementCount+ 1;
     let modelName = `RxWebModel${defaultContainer.modelIncrementCount}`
