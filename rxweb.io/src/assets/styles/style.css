@@ -2293,9 +2293,9 @@ p.alpha-con-title {
 #rightsidebar .contributors p {
     padding: 0;
 }
-.sidebar-list {
+/*.sidebar-list {
     border-left: 1px solid #34495e;
-}
+}*/
 .contributors .btn {
     background-color: #f5f5f5;
     border: 1px solid #cccccc;

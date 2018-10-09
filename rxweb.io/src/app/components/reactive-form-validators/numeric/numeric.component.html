@@ -1,8 +1,8 @@
 <div id="wrapper" *ngIf="showComponent">
 	<div class="content">
 		<div class="title">
-	<h1></h1>
-	<p></p>
+	<h1> numeric</h1>
+	<p> numeric validation decorator will check whether the value entered is a valid number or not. if user tries to enter value which is not a proper numeric value it will be invalid. to use the numeric decorator on particular property.</p>
 </div>
 		<div class="bg-white py-3 border-radius">
 			<div class="row">
@@ -120,7 +120,7 @@
 				</tr>
 		</thead>
 		<tbody>
-			<tr>	<td><a href='#acceptValue' title='acceptValue' (click)='scrollTo("#acceptValue")'>acceptValue</a></td> 	<td>To apply validation based on checking positive or negative value or both. </td> </tr>	<tr>	<td><a href='#allowDecimal' title='allowDecimal' (click)='scrollTo("#allowDecimal")'>allowDecimal</a></td> 	<td>This will allow decimal in particular control property.The default value is <span class='highlighted'>false</span>. </td> </tr>	<tr>	<td><a href='#conditionalexpressions' title='conditionalExpression' (click)='scrollTo("#conditionalexpressions")'>conditionalExpression</a></td> 	<td>Even validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
+			<tr>	<td><a href='#acceptValue' title='acceptValue' (click)='scrollTo("#acceptValue")'>acceptValue</a></td> 	<td>To apply validation based on checking positive or negative value or both. </td> </tr>	<tr>	<td><a href='#allowDecimal' title='allowDecimal' (click)='scrollTo("#allowDecimal")'>allowDecimal</a></td> 	<td>This will allow decimal in particular control property.The default value is <span class='highlighted'>false</span>. </td> </tr>	<tr>	<td><a href='#conditionalexpressions' title='conditionalExpression' (click)='scrollTo("#conditionalexpressions")'>conditionalExpression</a></td> 	<td>Numeric validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
 	 </table>
 
 </div>
