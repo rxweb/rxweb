@@ -1,5 +1,5 @@
 ---
-title: greaterThan Validation
+title: greaterThan
 description: Greater than validation decorator will check that input property is greater than related field input. If user tries to enter less than or equal to value then the property will become invalid. To use the greaterThan decorator on particular property.
 author: rxcontributortwo
 

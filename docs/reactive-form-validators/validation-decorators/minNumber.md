@@ -1,5 +1,5 @@
 ---
-title: minNumber Validation 
+title: minNumber 
 description: MinNumber validation decorator will allow only minimum number be entered upto value parameter. If user tries to enter any number that less then the value then the property will become invalid. To use the minNumber decorator on particular property.
 author: rxcontributortwo
 
