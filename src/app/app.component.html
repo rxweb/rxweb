@@ -1,4 +1,9 @@
 <h1>Angular FormGroup</h1>
+<form [formGroup]="largeForm">
+  <input type="checkbox" formControlName="veterinarian" /> veterinarian
+  State License <input type="text" formControlName="stateLicense" />
+  {{largeForm.controls.stateLicense.errorMessage}}
+</form>
 <form [formGroup]="userInfoFormGroup">
   <div class="form-group">
     <label>First Name</label>

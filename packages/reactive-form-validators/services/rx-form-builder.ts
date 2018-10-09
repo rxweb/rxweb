@@ -226,7 +226,10 @@ export class RxFormBuilder extends BaseFormBuilder {
                 }
 
             }else if (typeof prop == "object" && !(prop instanceof FormControl)){
-                let formGroup:any = (prop instanceof FormArray) ? prop.controls[0] : prop
+              let formGroup: any = (prop instanceof FormArray) ? prop.controls[0] : prop
+              if (!formGroup.model) {
+                formGroup = this.group(formGroup.controls);
+              }
                 if(prop instanceof FormGroup){
                   entityObject[propName] = prop;
                   defaultContainer.initPropertyObject(propName,OBJECT_PROPERTY,formGroup.model,modelInstance);
@@ -251,9 +254,9 @@ export class RxFormBuilder extends BaseFormBuilder {
           }else if(prop instanceof FormArray){
               entityObject[propName] = prop    
           } else if(prop instanceof FormControl){
-              entityObject[propName] = prop
+            entityObject[propName] = prop
               defaultContainer.initPropertyObject(propName,PROPERTY,undefined, modelInstance.constructor ? modelInstance : {constructor:modelInstance});
-}
+        }
       }        
    }
 

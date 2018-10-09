@@ -168,7 +168,7 @@ export class AppComponent implements OnInit {
     }
 errorObject = {}
   resetData() {
-      this.errorObject = (<FormGroupExtension>this.sampleFormGroup).getErrorSummary(true) ;
+    this.errorObject = (<FormGroupExtension>this.sampleFormGroup).getErrorSummary(true);
       //(<FormGroupExtension>this.sampleFormGroup).resetForm();
   }
 
@@ -251,8 +251,8 @@ index = 0;
           supportsSms: new FormControl(),
         }),
       }),
-      deaNumber: new FormControl(undefined, { validators: [Validators.maxLength(25), RxwebValidators.required({ conditionalExpression: (x) => x.veterinarian })] }), //TODO: Add conditional required validator based on controlled substance service level
-      stateLicense: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
+      deaNumber: new FormControl(undefined, { validators: [Validators.maxLength(25) ] }), //TODO: Add conditional required validator based on controlled substance service level
+      stateLicense: [undefined, [Validators.maxLength(35), RxwebValidators.required({ conditionalExpression: (x) => { return x.veterinarian == true }})]],
       organizationId: new FormControl(undefined, { validators: [Validators.maxLength(100)] }),
 
       //Clinic Info - Other Ids
@@ -265,7 +265,7 @@ index = 0;
       remsHealthcareProviderEnrollmentId: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
       stateControlSubstanceNumber: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
       mutuallyDefined: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-      veterinarian: new FormControl(),
+      veterinarian: [''],
 
       //Contact Info
 
