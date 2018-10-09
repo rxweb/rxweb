@@ -54,6 +54,7 @@
 	</nav>
 </div>
 
-<div class="searchMenu FormValidators" (click)="showSearchMenu=false" id="searchContent" *ngIf="showSearchMenu">
+<div class="searchMenu FormValidators" id="searchContent" *ngIf="showSearchMenu">
+		<div class="bg-white">	<button class="searchclose" (click)="showSearchMenu=false"> <span class="glyphicon glyphicon-remove"></span></button> </div>
 	<app-dashboard  searchText={{searchFormGroup.value.search}} ></app-dashboard>
 </div>
