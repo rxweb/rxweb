@@ -118,9 +118,7 @@ export class BuilderForm extends FormBuilder {
         if (!isDirty) {
           for (let name of objectKeys) {
             if (this.controls[name] instanceof FormGroup) {
-              console.log(name);
               isDirty = this.controls[name].isDirty();
-              console.log(isDirty);
             }
             else {
               for (let formGroup of this.controls[name].controls) {
