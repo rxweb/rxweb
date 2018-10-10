@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\greaterThanEqualTo\add\greater-than-equal-to-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\greaterThanEqualTo\edit\greater-than-equal-to-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=greaterThanEqualTo Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-greaterThanEqualTo-add></app-greaterThanEqualTo-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=greaterThanEqualTo Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-greaterThanEqualTo-edit></app-greaterThanEqualTo-edit>
 
 # RelationalOperatorConfig

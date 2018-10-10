@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\contains\add\contains-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\contains\edit\contains-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=contains Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-contains-add></app-contains-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=contains Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-contains-edit></app-contains-edit>
 
 # ContainsConfig 

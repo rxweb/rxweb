@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\different\add\different-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\different\edit\different-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=diiferent Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-different-add></app-different-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=different Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-different-edit></app-different-edit>
 
 # DifferentConfig

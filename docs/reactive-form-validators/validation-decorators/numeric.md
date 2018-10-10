@@ -35,10 +35,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\numeric\add\numeric-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\numeric\edit\numeric-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=numeric Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-numeric-add></app-numeric-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=numeric Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-numeric-edit></app-numeric-edit>
 
 # NumericConfig
@@ -65,7 +65,7 @@ To apply validation based on checking positive or negative value or both.
 [!code-typescript[](\assets\examples\numeric\acceptValue\numeric-acceptValue.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="acceptValue=!acceptValue"&title=numeric decorator depending upon acceptValue")]
+[!example(?type=section&clickEventCode="acceptValue=!acceptValue"&title="numeric decorator depending upon acceptValue")]
 <app-numeric-acceptValue></app-numeric-acceptValue>
 
 ## allowDecimal 

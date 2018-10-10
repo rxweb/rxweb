@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\upperCase\add\upper-case-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\upperCase\edit\upper-case-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=upperCase Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-upperCase-add></app-upperCase-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=upperCase Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-upperCase-edit></app-upperCase-edit>
  
 # MessageConfig 

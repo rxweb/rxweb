@@ -9,9 +9,9 @@
   <nav role="navigation">
   <div class="header-link hide-menu" (click)="hideSideBar()"><i class="fa fa-bars"></i></div>
   <!-- right -->
-	<form [formGroup]="searchFormGroup" role="search" class="navbar-form-custom search-form-group" method="post" action="#">
+	<form [formGroup]="searchFormGroup" role="search" class="navbar-form-custom" method="post" action="#">
 		<div class="form-group">
-			<input type="text" formControlName="search" placeholder="Search something special" (click)="showSearchMenu=true"   autocomplete="off" class="form-control search-form" name="search">
+			<input type="text" formControlName="search" placeholder="Search something special" (click)="showSearchMenu=true"   autocomplete="off" class="form-control" name="search">
 		</div>
 	</form>
     <div class="mobile-menu">
@@ -24,7 +24,7 @@
 						<a href="'https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/validation-decorators/{{validationName}}">Edit</a>
 					</li>
 					<li>
-						<a href="https://stackoverflow.com/search?q=rxweb">Stack Overflow</a>
+						<a href="https://gitter.im/rx-web/">Stack Overflow</a>
 					</li>
 					<li>
 						<a href="https://gitter.im/rx-web/Lobby">Comment</a>
@@ -41,7 +41,7 @@
 					<a href="'https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/validation-decorators/{{validationName}}" title="Edit"><i class="fa fa-pencil"></i></a>
 				</li>
 				<li>
-					<a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow"><i class="fa fa-stack-overflow"></i></a>
+					<a href="https://gitter.im/rx-web/" title="Stack Overflow"><i class="fa fa-stack-overflow"></i></a>
 				</li>
 				<li>
 					<a href="https://gitter.im/rx-web/Lobby" title="Comment"><i class="fa fa-comment"></i></a>

@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\lessThan\add\less-than-add.component.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\lessThan\edit\less-than-add.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=lessThan Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-lessThan-add></app-lessThan-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=lessThan Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-lessThan-edit></app-lessThan-edit>
 
 # RelationalOperatorConfig 

@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\hexColor\add\hex-color-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\hexColor\edit\hex-color-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=hexColor Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-hexColor-add></app-hexColor-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=hexColor Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-hexColor-edit></app-hexColor-edit>
 
 # HexColorConfig 

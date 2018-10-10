@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\email\add\email-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\email\edit\email-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=email Decorator for edit Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-email-add></app-email-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=email Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-email-edit></app-email-edit>
 
 #EmailConfig

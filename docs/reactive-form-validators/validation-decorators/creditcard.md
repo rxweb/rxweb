@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\creditCard\add\credit-card-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\creditCard\edit\credit-card-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=creditCard Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-creditCard-add></app-creditCard-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=creditCard Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-creditCard-edit></app-creditCard-edit>
 
 # CreditCardConfig

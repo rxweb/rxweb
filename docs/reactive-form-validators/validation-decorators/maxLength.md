@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\maxLength\add\max-length-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\maxLength\edit\max-length-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=maxLength Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-maxLength-add></app-maxLength-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=maxLength Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-maxLength-edit></app-maxLength-edit>
 
 # NumberConfig 

@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\pattern\add\pattern-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\pattern\edit\pattern-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=pattern Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-pattern-add></app-pattern-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=pattern Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-pattern-edit></app-pattern-edit>
  
 # PatternConfig 

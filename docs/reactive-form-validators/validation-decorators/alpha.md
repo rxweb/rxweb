@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\alpha\add\alpha-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\alpha\edit\alpha-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=alpha Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-alpha-add></app-alpha-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=alpha Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-alpha-edit></app-alpha-edit>
 
 # AlphaConfig

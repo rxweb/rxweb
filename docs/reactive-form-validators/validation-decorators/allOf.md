@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\allOf\add\allOf-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\allOf\edit\allOf-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=allOf Decorator for add Example)]
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-allOf-add></app-allOf-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=allOf Decorator for edit Example)]
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
 <app-allOf-edit></app-allOf-edit>
 
 
