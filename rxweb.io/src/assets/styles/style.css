@@ -5485,3 +5485,9 @@ input.ng-invalid{
 {
 	width: 0px;
 }
+.search-form-group{
+    width: 1052px;
+}
+.search-form{
+    width:100%;
+}

@@ -1,18 +1,19 @@
 <aside id="menu" *ngIf="showComponent">
 	<div id="navigation" slimScroll>
 		<ul class="nav" id="side-menu">
-			<li *ngFor="let link of links">
+			<li>
+				<div class="input-group">
+					<input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Search..." id="search-input">
+				</div>
+			</li>
+			<li *ngFor="let link of links | filter:searchText:'title'">
 				<a [routerLink]="link.uri"><span class="nav-label">{{link.title}}</span><span class="fa arrow" *ngIf="link.childrens?.length > 0"></span></a>
 				<ul class="nav nav-second-level collapse in" aria-expanded="false" *ngIf="link.childrens?.length > 0">
 					<li *ngFor="let secondLevel of link.childrens">
 						<a [routerLink]="secondLevel.uri"><span class="nav-label">{{secondLevel.title}}</span><span class="fa arrow" *ngIf="secondLevel.childrens?.length > 0"></span>
-						<span class="fa fa-filter ml-15" (click)="isSearch=!isSearch" *ngIf="secondLevel.childrens?.length > 0 && secondLevel.title == 'VALIDATION DECORATORS'"></span>
 						</a>
-						<div class="input-group" *ngIf="secondLevel.title == 'VALIDATION DECORATORS' && isSearch">
-							<input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Search..." id="search-input">
-						</div>
 						<ul class="nav nav-third-level collapse in" aria-expanded="false" *ngIf="secondLevel.childrens?.length > 0">
-							<li *ngFor="let thirdLevel of secondLevel.childrens | filter:searchText:'title'">
+							<li *ngFor="let thirdLevel of secondLevel.childrens">
 								<a [routerLink]="thirdLevel.uri">
 										<span class="nav-label">{{thirdLevel.title}}</span>
 									</a>
@@ -26,3 +27,4 @@
 	<div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 0px; position: absolute; top: 0px; opacity: 0.3; display: none; border-radius: 7px; z-index: 99; right: 1px; height: auto;"></div>
 	<div class="slimScrollRail" style="width: 0px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
 </aside>
+

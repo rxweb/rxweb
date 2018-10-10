@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\oneOf\add\oneOf-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\oneOf\edit\oneOf-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=oneOf Decorator for add Example)]
 <app-oneOf-add></app-oneOf-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=oneOf Decorator for edit Example)]
 <app-oneOf-edit></app-oneOf-edit>
 
 # oneOfConfig

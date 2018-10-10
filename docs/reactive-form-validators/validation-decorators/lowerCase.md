@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\lowerCase\add\lower-case-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\lowerCase\edit\lower-case-add.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=lowerCase Decorator for edit Example)]
 <app-lowerCase-add></app-lowerCase-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=lowerCase Decorator for edit Example)]
 <app-lowerCase-edit></app-lowerCase-edit>
 
 # MessageConfig 

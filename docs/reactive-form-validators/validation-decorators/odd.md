@@ -30,8 +30,8 @@ Here we have covered Add and Edit form operations.
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\odd\add\odd-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\odd\edit\odd-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\odd\add\odd-add.component.html?condition="tab_1=='basicadd'"&type=section&title=odd Decorator for add Example)]
+[!code-typescript[](\assets\examples\odd\edit\odd-edit.component.html?condition="tab_1=='basicedit'"&type=section&title=odd Decorator for edit Example)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-odd-add></app-odd-add>

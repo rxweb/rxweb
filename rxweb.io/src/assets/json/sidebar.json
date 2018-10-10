@@ -2,7 +2,7 @@
   "links": [
     {
       "title": "REACTIVE FORM VALIDATORS",
-      "uri": "reactive-form-validators",
+      "uri": "validation-decorators",
       "childrens": [
         {
           "title": "Import Modules",
@@ -18,143 +18,143 @@
           "childrens": [
             {
               "title": "alpha",
-              "uri": "reactive-form-validators/alpha"
+              "uri": "validation-decorators/alpha"
             },
             {
               "title": "alphaNumeric",
-              "uri": "reactive-form-validators/alphaNumeric"
+              "uri": "validation-decorators/alphaNumeric"
             },
             {
               "title": "compare",
-              "uri": "reactive-form-validators/compare"
+              "uri": "validation-decorators/compare"
             },
             {
               "title": "contains",
-              "uri": "reactive-form-validators/contains"
+              "uri": "validation-decorators/contains"
             },
            
             {
               "title": "creditCard",
-              "uri": "reactive-form-validators/creditCard"
+              "uri": "validation-decorators/creditCard"
             },
          
             {
               "title": "different",
-              "uri": "reactive-form-validators/different"
+              "uri": "validation-decorators/different"
             },
             {
               "title": "digit",
-              "uri": "reactive-form-validators/digit"
+              "uri": "validation-decorators/digit"
             },
             {
               "title": "email",
-              "uri": "reactive-form-validators/email"
+              "uri": "validation-decorators/email"
             },
             {
               "title": "even",
-              "uri": "reactive-form-validators/even"
+              "uri": "validation-decorators/even"
             },
             {
               "title": "factor",
-              "uri": "reactive-form-validators/factor"
+              "uri": "validation-decorators/factor"
             },
             {
               "title": "greaterThanEqualTo",
-              "uri": "reactive-form-validators/greaterThanEqualTo"
+              "uri": "validation-decorators/greaterThanEqualTo"
             },
             {
               "title": "greaterThan",
-              "uri": "reactive-form-validators/greaterThan"
+              "uri": "validation-decorators/greaterThan"
             },
            
             {
               "title": "hexColor",
-              "uri": "reactive-form-validators/hexColor"
+              "uri": "validation-decorators/hexColor"
             },
             {
               "title": "json",
-              "uri": "reactive-form-validators/json"
+              "uri": "validation-decorators/json"
             },
             {
               "title": "leapYear",
-              "uri": "reactive-form-validators/leapYear"
+              "uri": "validation-decorators/leapYear"
             },   
             {
               "title": "lessThanEqualTo",
-              "uri": "reactive-form-validators/lessThanEqualTo"
+              "uri": "validation-decorators/lessThanEqualTo"
             },     
             {
               "title": "lessThan",
-              "uri": "reactive-form-validators/lessThan"
+              "uri": "validation-decorators/lessThan"
             },          
             {
               "title": "lowerCase",
-              "uri": "reactive-form-validators/lowerCase"
+              "uri": "validation-decorators/lowerCase"
             },
             {
               "title": "mac",
-              "uri": "reactive-form-validators/mac"
+              "uri": "validation-decorators/mac"
             },
             {
               "title": "maxDate",
-              "uri": "reactive-form-validators/maxDate"
+              "uri": "validation-decorators/maxDate"
             },
             {
               "title": "maxLength",
-              "uri": "reactive-form-validators/maxLength"
+              "uri": "validation-decorators/maxLength"
             },
             {
               "title": "maxNumber",
-              "uri": "reactive-form-validators/maxNumber"
+              "uri": "validation-decorators/maxNumber"
             },
            
             {
               "title": "minDate",
-              "uri": "reactive-form-validators/minDate"
+              "uri": "validation-decorators/minDate"
             },
             {
               "title": "minLength",
-              "uri": "reactive-form-validators/minLength"
+              "uri": "validation-decorators/minLength"
             },
             {
               "title": "minNumber",
-              "uri": "reactive-form-validators/minNumber"
+              "uri": "validation-decorators/minNumber"
             },
             {
               "title": "numeric",
-              "uri": "reactive-form-validators/numeric"
+              "uri": "validation-decorators/numeric"
             },
             {
               "title": "odd",
-              "uri": "reactive-form-validators/odd"
+              "uri": "validation-decorators/odd"
             },
             {
               "title": "password",
-              "uri": "reactive-form-validators/password"
+              "uri": "validation-decorators/password"
             },
             {
               "title": "pattern",
-              "uri": "reactive-form-validators/pattern"
+              "uri": "validation-decorators/pattern"
             },
             {
               "title": "range",
-              "uri": "reactive-form-validators/range"
+              "uri": "validation-decorators/range"
             },
             {
               "title": "required",
-              "uri": "reactive-form-validators/required"
+              "uri": "validation-decorators/required"
             },
             {
               "title": "time",
-              "uri": "reactive-form-validators/time"
+              "uri": "validation-decorators/time"
             },
             {
               "title": "upperCase",
-              "uri": "reactive-form-validators/upperCase"
+              "uri": "validation-decorators/upperCase"
             },
             {
               "title": "url",
-              "uri": "reactive-form-validators/url"
+              "uri": "validation-decorators/url"
             }   
           ]
         }

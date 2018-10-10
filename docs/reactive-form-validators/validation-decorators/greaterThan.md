@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\greaterThan\add\greater-than-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\greaterThan\edit\greater-than-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=greaterThan Decorator for add Example)]
 <app-greaterThan-add></app-greaterThan-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=greaterThan Decorator for edit Example)]
 <app-greaterThan-edit></app-greaterThan-edit>
 
 # RelationalOperatorConfig 

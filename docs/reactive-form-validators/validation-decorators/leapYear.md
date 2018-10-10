@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\leapYear\add\leapYear-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\leapYear\edit\leapYear-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=leapYear Decorator for add Example)]
 <app-leapYear-add></app-leapYear-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=leapYear Decorator for edit Example)]
 <app-leapYear-edit></app-leapYear-edit>
 
 # BaseConfig

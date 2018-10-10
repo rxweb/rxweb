@@ -1,10 +1,10 @@
 ---
-title: Introduction to Razor Pages in ASP.NET Core
+title: Configure Global Validation Messages
 uid: configure-global-validation-messages
-nOjha: aOjha-cgvm
+author: ajay ojha
 ---
 
-## Configure Global Validation Messages
+# Configure Global Validation Messages
 Apply global validation messages throughout the application, then configure the validation messages globaly(whenever application starts it will initialized automatically). 
 Below is the example to configure the validation messages in 'ReactiveFromConfig'.
 
