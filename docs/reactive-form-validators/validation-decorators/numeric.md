@@ -26,8 +26,11 @@ Here we have covered Add and Edit form operations.
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\numeric\add\numeric-add.component.html)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=numeric Decorator for add Example)]
 <app-numeric-add></app-numeric-add>
+
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=numeric Decorator for edit Example)]
+<app-numeric-edit></app-numeric-edit>
 
 # NumericConfig
 Below options are not mandatory to use in the `@numeric()` decorator. If needed then use the below options.
@@ -53,7 +56,7 @@ To apply validation based on checking positive or negative value or both.
 [!code-typescript[](\assets\examples\numeric\acceptValue\numeric-acceptValue.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="acceptValue=!acceptValue"&title="numeric decorator depending upon acceptValue")]
+[!example(?type=section&clickEventCode="acceptValue=!acceptValue"&title=numeric decorator depending upon acceptValue")]
 <app-numeric-acceptValue></app-numeric-acceptValue>
 
 ## allowDecimal 
@@ -118,4 +121,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\numeric\complete\numeric-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\numeric\complete\numeric-complete.component.html)]
+***
+
+# Dynamic numeric Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-numeric-dynamic></app-numeric-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\numeric\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\numeric\dynamic\numeric-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\numeric\dynamic\numeric-dynamic.component.html)]
 ***

@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\lessThanEqualTo\add\less-than-equal-to-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\lessThanEqualTo\edit\less-than-equal-to-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=lessThanEqualTo Decorator for add Example)]
 <app-lessThanEqualTo-add></app-lessThanEqualTo-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=lessThanEqualTo Decorator for edit Example)]
 <app-lessThanEqualTo-edit></app-lessThanEqualTo-edit>
 
 # RelationalOperatorConfig 
@@ -108,4 +108,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\lessThanEqualTo\complete\less-than-equal-to-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\lessThanEqualTo\complete\less-than-equal-to-complete.component.html)]
+***
+
+# Dynamic lessThanEqualTo Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-lessThanEqualTo-dynamic></app-lessThanEqualTo-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\lessThanEqualTo\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\lessThanEqualTo\dynamic\less-than-equal-to-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\lessThanEqualTo\dynamic\less-than-equal-to-dynamic.component.html)]
 ***

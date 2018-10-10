@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\minLength\add\min-length-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\minLength\edit\min-length-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=minLength Decorator for add Example)]
 <app-minLength-add></app-minLength-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=minLength Decorator for edit Example)]
 <app-minLength-edit></app-minLength-edit>
 
 # NumberConfig 
@@ -108,4 +108,16 @@ enter value which you want to restrict string length in the property.
 [!code-typescript[](\assets\examples\minLength\complete\max-number-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\minLength\complete\min-length-complete.component.html)]
+***
+
+# Dynamic MinLength Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-minLength-dynamic></app-minLength-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\minLength\dynamic\contact.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\minLength\dynamic\max-number-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\minLength\dynamic\min-length-dynamic.component.html)]
 ***

@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\pattern\add\pattern-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\pattern\edit\pattern-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=pattern Decorator for add Example)]
 <app-pattern-add></app-pattern-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=pattern Decorator for edit Example)]
 <app-pattern-edit></app-pattern-edit>
  
 # PatternConfig 
@@ -108,4 +108,16 @@ enter specific regex pattern
 [!code-typescript[](\assets\examples\pattern\complete\pattern-complete.component.ts)]
 # [Html](#tab\completeHtml)
 [!code-typescript[](\assets\examples\pattern\complete\pattern-complete.component.html)]
+***
+
+# Dynamic pattern Example
+[!TabGroup]
+# [Example](#tab\dynamicExample)
+<app-pattern-dynamic></app-pattern-dynamic>
+# [Model](#tab\dynamicModel)
+[!code-typescript[](\assets\examples\pattern\dynamic\user.model.ts)]
+# [Component](#tab\dynamicComponent)
+[!code-typescript[](\assets\examples\pattern\dynamic\pattern-dynamic.component.ts)]
+# [Html](#tab\dynamicHtml)
+[!code-typescript[](\assets\examples\pattern\dynamic\pattern-dynamic.component.html)]
 ***

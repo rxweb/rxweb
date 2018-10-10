@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\range\add\range-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\range\edit\range-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=range Decorator for edit Example)]
 <app-range-add></app-range-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=range Decorator for edit Example)]
 <app-range-edit></app-range-edit>
 
 # RangeConfig 
@@ -123,4 +123,16 @@ Maximum number is for define a maximum number of range
 [!code-typescript[](\assets\examples\range\complete\range-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\range\complete\range-complete.component.html)]
+***
+
+# Dynamic range Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-range-dynamic></app-range-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\range\dynamic\employee-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\range\dynamic\range-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\range\dynamic\range-dynamic.component.html)]
 ***

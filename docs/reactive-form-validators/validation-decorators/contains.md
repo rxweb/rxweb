@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\contains\add\contains-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\contains\edit\contains-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=contains Decorator for add Example)]
 <app-contains-add></app-contains-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=contains Decorator for edit Example)]
 <app-contains-edit></app-contains-edit>
 
 # ContainsConfig 
@@ -113,7 +113,14 @@ This Complete Contains example which includes all the ContainsConfig properties 
 [!code-typescript[](\assets\examples\contains\complete\contains-complete.component.html)]
 ***
 
-
-
-
-
+# Dynamic Contains Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-contains-dynamic></app-contains-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\contains\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\contains\dynamic\contains-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\contains\dynamic\contains-dynamic.component.html)]
+***

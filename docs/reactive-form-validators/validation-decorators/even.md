@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\even\add\even-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\even\edit\even-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=even Decorator for add Example)]
 <app-even-add></app-even-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=even Decorator for edit Example)]
 <app-even-edit></app-even-edit>
 
 # BaseConfig
@@ -96,4 +96,16 @@ This Complete even example which includes all the BaseConfig properties will ful
 [!code-typescript[](\assets\examples\even\complete\even-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\even\complete\even-complete.component.html)]
+***
+
+# Dynamic even Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-even-dynamic></app-even-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\even\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\even\dynamic\even-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\even\dynamic\even-dynamic.component.html)]
 ***

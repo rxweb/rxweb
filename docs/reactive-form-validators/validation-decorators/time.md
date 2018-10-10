@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\time\add\time-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\time\edit\time-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=time Decorator for add Example)]
 <app-time-add></app-time-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=time Decorator for edit Example)]
 <app-time-edit></app-time-edit>
 
 # TimeConfig 
@@ -107,4 +107,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\time\complete\time-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\time\complete\time-complete.component.html)]
+***
+
+# Dynamic time Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-time-dynamic></app-time-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\time\dynamic\attandance-detail.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\time\dynamic\time-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\time\dynamic\time-dynamic.component.html)]
 ***

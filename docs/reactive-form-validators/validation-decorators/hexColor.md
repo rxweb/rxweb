@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\hexColor\add\hex-color-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\hexColor\edit\hex-color-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=hexColor Decorator for add Example)]
 <app-hexColor-add></app-hexColor-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=hexColor Decorator for edit Example)]
 <app-hexColor-edit></app-hexColor-edit>
 
 # HexColorConfig 
@@ -95,4 +95,16 @@ This Complete hexColor example which includes all the HexColorConfig properties 
 [!code-typescript[](\assets\examples\hexColor\complete\hex-color-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\hexColor\complete\hex-color-complete.component.html)]
+***
+
+# Dynamic hexColor Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-hexColor-dynamic></app-hexColor-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\hexColor\dynamic\hexcolor-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\hexColor\dynamic\hex-color-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\hexColor\dynamic\hex-color-dynamic.component.html)]
 ***

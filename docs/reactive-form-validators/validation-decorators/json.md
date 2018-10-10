@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\json\add\json-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\json\edit\json-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=json Decorator for add Example)]
 <app-json-add></app-json-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=json Decorator for edit Example)]
 <app-json-edit></app-json-edit>
 
 # DefaultConfig
@@ -95,4 +95,16 @@ This Complete Json example which includes all the DefaultConfig properties will 
 [!code-typescript[](\assets\examples\json\complete\json-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\json\complete\json-complete.component.html)]
+***
+
+# Dynamic Json Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-json-dynamic></app-json-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\json\dynamic\json-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\json\dynamic\json-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\json\dynamic\json-dynamic.component.html)]
 ***

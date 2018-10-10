@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\alphaNumeric\add\alpha-numeric-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\alphaNumeric\edit\alpha-numeric-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=alphaNumeric Decorator for add Example)]
 <app-alphaNumeric-add></app-alphaNumeric-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=alphaNumeric Decorator for edit Example)]
 <app-alphaNumeric-edit></app-alphaNumeric-edit>
 
 # AlphaConfig 
@@ -114,7 +114,14 @@ This Complete AlphaNumeric example which includes all the AlphaConfig properties
 [!code-typescript[](\assets\examples\alphaNumeric\complete\alpha-numeric-complete.component.html)]
 ***
 
-
-
-
-
+# Dynamic AlphaNumeric Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-alphaNumeric-dynamic></app-alphaNumeric-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\alphaNumeric\dynamic\location.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\alphaNumeric\dynamic\alpha-numeric-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\alphaNumeric\dynamic\alpha-numeric-dynamic.component.html)]
+***

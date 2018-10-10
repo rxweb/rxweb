@@ -30,10 +30,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\required\add\required-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\required\edit\required-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=required Decorator for add Example)]
 <app-required-add></app-required-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=required Decorator for edit Example)]
 <app-required-edit></app-required-edit>
  
 # RequiredConfig 
@@ -89,4 +89,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\required\complete\required-complete.component.ts)]
 # [Html](#tab\completeHtml)
 [!code-typescript[](\assets\examples\required\complete\required-complete.component.html)]
+***
+
+# Dynamic required Example
+[!TabGroup]
+# [Example](#tab\dynamicExample)
+<app-required-dynamic></app-required-dynamic>
+# [Model](#tab\dynamicModel)
+[!code-typescript[](\assets\examples\required\dynamic\user.model.ts)]
+# [Component](#tab\dynamicComponent)
+[!code-typescript[](\assets\examples\required\dynamic\required-dynamic.component.ts)]
+# [Html](#tab\dynamicHtml)
+[!code-typescript[](\assets\examples\required\dynamic\required-dynamic.component.html)]
 ***

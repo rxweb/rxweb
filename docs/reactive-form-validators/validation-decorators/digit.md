@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\digit\add\digit-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\digit\edit\digit-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=digit Decorator for add Example)]
 <app-digit-add></app-digit-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=digit Decorator for edit Example)]
 <app-digit-edit></app-digit-edit>
 
 # DigitConfig 
@@ -93,4 +93,16 @@ This Complete digit example which includes all the DigitConfig properties will f
 [!code-typescript[](\assets\examples\digit\complete\digit-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\digit\complete\digit-complete.component.html)]
+***
+
+# Dynamic Digit Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-digit-dynamic></app-digit-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\digit\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\digit\dynamic\digit-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\digit\dynamic\digit-dynamic.component.html)]
 ***

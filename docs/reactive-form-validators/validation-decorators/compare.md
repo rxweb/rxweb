@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\compare\add\compare-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\compare\edit\compare-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=compare Decorator for add Example)]
 <app-compare-add></app-compare-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=compare Decorator for edit Example)]
 <app-compare-edit></app-compare-edit>
 
 # CompareConfig
@@ -93,11 +93,14 @@ This Complete Compare example which includes all the CompareConfig properties wi
 [!code-typescript[](\assets\examples\compare\complete\compare-complete.component.html)]
 ***
 
-
-
-
-
-
-
-
-
+# Dynamic Compare Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-compare-dynamic></app-compare-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\compare\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\compare\dynamic\compare-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\compare\dynamic\compare-dynamic.component.html)]
+***

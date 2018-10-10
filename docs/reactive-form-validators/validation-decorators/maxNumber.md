@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\maxNumber\add\max-number-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\maxNumber\edit\max-number-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=maxNumber Decorator for add Example)]
 <app-maxNumber-add></app-maxNumber-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=maxNumber Decorator for edit Example)]
 <app-maxNumber-edit></app-maxNumber-edit>
 
 # NumberConfig 
@@ -107,4 +107,16 @@ enter value which you want to restrict number in the property.
 [!code-typescript[](\assets\examples\maxNumber\complete\max-number-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\maxNumber\complete\max-number-complete.component.html)]
+***
+
+# Dynamic MaxNumber Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-maxNumber-dynamic></app-maxNumber-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\maxNumber\dynamic\subject-details.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\maxNumber\dynamic\max-number-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\maxNumber\dynamic\max-number-dynamic.component.html)]
 ***

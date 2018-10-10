@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\noneOf\add\noneOf-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\noneOf\edit\noneOf-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=noneOf Decorator for add Example)]
 <app-noneOf-add></app-noneOf-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=noneOf Decorator for edit Example)]
 <app-noneOf-edit></app-noneOf-edit>
 
 # ArrayConfig
@@ -111,4 +111,14 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\noneOf\complete\noneOf-complete.component.html)]
 ***
 
-
+# Dynamic noneOf Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-noneOf-dynamic></app-noneOf-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\noneOf\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\noneOf\dynamic\noneOf-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\noneOf\dynamic\noneOf-dynamic.component.html)]
+***

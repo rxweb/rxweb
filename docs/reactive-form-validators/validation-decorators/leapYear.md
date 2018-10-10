@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\leapYear\add\leapYear-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\leapYear\edit\leapYear-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=leapYear Decorator for add Example)]
 <app-leapYear-add></app-leapYear-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=leapYear Decorator for edit Example)]
 <app-leapYear-edit></app-leapYear-edit>
 
 # BaseConfig
@@ -94,4 +94,16 @@ This Complete LeapYear example which includes all the BaseConfig properties will
 [!code-typescript[](\assets\examples\leapYear\complete\leapYear-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\leapYear\complete\leapYear-complete.component.html)]
+***
+
+# Dynamic LeapYear Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-leapYear-dynamic></app-leapYear-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\leapYear\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\leapYear\dynamic\leapYear-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\leapYear\dynamic\leapYear-dynamic.component.html)]
 ***

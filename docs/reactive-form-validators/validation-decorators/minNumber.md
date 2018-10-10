@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\minNumber\add\min-number-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\minNumber\edit\min-number-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=minNumber Decorator for add Example)]
 <app-minNumber-add></app-minNumber-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=minNumber Decorator for edit Example)]
 <app-minNumber-edit></app-minNumber-edit>
 
 # NumberConfig 
@@ -107,4 +107,16 @@ enter value which you want to restrict number in the property
 [!code-typescript[](\assets\examples\minNumber\complete\min-number-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\minNumber\complete\min-number-complete.component.html)]
+***
+
+# Dynamic minNumber Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-minNumber-dynamic></app-minNumber-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\minNumber\dynamic\result-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\minNumber\dynamic\min-number-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\minNumber\dynamic\min-number-dynamic.component.html)]
 ***

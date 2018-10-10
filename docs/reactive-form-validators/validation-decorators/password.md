@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\password\add\password-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\password\edit\password-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=password Decorator for add Example)]
 <app-password-add></app-password-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=password Decorator for edit Example)]
 <app-password-edit></app-password-edit>
 
 # PasswordConfig 
@@ -87,4 +87,16 @@ Password Validation is used for setting the parameters for password validation, 
 [!code-typescript[](\assets\examples\password\complete\password-complete.component.ts)]
 # [Html](#tab\completeHtml)
 [!code-typescript[](\assets\examples\password\complete\password-complete.component.html)]
+***
+
+# Dynamic password Example
+[!TabGroup]
+# [Example](#tab\dynamicExample)
+<app-password-dynamic></app-password-dynamic>
+# [Model](#tab\dynamicModel)
+[!code-typescript[](\assets\examples\password\dynamic\login-info.model.ts)]
+# [Component](#tab\dynamicComponent)
+[!code-typescript[](\assets\examples\password\dynamic\password-dynamic.component.ts)]
+# [Html](#tab\dynamicHtml)
+[!code-typescript[](\assets\examples\password\dynamic\password-dynamic.component.html)]
 ***

@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\lowerCase\add\lower-case-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\lowerCase\edit\lower-case-add.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=lowerCase Decorator for edit Example)]
 <app-lowerCase-add></app-lowerCase-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=lowerCase Decorator for edit Example)]
 <app-lowerCase-edit></app-lowerCase-edit>
 
 # MessageConfig 
@@ -89,4 +89,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\lowerCase\complete\lower-case-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\lowerCase\complete\lower-case-complete.component.html)]
+***
+
+# Dynamic lowercase Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-lowerCase-dynamic></app-lowerCase-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\lowerCase\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\lowerCase\dynamic\lower-case-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\lowerCase\dynamic\lower-case-dynamic.component.html)]
 ***

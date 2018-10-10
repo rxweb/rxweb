@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\greaterThanEqualTo\add\greater-than-equal-to-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\greaterThanEqualTo\edit\greater-than-equal-to-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=greaterThanEqualTo Decorator for add Example)]
 <app-greaterThanEqualTo-add></app-greaterThanEqualTo-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=greaterThanEqualTo Decorator for edit Example)]
 <app-greaterThanEqualTo-edit></app-greaterThanEqualTo-edit>
 
 # RelationalOperatorConfig
@@ -109,4 +109,16 @@ This Complete greaterThanEqualTo example which includes all the RelationalOperat
 [!code-typescript[](\assets\examples\greaterThanEqualTo\complete\greater-than-equal-to-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\greaterThanEqualTo\complete\greater-than-equal-to-complete.component.html)]
+***
+
+# Dynamic greaterThanEqualTo Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-greaterThanEqualTo-dynamic></app-greaterThanEqualTo-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\greaterThanEqualTo\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\greaterThanEqualTo\dynamic\greater-than-equal-to-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\greaterThanEqualTo\dynamic\greater-than-equal-to-dynamic.component.html)]
 ***

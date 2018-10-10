@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\maxLength\add\max-length-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\maxLength\edit\max-length-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=maxLength Decorator for add Example)]
 <app-maxLength-add></app-maxLength-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=maxLength Decorator for edit Example)]
 <app-maxLength-edit></app-maxLength-edit>
 
 # NumberConfig 
@@ -109,4 +109,16 @@ enter value which you want to restrict string length in the property
 [!code-typescript[](\assets\examples\maxLength\complete\max-length-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\maxLength\complete\max-length-complete.component.html)]
+***
+
+# Dynamic maxlength Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-maxLength-dynamic></app-maxLength-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\maxLength\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\maxLength\dynamic\max-length-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\maxLength\dynamic\max-length-dynamic.component.html)]
 ***

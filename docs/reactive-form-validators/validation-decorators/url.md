@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\url\add\url-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\url\edit\url-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=url Decorator for add Example)]
 <app-url-add></app-url-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=url Decorator for edit Example)]
 <app-url-edit></app-url-edit>
 
 # DefaultConfig
@@ -89,4 +89,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\url\complete\url-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\url\complete\url-complete.component.html)]
+***
+
+# Dynamic url Numeric Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-url-dynamic></app-url-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\url\dynamic\web-site-info-model.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\url\dynamic\url-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\url\dynamic\url-dynamic.component.html)]
 ***

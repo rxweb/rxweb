@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\mac\add\mac-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\mac\edit\mac-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=mac Decorator for add Example)]
 <app-mac-add></app-mac-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=mac Decorator for edit Example)]
 <app-mac-edit></app-mac-edit>
 
 # BaseConfig
@@ -92,4 +92,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\mac\complete\mac-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\mac\complete\mac-complete.component.html)]
+***
+
+# Dynamic mac Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-mac-dynamic></app-mac-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\mac\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\mac\dynamic\mac-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\mac\dynamic\mac-dynamic.component.html)]
 ***

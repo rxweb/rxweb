@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\email\add\email-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\email\edit\email-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=email Decorator for edit Example)]
 <app-email-add></app-email-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=email Decorator for edit Example)]
 <app-email-edit></app-email-edit>
 
 #EmailConfig
@@ -95,4 +95,16 @@ This Complete Email example which includes all the EmailConfig properties will f
 [!code-typescript[](\assets\examples\email\complete\email-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\email\complete\email-complete.component.html)]
+***
+
+# Dynamic Email Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-email-dynamic></app-email-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\email\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\email\dynamic\email-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\email\dynamic\email-dynamic.component.html)]
 ***

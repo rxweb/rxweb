@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\upperCase\add\upper-case-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\upperCase\edit\upper-case-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=upperCase Decorator for add Example)]
 <app-upperCase-add></app-upperCase-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=upperCase Decorator for edit Example)]
 <app-upperCase-edit></app-upperCase-edit>
  
 # MessageConfig 
@@ -91,4 +91,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\upperCase\complete\upper-case-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\upperCase\complete\upper-case-complete.component.html)]
+***
+
+# Dynamic upperCase Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-upperCase-dynamic></app-upperCase-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\upperCase\dynamic\location.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\upperCase\dynamic\upper-case-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\upperCase\dynamic\upper-case-dynamic.component.html)]
 ***

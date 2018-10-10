@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\choice\add\choice-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\choice\edit\choice-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=choice Decorator for add Example)]
 <app-choice-add></app-choice-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=choice Decorator for edit Example)]
 <app-choice-edit></app-choice-edit>
 
 # ChoiceConfig
@@ -130,3 +130,14 @@ This Complete choice example which includes all the ChoiceConfig properties will
 [!code-typescript[](\assets\examples\choice\complete\choice-complete.component.html)]
 ***
 
+# Dynamic choice Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-choice-dynamic></app-choice-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\choice\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\choice\dynamic\choice-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\choice\dynamic\choice-dynamic.component.html)]
+***

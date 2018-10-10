@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\different\add\different-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\different\edit\different-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=diiferent Decorator for add Example)]
 <app-different-add></app-different-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=different Decorator for edit Example)]
 <app-different-edit></app-different-edit>
 
 # DifferentConfig
@@ -110,4 +110,16 @@ This Complete Different example which includes all the DifferentConfig propertie
 [!code-typescript[](\assets\examples\different\complete\different-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\different\complete\different-complete.component.html)]
+***
+
+# Dynamic Different Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-different-dynamic></app-different-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\different\dynamic\account-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\different\dynamic\different-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\different\dynamic\different-dynamic.component.html)]
 ***
