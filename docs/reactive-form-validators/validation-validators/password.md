@@ -75,3 +75,15 @@ Password Validation is used for setting the parameters for password validation, 
 # [Html](#tab\completeHtml)
 [!code-typescript[](\assets\reactive-form-validators\validators\password\complete\password-complete.component.html)]
 ***
+
+# Dynamic password Example
+[!TabGroup]
+# [Example](#tab\dynamicExample)
+<app-password-dynamic-validator></app-password-dynamic-validator>
+# [Model](#tab\dynamicModel)
+[!code-typescript[](\assets\reactive-form-validators\validators\password\dynamic\login-info.model.ts)]
+# [Component](#tab\dynamicComponent)
+[!code-typescript[](\assets\reactive-form-validators\validators\password\dynamic\password-dynamic.component.ts)]
+# [Html](#tab\dynamicHtml)
+[!code-typescript[](\assets\reactive-form-validators\validators\password\dynamic\password-dynamic.component.html)]
+***

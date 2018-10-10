@@ -90,3 +90,15 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\completeHtml)
 [!code-typescript[](\assets\examples\required\complete\required-complete.component.html)]
 ***
+
+# Dynamic required Example
+[!TabGroup]
+# [Example](#tab\dynamicExample)
+<app-required-dynamic></app-required-dynamic>
+# [Model](#tab\dynamicModel)
+[!code-typescript[](\assets\examples\required\dynamic\user.model.ts)]
+# [Component](#tab\dynamicComponent)
+[!code-typescript[](\assets\examples\required\dynamic\required-dynamic.component.ts)]
+# [Html](#tab\dynamicHtml)
+[!code-typescript[](\assets\examples\required\dynamic\required-dynamic.component.html)]
+***

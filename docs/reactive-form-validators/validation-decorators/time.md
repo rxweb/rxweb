@@ -108,3 +108,15 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\time\complete\time-complete.component.html)]
 ***
+
+# Dynamic time Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-time-dynamic></app-time-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\time\dynamic\attandance-detail.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\time\dynamic\time-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\time\dynamic\time-dynamic.component.html)]
+***

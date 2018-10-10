@@ -127,3 +127,15 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\factor\complete\factor-complete.component.html)]
 ***
+
+# Dynamic Factor Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-factor-dynamic></app-factor-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\factor\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\factor\dynamic\factor-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\factor\dynamic\factor-dynamic.component.html)]
+***

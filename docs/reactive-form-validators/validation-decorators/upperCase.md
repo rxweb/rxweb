@@ -92,3 +92,15 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\upperCase\complete\upper-case-complete.component.html)]
 ***
+
+# Dynamic upperCase Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-upperCase-dynamic></app-upperCase-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\upperCase\dynamic\location.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\upperCase\dynamic\upper-case-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\upperCase\dynamic\upper-case-dynamic.component.html)]
+***

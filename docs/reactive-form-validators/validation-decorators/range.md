@@ -124,3 +124,15 @@ Maximum number is for define a maximum number of range
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\range\complete\range-complete.component.html)]
 ***
+
+# Dynamic range Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-range-dynamic></app-range-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\range\dynamic\employee-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\range\dynamic\range-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\range\dynamic\range-dynamic.component.html)]
+***

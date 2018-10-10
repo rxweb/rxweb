@@ -111,7 +111,14 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\alphaNumeric\complete\alpha-numeric-complete.component.html)]
 ***
 
-
-
-
-
+# Dynamic AlphaNumeric Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-alphaNumeric-dynamic></app-alphaNumeric-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\alphaNumeric\dynamic\location.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\alphaNumeric\dynamic\alpha-numeric-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\alphaNumeric\dynamic\alpha-numeric-dynamic.component.html)]
+***

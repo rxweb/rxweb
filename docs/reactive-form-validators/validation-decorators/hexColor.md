@@ -93,3 +93,15 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\hexColor\complete\hex-color-complete.component.html)]
 ***
+
+# Dynamic hexColor Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-hexColor-dynamic></app-hexColor-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\hexColor\dynamic\hexcolor-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\hexColor\dynamic\hex-color-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\hexColor\dynamic\hex-color-dynamic.component.html)]
+***

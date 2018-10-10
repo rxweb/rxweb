@@ -18,11 +18,11 @@ Let’s see how maxNumber validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
 
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\add\max-number-add.component.ts)]
+[!code-typescript[](\assets\examples\validators\maxNumber\add\max-number-add.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\add\max-number-add.component.html)]
+[!code-typescript[](\assets\examples\validators\maxNumber\add\max-number-add.component.html)]
 [
 
 <app-maxNumber-add-validator></app-maxNumber-add-validator>
@@ -44,11 +44,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\conditionalExpression\subject-details.model.ts)]
+[!code-typescript[](\assets\examples\validators\maxNumber\conditionalExpression\subject-details.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\conditionalExpression\max-number-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\validators\maxNumber\conditionalExpression\max-number-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\conditionalExpression\max-number-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\validators\maxNumber\conditionalExpression\max-number-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=maxNumber validator with conditionalExpression)]
@@ -60,11 +60,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\message\subject-details.model.ts)]
+[!code-typescript[](\assets\examples\validators\maxNumber\message\subject-details.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\message\max-number-message.component.ts)]
+[!code-typescript[](\assets\examples\validators\maxNumber\message\max-number-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\message\max-number-message.component.html)]
+[!code-typescript[](\assets\examples\validators\maxNumber\message\max-number-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=maxNumber validator with custom message)]
@@ -76,11 +76,11 @@ enter value which you want to restrict number in the property.
 
 [!TabGroup(?showHideCondition="value")]
 # [Model](#tab\valueModel)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\value\subject-details.model.ts)]
+[!code-typescript[](\assets\examples\validators\maxNumber\value\subject-details.model.ts)]
 # [Component](#tab\valueComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\value\max-number-value.component.ts)]
+[!code-typescript[](\assets\examples\validators\maxNumber\value\max-number-value.component.ts)]
 # [Html](#tab\valueHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\value\max-number-value.component.html)]
+[!code-typescript[](\assets\examples\validators\maxNumber\value\max-number-value.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="value=!value"&title=maxNumber validator with value)]
@@ -91,9 +91,21 @@ enter value which you want to restrict number in the property.
 # [Example](#tab\completeexample)
 <app-maxNumber-complete-validator></app-maxNumber-complete-validator>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\complete\subject-details.model.ts)]
+[!code-typescript[](\assets\examples\validators\maxNumber\complete\subject-details.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\complete\max-number-complete.component.ts)]
+[!code-typescript[](\assets\examples\validators\maxNumber\complete\max-number-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\maxNumber\complete\max-number-complete.component.html)]
+[!code-typescript[](\assets\examples\validators\maxNumber\complete\max-number-complete.component.html)]
+***
+
+# Dynamic MaxNumber Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-maxNumber-dynamic-validator></app-maxNumber-dynamic-validator>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\validators\maxNumber\dynamic\subject-details.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\validators\maxNumber\dynamic\max-number-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\validators\maxNumber\dynamic\max-number-dynamic.component.html)]
 ***

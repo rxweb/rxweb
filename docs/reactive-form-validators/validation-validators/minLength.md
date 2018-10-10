@@ -17,11 +17,11 @@ Let’s see how minLength validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
 
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\add\min-length-add.component.ts)]
+[!code-typescript[](\assets\examples\validators\minLength\add\min-length-add.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\add\min-length-add.component.html)]
+[!code-typescript[](\assets\examples\validators\minLength\add\min-length-add.component.html)]
 
 <app-minLength-add-validator></app-minLength-add-validator>
 
@@ -43,11 +43,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\conditionalExpression\contact.model.ts)]
+[!code-typescript[](\assets\examples\validators\minLength\conditionalExpression\contact.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\conditionalExpression\min-length-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\validators\minLength\conditionalExpression\min-length-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\conditionalExpression\min-length-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\validators\minLength\conditionalExpression\min-length-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=minLength validator with conditionalExpression)]
@@ -59,11 +59,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\message\contact.model.ts)]
+[!code-typescript[](\assets\examples\validators\minLength\message\contact.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\message\min-length-message.component.ts)]
+[!code-typescript[](\assets\examples\validators\minLength\message\min-length-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\message\min-length-message.component.html)]
+[!code-typescript[](\assets\examples\validators\minLength\message\min-length-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=minLength validator with custom message)]
@@ -75,11 +75,11 @@ enter value which you want to restrict string length in the property.
 
 [!TabGroup(?showHideCondition="value")]
 # [Model](#tab\valueModel)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\value\contact.model.ts)]
+[!code-typescript[](\assets\examples\validators\minLength\value\contact.model.ts)]
 # [Component](#tab\valueComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\value\min-length-value.component.ts)]
+[!code-typescript[](\assets\examples\validators\minLength\value\min-length-value.component.ts)]
 # [Html](#tab\valueHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\value\min-length-value.component.html)]
+[!code-typescript[](\assets\examples\validators\minLength\value\min-length-value.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="value=!value"&title=minLength validator with value)]
@@ -90,9 +90,21 @@ enter value which you want to restrict string length in the property.
 # [Example](#tab\completeexample)
 <app-minLength-complete-validator></app-minLength-complete-validator>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\complete\contact.model.ts)]
+[!code-typescript[](\assets\examples\validators\minLength\complete\contact.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\complete\max-number-complete.component.ts)]
+[!code-typescript[](\assets\examples\validators\minLength\complete\max-number-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\minLength\complete\min-length-complete.component.html)]
+[!code-typescript[](\assets\examples\validators\minLength\complete\min-length-complete.component.html)]
+***
+
+# Dynamic MinLength Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-minLength-dynamic-validator></app-minLength-dynamic-validator>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\validators\minLength\dynamic\contact.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\validators\minLength\dynamic\max-number-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\validators\minLength\dynamic\min-length-dynamic.component.html)]
 ***

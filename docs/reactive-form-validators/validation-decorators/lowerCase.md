@@ -90,3 +90,15 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\lowerCase\complete\lower-case-complete.component.html)]
 ***
+
+# Dynamic lowercase Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-lowerCase-dynamic></app-lowerCase-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\lowerCase\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\lowerCase\dynamic\lower-case-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\lowerCase\dynamic\lower-case-dynamic.component.html)]
+***

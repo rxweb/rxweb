@@ -110,3 +110,15 @@ enter value which you want to restrict string length in the property
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\maxLength\complete\max-length-complete.component.html)]
 ***
+
+# Dynamic maxlength Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-maxLength-dynamic></app-maxLength-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\maxLength\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\maxLength\dynamic\max-length-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\maxLength\dynamic\max-length-dynamic.component.html)]
+***

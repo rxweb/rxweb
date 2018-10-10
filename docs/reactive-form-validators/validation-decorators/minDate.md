@@ -109,3 +109,15 @@ enter value which you want to restrict number in the property
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\mindate\complete\min-date-complete.component.html)]
 ***
+
+# Dynamic mindate Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-minDate-dynamic></app-minDate-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\mindate\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\mindate\dynamic\min-date-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\mindate\dynamic\min-date-dynamic.component.html)]
+***

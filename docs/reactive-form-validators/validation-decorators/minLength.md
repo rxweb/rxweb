@@ -109,3 +109,15 @@ enter value which you want to restrict string length in the property.
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\minLength\complete\min-length-complete.component.html)]
 ***
+
+# Dynamic MinLength Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-minLength-dynamic></app-minLength-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\minLength\dynamic\contact.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\minLength\dynamic\max-number-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\minLength\dynamic\min-length-dynamic.component.html)]
+***

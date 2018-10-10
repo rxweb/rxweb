@@ -90,3 +90,15 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\url\complete\url-complete.component.html)]
 ***
+
+# Dynamic url Numeric Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-url-dynamic></app-url-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\url\dynamic\web-site-info-model.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\url\dynamic\url-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\url\dynamic\url-dynamic.component.html)]
+***

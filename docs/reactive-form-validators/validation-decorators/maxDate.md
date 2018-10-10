@@ -108,3 +108,15 @@ enter value which you want to restrict number in the property.
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\maxDate\complete\max-date-complete.component.html)]
 ***
+
+# Dynamic MaxDate Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-maxDate-dynamic></app-maxDate-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\maxDate\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\maxDate\dynamic\max-date-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\maxDate\dynamic\max-date-dynamic.component.html)]
+***

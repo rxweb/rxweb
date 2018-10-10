@@ -109,3 +109,15 @@ enter specific regex pattern
 # [Html](#tab\completeHtml)
 [!code-typescript[](\assets\examples\pattern\complete\pattern-complete.component.html)]
 ***
+
+# Dynamic pattern Example
+[!TabGroup]
+# [Example](#tab\dynamicExample)
+<app-pattern-dynamic></app-pattern-dynamic>
+# [Model](#tab\dynamicModel)
+[!code-typescript[](\assets\examples\pattern\dynamic\user.model.ts)]
+# [Component](#tab\dynamicComponent)
+[!code-typescript[](\assets\examples\pattern\dynamic\pattern-dynamic.component.ts)]
+# [Html](#tab\dynamicHtml)
+[!code-typescript[](\assets\examples\pattern\dynamic\pattern-dynamic.component.html)]
+***

@@ -108,3 +108,15 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\different\complete\different-complete.component.html)]
 ***
+
+# Dynamic Different Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-different-dynamic></app-different-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\different\dynamic\account-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\different\dynamic\different-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\different\dynamic\different-dynamic.component.html)]
+***

@@ -109,3 +109,15 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\oneOf\complete\oneOf-complete.component.html)]
 ***
+
+# Dynamic oneOf Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-oneOf-dynamic></app-oneOf-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\oneOf\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\oneOf\dynamic\oneOf-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\oneOf\dynamic\oneOf-dynamic.component.html)]
+***
