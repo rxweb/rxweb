@@ -117,6 +117,9 @@ To override the global configuration message and show the custom message on part
 <app-factor-message></app-factor-message>
 
 # Complete Factor Example
+
+This Complete Factor example which includes all the FactorConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-factor-complete></app-factor-complete>

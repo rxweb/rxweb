@@ -101,6 +101,9 @@ To override the global configuration message and show the custom message on part
 <app-alpha-message></app-alpha-message>
 
 # Complete Alpha Example
+
+This Complete Alpha example which includes all the AlphaConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-alpha-complete></app-alpha-complete>

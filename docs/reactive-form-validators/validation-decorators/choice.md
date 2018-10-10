@@ -116,6 +116,9 @@ To override the global configuration message and show the custom message on part
 <app-choice-message></app-choice-message>
 
 # Complete choice Example
+
+This Complete choice example which includes all the ChoiceConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-choice-complete></app-choice-complete>
