@@ -153,7 +153,7 @@ export class AppComponent implements OnInit {
             },
             'digit': {
                 digit: {
-                    conditionalExpression:"x => x.firstName == 'john'"
+                    conditionalExpression:"(x,y) => x.firstName == 'Australia' && y.lastName == 'Ojha' "
                 }
             }
     };
