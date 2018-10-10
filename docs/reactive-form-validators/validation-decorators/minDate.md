@@ -98,7 +98,10 @@ enter value which you want to restrict number in the property
 <app-minDate-value></app-minDate-value>
 
 
-# Complete mindate Example
+# Complete minDate Example
+
+This Complete minDate example which includes all the DateConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-minDate-complete></app-minDate-complete>
@@ -110,7 +113,7 @@ enter value which you want to restrict number in the property
 [!code-typescript[](\assets\examples\mindate\complete\min-date-complete.component.html)]
 ***
 
-# Dynamic mindate Example
+# Dynamic minDate Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-minDate-dynamic></app-minDate-dynamic>

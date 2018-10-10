@@ -80,6 +80,9 @@ To override the global configuration message and show the custom message on part
 <app-required-message></app-required-message>
 
 # Complete required Example
+
+This Complete required example which includes all the RequiredConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeExample)
 <app-required-complete></app-required-complete>

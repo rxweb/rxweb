@@ -112,6 +112,9 @@ To override the global configuration message and show the custom message on part
 <app-numeric-message></app-numeric-message>
 
 # Complete numeric Example
+
+This Complete numeric example which includes all the NumericConfig properties will fulfil the requirement of scenarios 1, 2, 3, 4 and 5.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-numeric-complete></app-numeric-complete>

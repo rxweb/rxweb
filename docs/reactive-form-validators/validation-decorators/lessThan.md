@@ -99,6 +99,9 @@ To override the global configuration message and show the custom message on part
 <app-lessThan-message></app-lessThan-message>
 
 # Complete lessThan Example
+
+This Complete lessThan example which includes all the RelationalOperatorConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-lessThan-complete></app-lessThan-complete>

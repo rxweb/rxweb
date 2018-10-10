@@ -66,7 +66,7 @@ To override the global configuration message and show the custom message on part
 [!example(?type=section&clickEventCode="message=!message"&title=url validator with custom message)]
 <app-url-message-validator></app-url-message-validator>
 
-# Complete url Numeric Example
+# Complete url Example
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-url-complete-validator></app-url-complete-validator>
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\validators\url\complete\url-complete.component.html)]
 ***
 
-# Dynamic url Numeric Example
+# Dynamic url Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-url-dynamic-validator></app-url-dynamic-validator>

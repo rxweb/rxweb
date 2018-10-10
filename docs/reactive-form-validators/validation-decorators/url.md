@@ -79,7 +79,10 @@ To override the global configuration message and show the custom message on part
 [!example(?type=section&clickEventCode="message=!message"&title=url decorator with custom message)]
 <app-url-message></app-url-message>
 
-# Complete url Numeric Example
+# Complete url Example
+
+This Complete url example which includes all the UrlConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-url-complete></app-url-complete>
@@ -91,7 +94,7 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\url\complete\url-complete.component.html)]
 ***
 
-# Dynamic url Numeric Example
+# Dynamic url Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-url-dynamic></app-url-dynamic>

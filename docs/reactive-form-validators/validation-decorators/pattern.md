@@ -99,6 +99,9 @@ enter specific regex pattern
 <app-pattern-pattern></app-pattern-pattern>
 
 # Complete pattern Example
+
+This Complete pattern example which includes all the PatternConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeExample)
 <app-pattern-complete></app-pattern-complete>

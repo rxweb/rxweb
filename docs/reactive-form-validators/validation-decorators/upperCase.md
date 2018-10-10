@@ -82,6 +82,9 @@ To override the global configuration message and show the custom message on part
 <app-upperCase-message></app-upperCase-message>
 
 # Complete upperCase Example
+
+This Complete upperCase example which includes all the MessageConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-upperCase-complete></app-upperCase-complete>

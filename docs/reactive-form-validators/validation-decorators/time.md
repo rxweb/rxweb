@@ -98,6 +98,9 @@ To override the global configuration message and show the custom message on part
 <app-time-message></app-time-message>
 
 # Complete time Example
+
+This Complete time example which includes all the TimeConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-time-complete></app-time-complete>

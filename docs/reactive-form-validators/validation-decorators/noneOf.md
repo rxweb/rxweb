@@ -100,6 +100,9 @@ To override the global configuration message and show the custom message on part
 <app-noneOf-message></app-noneOf-message>
 
 # Complete noneOf Example
+
+This Complete noneOf example which includes all the ArrayConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-noneOf-complete></app-noneOf-complete>

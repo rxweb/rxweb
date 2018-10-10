@@ -114,6 +114,9 @@ Maximum number is for define a maximum number of range
 <app-range-maximumNumber></app-range-maximumNumber>
 
 # Complete range Example
+
+This Complete range example which includes all the RangeConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-range-complete></app-range-complete>

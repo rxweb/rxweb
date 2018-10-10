@@ -98,6 +98,9 @@ enter value which you want to restrict number in the property.
 <app-maxDate-value></app-maxDate-value>
 
 # Complete MaxDate Example
+
+This Complete MaxDate example which includes all the DateConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-maxDate-complete></app-maxDate-complete>

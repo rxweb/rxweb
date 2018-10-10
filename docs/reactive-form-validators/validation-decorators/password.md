@@ -78,6 +78,9 @@ Password Validation is used for setting the parameters for password validation, 
 <app-password-validation></app-password-validation>
 
 # Complete password Example
+
+This Complete password example which includes all the PasswordConfig properties will fulfil the requirement of scenarios 1 and 2.
+
 [!TabGroup]
 # [Example](#tab\completeExample)
 <app-password-complete></app-password-complete>

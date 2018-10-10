@@ -98,6 +98,9 @@ enter value which you want to restrict number in the property.
 <app-maxNumber-value></app-maxNumber-value>
 
 # Complete MaxNumber Example
+
+This Complete MaxNumber example which includes all the NumberConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-maxNumber-complete></app-maxNumber-complete>

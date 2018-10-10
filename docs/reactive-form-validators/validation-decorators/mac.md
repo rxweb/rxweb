@@ -83,6 +83,9 @@ To override the global configuration message and show the custom message on part
 <app-mac-message></app-mac-message>
 
 # Complete mac Example
+
+This Complete mac example which includes all the BaseConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-mac-complete></app-mac-complete>

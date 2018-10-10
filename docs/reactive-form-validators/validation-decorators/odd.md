@@ -15,7 +15,7 @@ Let’s assume that you are creating a user form, which contains fields like Num
 Let’s see how Odd validator fulfil the need.
 
 # Basic Odd Validation
-First we need to create ea User class and define a property of odd in the model to achieve the functional need of point 1.
+First we need to create a User class and define a property of odd in the model to achieve the functional need of point 1.
 [!code-typescript[](\assets\examples\odd\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\odd\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
@@ -83,6 +83,9 @@ To override the global configuration message and show the custom message on part
 <app-odd-message></app-odd-message>
 
 # Complete Odd Example
+
+This Complete Odd example which includes all the BaseConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-odd-complete></app-odd-complete>

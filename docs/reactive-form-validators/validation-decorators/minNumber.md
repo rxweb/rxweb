@@ -98,6 +98,9 @@ enter value which you want to restrict number in the property
 <app-minNumber-value></app-minNumber-value>
 
 # Complete minNumber Example
+
+This Complete minNumber example which includes all the NumberConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-minNumber-complete></app-minNumber-complete>

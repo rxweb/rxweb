@@ -99,7 +99,10 @@ enter value which you want to restrict string length in the property
 <app-maxLength-value></app-maxLength-value>
 
 
-# Complete maxlength Example
+# Complete maxLength Example
+
+This Complete maxLength example which includes all the NumberConfig properties will fulfil the requirement of scenarios 1, 2, 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-maxLength-complete></app-maxLength-complete>
@@ -111,7 +114,7 @@ enter value which you want to restrict string length in the property
 [!code-typescript[](\assets\examples\maxLength\complete\max-length-complete.component.html)]
 ***
 
-# Dynamic maxlength Example
+# Dynamic maxLength Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-maxLength-dynamic></app-maxLength-dynamic>
