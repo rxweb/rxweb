@@ -99,6 +99,9 @@ To override the global configuration message and show the custom message on part
 <app-contains-message></app-contains-message>
 
 # Complete Contains Example
+
+This Complete Contains example which includes all the ContainsConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-contains-complete></app-contains-complete>

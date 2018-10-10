@@ -97,6 +97,9 @@ To override the global configuration message and show the custom message on part
 <app-creditCard-message></app-creditCard-message>
 
 # Complete CreditCard Example
+
+This Complete CreditCard example which includes all the CreditCardConfig properties will fulfil the requirement of scenarios 1, 2 and 3 
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-creditCard-complete></app-creditCard-complete>

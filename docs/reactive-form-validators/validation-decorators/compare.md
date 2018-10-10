@@ -79,6 +79,9 @@ To override the global configuration message and show the custom message on part
 <app-compare-message></app-compare-message>
 
 # Complete Compare Example
+
+This Complete Compare example which includes all the CompareConfig properties will fulfil the requirement of scenarios 1 and 2.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-compare-complete></app-compare-complete>

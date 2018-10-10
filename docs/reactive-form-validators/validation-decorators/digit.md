@@ -81,6 +81,9 @@ To override the global configuration message and show the custom message on part
 <app-digit-message></app-digit-message>
 
 # Complete digit Example
+
+This Complete digit example which includes all the DigitConfig properties will fulfil the requirement of scenarios 1, 2 and 3
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-digit-complete></app-digit-complete>

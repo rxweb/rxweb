@@ -83,6 +83,9 @@ To override the global configuration message and show the custom message on part
 <app-hexColor-message></app-hexColor-message>
 
 # Complete hexColor Example
+
+This Complete hexColor example which includes all the HexColorConfig properties will fulfil the requirement of scenarios 1, 2, 3,4 and 5
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-hexColor-complete></app-hexColor-complete>

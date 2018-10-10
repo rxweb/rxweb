@@ -82,6 +82,9 @@ To override the global configuration message and show the custom message on part
 <app-leapYear-message></app-leapYear-message>
 
 # Complete LeapYear Example
+
+This Complete LeapYear example which includes all the BaseConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-leapYear-complete></app-leapYear-complete>

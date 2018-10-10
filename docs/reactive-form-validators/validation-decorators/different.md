@@ -98,6 +98,9 @@ To override the global configuration message and show the custom message on part
 <app-different-message></app-different-message>
 
 # Complete Different Example
+
+This Complete Different example which includes all the DifferentConfig properties will fulfil the requirement of scenarios 1 and 2 
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-different-complete></app-different-complete>
