@@ -1,6 +1,6 @@
 ---
 title: lessThan
-description: Less than validation decorator will check that input property is less than value. If user tries to enter greater than equal to value then the property will become invalid. To use the lessThan decorator on particular property.
+description: Less than validation decorator will check that input property is less than value, If user tries to enter greater than equal to value then the property will become invalid. 
 author: rxcontributortwo
 
 ---
@@ -28,7 +28,7 @@ Now, we need to create a FormGroup in the component. To achieve this, we need to
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\lessThan\add\less-than-add.component.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\lessThan\add\less-than-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\lessThan\edit\less-than-add.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=lessThan Decorator for add Example)]

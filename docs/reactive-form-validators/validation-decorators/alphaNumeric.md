@@ -1,6 +1,6 @@
 ---
 title: alphaNumeric
-description: Alpha Numeric validation decorator will allow only alphabets and numbers to be entered. It will not allow any special character. If user tries to do so the property will become invalid. To use the alphaNumeric decorator on particular property.
+description: Alpha Numeric validation decorator will allow only alphabets and numbers to be entered, It will not allow any special character. If user tries to do so the property will become invalid. 
 author: rxcontributortwo
 
 ---

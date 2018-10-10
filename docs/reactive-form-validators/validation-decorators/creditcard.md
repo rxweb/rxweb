@@ -1,6 +1,6 @@
 ---
 title: creditCard 
-description: creditCard validation decorator will check property value is creditcardtype or not. It will not allow to enter any value rather than credit card. If user tries to do so the property will become invalid. To use the credit card decorator on particular property.
+description: creditCard validation decorator will check property value is creditcardtype or not, It will not allow to enter any value rather than credit card. If user tries to do so the property will become invalid.
 author:  rxcontributorone
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: json  
-description: json validation decorator will allow only Json to be entered. If user tries to enter any string except json then the property will become invalid. To use the json decorator on particular property.
+description: json validation decorator will allow only Json to be entered, If user tries to enter any string except json then the property will become invalid. 
 author: rxcontributorone
 
 ---

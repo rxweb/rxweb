@@ -1,18 +1,18 @@
 ---
 title: allOf 
-description: allOf validation decorator will check whether the user has entered all of the given field. if user does not enter all the values of the given field, property will be invalid. to use the allOf decorator on particular property.
+description: allOf validation decorator will check whether the user has entered all of the values of given field, if user does not enter all the values of the given field.
 author: rxcontributorone
 
 ---
 
 # When to use
-Let's assume that you are creating a employee form in  which contains fields like department,hobbies and skills.you want employee to enter all value of a particular field Here the field is taken in the form of array and according to that the choice is applied on the property by applying matchvalues. Here depending upon the requirement these scenarios may arise.
+Let's assume that you are creating a employee form in  which contains fields like department,hobbies and skills.You want employee to enter all value of a particular field here the field is taken in the form of array and according to that the choice is applied on the property by applying matchvalues. Here depending upon the requirement these scenarios may arise.
 1.	The skills field in which you want the user to enter skills based upon matchvalues.
 2.  Apply allOf validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be based upon matchvalues.
 3.  The Custom Message on Hobbies field.
 4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
-Let’s see how allOf validator fulfil the need.
+Let’s see how allOf decorator fulfil the need.
 
 # Basic allOf Validation
 First we need to create a employee Model class and define property of hobbies in the model to achieve the functional need of point 1.

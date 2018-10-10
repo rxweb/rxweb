@@ -1,6 +1,6 @@
 ---
 title: alpha
-description: Alpha validation decorator will allow only alphabets to be entered. It will not allow any number or special character. If user tries to do so the property will become invalid. To use the alpha decorator on particular property.
+description: Alpha validation decorator will allow only alphabets to be entered, It will not allow any number or special character. If user tries to do so the property will become invalid.
 author: rxcontributorone
 
 ---
@@ -12,7 +12,7 @@ Let’s assume that you are creating a Country form, which contains fields like 
 4.	Adding Custom Message on StateName Field.
 5.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
-Let’s see how alpha validator fulfil the need.
+Let’s see how alpha decorator fulfil the need.
  
 # Basic Alpha Validation
 First we need to create a Country class and define a property of CountryCode in the model to achieve the functional need of point 1.
