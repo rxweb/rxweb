@@ -1,6 +1,6 @@
 ---
 title: contains  
-description: Contains validation decorator will check that value is in the input. It will not allow to enter input that not contains value. If user tries to do so the property will become invalid. To use the contains decorator on particular property.
+description: Contains validation decorator will check that value is in the input, It will not allow to enter input that not contains value. If user tries to do so the property will become invalid.
 author: rxcontributortwo
 
 ---

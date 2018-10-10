@@ -1,7 +1,8 @@
 ---
 title: email 
-description: Email validation decorator will allow only emails to be entered. If user tries to enter any string except email then the property will become invalid. To use the email decorator on particular property.
+description: Email validation decorator will allow only emails to be entered, If user tries to enter any string except email then the property will become invalid. 
 author: rxcontributorone
+
 ---
 # When to use
 Let's assume that you are creating a user form and you have fields like Email,RecoveryEmail,OtherEmailAddress and you want user to enter valid EmailAddress Here depending upon the requirement these scenarios may arise.

@@ -1,6 +1,6 @@
 ---
 title: minLength 
-description: MinLength validation decorator will allow only minimum length be entered upto value parameter. If user tries to enter any string having length less then the value then the property will become invalid. To use the minLength decorator on particular property.
+description: MinLength validation decorator will allow only minimum length be entered upto value parameter, If user tries to enter any string having length less then the value then the property will become invalid. 
 author: rxcontributorone
 
 ---

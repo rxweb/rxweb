@@ -1,6 +1,6 @@
 ---
 title: greaterThanEqualTo 
-description: Greater than equal to validation decorator will check that input property is greater than equal to value. If user tries to enter less than value then the property will become invalid. To use the greaterThanEqualTo decorator on particular property. 
+description: Greater than equal to validation decorator will check that input property is greater than equal to value, If user tries to enter less than value then the property will become invalid
 author: rxcontributorone
 
 ---

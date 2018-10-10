@@ -1,0 +1,96 @@
+---
+title: greaterThanEqualTo 
+description: Greater than equal to validation validator will check that input property is greater than equal to value, If user tries to enter less than value then the property will become invalid
+author: rxcontributorone
+
+---
+# When to use
+Let's assume that you are creating a user form and you have fields like Age,VoterAge,OtherAge and you want user to enter Age such that VoterAge,OtherAge should be greater than or equal to Age Here depending upon the requirement these scenarios may arise.
+1. Specify Age as fieldName such that greaterThanEqualTo validation should be applied to the fieldname for comparing other fields.
+2. Apply greaterThanEqualTo validation based on matched condition in the form, like if the Age is ‘18’ then the VoterAge,OtherAge value should be Greater than or equal to 18.
+3. Adding Custom Message on OtherAge Field.
+4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+
+Let’s see how greaterThanEqualTo validator fulfil the need.
+
+# Basic GreaterThanEqualTo Validation
+We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Here we have covered Add and Edit form operations. 
+
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\add\greater-than-equal-to-add.component.ts)]
+***
+
+Next, we need to write html code.
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\add\greater-than-equal-to-add.component.html)]
+
+<app-greaterThanEqualTo-add-validator></app-greaterThanEqualTo-add-validator>
+
+# RelationalOperatorConfig
+
+Below options are not mandatory to use in the `RxwebValidators.greaterThanEqualTo()` validator. If needed then use the below options.
+
+|Option | Description |
+|--- | ---- |
+|[fieldName](#fieldname) | Greater than Equal to validation should be applied based on the `fieldName` for compare other field value |
+|[conditionalExpression](#conditionalexpressions) | Greater than Equal to validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
+
+## fieldName 
+Type :  `string` 
+Greater than Equal to validation should be applied based on the `fieldName` for compare other field value 
+
+[!TabGroup(?showHideCondition="fieldNameShow")]
+# [Model](#tab\fieldNamemodel)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\fieldName\user.model.ts)]
+# [Component](#tab\fieldNameComponent)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\fieldName\greater-than-equal-to-field-name.component.ts)]
+# [Html](#tab\fieldNameHtml)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\fieldName\greater-than-equal-to-field-name.component.html)]
+***
+[!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow"&title=greaterThanEqualTo validator with fieldName)]
+<app-greaterThanEqualTo-fieldName-validator></app-greaterThanEqualTo-fieldName-validator>
+
+## conditionalExpression 
+Type :  `Function`  |  `string` 
+Greater than Equal to validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
+
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\conditionalExpression\user.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\conditionalExpression\greater-than-equal-to-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\conditionalExpression\greater-than-equal-to-conditional-expressions.component.html)]
+***
+
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=greaterThanEqualTo validator with conditionalExpression)]
+<app-greaterThanEqualTo-conditionalExpression-validator></app-greaterThanEqualTo-conditionalExpression-validator>
+
+## message 
+Type :  `string`
+To override the global configuration message and show the custom message on particular control property. 
+
+[!TabGroup(?showHideCondition="message")]
+# [Model](#tab\messageModel)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\message\user.model.ts)]
+# [Component](#tab\messageComponent)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\message\greater-than-equal-to-message.component.ts)]
+# [Html](#tab\messageHtml)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\message\greater-than-equal-to-message.component.html)]
+***
+
+[!example(?type=section&clickEventCode="message=!message"&title=greaterThanEqualTo validator with custom message)]
+<app-greaterThanEqualTo-message-validator></app-greaterThanEqualTo-message-validator>
+
+# Complete greaterThanEqualTo Example
+[!TabGroup]
+# [Example](#tab\completeexample)
+<app-greaterThanEqualTo-complete-validator></app-greaterThanEqualTo-complete-validator>
+# [Model](#tab\completemodel)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\complete\user.model.ts)]
+# [Component](#tab\completecomponent)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\complete\greater-than-equal-to-complete.component.ts)]
+# [Html](#tab\completehtml)
+[!code-typescript[](\assets\reactive-form-validators\validators\greaterThanEqualTo\complete\greater-than-equal-to-complete.component.html)]
+***

@@ -1,6 +1,6 @@
 ---
 title: compare 
-description: Compare validation decorator will compare two inputs. If user enter unmatched value then the property will become invalid. To use the compare decorator on particular property.
+description: Compare validation decorator will compare two inputs, If user enter unmatched value then the property will become invalid.
 author: rxcontributorone
 
 ---

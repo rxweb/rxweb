@@ -1,6 +1,6 @@
 ---
 title: numeric
-description: numeric validation decorator will check whether the value entered is a valid number or not. if user tries to enter value which is not a proper numeric value it will be invalid. to use the numeric decorator on particular property.
+description: numeric validation decorator will check whether the value entered is a valid number or not, if user tries to enter value which is not a proper numeric value it will be invalid.
 author: rxcontributorone
 
 ---
@@ -17,29 +17,17 @@ Let’s assume that you are creating a user form, which contains fields like Dat
 Let’s see how Numeric validator fulfil the need.
 
 # Basic numeric Validation
-First we need to create  User class and define a property of integerNumber in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\numeric\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\numeric\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-[!TabGroup]
-# [Add](#tab\basicadd)
 [!code-typescript[](\assets\examples\numeric\add\numeric-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\numeric\edit\numeric-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\numeric\add\numeric-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\numeric\edit\numeric-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\numeric\add\numeric-add.component.html)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab)]
 <app-numeric-add></app-numeric-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
-<app-numeric-edit></app-numeric-edit>
 
 # NumericConfig
 Below options are not mandatory to use in the `@numeric()` decorator. If needed then use the below options.

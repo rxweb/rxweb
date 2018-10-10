@@ -1,6 +1,6 @@
 ---
 title: required 
-description: Required validation decorator will check that value is entered or not in the property. If user not enter any value then the property will become invalid. To use the required decorator on particular property.
+description: Required validation decorator will check that value is entered or not in the property, If user not enter any value then the property will become invalid. 
 author: rxcontributortwo
 ---
 # When to use

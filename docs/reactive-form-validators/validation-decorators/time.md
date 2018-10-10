@@ -1,6 +1,6 @@
 ---
 title: time 
-description: time validation decorator will allow only time format to be entered. If user tries to enter any string except json then the property will become invalid. To use the json decorator on particular property.
+description: time validation decorator will allow only time format to be entered, If user tries to enter any string except json then the property will become invalid. 
 author: rxcontributorone
 
 ---

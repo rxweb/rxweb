@@ -1,6 +1,6 @@
 ---
 title: upperCase 
-description: Upper Case validation decorator will allow only uppercase to be entered. If user tries to enter any string except uppercase then the property will become invalid. To use the uppercase decorator on particular property.
+description: Upper Case validation decorator will allow only uppercase to be entered, If user tries to enter any string except uppercase then the property will become invalid. 
 author: rxcontributortwo
 
 ---

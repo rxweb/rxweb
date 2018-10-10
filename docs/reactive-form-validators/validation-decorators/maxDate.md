@@ -1,6 +1,6 @@
 ---
 title: maxDate  
-description: MaxDate validation decorator will allow only maximum date be entered upto value parameter. If user tries to enter any number that greater then the value then the property will become invalid. To use the maxDate decorator on particular property.
+description: MaxDate validation decorator will allow only maximum date be entered upto value parameter, If user tries to enter any number that greater then the value then the property will become invalid. 
 author:  rxcontributorone
 
 ---

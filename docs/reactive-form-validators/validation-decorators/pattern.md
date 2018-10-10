@@ -1,6 +1,6 @@
 ---
 title: pattern 
-description: Pattern validation decorator will allow only match input as pattern to be entered. If user tries to enter any string which is not matched pattern then the property will become invalid. To use the pattern decorator on particular property.
+description: Pattern validation decorator will allow only match input as pattern to be entered, If user tries to enter any string which is not matched pattern then the property will become invalid. 
 author: rxcontributortwo
 
 ---
