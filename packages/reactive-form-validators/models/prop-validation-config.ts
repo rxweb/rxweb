@@ -24,7 +24,7 @@ import { ValidatorFn } from "@angular/forms";
 export interface PropValidationConfig {
     allOf?:ArrayConfig;
     choice?:ChoiceConfig;
-    required?: boolean;
+    required?: BaseConfig |  boolean;
     creditCard?:CreditCardConfig;
     different?:DifferentConfig;
     even?:BaseConfig | boolean;
@@ -53,12 +53,12 @@ export interface PropValidationConfig {
     digit?: DigitConfig | boolean;
     alphaNumeric?: AlphaConfig | boolean;
     email?: EmailConfig | boolean;
-    lowercase?: MessageConfig | boolean;
+    lowerCase?: MessageConfig | boolean;
     maxDate?: DateConfig;
     maxNumber?: NumberConfig;
     minDate?: DateConfig;
     minNumber?: NumberConfig;
-    uppercase?: MessageConfig | boolean;
+    upperCase?: MessageConfig | boolean;
     range?: RangeConfig;
     custom?: ValidatorFn;
 }
