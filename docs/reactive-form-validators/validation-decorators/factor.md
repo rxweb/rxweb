@@ -34,10 +34,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\factor\add\factor-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\factor\edit\factor-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=factor Decorator for add Example)]
 <app-factor-add></app-factor-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=factor Decorator for edit Example)]
 <app-factor-edit></app-factor-edit>
 
 # FactorConfig

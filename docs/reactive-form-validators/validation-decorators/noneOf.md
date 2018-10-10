@@ -33,10 +33,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\noneOf\add\noneOf-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\noneOf\edit\noneOf-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=noneOf Decorator for add Example)]
 <app-noneOf-add></app-noneOf-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=noneOf Decorator for edit Example)]
 <app-noneOf-edit></app-noneOf-edit>
 
 # ArrayConfig

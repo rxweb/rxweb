@@ -32,10 +32,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\alphaNumeric\add\alpha-numeric-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\alphaNumeric\edit\alpha-numeric-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=alphaNumeric Decorator for add Example)]
 <app-alphaNumeric-add></app-alphaNumeric-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=alphaNumeric Decorator for edit Example)]
 <app-alphaNumeric-edit></app-alphaNumeric-edit>
 
 # AlphaConfig 
