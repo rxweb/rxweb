@@ -1,0 +1,25 @@
+<div>
+<form *ngIf="userFormGroup" [formGroup]="userFormGroup">
+<div class="form-group">
+    <label>Total Marks</label>
+    <input type="text" formControlName="totalMarks" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation of less than equal to validation on obtained marks or practical exam marks then Total Marks must be 100.<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.totalMarks.errors">{{userFormGroup.controls.totalMarks.errors.lessThanEqualTo.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Practical Exam Marks</label>
+    <input type="text" formControlName="practicalExamMarks" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation of less than equal to validation on 'Obtained Marks' then then Total Marks must be 100.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.practicalExamMarks.errors">{{userFormGroup.controls.practicalExamMarks.errors.lessThanEqualTo.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Obtained Marks</label>
+    <input type="text" formControlName="obtainedMarks" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation of less than equal to validation on 'Obtained Marks' then then Total Marks must be 100.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.obtainedMarks.errors">{{userFormGroup.controls.obtainedMarks.errors.lessThanEqualTo.message}}<br/></small>
+</div>
+<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

@@ -1,0 +1,11 @@
+<div>
+<form *ngIf="userFormGroup" [formGroup]="userFormGroup">
+<div class="form-group">
+    <label>Other Age</label>
+    <input type="text" formControlName="otherAge" class="form-control"  />
+    <small class="form-text text-muted">Shows custom message<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.otherAge.errors">{{userFormGroup.controls.otherAge.errors.greaterThan.message}}<br/></small>
+</div>
+<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

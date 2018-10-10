@@ -1,0 +1,2 @@
+import { ContainsConfig } from "../models/config/contains-config";
+export declare function contains(config: ContainsConfig): (target: Object, propertyKey: string, parameterIndex?: any) => void;

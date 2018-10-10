@@ -1,0 +1,23 @@
+<div id="rightsidebar" class="p-1">
+    <div class="border-left">
+        <ul class="list-unstyled" >
+            <li class="nav-item" *ngFor="let item of sidebarItem;let i = index"  [class.sidebar-list]="item.childLink.length > 0">
+                <a class="nav-link sidebar-link" [class.child-item-list]="item.childLink.length > 0" href="#{{item.parentLinkId}}" [class.active]="i == 0" (click)="scrollTo(item.parentLinkId)">{{item.parentLink}}</a>
+                <ul class="list-unstyled" [class.child-list]="item.childLink.length > 0">
+                    <li *ngFor="let obj of item.childLink" class="nav-item px-1"><a class="nav-link" href="#{{obj.id}}" (click)="scrollTo(obj.id)">{{obj.value}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+	<div class="contributors"  *ngIf="showComponent">
+		  <h4>Contributors</h4>
+		  <div class="row">
+			<div class="col-xs-12 col-sm-6 text-center" *ngFor="let item of contributorList">
+			<a href="{{item.html_url}}" target="_blank">
+				<img class="img-responsive d-inline-block" src="{{item.avatar_url}}" width="50" height="50">
+				<p class="my-2">{{item.login}}</p>
+			</a>
+			</div>
+		  </div>
+	 </div>
+</div>

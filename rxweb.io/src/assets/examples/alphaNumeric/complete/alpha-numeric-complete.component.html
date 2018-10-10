@@ -1,0 +1,35 @@
+<div>
+<form *ngIf="locationFormGroup" [formGroup]="locationFormGroup">
+<div class="form-group">
+    <label>Area Name</label>
+    <input type="text" formControlName="areaName" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on 'City Code'  or 'Country Code' then you need to add this input as 'Boston'.<br/></small>
+    <small class="form-text text-danger" *ngIf="locationFormGroup.controls.areaName.errors">{{locationFormGroup.controls.areaName.errors.alphaNumeric.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Flat Address</label>
+    <input type="text" formControlName="flatAddress" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="locationFormGroup.controls.flatAddress.errors">{{locationFormGroup.controls.flatAddress.errors.alphaNumeric.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Postal Address</label>
+    <input type="text" formControlName="postalAddress" class="form-control"  />
+    <small class="form-text text-danger" *ngIf="locationFormGroup.controls.postalAddress.errors">{{locationFormGroup.controls.postalAddress.errors.alphaNumeric.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Country Code</label>
+    <input type="text" formControlName="countryCode" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on this field then you need to add 'areaName' input as 'Boston'.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
+    <small class="form-text text-danger" *ngIf="locationFormGroup.controls.countryCode.errors">{{locationFormGroup.controls.countryCode.errors.alphaNumeric.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>City Code</label>
+    <input type="text" formControlName="cityCode" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on this field then you need to add 'areaName' input as 'Boston'.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+    <small class="form-text text-danger" *ngIf="locationFormGroup.controls.cityCode.errors">{{locationFormGroup.controls.cityCode.errors.alphaNumeric.message}}<br/></small>
+</div>
+<button [disabled]="!locationFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

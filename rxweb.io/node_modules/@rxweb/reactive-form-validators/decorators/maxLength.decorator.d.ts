@@ -1,0 +1,2 @@
+import { NumberConfig } from "../models/config/number-config";
+export declare function maxLength(config: NumberConfig): (target: Object, propertyKey: string, parameterIndex?: any) => void;

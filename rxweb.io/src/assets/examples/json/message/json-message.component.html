@@ -1,0 +1,11 @@
+<div>
+<form *ngIf="jsonInfoFormGroup" [formGroup]="jsonInfoFormGroup">
+<div class="form-group">
+    <label>Contact Json</label>
+    <input type="text" formControlName="contactJson" class="form-control"  />
+    <small class="form-text text-muted">Shows custom message<br/></small>
+    <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.contactJson.errors">{{jsonInfoFormGroup.controls.contactJson.errors.json.message}}<br/></small>
+</div>
+<button [disabled]="!jsonInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

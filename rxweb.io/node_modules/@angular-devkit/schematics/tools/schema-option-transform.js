@@ -1,0 +1,39 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+const core_1 = require("@angular-devkit/core");
+const rxjs_1 = require("rxjs");
+const operators_1 = require("rxjs/operators");
+class InvalidInputOptions extends core_1.schema.SchemaValidationException {
+    constructor(options, errors) {
+        super(errors, `Schematic input does not validate against the Schema: ${JSON.stringify(options)}\nErrors:\n`);
+    }
+}
+exports.InvalidInputOptions = InvalidInputOptions;
+// This can only be used in NodeJS.
+function validateOptionsWithSchema(registry) {
+    return (schematic, options) => {
+        // Prevent a schematic from changing the options object by making a copy of it.
+        options = core_1.deepCopy(options);
+        if (schematic.schema && schematic.schemaJson) {
+            // Make a deep copy of options.
+            return registry
+                .compile(schematic.schemaJson)
+                .pipe(operators_1.mergeMap(validator => validator(options)), operators_1.first(), operators_1.map(result => {
+                if (!result.success) {
+                    throw new InvalidInputOptions(options, result.errors || []);
+                }
+                return options;
+            }));
+        }
+        return rxjs_1.of(options);
+    };
+}
+exports.validateOptionsWithSchema = validateOptionsWithSchema;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2NoZW1hLW9wdGlvbi10cmFuc2Zvcm0uanMiLCJzb3VyY2VSb290IjoiLi8iLCJzb3VyY2VzIjpbInBhY2thZ2VzL2FuZ3VsYXJfZGV2a2l0L3NjaGVtYXRpY3MvdG9vbHMvc2NoZW1hLW9wdGlvbi10cmFuc2Zvcm0udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7Ozs7O0dBTUc7QUFDSCwrQ0FBd0Q7QUFDeEQsK0JBQXNEO0FBQ3RELDhDQUFzRDtBQVF0RCx5QkFBeUMsU0FBUSxhQUFNLENBQUMseUJBQXlCO0lBQy9FLFlBQVksT0FBVSxFQUFFLE1BQXFDO1FBQzNELEtBQUssQ0FDSCxNQUFNLEVBQ04seURBQXlELElBQUksQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLGFBQWEsQ0FDOUYsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQVBELGtEQU9DO0FBRUQsbUNBQW1DO0FBQ25DLG1DQUEwQyxRQUErQjtJQUN2RSxNQUFNLENBQUMsQ0FBZSxTQUF3QixFQUFFLE9BQVUsRUFBaUIsRUFBRTtRQUMzRSwrRUFBK0U7UUFDL0UsT0FBTyxHQUFHLGVBQVEsQ0FBQyxPQUFPLENBQUMsQ0FBQztRQUU1QixFQUFFLENBQUMsQ0FBQyxTQUFTLENBQUMsTUFBTSxJQUFJLFNBQVMsQ0FBQyxVQUFVLENBQUMsQ0FBQyxDQUFDO1lBQzdDLCtCQUErQjtZQUMvQixNQUFNLENBQUMsUUFBUTtpQkFDWixPQUFPLENBQUMsU0FBUyxDQUFDLFVBQVUsQ0FBQztpQkFDN0IsSUFBSSxDQUNILG9CQUFRLENBQUMsU0FBUyxDQUFDLEVBQUUsQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLENBQUMsRUFDekMsaUJBQUssRUFBRSxFQUNQLGVBQUcsQ0FBQyxNQUFNLENBQUMsRUFBRTtnQkFDWCxFQUFFLENBQUMsQ0FBQyxDQUFDLE1BQU0sQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDO29CQUNwQixNQUFNLElBQUksbUJBQW1CLENBQUMsT0FBTyxFQUFFLE1BQU0sQ0FBQyxNQUFNLElBQUksRUFBRSxDQUFDLENBQUM7Z0JBQzlELENBQUM7Z0JBRUQsTUFBTSxDQUFDLE9BQU8sQ0FBQztZQUNqQixDQUFDLENBQUMsQ0FDSCxDQUFDO1FBQ04sQ0FBQztRQUVELE1BQU0sQ0FBQyxTQUFZLENBQUMsT0FBTyxDQUFDLENBQUM7SUFDL0IsQ0FBQyxDQUFDO0FBQ0osQ0FBQztBQXhCRCw4REF3QkMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIEluYy4gQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5pbXBvcnQgeyBkZWVwQ29weSwgc2NoZW1hIH0gZnJvbSAnQGFuZ3VsYXItZGV2a2l0L2NvcmUnO1xuaW1wb3J0IHsgT2JzZXJ2YWJsZSwgb2YgYXMgb2JzZXJ2YWJsZU9mIH0gZnJvbSAncnhqcyc7XG5pbXBvcnQgeyBmaXJzdCwgbWFwLCBtZXJnZU1hcCB9IGZyb20gJ3J4anMvb3BlcmF0b3JzJztcbmltcG9ydCB7IFNjaGVtYXRpY0Rlc2NyaXB0aW9uIH0gZnJvbSAnLi4vc3JjJztcbmltcG9ydCB7IEZpbGVTeXN0ZW1Db2xsZWN0aW9uRGVzY3JpcHRpb24sIEZpbGVTeXN0ZW1TY2hlbWF0aWNEZXNjcmlwdGlvbiB9IGZyb20gJy4vZGVzY3JpcHRpb24nO1xuXG5leHBvcnQgdHlwZSBTY2hlbWF0aWNEZXNjID1cbiAgU2NoZW1hdGljRGVzY3JpcHRpb248RmlsZVN5c3RlbUNvbGxlY3Rpb25EZXNjcmlwdGlvbiwgRmlsZVN5c3RlbVNjaGVtYXRpY0Rlc2NyaXB0aW9uPjtcblxuXG5leHBvcnQgY2xhc3MgSW52YWxpZElucHV0T3B0aW9uczxUID0ge30+IGV4dGVuZHMgc2NoZW1hLlNjaGVtYVZhbGlkYXRpb25FeGNlcHRpb24ge1xuICBjb25zdHJ1Y3RvcihvcHRpb25zOiBULCBlcnJvcnM6IHNjaGVtYS5TY2hlbWFWYWxpZGF0b3JFcnJvcltdKSB7XG4gICAgc3VwZXIoXG4gICAgICBlcnJvcnMsXG4gICAgICBgU2NoZW1hdGljIGlucHV0IGRvZXMgbm90IHZhbGlkYXRlIGFnYWluc3QgdGhlIFNjaGVtYTogJHtKU09OLnN0cmluZ2lmeShvcHRpb25zKX1cXG5FcnJvcnM6XFxuYCxcbiAgICApO1xuICB9XG59XG5cbi8vIFRoaXMgY2FuIG9ubHkgYmUgdXNlZCBpbiBOb2RlSlMuXG5leHBvcnQgZnVuY3Rpb24gdmFsaWRhdGVPcHRpb25zV2l0aFNjaGVtYShyZWdpc3RyeTogc2NoZW1hLlNjaGVtYVJlZ2lzdHJ5KSB7XG4gIHJldHVybiA8VCBleHRlbmRzIHt9PihzY2hlbWF0aWM6IFNjaGVtYXRpY0Rlc2MsIG9wdGlvbnM6IFQpOiBPYnNlcnZhYmxlPFQ+ID0+IHtcbiAgICAvLyBQcmV2ZW50IGEgc2NoZW1hdGljIGZyb20gY2hhbmdpbmcgdGhlIG9wdGlvbnMgb2JqZWN0IGJ5IG1ha2luZyBhIGNvcHkgb2YgaXQuXG4gICAgb3B0aW9ucyA9IGRlZXBDb3B5KG9wdGlvbnMpO1xuXG4gICAgaWYgKHNjaGVtYXRpYy5zY2hlbWEgJiYgc2NoZW1hdGljLnNjaGVtYUpzb24pIHtcbiAgICAgIC8vIE1ha2UgYSBkZWVwIGNvcHkgb2Ygb3B0aW9ucy5cbiAgICAgIHJldHVybiByZWdpc3RyeVxuICAgICAgICAuY29tcGlsZShzY2hlbWF0aWMuc2NoZW1hSnNvbilcbiAgICAgICAgLnBpcGUoXG4gICAgICAgICAgbWVyZ2VNYXAodmFsaWRhdG9yID0+IHZhbGlkYXRvcihvcHRpb25zKSksXG4gICAgICAgICAgZmlyc3QoKSxcbiAgICAgICAgICBtYXAocmVzdWx0ID0+IHtcbiAgICAgICAgICAgIGlmICghcmVzdWx0LnN1Y2Nlc3MpIHtcbiAgICAgICAgICAgICAgdGhyb3cgbmV3IEludmFsaWRJbnB1dE9wdGlvbnMob3B0aW9ucywgcmVzdWx0LmVycm9ycyB8fCBbXSk7XG4gICAgICAgICAgICB9XG5cbiAgICAgICAgICAgIHJldHVybiBvcHRpb25zO1xuICAgICAgICAgIH0pLFxuICAgICAgICApO1xuICAgIH1cblxuICAgIHJldHVybiBvYnNlcnZhYmxlT2Yob3B0aW9ucyk7XG4gIH07XG59XG4iXX0=

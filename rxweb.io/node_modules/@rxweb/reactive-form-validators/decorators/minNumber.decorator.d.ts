@@ -1,0 +1,2 @@
+import { NumberConfig } from "../models/config/number-config";
+export declare function minNumber(config: NumberConfig): (target: Object, propertyKey: string, parameterIndex?: any) => void;

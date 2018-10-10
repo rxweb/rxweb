@@ -1,5 +1,5 @@
 ---
-title: Email Validation in Angular Reactive Forms
+title: email 
 description: Email validation decorator will allow only emails to be entered. If user tries to enter any string except email then the property will become invalid. To use the email decorator on particular property.
 author: rxcontributorone
 ---
@@ -14,10 +14,28 @@ Let’s see how email validator fulfil the need.
 
 # Basic Email Validation
 First we need to create User model class define a property of Email in the model to achieve the functional need of point 1.
-[!code-typescript[](../../examples/reactive-form-validators/email/rxweb-email-validation-add-angular-reactive-form/src/app/user/user.model.ts?highlight=5)]
+[!code-typescript[](\assets\examples\email\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\email\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
+
+[!TabGroup]
+# [Add](#tab\basicadd)
+[!code-typescript[](\assets\examples\email\add\email-add.component.ts)]
+# [Edit](#tab\basicedit)
+[!code-typescript[](\assets\examples\email\edit\email-edit.component.ts)]
+***
+
+Next, we need to write html code.
+[!code-typescript[](\assets\examples\email\add\email-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\email\edit\email-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+
+[!example(?condition="tab_1=='basicadd'"&type=tab)]
+<app-email-add></app-email-add>
+
+[!example(?condition="tab_1=='basicedit'"&type=tab)]
+<app-email-edit></app-email-edit>
 
 #EmailConfig
 
@@ -25,7 +43,7 @@ Below options are not mandatory to use in the `@email()` decorator. If needed th
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpression](#conditionalexpression) | Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpressions) | Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 
@@ -34,22 +52,42 @@ Type :  `Function`  |  `string`
 Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!code-typescript[](../../examples/reactive-form-validators/email/complete-rxweb-email-validation-add-angular-reactive-form/src/app/user/user.model.ts#L7-L8)]
+[!TabGroup(?showHideCondition="conditionalExpression")]
+# [Model](#tab\conditionalExpressionmodel)
+[!code-typescript[](\assets\examples\email\conditionalExpression\user.model.ts)]
+# [Component](#tab\conditionalExpressionComponent)
+[!code-typescript[](\assets\examples\email\conditionalExpression\email-conditional-expressions.component.ts)]
+# [Html](#tab\conditionalExpressionHtml)
+[!code-typescript[](\assets\examples\email\conditionalExpression\email-conditional-expressions.component.html)]
+***
+
+[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=email decorator with conditionalExpression)]
+<app-email-conditionalExpression></app-email-conditionalExpression>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property.
-[!code-typescript[](../../examples/reactive-form-validators/email/complete-rxweb-email-validation-add-angular-reactive-form/src/app/user/user.model.ts#L10-L11)]
 
+[!TabGroup(?showHideCondition="message")]
+# [Model](#tab\messageModel)
+[!code-typescript[](\assets\examples\email\message\user.model.ts)]
+# [Component](#tab\messageComponent)
+[!code-typescript[](\assets\examples\email\message\email-message.component.ts)]
+# [Html](#tab\messageHtml)
+[!code-typescript[](\assets\examples\email\message\email-message.component.html)]
+***
+
+[!example(?type=section&clickEventCode="message=!message"&title=email decorator with custom message)]
+<app-email-message></app-email-message>
 
 # Complete Email Example
-
-# Dynamic Email Example
-
-
-
-
-
-
-
-
+[!TabGroup]
+# [Example](#tab\completeexample)
+<app-email-complete></app-email-complete>
+# [Model](#tab\completemodel)
+[!code-typescript[](\assets\examples\email\complete\user.model.ts)]
+# [Component](#tab\completecomponent)
+[!code-typescript[](\assets\examples\email\complete\email-complete.component.ts)]
+# [Html](#tab\completehtml)
+[!code-typescript[](\assets\examples\email\complete\email-complete.component.html)]
+***

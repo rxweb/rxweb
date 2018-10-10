@@ -1,0 +1,2 @@
+import { CreditCardConfig } from "../models/config/credit-card-config";
+export declare function creditCard(config: CreditCardConfig): (target: Object, propertyKey: string, parameterIndex?: any) => void;

@@ -1,0 +1,11 @@
+{
+  "extends": "<%= relativePathToWorkspaceRoot %>/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "<%= relativePathToWorkspaceRoot %>/out-tsc/app",
+    "types": []
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
+}
