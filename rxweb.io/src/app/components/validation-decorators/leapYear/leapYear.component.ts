@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { LeapYearCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/leapYear/complete/leap-year-complete.component';
-import { LeapYearDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/leapYear/dynamic/leap-year-dynamic.component';
+import { LeapYearCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/leapYear/complete/leap-year-complete.component';
+import { LeapYearDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/leapYear/dynamic/leap-year-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './leapYear.component.html',
   entryComponents: [
-  	LeapYearCompleteComponent,
-   	LeapYearDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class LeapYearComponent implements OnInit {

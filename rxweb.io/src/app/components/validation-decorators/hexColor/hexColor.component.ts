@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { HexColorCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/hexColor/complete/hex-color-complete.component';
-import { HexColorDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/hexColor/dynamic/hex-color-dynamic.component';
+import { HexColorCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/hexColor/complete/hex-color-complete.component';
+import { HexColorDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/hexColor/dynamic/hex-color-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './hexColor.component.html',
   entryComponents: [
-  	HexColorCompleteComponent,
-   	HexColorDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class HexColorComponent implements OnInit {

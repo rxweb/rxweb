@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { LowerCaseCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/lowerCase/complete/lower-case-complete.component';
-import { LowerCaseDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/lowerCase/dynamic/lower-case-dynamic.component';
+import { LowerCaseCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/lowerCase/complete/lower-case-complete.component';
+import { LowerCaseDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/lowerCase/dynamic/lower-case-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './lowerCase.component.html',
   entryComponents: [
-  	LowerCaseCompleteComponent,
-   	LowerCaseDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class LowerCaseComponent implements OnInit {

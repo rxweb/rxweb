@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { LessThanEqualToCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/lessThanEqualTo/complete/less-than-equal-to-complete.component';
-import { LessThanEqualToDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/lessThanEqualTo/dynamic/less-than-equal-to-dynamic.component';
+import { LessThanEqualToCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/lessThanEqualTo/complete/less-than-equal-to-complete.component';
+import { LessThanEqualToDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/lessThanEqualTo/dynamic/less-than-equal-to-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './lessThanEqualTo.component.html',
   entryComponents: [
-  	LessThanEqualToCompleteComponent,
-   	LessThanEqualToDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class LessThanEqualToComponent implements OnInit {

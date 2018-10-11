@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { OddCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/odd/complete/odd-complete.component';
-import { OddDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/odd/dynamic/odd-dynamic.component';
+import { OddCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/odd/complete/odd-complete.component';
+import { OddDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/odd/dynamic/odd-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './odd.component.html',
   entryComponents: [
-  	OddCompleteComponent,
-   	OddDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class OddComponent implements OnInit {

@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MinDateCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/minDate/complete/min-date-complete.component';
-import { MinDateDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/minDate/dynamic/min-date-dynamic.component';
+import { MinDateCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/minDate/complete/min-date-complete.component';
+import { MinDateDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/minDate/dynamic/min-date-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './minDate.component.html',
   entryComponents: [
-  	MinDateCompleteComponent,
-   	MinDateDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class MinDateComponent implements OnInit {

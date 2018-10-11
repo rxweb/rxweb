@@ -98,7 +98,7 @@ To override the global configuration message and show the custom message on part
 # Complete AlphaNumeric Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-alphaNumeric-complete></app-alphaNumeric-complete>
+<app-alphaNumeric-complete-validator></app-alphaNumeric-complete-validator>
 # [Model](#tab\completemodel)
 [!code-typescript[](\assets\examples\validators\alphaNumeric\complete\location.model.ts)]
 # [Component](#tab\completecomponent)
@@ -110,7 +110,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic AlphaNumeric Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-alphaNumeric-dynamic></app-alphaNumeric-dynamic>
+<app-alphaNumeric-dynamic-validator></app-alphaNumeric-dynamic-validator>
 # [Model](#tab\dynamicmodel)
 [!code-typescript[](\assets\examples\validators\alphaNumeric\dynamic\location.model.ts)]
 # [Component](#tab\dynamiccomponent)

@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MaxNumberCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/maxNumber/complete/max-number-complete.component';
-import { MaxNumberDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/maxNumber/dynamic/max-number-dynamic.component';
+import { MaxNumberCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/maxNumber/complete/max-number-complete.component';
+import { MaxNumberDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/maxNumber/dynamic/max-number-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './maxNumber.component.html',
   entryComponents: [
-  	MaxNumberCompleteComponent,
-   	MaxNumberDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class MaxNumberComponent implements OnInit {

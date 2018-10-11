@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { AlphaNumericCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/alphaNumeric/complete/alpha-numeric-complete.component';
-import { AlphaNumericDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/alphaNumeric/dynamic/alpha-numeric-dynamic.component';
+import { AlphaNumericCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/alphaNumeric/complete/alpha-numeric-complete.component';
+import { AlphaNumericDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/alphaNumeric/dynamic/alpha-numeric-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './alphaNumeric.component.html',
   entryComponents: [
-  	AlphaNumericCompleteComponent,
-   	AlphaNumericDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class AlphaNumericComponent implements OnInit {

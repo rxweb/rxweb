@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { JsonCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/json/complete/json-complete.component';
-import { JsonDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/json/dynamic/json-dynamic.component';
+import { JsonCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/json/complete/json-complete.component';
+import { JsonDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/json/dynamic/json-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './json.component.html',
   entryComponents: [
-  	JsonCompleteComponent,
-   	JsonDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class JsonComponent implements OnInit {

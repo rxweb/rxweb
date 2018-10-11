@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { PatternCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/pattern/complete/pattern-complete.component';
-import { PatternDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/pattern/dynamic/pattern-dynamic.component';
+import { PatternCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/pattern/complete/pattern-complete.component';
+import { PatternDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/pattern/dynamic/pattern-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './pattern.component.html',
   entryComponents: [
-  	PatternCompleteComponent,
-   	PatternDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class PatternComponent implements OnInit {

@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { CreditCardCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/creditCard/complete/credit-card-complete.component';
-import { CreditCardDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/creditCard/dynamic/credit-card-dynamic.component';
+import { CreditCardCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/creditCard/complete/credit-card-complete.component';
+import { CreditCardDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/creditCard/dynamic/credit-card-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './creditCard.component.html',
   entryComponents: [
-  	CreditCardCompleteComponent,
-   	CreditCardDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class CreditCardComponent implements OnInit {

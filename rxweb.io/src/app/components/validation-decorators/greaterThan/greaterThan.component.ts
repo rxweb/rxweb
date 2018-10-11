@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { GreaterThanCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/greaterThan/complete/greater-than-complete.component';
-import { GreaterThanDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/greaterThan/dynamic/greater-than-dynamic.component';
+import { GreaterThanCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/greaterThan/complete/greater-than-complete.component';
+import { GreaterThanDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/greaterThan/dynamic/greater-than-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './greaterThan.component.html',
   entryComponents: [
-  	GreaterThanCompleteComponent,
-   	GreaterThanDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class GreaterThanComponent implements OnInit {

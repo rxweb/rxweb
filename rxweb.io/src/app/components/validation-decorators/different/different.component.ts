@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { DifferentCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/different/complete/different-complete.component';
-import { DifferentDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/different/dynamic/different-dynamic.component';
+import { DifferentCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/different/complete/different-complete.component';
+import { DifferentDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/different/dynamic/different-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './different.component.html',
   entryComponents: [
-  	DifferentCompleteComponent,
-   	DifferentDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class DifferentComponent implements OnInit {

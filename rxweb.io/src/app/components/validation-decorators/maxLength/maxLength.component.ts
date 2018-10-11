@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MaxLengthCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/maxLength/complete/max-length-complete.component';
-import { MaxLengthDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/maxLength/dynamic/max-length-dynamic.component';
+import { MaxLengthCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/maxLength/complete/max-length-complete.component';
+import { MaxLengthDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/maxLength/dynamic/max-length-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './maxLength.component.html',
   entryComponents: [
-  	MaxLengthCompleteComponent,
-   	MaxLengthDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class MaxLengthComponent implements OnInit {

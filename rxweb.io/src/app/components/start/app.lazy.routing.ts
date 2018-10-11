@@ -13,6 +13,10 @@ const APP_LAZY_ROUTES: Routes = [
   {
     path: 'validation-decorators',
     loadChildren: 'src/app/components/validation-decorators/validation-decorators.module#ValidationDecoratorsModule',
+  },
+  {
+    path: 'validation-validators',
+    loadChildren: 'src/app/components/validation-validators/validation-validators.module#ValidationValidatorsModule',
   }
 ];
 

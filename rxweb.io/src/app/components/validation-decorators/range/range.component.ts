@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { RangeCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/range/complete/range-complete.component';
-import { RangeDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/range/dynamic/range-dynamic.component';
+import { RangeCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/range/complete/range-complete.component';
+import { RangeDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/range/dynamic/range-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './range.component.html',
   entryComponents: [
-  	RangeCompleteComponent,
-   	RangeDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class RangeComponent implements OnInit {

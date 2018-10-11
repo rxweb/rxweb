@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { ContainsCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/contains/complete/contains-complete.component';
-import { ContainsDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/contains/dynamic/contains-dynamic.component';
+import { ContainsCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/contains/complete/contains-complete.component';
+import { ContainsDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/contains/dynamic/contains-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './contains.component.html',
   entryComponents: [
-  	ContainsCompleteComponent,
-   	ContainsDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class ContainsComponent implements OnInit {

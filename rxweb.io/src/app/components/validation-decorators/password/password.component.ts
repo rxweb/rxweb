@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { PasswordCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/password/complete/password-complete.component';
-import { PasswordDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/password/dynamic/password-dynamic.component';
+import { PasswordCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/password/complete/password-complete.component';
+import { PasswordDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/password/dynamic/password-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './password.component.html',
   entryComponents: [
-  	PasswordCompleteComponent,
-   	PasswordDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class PasswordComponent implements OnInit {

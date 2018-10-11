@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { TimeCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/time/complete/time-complete.component';
-import { TimeDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/time/dynamic/time-dynamic.component';
+import { TimeCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/time/complete/time-complete.component';
+import { TimeDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/time/dynamic/time-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './time.component.html',
   entryComponents: [
-  	TimeCompleteComponent,
-   	TimeDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class TimeComponent implements OnInit {

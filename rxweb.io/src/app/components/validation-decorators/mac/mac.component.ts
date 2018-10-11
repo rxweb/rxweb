@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MacCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/mac/complete/mac-complete.component';
-import { MacDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/mac/dynamic/mac-dynamic.component';
+import { MacCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/mac/complete/mac-complete.component';
+import { MacDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/mac/dynamic/mac-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './mac.component.html',
   entryComponents: [
-  	MacCompleteComponent,
-   	MacDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class MacComponent implements OnInit {

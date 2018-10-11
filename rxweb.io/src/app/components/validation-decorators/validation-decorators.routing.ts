@@ -4,139 +4,139 @@ import { Routes, RouterModule } from '@angular/router';
 const VALIDATION_DECORATORS_ROUTES: Routes = [
 {
 	path:'alpha',
-	loadChildren: './alpha/alpha.module#AlphaModule',
+	loadChildren: './alpha/alpha-decorators.module#AlphaDecoratorsModule',
 },
  {
 	path:'alphaNumeric',
-	loadChildren: './alphaNumeric/alphaNumeric.module#AlphaNumericModule',
+	loadChildren: './alphaNumeric/alphaNumeric-decorators.module#AlphaNumericDecoratorsModule',
 },
  {
 	path:'compare',
-	loadChildren: './compare/compare.module#CompareModule',
+	loadChildren: './compare/compare-decorators.module#CompareDecoratorsModule',
 },
  {
 	path:'contains',
-	loadChildren: './contains/contains.module#ContainsModule',
+	loadChildren: './contains/contains-decorators.module#ContainsDecoratorsModule',
 },
  {
 	path:'creditCard',
-	loadChildren: './creditCard/creditCard.module#CreditCardModule',
+	loadChildren: './creditCard/creditCard-decorators.module#CreditCardDecoratorsModule',
 },
  {
 	path:'different',
-	loadChildren: './different/different.module#DifferentModule',
+	loadChildren: './different/different-decorators.module#DifferentDecoratorsModule',
 },
  {
 	path:'digit',
-	loadChildren: './digit/digit.module#DigitModule',
+	loadChildren: './digit/digit-decorators.module#DigitDecoratorsModule',
 },
  {
 	path:'email',
-	loadChildren: './email/email.module#EmailModule',
+	loadChildren: './email/email-decorators.module#EmailDecoratorsModule',
 },
  {
 	path:'even',
-	loadChildren: './even/even.module#EvenModule',
+	loadChildren: './even/even-decorators.module#EvenDecoratorsModule',
 },
  {
 	path:'factor',
-	loadChildren: './factor/factor.module#FactorModule',
+	loadChildren: './factor/factor-decorators.module#FactorDecoratorsModule',
 },
  {
 	path:'greaterThanEqualTo',
-	loadChildren: './greaterThanEqualTo/greaterThanEqualTo.module#GreaterThanEqualToModule',
+	loadChildren: './greaterThanEqualTo/greaterThanEqualTo-decorators.module#GreaterThanEqualToDecoratorsModule',
 },
  {
 	path:'greaterThan',
-	loadChildren: './greaterThan/greaterThan.module#GreaterThanModule',
+	loadChildren: './greaterThan/greaterThan-decorators.module#GreaterThanDecoratorsModule',
 },
  {
 	path:'hexColor',
-	loadChildren: './hexColor/hexColor.module#HexColorModule',
+	loadChildren: './hexColor/hexColor-decorators.module#HexColorDecoratorsModule',
 },
  {
 	path:'json',
-	loadChildren: './json/json.module#JsonModule',
+	loadChildren: './json/json-decorators.module#JsonDecoratorsModule',
 },
  {
 	path:'leapYear',
-	loadChildren: './leapYear/leapYear.module#LeapYearModule',
+	loadChildren: './leapYear/leapYear-decorators.module#LeapYearDecoratorsModule',
 },
  {
 	path:'lessThanEqualTo',
-	loadChildren: './lessThanEqualTo/lessThanEqualTo.module#LessThanEqualToModule',
+	loadChildren: './lessThanEqualTo/lessThanEqualTo-decorators.module#LessThanEqualToDecoratorsModule',
 },
  {
 	path:'lessThan',
-	loadChildren: './lessThan/lessThan.module#LessThanModule',
+	loadChildren: './lessThan/lessThan-decorators.module#LessThanDecoratorsModule',
 },
  {
 	path:'lowerCase',
-	loadChildren: './lowerCase/lowerCase.module#LowerCaseModule',
+	loadChildren: './lowerCase/lowerCase-decorators.module#LowerCaseDecoratorsModule',
 },
  {
 	path:'mac',
-	loadChildren: './mac/mac.module#MacModule',
+	loadChildren: './mac/mac-decorators.module#MacDecoratorsModule',
 },
  {
 	path:'maxDate',
-	loadChildren: './maxDate/maxDate.module#MaxDateModule',
+	loadChildren: './maxDate/maxDate-decorators.module#MaxDateDecoratorsModule',
 },
  {
 	path:'maxLength',
-	loadChildren: './maxLength/maxLength.module#MaxLengthModule',
+	loadChildren: './maxLength/maxLength-decorators.module#MaxLengthDecoratorsModule',
 },
  {
 	path:'maxNumber',
-	loadChildren: './maxNumber/maxNumber.module#MaxNumberModule',
+	loadChildren: './maxNumber/maxNumber-decorators.module#MaxNumberDecoratorsModule',
 },
  {
 	path:'minDate',
-	loadChildren: './minDate/minDate.module#MinDateModule',
+	loadChildren: './minDate/minDate-decorators.module#MinDateDecoratorsModule',
 },
  {
 	path:'minLength',
-	loadChildren: './minLength/minLength.module#MinLengthModule',
+	loadChildren: './minLength/minLength-decorators.module#MinLengthDecoratorsModule',
 },
  {
 	path:'minNumber',
-	loadChildren: './minNumber/minNumber.module#MinNumberModule',
+	loadChildren: './minNumber/minNumber-decorators.module#MinNumberDecoratorsModule',
 },
  {
 	path:'numeric',
-	loadChildren: './numeric/numeric.module#NumericModule',
+	loadChildren: './numeric/numeric-decorators.module#NumericDecoratorsModule',
 },
  {
 	path:'odd',
-	loadChildren: './odd/odd.module#OddModule',
+	loadChildren: './odd/odd-decorators.module#OddDecoratorsModule',
 },
  {
 	path:'password',
-	loadChildren: './password/password.module#PasswordModule',
+	loadChildren: './password/password-decorators.module#PasswordDecoratorsModule',
 },
  {
 	path:'pattern',
-	loadChildren: './pattern/pattern.module#PatternModule',
+	loadChildren: './pattern/pattern-decorators.module#PatternDecoratorsModule',
 },
  {
 	path:'range',
-	loadChildren: './range/range.module#RangeModule',
+	loadChildren: './range/range-decorators.module#RangeDecoratorsModule',
 },
  {
 	path:'required',
-	loadChildren: './required/required.module#RequiredModule',
+	loadChildren: './required/required-decorators.module#RequiredDecoratorsModule',
 },
  {
 	path:'time',
-	loadChildren: './time/time.module#TimeModule',
+	loadChildren: './time/time-decorators.module#TimeDecoratorsModule',
 },
  {
 	path:'upperCase',
-	loadChildren: './upperCase/upperCase.module#UpperCaseModule',
+	loadChildren: './upperCase/upperCase-decorators.module#UpperCaseDecoratorsModule',
 },
  {
 	path:'url',
-	loadChildren: './url/url.module#UrlModule',
+	loadChildren: './url/url-decorators.module#UrlDecoratorsModule',
 },
  ];
 

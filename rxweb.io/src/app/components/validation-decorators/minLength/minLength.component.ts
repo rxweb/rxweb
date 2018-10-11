@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MinLengthCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/minLength/complete/min-length-complete.component';
-import { MinLengthDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/minLength/dynamic/min-length-dynamic.component';
+import { MinLengthCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/minLength/complete/min-length-complete.component';
+import { MinLengthDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/minLength/dynamic/min-length-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './minLength.component.html',
   entryComponents: [
-  	MinLengthCompleteComponent,
-   	MinLengthDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class MinLengthComponent implements OnInit {

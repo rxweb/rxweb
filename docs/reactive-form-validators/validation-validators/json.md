@@ -24,7 +24,7 @@ Here we have covered Add and Edit form operations.
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\validators\json\add\json-add.component.html)]
 
-<app-json-add-validator-validator></app-json-add-validator>
+<app-json-add-validator></app-json-add-validator>
 
 # DefaultConfig
 

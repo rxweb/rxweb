@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { GreaterThanEqualToCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/greaterThanEqualTo/complete/greater-than-equal-to-complete.component';
-import { GreaterThanEqualToDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/greaterThanEqualTo/dynamic/greater-than-equal-to-dynamic.component';
+import { GreaterThanEqualToCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/greaterThanEqualTo/complete/greater-than-equal-to-complete.component';
+import { GreaterThanEqualToDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/greaterThanEqualTo/dynamic/greater-than-equal-to-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './greaterThanEqualTo.component.html',
   entryComponents: [
-  	GreaterThanEqualToCompleteComponent,
-   	GreaterThanEqualToDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class GreaterThanEqualToComponent implements OnInit {

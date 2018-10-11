@@ -1,0 +1,359 @@
+<div id="wrapper" *ngIf="showComponent">
+	<div class="content">
+		<div class="title">
+	<h1> compare </h1>
+	<p> Compare validation validator will compare two inputs, If user enter unmatched value then the property will become invalid.</p>
+</div>
+		<div class="bg-white py-3 border-radius">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="hpanel">
+						<div class="panel-body validation-tab">
+							<div class='row' id= 'whentouse'>
+<div class='col-lg-12'>
+<h2>When to use</h2>
+
+<p>Let's assume that you are creating a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.</p>
+<ol>
+	<li>	The Name of Password field on which comparison is done.</li>
+	<li>  The Custom Message on ConfirmPassword field.  </li>
+	<li>	Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+</ol>
+<p>Let’s see how compare validator fulfil the need.</p>
+</div>
+</div>
+<div class='row' id= 'basiccomparevalidation'>
+<div class='col-lg-12'>
+<h2>Basic Compare Validation</h2>
+
+<p>We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
+<p>Here we have covered Add and Edit form operations.</p>
+ <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.add.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+<p>Next, we need to write html code.</p>
+ <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Html" (cbOnSuccess)="codeContent.add.HtmlCopied = true" [class.copied]="codeContent.add.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.add.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+<app-compare-add-validator></app-compare-add-validator>
+</div>
+</div>
+<div class='row' id= 'compareconfig'>
+<div class='col-lg-12'>
+<h2>CompareConfig</h2>
+
+<p>Below options are not mandatory to use in the <span class='highlighted'>RxwebValidators.compare()</span> validator. If needed then use the below options.</p>
+ <table class="table table-bordered table-striped">
+			<thead>
+		<tr>
+					<th>Option</th>
+					<th>Description </th>
+				</tr>
+		</thead>
+		<tbody>
+			<tr>	<td><a href='#fieldName' title='fieldName' (click)='scrollTo("#fieldName")'>fieldName</a></td> 	<td>Current property is matched with the particular property. so we need to pass particular property name. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
+	 </table>
+
+</div>
+</div>
+<div class='row' id= 'fieldname'>
+<div class='col-lg-12'>
+<h2>fieldName</h2>
+
+<p>Type :  <span class='highlighted'>string</span> </p>
+<p>Current property is matched with the particular property. so we need to pass particular property name.</p>
+ <blockquote *ngIf="codeContent.fieldNameExample.Notes?.length > 0">
+	<ng-container *ngFor="let item of codeContent.fieldNameExample.Notes">
+	  <p [innerHtml]="item"></p>
+	</ng-container>
+</blockquote>
+<div class="model-ts">
+	<div class="code">
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.fieldNameExample.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+<ul class="nav nav-tabs" *ngIf="fieldName">
+	<li [class.active]="tab_1=='fieldNamemodel'" (click)="tab_1='fieldNamemodel'"><a>Model</a></li>
+	<li [class.active]="tab_1=='fieldNameComponent'" (click)="tab_1='fieldNameComponent'"><a>Component</a></li>
+	<li [class.active]="tab_1=='fieldNameHtml'" (click)="tab_1='fieldNameHtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" *ngIf="fieldName">
+			  <div class="tab-pane" [class.active]="tab_1=='fieldNamemodel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.fieldName.Model" (cbOnSuccess)="codeContent.fieldName.ModelCopied = true" [class.copied]="codeContent.fieldName.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.fieldName.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_1=='fieldNameComponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.fieldName.Component" (cbOnSuccess)="codeContent.fieldName.ComponentCopied = true" [class.copied]="codeContent.fieldName.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.fieldName.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_1=='fieldNameHtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.fieldName.Html" (cbOnSuccess)="codeContent.fieldName.HtmlCopied = true" [class.copied]="codeContent.fieldName.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.fieldName.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+<div class="model-ts combined " >
+<a class="float-right copy-icon" (click)="fieldName=!fieldName"><i aria-hidden="true" class="fa fa-code"></i></a>
+
+	<div class="code-example-title">
+		compare validator with fieldName
+	</div>
+	<div class="code-example">
+			 <app-compare-fieldName-validator></app-compare-fieldName-validator>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'message'>
+<div class='col-lg-12'>
+<h2>message</h2>
+
+<p>Type :  <span class='highlighted'>string</span> </p>
+<p>To override the global configuration message and show the custom message on particular control property.</p>
+ <blockquote *ngIf="codeContent.messageExample.Notes?.length > 0">
+	<ng-container *ngFor="let item of codeContent.messageExample.Notes">
+	  <p [innerHtml]="item"></p>
+	</ng-container>
+</blockquote>
+<div class="model-ts">
+	<div class="code">
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.messageExample.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+<ul class="nav nav-tabs" *ngIf="message">
+	<li [class.active]="tab_2=='messageModel'" (click)="tab_2='messageModel'"><a>Model</a></li>
+	<li [class.active]="tab_2=='messageComponent'" (click)="tab_2='messageComponent'"><a>Component</a></li>
+	<li [class.active]="tab_2=='messageHtml'" (click)="tab_2='messageHtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" *ngIf="message">
+			  <div class="tab-pane" [class.active]="tab_2=='messageModel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Model" (cbOnSuccess)="codeContent.message.ModelCopied = true" [class.copied]="codeContent.message.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.message.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_2=='messageComponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Component" (cbOnSuccess)="codeContent.message.ComponentCopied = true" [class.copied]="codeContent.message.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.message.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_2=='messageHtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Html" (cbOnSuccess)="codeContent.message.HtmlCopied = true" [class.copied]="codeContent.message.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.message.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+<div class="model-ts combined " >
+<a class="float-right copy-icon" (click)="message=!message"><i aria-hidden="true" class="fa fa-code"></i></a>
+
+	<div class="code-example-title">
+		compare validator with custom message
+	</div>
+	<div class="code-example">
+			 <app-compare-message-validator></app-compare-message-validator>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'completecompareexample'>
+<div class='col-lg-12'>
+<h2>Complete Compare Example</h2>
+
+<ul class="nav nav-tabs" >
+	<li [class.active]="tab_3=='completeexample'" (click)="tab_3='completeexample'"><a>Example</a></li>
+	<li [class.active]="tab_3=='completemodel'" (click)="tab_3='completemodel'"><a>Model</a></li>
+	<li [class.active]="tab_3=='completecomponent'" (click)="tab_3='completecomponent'"><a>Component</a></li>
+	<li [class.active]="tab_3=='completehtml'" (click)="tab_3='completehtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" >
+			  <div class="tab-pane" [class.active]="tab_3=='completeexample'">
+			<app-compare-complete-validator></app-compare-complete-validator>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_3=='completemodel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Model" (cbOnSuccess)="codeContent.complete.ModelCopied = true" [class.copied]="codeContent.complete.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.complete.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_3=='completecomponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Component" (cbOnSuccess)="codeContent.complete.ComponentCopied = true" [class.copied]="codeContent.complete.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.complete.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_3=='completehtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Html" (cbOnSuccess)="codeContent.complete.HtmlCopied = true" [class.copied]="codeContent.complete.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.complete.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+</div>
+</div>
+<div class='row' id= 'dynamiccompareexample'>
+<div class='col-lg-12'>
+<h2>Dynamic Compare Example</h2>
+
+<ul class="nav nav-tabs" >
+	<li [class.active]="tab_4=='dynamicexample'" (click)="tab_4='dynamicexample'"><a>Example</a></li>
+	<li [class.active]="tab_4=='dynamicmodel'" (click)="tab_4='dynamicmodel'"><a>Model</a></li>
+	<li [class.active]="tab_4=='dynamiccomponent'" (click)="tab_4='dynamiccomponent'"><a>Component</a></li>
+	<li [class.active]="tab_4=='dynamichtml'" (click)="tab_4='dynamichtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" >
+			  <div class="tab-pane" [class.active]="tab_4=='dynamicexample'">
+			<app-compare-dynamic-validator></app-compare-dynamic-validator>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_4=='dynamicmodel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Model" (cbOnSuccess)="codeContent.dynamic.ModelCopied = true" [class.copied]="codeContent.dynamic.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_4=='dynamiccomponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Component" (cbOnSuccess)="codeContent.dynamic.ComponentCopied = true" [class.copied]="codeContent.dynamic.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_4=='dynamichtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Html" (cbOnSuccess)="codeContent.dynamic.HtmlCopied = true" [class.copied]="codeContent.dynamic.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+	  
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<app-disqus></app-disqus>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<app-right-sidebar [sidebarLinks]="sidebarLinks"></app-right-sidebar>
+</div>
+

@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { FactorCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/factor/complete/factor-complete.component';
-import { FactorDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/factor/dynamic/factor-dynamic.component';
+import { FactorCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/factor/complete/factor-complete.component';
+import { FactorDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/factor/dynamic/factor-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './factor.component.html',
   entryComponents: [
-  	FactorCompleteComponent,
-   	FactorDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class FactorComponent implements OnInit {

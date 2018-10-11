@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MaxDateCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/maxDate/complete/max-date-complete.component';
-import { MaxDateDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/maxDate/dynamic/max-date-dynamic.component';
+import { MaxDateCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/maxDate/complete/max-date-complete.component';
+import { MaxDateDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/maxDate/dynamic/max-date-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './maxDate.component.html',
   entryComponents: [
-  	MaxDateCompleteComponent,
-   	MaxDateDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class MaxDateComponent implements OnInit {

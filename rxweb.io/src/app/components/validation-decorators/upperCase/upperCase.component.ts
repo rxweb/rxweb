@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { UpperCaseCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/upperCase/complete/upper-case-complete.component';
-import { UpperCaseDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/upperCase/dynamic/upper-case-dynamic.component';
+import { UpperCaseCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/upperCase/complete/upper-case-complete.component';
+import { UpperCaseDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/upperCase/dynamic/upper-case-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './upperCase.component.html',
   entryComponents: [
-  	UpperCaseCompleteComponent,
-   	UpperCaseDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class UpperCaseComponent implements OnInit {

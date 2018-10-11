@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { NumericCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/numeric/complete/numeric-complete.component';
-import { NumericDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/numeric/dynamic/numeric-dynamic.component';
+import { NumericCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/numeric/complete/numeric-complete.component';
+import { NumericDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/numeric/dynamic/numeric-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './numeric.component.html',
   entryComponents: [
-  	NumericCompleteComponent,
-   	NumericDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class NumericComponent implements OnInit {

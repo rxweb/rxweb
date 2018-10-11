@@ -7,14 +7,14 @@
 				</div>
 			</li>
 			<li *ngFor="let link of links | filter:searchText:'title'">
-				<a [routerLink]="link.uri"><span class="nav-label">{{link.title}}</span><span class="fa arrow" *ngIf="link.childrens?.length > 0"></span></a>
-				<ul class="nav nav-second-level collapse in" aria-expanded="false" *ngIf="link.childrens?.length > 0">
+				<a  (click)="isSecondLevelCollapse = !isSecondLevelCollapse" [routerLink]="link.uri" routerLinkActive="active"><span class="nav-label">{{link.title}}</span><span class="fa arrow" *ngIf="link.childrens?.length > 0"></span></a>
+				<ul [class.hide]="isSecondLevelCollapse" [class.show]="!isSecondLevelCollapse" class="nav nav-second-level collapse in" aria-expanded="false" *ngIf="link.childrens?.length > 0">
 					<li *ngFor="let secondLevel of link.childrens">
-						<a [routerLink]="secondLevel.uri"><span class="nav-label">{{secondLevel.title}}</span><span class="fa arrow" *ngIf="secondLevel.childrens?.length > 0"></span>
+						<a [routerLink]="secondLevel.uri" (click)="isthirdLevelCollapse = !isthirdLevelCollapse" routerLinkActive="active"><span class="nav-label">{{secondLevel.title}}</span><span class="fa arrow" *ngIf="secondLevel.childrens?.length > 0"></span>
 						</a>
-						<ul class="nav nav-third-level collapse in" aria-expanded="false" *ngIf="secondLevel.childrens?.length > 0">
+						<ul [class.hide]="isthirdLevelCollapse" [class.show]="!isthirdLevelCollapse" class="nav nav-third-level collapse in" aria-expanded="false" *ngIf="secondLevel.childrens?.length > 0">
 							<li *ngFor="let thirdLevel of secondLevel.childrens">
-								<a [routerLink]="thirdLevel.uri">
+								<a [routerLink]="thirdLevel.uri" routerLinkActive="active">
 										<span class="nav-label">{{thirdLevel.title}}</span>
 									</a>
 							</li>

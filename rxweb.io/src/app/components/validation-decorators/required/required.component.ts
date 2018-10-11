@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { RequiredCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/required/complete/required-complete.component';
-import { RequiredDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/required/dynamic/required-dynamic.component';
+import { RequiredCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/required/complete/required-complete.component';
+import { RequiredDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/required/dynamic/required-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './required.component.html',
   entryComponents: [
-  	RequiredCompleteComponent,
-   	RequiredDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class RequiredComponent implements OnInit {

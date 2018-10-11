@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { EmailCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/email/complete/email-complete.component';
-import { EmailDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/email/dynamic/email-dynamic.component';
+import { EmailCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/email/complete/email-complete.component';
+import { EmailDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/email/dynamic/email-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './email.component.html',
   entryComponents: [
-  	EmailCompleteComponent,
-   	EmailDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class EmailComponent implements OnInit {

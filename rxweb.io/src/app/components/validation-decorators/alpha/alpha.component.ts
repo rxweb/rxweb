@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { AlphaCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/alpha/complete/alpha-complete.component';
-import { AlphaDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/alpha/dynamic/alpha-dynamic.component';
+import { AlphaCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/alpha/complete/alpha-complete.component';
+import { AlphaDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/alpha/dynamic/alpha-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './alpha.component.html',
   entryComponents: [
-  	AlphaCompleteComponent,
-   	AlphaDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class AlphaComponent implements OnInit {

@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { EvenCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/even/complete/even-complete.component';
-import { EvenDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/even/dynamic/even-dynamic.component';
+import { EvenCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/even/complete/even-complete.component';
+import { EvenDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/even/dynamic/even-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './even.component.html',
   entryComponents: [
-  	EvenCompleteComponent,
-   	EvenDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class EvenComponent implements OnInit {

@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { CompareCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/compare/complete/compare-complete.component';
-import { CompareDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/compare/dynamic/compare-dynamic.component';
+import { CompareCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/compare/complete/compare-complete.component';
+import { CompareDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/compare/dynamic/compare-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './compare.component.html',
   entryComponents: [
-  	CompareCompleteComponent,
-   	CompareDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class CompareComponent implements OnInit {

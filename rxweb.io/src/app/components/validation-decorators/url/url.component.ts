@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { UrlCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/url/complete/url-complete.component';
-import { UrlDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/url/dynamic/url-dynamic.component';
+import { UrlCompleteComponent } from 'src/assets/examples/reactive-form-validators/decorators/url/complete/url-complete.component';
+import { UrlDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/url/dynamic/url-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,9 +9,7 @@ import { TitleCasePipe } from "@angular/common";
 @Component({
   templateUrl: './url.component.html',
   entryComponents: [
-  	UrlCompleteComponent,
-   	UrlDynamicComponent,
-   DisqusComponent
+DisqusComponent
   ]
 })
 export class UrlComponent implements OnInit {
