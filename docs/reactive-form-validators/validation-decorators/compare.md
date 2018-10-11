@@ -79,6 +79,9 @@ To override the global configuration message and show the custom message on part
 <app-compare-message></app-compare-message>
 
 # Complete Compare Example
+
+This Complete Compare example which includes all the CompareConfig properties will fulfil the requirement of scenarios 1 and 2.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-compare-complete></app-compare-complete>
@@ -90,11 +93,14 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\compare\complete\compare-complete.component.html)]
 ***
 
-
-
-
-
-
-
-
-
+# Dynamic Compare Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-compare-dynamic></app-compare-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\compare\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\compare\dynamic\compare-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\compare\dynamic\compare-dynamic.component.html)]
+***

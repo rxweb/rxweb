@@ -101,6 +101,9 @@ To override the global configuration message and show the custom message on part
 <app-alpha-message></app-alpha-message>
 
 # Complete Alpha Example
+
+This Complete Alpha example which includes all the AlphaConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-alpha-complete></app-alpha-complete>
@@ -110,4 +113,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\alpha\complete\alpha-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\alpha\complete\alpha-complete.component.html)]
+***
+
+# Dynamic Alpha Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-alpha-dynamic></app-alpha-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\alpha\dynamic\address-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\alpha\dynamic\alpha-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\alpha\dynamic\alpha-dynamic.component.html)]
 ***

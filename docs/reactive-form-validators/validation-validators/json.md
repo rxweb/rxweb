@@ -18,11 +18,11 @@ We need to create a FormGroup in the component. To achieve this we need to add R
 Here we have covered Add and Edit form operations. 
 
 
-[!code-typescript[](\assets\reactive-form-validators\validators\json\add\json-add.component.ts)]
+[!code-typescript[](\assets\examples\validators\json\add\json-add.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\reactive-form-validators\validators\json\add\json-add.component.html)]
+[!code-typescript[](\assets\examples\validators\json\add\json-add.component.html)]
 
 <app-json-add-validator-validator></app-json-add-validator>
 
@@ -43,11 +43,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\json\conditionalExpression\json-info.model.ts)]
+[!code-typescript[](\assets\examples\validators\json\conditionalExpression\json-info.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\json\conditionalExpression\json-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\validators\json\conditionalExpression\json-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\json\conditionalExpression\json-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\validators\json\conditionalExpression\json-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=json validator with conditionalExpression)]
@@ -60,11 +60,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\reactive-form-validators\validators\json\message\json-info.model.ts)]
+[!code-typescript[](\assets\examples\validators\json\message\json-info.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\json\message\json-message.component.ts)]
+[!code-typescript[](\assets\examples\validators\json\message\json-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\json\message\json-message.component.html)]
+[!code-typescript[](\assets\examples\validators\json\message\json-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=json validator with custom message)]
@@ -75,9 +75,21 @@ To override the global configuration message and show the custom message on part
 # [Example](#tab\completeexample)
 <app-json-complete-validator></app-json-complete-validator>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\json\complete\json-info.model.ts)]
+[!code-typescript[](\assets\examples\validators\json\complete\json-info.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\json\complete\json-complete.component.ts)]
+[!code-typescript[](\assets\examples\validators\json\complete\json-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\json\complete\json-complete.component.html)]
+[!code-typescript[](\assets\examples\validators\json\complete\json-complete.component.html)]
+***
+
+# Dynamic Json Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-json-dynamic-validator></app-json-dynamic-validator>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\validators\json\dynamic\json-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\validators\json\dynamic\json-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\validators\json\dynamic\json-dynamic.component.html)]
 ***

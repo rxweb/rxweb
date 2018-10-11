@@ -83,6 +83,9 @@ To override the global configuration message and show the custom message on part
 <app-json-message></app-json-message>
 
 # Complete Json Example
+
+This Complete Json example which includes all the DefaultConfig properties will fulfil the requirement of scenarios 1, 2 and 3
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-json-complete></app-json-complete>
@@ -92,4 +95,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\json\complete\json-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\json\complete\json-complete.component.html)]
+***
+
+# Dynamic Json Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-json-dynamic></app-json-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\json\dynamic\json-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\json\dynamic\json-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\json\dynamic\json-dynamic.component.html)]
 ***

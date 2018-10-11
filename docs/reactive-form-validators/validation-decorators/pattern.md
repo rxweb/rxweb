@@ -99,6 +99,9 @@ enter specific regex pattern
 <app-pattern-pattern></app-pattern-pattern>
 
 # Complete pattern Example
+
+This Complete pattern example which includes all the PatternConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeExample)
 <app-pattern-complete></app-pattern-complete>
@@ -108,4 +111,16 @@ enter specific regex pattern
 [!code-typescript[](\assets\examples\pattern\complete\pattern-complete.component.ts)]
 # [Html](#tab\completeHtml)
 [!code-typescript[](\assets\examples\pattern\complete\pattern-complete.component.html)]
+***
+
+# Dynamic pattern Example
+[!TabGroup]
+# [Example](#tab\dynamicExample)
+<app-pattern-dynamic></app-pattern-dynamic>
+# [Model](#tab\dynamicModel)
+[!code-typescript[](\assets\examples\pattern\dynamic\user.model.ts)]
+# [Component](#tab\dynamicComponent)
+[!code-typescript[](\assets\examples\pattern\dynamic\pattern-dynamic.component.ts)]
+# [Html](#tab\dynamicHtml)
+[!code-typescript[](\assets\examples\pattern\dynamic\pattern-dynamic.component.html)]
 ***

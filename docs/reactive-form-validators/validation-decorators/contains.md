@@ -99,6 +99,9 @@ To override the global configuration message and show the custom message on part
 <app-contains-message></app-contains-message>
 
 # Complete Contains Example
+
+This Complete Contains example which includes all the ContainsConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-contains-complete></app-contains-complete>
@@ -110,7 +113,14 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\contains\complete\contains-complete.component.html)]
 ***
 
-
-
-
-
+# Dynamic Contains Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-contains-dynamic></app-contains-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\contains\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\contains\dynamic\contains-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\contains\dynamic\contains-dynamic.component.html)]
+***

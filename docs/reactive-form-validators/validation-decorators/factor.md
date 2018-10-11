@@ -117,6 +117,9 @@ To override the global configuration message and show the custom message on part
 <app-factor-message></app-factor-message>
 
 # Complete Factor Example
+
+This Complete Factor example which includes all the FactorConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-factor-complete></app-factor-complete>
@@ -126,4 +129,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\factor\complete\factor-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\factor\complete\factor-complete.component.html)]
+***
+
+# Dynamic Factor Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-factor-dynamic></app-factor-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\factor\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\factor\dynamic\factor-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\factor\dynamic\factor-dynamic.component.html)]
 ***

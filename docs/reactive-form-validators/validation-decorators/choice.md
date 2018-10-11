@@ -116,6 +116,9 @@ To override the global configuration message and show the custom message on part
 <app-choice-message></app-choice-message>
 
 # Complete choice Example
+
+This Complete choice example which includes all the ChoiceConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-choice-complete></app-choice-complete>
@@ -127,3 +130,14 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\choice\complete\choice-complete.component.html)]
 ***
 
+# Dynamic choice Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-choice-dynamic></app-choice-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\choice\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\choice\dynamic\choice-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\choice\dynamic\choice-dynamic.component.html)]
+***

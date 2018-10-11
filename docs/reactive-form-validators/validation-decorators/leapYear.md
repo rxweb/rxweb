@@ -82,6 +82,9 @@ To override the global configuration message and show the custom message on part
 <app-leapYear-message></app-leapYear-message>
 
 # Complete LeapYear Example
+
+This Complete LeapYear example which includes all the BaseConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-leapYear-complete></app-leapYear-complete>
@@ -91,4 +94,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\leapYear\complete\leapYear-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\leapYear\complete\leapYear-complete.component.html)]
+***
+
+# Dynamic LeapYear Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-leapYear-dynamic></app-leapYear-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\leapYear\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\leapYear\dynamic\leapYear-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\leapYear\dynamic\leapYear-dynamic.component.html)]
 ***

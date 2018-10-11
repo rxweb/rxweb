@@ -98,6 +98,9 @@ enter value which you want to restrict number in the property
 <app-minNumber-value></app-minNumber-value>
 
 # Complete minNumber Example
+
+This Complete minNumber example which includes all the NumberConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-minNumber-complete></app-minNumber-complete>
@@ -107,4 +110,16 @@ enter value which you want to restrict number in the property
 [!code-typescript[](\assets\examples\minNumber\complete\min-number-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\minNumber\complete\min-number-complete.component.html)]
+***
+
+# Dynamic minNumber Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-minNumber-dynamic></app-minNumber-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\minNumber\dynamic\result-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\minNumber\dynamic\min-number-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\minNumber\dynamic\min-number-dynamic.component.html)]
 ***

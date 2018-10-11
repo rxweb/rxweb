@@ -99,6 +99,9 @@ To override the global configuration message and show the custom message on part
 <app-greaterThan-message></app-greaterThan-message>
 
 # Complete greaterThan Example
+
+This Complete greaterThan example which includes all the RelationalOperatorConfig properties will fulfil the requirement of scenarios 1, 2, and 3
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-greaterThan-complete></app-greaterThan-complete>
@@ -108,4 +111,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\greaterThan\complete\greater-than-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\greaterThan\complete\greater-than-complete.component.html)]
+***
+
+# Dynamic greaterThan Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-greaterThan-dynamic></app-greaterThan-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\greaterThan\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\greaterThan\dynamic\greater-than-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\greaterThan\dynamic\greater-than-dynamic.component.html)]
 ***

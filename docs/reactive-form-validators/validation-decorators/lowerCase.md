@@ -79,7 +79,10 @@ To override the global configuration message and show the custom message on part
 [!example(?type=section&clickEventCode="message=!message"&title=lowerCase decorator with custom message)]
 <app-lowerCase-message></app-lowerCase-message>
 
-# Complete lowercase Example
+# Complete lowerCase Example
+
+This Complete lowerCase example which includes all the MessageConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-lowerCase-complete></app-lowerCase-complete>
@@ -89,4 +92,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\lowerCase\complete\lower-case-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\lowerCase\complete\lower-case-complete.component.html)]
+***
+
+# Dynamic lowercase Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-lowerCase-dynamic></app-lowerCase-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\lowerCase\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\lowerCase\dynamic\lower-case-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\lowerCase\dynamic\lower-case-dynamic.component.html)]
 ***

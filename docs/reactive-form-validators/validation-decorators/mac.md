@@ -83,6 +83,9 @@ To override the global configuration message and show the custom message on part
 <app-mac-message></app-mac-message>
 
 # Complete mac Example
+
+This Complete mac example which includes all the BaseConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-mac-complete></app-mac-complete>
@@ -92,4 +95,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\mac\complete\mac-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\mac\complete\mac-complete.component.html)]
+***
+
+# Dynamic mac Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-mac-dynamic></app-mac-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\mac\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\mac\dynamic\mac-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\mac\dynamic\mac-dynamic.component.html)]
 ***

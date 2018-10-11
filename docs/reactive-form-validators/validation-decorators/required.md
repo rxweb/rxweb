@@ -80,6 +80,9 @@ To override the global configuration message and show the custom message on part
 <app-required-message></app-required-message>
 
 # Complete required Example
+
+This Complete required example which includes all the RequiredConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeExample)
 <app-required-complete></app-required-complete>
@@ -89,4 +92,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\required\complete\required-complete.component.ts)]
 # [Html](#tab\completeHtml)
 [!code-typescript[](\assets\examples\required\complete\required-complete.component.html)]
+***
+
+# Dynamic required Example
+[!TabGroup]
+# [Example](#tab\dynamicExample)
+<app-required-dynamic></app-required-dynamic>
+# [Model](#tab\dynamicModel)
+[!code-typescript[](\assets\examples\required\dynamic\user.model.ts)]
+# [Component](#tab\dynamicComponent)
+[!code-typescript[](\assets\examples\required\dynamic\required-dynamic.component.ts)]
+# [Html](#tab\dynamicHtml)
+[!code-typescript[](\assets\examples\required\dynamic\required-dynamic.component.html)]
 ***

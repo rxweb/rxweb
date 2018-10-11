@@ -39,7 +39,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab&title=oneOf Decorator for edit Example)]
 <app-oneOf-edit></app-oneOf-edit>
 
-# oneOfConfig
+# ArrayConfig
 Below options are not mandatory to use in the `@oneOf()` decorator. If needed then use the below options.
 
 |Option | Description |
@@ -99,6 +99,9 @@ To override the global configuration message and show the custom message on part
 <app-oneOf-message></app-oneOf-message>
 
 # Complete oneOf Example
+
+This Complete oneOf example which includes all the ArrayConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-oneOf-complete></app-oneOf-complete>
@@ -108,4 +111,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\oneOf\complete\oneOf-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\oneOf\complete\oneOf-complete.component.html)]
+***
+
+# Dynamic oneOf Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-oneOf-dynamic></app-oneOf-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\oneOf\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\oneOf\dynamic\oneOf-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\oneOf\dynamic\oneOf-dynamic.component.html)]
 ***

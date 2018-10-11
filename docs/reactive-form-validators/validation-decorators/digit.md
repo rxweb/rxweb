@@ -81,6 +81,9 @@ To override the global configuration message and show the custom message on part
 <app-digit-message></app-digit-message>
 
 # Complete digit Example
+
+This Complete digit example which includes all the DigitConfig properties will fulfil the requirement of scenarios 1, 2 and 3
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-digit-complete></app-digit-complete>
@@ -90,4 +93,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\digit\complete\digit-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\digit\complete\digit-complete.component.html)]
+***
+
+# Dynamic Digit Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-digit-dynamic></app-digit-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\digit\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\digit\dynamic\digit-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\digit\dynamic\digit-dynamic.component.html)]
 ***

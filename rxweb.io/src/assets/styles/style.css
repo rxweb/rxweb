@@ -2366,7 +2366,8 @@ p.alpha-con-title {
     margin: 10px 16px 0 8px;
 }
 .comment-section .model-ts{
-	position:relative;
+    position:relative;
+    margin-top: 10px;
 }
 .comment-section .model-ts:after {
     position: absolute;
@@ -2383,13 +2384,13 @@ p.alpha-con-title {
     border-width: 8px;
     border-right-color: #e3e3e3;
 }
-.comment-section textarea.form-control{
+/* .comment-section textarea.form-control{
 	width: 1104px;
     margin: 20px;
-}
-.comment-section .form-group label{
+} */
+/* .comment-section .form-group label{
 	padding: 20px 10px 10px 20px;
-}
+} */
 .comment-section .que a{
     padding: 0 20px;
 

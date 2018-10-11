@@ -16,11 +16,11 @@ Let’s see how contains validator fulfil the need.
 # Basic Contains Validation
 We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\add\contains-add.component.ts)]
+[!code-typescript[](\assets\examples\validators\contains\add\contains-add.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\add\contains-add.component.html)]
+[!code-typescript[](\assets\examples\validators\contains\add\contains-add.component.html)]
 
 <app-contains-add-validator></app-contains-add-validator>
 
@@ -40,11 +40,11 @@ This is substring value.
 
 [!TabGroup(?showHideCondition="valueShow")]
 # [Model](#tab\valuemodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\value\user.model.ts)]
+[!code-typescript[](\assets\examples\validators\contains\value\user.model.ts)]
 # [Component](#tab\valueComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\value\contains-value.component.ts)]
+[!code-typescript[](\assets\examples\validators\contains\value\contains-value.component.ts)]
 # [Html](#tab\valueHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\value\contains-value.component.html)]
+[!code-typescript[](\assets\examples\validators\contains\value\contains-value.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="valueShow=!valueShow"&title=contains validator with value)]
@@ -58,11 +58,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\validators\contains\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\conditionalExpression\contains-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\validators\contains\conditionalExpression\contains-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\conditionalExpression\contains-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\validators\contains\conditionalExpression\contains-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=contains validator with conditionalExpression)]
@@ -75,11 +75,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\message\user.model.ts)]
+[!code-typescript[](\assets\examples\validators\contains\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\message\contains-message.component.ts)]
+[!code-typescript[](\assets\examples\validators\contains\message\contains-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\message\contains-message.component.html)]
+[!code-typescript[](\assets\examples\validators\contains\message\contains-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=contains validator with custom message)]
@@ -90,10 +90,21 @@ To override the global configuration message and show the custom message on part
 # [Example](#tab\completeexample)
 <app-contains-complete-validator></app-contains-complete-validator>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\validators\contains\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\complete\contains-complete.component.ts)]
+[!code-typescript[](\assets\examples\validators\contains\complete\contains-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\contains\complete\contains-complete.component.html)]
+[!code-typescript[](\assets\examples\validators\contains\complete\contains-complete.component.html)]
 ***
 
+# Dynamic Contains Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-contains-dynamic-validator></app-contains-dynamic-validator>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\validators\contains\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\validators\contains\dynamic\contains-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\validators\contains\dynamic\contains-dynamic.component.html)]
+***

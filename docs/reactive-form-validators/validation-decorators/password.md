@@ -78,6 +78,9 @@ Password Validation is used for setting the parameters for password validation, 
 <app-password-validation></app-password-validation>
 
 # Complete password Example
+
+This Complete password example which includes all the PasswordConfig properties will fulfil the requirement of scenarios 1 and 2.
+
 [!TabGroup]
 # [Example](#tab\completeExample)
 <app-password-complete></app-password-complete>
@@ -87,4 +90,16 @@ Password Validation is used for setting the parameters for password validation, 
 [!code-typescript[](\assets\examples\password\complete\password-complete.component.ts)]
 # [Html](#tab\completeHtml)
 [!code-typescript[](\assets\examples\password\complete\password-complete.component.html)]
+***
+
+# Dynamic password Example
+[!TabGroup]
+# [Example](#tab\dynamicExample)
+<app-password-dynamic></app-password-dynamic>
+# [Model](#tab\dynamicModel)
+[!code-typescript[](\assets\examples\password\dynamic\login-info.model.ts)]
+# [Component](#tab\dynamicComponent)
+[!code-typescript[](\assets\examples\password\dynamic\password-dynamic.component.ts)]
+# [Html](#tab\dynamicHtml)
+[!code-typescript[](\assets\examples\password\dynamic\password-dynamic.component.html)]
 ***

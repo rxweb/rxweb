@@ -83,6 +83,9 @@ To override the global configuration message and show the custom message on part
 <app-hexColor-message></app-hexColor-message>
 
 # Complete hexColor Example
+
+This Complete hexColor example which includes all the HexColorConfig properties will fulfil the requirement of scenarios 1, 2, 3,4 and 5
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-hexColor-complete></app-hexColor-complete>
@@ -92,4 +95,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\hexColor\complete\hex-color-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\hexColor\complete\hex-color-complete.component.html)]
+***
+
+# Dynamic hexColor Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-hexColor-dynamic></app-hexColor-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\hexColor\dynamic\hexcolor-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\hexColor\dynamic\hex-color-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\hexColor\dynamic\hex-color-dynamic.component.html)]
 ***

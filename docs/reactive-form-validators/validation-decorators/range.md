@@ -114,6 +114,9 @@ Maximum number is for define a maximum number of range
 <app-range-maximumNumber></app-range-maximumNumber>
 
 # Complete range Example
+
+This Complete range example which includes all the RangeConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-range-complete></app-range-complete>
@@ -123,4 +126,16 @@ Maximum number is for define a maximum number of range
 [!code-typescript[](\assets\examples\range\complete\range-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\range\complete\range-complete.component.html)]
+***
+
+# Dynamic range Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-range-dynamic></app-range-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\range\dynamic\employee-info.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\range\dynamic\range-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\range\dynamic\range-dynamic.component.html)]
 ***

@@ -16,11 +16,11 @@ Let’s see how lowerCase validator fulfil the need.
 # Basic LowerCase Validation
 We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\add\lower-case-add.component.ts)]
+[!code-typescript[](\assets\examples\validators\lowerCase\add\lower-case-add.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\add\lower-case-add.component.html)]
+[!code-typescript[](\assets\examples\validators\lowerCase\add\lower-case-add.component.html)]
 
 <app-lowerCase-add-validator></app-lowerCase-add-validator>
 
@@ -40,11 +40,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\validators\lowerCase\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\conditionalExpression\lower-case-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\validators\lowerCase\conditionalExpression\lower-case-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\conditionalExpression\lower-case-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\validators\lowerCase\conditionalExpression\lower-case-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=lowerCase validator with conditionalExpression)]
@@ -56,11 +56,11 @@ Type :  `string`
 To override the global configuration message and show the custom message on particular control property.
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\message\user.model.ts)]
+[!code-typescript[](\assets\examples\validators\lowerCase\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\message\lower-case-message.component.ts)]
+[!code-typescript[](\assets\examples\validators\lowerCase\message\lower-case-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\message\lower-case-message.component.html)]
+[!code-typescript[](\assets\examples\validators\lowerCase\message\lower-case-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=lowerCase validator with custom message)]
@@ -71,9 +71,21 @@ To override the global configuration message and show the custom message on part
 # [Example](#tab\completeexample)
 <app-lowerCase-complete-validator></app-lowerCase-complete-validator>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\validators\lowerCase\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\complete\lower-case-complete.component.ts)]
+[!code-typescript[](\assets\examples\validators\lowerCase\complete\lower-case-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\lowerCase\complete\lower-case-complete.component.html)]
+[!code-typescript[](\assets\examples\validators\lowerCase\complete\lower-case-complete.component.html)]
+***
+
+# Dynamic lowercase Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-lowerCase-dynamic-validator></app-lowerCase-dynamic-validator>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\validators\lowerCase\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\validators\lowerCase\dynamic\lower-case-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\validators\lowerCase\dynamic\lower-case-dynamic.component.html)]
 ***

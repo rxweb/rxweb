@@ -112,6 +112,9 @@ To override the global configuration message and show the custom message on part
 <app-numeric-message></app-numeric-message>
 
 # Complete numeric Example
+
+This Complete numeric example which includes all the NumericConfig properties will fulfil the requirement of scenarios 1, 2, 3, 4 and 5.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-numeric-complete></app-numeric-complete>
@@ -121,4 +124,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\numeric\complete\numeric-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\numeric\complete\numeric-complete.component.html)]
+***
+
+# Dynamic numeric Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-numeric-dynamic></app-numeric-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\numeric\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\numeric\dynamic\numeric-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\numeric\dynamic\numeric-dynamic.component.html)]
 ***

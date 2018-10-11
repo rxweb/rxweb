@@ -97,6 +97,9 @@ To override the global configuration message and show the custom message on part
 <app-creditCard-message></app-creditCard-message>
 
 # Complete CreditCard Example
+
+This Complete CreditCard example which includes all the CreditCardConfig properties will fulfil the requirement of scenarios 1, 2 and 3 
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-creditCard-complete></app-creditCard-complete>
@@ -106,4 +109,16 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\creditCard\complete\credit-card-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\creditCard\complete\credit-card-complete.component.html)]
+***
+
+# Dynamic CreditCard Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-creditCard-dynamic></app-creditCard-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\creditCard\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\creditCard\dynamic\credit-card-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\creditCard\dynamic\credit-card-dynamic.component.html)]
 ***

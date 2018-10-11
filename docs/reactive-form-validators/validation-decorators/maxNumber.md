@@ -98,6 +98,9 @@ enter value which you want to restrict number in the property.
 <app-maxNumber-value></app-maxNumber-value>
 
 # Complete MaxNumber Example
+
+This Complete MaxNumber example which includes all the NumberConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-maxNumber-complete></app-maxNumber-complete>
@@ -107,4 +110,16 @@ enter value which you want to restrict number in the property.
 [!code-typescript[](\assets\examples\maxNumber\complete\max-number-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\maxNumber\complete\max-number-complete.component.html)]
+***
+
+# Dynamic MaxNumber Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-maxNumber-dynamic></app-maxNumber-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\maxNumber\dynamic\subject-details.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\maxNumber\dynamic\max-number-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\maxNumber\dynamic\max-number-dynamic.component.html)]
 ***

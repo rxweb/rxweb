@@ -12,17 +12,17 @@ Let's assume that you are creating a employee form in which you want employee to
 3.  The Custom Message on Hobbies field.
 4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
-Let’s see how factor validator fulfil the need.
+Let’s see how oneOf validator fulfil the need.
 
 # Basic oneOf Validation
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\add\oneOf-add.component.ts)]
+[!code-typescript[](\assets\examples\validators\oneOf\add\oneOf-add.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\add\oneOf-add.component.html)]
+[!code-typescript[](\assets\examples\validators\oneOf\add\oneOf-add.component.html)]
 
 <app-oneOf-add-validator></app-oneOf-add-validator>
 
@@ -41,11 +41,11 @@ matchValue is the array based on which the validation property is set. According
 
 [!TabGroup(?showHideCondition="matchValue")]
 # [Model](#tab\minLengthModel)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\minLength\employee-info.model.ts)]
+[!code-typescript[](\assets\examples\validators\oneOf\minLength\employee-info.model.ts)]
 # [Component](#tab\minLengthComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\minLength\oneOf-match-value.component.ts)]
+[!code-typescript[](\assets\examples\validators\oneOf\minLength\oneOf-match-value.component.ts)]
 # [Html](#tab\minLengthHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\minLength\oneOf-match-value.component.html)]
+[!code-typescript[](\assets\examples\validators\oneOf\minLength\oneOf-match-value.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="matchValue=!matchValue"&title=oneOf validator with matchValue)]
@@ -59,11 +59,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
  
  [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\validators\oneOf\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\conditionalExpression\oneOf-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\validators\oneOf\conditionalExpression\oneOf-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\conditionalExpression\oneOf-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\validators\oneOf\conditionalExpression\oneOf-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=oneOf validator with conditionalExpression)]
@@ -75,11 +75,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\message\user.model.ts)]
+[!code-typescript[](\assets\examples\validators\oneOf\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\message\oneOf-message.component.ts)]
+[!code-typescript[](\assets\examples\validators\oneOf\message\oneOf-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\message\oneOf-message.component.html)]
+[!code-typescript[](\assets\examples\validators\oneOf\message\oneOf-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=allOf validator with custom message)]
@@ -90,9 +90,21 @@ To override the global configuration message and show the custom message on part
 # [Example](#tab\completeexample)
 <app-oneOf-complete-validator></app-oneOf-complete-validator>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\validators\oneOf\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\complete\oneOf-complete.component.ts)]
+[!code-typescript[](\assets\examples\validators\oneOf\complete\oneOf-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\reactive-form-validators\validators\oneOf\complete\oneOf-complete.component.html)]
+[!code-typescript[](\assets\examples\validators\oneOf\complete\oneOf-complete.component.html)]
+***
+
+# Dynamic oneOf Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-oneOf-dynamic-validator></app-oneOf-dynamic-validator>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\validators\oneOf\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\validators\oneOf\dynamic\oneOf-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\validators\oneOf\dynamic\oneOf-dynamic.component.html)]
 ***
