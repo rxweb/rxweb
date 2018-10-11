@@ -8,6 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { LeapYearCompleteComponent } from './complete/leap-year-complete.component';
 import { LeapYearConditionalExpressionComponent } from './conditionalExpression/leap-year-conditional-expression.component';
 import { LeapYearMessageComponent } from './message/leap-year-message.component';
+import { LeapYearDynamicComponent } from './dynamic/leap-year-dynamic.component';
 import { LeapYearAddComponent } from './add/leap-year-add.component';
 import { LeapYearEditComponent } from './edit/leap-year-edit.component';
 
@@ -16,6 +17,7 @@ import { LeapYearEditComponent } from './edit/leap-year-edit.component';
 	LeapYearCompleteComponent,
 	LeapYearConditionalExpressionComponent,
 	LeapYearMessageComponent,
+	LeapYearDynamicComponent,
 	LeapYearAddComponent,
 	LeapYearEditComponent,
   ],
@@ -23,6 +25,7 @@ entryComponents: [
 	LeapYearCompleteComponent,
 	LeapYearConditionalExpressionComponent,
 	LeapYearMessageComponent,
+	LeapYearDynamicComponent,
 	LeapYearAddComponent,
 	LeapYearEditComponent,
   ],
@@ -36,6 +39,7 @@ entryComponents: [
 	LeapYearCompleteComponent,
 	LeapYearConditionalExpressionComponent,
 	LeapYearMessageComponent,
+	LeapYearDynamicComponent,
 	LeapYearAddComponent,
 	LeapYearEditComponent,
   ],

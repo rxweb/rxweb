@@ -9,6 +9,7 @@ import { DifferentCompleteComponent } from './complete/different-complete.compon
 import { DifferentFieldNameComponent } from './fieldName/different-field-name.component';
 import { DifferentConditionalExpressionComponent } from './conditionalExpression/different-conditional-expression.component';
 import { DifferentMessageComponent } from './message/different-message.component';
+import { DifferentDynamicComponent } from './dynamic/different-dynamic.component';
 import { DifferentAddComponent } from './add/different-add.component';
 import { DifferentEditComponent } from './edit/different-edit.component';
 
@@ -18,6 +19,7 @@ import { DifferentEditComponent } from './edit/different-edit.component';
 	DifferentFieldNameComponent,
 	DifferentConditionalExpressionComponent,
 	DifferentMessageComponent,
+	DifferentDynamicComponent,
 	DifferentAddComponent,
 	DifferentEditComponent,
   ],
@@ -26,6 +28,7 @@ entryComponents: [
 	DifferentFieldNameComponent,
 	DifferentConditionalExpressionComponent,
 	DifferentMessageComponent,
+	DifferentDynamicComponent,
 	DifferentAddComponent,
 	DifferentEditComponent,
   ],
@@ -40,6 +43,7 @@ entryComponents: [
 	DifferentFieldNameComponent,
 	DifferentConditionalExpressionComponent,
 	DifferentMessageComponent,
+	DifferentDynamicComponent,
 	DifferentAddComponent,
 	DifferentEditComponent,
   ],

@@ -6,7 +6,7 @@ export class User {
 	userName: string;
 
 	//If you want to apply conditional expression of type 'function'
-	@maxDate({value:new Date(2018,7,30)  ,conditionalExpression:x => x.userName == "John" }) 
+	@maxDate({value:new Date(2018,7,30)  ,conditionalExpression:(x,y) => { return x.userName == "John" } }) 
 	birthDate: Date;
 
 	//If you want to apply conditional expression of type 'string'

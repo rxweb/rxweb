@@ -9,6 +9,7 @@ import { MaxLengthCompleteComponent } from './complete/max-length-complete.compo
 import { MaxLengthValueComponent } from './value/max-length-value.component';
 import { MaxLengthConditionalExpressionComponent } from './conditionalExpression/max-length-conditional-expression.component';
 import { MaxLengthMessageComponent } from './message/max-length-message.component';
+import { MaxLengthDynamicComponent } from './dynamic/max-length-dynamic.component';
 import { MaxLengthAddComponent } from './add/max-length-add.component';
 import { MaxLengthEditComponent } from './edit/max-length-edit.component';
 
@@ -18,6 +19,7 @@ import { MaxLengthEditComponent } from './edit/max-length-edit.component';
 	MaxLengthValueComponent,
 	MaxLengthConditionalExpressionComponent,
 	MaxLengthMessageComponent,
+	MaxLengthDynamicComponent,
 	MaxLengthAddComponent,
 	MaxLengthEditComponent,
   ],
@@ -26,6 +28,7 @@ entryComponents: [
 	MaxLengthValueComponent,
 	MaxLengthConditionalExpressionComponent,
 	MaxLengthMessageComponent,
+	MaxLengthDynamicComponent,
 	MaxLengthAddComponent,
 	MaxLengthEditComponent,
   ],
@@ -40,6 +43,7 @@ entryComponents: [
 	MaxLengthValueComponent,
 	MaxLengthConditionalExpressionComponent,
 	MaxLengthMessageComponent,
+	MaxLengthDynamicComponent,
 	MaxLengthAddComponent,
 	MaxLengthEditComponent,
   ],

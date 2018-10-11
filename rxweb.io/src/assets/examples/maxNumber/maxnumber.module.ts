@@ -9,6 +9,7 @@ import { MaxNumberCompleteComponent } from './complete/max-number-complete.compo
 import { MaxNumberValueComponent } from './value/max-number-value.component';
 import { MaxNumberConditionalExpressionComponent } from './conditionalExpression/max-number-conditional-expression.component';
 import { MaxNumberMessageComponent } from './message/max-number-message.component';
+import { MaxNumberDynamicComponent } from './dynamic/max-number-dynamic.component';
 import { MaxNumberAddComponent } from './add/max-number-add.component';
 import { MaxNumberEditComponent } from './edit/max-number-edit.component';
 
@@ -18,6 +19,7 @@ import { MaxNumberEditComponent } from './edit/max-number-edit.component';
 	MaxNumberValueComponent,
 	MaxNumberConditionalExpressionComponent,
 	MaxNumberMessageComponent,
+	MaxNumberDynamicComponent,
 	MaxNumberAddComponent,
 	MaxNumberEditComponent,
   ],
@@ -26,6 +28,7 @@ entryComponents: [
 	MaxNumberValueComponent,
 	MaxNumberConditionalExpressionComponent,
 	MaxNumberMessageComponent,
+	MaxNumberDynamicComponent,
 	MaxNumberAddComponent,
 	MaxNumberEditComponent,
   ],
@@ -40,6 +43,7 @@ entryComponents: [
 	MaxNumberValueComponent,
 	MaxNumberConditionalExpressionComponent,
 	MaxNumberMessageComponent,
+	MaxNumberDynamicComponent,
 	MaxNumberAddComponent,
 	MaxNumberEditComponent,
   ],

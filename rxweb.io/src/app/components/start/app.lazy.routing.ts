@@ -11,8 +11,8 @@ const APP_LAZY_ROUTES: Routes = [
     path: 'dashboard', component: DashboardComponent
   },
   {
-    path: 'reactive-form-validators',
-    loadChildren: 'src/app/components/reactive-form-validators/reactive-form-validators.module#ReactiveFormValidatorsModule',
+    path: 'validation-decorators',
+    loadChildren: 'src/app/components/validation-decorators/validation-decorators.module#ValidationDecoratorsModule',
   }
 ];
 

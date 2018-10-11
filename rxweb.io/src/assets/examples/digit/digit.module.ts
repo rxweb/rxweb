@@ -8,6 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { DigitCompleteComponent } from './complete/digit-complete.component';
 import { DigitConditionalExpressionComponent } from './conditionalExpression/digit-conditional-expression.component';
 import { DigitMessageComponent } from './message/digit-message.component';
+import { DigitDynamicComponent } from './dynamic/digit-dynamic.component';
 import { DigitAddComponent } from './add/digit-add.component';
 import { DigitEditComponent } from './edit/digit-edit.component';
 
@@ -16,6 +17,7 @@ import { DigitEditComponent } from './edit/digit-edit.component';
 	DigitCompleteComponent,
 	DigitConditionalExpressionComponent,
 	DigitMessageComponent,
+	DigitDynamicComponent,
 	DigitAddComponent,
 	DigitEditComponent,
   ],
@@ -23,6 +25,7 @@ entryComponents: [
 	DigitCompleteComponent,
 	DigitConditionalExpressionComponent,
 	DigitMessageComponent,
+	DigitDynamicComponent,
 	DigitAddComponent,
 	DigitEditComponent,
   ],
@@ -36,6 +39,7 @@ entryComponents: [
 	DigitCompleteComponent,
 	DigitConditionalExpressionComponent,
 	DigitMessageComponent,
+	DigitDynamicComponent,
 	DigitAddComponent,
 	DigitEditComponent,
   ],

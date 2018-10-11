@@ -10,6 +10,7 @@ import { NumericAcceptValueComponent } from './acceptValue/numeric-accept-value.
 import { NumericAllowDecimalComponent } from './allowDecimal/numeric-allow-decimal.component';
 import { NumericConditionalExpressionComponent } from './conditionalExpression/numeric-conditional-expression.component';
 import { NumericMessageComponent } from './message/numeric-message.component';
+import { NumericDynamicComponent } from './dynamic/numeric-dynamic.component';
 import { NumericAddComponent } from './add/numeric-add.component';
 import { NumericEditComponent } from './edit/numeric-edit.component';
 
@@ -20,6 +21,7 @@ import { NumericEditComponent } from './edit/numeric-edit.component';
 	NumericAllowDecimalComponent,
 	NumericConditionalExpressionComponent,
 	NumericMessageComponent,
+	NumericDynamicComponent,
 	NumericAddComponent,
 	NumericEditComponent,
   ],
@@ -29,6 +31,7 @@ entryComponents: [
 	NumericAllowDecimalComponent,
 	NumericConditionalExpressionComponent,
 	NumericMessageComponent,
+	NumericDynamicComponent,
 	NumericAddComponent,
 	NumericEditComponent,
   ],
@@ -44,6 +47,7 @@ entryComponents: [
 	NumericAllowDecimalComponent,
 	NumericConditionalExpressionComponent,
 	NumericMessageComponent,
+	NumericDynamicComponent,
 	NumericAddComponent,
 	NumericEditComponent,
   ],

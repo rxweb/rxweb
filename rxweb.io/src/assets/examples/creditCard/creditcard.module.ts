@@ -9,6 +9,7 @@ import { CreditCardCompleteComponent } from './complete/credit-card-complete.com
 import { CreditCardCreditCardTypesComponent } from './creditCardTypes/credit-card-credit-card-types.component';
 import { CreditCardConditionalExpressionComponent } from './conditionalExpression/credit-card-conditional-expression.component';
 import { CreditCardMessageComponent } from './message/credit-card-message.component';
+import { CreditCardDynamicComponent } from './dynamic/credit-card-dynamic.component';
 import { CreditCardAddComponent } from './add/credit-card-add.component';
 import { CreditCardEditComponent } from './edit/credit-card-edit.component';
 
@@ -18,6 +19,7 @@ import { CreditCardEditComponent } from './edit/credit-card-edit.component';
 	CreditCardCreditCardTypesComponent,
 	CreditCardConditionalExpressionComponent,
 	CreditCardMessageComponent,
+	CreditCardDynamicComponent,
 	CreditCardAddComponent,
 	CreditCardEditComponent,
   ],
@@ -26,6 +28,7 @@ entryComponents: [
 	CreditCardCreditCardTypesComponent,
 	CreditCardConditionalExpressionComponent,
 	CreditCardMessageComponent,
+	CreditCardDynamicComponent,
 	CreditCardAddComponent,
 	CreditCardEditComponent,
   ],
@@ -40,6 +43,7 @@ entryComponents: [
 	CreditCardCreditCardTypesComponent,
 	CreditCardConditionalExpressionComponent,
 	CreditCardMessageComponent,
+	CreditCardDynamicComponent,
 	CreditCardAddComponent,
 	CreditCardEditComponent,
   ],

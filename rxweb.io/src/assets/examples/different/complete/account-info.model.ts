@@ -13,7 +13,7 @@ export class AccountInfo {
 	@different({fieldName:"firstName"  ,conditionalExpression:x => x.firstName == "John" }) 
 	userName: string;
 
-	@different({fieldName:"firstName"  ,message:'{{0}} is same as Username' }) 
+	@different({fieldName:"firstName"  ,message:'{{0}} is same as firstName' }) 
 	password: string;
 
 }

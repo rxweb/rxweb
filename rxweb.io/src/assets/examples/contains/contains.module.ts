@@ -9,6 +9,7 @@ import { ContainsCompleteComponent } from './complete/contains-complete.componen
 import { ContainsValueComponent } from './value/contains-value.component';
 import { ContainsConditionalExpressionComponent } from './conditionalExpression/contains-conditional-expression.component';
 import { ContainsMessageComponent } from './message/contains-message.component';
+import { ContainsDynamicComponent } from './dynamic/contains-dynamic.component';
 import { ContainsAddComponent } from './add/contains-add.component';
 import { ContainsEditComponent } from './edit/contains-edit.component';
 
@@ -18,6 +19,7 @@ import { ContainsEditComponent } from './edit/contains-edit.component';
 	ContainsValueComponent,
 	ContainsConditionalExpressionComponent,
 	ContainsMessageComponent,
+	ContainsDynamicComponent,
 	ContainsAddComponent,
 	ContainsEditComponent,
   ],
@@ -26,6 +28,7 @@ entryComponents: [
 	ContainsValueComponent,
 	ContainsConditionalExpressionComponent,
 	ContainsMessageComponent,
+	ContainsDynamicComponent,
 	ContainsAddComponent,
 	ContainsEditComponent,
   ],
@@ -40,6 +43,7 @@ entryComponents: [
 	ContainsValueComponent,
 	ContainsConditionalExpressionComponent,
 	ContainsMessageComponent,
+	ContainsDynamicComponent,
 	ContainsAddComponent,
 	ContainsEditComponent,
   ],

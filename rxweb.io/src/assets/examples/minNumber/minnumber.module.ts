@@ -9,6 +9,7 @@ import { MinNumberCompleteComponent } from './complete/min-number-complete.compo
 import { MinNumberValueComponent } from './value/min-number-value.component';
 import { MinNumberMessageComponent } from './message/min-number-message.component';
 import { MinNumberConditionalExpressionComponent } from './conditionalExpression/min-number-conditional-expression.component';
+import { MinNumberDynamicComponent } from './dynamic/min-number-dynamic.component';
 import { MinNumberAddComponent } from './add/min-number-add.component';
 import { MinNumberEditComponent } from './edit/min-number-edit.component';
 
@@ -18,6 +19,7 @@ import { MinNumberEditComponent } from './edit/min-number-edit.component';
 	MinNumberValueComponent,
 	MinNumberMessageComponent,
 	MinNumberConditionalExpressionComponent,
+	MinNumberDynamicComponent,
 	MinNumberAddComponent,
 	MinNumberEditComponent,
   ],
@@ -26,6 +28,7 @@ entryComponents: [
 	MinNumberValueComponent,
 	MinNumberMessageComponent,
 	MinNumberConditionalExpressionComponent,
+	MinNumberDynamicComponent,
 	MinNumberAddComponent,
 	MinNumberEditComponent,
   ],
@@ -40,6 +43,7 @@ entryComponents: [
 	MinNumberValueComponent,
 	MinNumberMessageComponent,
 	MinNumberConditionalExpressionComponent,
+	MinNumberDynamicComponent,
 	MinNumberAddComponent,
 	MinNumberEditComponent,
   ],

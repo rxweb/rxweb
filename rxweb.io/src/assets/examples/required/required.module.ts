@@ -8,6 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { RequiredCompleteComponent } from './complete/required-complete.component';
 import { RequiredConditionalExpressionComponent } from './conditionalExpression/required-conditional-expression.component';
 import { RequiredMessageComponent } from './message/required-message.component';
+import { RequiredDynamicComponent } from './dynamic/required-dynamic.component';
 import { RequiredAddComponent } from './add/required-add.component';
 import { RequiredEditComponent } from './edit/required-edit.component';
 
@@ -16,6 +17,7 @@ import { RequiredEditComponent } from './edit/required-edit.component';
 	RequiredCompleteComponent,
 	RequiredConditionalExpressionComponent,
 	RequiredMessageComponent,
+	RequiredDynamicComponent,
 	RequiredAddComponent,
 	RequiredEditComponent,
   ],
@@ -23,6 +25,7 @@ entryComponents: [
 	RequiredCompleteComponent,
 	RequiredConditionalExpressionComponent,
 	RequiredMessageComponent,
+	RequiredDynamicComponent,
 	RequiredAddComponent,
 	RequiredEditComponent,
   ],
@@ -36,6 +39,7 @@ entryComponents: [
 	RequiredCompleteComponent,
 	RequiredConditionalExpressionComponent,
 	RequiredMessageComponent,
+	RequiredDynamicComponent,
 	RequiredAddComponent,
 	RequiredEditComponent,
   ],

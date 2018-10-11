@@ -9,6 +9,7 @@ import { PatternCompleteComponent } from './complete/pattern-complete.component'
 import { PatternPatternComponent } from './pattern/pattern-pattern.component';
 import { PatternMessageComponent } from './message/pattern-message.component';
 import { PatternConditionalExpressionComponent } from './conditionalExpression/pattern-conditional-expression.component';
+import { PatternDynamicComponent } from './dynamic/pattern-dynamic.component';
 import { PatternAddComponent } from './add/pattern-add.component';
 import { PatternEditComponent } from './edit/pattern-edit.component';
 
@@ -18,6 +19,7 @@ import { PatternEditComponent } from './edit/pattern-edit.component';
 	PatternPatternComponent,
 	PatternMessageComponent,
 	PatternConditionalExpressionComponent,
+	PatternDynamicComponent,
 	PatternAddComponent,
 	PatternEditComponent,
   ],
@@ -26,6 +28,7 @@ entryComponents: [
 	PatternPatternComponent,
 	PatternMessageComponent,
 	PatternConditionalExpressionComponent,
+	PatternDynamicComponent,
 	PatternAddComponent,
 	PatternEditComponent,
   ],
@@ -40,6 +43,7 @@ entryComponents: [
 	PatternPatternComponent,
 	PatternMessageComponent,
 	PatternConditionalExpressionComponent,
+	PatternDynamicComponent,
 	PatternAddComponent,
 	PatternEditComponent,
   ],

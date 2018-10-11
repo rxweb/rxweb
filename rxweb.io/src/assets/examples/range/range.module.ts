@@ -10,6 +10,7 @@ import { RangeMinimumNumberComponent } from './minimumNumber/range-minimum-numbe
 import { RangeMaximumNumberComponent } from './maximumNumber/range-maximum-number.component';
 import { RangeConditionalExpressionComponent } from './conditionalExpression/range-conditional-expression.component';
 import { RangeMessageComponent } from './message/range-message.component';
+import { RangeDynamicComponent } from './dynamic/range-dynamic.component';
 import { RangeAddComponent } from './add/range-add.component';
 import { RangeEditComponent } from './edit/range-edit.component';
 
@@ -20,6 +21,7 @@ import { RangeEditComponent } from './edit/range-edit.component';
 	RangeMaximumNumberComponent,
 	RangeConditionalExpressionComponent,
 	RangeMessageComponent,
+	RangeDynamicComponent,
 	RangeAddComponent,
 	RangeEditComponent,
   ],
@@ -29,6 +31,7 @@ entryComponents: [
 	RangeMaximumNumberComponent,
 	RangeConditionalExpressionComponent,
 	RangeMessageComponent,
+	RangeDynamicComponent,
 	RangeAddComponent,
 	RangeEditComponent,
   ],
@@ -44,6 +47,7 @@ entryComponents: [
 	RangeMaximumNumberComponent,
 	RangeConditionalExpressionComponent,
 	RangeMessageComponent,
+	RangeDynamicComponent,
 	RangeAddComponent,
 	RangeEditComponent,
   ],

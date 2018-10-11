@@ -9,6 +9,7 @@ import { LessThanCompleteComponent } from './complete/less-than-complete.compone
 import { LessThanFieldNameComponent } from './fieldName/less-than-field-name.component';
 import { LessThanConditionalExpressionComponent } from './conditionalExpression/less-than-conditional-expression.component';
 import { LessThanMessageComponent } from './message/less-than-message.component';
+import { LessThanDynamicComponent } from './dynamic/less-than-dynamic.component';
 import { LessThanAddComponent } from './add/less-than-add.component';
 import { LessThanEditComponent } from './edit/less-than-edit.component';
 
@@ -18,6 +19,7 @@ import { LessThanEditComponent } from './edit/less-than-edit.component';
 	LessThanFieldNameComponent,
 	LessThanConditionalExpressionComponent,
 	LessThanMessageComponent,
+	LessThanDynamicComponent,
 	LessThanAddComponent,
 	LessThanEditComponent,
   ],
@@ -26,6 +28,7 @@ entryComponents: [
 	LessThanFieldNameComponent,
 	LessThanConditionalExpressionComponent,
 	LessThanMessageComponent,
+	LessThanDynamicComponent,
 	LessThanAddComponent,
 	LessThanEditComponent,
   ],
@@ -40,6 +43,7 @@ entryComponents: [
 	LessThanFieldNameComponent,
 	LessThanConditionalExpressionComponent,
 	LessThanMessageComponent,
+	LessThanDynamicComponent,
 	LessThanAddComponent,
 	LessThanEditComponent,
   ],

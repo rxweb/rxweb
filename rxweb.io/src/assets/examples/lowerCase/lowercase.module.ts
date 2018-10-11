@@ -8,6 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { LowerCaseCompleteComponent } from './complete/lower-case-complete.component';
 import { LowerCaseConditionalExpressionComponent } from './conditionalExpression/lower-case-conditional-expression.component';
 import { LowerCaseMessageComponent } from './message/lower-case-message.component';
+import { LowerCaseDynamicComponent } from './dynamic/lower-case-dynamic.component';
 import { LowerCaseAddComponent } from './add/lower-case-add.component';
 import { LowerCaseEditComponent } from './edit/lower-case-edit.component';
 
@@ -16,6 +17,7 @@ import { LowerCaseEditComponent } from './edit/lower-case-edit.component';
 	LowerCaseCompleteComponent,
 	LowerCaseConditionalExpressionComponent,
 	LowerCaseMessageComponent,
+	LowerCaseDynamicComponent,
 	LowerCaseAddComponent,
 	LowerCaseEditComponent,
   ],
@@ -23,6 +25,7 @@ entryComponents: [
 	LowerCaseCompleteComponent,
 	LowerCaseConditionalExpressionComponent,
 	LowerCaseMessageComponent,
+	LowerCaseDynamicComponent,
 	LowerCaseAddComponent,
 	LowerCaseEditComponent,
   ],
@@ -36,6 +39,7 @@ entryComponents: [
 	LowerCaseCompleteComponent,
 	LowerCaseConditionalExpressionComponent,
 	LowerCaseMessageComponent,
+	LowerCaseDynamicComponent,
 	LowerCaseAddComponent,
 	LowerCaseEditComponent,
   ],

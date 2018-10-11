@@ -9,6 +9,7 @@ import { MinLengthCompleteComponent } from './complete/min-length-complete.compo
 import { MinLengthValueComponent } from './value/min-length-value.component';
 import { MinLengthMessageComponent } from './message/min-length-message.component';
 import { MinLengthConditionalExpressionComponent } from './conditionalExpression/min-length-conditional-expression.component';
+import { MinLengthDynamicComponent } from './dynamic/min-length-dynamic.component';
 import { MinLengthAddComponent } from './add/min-length-add.component';
 import { MinLengthEditComponent } from './edit/min-length-edit.component';
 
@@ -18,6 +19,7 @@ import { MinLengthEditComponent } from './edit/min-length-edit.component';
 	MinLengthValueComponent,
 	MinLengthMessageComponent,
 	MinLengthConditionalExpressionComponent,
+	MinLengthDynamicComponent,
 	MinLengthAddComponent,
 	MinLengthEditComponent,
   ],
@@ -26,6 +28,7 @@ entryComponents: [
 	MinLengthValueComponent,
 	MinLengthMessageComponent,
 	MinLengthConditionalExpressionComponent,
+	MinLengthDynamicComponent,
 	MinLengthAddComponent,
 	MinLengthEditComponent,
   ],
@@ -40,6 +43,7 @@ entryComponents: [
 	MinLengthValueComponent,
 	MinLengthMessageComponent,
 	MinLengthConditionalExpressionComponent,
+	MinLengthDynamicComponent,
 	MinLengthAddComponent,
 	MinLengthEditComponent,
   ],

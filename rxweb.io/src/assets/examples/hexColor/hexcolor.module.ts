@@ -8,6 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { HexColorCompleteComponent } from './complete/hex-color-complete.component';
 import { HexColorConditionalExpressionComponent } from './conditionalExpression/hex-color-conditional-expression.component';
 import { HexColorMessageComponent } from './message/hex-color-message.component';
+import { HexColorDynamicComponent } from './dynamic/hex-color-dynamic.component';
 import { HexColorAddComponent } from './add/hex-color-add.component';
 import { HexColorEditComponent } from './edit/hex-color-edit.component';
 
@@ -16,6 +17,7 @@ import { HexColorEditComponent } from './edit/hex-color-edit.component';
 	HexColorCompleteComponent,
 	HexColorConditionalExpressionComponent,
 	HexColorMessageComponent,
+	HexColorDynamicComponent,
 	HexColorAddComponent,
 	HexColorEditComponent,
   ],
@@ -23,6 +25,7 @@ entryComponents: [
 	HexColorCompleteComponent,
 	HexColorConditionalExpressionComponent,
 	HexColorMessageComponent,
+	HexColorDynamicComponent,
 	HexColorAddComponent,
 	HexColorEditComponent,
   ],
@@ -36,6 +39,7 @@ entryComponents: [
 	HexColorCompleteComponent,
 	HexColorConditionalExpressionComponent,
 	HexColorMessageComponent,
+	HexColorDynamicComponent,
 	HexColorAddComponent,
 	HexColorEditComponent,
   ],
