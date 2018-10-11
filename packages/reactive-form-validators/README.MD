@@ -31,10 +31,10 @@ Reactive Form Validators will work in angular projects.
 $ npm install @rxweb/reactive-form-validators
 ```
 ## Validation Decorators & Validators
-| Name |
-| ----------- |
-| allOf      |
-| alpha   |
+| Name | Description | 
+| ----------- | ----------- |
+| allOf      | allOf validation decorator will check whether the user has entered all of the values of given field, if user does not enter all the values of the given field. <br/> Validator Based :  ``` RxwebValidators.allOf({matchValues:['angular']}) ```. <br/> Or <br/> Decorator Based ``` @allOf({matchValues:['angular']}) skills:string[]; ``` |
+| alpha   | 
 | alphaNumeric   |
 | choice   |
 | compare   |
