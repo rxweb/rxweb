@@ -2,7 +2,7 @@
 	<div class="content">
 		<div class="title">
 	<h1> compare </h1>
-	<p> Compare validation decorator will compare two inputs, If user enter unmatched value then the property will become invalid.</p>
+	<p> Compare validation decorator will compare two inputs whether they are same or not.</p>
 </div>
 		<div class="bg-white py-3 border-radius">
 			<div class="row">
@@ -146,6 +146,20 @@
 
 <p>Type :  <span class='highlighted'>string</span> </p>
 <p>Current property is matched with the particular property. so we need to pass particular property name.</p>
+ <blockquote *ngIf="codeContent.fieldNameExample.Notes?.length > 0">
+	<ng-container *ngFor="let item of codeContent.fieldNameExample.Notes">
+	  <p [innerHtml]="item"></p>
+	</ng-container>
+</blockquote>
+<div class="model-ts">
+	<div class="code">
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.fieldNameExample.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
 <ul class="nav nav-tabs" *ngIf="fieldName">
 	<li [class.active]="tab_2=='fieldNamemodel'" (click)="tab_2='fieldNamemodel'"><a>Model</a></li>
 	<li [class.active]="tab_2=='fieldNameComponent'" (click)="tab_2='fieldNameComponent'"><a>Component</a></li>
@@ -211,6 +225,20 @@
 
 <p>Type :  <span class='highlighted'>string</span> </p>
 <p>To override the global configuration message and show the custom message on particular control property.</p>
+ <blockquote *ngIf="codeContent.messageExample.Notes?.length > 0">
+	<ng-container *ngFor="let item of codeContent.messageExample.Notes">
+	  <p [innerHtml]="item"></p>
+	</ng-container>
+</blockquote>
+<div class="model-ts">
+	<div class="code">
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.messageExample.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
 <ul class="nav nav-tabs" *ngIf="message">
 	<li [class.active]="tab_3=='messageModel'" (click)="tab_3='messageModel'"><a>Model</a></li>
 	<li [class.active]="tab_3=='messageComponent'" (click)="tab_3='messageComponent'"><a>Component</a></li>

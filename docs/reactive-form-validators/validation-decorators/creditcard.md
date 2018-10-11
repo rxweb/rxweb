@@ -61,7 +61,7 @@ Credit card type has different Card types e.g. Visa, AmericanExpress, Maestro, J
 [!code-typescript[](\assets\examples\creditCard\creditCardTypes\credit-card-credit-card-types.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="creditCardTypesShow=!creditCardTypesShow")]
+[!example(?type=section&clickEventCode="creditCardTypesShow=!creditCardTypesShow"&title=creditCard decorator with creditCardTypes)]
 <app-creditCard-creditCardTypes></app-creditCard-creditCardTypes>
 
 
