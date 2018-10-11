@@ -41,3 +41,4 @@ Thumbs.db
 /rxweb.io/src/assets/examples
 *.json
 /rxweb.io/.vscode
+*.sqlite

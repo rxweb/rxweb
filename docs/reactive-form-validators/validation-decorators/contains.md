@@ -1,6 +1,6 @@
 ---
 title: contains  
-description: Contains validation decorator will check that value is in the input, It will not allow to enter input that not contains value. If user tries to do so the property will become invalid.
+description: Contains validation decorator will check that value is in the input, It will not allow to enter input that not contains the predefined value.
 author: rxcontributortwo
 
 ---
@@ -51,6 +51,8 @@ Type :  `string`
 
 This is substring value.
 
+[!codeExample(?title=valueExample)]
+
 [!TabGroup(?showHideCondition="valueShow")]
 # [Model](#tab\valuemodel)
 [!code-typescript[](\assets\examples\contains\value\user.model.ts)]
@@ -69,6 +71,10 @@ Type :  `Function`  |  `string`
 Contains validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
+[!codeExample(?title=conditionalExpressionExampleFunction)]
+
+[!codeExample(?title=conditionalExpressionExampleString)]
+
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
 [!code-typescript[](\assets\examples\contains\conditionalExpression\user.model.ts)]
@@ -85,6 +91,8 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `string` 
 
 To override the global configuration message and show the custom message on particular control property.
+
+[!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
