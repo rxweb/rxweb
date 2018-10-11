@@ -33,7 +33,7 @@ $ npm install @rxweb/reactive-form-validators
 ## Validation Decorators & Validators
 | Name | Description | 
 | ----------- | ----------- |
-| allOf      | allOf validation decorator will check whether the user has entered all of the values of given field, if user does not enter all the values of the given field. <br/> Validator Based :  ``` RxwebValidators.allOf({matchValues:['angular']}) ```. <br/> Or <br/> Decorator Based ``` @allOf({matchValues:['angular']}) skills:string[]; ``` |
+| allOf      | allOf validation decorator will check whether the user has entered all of the values of given field, if user does not enter all the values of the given field.<br/> Example :  <br/> 1. Validator Based :  ``` RxwebValidators.allOf({matchValues:['angular']}) ``` <br/> 2. Decorator Based : ``` @allOf({matchValues:['angular']}) skills:string[]; ``` |
 | alpha   | 
 | alphaNumeric   |
 | choice   |
