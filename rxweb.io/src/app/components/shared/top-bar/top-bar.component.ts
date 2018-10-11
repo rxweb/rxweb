@@ -12,6 +12,7 @@ export class TopBarComponent implements OnInit {
   showComponent: boolean = false;
   showSearchMenu:boolean =false;
   FormValidators: any;
+  validationName:string;
   constructor(private _formBuilder: FormBuilder,private http: HttpClient
   ) {
     this.searchFormGroup = this._formBuilder.group({
@@ -23,8 +24,12 @@ export class TopBarComponent implements OnInit {
     this.http.get('assets/json/validation.json')
     .subscribe(response => {
       this.FormValidators = response;
+	  let splitedArray = location.pathname.split('/');
+	  if(splitedArray[2] != undefined){
+		this.validationName = splitedArray[2] +".md"
+		}
+		this.showComponent = true;  
     }) ;
-  this.showComponent = true;
   }
 
   hideSideBar(): void {
