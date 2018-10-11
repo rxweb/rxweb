@@ -1,6 +1,6 @@
 ---
 title: choice 
-description: choice validation will check whether the value entered is matching the properties defined..
+description: choice validation decorator will check whether the value entered is matching the properties defined.
 author: rxcontributorone
 
 ---

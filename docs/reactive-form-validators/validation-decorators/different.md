@@ -1,6 +1,6 @@
 ---
 title: different 
-description: Different validation decorator will check two inputs whether they are different or not. It is just opposite of compare validator.
+description: Different validation decorator will check two inputs whether they are different or not. It is just opposite of compare decorator.
 author: rxcontributorone
 
 ---

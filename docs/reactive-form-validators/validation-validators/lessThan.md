@@ -1,6 +1,6 @@
 ---
 title: lessThan
-description: Less than validation validator will check that input property is less than value, If user tries to enter greater than equal to value then the property will become invalid. 
+description: Less than validation validator will allow the user to enter only that value which is less than the value in the pre defined field.
 author: rxcontributortwo
 
 ---

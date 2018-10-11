@@ -1,6 +1,6 @@
 ---
 title: hexColor  
-description: HexColor validation validator will allow only Hex Color to be entered, If user tries to enter any string except hex color then the property will become invalid.
+description: HexColor validation validator will allow user to enter only the input in proper Hex Color format.
 author: rxcontributortwo
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: creditCard 
-description: creditCard validation validator will check property value is creditcardtype or not, It will not allow to enter any value rather than credit card. If user tries to do so the property will become invalid.
+description: creditCard validation validator will check property value is creditcardtype or not, It will not allow to enter any value other than credit card format.
 author:  rxcontributorone
 
 ---

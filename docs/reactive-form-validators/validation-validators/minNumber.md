@@ -1,6 +1,6 @@
 ---
 title: minNumber 
-description: MinNumber validation validator will allow only minimum number be entered upto value parameter, If user tries to enter any number that less then the value then the property will become invalid. 
+description: MinNumber validation validator will allow user to enter the input greater than the minimum number value parameter.
 author: rxcontributortwo
 
 ---

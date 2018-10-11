@@ -1,6 +1,6 @@
 ---
 title: noneOf
-description: noneOf validation decorator will check whether the user has entered none of the value is selected from the given inputs, if user tries to enter any of the values it  will be invalid.
+description: noneOf validation decorator will check whether the user has entered none of the value is selected from the given inputs.
 author: rxcontributorone
 
 ---

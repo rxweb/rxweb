@@ -1,6 +1,6 @@
 ---
 title: oneOf
-description: oneOf validation validator will check whether the user has entered any one of the given inputs, if user tries to enter value which is more  then the given value  property will be invalid. 
+description: oneOf validation validator will check whether the user has entered any one of the given inputs or not.
 author: rxcontributorone
 
 ---

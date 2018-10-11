@@ -1,6 +1,6 @@
 ---
 title: maxLength 
-description: MaxLength validation decorator will allow only maximum length be entered upto value parameter, If user tries to enter any string that length exceed then the value then the property will become invalid
+description: MaxLength validation decorator will allow user to enter the input upto the maximum length value parameter.
 author: rxcontributortwo
 
 ---

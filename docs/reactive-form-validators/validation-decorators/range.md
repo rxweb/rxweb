@@ -1,6 +1,6 @@
 ---
 title: range 
-description: Range validation decorator will allow only in specify range will be entered, If EmployeeInfo tries to enter any value which exceed the range then the property will become invalid.
+description: Range validation decorator will check that the entered value is in the specified range.
 author: rxcontributorone
 
 ---

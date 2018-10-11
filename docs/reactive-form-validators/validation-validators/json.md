@@ -1,6 +1,6 @@
 ---
 title: json  
-description: json validation validator will allow only Json to be entered, If user tries to enter any string except json then the property will become invalid. 
+description: json validation validator will allow user to enter the input only in proper Json format.
 author: rxcontributorone
 
 ---
