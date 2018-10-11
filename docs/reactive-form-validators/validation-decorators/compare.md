@@ -50,6 +50,8 @@ Below options are not mandatory to use in the `@compare()` decorator. If needed 
 Type :  `string` 
 Current property is matched with the particular property. so we need to pass particular property name.
 
+[!codeExample(?title=fieldNameExample)]
+
 [!TabGroup(?showHideCondition="fieldName")]
 # [Model](#tab\fieldNamemodel)
 [!code-typescript[](\assets\examples\compare\fieldName\user.model.ts)]
@@ -65,6 +67,8 @@ Current property is matched with the particular property. so we need to pass par
 ## message
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property.
+
+[!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)

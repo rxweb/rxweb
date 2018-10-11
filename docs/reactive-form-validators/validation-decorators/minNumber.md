@@ -52,6 +52,10 @@ Type :  `Function`  |  `string`
 Min Number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
  
+ [!codeExample(?title=conditionalExpressionExampleFunction)]
+
+[!codeExample(?title=conditionalExpressionExampleString)]
+
  [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
 [!code-typescript[](\assets\examples\minNumber\conditionalExpression\result-info.model.ts)]
@@ -69,6 +73,8 @@ Type :  `string`
 
 To override the global configuration message and show the custom message on particular control property.
 
+[!codeExample(?title=messageExample)]
+
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
 [!code-typescript[](\assets\examples\minNumber\message\result-info.model.ts)]
@@ -85,6 +91,9 @@ To override the global configuration message and show the custom message on part
 Type :  `number` 
 
 enter value which you want to restrict number in the property
+
+[!codeExample(?title=valueExample)]
+
 [!TabGroup(?showHideCondition="valueShow")]
 # [Model](#tab\messageModel)
 [!code-typescript[](\assets\examples\minNumber\value\result-info.model.ts)]
