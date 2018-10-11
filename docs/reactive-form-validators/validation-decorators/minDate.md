@@ -1,6 +1,6 @@
 ---
 title: minDate  
-description: Minimum Date validation decorator will allow only minimum date be entered upto value parameter, If user tries to enter any date that less then the value then the property will become invalid. 
+description: Minimum Date validation decorator will allow user to enter date greater the minimum date value parameter.
 author: rxcontributortwo
 
 ---

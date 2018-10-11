@@ -1,6 +1,6 @@
 ---
 title: time 
-description: time validation validator will allow only time format to be entered, If user tries to enter any string except json then the property will become invalid. 
+description: time validation validator will allow user to enter the input only in the correct time format.
 author: rxcontributorone
 
 ---

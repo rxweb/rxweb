@@ -1,6 +1,6 @@
 ---
 title: contains  
-description: Contains validation validator will check that value is in the input, It will not allow to enter input that not contains value. If user tries to do so the property will become invalid.
+description: Contains validation validator will check that value is in the input, It will not allow to enter input that not contains the predefined value.
 author: rxcontributortwo
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: lowerCase 
-description: lowerCase validation validator will allow only lowercase to be entered, If user tries to enter any case except lower then the property will become invalid.
+description: lowerCase validation validator will allow user to enter only the lowercase alphabets.
 author: rxcontributortwo
 
 ---

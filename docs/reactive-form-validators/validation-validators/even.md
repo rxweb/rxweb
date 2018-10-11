@@ -1,6 +1,6 @@
 ---
 title: even 
-description: Even validation validator will check whether the value entered is a Even or not, if user tries to enter value which is not a Even the property will be invalid
+description: Even validation validator will check whether the value entered by user is an even number or not.
 author: rxcontributorone
 
 ---

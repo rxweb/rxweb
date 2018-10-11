@@ -1,6 +1,6 @@
 ---
 title: password  
-description: Password validation decorator will allow only password to be entered, If user tries to enter any string rather than password pattern according for PasswordValidation parameters then the property will become invalid. 
+description: Password validation decorator will allow user to enter only the input according to correct password validation format.
 author: rxcontributorone
 
 ---

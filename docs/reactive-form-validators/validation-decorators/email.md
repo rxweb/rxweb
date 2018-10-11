@@ -1,6 +1,6 @@
 ---
 title: email 
-description: Email validation decorator will allow only emails to be entered, If user tries to enter any string except email then the property will become invalid. 
+description: Email validation decorator will only allow user to enter input which is in the correct email format.
 author: rxcontributorone
 
 ---

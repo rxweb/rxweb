@@ -1,6 +1,6 @@
 ---
 title: factor 
-description: factor validation decorator will check whether the value entered is factor of the particular value,if user tries to enter value which is not factor of the value  the property will be invalid.
+description: factor validation decorator will allow user to enter only the factor of the particular value or perticular field.
 author: rxcontributorone
 
 ---

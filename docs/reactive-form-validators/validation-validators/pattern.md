@@ -1,7 +1,6 @@
-
 ---
 title: pattern 
-description: Pattern validation validator will allow only match input as pattern to be entered, If user tries to enter any string which is not matched pattern then the property will become invalid. 
+description: Pattern validation validator will allow user to enter the input which match the predefined pattern value parameter.
 author: rxcontributortwo
 
 ---

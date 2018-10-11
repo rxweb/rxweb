@@ -1,6 +1,6 @@
 ---
 title: greaterThanEqualTo 
-description: Greater than equal to validation validator will check that input property is greater than equal to value, If user tries to enter less than value then the property will become invalid
+description: Greater than equal to validation validator will check that input property is greater than or equal to the related field input.
 author: rxcontributorone
 
 ---

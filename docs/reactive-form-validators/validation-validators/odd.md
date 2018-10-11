@@ -1,7 +1,6 @@
-
 ---
 title: odd
-description: Odd validation validator will check whether the value entered is an odd value or not, if user tries to enter value which is not a odd the property will be invalid. 
+description: Odd validation validator will check whether the value entered is an odd number or not.
 author: rxcontributorone
 
 ---

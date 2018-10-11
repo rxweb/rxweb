@@ -1,6 +1,6 @@
 ---
 title: maxNumber
-description: MaxNumber validation validator will allow only maximum number be entered upto value parameter,If user tries to enter any number that greater then the value then the property will become invalid.
+description: MaxNumber validation validator will allow user to enter the input upto the maximum number value parameter.
 author: rxcontributorone
 
 ---

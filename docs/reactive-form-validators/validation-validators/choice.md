@@ -1,6 +1,6 @@
 ---
 title: choice 
-description: choice validation validator will check whether the value entered is in proper choice of property defined , if user tries to enter value which is not proper choice then the property will be invalid.
+description: choice validation validator will check whether the value entered is matching the properties defined.
 author: rxcontributorone
 
 ---

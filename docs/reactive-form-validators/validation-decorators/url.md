@@ -1,6 +1,6 @@
 ---
 title: url 
-description: Url validation decorator will check that value is url or not in the property, If user does not enter url value then the property will become invalid. 
+description: Url validation decorator will check that value entered in the property is in the correct url format or not.
 author: rxcontributorone
 
 ---

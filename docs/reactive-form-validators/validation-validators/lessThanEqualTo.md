@@ -1,6 +1,6 @@
 ---
 title: lessThanEqualTo
-description: Less than equal to validation validator will check that input property is less than equal to value, If user tries to enter greater than value then the property will become invalid. 
+description: Less than equal to validation validator will allow the user to enter only that value which is less than oe equal to the value in the pre defined field.
 author: rxcontributorone
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: digit
-description: Digit validation validator will allow only digits to be entered, It will not allow any alphabets or special character. If user tries to do so the property will become invalid. 
+description: Digit validation va;lidator will allow only digits to be entered, It will not allow any alphabets or special character.
 author: rxcontributortwo
 
 ---
