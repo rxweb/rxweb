@@ -1,6 +1,6 @@
 ---
 title: alpha
-description: Alpha validation decorator will allow only alphabets to be entered.
+description: Alpha validation decorator will allow only alphabets to be entered. It will not allow any digit or special character.
 author: rxcontributorone
 
 ---
