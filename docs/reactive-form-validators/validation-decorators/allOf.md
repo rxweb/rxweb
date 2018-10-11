@@ -1,6 +1,6 @@
 ---
 title: allOf 
-description: allOf validation decorator will check whether the user has entered all of the values of given field, if user does not enter all the values of the given field.
+description: allOf validation decorator will check whether the user has entered all of the values of given field or not.
 author: rxcontributorone
 
 ---
