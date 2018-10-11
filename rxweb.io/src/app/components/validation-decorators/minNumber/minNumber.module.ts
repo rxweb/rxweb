@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MIN_NUMBER_ROUTING } from './minNumber.routing';
 import { MinNumberComponent } from './minNumber.component';
-import { MinNumberExtendedModule } from '../../../../assets/examples/minNumber/minNumber.module';
+import { MinNumberExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/minNumber/minNumber.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

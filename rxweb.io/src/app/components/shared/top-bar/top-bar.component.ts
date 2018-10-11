@@ -26,7 +26,7 @@ export class TopBarComponent implements OnInit {
       this.FormValidators = response;
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined){
-		this.validationName = splitedArray[2]
+		this.validationName = splitedArray[2] +".md"
 		}
 		this.showComponent = true;  
     }) ;

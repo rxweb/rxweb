@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { LEAP_YEAR_ROUTING } from './leapYear.routing';
 import { LeapYearComponent } from './leapYear.component';
-import { LeapYearExtendedModule } from '../../../../assets/examples/leapYear/leapYear.module';
+import { LeapYearExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/leapYear/leapYear.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

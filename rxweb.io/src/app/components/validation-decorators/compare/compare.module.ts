@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { COMPARE_ROUTING } from './compare.routing';
 import { CompareComponent } from './compare.component';
-import { CompareExtendedModule } from '../../../../assets/examples/compare/compare.module';
+import { CompareExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/compare/compare.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

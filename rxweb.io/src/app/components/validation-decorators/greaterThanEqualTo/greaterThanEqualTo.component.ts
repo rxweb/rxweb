@@ -1,6 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { GreaterThanEqualToCompleteComponent } from '../../../../assets/examples/greaterThanEqualTo/complete/greater-than-equal-to-complete.component';
+import { GreaterThanEqualToCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/greaterThanEqualTo/complete/greater-than-equal-to-complete.component';
+import { GreaterThanEqualToDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/greaterThanEqualTo/dynamic/greater-than-equal-to-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,6 +10,7 @@ import { TitleCasePipe } from "@angular/common";
   templateUrl: './greaterThanEqualTo.component.html',
   entryComponents: [
   	GreaterThanEqualToCompleteComponent,
+   	GreaterThanEqualToDynamicComponent,
    DisqusComponent
   ]
 })
@@ -16,19 +18,20 @@ export class GreaterThanEqualToComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic GreaterThanEqualTo Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpression","message"],"Complete greaterThanEqualTo Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic GreaterThanEqualTo Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpression","message"],"Complete greaterThanEqualTo Example":null,"Dynamic greaterThanEqualTo Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "fieldNamemodel";
    tab_3:string = "conditionalExpressionmodel";
    tab_4:string = "messageModel";
    tab_5:string = "completeexample";
+   tab_6:string = "dynamicexample";
    
   constructor(
     private http: HttpClient   ,private titlecasePipe:TitleCasePipe
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/greaterThanEqualTo/greaterthanequalto.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/reactive-form-validators/decorators/greaterThanEqualTo/greaterthanequalto.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)

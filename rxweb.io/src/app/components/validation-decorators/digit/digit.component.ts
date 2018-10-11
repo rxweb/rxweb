@@ -1,6 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { DigitCompleteComponent } from '../../../../assets/examples/digit/complete/digit-complete.component';
+import { DigitCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/digit/complete/digit-complete.component';
+import { DigitDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/digit/dynamic/digit-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,6 +10,7 @@ import { TitleCasePipe } from "@angular/common";
   templateUrl: './digit.component.html',
   entryComponents: [
   	DigitCompleteComponent,
+   	DigitDynamicComponent,
    DisqusComponent
   ]
 })
@@ -16,18 +18,19 @@ export class DigitComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic digit Validation":null,"DigitConfig":["conditionalExpression","message"],"Complete digit Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic digit Validation":null,"DigitConfig":["conditionalExpression","message"],"Complete digit Example":null,"Dynamic Digit Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";
    tab_4:string = "completeexample";
+   tab_5:string = "dynamicexample";
    
   constructor(
     private http: HttpClient   ,private titlecasePipe:TitleCasePipe
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/digit/digit.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/reactive-form-validators/decorators/digit/digit.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)

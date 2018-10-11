@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { PASSWORD_ROUTING } from './password.routing';
 import { PasswordComponent } from './password.component';
-import { PasswordExtendedModule } from '../../../../assets/examples/password/password.module';
+import { PasswordExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/password/password.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

@@ -1,6 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MinNumberCompleteComponent } from '../../../../assets/examples/minNumber/complete/min-number-complete.component';
+import { MinNumberCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/minNumber/complete/min-number-complete.component';
+import { MinNumberDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/minNumber/dynamic/min-number-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,6 +10,7 @@ import { TitleCasePipe } from "@angular/common";
   templateUrl: './minNumber.component.html',
   entryComponents: [
   	MinNumberCompleteComponent,
+   	MinNumberDynamicComponent,
    DisqusComponent
   ]
 })
@@ -16,19 +18,20 @@ export class MinNumberComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic MinNumber Validation":null,"NumberConfig":["conditionalExpression","message","value"],"Complete minNumber Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic MinNumber Validation":null,"NumberConfig":["conditionalExpression","message","value"],"Complete minNumber Example":null,"Dynamic minNumber Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";
    tab_4:string = "messageModel";
    tab_5:string = "completeexample";
+   tab_6:string = "dynamicexample";
    
   constructor(
     private http: HttpClient   ,private titlecasePipe:TitleCasePipe
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/minNumber/minnumber.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/reactive-form-validators/decorators/minNumber/minnumber.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)

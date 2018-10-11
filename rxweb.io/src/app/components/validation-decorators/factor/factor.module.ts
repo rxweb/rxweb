@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { FACTOR_ROUTING } from './factor.routing';
 import { FactorComponent } from './factor.component';
-import { FactorExtendedModule } from '../../../../assets/examples/factor/factor.module';
+import { FactorExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/factor/factor.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

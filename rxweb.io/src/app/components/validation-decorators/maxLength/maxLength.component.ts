@@ -1,6 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MaxLengthCompleteComponent } from '../../../../assets/examples/maxLength/complete/max-length-complete.component';
+import { MaxLengthCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/maxLength/complete/max-length-complete.component';
+import { MaxLengthDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/maxLength/dynamic/max-length-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,6 +10,7 @@ import { TitleCasePipe } from "@angular/common";
   templateUrl: './maxLength.component.html',
   entryComponents: [
   	MaxLengthCompleteComponent,
+   	MaxLengthDynamicComponent,
    DisqusComponent
   ]
 })
@@ -16,19 +18,20 @@ export class MaxLengthComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic MaxLength Validation":null,"NumberConfig":["conditionalExpression","value"],"Complete maxlength Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic MaxLength Validation":null,"NumberConfig":["conditionalExpression","value"],"Complete maxLength Example":null,"Dynamic maxLength Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";
    tab_4:string = "messageModel";
    tab_5:string = "completeexample";
+   tab_6:string = "dynamicexample";
    
   constructor(
     private http: HttpClient   ,private titlecasePipe:TitleCasePipe
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/maxLength/maxlength.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/reactive-form-validators/decorators/maxLength/maxlength.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)

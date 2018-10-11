@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { GREATER_THAN_ROUTING } from './greaterThan.routing';
 import { GreaterThanComponent } from './greaterThan.component';
-import { GreaterThanExtendedModule } from '../../../../assets/examples/greaterThan/greaterThan.module';
+import { GreaterThanExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/greaterThan/greaterThan.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

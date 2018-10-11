@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { CREDIT_CARD_ROUTING } from './creditCard.routing';
 import { CreditCardComponent } from './creditCard.component';
-import { CreditCardExtendedModule } from '../../../../assets/examples/creditCard/creditCard.module';
+import { CreditCardExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/creditCard/creditCard.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

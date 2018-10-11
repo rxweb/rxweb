@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { DIGIT_ROUTING } from './digit.routing';
 import { DigitComponent } from './digit.component';
-import { DigitExtendedModule } from '../../../../assets/examples/digit/digit.module';
+import { DigitExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/digit/digit.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

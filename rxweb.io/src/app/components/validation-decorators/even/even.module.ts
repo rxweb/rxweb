@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { EVEN_ROUTING } from './even.routing';
 import { EvenComponent } from './even.component';
-import { EvenExtendedModule } from '../../../../assets/examples/even/even.module';
+import { EvenExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/even/even.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MAC_ROUTING } from './mac.routing';
 import { MacComponent } from './mac.component';
-import { MacExtendedModule } from '../../../../assets/examples/mac/mac.module';
+import { MacExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/mac/mac.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { AlphaCompleteComponent } from '../../../../assets/examples/alpha/complete/alpha-complete.component';
-import { AlphaDynamicComponent } from '../../../../assets/examples/alpha/dynamic/alpha-dynamic.component';
+import { AlphaCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/alpha/complete/alpha-complete.component';
+import { AlphaDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/alpha/dynamic/alpha-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -18,7 +18,7 @@ export class AlphaComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Alpha Validation":null,"AlphaConfig":["allowWhiteSpace","conditionalExpression","message"],"Complete Alpha Example":["allowWhiteSpace","conditionalExpression","message"],"Dynamic Alpha Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic Alpha Validation":null,"AlphaConfig":["allowWhiteSpace","conditionalExpression","message"],"Complete Alpha Example":null,"Dynamic Alpha Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "allowWhiteSpacemodel";
    tab_3:string = "conditionalExpressionmodel";
@@ -31,7 +31,7 @@ export class AlphaComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/alpha/alpha.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/reactive-form-validators/decorators/alpha/alpha.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)

@@ -275,6 +275,7 @@
 <div class='col-lg-12'>
 <h2>Complete digit Example</h2>
 
+<p>This Complete digit example which includes all the DigitConfig properties will fulfil the requirement of scenarios 1, 2 and 3</p>
 <ul class="nav nav-tabs" >
 	<li [class.active]="tab_4=='completeexample'" (click)="tab_4='completeexample'"><a>Example</a></li>
 	<li [class.active]="tab_4=='completemodel'" (click)="tab_4='completemodel'"><a>Model</a></li>
@@ -318,6 +319,63 @@
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Html" (cbOnSuccess)="codeContent.complete.HtmlCopied = true" [class.copied]="codeContent.complete.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
 				<pre><code [textContent]="codeContent.complete.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+</div>
+</div>
+<div class='row' id= 'dynamicdigitexample'>
+<div class='col-lg-12'>
+<h2>Dynamic Digit Example</h2>
+
+<ul class="nav nav-tabs" >
+	<li [class.active]="tab_5=='dynamicexample'" (click)="tab_5='dynamicexample'"><a>Example</a></li>
+	<li [class.active]="tab_5=='dynamicmodel'" (click)="tab_5='dynamicmodel'"><a>Model</a></li>
+	<li [class.active]="tab_5=='dynamiccomponent'" (click)="tab_5='dynamiccomponent'"><a>Component</a></li>
+	<li [class.active]="tab_5=='dynamichtml'" (click)="tab_5='dynamichtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" >
+			  <div class="tab-pane" [class.active]="tab_5=='dynamicexample'">
+			<app-digit-dynamic></app-digit-dynamic>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_5=='dynamicmodel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Model" (cbOnSuccess)="codeContent.dynamic.ModelCopied = true" [class.copied]="codeContent.dynamic.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_5=='dynamiccomponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Component" (cbOnSuccess)="codeContent.dynamic.ComponentCopied = true" [class.copied]="codeContent.dynamic.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_5=='dynamichtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Html" (cbOnSuccess)="codeContent.dynamic.HtmlCopied = true" [class.copied]="codeContent.dynamic.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Html"></code></pre>
 			</div>
 	</div>
 </div>

@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MIN_DATE_ROUTING } from './minDate.routing';
 import { MinDateComponent } from './minDate.component';
-import { MinDateExtendedModule } from '../../../../assets/examples/minDate/minDate.module';
+import { MinDateExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/minDate/minDate.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

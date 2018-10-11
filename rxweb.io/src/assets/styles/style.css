@@ -4205,7 +4205,7 @@ body.modal-open {
     text-align: center
 }
 
-#logo.light-version span {
+#logo.light-version a {
     font-weight: 600;
     color: #34495e;
     font-size: 19px

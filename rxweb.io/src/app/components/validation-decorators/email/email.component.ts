@@ -1,6 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { EmailCompleteComponent } from '../../../../assets/examples/email/complete/email-complete.component';
+import { EmailCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/email/complete/email-complete.component';
+import { EmailDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/email/dynamic/email-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,6 +10,7 @@ import { TitleCasePipe } from "@angular/common";
   templateUrl: './email.component.html',
   entryComponents: [
   	EmailCompleteComponent,
+   	EmailDynamicComponent,
    DisqusComponent
   ]
 })
@@ -16,18 +18,19 @@ export class EmailComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Email Validation":null,"EmailConfig":["conditionalExpression","message"],"Complete Email Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic Email Validation":null,"EmailConfig":["conditionalExpression","message"],"Complete Email Example":null,"Dynamic Email Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";
    tab_4:string = "completeexample";
+   tab_5:string = "dynamicexample";
    
   constructor(
     private http: HttpClient   ,private titlecasePipe:TitleCasePipe
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/email/email.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/reactive-form-validators/decorators/email/email.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)

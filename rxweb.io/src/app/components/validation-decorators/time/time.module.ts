@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TIME_ROUTING } from './time.routing';
 import { TimeComponent } from './time.component';
-import { TimeExtendedModule } from '../../../../assets/examples/time/time.module';
+import { TimeExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/time/time.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

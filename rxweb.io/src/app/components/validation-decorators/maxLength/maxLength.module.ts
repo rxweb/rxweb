@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MAX_LENGTH_ROUTING } from './maxLength.routing';
 import { MaxLengthComponent } from './maxLength.component';
-import { MaxLengthExtendedModule } from '../../../../assets/examples/maxLength/maxLength.module';
+import { MaxLengthExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/maxLength/maxLength.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

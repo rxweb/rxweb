@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MIN_LENGTH_ROUTING } from './minLength.routing';
 import { MinLengthComponent } from './minLength.component';
-import { MinLengthExtendedModule } from '../../../../assets/examples/minLength/minLength.module';
+import { MinLengthExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/minLength/minLength.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

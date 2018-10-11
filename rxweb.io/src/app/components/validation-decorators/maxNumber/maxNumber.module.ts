@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MAX_NUMBER_ROUTING } from './maxNumber.routing';
 import { MaxNumberComponent } from './maxNumber.component';
-import { MaxNumberExtendedModule } from '../../../../assets/examples/maxNumber/maxNumber.module';
+import { MaxNumberExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/maxNumber/maxNumber.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

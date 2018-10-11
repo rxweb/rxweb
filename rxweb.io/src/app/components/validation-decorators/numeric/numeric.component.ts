@@ -1,6 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { NumericCompleteComponent } from '../../../../assets/examples/numeric/complete/numeric-complete.component';
+import { NumericCompleteComponent } from '../../../../assets/examples/reactive-form-validators/decorators/numeric/complete/numeric-complete.component';
+import { NumericDynamicComponent } from '../../../../assets/examples/reactive-form-validators/decorators/numeric/dynamic/numeric-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { TitleCasePipe } from "@angular/common";
@@ -9,6 +10,7 @@ import { TitleCasePipe } from "@angular/common";
   templateUrl: './numeric.component.html',
   entryComponents: [
   	NumericCompleteComponent,
+   	NumericDynamicComponent,
    DisqusComponent
   ]
 })
@@ -16,19 +18,20 @@ export class NumericComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic numeric Validation":null,"NumericConfig":["acceptValue","allowDecimal","conditionalExpression","message"],"Complete numeric Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic numeric Validation":null,"NumericConfig":["acceptValue","allowDecimal","conditionalExpression","message"],"Complete numeric Example":null,"Dynamic numeric Example":null};
   tab_1:string = "acceptValuemodel";
    tab_2:string = "allowDecimalmodel";
    tab_3:string = "conditionalExpressionmodel";
    tab_4:string = "messageModel";
    tab_5:string = "completeexample";
+   tab_6:string = "dynamicexample";
    
   constructor(
     private http: HttpClient   ,private titlecasePipe:TitleCasePipe
   ) {
   }
   ngOnInit(): void {
-	this.http.get('assets/examples/numeric/numeric.json',this.options).subscribe((response:object) => {
+	this.http.get('assets/examples/reactive-form-validators/decorators/numeric/numeric.json',this.options).subscribe((response:object) => {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)

@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { LOWER_CASE_ROUTING } from './lowerCase.routing';
 import { LowerCaseComponent } from './lowerCase.component';
-import { LowerCaseExtendedModule } from '../../../../assets/examples/lowerCase/lowerCase.module';
+import { LowerCaseExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/lowerCase/lowerCase.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";

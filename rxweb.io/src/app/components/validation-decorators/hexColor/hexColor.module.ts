@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { HEX_COLOR_ROUTING } from './hexColor.routing';
 import { HexColorComponent } from './hexColor.component';
-import { HexColorExtendedModule } from '../../../../assets/examples/hexColor/hexColor.module';
+import { HexColorExtendedModule } from '../../../../assets/examples/reactive-form-validators/decorators/hexColor/hexColor.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { TitleCasePipe } from "@angular/common";
