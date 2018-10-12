@@ -16,19 +16,16 @@ import { DifferentConfig } from "../models/config/compare-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { Linq } from "../util/linq";
 import { ApplicationUtil } from "../util/app-util";
-
+import { FormProvider } from '../util/form-provider';
 export function differentValidator(config:DifferentConfig): ValidatorFn {
-    return (control: FormGroup): { [key: string]: any } => {
-        const differentControl = control.root.get([config.fieldName]);
-        const controlValue = control.value;
+    return (control: AbstractControl): { [key: string]: any } => {
+        config = ApplicationUtil.getConfigObject(config);
+      const differentControl = control.root.get([config.fieldName]);
       const differentControlValue = (differentControl) ? differentControl.value : '';
-      config = ApplicationUtil.getConfigObject(config);
-      const parentObject = (control.parent) ? control.parent.value : undefined;
-      const formGroupValue = ApplicationUtil.getParentObjectValue(control);
-      if (Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject)) {
-        if (RegexValidator.isNotBlank(controlValue)) {
-          if (!(differentControl && differentControl.value != controlValue))
-            return ObjectMaker.toJson(AnnotationTypes.different, config.message || null, [controlValue, differentControlValue]);
+        if (FormProvider.ProcessRule(control,config)) {
+        if (RegexValidator.isNotBlank(control.value)) {
+          if (!(differentControl && differentControl.value != control.value))
+            return ObjectMaker.toJson(AnnotationTypes.different, config.message || null, [control.value, differentControlValue]);
         }
       }
         return ObjectMaker.null();

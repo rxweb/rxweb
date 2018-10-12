@@ -1,6 +1,4 @@
 import { defaultContainer } from '../core/defaultContainer';
-import { DecoratorConfiguration } from '../core/validator.interface';
-import { DecoratorName } from "../util/decorator-name";
 import { DateConfig } from "../models/config/date-config";
 import { AnnotationTypes } from "../core/validator.static";
 

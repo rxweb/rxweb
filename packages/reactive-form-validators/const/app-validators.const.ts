@@ -4,7 +4,18 @@ import {
     rangeValidator, patternValidator, requiredValidator, creditCardValidator, digitValidator,
     maxLengthValidator, minLengthValidator, passwordValidator, timeValidator, urlValidator, jsonValidator,
   greaterThanEqualToValidator, greaterThanValidator, lessThanEqualToValidator, lessThanValidator,
-  choiceValidator,differentValidator, numericValidator,evenValidator,oddValidator,factorValidator,leapYearValidator,allOfValidator, oneOfValidator, noneOfValidator, macValidator
+  choiceValidator,differentValidator, numericValidator,evenValidator,oddValidator,factorValidator,leapYearValidator,allOfValidator, oneOfValidator, noneOfValidator, macValidator,
+asciiValidator,
+dataUriValidator,
+portValidator,
+latLongValidator,
+extensionValidator,
+fileSizeValidator,
+endsWithValidator,
+startsWithValidator,
+primeNumberValidator,
+latitudeValidator,
+longitudeValidator
 } from '../reactive-form-validators/index';
 
 export const APP_VALIDATORS: { [key: string]: Function } = {
@@ -45,5 +56,16 @@ export const APP_VALIDATORS: { [key: string]: Function } = {
     "allOf":allOfValidator,
     "oneOf":oneOfValidator,
     "noneOf":noneOfValidator,
-    "mac":macValidator
+    "mac":macValidator,
+    "ascii":             asciiValidator,
+    "dataUri":           dataUriValidator,
+    "port":              portValidator,
+    "latLong":           latLongValidator,
+    "extension":         extensionValidator,
+    "fileSize":          fileSizeValidator,
+    "endsWith":          endsWithValidator,
+    "startsWith":        startsWithValidator,
+    "primeNumber":       primeNumberValidator,
+    "latitude":          latitudeValidator,
+    "longitude":         longitudeValidator
 }

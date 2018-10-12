@@ -3,7 +3,18 @@ containsValidatorExtension,creditCardValidatorExtension,differentValidatorExtens
 greaterThanEqualToValidatorExtension,greaterThanValidatorExtension,hexColorValidatorExtension,jsonValidatorExtension,leapYearValidatorExtension,lessThanEqualToValidatorExtension,
 lessThanValidatorExtension,lowerCaseValidatorExtension,macValidatorExtension,maxDateValidatorExtension,maxLengthValidatorExtension,maxNumberValidatorExtension,minDateValidatorExtension,
 minLengthValidatorExtension,minNumberValidatorExtension,noneOfValidatorExtension,numericValidatorExtension,oddValidatorExtension,oneOfValidatorExtension,passwordcValidatorExtension,
-patternValidatorExtension,rangeValidatorExtension,requiredValidatorExtension,timeValidatorExtension,upperCaseValidatorExtension,urlValidatorExtension
+patternValidatorExtension,rangeValidatorExtension,requiredValidatorExtension,timeValidatorExtension,upperCaseValidatorExtension,urlValidatorExtension,
+asciiValidatorExtension,
+dataUriValidatorExtension,
+portValidatorExtension,
+latLongValidatorExtension,
+extensionValidatorExtension,
+fileSizeValidatorExtension,
+endsWithValidatorExtension,
+startsWithValidatorExtension,
+primeNumberValidatorExtension,
+latitudeValidatorExtension,
+longitudeValidatorExtension
  } from './index'
 
 export class RxwebValidators  {
@@ -46,4 +57,15 @@ static readonly required = requiredValidatorExtension;
 static readonly time = timeValidatorExtension;
 static readonly upperCase = upperCaseValidatorExtension;
 static readonly url = urlValidatorExtension;
+static readonly ascii      =asciiValidatorExtension;
+static readonly dataUri    =dataUriValidatorExtension;
+static readonly port       =portValidatorExtension;
+static readonly latLong    =latLongValidatorExtension;
+static readonly extension  =extensionValidatorExtension;
+static readonly fileSize   =fileSizeValidatorExtension;
+static readonly endsWith   =endsWithValidatorExtension;
+static readonly startsWith =startsWithValidatorExtension;
+static readonly primeNumber=primeNumberValidatorExtension;
+static readonly latitude   =latitudeValidatorExtension;
+static readonly longitude  =longitudeValidatorExtension;
 }

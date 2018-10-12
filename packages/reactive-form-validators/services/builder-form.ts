@@ -13,6 +13,7 @@ export class BuilderForm extends FormBuilder {
     private objectKeys:string[] = [];
     private entityObject:{[key:string]:any};
     private formControls:any;
+
     constructor(){
         super();
         this.entityService = new EntityService();
@@ -32,9 +33,26 @@ export class BuilderForm extends FormBuilder {
       this.currentFormGroup.isDirty = this.dirty(this.baseObject,this.objectKeys);
       this.currentFormGroup.resetForm = this.resetForm(this.baseObject,this.objectKeys);
       this.currentFormGroup.getErrorSummary = this.errorSummary();
+      this.currentFormGroup.updateChanged = this.updateChanged(this.entityObject);
       return this.currentFormGroup;
     }
 
+  updateChanged(entityObject:{[key:string]:string}){
+    return function(){
+        Object.keys(this.controls).forEach(columnName=>{
+            if(!(this.controls[columnName] instanceof FormArray) && !(this.controls[columnName] instanceof FormGroup) && this.controls[columnName] != entityObject[columnName]) {
+                  this.controls[columnName].setValue(entityObject[columnName],{updateChanged:true});
+            } else if((this.controls[columnName] instanceof FormArray)){
+                for(let formGroup of this.controls[columnName].controls){
+                    formGroup.updateChanged();
+                }
+            } else if((this.controls[columnName] instanceof FormGroup)){
+                    this.controls[columnName].updateChanged();
+            }
+        })
+    }
+  }
+   
     errorSummary(){
       return function(onlyMessage: boolean ) {
         let jObject : {[key:string]:any}  = {};
@@ -46,7 +64,6 @@ export class BuilderForm extends FormBuilder {
           }
           else if(this.controls[columnName] instanceof FormArray)
           {
-              
               let index = 0;
               for(let formGroup of this.controls[columnName].controls){
                 let error = formGroup.getErrorSummary();

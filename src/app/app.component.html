@@ -20,7 +20,7 @@
   {{userInfoFormGroup.isDirty()}}
 </form>
 <form [formGroup]="angularFormGroup">
-  <input type="text" formControlName="firstName" />{{angularFormGroup.controls.firstName.errors | json}}<br />
+  <input type="text" formControlName="firstName" />{{angularFormGroup.controls.firstName.errorMessage}}<br />
   <input type="text" formControlName="lastName" />{{angularFormGroup.controls.lastName.errors | json}}<br />
   <div [formGroup]="angularFormGroup.controls.address">
     <input type="text" formControlName="city" />{{angularFormGroup.controls.address.controls.city.errors | json}}<br />
@@ -35,6 +35,18 @@
 <h1>RxWeb FormGroup</h1>
 {{sampleFormGroup.isDirty()}}
 <form [formGroup]="sampleFormGroup">
+  updateChange <input type="text" formControlName="updateChange" /> {{sampleFormGroup.controls.updateChange.errors | json}}<br />
+  ascii <input type="text" formControlName="ascii" /> {{sampleFormGroup.controls.ascii.errors | json}}<br />
+  dataUri <input type="text" formControlName="dataUri" /> {{sampleFormGroup.controls.dataUri.errors | json}}<br />
+  port <input type="text" formControlName="port" /> {{sampleFormGroup.controls.port.errors | json}}<br />
+  latLong <input type="text" formControlName="latLong" /> {{sampleFormGroup.controls.latLong.errors | json}}<br />
+  endsWith <input type="text" formControlName="endsWith" /> {{sampleFormGroup.controls.endsWith.errors | json}}<br />
+  startsWith <input type="text" formControlName="startsWith" /> {{sampleFormGroup.controls.startsWith.errors | json}}<br />
+  primeNumber <input type="text" formControlName="primeNumber" /> {{sampleFormGroup.controls.primeNumber.errors | json}}<br />
+  latitude <input type="text" formControlName="latitude" /> {{sampleFormGroup.controls.latitude.errors | json}}<br />
+  longitude <input type="text" formControlName="longitude" /> {{sampleFormGroup.controls.longitude.errors | json}}<br />
+  extension <input type="file" formControlName="extension" /> {{sampleFormGroup.controls.extension.errors | json}}<br />
+
   leapYear <input type="text" formControlName="leapYear" /> {{sampleFormGroup.controls.leapYear.errors | json}}<br />
   factor <input type="text" formControlName="factor" /> {{sampleFormGroup.controls.factor.errors | json}}<br />
   odd <input type="text" formControlName="odd" /> {{sampleFormGroup.controls.odd.errors | json}}<br />

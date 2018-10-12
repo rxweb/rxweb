@@ -1,7 +1,5 @@
 import { defaultContainer } from '../core/defaultContainer';
-import { DecoratorConfiguration } from '../core/validator.interface';
 import { AnnotationTypes } from '../core/validator.static';
-import { DecoratorName } from "../util/decorator-name";
 import { BaseConfig} from "../models/config/base-config";
 
 export function mac(config?:BaseConfig) {

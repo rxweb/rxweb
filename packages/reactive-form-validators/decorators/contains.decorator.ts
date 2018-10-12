@@ -1,7 +1,4 @@
 import { defaultContainer } from '../core/defaultContainer';
-import { DecoratorConfiguration } from '../core/validator.interface';
-import { DecoratorName } from "../util/decorator-name";
-import { DefaultConfig } from "../models/config/default-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ContainsConfig } from "../models/config/contains-config";
 

@@ -8,7 +8,7 @@ import { AnnotationTypes } from "../core/validator.static"
 import {STRING } from '../const/validator.const';
 
 export function allOfValidatorExtension(config?: ArrayConfig): ValidatorFn {
-    var validator = allOfValidator(config);
+    var validator = allOfValidator(config) ;
     var rxwebValidator = (control:any,target?:object): { [key: string]: any } => {
         if (typeof control == STRING)
           defaultContainer.init(target, 0, control, AnnotationTypes.allOf, config);

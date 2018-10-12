@@ -19,6 +19,8 @@ import { HexColorConfig } from "./config/hex-color-config";
 import { NumericConfig } from "./config/numeric-config";
 import { PasswordConfig } from "./config/password-config";
 import { TimeConfig } from "./config/time-config";
+import { ExtensionConfig } from "./config/extension-config";
+import { SizeConfig } from "./config/size-config";
 import { ValidatorFn } from "@angular/forms";
 
 export interface PropValidationConfig {
@@ -61,4 +63,15 @@ export interface PropValidationConfig {
     upperCase?: MessageConfig | boolean;
     range?: RangeConfig;
     custom?: ValidatorFn;
+    ascii?:BaseConfig | boolean;
+    dataUri?:BaseConfig | boolean;
+    port?:BaseConfig | boolean;
+    latLong?:BaseConfig | boolean;
+    extension?:ExtensionConfig;
+    fileSize?:SizeConfig;
+    endsWith?:DefaultConfig ;
+    startsWith?:DefaultConfig | boolean;
+    primeNumber?:BaseConfig | boolean;
+    latitude?:BaseConfig | boolean;
+    longitude?:BaseConfig | boolean;
 }

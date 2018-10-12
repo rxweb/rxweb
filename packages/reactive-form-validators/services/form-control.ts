@@ -1,5 +1,6 @@
 import {FormControl,ValidatorFn ,AsyncValidatorFn} from "@angular/forms";
-
+import { ObjectMaker } from "../util/object-maker";
+import  {MESSAGE } from '../const'
 export class RxFormControl extends FormControl {
     private keyName:string;
     errorMessage:string;
@@ -9,7 +10,8 @@ export class RxFormControl extends FormControl {
     }
 
     setValue(value:any, options?: {
-        dirty?:boolean
+        dirty?:boolean;
+        updateChanged:boolean;
         onlySelf?: boolean;
         emitEvent?: boolean;
     }):void {
@@ -19,10 +21,22 @@ export class RxFormControl extends FormControl {
       super.setValue(value,options);
       if(this.errors) {
         Object.keys(this.errors).forEach(t=>{
-            if(this.errors[t]["message"])
-              this.errorMessage = this.errors[t]["message"];
+            this.errorMessage = this.getErrorMessage(this.errors,t);
+            if(!this.errorMessage){
+              let errorObject = ObjectMaker.toJson(t,undefined,[this.errors[t][t]]);
+              this.errorMessage = this.getErrorMessage(errorObject,t) ;
+            }
         })
       } else
         this.errorMessage = undefined;
+      if(!options.updateChanged){
+        this.root.updateChanged();
+      }
+    }
+
+    private getErrorMessage(errorObject:{[key:string]:string},keyName:string){
+      if(errorObject[keyName][MESSAGE])
+        return errorObject[keyName][MESSAGE];
+      return;
     }
 }

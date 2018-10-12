@@ -4,7 +4,18 @@ import {
   choice,
     contains,
     digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType, minLength
-  , FormGroupExtension, different, numeric, NumericValueType, even, odd, factor, leapYear, time, RxwebValidators
+  , FormGroupExtension, different, numeric, NumericValueType, even, odd, factor, leapYear, time, RxwebValidators,
+ascii,
+dataUri,
+port,
+latLong,
+extension,
+fileSize,
+endsWith,
+startsWith,
+primeNumber,
+latitude,
+longitude
 } from "@rxweb/reactive-form-validators";
 
 import { CLIENT_SETTINGS } from './client-setting'
@@ -28,9 +39,9 @@ console.log(target);
 }
 export class Employee {
     @leapYear() leapYear:number;
-@factor({fieldName:'odd'}) factor:number;
+    @factor({fieldName:'odd'}) factor:number;
     @odd() odd:number;
-   @even() even:number;
+    @even() even:number;
     @numeric({acceptValue:NumericValueType.NegativeNumber}) numeric:number;
     @different({ fieldName:'firstName' }) different: string;
     @choice({ minLength: 1, maxLength:2 }) skills: number[];
@@ -40,7 +51,7 @@ export class Employee {
     //@digit({ conditionalExpression: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'", message: "digit required" })
     @prop()
     digit: string;
-    @email({ message: "email", conditionalExpression: "x =>x.firstName == 'john'" }) email: string;
+    @email({ message: "email", conditionalExpression: "(x,y) => x.firstName == 'john' && y.firstName == 'john'" }) email: string;
     @hexColor({ message: "hex", conditionalExpression: "x => x.firstName == 'john'" }) hexColor: string;
     @lowerCase({ message: "lowercase", conditionalExpression: "x => x.firstName == 'john'" }) lowerCase: string;
     @maxDate({ value: new Date(2018,7-1,30) }) maxDate: string; // do some work
@@ -66,6 +77,16 @@ export class Employee {
     @lessThan({ fieldName: 'minNumber' }) lessThan: string;
     @lessThanEqualTo({ fieldName: 'minNumber' }) lessThanEqualTo: string;
     @creditCard({ creditCardTypes: [CreditCardType.AmericanExpress,] }) creditCard: string;
+    @ascii()                          ascii:string;
+    @dataUri()                        dataUri:string;
+    @port()                           port:number;
+    @latLong()                        latLong:string
+    @fileSize({maxSize:20000})       extension:object;
+    @endsWith({value:'jha'})          endsWith:string
+    @startsWith({value:'aja'})        startsWith:string
+    @primeNumber()                    primeNumber:number;
+    @latitude()                       latitude:number;
+    @longitude()                      longitude:number;
    private _classProperty: ExternalClass;
 
 
@@ -73,9 +94,17 @@ export class Employee {
   set classProperty(property: number | any | ExternalClass) {
       this._classProperty = property;
     }
-@alphaNumeric({ allowWhiteSpace: false, message: "test message" }) 
+    @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) 
     get classProperty() {
       return this._classProperty;
+    }
+    private _updateChange:string;
+    set updateChange(value:string){
+      this._updateChange = value;
+    }
+
+    @prop() get updateChange(){
+    return this._updateChange;
     }
 }
 
@@ -101,7 +130,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.largeFormGroup();
         this.angularFormGroup = this.validation.group({
-          firstName:[''],
+          firstName:['',Validators.min(10)],
           lastName:[''],
           address:this.validation.group({
             city:[''],
@@ -110,7 +139,7 @@ export class AppComponent implements OnInit {
           skills:this.formBuilder.array([this.validation.group({
             skillName:['']
           })])
-      }, new FormBuilderConfiguration({ dynamicValidation: { firstName: { alpha: true } } }))
+      })
 
       this.userInfoFormGroup = this.validation.group({
         firstName: '',
@@ -141,7 +170,10 @@ export class AppComponent implements OnInit {
                 "alpha": "only alpha value you enter",
                 "alphaNumeric": "only alpha Numeric value you enter",
                 "contains": "you should contains ",
-                "onlyDigit": "abc"
+                "onlyDigit": "abc",
+                "required":"this field is required",
+                "min":"minimum number are allowed {{0}}"
+
             }
         });
         employee.lastName = "john";

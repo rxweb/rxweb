@@ -1,8 +1,8 @@
 import { defaultContainer } from "../core/defaultContainer"
 
 export class BaseFormBuilder{
-
-  constructor(){}
+  constructor(){
+  }
 
   protected createInstance() {
     let instance = {};
