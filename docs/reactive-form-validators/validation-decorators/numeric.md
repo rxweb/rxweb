@@ -20,8 +20,10 @@ Let’s see how Numeric validator fulfil the need.
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.ts?type=section)]
 ***
+
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\edit\numeric-edit.component.ts?type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.html)]

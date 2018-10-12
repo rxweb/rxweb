@@ -23,9 +23,9 @@ Here we have covered Add and Edit form operations.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\add\min-length-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\add\min-length-add.component.ts?type=section)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\edit\min-length-edit.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\edit\min-length-edit.component.ts?type=section)]
 ***
 
 Next, we need to write html code.
