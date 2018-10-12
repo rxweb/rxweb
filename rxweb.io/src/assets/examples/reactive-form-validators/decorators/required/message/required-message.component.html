@@ -1,0 +1,11 @@
+<div>
+<form [formGroup]="userFormGroup">
+<div class="form-group">
+    <label>UserName</label>
+    <input type="text" formControlName="userName" class="form-control"  />
+    <small class="form-text text-muted">Shows Custom Validation Message.<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.userName.errors">{{userFormGroup.controls.userName.errors.required.message}}<br/></small>
+</div>
+<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

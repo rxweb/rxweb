@@ -37,8 +37,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-/rxweb.io/src/assets/reactive-form-validators/validators
-/rxweb.io/src/assets/examples
-*.json
 /rxweb.io/.vscode
 *.sqlite
