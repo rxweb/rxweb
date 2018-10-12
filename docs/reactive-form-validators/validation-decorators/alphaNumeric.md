@@ -23,9 +23,9 @@ Now, we need to create a FormGroup in the component. To achieve this, we need to
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\add\alpha-numeric-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\add\alpha-numeric-add.component.ts?type=section)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\edit\alpha-numeric-edit.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\edit\alpha-numeric-edit.component.ts?type=section)]
 ***
 
 Next, we need to write html code.
