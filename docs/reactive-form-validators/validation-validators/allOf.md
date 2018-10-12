@@ -18,10 +18,10 @@ Let’s see how allOf validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-[!code-typescript[](\assets\examples\validators\allOf\add\all-of-add.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\add\all-of-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\allOf\add\all-of-add.component.html?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\add\all-of-add.component.html?type=section)]
 
 [!example(?title=allOf validator for add Example)]
 <app-allOf-add-validator></app-allOf-add-validator>
@@ -44,9 +44,9 @@ matchValue is the array based on which the value is matched for validation. Acco
 
 [!TabGroup(?showHideCondition="matchValue")]
 # [Component](#tab\matchValueComponent)
-[!code-typescript[](\assets\examples\validators\allOf\matchValue\all-of-match-value.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\matchValue\all-of-match-value.component.ts)]
 # [Html](#tab\matchValueHtml)
-[!code-typescript[](\assets\examples\validators\allOf\matchValue\all-of-match-value.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\matchValue\all-of-match-value.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="matchValue=!matchValue"&title=allOf validator with matchValue)]
@@ -64,9 +64,9 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
  [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\validators\allOf\conditionalExpression\all-of-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\conditionalExpression\all-of-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\validators\allOf\conditionalExpression\all-of-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\conditionalExpression\all-of-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=allOf validator with conditionalExpression)]
@@ -81,9 +81,9 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\allOf\message\all-of-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\message\all-of-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\allOf\message\all-of-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\message\all-of-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=allOf validator with custom message)]
@@ -94,9 +94,9 @@ To override the global configuration message and show the custom message on part
 # [Example](#tab\completeexample)
 <app-allOf-complete-validator></app-allOf-complete-validator>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\validators\allOf\complete\all-of-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\complete\all-of-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\validators\allOf\complete\all-of-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\complete\all-of-complete.component.html)]
 ***
 
 # Dynamic allOf Example
@@ -104,7 +104,7 @@ To override the global configuration message and show the custom message on part
 # [Example](#tab\dynamicexample)
 <app-allOf-dynamic-validator></app-allOf-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\validators\allOf\dynamic\all-of-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\dynamic\all-of-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\validators\allOf\dynamic\all-of-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\dynamic\all-of-dynamic.component.html)]
 ***
