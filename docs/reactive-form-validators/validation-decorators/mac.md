@@ -24,9 +24,9 @@ Here we have covered Add and Edit form operations.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\mac\add\mac-add.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\mac\add\mac-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\mac\edit\mac-edit.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\mac\edit\mac-edit.component.ts)]
 ***
 
 Next, we need to write html code.

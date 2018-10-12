@@ -22,9 +22,9 @@ Now, we need to create a FormGroup in the component. To achieve this, we need to
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\add\contains-add.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\add\contains-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\edit\contains-edit.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\edit\contains-edit.component.ts)]
 ***
 
 Next, we need to write html code.

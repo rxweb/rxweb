@@ -22,9 +22,9 @@ Now, we need to create a FormGroup in the component. To achieve this, we need to
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lowerCase\add\lower-case-add.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lowerCase\add\lower-case-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lowerCase\edit\lower-case-edit.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lowerCase\edit\lower-case-edit.component.ts)]
 ***
 
 Next, we need to write html code.

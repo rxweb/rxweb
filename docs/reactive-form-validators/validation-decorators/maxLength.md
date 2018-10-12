@@ -22,9 +22,9 @@ Now, we need to create a FormGroup in the component. To achieve this, we need to
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\add\max-length-add.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\add\max-length-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\edit\max-length-edit.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\edit\max-length-edit.component.ts)]
 ***
 
 Next, we need to write html code.
