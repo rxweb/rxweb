@@ -25,11 +25,11 @@ export class HexColorDynamicValidatorComponent implements OnInit {
 			},
 						
 			footerHexCode : {
-				hexColor :  {conditionalExpression:(x,y) =>{ return  x.color == "#AFAFAF"},} 
+				hexColor :  {conditionalExpression:(x,y) =>x.color == "#AFAFAF",} 
 			},
 						
 			headerHexcolorCode : {
-				hexColor :  {conditionalExpression:x => x.color == "#AFAFAF",} 
+				hexColor :  {conditionalExpression:'x => x.color == "#AFAFAF"',} 
 			},
 						
 			bodyHexcolorCode : {
@@ -39,6 +39,6 @@ export class HexColorDynamicValidatorComponent implements OnInit {
 		 var hexcolorInfo = {
 			color:'', footerHexCode:'', headerHexcolorCode:'', bodyHexcolorCode:'', 
 		}
-		this.hexcolorInfoFormGroup = this.formBuilder.formGroup(hexcolorInfo,formBuilderConfiguration);
+		this.hexcolorInfoFormGroup = this.formBuilder.group(hexcolorInfo,formBuilderConfiguration);
     }
 }

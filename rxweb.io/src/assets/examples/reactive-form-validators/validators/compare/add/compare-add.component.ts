@@ -16,8 +16,9 @@ export class CompareAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																confirmPassword:['',RxwebValidators.compare({fieldName:'password' })], 
+        this.userFormGroup = this.formBuilder.group({
+										password:['',], 
+													confirmPassword:['', RxwebValidators.compare({fieldName:'password' })], 
 								});
     }
 }

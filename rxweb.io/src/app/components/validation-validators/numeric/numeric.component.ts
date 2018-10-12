@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { NumericAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/numeric/add/numeric-add.component';
 import { NumericCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/numeric/complete/numeric-complete.component';
 import { NumericDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/numeric/dynamic/numeric-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,10 +17,10 @@ export class NumericComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic numeric Validation":null,"NumericConfig":["acceptValue","allowDecimal","conditionalExpression","message"],"Complete numeric Example":null,"Dynamic numeric Example":null};
-  tab_1:string = "acceptValuemodel";
-   tab_2:string = "allowDecimalmodel";
-   tab_3:string = "conditionalExpressionmodel";
-   tab_4:string = "messageModel";
+  tab_1:string = "acceptValueComponent";
+   tab_2:string = "allowDecimalComponent";
+   tab_3:string = "conditionalExpressionComponent";
+   tab_4:string = "messageComponent";
    tab_5:string = "completeexample";
    tab_6:string = "dynamicexample";
    

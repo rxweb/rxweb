@@ -25,11 +25,11 @@ export class UrlDynamicValidatorComponent implements OnInit {
 			},
 						
 			qaWebsiteUrl : {
-				url :  {conditionalExpression:(x,y) =>{ return  x.adminWebsiteUrl == "https://google.co.in" },} 
+				url :  {conditionalExpression:(x,y) => x.adminWebsiteUrl == "https://google.co.in" ,} 
 			},
 						
 			customerWebsiteUrl : {
-				url :  {conditionalExpression:x => x.adminWebsiteUrl == "https://google.co.in" ,} 
+				url :  {conditionalExpression:'x => x.adminWebsiteUrl == "https://google.co.in"' ,} 
 			},
 						
 			maintenanceWebSiteUrl : {
@@ -39,6 +39,6 @@ export class UrlDynamicValidatorComponent implements OnInit {
 		 var user = {
 			adminWebsiteUrl:'', qaWebsiteUrl:'', customerWebsiteUrl:'', maintenanceWebSiteUrl:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

@@ -21,11 +21,11 @@ export class GreaterThanEqualToDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			voterAge : {
-				greaterThanEqualTo :  {fieldName:'age',conditionalExpression:(x,y) =>{ return  x.age >= 18 },} 
+				greaterThanEqualTo :  {fieldName:'age',conditionalExpression:(x,y) => x.age >= 18 ,} 
 			},
 						
 			memberAge : {
-				greaterThanEqualTo :  {fieldName:'age',conditionalExpression:x => x.age >= 18 ,} 
+				greaterThanEqualTo :  {fieldName:'age',conditionalExpression:'x => x.age >= 18 ',} 
 			},
 						
 			otherAge : {
@@ -33,8 +33,8 @@ export class GreaterThanEqualToDynamicValidatorComponent implements OnInit {
 			},
 			        };
 		 var user = {
-			voterAge:'', memberAge:'', otherAge:'', 
+			age:'', voterAge:'', memberAge:'', otherAge:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

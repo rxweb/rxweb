@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { PasswordAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/password/add/password-add.component';
 import { PasswordCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/password/complete/password-complete.component';
 import { PasswordDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/password/dynamic/password-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class PasswordComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic password Validation":null,"PasswordConfig":["message","validation"],"Complete password Example":null,"Dynamic password Example":null};
-  tab_1:string = "messageModel";
-   tab_2:string = "validationModel";
+  tab_1:string = "messageComponent";
+   tab_2:string = "validationComponent";
    tab_3:string = "completeExample";
    tab_4:string = "dynamicExample";
    

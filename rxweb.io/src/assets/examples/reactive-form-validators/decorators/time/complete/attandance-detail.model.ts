@@ -6,11 +6,11 @@ export class AttandanceDetail {
 	entryPlace: string;
 
 	//If you want to apply conditional expression of type 'function'
-	@time({conditionalExpression:(x,y) =>{ return  x.entryPlace == "Lunch Room" } }) 
+	@time({conditionalExpression:(x,y) => x.entryPlace == "Lunch Room"  }) 
 	totalIn: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@time({conditionalExpression:x => x.entryPlace == "Lunch Room" }) 
+	@time({conditionalExpression:'x => x.entryPlace == "Lunch Room"' }) 
 	entryTime: string;
 
 	@time({allowSeconds:true }) 

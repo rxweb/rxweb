@@ -6,11 +6,11 @@ export class User {
 	type: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@odd({conditionalExpression:x => x.type == "Odd" }) 
+	@odd({conditionalExpression:'x => x.type == "Odd"' }) 
 	oddNumber: number;
 
 	//If you want to apply conditional expression of type 'function'
-	@odd({conditionalExpression:(x,y) =>{ return  x.type == "Odd" } }) 
+	@odd({conditionalExpression:(x,y) => x.type == "Odd"  }) 
 	number: number;
 
 }

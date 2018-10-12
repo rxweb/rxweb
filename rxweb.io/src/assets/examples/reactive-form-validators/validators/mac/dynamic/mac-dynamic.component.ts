@@ -21,11 +21,11 @@ export class MacDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			macAddress : {
-				mac :  {conditionalExpression:(x,y) =>{ return  x.device == "Laptop" },} 
+				mac :  {conditionalExpression:(x,y) => x.device == "Laptop" ,} 
 			},
 						
 			localMacAddress : {
-				mac :  {conditionalExpression:x => x.device =="Laptop",} 
+				mac :  {conditionalExpression:'x => x.device =="Laptop"',} 
 			},
 						
 			systemMacAddress : {
@@ -33,8 +33,8 @@ export class MacDynamicValidatorComponent implements OnInit {
 			},
 			        };
 		 var macAddressInfo = {
-			macAddress:'', localMacAddress:'', systemMacAddress:'', 
+			device:'', macAddress:'', localMacAddress:'', systemMacAddress:'', 
 		}
-		this.macAddressInfoFormGroup = this.formBuilder.formGroup(macAddressInfo,formBuilderConfiguration);
+		this.macAddressInfoFormGroup = this.formBuilder.group(macAddressInfo,formBuilderConfiguration);
     }
 }

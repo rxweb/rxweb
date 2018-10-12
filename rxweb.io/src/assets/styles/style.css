@@ -2221,7 +2221,7 @@ h1, .h1 {
   border-top: 2px solid #333333;
   */ 
    background-color: #ffffff;
- padding:27px 0px 0px 22px;
+ padding:10px 0px 0px 22px;
   border-bottom: 1px solid #eaeaea;
   
 } 
@@ -5481,6 +5481,9 @@ input.ng-invalid{
 .ml-15{
     margin-left:15px;
 }
+.ml-20{
+    margin-left:20px;
+}
 #searchContent::-webkit-scrollbar
 {
 	width: 0px;
@@ -5493,4 +5496,20 @@ input.ng-invalid{
 .slimscroll-wrapper
 {
     height: 910px!important;
+}
+.fa-angle-down {
+    float: right;
+}
+.validator-type{
+    float: right;
+    border-radius: 4px;
+    padding: 4px 16px;
+    display: inline;
+    font-size: 14px;
+    color: #fff;
+    margin-right: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: #4caf50;
+    
 }

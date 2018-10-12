@@ -16,8 +16,8 @@ export class UrlMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										maintenanceWebSiteUrl:['',RxwebValidators.url({message:'Is not the correct url pattern.' })], 
+        this.userFormGroup = this.formBuilder.group({
+										maintenanceWebSiteUrl:['', RxwebValidators.url({message:'Is not the correct url pattern.' })], 
 								});
     }
 }

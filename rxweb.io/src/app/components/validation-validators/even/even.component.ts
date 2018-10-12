@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { EvenAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/even/add/even-add.component';
 import { EvenCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/even/complete/even-complete.component';
 import { EvenDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/even/dynamic/even-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class EvenComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic Even Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete even Example":null,"Dynamic even Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
    tab_3:string = "completeexample";
    tab_4:string = "dynamicexample";
    

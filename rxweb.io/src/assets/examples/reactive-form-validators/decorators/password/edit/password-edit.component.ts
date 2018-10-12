@@ -20,7 +20,7 @@ export class PasswordEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/password/edit/login-info-data.json').subscribe(loginInfo => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/password/edit/login-info-data.json').subscribe(loginInfo => {
             this.loginInfoFormGroup = this.formBuilder.formGroup<LoginInfo>(LoginInfo,loginInfo);
         })
     }

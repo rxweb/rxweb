@@ -16,9 +16,10 @@ export class CreditCardMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																otherVisaCard:['',RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:x => x.cardType == "visa"  ,message:'Invalid Visa Credit Card Number.' })], 
-													visaCard:['',RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:(x,y) =>{ return  x.cardType == "visa" }  ,message:'Invalid Visa Credit Card Number.' })], 
+        this.userFormGroup = this.formBuilder.group({
+										cardType:['',], 
+													otherVisaCard:['', RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:'x => x.cardType == "visa"'  ,message:'Invalid Visa Credit Card Number.' })], 
+													visaCard:['', RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:(x,y) => x.cardType == "visa"   ,message:'Invalid Visa Credit Card Number.' })], 
 								});
     }
 }

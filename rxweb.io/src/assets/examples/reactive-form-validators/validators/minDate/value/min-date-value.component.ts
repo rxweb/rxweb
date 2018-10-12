@@ -16,8 +16,8 @@ export class MinDateValueValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										registrationDate:['',RxwebValidators.minDate({value:new Date(2018,7,30)  ,message:'{{0}} exceeds the Minimum Date Limit' })], 
+        this.userFormGroup = this.formBuilder.group({
+										registrationDate:['', RxwebValidators.minDate({value:new Date(2018,7,30)  ,message:'{{0}} exceeds the Minimum Date Limit' })], 
 								});
     }
 }

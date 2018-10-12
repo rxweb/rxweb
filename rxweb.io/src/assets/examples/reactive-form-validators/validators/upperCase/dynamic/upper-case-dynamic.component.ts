@@ -25,11 +25,11 @@ export class UpperCaseDynamicValidatorComponent implements OnInit {
 			},
 						
 			stateName : {
-				upperCase :  {conditionalExpression:(x,y) =>{ return  x.countryName == "INDIA" },} 
+				upperCase :  {conditionalExpression:(x,y) => x.countryName == "INDIA" ,} 
 			},
 						
 			cityName : {
-				upperCase :  {conditionalExpression:x => x.countryName == "INDIA",} 
+				upperCase :  {conditionalExpression:'x => x.countryName == "INDIA"',} 
 			},
 						
 			colonyName : {
@@ -39,6 +39,6 @@ export class UpperCaseDynamicValidatorComponent implements OnInit {
 		 var location = {
 			countryName:'', stateName:'', cityName:'', colonyName:'', 
 		}
-		this.locationFormGroup = this.formBuilder.formGroup(location,formBuilderConfiguration);
+		this.locationFormGroup = this.formBuilder.group(location,formBuilderConfiguration);
     }
 }

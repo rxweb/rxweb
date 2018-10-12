@@ -16,8 +16,8 @@ export class OddMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										multiplesOfOddNumber:['',RxwebValidators.odd({message:'{{0}} is not an odd number' })], 
+        this.userFormGroup = this.formBuilder.group({
+										multiplesOfOddNumber:['', RxwebValidators.odd({message:'{{0}} is not an odd number' })], 
 								});
     }
 }

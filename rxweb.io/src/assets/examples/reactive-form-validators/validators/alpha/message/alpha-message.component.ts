@@ -16,8 +16,8 @@ export class AlphaMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.addressInfoFormGroup = this.formBuilder.formGroup({
-										stateCode:['',RxwebValidators.alpha({message:'You can enter only alphabets.' })], 
+        this.addressInfoFormGroup = this.formBuilder.group({
+										stateCode:['', RxwebValidators.alpha({message:'You can enter only alphabets.' })], 
 								});
     }
 }

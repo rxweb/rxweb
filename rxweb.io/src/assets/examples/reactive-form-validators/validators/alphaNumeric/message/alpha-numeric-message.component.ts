@@ -16,8 +16,8 @@ export class AlphaNumericMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.locationFormGroup = this.formBuilder.formGroup({
-										postalAddress:['',RxwebValidators.alphaNumeric({allowWhiteSpace:true  ,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.' })], 
+        this.locationFormGroup = this.formBuilder.group({
+										postalAddress:['', RxwebValidators.alphaNumeric({allowWhiteSpace:true  ,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.' })], 
 								});
     }
 }

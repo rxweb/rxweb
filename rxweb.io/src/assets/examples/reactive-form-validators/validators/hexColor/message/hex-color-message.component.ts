@@ -16,8 +16,8 @@ export class HexColorMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.hexcolorInfoFormGroup = this.formBuilder.formGroup({
-										bodyHexcolorCode:['',RxwebValidators.hexColor({message:'Please enter the right format of hexcode for body like "#AFAFAF"' })], 
+        this.hexcolorInfoFormGroup = this.formBuilder.group({
+										bodyHexcolorCode:['', RxwebValidators.hexColor({message:'Please enter the right format of hexcode for body like "#AFAFAF"' })], 
 								});
     }
 }

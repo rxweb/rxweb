@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { RequiredAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/required/add/required-add.component';
 import { RequiredCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/required/complete/required-complete.component';
 import { RequiredDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/required/dynamic/required-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class RequiredComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic Required Validation":null,"RequiredConfig":["conditionalExpression","message"],"Complete required Example":null,"Dynamic required Example":null};
-  tab_1:string = "conditionalExpressionModel";
-   tab_2:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
    tab_3:string = "completeExample";
    tab_4:string = "dynamicExample";
    

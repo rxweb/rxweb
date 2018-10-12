@@ -16,8 +16,8 @@ export class LeapYearAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										birthYear:['',RxwebValidators.leapYear()], 
+        this.userFormGroup = this.formBuilder.group({
+										birthYear:['', RxwebValidators.leapYear()], 
 								});
     }
 }

@@ -25,11 +25,11 @@ export class DigitDynamicValidatorComponent implements OnInit {
 			},
 						
 			phoneNumber : {
-				digit :  {conditionalExpression:(x,y) =>{ return  x.age >= 25 },} 
+				digit :  {conditionalExpression:(x,y) => x.age >= 25 ,} 
 			},
 						
 			faxNumber : {
-				digit :  {conditionalExpression:x => x.age ==25,} 
+				digit :  {conditionalExpression:'x => x.age ==25',} 
 			},
 						
 			mobileNumber : {
@@ -39,6 +39,6 @@ export class DigitDynamicValidatorComponent implements OnInit {
 		 var user = {
 			age:'', phoneNumber:'', faxNumber:'', mobileNumber:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

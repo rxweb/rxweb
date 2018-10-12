@@ -25,11 +25,11 @@ export class RangeDynamicValidatorComponent implements OnInit {
 			},
 						
 			projectDuration : {
-				range :  {minimumNumber:6,maximumNumber:8,conditionalExpression:(x,y) =>{ return  x.age >= 25 },} 
+				range :  {minimumNumber:6,maximumNumber:8,conditionalExpression:(x,y) => x.age >= 25 ,} 
 			},
 						
 			experience : {
-				range :  {minimumNumber:2,maximumNumber:20,conditionalExpression:x => x.age >=25,} 
+				range :  {minimumNumber:2,maximumNumber:20,conditionalExpression:'x => x.age >=25',} 
 			},
 						
 			salary : {
@@ -39,6 +39,6 @@ export class RangeDynamicValidatorComponent implements OnInit {
 		 var employeeInfo = {
 			age:'', projectDuration:'', experience:'', salary:'', 
 		}
-		this.employeeInfoFormGroup = this.formBuilder.formGroup(employeeInfo,formBuilderConfiguration);
+		this.employeeInfoFormGroup = this.formBuilder.group(employeeInfo,formBuilderConfiguration);
     }
 }

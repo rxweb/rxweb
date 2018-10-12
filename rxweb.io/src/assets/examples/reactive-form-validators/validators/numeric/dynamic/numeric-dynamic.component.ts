@@ -22,11 +22,11 @@ export class NumericDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			integerNumber : {
-				numeric :  {acceptValue:NumericValueType.PositiveNumber,allowDecimal:false,conditionalExpression:(x,y) =>{ return  x.dataType == "Number" },} 
+				numeric :  {acceptValue:NumericValueType.PositiveNumber,allowDecimal:false,conditionalExpression:(x,y) => x.dataType == "Number" ,} 
 			},
 						
 			realNumber : {
-				numeric :  {acceptValue:NumericValueType.Both,allowDecimal:false,conditionalExpression:x => x.dataType == "Number",} 
+				numeric :  {acceptValue:NumericValueType.Both,allowDecimal:false,conditionalExpression:'x => x.dataType == "Number"',} 
 			},
 						
 			negativeNumber : {
@@ -34,8 +34,8 @@ export class NumericDynamicValidatorComponent implements OnInit {
 			},
 			        };
 		 var userInfo = {
-			integerNumber:'', realNumber:'', negativeNumber:'', 
+			dataType:'', integerNumber:'', realNumber:'', negativeNumber:'', 
 		}
-		this.userInfoFormGroup = this.formBuilder.formGroup(userInfo,formBuilderConfiguration);
+		this.userInfoFormGroup = this.formBuilder.group(userInfo,formBuilderConfiguration);
     }
 }

@@ -16,11 +16,11 @@ export class HexColorCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.hexcolorInfoFormGroup = this.formBuilder.formGroup({
-										color:['',RxwebValidators.hexColor()], 
-													footerHexCode:['',RxwebValidators.hexColor({conditionalExpression:(x,y) =>{ return  x.color == "#AFAFAF"} })], 
-													headerHexcolorCode:['',RxwebValidators.hexColor({conditionalExpression:x => x.color == "#AFAFAF" })], 
-													bodyHexcolorCode:['',RxwebValidators.hexColor({message:'Please enter the right format of hexcode for body like "#AFAFAF"' })], 
+        this.hexcolorInfoFormGroup = this.formBuilder.group({
+										color:['', RxwebValidators.hexColor()], 
+													footerHexCode:['', RxwebValidators.hexColor({conditionalExpression:(x,y) =>x.color == "#AFAFAF" })], 
+													headerHexcolorCode:['', RxwebValidators.hexColor({conditionalExpression:'x => x.color == "#AFAFAF"' })], 
+													bodyHexcolorCode:['', RxwebValidators.hexColor({message:'Please enter the right format of hexcode for body like "#AFAFAF"' })], 
 								});
     }
 }

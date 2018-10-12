@@ -16,11 +16,11 @@ export class LowerCaseCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										username:['',RxwebValidators.lowerCase()], 
-													firstName:['',RxwebValidators.lowerCase({conditionalExpression:(x, y) => { return x.username == "jonathan.feldman" } })], 
-													middleName:['',RxwebValidators.lowerCase({conditionalExpression:x => x.username == "jonathan.feldman" })], 
-													lastName:['',RxwebValidators.lowerCase({message:'You can enter only lowerCase letters.' })], 
+        this.userFormGroup = this.formBuilder.group({
+										username:['', RxwebValidators.lowerCase()], 
+													firstName:['', RxwebValidators.lowerCase({conditionalExpression:(x, y) =>  x.username == "jonathan.feldman"  })], 
+													middleName:['', RxwebValidators.lowerCase({conditionalExpression:'x => x.username == "jonathan.feldman"' })], 
+													lastName:['', RxwebValidators.lowerCase({message:'You can enter only lowerCase letters.' })], 
 								});
     }
 }

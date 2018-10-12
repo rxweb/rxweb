@@ -14,15 +14,19 @@ import { NgSlimScrollModule, SLIMSCROLL_DEFAULTS } from 'ngx-slimscroll';
 import { FooterComponent } from "src/app/components/shared/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FilterPipe } from "src/app/pipes/filter.pipe";
+import { ImportModulesComponent } from "src/app/components/import-modules/import.modules.component";
+import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { ConfigureGlobalValidationMessagesComponent } from "src/app/components/configure-global-validation-messages/configure-global-validation-messages.component";
+import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe
+    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe,ImportModulesComponent,ConfigureGlobalValidationMessagesComponent
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,
     HighlightModule.forRoot({ theme: 'default' }), ClipboardModule ,
     NgSlimScrollModule,
     

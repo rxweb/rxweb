@@ -16,8 +16,8 @@ export class AlphaNumericAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.locationFormGroup = this.formBuilder.formGroup({
-										areaName:['',RxwebValidators.alphaNumeric()], 
+        this.locationFormGroup = this.formBuilder.group({
+										areaName:['', RxwebValidators.alphaNumeric()], 
 								});
     }
 }

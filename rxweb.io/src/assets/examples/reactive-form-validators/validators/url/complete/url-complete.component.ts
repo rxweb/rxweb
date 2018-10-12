@@ -16,11 +16,11 @@ export class UrlCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										adminWebsiteUrl:['',RxwebValidators.url()], 
-													qaWebsiteUrl:['',RxwebValidators.url({conditionalExpression:(x,y) =>{ return  x.adminWebsiteUrl == "https://google.co.in" } })], 
-													customerWebsiteUrl:['',RxwebValidators.url({conditionalExpression:x => x.adminWebsiteUrl == "https://google.co.in"  })], 
-													maintenanceWebSiteUrl:['',RxwebValidators.url({message:'Is not the correct url pattern.' })], 
+        this.userFormGroup = this.formBuilder.group({
+										adminWebsiteUrl:['', RxwebValidators.url()], 
+													qaWebsiteUrl:['', RxwebValidators.url({conditionalExpression:(x,y) => x.adminWebsiteUrl == "https://google.co.in"  })], 
+													customerWebsiteUrl:['', RxwebValidators.url({conditionalExpression:'x => x.adminWebsiteUrl == "https://google.co.in"'  })], 
+													maintenanceWebSiteUrl:['', RxwebValidators.url({message:'Is not the correct url pattern.' })], 
 								});
     }
 }

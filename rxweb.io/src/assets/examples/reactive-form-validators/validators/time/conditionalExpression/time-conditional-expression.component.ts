@@ -16,9 +16,10 @@ export class TimeConditionalExpressionValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.attandanceDetailFormGroup = this.formBuilder.formGroup({
-																entryTime:['',RxwebValidators.time({conditionalExpression:x => x.entryPlace == "Lunch Room" })], 
-													totalIn:['',RxwebValidators.time({conditionalExpression:(x,y) =>{ return  x.entryPlace == "Lunch Room" } })], 
+        this.attandanceDetailFormGroup = this.formBuilder.group({
+										entryPlace:['',], 
+													entryTime:['', RxwebValidators.time({conditionalExpression:'x => x.entryPlace == "Lunch Room"' })], 
+													totalIn:['', RxwebValidators.time({conditionalExpression:(x,y) => x.entryPlace == "Lunch Room"  })], 
 								});
     }
 }

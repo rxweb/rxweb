@@ -17,8 +17,8 @@ export class NumericMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userInfoFormGroup = this.formBuilder.formGroup({
-										negativeNumber:['',RxwebValidators.numeric({acceptValue:NumericValueType.NegativeNumber  ,allowDecimal:true  ,message:'{{0}} is not a negative number' })], 
+        this.userInfoFormGroup = this.formBuilder.group({
+										negativeNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.NegativeNumber  ,allowDecimal:true  ,message:'{{0}} is not a negative number' })], 
 								});
     }
 }

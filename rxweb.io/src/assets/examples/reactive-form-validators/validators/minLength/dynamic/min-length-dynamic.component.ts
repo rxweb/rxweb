@@ -29,16 +29,16 @@ export class MinLengthDynamicValidatorComponent implements OnInit {
 			},
 						
 			countryCode : {
-				minLength :  {value:3,conditionalExpression:(x,y)=>{ return x.countryName == "India"},} 
+				minLength :  {value:3,conditionalExpression:(x,y)=> x.countryName == "India",} 
 			},
 						
 			stateCode : {
-				minLength :  {value:3,conditionalExpression:x => x.countryName == "India",} 
+				minLength :  {value:3,conditionalExpression:'x => x.countryName == "India"',} 
 			},
 			        };
 		 var contact = {
-			mobileNo:'', landLineNo:'', countryCode:'', stateCode:'', 
+			countryName:'', mobileNo:'', landLineNo:'', countryCode:'', stateCode:'', 
 		}
-		this.contactFormGroup = this.formBuilder.formGroup(contact,formBuilderConfiguration);
+		this.contactFormGroup = this.formBuilder.group(contact,formBuilderConfiguration);
     }
 }

@@ -20,7 +20,7 @@ export class DifferentEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/different/edit/account-info-data.json').subscribe(accountInfo => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/different/edit/account-info-data.json').subscribe(accountInfo => {
             this.accountInfoFormGroup = this.formBuilder.formGroup<AccountInfo>(AccountInfo,accountInfo);
         })
     }

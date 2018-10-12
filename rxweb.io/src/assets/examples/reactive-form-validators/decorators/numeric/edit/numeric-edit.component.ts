@@ -20,7 +20,7 @@ export class NumericEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/numeric/edit/user-info-data.json').subscribe(userInfo => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/numeric/edit/user-info-data.json').subscribe(userInfo => {
             this.userInfoFormGroup = this.formBuilder.formGroup<UserInfo>(UserInfo,userInfo);
         })
     }

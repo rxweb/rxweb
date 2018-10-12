@@ -43,6 +43,6 @@ export class AlphaDynamicValidatorComponent implements OnInit {
 		 var addressInfo = {
 			countryName:'', countryCode:'', cityName:'', stateName:'', stateCode:'', 
 		}
-		this.addressInfoFormGroup = this.formBuilder.formGroup(addressInfo,formBuilderConfiguration);
+		this.addressInfoFormGroup = this.formBuilder.group(addressInfo,formBuilderConfiguration);
     }
 }

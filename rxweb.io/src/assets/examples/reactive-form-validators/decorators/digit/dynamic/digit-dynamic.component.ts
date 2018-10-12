@@ -29,11 +29,11 @@ export class DigitDynamicComponent implements OnInit {
 			},
 						
 			phoneNumber : {
-				digit :  {conditionalExpression:(x,y) =>{ return  x.age >= 25 },} 
+				digit :  {conditionalExpression:(x,y) => x.age >= 25 ,} 
 			},
 						
 			faxNumber : {
-				digit :  {conditionalExpression:x => x.age ==25,} 
+				digit :  {conditionalExpression:'x => x.age ==25',} 
 			},
 						
 			mobileNumber : {

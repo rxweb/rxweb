@@ -16,10 +16,10 @@ export class LowerCaseConditionalExpressionValidatorComponent implements OnInit 
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										username:['',RxwebValidators.lowerCase()], 
-													middleName:['',RxwebValidators.lowerCase({conditionalExpression:x => x.username == "jonathan.feldman" })], 
-													firstName:['',RxwebValidators.lowerCase({conditionalExpression:(x, y) => { return x.username == "jonathan.feldman" } })], 
+        this.userFormGroup = this.formBuilder.group({
+										username:['', RxwebValidators.lowerCase()], 
+													middleName:['', RxwebValidators.lowerCase({conditionalExpression:'x => x.username == "jonathan.feldman"' })], 
+													firstName:['', RxwebValidators.lowerCase({conditionalExpression:(x, y) =>  x.username == "jonathan.feldman"  })], 
 								});
     }
 }

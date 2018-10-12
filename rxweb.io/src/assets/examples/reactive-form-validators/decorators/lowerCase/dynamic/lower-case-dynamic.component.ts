@@ -29,11 +29,11 @@ export class LowerCaseDynamicComponent implements OnInit {
 			},
 						
 			firstName : {
-				lowerCase :  {conditionalExpression:(x, y) => { return x.username == "jonathan.feldman" },} 
+				lowerCase :  {conditionalExpression:(x, y) =>  x.username == "jonathan.feldman" ,} 
 			},
 						
 			middleName : {
-				lowerCase :  {conditionalExpression:x => x.username == "jonathan.feldman",} 
+				lowerCase :  {conditionalExpression:'x => x.username == "jonathan.feldman"',} 
 			},
 						
 			lastName : {

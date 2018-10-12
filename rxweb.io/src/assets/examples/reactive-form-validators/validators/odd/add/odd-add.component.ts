@@ -16,8 +16,8 @@ export class OddAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										oddNumber:['',RxwebValidators.odd()], 
+        this.userFormGroup = this.formBuilder.group({
+										oddNumber:['', RxwebValidators.odd()], 
 								});
     }
 }

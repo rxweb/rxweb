@@ -21,11 +21,11 @@ export class LeapYearDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			birthYear : {
-				leapYear :  {conditionalExpression:(x,y) =>{ return  x.name == "John" },} 
+				leapYear :  {conditionalExpression:(x,y) => x.name == "John" ,} 
 			},
 						
 			admissionYear : {
-				leapYear :  {conditionalExpression:x => x.name == "John",} 
+				leapYear :  {conditionalExpression:'x => x.name == "John"',} 
 			},
 						
 			joiningYear : {
@@ -33,8 +33,8 @@ export class LeapYearDynamicValidatorComponent implements OnInit {
 			},
 			        };
 		 var user = {
-			birthYear:'', admissionYear:'', joiningYear:'', 
+			name:'', birthYear:'', admissionYear:'', joiningYear:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

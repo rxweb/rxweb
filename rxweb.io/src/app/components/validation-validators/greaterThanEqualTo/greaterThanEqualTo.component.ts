@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { GreaterThanEqualToAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/greaterThanEqualTo/add/greater-than-equal-to-add.component';
 import { GreaterThanEqualToCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/greaterThanEqualTo/complete/greater-than-equal-to-complete.component';
 import { GreaterThanEqualToDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/greaterThanEqualTo/dynamic/greater-than-equal-to-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class GreaterThanEqualToComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic GreaterThanEqualTo Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpression","message"],"Complete greaterThanEqualTo Example":null,"Dynamic greaterThanEqualTo Example":null};
-  tab_1:string = "fieldNamemodel";
-   tab_2:string = "conditionalExpressionmodel";
-   tab_3:string = "messageModel";
+  tab_1:string = "fieldNameComponent";
+   tab_2:string = "conditionalExpressionComponent";
+   tab_3:string = "messageComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

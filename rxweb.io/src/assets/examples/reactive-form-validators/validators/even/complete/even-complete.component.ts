@@ -16,10 +16,11 @@ export class EvenCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																number:['',RxwebValidators.even({conditionalExpression:(x,y) =>{ return  x.type == "Even" } })], 
-													evenNumber:['',RxwebValidators.even({conditionalExpression:x => x.type == "Even" })], 
-													multiplesOfEvenNumber:['',RxwebValidators.even({message:'{{0}} is not an even number' })], 
+        this.userFormGroup = this.formBuilder.group({
+										type:['',], 
+													number:['', RxwebValidators.even({conditionalExpression:(x,y) => x.type == "Even"  })], 
+													evenNumber:['', RxwebValidators.even({conditionalExpression:'x => x.type == "Even"' })], 
+													multiplesOfEvenNumber:['', RxwebValidators.even({message:'{{0}} is not an even number' })], 
 								});
     }
 }

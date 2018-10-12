@@ -25,11 +25,11 @@ export class EvenDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			number : {
-				even :  {conditionalExpression:(x,y) =>{ return  x.type == "Even" },} 
+				even :  {conditionalExpression:(x,y) => x.type == "Even" ,} 
 			},
 						
 			evenNumber : {
-				even :  {conditionalExpression:x => x.type == "Even",} 
+				even :  {conditionalExpression:'x => x.type == "Even"',} 
 			},
 						
 			multiplesOfEvenNumber : {

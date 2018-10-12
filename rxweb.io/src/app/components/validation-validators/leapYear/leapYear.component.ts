@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { LeapYearAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/leapYear/add/leap-year-add.component';
 import { LeapYearCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/leapYear/complete/leap-year-complete.component';
 import { LeapYearDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/leapYear/dynamic/leap-year-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class LeapYearComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic LeapYear Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete LeapYear Example":null,"Dynamic LeapYear Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
    tab_3:string = "completeexample";
    tab_4:string = "dynamicexample";
    

@@ -16,8 +16,8 @@ export class TimeMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.attandanceDetailFormGroup = this.formBuilder.formGroup({
-										exitTime:['',RxwebValidators.time({message:'You can enter only time format data' })], 
+        this.attandanceDetailFormGroup = this.formBuilder.group({
+										exitTime:['', RxwebValidators.time({message:'You can enter only time format data' })], 
 								});
     }
 }

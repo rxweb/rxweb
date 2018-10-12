@@ -26,11 +26,11 @@ export class NumericDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			integerNumber : {
-				numeric :  {acceptValue:NumericValueType.PositiveNumber,allowDecimal:false,conditionalExpression:(x,y) =>{ return  x.dataType == "Number" },} 
+				numeric :  {acceptValue:NumericValueType.PositiveNumber,allowDecimal:false,conditionalExpression:(x,y) => x.dataType == "Number" ,} 
 			},
 						
 			realNumber : {
-				numeric :  {acceptValue:NumericValueType.Both,allowDecimal:false,conditionalExpression:x => x.dataType == "Number",} 
+				numeric :  {acceptValue:NumericValueType.Both,allowDecimal:false,conditionalExpression:'x => x.dataType == "Number"',} 
 			},
 						
 			negativeNumber : {

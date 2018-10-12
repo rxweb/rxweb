@@ -29,16 +29,16 @@ export class MinNumberDynamicValidatorComponent implements OnInit {
 			},
 						
 			english : {
-				minNumber :  {value:35,conditionalExpression:(x,y) =>{ return  x.maths == 50 },} 
+				minNumber :  {value:35,conditionalExpression:(x,y) => x.maths == 50 ,} 
 			},
 						
 			statstics : {
-				minNumber :  {value:35,conditionalExpression:x => x.maths == 50,} 
+				minNumber :  {value:35,conditionalExpression:'x => x.maths == 50',} 
 			},
 			        };
 		 var resultInfo = {
 			maths:'', science:'', english:'', statstics:'', 
 		}
-		this.resultInfoFormGroup = this.formBuilder.formGroup(resultInfo,formBuilderConfiguration);
+		this.resultInfoFormGroup = this.formBuilder.group(resultInfo,formBuilderConfiguration);
     }
 }

@@ -25,11 +25,11 @@ export class LowerCaseDynamicValidatorComponent implements OnInit {
 			},
 						
 			firstName : {
-				lowerCase :  {conditionalExpression:(x, y) => { return x.username == "jonathan.feldman" },} 
+				lowerCase :  {conditionalExpression:(x, y) =>  x.username == "jonathan.feldman" ,} 
 			},
 						
 			middleName : {
-				lowerCase :  {conditionalExpression:x => x.username == "jonathan.feldman",} 
+				lowerCase :  {conditionalExpression:'x => x.username == "jonathan.feldman"',} 
 			},
 						
 			lastName : {
@@ -39,6 +39,6 @@ export class LowerCaseDynamicValidatorComponent implements OnInit {
 		 var user = {
 			username:'', firstName:'', middleName:'', lastName:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

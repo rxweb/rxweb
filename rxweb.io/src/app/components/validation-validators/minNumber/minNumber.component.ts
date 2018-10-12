@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MinNumberAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/minNumber/add/min-number-add.component';
 import { MinNumberCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/minNumber/complete/min-number-complete.component';
 import { MinNumberDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/minNumber/dynamic/min-number-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class MinNumberComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic MinNumber Validation":null,"NumberConfig":["conditionalExpression","message","value"],"Complete minNumber Example":null,"Dynamic minNumber Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
-   tab_3:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
+   tab_3:string = "messageComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

@@ -20,7 +20,7 @@ export class GreaterThanEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/greaterThan/edit/user-data.json').subscribe(user => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/greaterThan/edit/user-data.json').subscribe(user => {
             this.userFormGroup = this.formBuilder.formGroup<User>(User,user);
         })
     }

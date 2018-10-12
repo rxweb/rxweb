@@ -6,11 +6,11 @@ export class HexcolorInfo {
 	color: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@hexColor({conditionalExpression:x => x.color == "#AFAFAF" }) 
+	@hexColor({conditionalExpression:'x => x.color == "#AFAFAF"' }) 
 	headerHexcolorCode: string;
 
 	//If you want to apply conditional expression of type 'function'
-	@hexColor({conditionalExpression:(x,y) =>{ return  x.color == "#AFAFAF"} }) 
+	@hexColor({conditionalExpression:(x,y) =>x.color == "#AFAFAF" }) 
 	footerHexCode: string;
 
 }

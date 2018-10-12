@@ -16,9 +16,10 @@ export class CreditCardCreditCardTypesValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																otherVisaCard:['',RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:x => x.cardType == "visa"  ,message:'Invalid Visa Credit Card Number.' })], 
-													dinersClubCard:['',RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.DinersClub ]  ,conditionalExpression:x => x.cardType == "dinersClubCard" })], 
+        this.userFormGroup = this.formBuilder.group({
+										cardType:['',], 
+													otherVisaCard:['', RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:'x => x.cardType == "visa"'  ,message:'Invalid Visa Credit Card Number.' })], 
+													dinersClubCard:['', RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.DinersClub ]  ,conditionalExpression:'x => x.cardType == "dinersClubCard"' })], 
 								});
     }
 }

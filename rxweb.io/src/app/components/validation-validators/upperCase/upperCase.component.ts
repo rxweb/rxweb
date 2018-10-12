@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { UpperCaseAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/upperCase/add/upper-case-add.component';
 import { UpperCaseCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/upperCase/complete/upper-case-complete.component';
 import { UpperCaseDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/upperCase/dynamic/upper-case-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class UpperCaseComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic UpperCase Validation":null,"MessageConfig":["conditionalExpression","message"],"Complete upperCase Example":null,"Dynamic upperCase Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
    tab_3:string = "completeexample";
    tab_4:string = "dynamicexample";
    

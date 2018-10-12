@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { CreditCardAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/creditCard/add/credit-card-add.component';
 import { CreditCardCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/creditCard/complete/credit-card-complete.component';
 import { CreditCardDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/creditCard/dynamic/credit-card-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class CreditCardComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic CreditCard Validation":null,"CreditCardConfig":["creditCardTypes","conditionalExpression","message"],"Complete CreditCard Example":null,"Dynamic CreditCard Example":null};
-  tab_1:string = "creditCardTypesmodel";
-   tab_2:string = "conditionalExpressionmodel";
-   tab_3:string = "messageModel";
+  tab_1:string = "creditCardTypesComponent";
+   tab_2:string = "conditionalExpressionComponent";
+   tab_3:string = "messageComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

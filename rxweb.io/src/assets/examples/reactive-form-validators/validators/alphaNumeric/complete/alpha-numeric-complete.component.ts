@@ -16,12 +16,12 @@ export class AlphaNumericCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.locationFormGroup = this.formBuilder.formGroup({
-										areaName:['',RxwebValidators.alphaNumeric()], 
-													flatAddress:['',RxwebValidators.alphaNumeric({allowWhiteSpace:true })], 
-													postalAddress:['',RxwebValidators.alphaNumeric({allowWhiteSpace:true  ,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.' })], 
-													countryCode:['',RxwebValidators.alphaNumeric({conditionalExpression:(x,y) =>{ return  x.areaName == "Boston" } })], 
-													cityCode:['',RxwebValidators.alphaNumeric({conditionalExpression:x => x.areaName =="Boston" })], 
+        this.locationFormGroup = this.formBuilder.group({
+										areaName:['', RxwebValidators.alphaNumeric()], 
+													flatAddress:['', RxwebValidators.alphaNumeric({allowWhiteSpace:true })], 
+													postalAddress:['', RxwebValidators.alphaNumeric({allowWhiteSpace:true  ,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.' })], 
+													countryCode:['', RxwebValidators.alphaNumeric({conditionalExpression:(x,y) => x.areaName == "Boston"  })], 
+													cityCode:['', RxwebValidators.alphaNumeric({conditionalExpression:'x => x.areaName =="Boston"' })], 
 								});
     }
 }

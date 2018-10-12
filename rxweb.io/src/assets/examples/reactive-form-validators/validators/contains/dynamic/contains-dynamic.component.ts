@@ -25,11 +25,11 @@ export class ContainsDynamicValidatorComponent implements OnInit {
 			},
 						
 			businessEmailAddress : {
-				contains :  {value:'@gmail.com',conditionalExpression:(x,y) =>{ return  x.emailAddress == "abc@gmail.com" },} 
+				contains :  {value:'@gmail.com',conditionalExpression:(x,y) => x.emailAddress == "abc@gmail.com",} 
 			},
 						
 			recoveryEmailAddress : {
-				contains :  {value:'@gmail.com',conditionalExpression:x => x.emailAddress == "abc@gmail.com",} 
+				contains :  {value:'@gmail.com',conditionalExpression:'x => x.emailAddress == "abc@gmail.com"',} 
 			},
 						
 			otherEmailAddress : {
@@ -39,6 +39,6 @@ export class ContainsDynamicValidatorComponent implements OnInit {
 		 var user = {
 			emailAddress:'', businessEmailAddress:'', recoveryEmailAddress:'', otherEmailAddress:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

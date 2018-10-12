@@ -25,11 +25,11 @@ export class GreaterThanDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			memberAge : {
-				greaterThan :  {fieldName:'age',conditionalExpression:(x,y) =>{ return  x.age > 17 },} 
+				greaterThan :  {fieldName:'age',conditionalExpression:(x,y) => x.age > 17 ,} 
 			},
 						
 			voterAge : {
-				greaterThan :  {fieldName:'age',conditionalExpression:x => x.age > 17,} 
+				greaterThan :  {fieldName:'age',conditionalExpression:'x => x.age > 17',} 
 			},
 						
 			otherAge : {

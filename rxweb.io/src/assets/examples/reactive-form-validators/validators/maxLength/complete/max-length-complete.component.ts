@@ -16,11 +16,11 @@ export class MaxLengthCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										firstName:['',RxwebValidators.maxLength({value:16 })], 
-													middleName:['',RxwebValidators.maxLength({value:16  ,conditionalExpression:(x,y)=>{ return x.firstName == "John"} })], 
-													lastName:['',RxwebValidators.maxLength({value:16  ,conditionalExpression:x=> x.firstName == "John" })], 
-													userName:['',RxwebValidators.maxLength({value:10  ,message:'Maximum 10 characters are allowed' })], 
+        this.userFormGroup = this.formBuilder.group({
+										firstName:['', RxwebValidators.maxLength({value:16 })], 
+													middleName:['', RxwebValidators.maxLength({value:16  ,conditionalExpression:(x,y)=> x.firstName == "John" })], 
+													lastName:['', RxwebValidators.maxLength({value:16  ,conditionalExpression:'x=> x.firstName == "John"' })], 
+													userName:['', RxwebValidators.maxLength({value:10  ,message:'Maximum 10 characters are allowed' })], 
 								});
     }
 }

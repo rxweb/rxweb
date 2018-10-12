@@ -16,9 +16,10 @@ export class GreaterThanFieldNameValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																voterAge:['',RxwebValidators.greaterThan({fieldName:'age'  ,conditionalExpression:x => x.age > 17 })], 
-													otherAge:['',RxwebValidators.greaterThan({fieldName:'age'  ,message:'Please enter number greater than 0.' })], 
+        this.userFormGroup = this.formBuilder.group({
+										age:['',], 
+													voterAge:['', RxwebValidators.greaterThan({fieldName:'age'  ,conditionalExpression:'x => x.age > 17' })], 
+													otherAge:['', RxwebValidators.greaterThan({fieldName:'age'  ,message:'Please enter number greater than 0.' })], 
 								});
     }
 }

@@ -37,11 +37,11 @@ export class AlphaNumericDynamicComponent implements OnInit {
 			},
 						
 			countryCode : {
-				alphaNumeric :  {conditionalExpression:(x,y) =>{ return  x.areaName == "Boston" },} 
+				alphaNumeric :  {conditionalExpression:(x,y) => x.areaName == "Boston" ,} 
 			},
 						
 			cityCode : {
-				alphaNumeric :  {conditionalExpression:x => x.areaName =="Boston",} 
+				alphaNumeric :  {conditionalExpression:'x => x.areaName =="Boston"',} 
 			},
 			        };
 		this.locationFormGroup = this.formBuilder.formGroup(location,formBuilderConfiguration);

@@ -33,16 +33,16 @@ export class AlphaNumericDynamicValidatorComponent implements OnInit {
 			},
 						
 			countryCode : {
-				alphaNumeric :  {conditionalExpression:(x,y) =>{ return  x.areaName == "Boston" },} 
+				alphaNumeric :  {conditionalExpression:(x,y) => x.areaName == "Boston" ,} 
 			},
 						
 			cityCode : {
-				alphaNumeric :  {conditionalExpression:x => x.areaName =="Boston",} 
+				alphaNumeric :  {conditionalExpression:'x => x.areaName =="Boston"',} 
 			},
 			        };
 		 var location = {
 			areaName:'', flatAddress:'', postalAddress:'', countryCode:'', cityCode:'', 
 		}
-		this.locationFormGroup = this.formBuilder.formGroup(location,formBuilderConfiguration);
+		this.locationFormGroup = this.formBuilder.group(location,formBuilderConfiguration);
     }
 }

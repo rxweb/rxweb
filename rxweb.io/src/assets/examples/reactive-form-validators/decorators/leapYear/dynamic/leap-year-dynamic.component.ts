@@ -25,11 +25,11 @@ export class LeapYearDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			birthYear : {
-				leapYear :  {conditionalExpression:(x,y) =>{ return  x.name == "John" },} 
+				leapYear :  {conditionalExpression:(x,y) => x.name == "John" ,} 
 			},
 						
 			admissionYear : {
-				leapYear :  {conditionalExpression:x => x.name == "John",} 
+				leapYear :  {conditionalExpression:'x => x.name == "John"',} 
 			},
 						
 			joiningYear : {

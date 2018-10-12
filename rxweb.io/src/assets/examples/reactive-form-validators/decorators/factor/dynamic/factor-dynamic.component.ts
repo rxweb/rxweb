@@ -25,11 +25,11 @@ export class FactorDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			secondNumber : {
-				factor :  {fieldName:"firstNumber",conditionalExpression:(x,y) =>{ return  x.firstNumber == 25 },} 
+				factor :  {fieldName:"firstNumber",conditionalExpression:(x,y) =>x.firstNumber == 25 ,} 
 			},
 						
 			thirdNumber : {
-				factor :  {fieldName:"firstNumber",conditionalExpression:x => x.firstNumber == 25,} 
+				factor :  {fieldName:"firstNumber",conditionalExpression:'x => x.firstNumber == 25',} 
 			},
 						
 			fourthNumber : {

@@ -25,11 +25,11 @@ export class MacDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			macAddress : {
-				mac :  {conditionalExpression:(x,y) =>{ return  x.device == "Laptop" },} 
+				mac :  {conditionalExpression:(x,y) => x.device == "Laptop" ,} 
 			},
 						
 			localMacAddress : {
-				mac :  {conditionalExpression:x => x.device =="Laptop",} 
+				mac :  {conditionalExpression:'x => x.device =="Laptop"',} 
 			},
 						
 			systemMacAddress : {

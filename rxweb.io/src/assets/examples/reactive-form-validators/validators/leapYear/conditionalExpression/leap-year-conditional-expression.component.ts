@@ -16,9 +16,10 @@ export class LeapYearConditionalExpressionValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																admissionYear:['',RxwebValidators.leapYear({conditionalExpression:x => x.name == "John" })], 
-													birthYear:['',RxwebValidators.leapYear({conditionalExpression:(x,y) =>{ return  x.name == "John" } })], 
+        this.userFormGroup = this.formBuilder.group({
+										name:['',], 
+													admissionYear:['', RxwebValidators.leapYear({conditionalExpression:'x => x.name == "John"' })], 
+													birthYear:['', RxwebValidators.leapYear({conditionalExpression:(x,y) => x.name == "John"  })], 
 								});
     }
 }

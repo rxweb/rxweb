@@ -16,11 +16,11 @@ export class EmailCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										email:['',RxwebValidators.email()], 
-													recoveryEmailAddress:['',RxwebValidators.email({conditionalExpression:(x,y) =>{ return  x.email == "abc@gmail.com" } })], 
-													businessEmailAddress:['',RxwebValidators.email({conditionalExpression:x => x.email =="abc@gmail.com" })], 
-													otherEmailAddress:['',RxwebValidators.email({message:'Please enter valid email' })], 
+        this.userFormGroup = this.formBuilder.group({
+										email:['', RxwebValidators.email()], 
+													recoveryEmailAddress:['', RxwebValidators.email({conditionalExpression:(x,y) => x.email == "abc@gmail.com"  })], 
+													businessEmailAddress:['', RxwebValidators.email({conditionalExpression:'x => x.email =="abc@gmail.com"' })], 
+													otherEmailAddress:['', RxwebValidators.email({message:'Please enter valid email' })], 
 								});
     }
 }

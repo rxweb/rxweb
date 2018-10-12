@@ -25,11 +25,11 @@ export class MaxNumberDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			maximumMarks : {
-				maxNumber :  {value:100,conditionalExpression:(x,y) =>{ return   x.subjectCode == "8CS5A" },} 
+				maxNumber :  {value:100,conditionalExpression:(x,y) => x.subjectCode == "8CS5A" ,} 
 			},
 						
 			obtainedMarks : {
-				maxNumber :  {value:100,conditionalExpression:x => x.subjectCode == "8CS5A",} 
+				maxNumber :  {value:100,conditionalExpression:'x => x.subjectCode == "8CS5A"',} 
 			},
 						
 			passingMarks : {

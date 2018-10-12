@@ -1,6 +1,7 @@
 <div id="wrapper" *ngIf="showComponent">
 	<div class="content">
 		<div class="title">
+	<span class="label validator-type">validators</span>
 	<h1> range </h1>
 	<p> Range validation validator will check that the entered value is in the specified range.</p>
 </div>
@@ -29,7 +30,7 @@
 
 <p>We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
 <p>Here we have covered Add and Edit form operations.</p>
- <div  >
+<div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -40,7 +41,7 @@
 
 
 <p>Next, we need to write html code.</p>
- <div  >
+<div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Html" (cbOnSuccess)="codeContent.add.HtmlCopied = true" [class.copied]="codeContent.add.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -50,7 +51,15 @@
 </div>
 
 
-<app-range-add-validator></app-range-add-validator>
+<div class="model-ts combined " >
+	<div class="code-example-title">
+		range validator for add Example
+	</div>
+	<div class="code-example">
+			 <app-range-add-validator></app-range-add-validator>
+
+	</div>
+</div>
 </div>
 </div>
 <div class='row' id= 'rangeconfig'>
@@ -66,7 +75,7 @@
 				</tr>
 		</thead>
 		<tbody>
-			<tr>	<td><a href='#conditionalexpressions' title='conditionalExpression' (click)='scrollTo("#conditionalexpressions")'>conditionalExpression</a></td> 	<td>Range validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>	<tr>	<td><a href='#minimumnumber' title='minimumNumber' (click)='scrollTo("#minimumnumber")'>minimumNumber</a></td> 	<td>Minimum number is for define a minimum number of range </td> </tr>	<tr>	<td><a href='#maximumnumber' title='maximumNumber' (click)='scrollTo("#maximumnumber")'>maximumNumber</a></td> 	<td>Maximum number is for define a maximum number of range </td> </tr>		</tbody>
+			<tr>	<td><a href='#conditionalexpression' title='conditionalExpression' (click)='scrollTo("#conditionalexpression")'>conditionalExpression</a></td> 	<td>Range validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>	<tr>	<td><a href='#minimumnumber' title='minimumNumber' (click)='scrollTo("#minimumnumber")'>minimumNumber</a></td> 	<td>Minimum number is for define a minimum number of range </td> </tr>	<tr>	<td><a href='#maximumnumber' title='maximumNumber' (click)='scrollTo("#maximumnumber")'>maximumNumber</a></td> 	<td>Maximum number is for define a maximum number of range </td> </tr>		</tbody>
 	 </table>
 
 </div>
@@ -78,7 +87,7 @@
 <p>Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span></p>
 <p>Range validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
 <p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
- <blockquote *ngIf="codeContent.conditionalExpressionExampleFunction.Notes?.length > 0">
+<blockquote *ngIf="codeContent.conditionalExpressionExampleFunction && codeContent.conditionalExpressionExampleFunction.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.conditionalExpressionExampleFunction.Notes">
 	  <p [innerHtml]="item"></p>
 	</ng-container>
@@ -92,7 +101,7 @@
 </div>
 
 
- <blockquote *ngIf="codeContent.conditionalExpressionExampleString.Notes?.length > 0">
+<blockquote *ngIf="codeContent.conditionalExpressionExampleString && codeContent.conditionalExpressionExampleString.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.conditionalExpressionExampleString.Notes">
 	  <p [innerHtml]="item"></p>
 	</ng-container>
@@ -107,26 +116,12 @@
 
 
 <ul class="nav nav-tabs" *ngIf="conditionalExpression">
-	<li [class.active]="tab_1=='conditionalExpressionmodel'" (click)="tab_1='conditionalExpressionmodel'"><a>Model</a></li>
 	<li [class.active]="tab_1=='conditionalExpressionComponent'" (click)="tab_1='conditionalExpressionComponent'"><a>Component</a></li>
 	<li [class.active]="tab_1=='conditionalExpressionHtml'" (click)="tab_1='conditionalExpressionHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="conditionalExpression">
-			  <div class="tab-pane" [class.active]="tab_1=='conditionalExpressionmodel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Model" (cbOnSuccess)="codeContent.conditionalExpression.ModelCopied = true" [class.copied]="codeContent.conditionalExpression.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.conditionalExpression.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-
-		  </div>
 			  <div class="tab-pane" [class.active]="tab_1=='conditionalExpressionComponent'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Component" (cbOnSuccess)="codeContent.conditionalExpression.ComponentCopied = true" [class.copied]="codeContent.conditionalExpression.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -139,7 +134,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_1=='conditionalExpressionHtml'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Html" (cbOnSuccess)="codeContent.conditionalExpression.HtmlCopied = true" [class.copied]="codeContent.conditionalExpression.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -171,7 +166,7 @@
 
 <p>Type :  <span class='highlighted'>string</span> </p>
 <p>To override the global configuration message and show the custom message on particular control property.</p>
- <blockquote *ngIf="codeContent.messageExample.Notes?.length > 0">
+<blockquote *ngIf="codeContent.messageExample && codeContent.messageExample.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.messageExample.Notes">
 	  <p [innerHtml]="item"></p>
 	</ng-container>
@@ -186,26 +181,12 @@
 
 
 <ul class="nav nav-tabs" *ngIf="message">
-	<li [class.active]="tab_2=='messageModel'" (click)="tab_2='messageModel'"><a>Model</a></li>
 	<li [class.active]="tab_2=='messageComponent'" (click)="tab_2='messageComponent'"><a>Component</a></li>
 	<li [class.active]="tab_2=='messageHtml'" (click)="tab_2='messageHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="message">
-			  <div class="tab-pane" [class.active]="tab_2=='messageModel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Model" (cbOnSuccess)="codeContent.message.ModelCopied = true" [class.copied]="codeContent.message.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.message.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-
-		  </div>
 			  <div class="tab-pane" [class.active]="tab_2=='messageComponent'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Component" (cbOnSuccess)="codeContent.message.ComponentCopied = true" [class.copied]="codeContent.message.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -218,7 +199,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_2=='messageHtml'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Html" (cbOnSuccess)="codeContent.message.HtmlCopied = true" [class.copied]="codeContent.message.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -250,7 +231,7 @@
 
 <p>Type :  <span class='highlighted'>string</span> </p>
 <p>Minimum number is for define a minimum number of range</p>
- <blockquote *ngIf="codeContent.minimumNumberExample.Notes?.length > 0">
+<blockquote *ngIf="codeContent.minimumNumberExample && codeContent.minimumNumberExample.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.minimumNumberExample.Notes">
 	  <p [innerHtml]="item"></p>
 	</ng-container>
@@ -265,26 +246,12 @@
 
 
 <ul class="nav nav-tabs" *ngIf="minimumNumber">
-	<li [class.active]="tab_3=='minimumNumberModel'" (click)="tab_3='minimumNumberModel'"><a>Model</a></li>
 	<li [class.active]="tab_3=='minimumNumberComponent'" (click)="tab_3='minimumNumberComponent'"><a>Component</a></li>
 	<li [class.active]="tab_3=='minimumNumberHtml'" (click)="tab_3='minimumNumberHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="minimumNumber">
-			  <div class="tab-pane" [class.active]="tab_3=='minimumNumberModel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.minimumNumber.Model" (cbOnSuccess)="codeContent.minimumNumber.ModelCopied = true" [class.copied]="codeContent.minimumNumber.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.minimumNumber.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-
-		  </div>
 			  <div class="tab-pane" [class.active]="tab_3=='minimumNumberComponent'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.minimumNumber.Component" (cbOnSuccess)="codeContent.minimumNumber.ComponentCopied = true" [class.copied]="codeContent.minimumNumber.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -297,7 +264,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_3=='minimumNumberHtml'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.minimumNumber.Html" (cbOnSuccess)="codeContent.minimumNumber.HtmlCopied = true" [class.copied]="codeContent.minimumNumber.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -329,7 +296,7 @@
 
 <p>Type :  <span class='highlighted'>string</span> </p>
 <p>Maximum number is for define a maximum number of range</p>
- <blockquote *ngIf="codeContent.maximumNumberExample.Notes?.length > 0">
+<blockquote *ngIf="codeContent.maximumNumberExample && codeContent.maximumNumberExample.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.maximumNumberExample.Notes">
 	  <p [innerHtml]="item"></p>
 	</ng-container>
@@ -344,26 +311,12 @@
 
 
 <ul class="nav nav-tabs" *ngIf="maximumNumber">
-	<li [class.active]="tab_4=='maximumNumberModel'" (click)="tab_4='maximumNumberModel'"><a>Model</a></li>
 	<li [class.active]="tab_4=='maximumNumberComponent'" (click)="tab_4='maximumNumberComponent'"><a>Component</a></li>
 	<li [class.active]="tab_4=='maximumNumberHtml'" (click)="tab_4='maximumNumberHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="maximumNumber">
-			  <div class="tab-pane" [class.active]="tab_4=='maximumNumberModel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.maximumNumber.Model" (cbOnSuccess)="codeContent.maximumNumber.ModelCopied = true" [class.copied]="codeContent.maximumNumber.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.maximumNumber.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-
-		  </div>
 			  <div class="tab-pane" [class.active]="tab_4=='maximumNumberComponent'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.maximumNumber.Component" (cbOnSuccess)="codeContent.maximumNumber.ComponentCopied = true" [class.copied]="codeContent.maximumNumber.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -376,7 +329,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_4=='maximumNumberHtml'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.maximumNumber.Html" (cbOnSuccess)="codeContent.maximumNumber.HtmlCopied = true" [class.copied]="codeContent.maximumNumber.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -408,7 +361,6 @@
 
 <ul class="nav nav-tabs" >
 	<li [class.active]="tab_5=='completeexample'" (click)="tab_5='completeexample'"><a>Example</a></li>
-	<li [class.active]="tab_5=='completemodel'" (click)="tab_5='completemodel'"><a>Model</a></li>
 	<li [class.active]="tab_5=='completecomponent'" (click)="tab_5='completecomponent'"><a>Component</a></li>
 	<li [class.active]="tab_5=='completehtml'" (click)="tab_5='completehtml'"><a>Html</a></li>
 </ul>
@@ -417,21 +369,8 @@
 			<app-range-complete-validator></app-range-complete-validator>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_5=='completemodel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Model" (cbOnSuccess)="codeContent.complete.ModelCopied = true" [class.copied]="codeContent.complete.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.complete.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-
-		  </div>
 			  <div class="tab-pane" [class.active]="tab_5=='completecomponent'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Component" (cbOnSuccess)="codeContent.complete.ComponentCopied = true" [class.copied]="codeContent.complete.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -444,7 +383,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_5=='completehtml'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Html" (cbOnSuccess)="codeContent.complete.HtmlCopied = true" [class.copied]="codeContent.complete.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -465,7 +404,6 @@
 
 <ul class="nav nav-tabs" >
 	<li [class.active]="tab_6=='dynamicexample'" (click)="tab_6='dynamicexample'"><a>Example</a></li>
-	<li [class.active]="tab_6=='dynamicmodel'" (click)="tab_6='dynamicmodel'"><a>Model</a></li>
 	<li [class.active]="tab_6=='dynamiccomponent'" (click)="tab_6='dynamiccomponent'"><a>Component</a></li>
 	<li [class.active]="tab_6=='dynamichtml'" (click)="tab_6='dynamichtml'"><a>Html</a></li>
 </ul>
@@ -474,21 +412,8 @@
 			<app-range-dynamic-validator></app-range-dynamic-validator>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_6=='dynamicmodel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Model" (cbOnSuccess)="codeContent.dynamic.ModelCopied = true" [class.copied]="codeContent.dynamic.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.dynamic.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-
-		  </div>
 			  <div class="tab-pane" [class.active]="tab_6=='dynamiccomponent'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Component" (cbOnSuccess)="codeContent.dynamic.ComponentCopied = true" [class.copied]="codeContent.dynamic.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -501,7 +426,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_6=='dynamichtml'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Html" (cbOnSuccess)="codeContent.dynamic.HtmlCopied = true" [class.copied]="codeContent.dynamic.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">

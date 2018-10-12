@@ -6,11 +6,11 @@ export class Location {
 	countryName: string;
 
 	//If you want to apply conditional expression of type 'function'
-	@upperCase({conditionalExpression:(x,y) =>{ return  x.countryName == "INDIA" } }) 
+	@upperCase({conditionalExpression:(x,y) => x.countryName == "INDIA"  }) 
 	stateName: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@upperCase({conditionalExpression:x => x.countryName == "INDIA" }) 
+	@upperCase({conditionalExpression:'x => x.countryName == "INDIA"' }) 
 	cityName: string;
 
 	@upperCase({message:'You can enter only upperCase letters.' }) 

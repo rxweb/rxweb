@@ -16,8 +16,8 @@ export class RequiredMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										userName:['',RxwebValidators.required({message:'Username cannot be blank.' })], 
+        this.userFormGroup = this.formBuilder.group({
+										userName:['', RxwebValidators.required({message:'Username cannot be blank.' })], 
 								});
     }
 }
