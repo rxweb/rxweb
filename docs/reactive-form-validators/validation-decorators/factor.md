@@ -17,22 +17,22 @@ Let’s see how factor validator fulfil the need.
 
 # Basic Factor Validation
 First we need to create a User Model class and define property of firstNumber and secondNumber in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\factor\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\factor\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\add\factor-add.component.ts)]
+[!code-typescript[](\assets\examples\factor\add\factor-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\edit\factor-edit.component.ts)]
+[!code-typescript[](\assets\examples\factor\edit\factor-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\add\factor-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\edit\factor-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\factor\add\factor-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\factor\edit\factor-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=factor Decorator for add Example)]
 <app-factor-add></app-factor-add>
@@ -58,11 +58,11 @@ Type :  `string`
 
 [!TabGroup(?showHideCondition="dividend")]
 # [Model](#tab\dividendmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dividend\user.model.ts)]
+[!code-typescript[](\assets\examples\factor\dividend\user.model.ts)]
 # [Component](#tab\dividendComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dividend\factor-dividend.component.ts)]
+[!code-typescript[](\assets\examples\factor\dividend\factor-dividend.component.ts)]
 # [Html](#tab\dividendHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dividend\factor-dividend.component.html)]
+[!code-typescript[](\assets\examples\factor\dividend\factor-dividend.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="dividend=!dividend"&title=factor decorator with dividend)]
@@ -76,11 +76,11 @@ Current property is matched with the particular property. so we need to pass par
 
 [!TabGroup(?showHideCondition="fieldName")]
 # [Model](#tab\fieldNamemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\fieldName\user.model.ts)]
+[!code-typescript[](\assets\examples\factor\fieldName\user.model.ts)]
 # [Component](#tab\fieldNameComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\fieldName\factor-field-name.component.ts)]
+[!code-typescript[](\assets\examples\factor\fieldName\factor-field-name.component.ts)]
 # [Html](#tab\fieldNameHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\fieldName\factor-field-name.component.html)]
+[!code-typescript[](\assets\examples\factor\fieldName\factor-field-name.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="fieldName=!fieldName"&title=factor decorator with fieldName)]
@@ -98,11 +98,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
  [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\factor\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\conditionalExpression\factor-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\factor\conditionalExpression\factor-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\conditionalExpression\factor-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\factor\conditionalExpression\factor-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=factor decorator with conditionalExpression)]
@@ -116,11 +116,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\message\user.model.ts)]
+[!code-typescript[](\assets\examples\factor\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\message\factor-message.component.ts)]
+[!code-typescript[](\assets\examples\factor\message\factor-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\message\factor-message.component.html)]
+[!code-typescript[](\assets\examples\factor\message\factor-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=factor decorator with custom message)]
@@ -134,11 +134,11 @@ This Complete Factor example which includes all the FactorConfig properties will
 # [Example](#tab\completeexample)
 <app-factor-complete></app-factor-complete>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\factor\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\complete\factor-complete.component.ts)]
+[!code-typescript[](\assets\examples\factor\complete\factor-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\complete\factor-complete.component.html)]
+[!code-typescript[](\assets\examples\factor\complete\factor-complete.component.html)]
 ***
 
 # Dynamic Factor Example
@@ -146,9 +146,9 @@ This Complete Factor example which includes all the FactorConfig properties will
 # [Example](#tab\dynamicexample)
 <app-factor-dynamic></app-factor-dynamic>
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\user.model.ts)]
+[!code-typescript[](\assets\examples\factor\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\factor-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\factor\dynamic\factor-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\factor-dynamic.component.html)]
+[!code-typescript[](\assets\examples\factor\dynamic\factor-dynamic.component.html)]
 ***

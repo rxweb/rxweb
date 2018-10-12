@@ -14,22 +14,22 @@ Let’s see how password validator fulfil the need.
 
 # Basic password Validation
 First we need to create LoginInfo model class define a property of password in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\add\login-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\edit\login-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\password\add\login-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\password\edit\login-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\add\password-add.component.ts)]
+[!code-typescript[](\assets\examples\password\add\password-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\edit\password-edit.component.ts)]
+[!code-typescript[](\assets\examples\password\edit\password-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\add\password-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\edit\password-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\password\add\password-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\password\edit\password-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=password Decorator for add Example)]
 <app-password-add></app-password-add>
@@ -53,11 +53,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\message\login-info.model.ts)]
+[!code-typescript[](\assets\examples\password\message\login-info.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\message\password-message.component.ts)]
+[!code-typescript[](\assets\examples\password\message\password-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\message\password-message.component.html)]
+[!code-typescript[](\assets\examples\password\message\password-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=password decorator with custom message)]
@@ -71,11 +71,11 @@ Password Validation is used for setting the parameters for password validation, 
 
 [!TabGroup(?showHideCondition="validation")]
 # [Model](#tab\validationModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\validation\login-info.model.ts)]
+[!code-typescript[](\assets\examples\password\validation\login-info.model.ts)]
 # [Component](#tab\validationComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\validation\password-validation.component.ts)]
+[!code-typescript[](\assets\examples\password\validation\password-validation.component.ts)]
 # [Html](#tab\validationHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\validation\password-validation.component.html)]
+[!code-typescript[](\assets\examples\password\validation\password-validation.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="validation=!validation"&title=password decorator with validation)]
@@ -89,11 +89,11 @@ This Complete password example which includes all the PasswordConfig properties 
 # [Example](#tab\completeExample)
 <app-password-complete></app-password-complete>
 # [Model](#tab\completeModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\complete\login-info.model.ts)]
+[!code-typescript[](\assets\examples\password\complete\login-info.model.ts)]
 # [Component](#tab\completeComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\complete\password-complete.component.ts)]
+[!code-typescript[](\assets\examples\password\complete\password-complete.component.ts)]
 # [Html](#tab\completeHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\complete\password-complete.component.html)]
+[!code-typescript[](\assets\examples\password\complete\password-complete.component.html)]
 ***
 
 # Dynamic password Example
@@ -101,9 +101,9 @@ This Complete password example which includes all the PasswordConfig properties 
 # [Example](#tab\dynamicExample)
 <app-password-dynamic></app-password-dynamic>
 # [Model](#tab\dynamicModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\login-info.model.ts)]
+[!code-typescript[](\assets\examples\password\dynamic\login-info.model.ts)]
 # [Component](#tab\dynamicComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\password-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\password\dynamic\password-dynamic.component.ts)]
 # [Html](#tab\dynamicHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\password-dynamic.component.html)]
+[!code-typescript[](\assets\examples\password\dynamic\password-dynamic.component.html)]
 ***

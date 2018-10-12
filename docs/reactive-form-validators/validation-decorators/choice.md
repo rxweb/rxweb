@@ -16,22 +16,22 @@ Let’s see how choice validator fulfil the need.
 
 # Basic choice Validation
 First we need to create a employee Model class and define property of hobbies in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\add\employee-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\edit\employee-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\choice\add\employee-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\choice\edit\employee-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\add\choice-add.component.ts)]
+[!code-typescript[](\assets\examples\choice\add\choice-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\edit\choice-edit.component.ts)]
+[!code-typescript[](\assets\examples\choice\edit\choice-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\add\choice-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\edit\choice-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\choice\add\choice-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\choice\edit\choice-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=choice Decorator for add Example)]
 <app-choice-add></app-choice-add>
@@ -57,11 +57,11 @@ minLength  is to define a minLength of field which is in form of array
 
 [!TabGroup(?showHideCondition="minLength")]
 # [Model](#tab\minLengthModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\minLength\employee-info.model.ts)]
+[!code-typescript[](\assets\examples\choice\minLength\employee-info.model.ts)]
 # [Component](#tab\minLengthComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\minLength\choice-min-length.component.ts)]
+[!code-typescript[](\assets\examples\choice\minLength\choice-min-length.component.ts)]
 # [Html](#tab\minLengthHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\minLength\choice-min-length.component.html)]
+[!code-typescript[](\assets\examples\choice\minLength\choice-min-length.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="minLength=!minLength"&title=choice decorator with minLength)]
@@ -75,11 +75,11 @@ maxLength number is for define a maxLength number of range
 
 [!TabGroup(?showHideCondition="maxLength")]
 # [Model](#tab\maxLengthModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\maxLength\employee-info.model.ts)]
+[!code-typescript[](\assets\examples\choice\maxLength\employee-info.model.ts)]
 # [Component](#tab\maxLengthComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\maxLength\choice-max-number.component.ts)]
+[!code-typescript[](\assets\examples\choice\maxLength\choice-max-number.component.ts)]
 # [Html](#tab\maxLengthHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\maxLength\choice-max-number.component.html)]
+[!code-typescript[](\assets\examples\choice\maxLength\choice-max-number.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="maxLength=!maxLength"&title=choice decorator with maxLength)]
@@ -97,11 +97,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
  [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\choice\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\conditionalExpression\choice-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\choice\conditionalExpression\choice-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\conditionalExpression\choice-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\choice\conditionalExpression\choice-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=choice decorator with conditionalExpression)]
@@ -115,11 +115,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\message\user.model.ts)]
+[!code-typescript[](\assets\examples\choice\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\message\choice-message.component.ts)]
+[!code-typescript[](\assets\examples\choice\message\choice-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\message\choice-message.component.html)]
+[!code-typescript[](\assets\examples\choice\message\choice-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=choice decorator with custom message)]
@@ -133,11 +133,11 @@ This Complete choice example which includes all the ChoiceConfig properties will
 # [Example](#tab\completeexample)
 <app-choice-complete></app-choice-complete>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\choice\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\complete\choice-complete.component.ts)]
+[!code-typescript[](\assets\examples\choice\complete\choice-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\complete\choice-complete.component.html)]
+[!code-typescript[](\assets\examples\choice\complete\choice-complete.component.html)]
 ***
 
 # Dynamic choice Example
@@ -145,9 +145,9 @@ This Complete choice example which includes all the ChoiceConfig properties will
 # [Example](#tab\dynamicexample)
 <app-choice-dynamic></app-choice-dynamic>
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\dynamic\user.model.ts)]
+[!code-typescript[](\assets\examples\choice\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\dynamic\choice-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\choice\dynamic\choice-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\dynamic\choice-dynamic.component.html)]
+[!code-typescript[](\assets\examples\choice\dynamic\choice-dynamic.component.html)]
 ***

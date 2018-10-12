@@ -15,21 +15,21 @@ Let’s see how lessThan validator fulfil the need.
 
 # Basic LessThan Validation
 First we need to create a User class and define a property of Marks and PassingMarks with the requirement of PassingMarks must be less than Marks field in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\lessThan\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\lessThan\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\add\less-than-add.component.ts)]
+[!code-typescript[](\assets\examples\lessThan\add\less-than-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\edit\less-than-edit.component.ts)]
+[!code-typescript[](\assets\examples\lessThan\edit\less-than-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\add\less-than-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\edit\less-than-add.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\lessThan\add\less-than-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\lessThan\edit\less-than-add.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=lessThan Decorator for add Example)]
 <app-lessThan-add></app-lessThan-add>
@@ -55,11 +55,11 @@ Less than validation should be applied based on the `fieldName` for compare othe
 
 [!TabGroup(?showHideCondition="fieldNameShow")]
 # [Model](#tab\fieldNamemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\fieldName\user.model.ts)]
+[!code-typescript[](\assets\examples\lessThan\fieldName\user.model.ts)]
 # [Component](#tab\fieldNameComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\fieldName\less-than-field-name.component.ts)]
+[!code-typescript[](\assets\examples\lessThan\fieldName\less-than-field-name.component.ts)]
 # [Html](#tab\fieldNameHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\fieldName\less-than-field-name.component.html)]
+[!code-typescript[](\assets\examples\lessThan\fieldName\less-than-field-name.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow"&title=lessThan decorator with fieldName)]
@@ -77,11 +77,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\lessThan\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\conditionalExpression\less-than-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\lessThan\conditionalExpression\less-than-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\conditionalExpression\less-than-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\lessThan\conditionalExpression\less-than-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=lessThan decorator with conditionalExpression)]
@@ -96,11 +96,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\message\user.model.ts)]
+[!code-typescript[](\assets\examples\lessThan\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\message\less-than-message.component.ts)]
+[!code-typescript[](\assets\examples\lessThan\message\less-than-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\message\less-than-message.component.html)]
+[!code-typescript[](\assets\examples\lessThan\message\less-than-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=lessThan decorator with custom message)]
@@ -114,11 +114,11 @@ This Complete lessThan example which includes all the RelationalOperatorConfig p
 # [Example](#tab\completeexample)
 <app-lessThan-complete></app-lessThan-complete>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\lessThan\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\complete\less-than-complete.component.ts)]
+[!code-typescript[](\assets\examples\lessThan\complete\less-than-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\complete\less-than-complete.component.html)]
+[!code-typescript[](\assets\examples\lessThan\complete\less-than-complete.component.html)]
 ***
 
 # Dynamic lessThan Example
@@ -126,9 +126,9 @@ This Complete lessThan example which includes all the RelationalOperatorConfig p
 # [Example](#tab\dynamicexample)
 <app-lessThan-dynamic></app-lessThan-dynamic>
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\user.model.ts)]
+[!code-typescript[](\assets\examples\lessThan\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\less-than-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\lessThan\dynamic\less-than-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\less-than-dynamic.component.html)]
+[!code-typescript[](\assets\examples\lessThan\dynamic\less-than-dynamic.component.html)]
 ***

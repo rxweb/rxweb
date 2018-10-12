@@ -15,22 +15,22 @@ Let’s see how greaterThanEqualTo validator fulfil the need.
 
 # Basic GreaterThanEqualTo Validation
 First we need to create User model class define a property of Age and VoterAge  in the model to achieve the functional need of point 1. 
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\add\greater-than-equal-to-add.component.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\add\greater-than-equal-to-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\edit\greater-than-equal-to-edit.component.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\edit\greater-than-equal-to-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\add\greater-than-equal-to-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\edit\greater-than-equal-to-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\add\greater-than-equal-to-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\edit\greater-than-equal-to-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=greaterThanEqualTo Decorator for add Example)]
 <app-greaterThanEqualTo-add></app-greaterThanEqualTo-add>
@@ -56,11 +56,11 @@ Greater than Equal to validation should be applied based on the `fieldName` for 
 
 [!TabGroup(?showHideCondition="fieldNameShow")]
 # [Model](#tab\fieldNamemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\fieldName\user.model.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\fieldName\user.model.ts)]
 # [Component](#tab\fieldNameComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\fieldName\greater-than-equal-to-field-name.component.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\fieldName\greater-than-equal-to-field-name.component.ts)]
 # [Html](#tab\fieldNameHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\fieldName\greater-than-equal-to-field-name.component.html)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\fieldName\greater-than-equal-to-field-name.component.html)]
 ***
 [!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow"&title=greaterThanEqualTo decorator with fieldName)]
 <app-greaterThanEqualTo-fieldName></app-greaterThanEqualTo-fieldName>
@@ -76,11 +76,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\conditionalExpression\greater-than-equal-to-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\conditionalExpression\greater-than-equal-to-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\conditionalExpression\greater-than-equal-to-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\conditionalExpression\greater-than-equal-to-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=greaterThanEqualTo decorator with conditionalExpression)]
@@ -94,11 +94,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\message\user.model.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\message\greater-than-equal-to-message.component.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\message\greater-than-equal-to-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\message\greater-than-equal-to-message.component.html)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\message\greater-than-equal-to-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=greaterThanEqualTo decorator with custom message)]
@@ -112,11 +112,11 @@ This Complete greaterThanEqualTo example which includes all the RelationalOperat
 # [Example](#tab\completeexample)
 <app-greaterThanEqualTo-complete></app-greaterThanEqualTo-complete>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\complete\greater-than-equal-to-complete.component.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\complete\greater-than-equal-to-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\complete\greater-than-equal-to-complete.component.html)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\complete\greater-than-equal-to-complete.component.html)]
 ***
 
 # Dynamic greaterThanEqualTo Example
@@ -124,9 +124,9 @@ This Complete greaterThanEqualTo example which includes all the RelationalOperat
 # [Example](#tab\dynamicexample)
 <app-greaterThanEqualTo-dynamic></app-greaterThanEqualTo-dynamic>
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\dynamic\user.model.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\dynamic\greater-than-equal-to-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\dynamic\greater-than-equal-to-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\dynamic\greater-than-equal-to-dynamic.component.html)]
+[!code-typescript[](\assets\examples\greaterThanEqualTo\dynamic\greater-than-equal-to-dynamic.component.html)]
 ***

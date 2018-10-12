@@ -14,21 +14,21 @@ Let’s see how required validator fulfil the need.
 
 # Basic Required Validation
 First we need to create a User class and define a property of FirstName in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\add\user-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\edit\user-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\required\add\user-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\required\edit\user-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\add\required-add.component.ts)]
+[!code-typescript[](\assets\examples\required\add\required-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\edit\required-edit.component.ts)]
+[!code-typescript[](\assets\examples\required\edit\required-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\add\required-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\edit\required-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\required\add\required-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\required\edit\required-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=required Decorator for add Example)]
 <app-required-add></app-required-add>
@@ -56,11 +56,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
  [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\required\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\conditionalExpression\required-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\required\conditionalExpression\required-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\conditionalExpression\required-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\required\conditionalExpression\required-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=required decorator with conditionalExpression)]
@@ -75,11 +75,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\message\user.model.ts)]
+[!code-typescript[](\assets\examples\required\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\message\required-message.component.ts)]
+[!code-typescript[](\assets\examples\required\message\required-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\message\required-message.component.html)]
+[!code-typescript[](\assets\examples\required\message\required-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=required decorator with custom message)]
@@ -93,11 +93,11 @@ This Complete required example which includes all the RequiredConfig properties 
 # [Example](#tab\completeExample)
 <app-required-complete></app-required-complete>
 # [Model](#tab\completeModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\required\complete\user.model.ts)]
 # [Component](#tab\completeComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\complete\required-complete.component.ts)]
+[!code-typescript[](\assets\examples\required\complete\required-complete.component.ts)]
 # [Html](#tab\completeHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\complete\required-complete.component.html)]
+[!code-typescript[](\assets\examples\required\complete\required-complete.component.html)]
 ***
 
 # Dynamic required Example
@@ -105,9 +105,9 @@ This Complete required example which includes all the RequiredConfig properties 
 # [Example](#tab\dynamicExample)
 <app-required-dynamic></app-required-dynamic>
 # [Model](#tab\dynamicModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\user.model.ts)]
+[!code-typescript[](\assets\examples\required\dynamic\user.model.ts)]
 # [Component](#tab\dynamicComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\required-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\required\dynamic\required-dynamic.component.ts)]
 # [Html](#tab\dynamicHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\required-dynamic.component.html)]
+[!code-typescript[](\assets\examples\required\dynamic\required-dynamic.component.html)]
 ***
