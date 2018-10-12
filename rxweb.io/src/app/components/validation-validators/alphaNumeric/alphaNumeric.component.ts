@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { AlphaNumericAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/alphaNumeric/add/alpha-numeric-add.component';
 import { AlphaNumericCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/alphaNumeric/complete/alpha-numeric-complete.component';
 import { AlphaNumericDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/alphaNumeric/dynamic/alpha-numeric-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class AlphaNumericComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic AlphaNumeric Validation":null,"AlphaConfig":["allowWhiteSpace","conditionalExpression","message"],"Complete AlphaNumeric Example":null,"Dynamic AlphaNumeric Example":null};
-  tab_1:string = "allowWhiteSpacemodel";
-   tab_2:string = "conditionalExpressionmodel";
-   tab_3:string = "messageModel";
+  tab_1:string = "allowWhiteSpaceComponent";
+   tab_2:string = "conditionalExpressionComponent";
+   tab_3:string = "messageComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

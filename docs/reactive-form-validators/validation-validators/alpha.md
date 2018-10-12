@@ -24,7 +24,7 @@ Here we have covered Add and Edit form operations.
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\add\alpha-add.component.html?type=section)]
 
-[!example(?title=alpha Decorator for add Example)]
+[!example(?title=alpha validator for add Example)]
 <app-alpha-add-validator></app-alpha-add-validator>
 
 # AlphaConfig
@@ -44,8 +44,6 @@ This will allow whitespace in particular control property.The default value is `
 [!codeExample(?title=allowWhiteSpaceExample)]
 
 [!TabGroup(?showHideCondition="allowWhiteSpaceShow")]
-# [Model](#tab\allowWhiteSpacemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\allowWhiteSpace\address-info.model.ts)]
 # [Component](#tab\allowWhiteSpaceComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\allowWhiteSpace\alpha-allow-white-space.component.ts)]
 # [Html](#tab\allowWhiteSpaceHtml)
@@ -66,8 +64,6 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\conditionalExpression\address-info.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\conditionalExpression\alpha-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
@@ -85,8 +81,6 @@ To override the global configuration message and show the custom message on part
 [!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\message\address-info.model.ts)]
 # [Component](#tab\messageComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\message\alpha-message.component.ts)]
 # [Html](#tab\messageHtml)
@@ -100,8 +94,6 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-alpha-complete-validator></app-alpha-complete-validator>
-# [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\complete\address-info.model.ts)]
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\complete\alpha-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -112,8 +104,6 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-alpha-dynamic-validator></app-alpha-dynamic-validator>
-# [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\dynamic\address-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\alpha\dynamic\alpha-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)

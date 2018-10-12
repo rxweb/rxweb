@@ -101,24 +101,10 @@
 
 
 <ul class="nav nav-tabs" *ngIf="allowWhiteSpaceShow">
-	<li [class.active]="tab_1=='allowWhiteSpacemodel'" (click)="tab_1='allowWhiteSpacemodel'"><a>Model</a></li>
 	<li [class.active]="tab_1=='allowWhiteSpaceComponent'" (click)="tab_1='allowWhiteSpaceComponent'"><a>Component</a></li>
 	<li [class.active]="tab_1=='allowWhiteSpaceHtml'" (click)="tab_1='allowWhiteSpaceHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="allowWhiteSpaceShow">
-			  <div class="tab-pane" [class.active]="tab_1=='allowWhiteSpacemodel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.allowWhiteSpace.Model" (cbOnSuccess)="codeContent.allowWhiteSpace.ModelCopied = true" [class.copied]="codeContent.allowWhiteSpace.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.allowWhiteSpace.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-
-		  </div>
 			  <div class="tab-pane" [class.active]="tab_1=='allowWhiteSpaceComponent'">
 			 <div  >
 	<div class="code">
@@ -195,24 +181,10 @@
 
 
 <ul class="nav nav-tabs" *ngIf="conditionalExpression">
-	<li [class.active]="tab_2=='conditionalExpressionmodel'" (click)="tab_2='conditionalExpressionmodel'"><a>Model</a></li>
 	<li [class.active]="tab_2=='conditionalExpressionComponent'" (click)="tab_2='conditionalExpressionComponent'"><a>Component</a></li>
 	<li [class.active]="tab_2=='conditionalExpressionHtml'" (click)="tab_2='conditionalExpressionHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="conditionalExpression">
-			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionmodel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Model" (cbOnSuccess)="codeContent.conditionalExpression.ModelCopied = true" [class.copied]="codeContent.conditionalExpression.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.conditionalExpression.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-
-		  </div>
 			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionComponent'">
 			 <div  >
 	<div class="code">
@@ -274,24 +246,10 @@
 
 
 <ul class="nav nav-tabs" *ngIf="message">
-	<li [class.active]="tab_3=='messageModel'" (click)="tab_3='messageModel'"><a>Model</a></li>
 	<li [class.active]="tab_3=='messageComponent'" (click)="tab_3='messageComponent'"><a>Component</a></li>
 	<li [class.active]="tab_3=='messageHtml'" (click)="tab_3='messageHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="message">
-			  <div class="tab-pane" [class.active]="tab_3=='messageModel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Model" (cbOnSuccess)="codeContent.message.ModelCopied = true" [class.copied]="codeContent.message.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.message.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-
-		  </div>
 			  <div class="tab-pane" [class.active]="tab_3=='messageComponent'">
 			 <div  >
 	<div class="code">
@@ -338,26 +296,12 @@
 
 <ul class="nav nav-tabs" >
 	<li [class.active]="tab_4=='completeexample'" (click)="tab_4='completeexample'"><a>Example</a></li>
-	<li [class.active]="tab_4=='completemodel'" (click)="tab_4='completemodel'"><a>Model</a></li>
 	<li [class.active]="tab_4=='completecomponent'" (click)="tab_4='completecomponent'"><a>Component</a></li>
 	<li [class.active]="tab_4=='completehtml'" (click)="tab_4='completehtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" >
 			  <div class="tab-pane" [class.active]="tab_4=='completeexample'">
 			<app-alpha-complete-validator></app-alpha-complete-validator>
-
-		  </div>
-			  <div class="tab-pane" [class.active]="tab_4=='completemodel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Model" (cbOnSuccess)="codeContent.complete.ModelCopied = true" [class.copied]="codeContent.complete.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.complete.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_4=='completecomponent'">
@@ -395,26 +339,12 @@
 
 <ul class="nav nav-tabs" >
 	<li [class.active]="tab_5=='dynamicexample'" (click)="tab_5='dynamicexample'"><a>Example</a></li>
-	<li [class.active]="tab_5=='dynamicmodel'" (click)="tab_5='dynamicmodel'"><a>Model</a></li>
 	<li [class.active]="tab_5=='dynamiccomponent'" (click)="tab_5='dynamiccomponent'"><a>Component</a></li>
 	<li [class.active]="tab_5=='dynamichtml'" (click)="tab_5='dynamichtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" >
 			  <div class="tab-pane" [class.active]="tab_5=='dynamicexample'">
 			<app-alpha-dynamic-validator></app-alpha-dynamic-validator>
-
-		  </div>
-			  <div class="tab-pane" [class.active]="tab_5=='dynamicmodel'">
-			 <div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Model" (cbOnSuccess)="codeContent.dynamic.ModelCopied = true" [class.copied]="codeContent.dynamic.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.dynamic.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
-
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_5=='dynamiccomponent'">

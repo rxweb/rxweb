@@ -18,12 +18,12 @@ Let’s see how alphaNumeric validator fulfil the need.
 
 We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
-[!code-typescript[](\assets\examples\validators\alphaNumeric\add\alpha-numeric-add.component.ts)]
-***
+[!code-typescript[](\assets\examples\validators\alphaNumeric\add\alpha-numeric-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\alphaNumeric\add\alpha-numeric-add.component.html)]
+[!code-typescript[](\assets\examples\validators\alphaNumeric\add\alpha-numeric-add.component.html?type=section)]
 
+[!example(?title=alpha validator for add Example)]
 <app-alphaNumeric-add-validator></app-alphaNumeric-add-validator>
 
 # AlphaConfig 
@@ -43,8 +43,6 @@ This will allow whitespace in particular control property.The default value is `
 [!codeExample(?title=allowWhiteSpaceExample)]
 
 [!TabGroup(?showHideCondition="allowWhiteSpaceShow")]
-# [Model](#tab\allowWhiteSpacemodel)
-[!code-typescript[](\assets\examples\validators\alphaNumeric\allowWhiteSpace\location.model.ts)]
 # [Component](#tab\allowWhiteSpaceComponent)
 [!code-typescript[](\assets\examples\validators\alphaNumeric\allowWhiteSpace\alpha-numeric-allow-white-space.component.ts)]
 # [Html](#tab\allowWhiteSpaceHtml)
@@ -65,8 +63,6 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\validators\alphaNumeric\conditionalExpression\location.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
 [!code-typescript[](\assets\examples\validators\alphaNumeric\conditionalExpression\alpha-numeric-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
@@ -84,8 +80,6 @@ To override the global configuration message and show the custom message on part
 [!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\validators\alphaNumeric\message\location.model.ts)]
 # [Component](#tab\messageComponent)
 [!code-typescript[](\assets\examples\validators\alphaNumeric\message\alpha-numeric-message.component.ts)]
 # [Html](#tab\messageHtml)
@@ -99,8 +93,6 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-alphaNumeric-complete-validator></app-alphaNumeric-complete-validator>
-# [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\validators\alphaNumeric\complete\location.model.ts)]
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\validators\alphaNumeric\complete\alpha-numeric-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -111,8 +103,6 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-alphaNumeric-dynamic-validator></app-alphaNumeric-dynamic-validator>
-# [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\validators\alphaNumeric\dynamic\location.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\validators\alphaNumeric\dynamic\alpha-numeric-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
