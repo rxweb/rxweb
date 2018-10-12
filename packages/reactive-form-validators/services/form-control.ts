@@ -30,7 +30,7 @@ export class RxFormControl extends FormControl {
       } else
         this.errorMessage = undefined;
       if(!options.updateChanged){
-        this.root.updateChanged();
+        this.root["valueChangedSync"]();
       }
     }
 

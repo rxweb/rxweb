@@ -33,11 +33,11 @@ export class BuilderForm extends FormBuilder {
       this.currentFormGroup.isDirty = this.dirty(this.baseObject,this.objectKeys);
       this.currentFormGroup.resetForm = this.resetForm(this.baseObject,this.objectKeys);
       this.currentFormGroup.getErrorSummary = this.errorSummary();
-      this.currentFormGroup.updateChanged = this.updateChanged(this.entityObject);
+      this.currentFormGroup["valueChangedSync"] = this.valueChangedSync(this.entityObject);
       return this.currentFormGroup;
     }
 
-  updateChanged(entityObject:{[key:string]:string}){
+  valueChangedSync(entityObject:{[key:string]:string}){
     return function(){
         Object.keys(this.controls).forEach(columnName=>{
             if(!(this.controls[columnName] instanceof FormArray) && !(this.controls[columnName] instanceof FormGroup) && this.controls[columnName] != entityObject[columnName]) {
