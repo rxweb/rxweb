@@ -11,7 +11,7 @@ export class RxFormControl extends FormControl {
 
     setValue(value:any, options?: {
         dirty?:boolean;
-        updateChanged:boolean;
+        updateChanged?:boolean;
         onlySelf?: boolean;
         emitEvent?: boolean;
     }):void {
