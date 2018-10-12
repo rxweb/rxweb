@@ -24,14 +24,14 @@ Here we have covered Add and Edit form operations.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\allOf\add\allOf-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\add\allOf-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\allOf\edit\allOf-edit.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\edit\allOf-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\allOf\add\allOf-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\allOf\edit\allOf-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\add\allOf-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\edit\allOf-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=allOf Decorator for add Example)]
 <app-allOf-add></app-allOf-add>
@@ -58,11 +58,11 @@ matchValue is the array based on which the value is matched for validation. Acco
 
 [!TabGroup(?showHideCondition="matchValue")]
 # [Model](#tab\minLengthModel)
-[!code-typescript[](\assets\examples\allOf\minLength\employee-info.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\minLength\employee-info.model.ts)]
 # [Component](#tab\minLengthComponent)
-[!code-typescript[](\assets\examples\allOf\minLength\allOf-match-value.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\minLength\allOf-match-value.component.ts)]
 # [Html](#tab\minLengthHtml)
-[!code-typescript[](\assets\examples\allOf\minLength\allOf-match-value.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\minLength\allOf-match-value.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="matchValue=!matchValue"&title=allOf decorator with matchValue)]
@@ -80,11 +80,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
  
  [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\allOf\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\allOf\conditionalExpression\allOf-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\conditionalExpression\allOf-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\allOf\conditionalExpression\allOf-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\conditionalExpression\allOf-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=allOf decorator with conditionalExpression)]
@@ -100,9 +100,9 @@ To override the global configuration message and show the custom message on part
 # [Model](#tab\messageModel)
 [!code-typescript[](\assets\examples\allOf\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\allOf\message\allOf-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\message\allOf-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\allOf\message\allOf-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\allOf\message\allOf-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=allOf decorator with custom message)]

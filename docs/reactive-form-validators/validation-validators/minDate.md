@@ -16,17 +16,16 @@ Let’s see how minDate validator fulfil the need.
 # Basic MinDate Validation
 We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
-[!code-typescript[](\assets\examples\validators\minDate\add\min-date-add.component.ts)]
-***
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\add\min-date-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\minDate\add\min-date-add.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\add\min-date-add.component.html?type=section)]
 
-
+[!example(?title=minDate validator for add Example)]
 <app-minDate-add-validator></app-minDate-add-validator>
 
 # DateConfig 
-message and conditional expression options are not mandatory to use in the `RxwebValidators.maxNumber()` validator but value is mandatory. If needed then use the below options.
+message and conditional expression options are not mandatory to use in the `RxwebValidators.minDate()` validator but value is mandatory. If needed then use the below options.
 
 |Option | Description |
 |--- | ---- |
@@ -45,12 +44,10 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\validators\minDate\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\validators\minDate\conditionalExpression\min-date-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\conditionalExpression\min-date-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\validators\minDate\conditionalExpression\min-date-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\conditionalExpression\min-date-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=minDate validator with conditionalExpression)]
@@ -64,12 +61,10 @@ To override the global configuration message and show the custom message on part
 [!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\validators\minDate\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\minDate\message\min-date-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\message\min-date-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\minDate\message\min-date-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\message\min-date-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=minDate validator with custom message)]
@@ -83,12 +78,10 @@ enter value which you want to restrict number in the property
 [!codeExample(?title=valueExample)]
 
 [!TabGroup(?showHideCondition="valueShow")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\validators\minDate\value\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\minDate\value\min-date-value.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\value\min-date-value.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\minDate\value\min-date-value.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\value\min-date-value.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="valueShow=!valueShow"&title=minDate validator with value)]
@@ -98,22 +91,18 @@ enter value which you want to restrict number in the property
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-minDate-complete-validator></app-minDate-complete-validator>
-# [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\validators\minDate\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\validators\minDate\complete\min-date-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\complete\min-date-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\validators\minDate\complete\min-date-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\complete\min-date-complete.component.html)]
 ***
 
 # Dynamic minDate Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-minDate-dynamic-validator></app-minDate-dynamic-validator>
-# [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\validators\minDate\dynamic\user.model.ts)]
+<app-minDate-dynamic-validator></app-minDate-dynamic-vali
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\validators\minDate\dynamic\min-date-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\dynamic\min-date-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\validators\minDate\dynamic\min-date-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\dynamic\min-date-dynamic.component.html)]
 ***

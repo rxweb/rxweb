@@ -18,12 +18,12 @@ Let’s see how choice validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-[!code-typescript[](\assets\examples\validators\choice\add\choice-add.component.ts)]
-***
+[!code-typescript[](\assets\examples\validators\choice\add\choice-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\choice\add\choice-add.component.html)]
+[!code-typescript[](\assets\examples\validators\choice\add\choice-add.component.html?type=section)]
 
+[!example(?title=choice validator for add Example)]
 <app-choice-add-validator></app-choice-add-validators>
 
 # ChoiceConfig
@@ -33,7 +33,7 @@ Below options are not mandatory to use in the `RxwebValidators.choice()` validat
 |--- | ---- |
 |[minLength](#minLength) | minLength  is to define a minLength of field which is in form of array |
 |[maxLength](#maxLength) | maxLength is to define a maxLength of field which is in form of array |
-|[conditionalExpression](#conditionalexpressions) | choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpression) | choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## minLength 
@@ -43,8 +43,6 @@ minLength  is to define a minLength of field which is in form of array
 [!codeExample(?title=minLengthExample)]
 
 [!TabGroup(?showHideCondition="minLength")]
-# [Model](#tab\minLengthModel)
-[!code-typescript[](\assets\examples\validators\choice\minLength\employee-info.model.ts)]
 # [Component](#tab\minLengthComponent)
 [!code-typescript[](\assets\examples\validators\choice\minLength\choice-min-length.component.ts)]
 # [Html](#tab\minLengthHtml)
@@ -83,8 +81,6 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
  [!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\validators\choice\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
 [!code-typescript[](\assets\examples\validators\choice\conditionalExpression\choice-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
@@ -116,8 +112,6 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-choice-complete></app-choice-complete>
-# [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\validators\choice\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\validators\choice\complete\choice-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -128,8 +122,6 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-choice-dynamic></app-choice-dynamic>
-# [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\validators\choice\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\validators\choice\dynamic\choice-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)

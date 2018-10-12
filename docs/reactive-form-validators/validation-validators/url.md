@@ -17,12 +17,12 @@ Let’s see how url validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-[!code-typescript[](\assets\examples\validators\url\add\url-add.component.ts)]
-***
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\add\url-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\url\add\url-add.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\add\url-add.component.html?type=section)]
 
+[!example(?title=url validator for add Example)]
 <app-url-add-validator></app-url-add-validator>
 
 # DefaultConfig
@@ -43,12 +43,10 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\validators\url\conditionalExpression\web-site-info-model.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\validators\url\conditionalExpression\url-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\conditionalExpression\url-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\validators\url\conditionalExpression\url-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\conditionalExpression\url-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=url validator with conditionalExpression)]
@@ -61,12 +59,10 @@ To override the global configuration message and show the custom message on part
 [!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\validators\url\message\web-site-info-model.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\url\message\url-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\message\url-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\url\message\url-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\message\url-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=url validator with custom message)]
@@ -76,22 +72,18 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-url-complete-validator></app-url-complete-validator>
-# [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\validators\url\complete\web-site-info-model.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\validators\url\complete\url-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\complete\url-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\validators\url\complete\url-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\complete\url-complete.component.html)]
 ***
 
 # Dynamic url Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-url-dynamic-validator></app-url-dynamic-validator>
-# [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\validators\url\dynamic\web-site-info-model.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\validators\url\dynamic\url-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\dynamic\url-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\validators\url\dynamic\url-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\dynamic\url-dynamic.component.html)]
 ***

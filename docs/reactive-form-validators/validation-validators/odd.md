@@ -18,12 +18,13 @@ Let’s see how Odd validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-[!code-typescript[](\assets\examples\validators\odd\add\odd-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\reactive-form-validators\validators\odd\add\odd-add.component.ts?type=section)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\odd\add\odd-add.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\reactive-form-validators\validators\odd\add\odd-add.component.html?type=section)]
 
+[!example(?title=odd validator for add Example)]
 <app-odd-add-validator></app-odd-add-validator>
 
 # BaseConfig
@@ -31,7 +32,7 @@ Below options are not mandatory to use in the `RxwebValidators.odd()` validator.
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpression](#conditionalexpressions) | Odd  validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpression) | Odd  validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## conditionalExpression 
@@ -45,12 +46,10 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\validators\odd\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\validators\odd\conditionalExpression\odd-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\conditionalExpression\odd-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\validators\odd\conditionalExpression\odd-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\conditionalExpression\odd-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=odd validator with conditionalExpression)]
@@ -64,12 +63,10 @@ To override the global configuration message and show the custom message on part
 [!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\validators\odd\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\odd\message\odd-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\message\odd-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\odd\message\odd-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\message\odd-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=odd validator with custom message)]
@@ -79,22 +76,18 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-odd-complete-validator></app-odd-complete-validator>
-# [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\validators\odd\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\validators\odd\complete\odd-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\complete\odd-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\validators\odd\complete\odd-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\complete\odd-complete.component.html)]
 ***
 
 # Dynamic Odd Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-odd-dynamic-validator></app-odd-dynamic-validator>
-# [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\validators\odd\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\validators\odd\dynamic\odd-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\dynamic\odd-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\validators\odd\dynamic\odd-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\dynamic\odd-dynamic.component.html)]
 ***

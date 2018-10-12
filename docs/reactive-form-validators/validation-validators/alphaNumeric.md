@@ -18,10 +18,10 @@ Let’s see how alphaNumeric validator fulfil the need.
 
 We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
-[!code-typescript[](\assets\examples\validators\alphaNumeric\add\alpha-numeric-add.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\alphaNumeric\add\alpha-numeric-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\alphaNumeric\add\alpha-numeric-add.component.html?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\alphaNumeric\add\alpha-numeric-add.component.html?type=section)]
 
 [!example(?title=alpha validator for add Example)]
 <app-alphaNumeric-add-validator></app-alphaNumeric-add-validator>

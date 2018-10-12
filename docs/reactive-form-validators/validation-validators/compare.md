@@ -16,12 +16,12 @@ Let’s see how compare validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
 
-[!code-typescript[](\assets\examples\validators\compare\add\compare-add.component.ts)]
-***
+[!code-typescript[](\assets\examples\validators\compare\add\compare-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\compare\add\compare-add.component.html)]
+[!code-typescript[](\assets\examples\validators\compare\add\compare-add.component.html?type=section)]
 
+[!example(?title=compare validator for add Example)]
 <app-compare-add-validator></app-compare-add-validator>
 
 # CompareConfig
@@ -40,8 +40,6 @@ Current property is matched with the particular property. so we need to pass par
 [!codeExample(?title=fieldNameExample)]
 
 [!TabGroup(?showHideCondition="fieldName")]
-# [Model](#tab\fieldNamemodel)
-[!code-typescript[](\assets\examples\validators\compare\fieldName\user.model.ts)]
 # [Component](#tab\fieldNameComponent)
 [!code-typescript[](\assets\examples\validators\compare\fieldName\compare-field-name.component.ts)]
 # [Html](#tab\fieldNameHtml)
@@ -58,8 +56,6 @@ To override the global configuration message and show the custom message on part
 [!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\validators\compare\message\user.model.ts)]
 # [Component](#tab\messageComponent)
 [!code-typescript[](\assets\examples\validators\compare\message\compare-message.component.ts)]
 # [Html](#tab\messageHtml)
@@ -73,8 +69,6 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-compare-complete-validator></app-compare-complete-validator>
-# [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\validators\compare\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\validators\compare\complete\compare-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -85,8 +79,6 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-compare-dynamic-validator></app-compare-dynamic-validator>
-# [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\validators\compare\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\validators\compare\dynamic\compare-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
