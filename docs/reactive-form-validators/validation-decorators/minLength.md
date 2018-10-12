@@ -15,22 +15,22 @@ Let’s see how minLength validator fulfil the need.
 
 # Basic MinLength Validation
 First we need to create Contact model class define a property of CountryName in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\minLength\add\contact.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\minLength\edit\contact.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\add\contact.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\edit\contact.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\minLength\add\min-length-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\add\min-length-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\minLength\edit\min-length-edit.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\edit\min-length-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\minLength\add\min-length-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\minLength\edit\min-length-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\add\min-length-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\edit\min-length-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=minLength Decorator for add Example)]
 <app-minLength-add></app-minLength-add>
@@ -60,11 +60,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\minLength\conditionalExpression\contact.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\conditionalExpression\contact.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\minLength\conditionalExpression\min-length-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\conditionalExpression\min-length-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\minLength\conditionalExpression\min-length-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\conditionalExpression\min-length-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=minLength decorator with conditionalExpression)]
@@ -78,11 +78,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\minLength\message\contact.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\message\contact.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\minLength\message\min-length-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\message\min-length-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\minLength\message\min-length-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\message\min-length-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=minLength decorator with custom message)]
@@ -96,11 +96,11 @@ enter value which you want to restrict string length in the property.
 
 [!TabGroup(?showHideCondition="value")]
 # [Model](#tab\valueModel)
-[!code-typescript[](\assets\examples\minLength\value\contact.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\value\contact.model.ts)]
 # [Component](#tab\valueComponent)
-[!code-typescript[](\assets\examples\minLength\value\min-length-value.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\value\min-length-value.component.ts)]
 # [Html](#tab\valueHtml)
-[!code-typescript[](\assets\examples\minLength\value\min-length-value.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\value\min-length-value.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="value=!value"&title=minLength decorator with value)]
@@ -114,11 +114,11 @@ This Complete MinLength example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <app-minLength-complete></app-minLength-complete>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\minLength\complete\contact.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\complete\contact.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\minLength\complete\max-number-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\complete\max-number-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\minLength\complete\min-length-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\complete\min-length-complete.component.html)]
 ***
 
 # Dynamic MinLength Example
@@ -126,9 +126,9 @@ This Complete MinLength example which includes all the NumberConfig properties w
 # [Example](#tab\dynamicexample)
 <app-minLength-dynamic></app-minLength-dynamic>
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\minLength\dynamic\contact.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\dynamic\contact.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\minLength\dynamic\max-number-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\dynamic\max-number-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\minLength\dynamic\min-length-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\dynamic\min-length-dynamic.component.html)]
 ***
