@@ -1,6 +1,6 @@
 {
   "name": "@rxweb/reactive-form-validators",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "ngPackage": {
     "lib": {
       "entryFile": "index.ts"
@@ -29,7 +29,10 @@
     "model based validation",
     "angular validators",
     "angular advanced validators",
-    "pattern based validation"
+    "pattern based validation",
+    "model based value changes",
+    "alpha validator",
+    "alphaNumeric validator"
   ],
   "repository": {
     "type": "git",
