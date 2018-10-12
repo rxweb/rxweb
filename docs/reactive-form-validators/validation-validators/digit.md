@@ -16,10 +16,10 @@ Let’s see how digit validator fulfil the need.
 # Basic digit Validation
 We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
-[!code-typescript[](\assets\examples\validators\digit\add\digit-add.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\add\digit-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\digit\add\digit-add.component.html?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\add\digit-add.component.html?type=section)]
 
 [!example(?title=digit validator for add Example)]
 <app-digit-add-validator></app-digit-add-validator>
@@ -44,9 +44,9 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\validators\digit\conditionalExpression\digit-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\conditionalExpression\digit-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\validators\digit\conditionalExpression\digit-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\conditionalExpression\digit-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=digit validator with conditionalExpression)]
@@ -61,9 +61,9 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\digit\message\digit-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\message\digit-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\digit\message\digit-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\message\digit-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=digit validator with custom message)]
@@ -74,9 +74,9 @@ To override the global configuration message and show the custom message on part
 # [Example](#tab\completeexample)
 <app-digit-complete-validator></app-digit-complete-validator>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\validators\digit\complete\digit-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\complete\digit-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\validators\digit\complete\digit-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\complete\digit-complete.component.html)]
 ***
 
 # Dynamic digit Example
@@ -84,7 +84,7 @@ To override the global configuration message and show the custom message on part
 # [Example](#tab\dynamicexample)
 <app-digit-dynamic-validator></app-digit-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\validators\digit\dynamic\digit-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\dynamic\digit-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\validators\digit\dynamic\digit-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\dynamic\digit-dynamic.component.html)]
 ***

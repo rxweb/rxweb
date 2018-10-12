@@ -16,10 +16,10 @@ Let’s see how compare validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
 
-[!code-typescript[](\assets\examples\validators\compare\add\compare-add.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\add\compare-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\compare\add\compare-add.component.html?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\add\compare-add.component.html?type=section)]
 
 [!example(?title=compare validator for add Example)]
 <app-compare-add-validator></app-compare-add-validator>
@@ -41,9 +41,9 @@ Current property is matched with the particular property. so we need to pass par
 
 [!TabGroup(?showHideCondition="fieldName")]
 # [Component](#tab\fieldNameComponent)
-[!code-typescript[](\assets\examples\validators\compare\fieldName\compare-field-name.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\fieldName\compare-field-name.component.ts)]
 # [Html](#tab\fieldNameHtml)
-[!code-typescript[](\assets\examples\validators\compare\fieldName\compare-field-name.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\fieldName\compare-field-name.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="fieldName=!fieldName"&title=compare validator with fieldName)]
@@ -57,9 +57,9 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\compare\message\compare-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\message\compare-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\compare\message\compare-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\message\compare-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=compare validator with custom message)]
@@ -70,9 +70,9 @@ To override the global configuration message and show the custom message on part
 # [Example](#tab\completeexample)
 <app-compare-complete-validator></app-compare-complete-validator>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\validators\compare\complete\compare-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\complete\compare-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\validators\compare\complete\compare-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\complete\compare-complete.component.html)]
 ***
 
 # Dynamic Compare Example
@@ -80,7 +80,7 @@ To override the global configuration message and show the custom message on part
 # [Example](#tab\dynamicexample)
 <app-compare-dynamic-validator></app-compare-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\validators\compare\dynamic\compare-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\dynamic\compare-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\validators\compare\dynamic\compare-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\dynamic\compare-dynamic.component.html)]
 ***
