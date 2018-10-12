@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { AlphaAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/alpha/add/alpha-add.component';
 import { AlphaCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/alpha/complete/alpha-complete.component';
 import { AlphaDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/alpha/dynamic/alpha-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';

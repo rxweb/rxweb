@@ -2,7 +2,7 @@
 	<div class="content">
 		<div class="title">
 	<h1> alpha</h1>
-	<p> Alpha validation validator will allow only alphabets to be entered, It will not allow any number or special character. If user tries to do so the property will become invalid.</p>
+	<p> Alpha validation validator will allow only alphabets to be entered. It will not allow any digit or special character.</p>
 </div>
 		<div class="bg-white py-3 border-radius">
 			<div class="row">
@@ -30,7 +30,7 @@
 
 <p>We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
 <p>Here we have covered Add and Edit form operations.</p>
- <div  >
+ <div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -41,7 +41,7 @@
 
 
 <p>Next, we need to write html code.</p>
- <div  >
+ <div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Html" (cbOnSuccess)="codeContent.add.HtmlCopied = true" [class.copied]="codeContent.add.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -51,7 +51,15 @@
 </div>
 
 
-<app-alpha-add-validator></app-alpha-add-validator>
+<div class="model-ts combined " >
+	<div class="code-example-title">
+		alpha Decorator for add Example
+	</div>
+	<div class="code-example">
+			 <app-alpha-add-validator></app-alpha-add-validator>
+
+	</div>
+</div>
 </div>
 </div>
 <div class='row' id= 'alphaconfig'>
