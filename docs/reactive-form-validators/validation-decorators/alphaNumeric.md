@@ -1,6 +1,6 @@
 ---
 title: alphaNumeric
-description: Alpha Numeric validation decorator will allow only alphabets and numbers to be entered. It will not allow any special character. If user tries to do so the property will become invalid. To use the alphaNumeric decorator on particular property.
+description: Alpha Numeric validation decorator will allow only alphabets and numbers to be entered, It will not allow any special character. 
 author: rxcontributortwo
 
 ---
@@ -16,26 +16,26 @@ Let’s see how alphaNumeric validator fulfil the need.
 
 # Basic AlphaNumeric Validation
 First we need to create a Location class and define a property of AreaName in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\alphaNumeric\add\location.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\alphaNumeric\edit\location.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\add\location.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\edit\location.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\alphaNumeric\add\alpha-numeric-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\add\alpha-numeric-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\alphaNumeric\edit\alpha-numeric-edit.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\edit\alpha-numeric-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\alphaNumeric\add\alpha-numeric-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\alphaNumeric\edit\alpha-numeric-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\add\alpha-numeric-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\edit\alpha-numeric-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=alphaNumeric Decorator for add Example)]
 <app-alphaNumeric-add></app-alphaNumeric-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=alphaNumeric Decorator for edit Example)]
 <app-alphaNumeric-edit></app-alphaNumeric-edit>
 
 # AlphaConfig 
@@ -52,13 +52,15 @@ Type :  `boolean`
 
 This will allow whitespace in particular control property.The default value is `false`.
 
+[!codeExample(?title=allowWhiteSpaceExample)]
+
 [!TabGroup(?showHideCondition="allowWhiteSpaceShow")]
 # [Model](#tab\allowWhiteSpacemodel)
-[!code-typescript[](\assets\examples\alphaNumeric\allowWhiteSpace\location.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\allowWhiteSpace\location.model.ts)]
 # [Component](#tab\allowWhiteSpaceComponent)
-[!code-typescript[](\assets\examples\alphaNumeric\allowWhiteSpace\alpha-numeric-allow-white-space.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\allowWhiteSpace\alpha-numeric-allow-white-space.component.ts)]
 # [Html](#tab\allowWhiteSpaceHtml)
-[!code-typescript[](\assets\examples\alphaNumeric\allowWhiteSpace\alpha-numeric-allow-white-space.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\allowWhiteSpace\alpha-numeric-allow-white-space.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="allowWhiteSpaceShow=!allowWhiteSpaceShow"&title=alphaNumeric decorator with allowWhiteSpace)]
@@ -70,13 +72,17 @@ Type :  `Function`  |  `string`
 AlphaNumeric validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
+[!codeExample(?title=conditionalExpressionExampleFunction)]
+
+[!codeExample(?title=conditionalExpressionExampleString)]
+
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\alphaNumeric\conditionalExpression\location.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\conditionalExpression\location.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\alphaNumeric\conditionalExpression\alpha-numeric-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\conditionalExpression\alpha-numeric-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\alphaNumeric\conditionalExpression\alpha-numeric-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\conditionalExpression\alpha-numeric-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=alphaNumeric decorator with conditionalExpression)]
@@ -86,32 +92,44 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `string` 
 
 To override the global configuration message and show the custom message on particular control property.
+
+[!codeExample(?title=messageExample)]
  
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\alphaNumeric\message\location.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\message\location.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\alphaNumeric\message\alpha-numeric-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\message\alpha-numeric-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\alphaNumeric\message\alpha-numeric-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\message\alpha-numeric-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=alphaNumeric decorator with custom message)]
 <app-alphaNumeric-message></app-alphaNumeric-message>
 
 # Complete AlphaNumeric Example
+
+This Complete AlphaNumeric example which includes all the AlphaConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-alphaNumeric-complete></app-alphaNumeric-complete>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\alphaNumeric\complete\location.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\complete\location.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\alphaNumeric\complete\alpha-numeric-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\complete\alpha-numeric-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\alphaNumeric\complete\alpha-numeric-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\complete\alpha-numeric-complete.component.html)]
 ***
 
-
-
-
-
+# Dynamic AlphaNumeric Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-alphaNumeric-dynamic></app-alphaNumeric-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\dynamic\location.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\dynamic\alpha-numeric-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\dynamic\alpha-numeric-dynamic.component.html)]
+***

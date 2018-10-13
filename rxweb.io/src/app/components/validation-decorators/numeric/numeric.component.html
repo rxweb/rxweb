@@ -1,0 +1,553 @@
+<div id="wrapper" *ngIf="showComponent">
+	<div class="content">
+		<div class="title">
+	<h1> numeric</h1>
+	<p> numeric validation decorator will check whether the value entered is a valid number or not.</p>
+</div>
+		<div class="bg-white py-3 border-radius">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="hpanel">
+						<div class="panel-body validation-tab">
+							<div class='row' id= 'whentouse'>
+<div class='col-lg-12'>
+<h2>When to use</h2>
+
+<p>Let’s assume that you are creating a user form, which contains fields like DataType, integerNumber,integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.</p>
+<ol>
+	<li>  Allow only positive numbers in integerNumber.</li>
+	<li>  Allow only Negative numbers in integerNumber.</li>
+	<li>  Allow decimal value in integerNumber  </li>
+	<li>	Apply numeric validation based on matched condition in the form, like if the dataType  is ‘Integer’ then the number value should be Integer number.</li>
+	<li>	Adding Custom Message on Negative value Field.</li>
+	<li>	Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+</ol>
+<p>Let’s see how Numeric validator fulfil the need.</p>
+</div>
+</div>
+<div class='row' id= 'basicnumericvalidation'>
+<div class='col-lg-12'>
+<h2>Basic numeric Validation</h2>
+
+<p>Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
+<p>Here we have covered Add and Edit form operations. </p>
+ <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.add.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+<p>Next, we need to write html code.</p>
+ <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Html" (cbOnSuccess)="codeContent.add.HtmlCopied = true" [class.copied]="codeContent.add.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.add.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+<div class="model-ts combined " *ngIf="tab_1=='basicadd'">
+	<div class="code-example-title">
+		numeric Decorator for add Example
+	</div>
+	<div class="code-example">
+			 <app-numeric-add></app-numeric-add>
+
+	</div>
+</div>
+<div class="model-ts combined " *ngIf="tab_1=='basicedit'">
+	<div class="code-example-title">
+		numeric Decorator for edit Example
+	</div>
+	<div class="code-example">
+			 <app-numeric-edit></app-numeric-edit>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'numericconfig'>
+<div class='col-lg-12'>
+<h2>NumericConfig</h2>
+
+<p>Below options are not mandatory to use in the <span class='highlighted'>@numeric()</span> decorator. If needed then use the below options.</p>
+ <table class="table table-bordered table-striped">
+			<thead>
+		<tr>
+					<th>Option</th>
+					<th>Description </th>
+				</tr>
+		</thead>
+		<tbody>
+			<tr>	<td><a href='#acceptValue' title='acceptValue' (click)='scrollTo("#acceptValue")'>acceptValue</a></td> 	<td>To apply validation based on checking positive or negative value or both. </td> </tr>	<tr>	<td><a href='#allowDecimal' title='allowDecimal' (click)='scrollTo("#allowDecimal")'>allowDecimal</a></td> 	<td>This will allow decimal in particular control property.The default value is <span class='highlighted'>false</span>. </td> </tr>	<tr>	<td><a href='#conditionalexpressions' title='conditionalExpression' (click)='scrollTo("#conditionalexpressions")'>conditionalExpression</a></td> 	<td>Numeric validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
+	 </table>
+
+</div>
+</div>
+<div class='row' id= 'acceptvalue'>
+<div class='col-lg-12'>
+<h2>acceptValue</h2>
+
+<p>Type :  <span class='highlighted'>NumericValueType</span> </p>
+<p>To apply validation based on checking positive or negative value or both.</p>
+ <blockquote *ngIf="codeContent.acceptValueExample.Notes?.length > 0">
+	<ng-container *ngFor="let item of codeContent.acceptValueExample.Notes">
+	  <p [innerHtml]="item"></p>
+	</ng-container>
+</blockquote>
+<div class="model-ts">
+	<div class="code">
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.acceptValueExample.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+<ul class="nav nav-tabs" *ngIf="acceptValue">
+	<li [class.active]="tab_1=='acceptValuemodel'" (click)="tab_1='acceptValuemodel'"><a>Model</a></li>
+	<li [class.active]="tab_1=='acceptValueComponent'" (click)="tab_1='acceptValueComponent'"><a>Component</a></li>
+	<li [class.active]="tab_1=='acceptValueHtml'" (click)="tab_1='acceptValueHtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" *ngIf="acceptValue">
+			  <div class="tab-pane" [class.active]="tab_1=='acceptValuemodel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.acceptValue.Model" (cbOnSuccess)="codeContent.acceptValue.ModelCopied = true" [class.copied]="codeContent.acceptValue.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.acceptValue.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_1=='acceptValueComponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.acceptValue.Component" (cbOnSuccess)="codeContent.acceptValue.ComponentCopied = true" [class.copied]="codeContent.acceptValue.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.acceptValue.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_1=='acceptValueHtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.acceptValue.Html" (cbOnSuccess)="codeContent.acceptValue.HtmlCopied = true" [class.copied]="codeContent.acceptValue.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.acceptValue.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+<div class="model-ts combined " >
+<a class="float-right copy-icon" (click)="acceptValue=!acceptValue"><i aria-hidden="true" class="fa fa-code"></i></a>
+
+	<div class="code-example-title">
+		numeric decorator depending upon acceptValue"
+	</div>
+	<div class="code-example">
+			 <app-numeric-acceptValue></app-numeric-acceptValue>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'allowdecimal'>
+<div class='col-lg-12'>
+<h2>allowDecimal</h2>
+
+<p>Type :  <span class='highlighted'>boolean</span> </p>
+<p>This will allow decimal in particular control property.The default value is <span class='highlighted'>false</span>.</p>
+ <blockquote *ngIf="codeContent.allowDecimalExample.Notes?.length > 0">
+	<ng-container *ngFor="let item of codeContent.allowDecimalExample.Notes">
+	  <p [innerHtml]="item"></p>
+	</ng-container>
+</blockquote>
+<div class="model-ts">
+	<div class="code">
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.allowDecimalExample.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+<ul class="nav nav-tabs" *ngIf="allowDecimal">
+	<li [class.active]="tab_2=='allowDecimalmodel'" (click)="tab_2='allowDecimalmodel'"><a>Model</a></li>
+	<li [class.active]="tab_2=='allowDecimalComponent'" (click)="tab_2='allowDecimalComponent'"><a>Component</a></li>
+	<li [class.active]="tab_2=='allowDecimalHtml'" (click)="tab_2='allowDecimalHtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" *ngIf="allowDecimal">
+			  <div class="tab-pane" [class.active]="tab_2=='allowDecimalmodel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.allowDecimal.Model" (cbOnSuccess)="codeContent.allowDecimal.ModelCopied = true" [class.copied]="codeContent.allowDecimal.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.allowDecimal.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_2=='allowDecimalComponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.allowDecimal.Component" (cbOnSuccess)="codeContent.allowDecimal.ComponentCopied = true" [class.copied]="codeContent.allowDecimal.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.allowDecimal.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_2=='allowDecimalHtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.allowDecimal.Html" (cbOnSuccess)="codeContent.allowDecimal.HtmlCopied = true" [class.copied]="codeContent.allowDecimal.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.allowDecimal.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+<div class="model-ts combined " >
+<a class="float-right copy-icon" (click)="allowDecimal=!allowDecimal"><i aria-hidden="true" class="fa fa-code"></i></a>
+
+	<div class="code-example-title">
+		alpha decorator with allowDecimal
+	</div>
+	<div class="code-example">
+			 <app-numeric-allowDecimal></app-numeric-allowDecimal>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'conditionalexpression'>
+<div class='col-lg-12'>
+<h2>conditionalExpression</h2>
+
+<p>Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span> </p>
+<p>Numeric validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
+<p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
+ <blockquote *ngIf="codeContent.conditionalExpressionExampleFunction.Notes?.length > 0">
+	<ng-container *ngFor="let item of codeContent.conditionalExpressionExampleFunction.Notes">
+	  <p [innerHtml]="item"></p>
+	</ng-container>
+</blockquote>
+<div class="model-ts">
+	<div class="code">
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.conditionalExpressionExampleFunction.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+ <blockquote *ngIf="codeContent.conditionalExpressionExampleString.Notes?.length > 0">
+	<ng-container *ngFor="let item of codeContent.conditionalExpressionExampleString.Notes">
+	  <p [innerHtml]="item"></p>
+	</ng-container>
+</blockquote>
+<div class="model-ts">
+	<div class="code">
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.conditionalExpressionExampleString.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+<ul class="nav nav-tabs" *ngIf="conditionalExpression">
+	<li [class.active]="tab_3=='conditionalExpressionmodel'" (click)="tab_3='conditionalExpressionmodel'"><a>Model</a></li>
+	<li [class.active]="tab_3=='conditionalExpressionComponent'" (click)="tab_3='conditionalExpressionComponent'"><a>Component</a></li>
+	<li [class.active]="tab_3=='conditionalExpressionHtml'" (click)="tab_3='conditionalExpressionHtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" *ngIf="conditionalExpression">
+			  <div class="tab-pane" [class.active]="tab_3=='conditionalExpressionmodel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Model" (cbOnSuccess)="codeContent.conditionalExpression.ModelCopied = true" [class.copied]="codeContent.conditionalExpression.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.conditionalExpression.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_3=='conditionalExpressionComponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Component" (cbOnSuccess)="codeContent.conditionalExpression.ComponentCopied = true" [class.copied]="codeContent.conditionalExpression.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.conditionalExpression.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_3=='conditionalExpressionHtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Html" (cbOnSuccess)="codeContent.conditionalExpression.HtmlCopied = true" [class.copied]="codeContent.conditionalExpression.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.conditionalExpression.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+<div class="model-ts combined " >
+<a class="float-right copy-icon" (click)="conditionalExpression=!conditionalExpression"><i aria-hidden="true" class="fa fa-code"></i></a>
+
+	<div class="code-example-title">
+		numeric decorator with conditionalExpression
+	</div>
+	<div class="code-example">
+			 <app-numeric-conditionalExpression></app-numeric-conditionalExpression>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'message'>
+<div class='col-lg-12'>
+<h2>message</h2>
+
+<p>Type :  <span class='highlighted'>string</span> </p>
+<p>To override the global configuration message and show the custom message on particular control property.</p>
+ <blockquote *ngIf="codeContent.messageExample.Notes?.length > 0">
+	<ng-container *ngFor="let item of codeContent.messageExample.Notes">
+	  <p [innerHtml]="item"></p>
+	</ng-container>
+</blockquote>
+<div class="model-ts">
+	<div class="code">
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.messageExample.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+<ul class="nav nav-tabs" *ngIf="message">
+	<li [class.active]="tab_4=='messageModel'" (click)="tab_4='messageModel'"><a>Model</a></li>
+	<li [class.active]="tab_4=='messageComponent'" (click)="tab_4='messageComponent'"><a>Component</a></li>
+	<li [class.active]="tab_4=='messageHtml'" (click)="tab_4='messageHtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" *ngIf="message">
+			  <div class="tab-pane" [class.active]="tab_4=='messageModel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Model" (cbOnSuccess)="codeContent.message.ModelCopied = true" [class.copied]="codeContent.message.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.message.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_4=='messageComponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Component" (cbOnSuccess)="codeContent.message.ComponentCopied = true" [class.copied]="codeContent.message.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.message.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_4=='messageHtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Html" (cbOnSuccess)="codeContent.message.HtmlCopied = true" [class.copied]="codeContent.message.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.message.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+<div class="model-ts combined " >
+<a class="float-right copy-icon" (click)="message=!message"><i aria-hidden="true" class="fa fa-code"></i></a>
+
+	<div class="code-example-title">
+		numeric decorator with custom message
+	</div>
+	<div class="code-example">
+			 <app-numeric-message></app-numeric-message>
+
+	</div>
+</div>
+</div>
+</div>
+<div class='row' id= 'completenumericexample'>
+<div class='col-lg-12'>
+<h2>Complete numeric Example</h2>
+
+<p>This Complete numeric example which includes all the NumericConfig properties will fulfil the requirement of scenarios 1, 2, 3, 4 and 5.</p>
+<ul class="nav nav-tabs" >
+	<li [class.active]="tab_5=='completeexample'" (click)="tab_5='completeexample'"><a>Example</a></li>
+	<li [class.active]="tab_5=='completemodel'" (click)="tab_5='completemodel'"><a>Model</a></li>
+	<li [class.active]="tab_5=='completecomponent'" (click)="tab_5='completecomponent'"><a>Component</a></li>
+	<li [class.active]="tab_5=='completehtml'" (click)="tab_5='completehtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" >
+			  <div class="tab-pane" [class.active]="tab_5=='completeexample'">
+			<app-numeric-complete></app-numeric-complete>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_5=='completemodel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Model" (cbOnSuccess)="codeContent.complete.ModelCopied = true" [class.copied]="codeContent.complete.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.complete.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_5=='completecomponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Component" (cbOnSuccess)="codeContent.complete.ComponentCopied = true" [class.copied]="codeContent.complete.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.complete.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_5=='completehtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Html" (cbOnSuccess)="codeContent.complete.HtmlCopied = true" [class.copied]="codeContent.complete.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.complete.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+</div>
+</div>
+<div class='row' id= 'dynamicnumericexample'>
+<div class='col-lg-12'>
+<h2>Dynamic numeric Example</h2>
+
+<ul class="nav nav-tabs" >
+	<li [class.active]="tab_6=='dynamicexample'" (click)="tab_6='dynamicexample'"><a>Example</a></li>
+	<li [class.active]="tab_6=='dynamicmodel'" (click)="tab_6='dynamicmodel'"><a>Model</a></li>
+	<li [class.active]="tab_6=='dynamiccomponent'" (click)="tab_6='dynamiccomponent'"><a>Component</a></li>
+	<li [class.active]="tab_6=='dynamichtml'" (click)="tab_6='dynamichtml'"><a>Html</a></li>
+</ul>
+<div class="tab-content" >
+			  <div class="tab-pane" [class.active]="tab_6=='dynamicexample'">
+			<app-numeric-dynamic></app-numeric-dynamic>
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_6=='dynamicmodel'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Model" (cbOnSuccess)="codeContent.dynamic.ModelCopied = true" [class.copied]="codeContent.dynamic.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Model"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_6=='dynamiccomponent'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Component" (cbOnSuccess)="codeContent.dynamic.ComponentCopied = true" [class.copied]="codeContent.dynamic.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_6=='dynamichtml'">
+			 <div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Html" (cbOnSuccess)="codeContent.dynamic.HtmlCopied = true" [class.copied]="codeContent.dynamic.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Html"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+	</div>																											
+	  
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<app-disqus></app-disqus>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<app-right-sidebar [sidebarLinks]="sidebarLinks"></app-right-sidebar>
+</div>
+

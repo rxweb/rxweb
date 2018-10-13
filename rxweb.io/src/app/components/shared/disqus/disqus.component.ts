@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Location } from '@angular/common';
-import * as moment from '../../../../assets/scripts/moment.js'
+import * as moment from 'src/assets/scripts/moment.js'
 import * as showdown from '../../../../assets/scripts/showdown.js'
 
 @Component({

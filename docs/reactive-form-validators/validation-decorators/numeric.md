@@ -1,6 +1,6 @@
 ---
 title: numeric
-description: numeric validation decorator will check whether the value entered is a valid number or not. if user tries to enter value which is not a proper numeric value it will be invalid. to use the numeric decorator on particular property.
+description: numeric validation decorator will check whether the value entered is a valid number or not.
 author: rxcontributorone
 
 ---
@@ -17,28 +17,21 @@ Let’s assume that you are creating a user form, which contains fields like Dat
 Let’s see how Numeric validator fulfil the need.
 
 # Basic numeric Validation
-First we need to create  User class and define a property of integerNumber in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\numeric\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\numeric\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-[!TabGroup]
-# [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\numeric\add\numeric-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\numeric\edit\numeric-edit.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.ts)]
 ***
 
-Next, we need to write html code.
-[!code-typescript[](\assets\examples\numeric\add\numeric-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\numeric\edit\numeric-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\edit\numeric-edit.component.ts)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+Next, we need to write html code.
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.html)]
+
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=numeric Decorator for add Example)]
 <app-numeric-add></app-numeric-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=numeric Decorator for edit Example)]
 <app-numeric-edit></app-numeric-edit>
 
 # NumericConfig
@@ -56,16 +49,18 @@ Type :  `NumericValueType`
 
 To apply validation based on checking positive or negative value or both.
 
+[!codeExample(?title=acceptValueExample)]
+
 [!TabGroup(?showHideCondition="acceptValue")]
 # [Model](#tab\acceptValuemodel)
-[!code-typescript[](\assets\examples\numeric\acceptValue\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\acceptValue\user.model.ts)]
 # [Component](#tab\acceptValueComponent)
-[!code-typescript[](\assets\examples\numeric\acceptValue\numeric-acceptValue.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\acceptValue\numeric-acceptValue.component.ts)]
 # [Html](#tab\acceptValueHtml)
-[!code-typescript[](\assets\examples\numeric\acceptValue\numeric-acceptValue.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\acceptValue\numeric-acceptValue.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="acceptValue=!acceptValue"&title="numeric decorator depending upon acceptValue")]
+[!example(?type=section&clickEventCode="acceptValue=!acceptValue"&title=numeric decorator depending upon acceptValue")]
 <app-numeric-acceptValue></app-numeric-acceptValue>
 
 ## allowDecimal 
@@ -73,13 +68,15 @@ Type :  `boolean`
 
 This will allow decimal in particular control property.The default value is `false`.
 
+[!codeExample(?title=allowDecimalExample)]
+
 [!TabGroup(?showHideCondition="allowDecimal")]
 # [Model](#tab\allowDecimalmodel)
-[!code-typescript[](\assets\examples\numeric\allowDecimal\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\allowDecimal\user.model.ts)]
 # [Component](#tab\allowDecimalComponent)
-[!code-typescript[](\assets\examples\numeric\allowDecimal\numeric-allow-decimal.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\allowDecimal\numeric-allow-decimal.component.ts)]
 # [Html](#tab\allowDecimalHtml)
-[!code-typescript[](\assets\examples\numeric\allowDecimal\numeric-allow-decimal.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\allowDecimal\numeric-allow-decimal.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="allowDecimal=!allowDecimal"&title=alpha decorator with allowDecimal)]
@@ -91,13 +88,17 @@ Type :  `Function`  |  `string`
 Numeric validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
+[!codeExample(?title=conditionalExpressionExampleFunction)]
+
+[!codeExample(?title=conditionalExpressionExampleString)]
+
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\numeric\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\numeric\conditionalExpression\numeric-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\conditionalExpression\numeric-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\numeric\conditionalExpression\numeric-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\conditionalExpression\numeric-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=numeric decorator with conditionalExpression)]
@@ -108,26 +109,43 @@ Type :  `string`
 
 To override the global configuration message and show the custom message on particular control property.
 
+[!codeExample(?title=messageExample)]
+
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\numeric\message\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\numeric\message\numeric-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\message\numeric-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\numeric\message\numeric-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\message\numeric-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=numeric decorator with custom message)]
 <app-numeric-message></app-numeric-message>
 
 # Complete numeric Example
+
+This Complete numeric example which includes all the NumericConfig properties will fulfil the requirement of scenarios 1, 2, 3, 4 and 5.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-numeric-complete></app-numeric-complete>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\numeric\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\numeric\complete\numeric-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\complete\numeric-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\numeric\complete\numeric-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\complete\numeric-complete.component.html)]
+***
+
+# Dynamic numeric Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-numeric-dynamic></app-numeric-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\dynamic\numeric-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\dynamic\numeric-dynamic.component.html)]
 ***

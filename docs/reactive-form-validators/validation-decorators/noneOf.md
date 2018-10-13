@@ -1,6 +1,6 @@
 ---
 title: noneOf
-description: noneOf validation decorator will check whether the user has entered none of the value is selected from the given inputs. if user tries to enter any of the values it  will be invalid. to use the choice decorator on particular property.
+description: noneOf validation decorator will check whether the user has entered none of the value is selected from the given inputs.
 author: rxcontributorone
 
 ---
@@ -16,27 +16,27 @@ Let’s see how noneOf validator fulfil the need.
 
 # Basic noneOf Validation
 First we need to create a employee Model class and define property of hobbies in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\noneOf\add\employee-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\noneOf\edit\employee-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\add\employee-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\edit\employee-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\noneOf\add\noneOf-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\add\noneOf-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\noneOf\edit\noneOf-edit.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\edit\noneOf-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\noneOf\add\noneOf-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\noneOf\edit\noneOf-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\add\noneOf-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\edit\noneOf-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=noneOf Decorator for add Example)]
 <app-noneOf-add></app-noneOf-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=noneOf Decorator for edit Example)]
 <app-noneOf-edit></app-noneOf-edit>
 
 # ArrayConfig
@@ -55,11 +55,11 @@ matchValue is the array based on which the value is matched for validation. Acco
 
 [!TabGroup(?showHideCondition="matchValue")]
 # [Model](#tab\minLengthModel)
-[!code-typescript[](\assets\examples\noneOf\minLength\employee-info.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\minLength\employee-info.model.ts)]
 # [Component](#tab\minLengthComponent)
-[!code-typescript[](\assets\examples\noneOf\minLength\noneOf-match-value.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\minLength\noneOf-match-value.component.ts)]
 # [Html](#tab\minLengthHtml)
-[!code-typescript[](\assets\examples\noneOf\minLength\noneOf-match-value.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\minLength\noneOf-match-value.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="matchValue=!matchValue"&title=noneOf decorator with matchValue)]
@@ -71,13 +71,17 @@ Type :  `Function`  |  `string`
 noneOf validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
  
+ [!codeExample(?title=conditionalExpressionExampleFunction)]
+
+[!codeExample(?title=conditionalExpressionExampleString)]
+
  [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\noneOf\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\noneOf\conditionalExpression\noneOf-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\conditionalExpression\noneOf-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\noneOf\conditionalExpression\noneOf-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\conditionalExpression\noneOf-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=noneOf decorator with conditionalExpression)]
@@ -87,28 +91,43 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property.
 
+[!codeExample(?title=messageExample)]
+
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\noneOf\message\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\noneOf\message\noneOf-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\message\noneOf-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\noneOf\message\noneOf-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\message\noneOf-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=noneOf decorator with custom message)]
 <app-noneOf-message></app-noneOf-message>
 
 # Complete noneOf Example
+
+This Complete noneOf example which includes all the ArrayConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-noneOf-complete></app-noneOf-complete>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\noneOf\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\complete\user.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\noneOf\complete\noneOf-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\complete\noneOf-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\noneOf\complete\noneOf-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\complete\noneOf-complete.component.html)]
 ***
 
-
+# Dynamic noneOf Example
+[!TabGroup]
+# [Example](#tab\dynamicexample)
+<app-noneOf-dynamic></app-noneOf-dynamic>
+# [Model](#tab\dynamicmodel)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\dynamic\user.model.ts)]
+# [Component](#tab\dynamiccomponent)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\dynamic\noneOf-dynamic.component.ts)]
+# [Html](#tab\dynamichtml)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\dynamic\noneOf-dynamic.component.html)]
+***

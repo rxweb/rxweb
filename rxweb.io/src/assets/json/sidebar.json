@@ -18,143 +18,289 @@
           "childrens": [
             {
               "title": "alpha",
-              "uri": "reactive-form-validators/alpha"
+              "uri": "validation-decorators/alpha"
             },
             {
               "title": "alphaNumeric",
-              "uri": "reactive-form-validators/alphaNumeric"
+              "uri": "validation-decorators/alphaNumeric"
             },
             {
               "title": "compare",
-              "uri": "reactive-form-validators/compare"
+              "uri": "validation-decorators/compare"
             },
             {
               "title": "contains",
-              "uri": "reactive-form-validators/contains"
+              "uri": "validation-decorators/contains"
             },
            
             {
               "title": "creditCard",
-              "uri": "reactive-form-validators/creditCard"
+              "uri": "validation-decorators/creditCard"
             },
          
             {
               "title": "different",
-              "uri": "reactive-form-validators/different"
+              "uri": "validation-decorators/different"
             },
             {
               "title": "digit",
-              "uri": "reactive-form-validators/digit"
+              "uri": "validation-decorators/digit"
             },
             {
               "title": "email",
-              "uri": "reactive-form-validators/email"
+              "uri": "validation-decorators/email"
             },
             {
               "title": "even",
-              "uri": "reactive-form-validators/even"
+              "uri": "validation-decorators/even"
             },
             {
               "title": "factor",
-              "uri": "reactive-form-validators/factor"
+              "uri": "validation-decorators/factor"
             },
             {
               "title": "greaterThanEqualTo",
-              "uri": "reactive-form-validators/greaterThanEqualTo"
+              "uri": "validation-decorators/greaterThanEqualTo"
             },
             {
               "title": "greaterThan",
-              "uri": "reactive-form-validators/greaterThan"
+              "uri": "validation-decorators/greaterThan"
             },
            
             {
               "title": "hexColor",
-              "uri": "reactive-form-validators/hexColor"
+              "uri": "validation-decorators/hexColor"
             },
             {
               "title": "json",
-              "uri": "reactive-form-validators/json"
+              "uri": "validation-decorators/json"
             },
             {
               "title": "leapYear",
-              "uri": "reactive-form-validators/leapYear"
+              "uri": "validation-decorators/leapYear"
             },   
             {
               "title": "lessThanEqualTo",
-              "uri": "reactive-form-validators/lessThanEqualTo"
+              "uri": "validation-decorators/lessThanEqualTo"
             },     
             {
               "title": "lessThan",
-              "uri": "reactive-form-validators/lessThan"
+              "uri": "validation-decorators/lessThan"
             },          
             {
               "title": "lowerCase",
-              "uri": "reactive-form-validators/lowerCase"
+              "uri": "validation-decorators/lowerCase"
             },
             {
               "title": "mac",
-              "uri": "reactive-form-validators/mac"
+              "uri": "validation-decorators/mac"
             },
             {
               "title": "maxDate",
-              "uri": "reactive-form-validators/maxDate"
+              "uri": "validation-decorators/maxDate"
             },
             {
               "title": "maxLength",
-              "uri": "reactive-form-validators/maxLength"
+              "uri": "validation-decorators/maxLength"
             },
             {
               "title": "maxNumber",
-              "uri": "reactive-form-validators/maxNumber"
+              "uri": "validation-decorators/maxNumber"
             },
            
             {
               "title": "minDate",
-              "uri": "reactive-form-validators/minDate"
+              "uri": "validation-decorators/minDate"
             },
             {
               "title": "minLength",
-              "uri": "reactive-form-validators/minLength"
+              "uri": "validation-decorators/minLength"
             },
             {
               "title": "minNumber",
-              "uri": "reactive-form-validators/minNumber"
+              "uri": "validation-decorators/minNumber"
             },
             {
               "title": "numeric",
-              "uri": "reactive-form-validators/numeric"
+              "uri": "validation-decorators/numeric"
             },
             {
               "title": "odd",
-              "uri": "reactive-form-validators/odd"
+              "uri": "validation-decorators/odd"
             },
             {
               "title": "password",
-              "uri": "reactive-form-validators/password"
+              "uri": "validation-decorators/password"
             },
             {
               "title": "pattern",
-              "uri": "reactive-form-validators/pattern"
+              "uri": "validation-decorators/pattern"
             },
             {
               "title": "range",
-              "uri": "reactive-form-validators/range"
+              "uri": "validation-decorators/range"
             },
             {
               "title": "required",
-              "uri": "reactive-form-validators/required"
+              "uri": "validation-decorators/required"
             },
             {
               "title": "time",
-              "uri": "reactive-form-validators/time"
+              "uri": "validation-decorators/time"
             },
             {
               "title": "upperCase",
-              "uri": "reactive-form-validators/upperCase"
+              "uri": "validation-decorators/upperCase"
             },
             {
               "title": "url",
-              "uri": "reactive-form-validators/url"
+              "uri": "validation-decorators/url"
+            }   
+          ]
+        },
+        {
+          "title": "VALIDATION VALIDATORS",
+          "uri": null,
+          "childrens": [
+            {
+              "title": "alpha",
+              "uri": "validation-validators/alpha"
+            },
+            {
+              "title": "alphaNumeric",
+              "uri": "validation-validators/alphaNumeric"
+            },
+            {
+              "title": "compare",
+              "uri": "validation-validators/compare"
+            },
+            {
+              "title": "contains",
+              "uri": "validation-validators/contains"
+            },
+           
+            {
+              "title": "creditCard",
+              "uri": "validation-validators/creditCard"
+            },
+         
+            {
+              "title": "different",
+              "uri": "validation-validators/different"
+            },
+            {
+              "title": "digit",
+              "uri": "validation-validators/digit"
+            },
+            {
+              "title": "email",
+              "uri": "validation-validators/email"
+            },
+            {
+              "title": "even",
+              "uri": "validation-validators/even"
+            },
+            {
+              "title": "factor",
+              "uri": "validation-validators/factor"
+            },
+            {
+              "title": "greaterThanEqualTo",
+              "uri": "validation-validators/greaterThanEqualTo"
+            },
+            {
+              "title": "greaterThan",
+              "uri": "validation-validators/greaterThan"
+            },
+           
+            {
+              "title": "hexColor",
+              "uri": "validation-validators/hexColor"
+            },
+            {
+              "title": "json",
+              "uri": "validation-validators/json"
+            },
+            {
+              "title": "leapYear",
+              "uri": "validation-validators/leapYear"
+            },   
+            {
+              "title": "lessThanEqualTo",
+              "uri": "validation-validators/lessThanEqualTo"
+            },     
+            {
+              "title": "lessThan",
+              "uri": "validation-validators/lessThan"
+            },          
+            {
+              "title": "lowerCase",
+              "uri": "validation-validators/lowerCase"
+            },
+            {
+              "title": "mac",
+              "uri": "validation-validators/mac"
+            },
+            {
+              "title": "maxDate",
+              "uri": "validation-validators/maxDate"
+            },
+            {
+              "title": "maxLength",
+              "uri": "validation-validators/maxLength"
+            },
+            {
+              "title": "maxNumber",
+              "uri": "validation-validators/maxNumber"
+            },
+           
+            {
+              "title": "minDate",
+              "uri": "validation-validators/minDate"
+            },
+            {
+              "title": "minLength",
+              "uri": "validation-validators/minLength"
+            },
+            {
+              "title": "minNumber",
+              "uri": "validation-validators/minNumber"
+            },
+            {
+              "title": "numeric",
+              "uri": "validation-validators/numeric"
+            },
+            {
+              "title": "odd",
+              "uri": "validation-validators/odd"
+            },
+            {
+              "title": "password",
+              "uri": "validation-validators/password"
+            },
+            {
+              "title": "pattern",
+              "uri": "validation-validators/pattern"
+            },
+            {
+              "title": "range",
+              "uri": "validation-validators/range"
+            },
+            {
+              "title": "required",
+              "uri": "validation-validators/required"
+            },
+            {
+              "title": "time",
+              "uri": "validation-validators/time"
+            },
+            {
+              "title": "upperCase",
+              "uri": "validation-validators/upperCase"
+            },
+            {
+              "title": "url",
+              "uri": "validation-validators/url"
             }   
           ]
         }

@@ -1,0 +1,11 @@
+<div>
+<form [formGroup]="attandanceDetailFormGroup">
+<div class="form-group">
+    <label>Exit Time</label>
+    <input type="text" formControlName="exitTime" class="form-control"  />
+    <small class="form-text text-muted">Shows Custom Validation Message.<br/></small>
+    <small class="form-text text-danger" *ngIf="attandanceDetailFormGroup.controls.exitTime.errors">{{attandanceDetailFormGroup.controls.exitTime.errors.time.message}}<br/></small>
+</div>
+<button [disabled]="!attandanceDetailFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

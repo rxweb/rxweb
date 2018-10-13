@@ -2,35 +2,35 @@
   <div class="color-line">
   </div>
   <div id="logo" class="light-version">
-    <span>
+    <a routerLink="/dashboard">
       Rx Web Home
-    </span>
+    </a>
   </div>
   <nav role="navigation">
   <div class="header-link hide-menu" (click)="hideSideBar()"><i class="fa fa-bars"></i></div>
   <!-- right -->
-	<form [formGroup]="searchFormGroup" role="search" class="navbar-form-custom" method="post" action="#">
+	<form [formGroup]="searchFormGroup" role="search" class="navbar-form-custom search-form-group" method="post" action="#">
 		<div class="form-group">
-			<input type="text" formControlName="search" placeholder="Search something special" (click)="showSearchMenu=true"   autocomplete="off" class="form-control" name="search">
+			<input type="text" formControlName="search" placeholder="Search something special" (click)="showSearchMenu=true"   autocomplete="off" class="form-control search-form" name="search">
 		</div>
 	</form>
     <div class="mobile-menu">
-      <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-target="#mobile-collapse">
+      <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-Target="#mobile-collapse">
         <i class="fa fa-chevron-down"></i>
       </button>
 	    <div class="collapse mobile-navbar" id="mobile-collapse">
         <ul class="nav navbar-nav">
 					<li>
-						<a href="'https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/validation-decorators/{{validationName}}">Edit</a>
+						<a href="'https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/validation-decorators/{{validationName}}" target="_blank">Edit</a>
 					</li>
 					<li>
-						<a href="https://gitter.im/rx-web/">Stack Overflow</a>
+						<a href="https://stackoverflow.com/search?q=rxweb" target="_blank">Stack Overflow</a>
 					</li>
 					<li>
-						<a href="https://gitter.im/rx-web/Lobby">Comment</a>
+						<a href="https://gitter.im/rx-web/Lobby" target="_blank">Comment</a>
 					</li>
 					<li>
-						<a href="https://github.com/rxweb/rxweb">GitHub</a>
+						<a href="https://github.com/rxweb/rxweb" target="_blank">GitHub</a>
 					</li>
 				</ul>
 		 </div>
@@ -38,16 +38,16 @@
 		<div class="navbar-right">
       <ul class="nav navbar-nav no-borders">
 				<li>
-					<a href="'https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/validation-decorators/{{validationName}}" title="Edit"><i class="fa fa-pencil"></i></a>
+					<a href="'https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/validation-decorators/{{validationName}}" title="Edit" target="_blank"><i class="fa fa-pencil"></i></a>
 				</li>
 				<li>
-					<a href="https://gitter.im/rx-web/" title="Stack Overflow"><i class="fa fa-stack-overflow"></i></a>
+					<a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i></a>
 				</li>
 				<li>
-					<a href="https://gitter.im/rx-web/Lobby" title="Comment"><i class="fa fa-comment"></i></a>
+					<a href="https://gitter.im/rx-web/Lobby" title="Comment" target="_blank"><i class="fa fa-comment"></i></a>
 				</li>
 				<li>
-					<a href="https://github.com/rxweb/rxweb" title="GitHub"><i class="fa fa-github"></i></a>
+					<a href="https://github.com/rxweb/rxweb" title="GitHub" target="_blank"><i class="fa fa-github"></i></a>
 				</li>
 		</ul>
 		</div>
