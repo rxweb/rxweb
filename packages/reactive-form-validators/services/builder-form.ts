@@ -40,7 +40,7 @@ export class BuilderForm extends FormBuilder {
   valueChangedSync(entityObject:{[key:string]:string}){
     return function(){
         Object.keys(this.controls).forEach(columnName=>{
-            if(!(this.controls[columnName] instanceof FormArray) && !(this.controls[columnName] instanceof FormGroup) && this.controls[columnName] != entityObject[columnName]) {
+            if(!(this.controls[columnName] instanceof FormArray) && !(this.controls[columnName] instanceof FormGroup) && this.controls[columnName].value != entityObject[columnName]) {
                   this.controls[columnName].setValue(entityObject[columnName],{updateChanged:true});
             } else if((this.controls[columnName] instanceof FormArray)){
                 for(let formGroup of this.controls[columnName].controls){
