@@ -1,5 +1,4 @@
-export interface AlphaConfig{
-    allowWhiteSpace?: boolean;
-    message?: string;
-    conditionalExpression?: string | Function;
+import { BaseConfig } from './base-config'
+export interface AlphaConfig extends BaseConfig {
+  allowWhiteSpace?: boolean;
 }

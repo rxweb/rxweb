@@ -1,5 +1,5 @@
-export interface DateConfig{
+import { BaseConfig } from './base-config'
+export interface DateConfig extends BaseConfig{
     value: Date;
-    message?: string;
-    conditionalExpression?: string | Function;
+    
 }

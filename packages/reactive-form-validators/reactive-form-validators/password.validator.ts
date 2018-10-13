@@ -10,9 +10,9 @@ import { ApplicationUtil } from "../util/app-util";
 import { DecoratorName } from "../util/decorator-name";
 import { ObjectMaker } from "../util/object-maker";
 import { AnnotationTypes } from "../core/validator.static";
-
 export function passwordValidator(config:PasswordConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
+        config = ApplicationUtil.getConfigObject(config);
         let controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         if (RegexValidator.isNotBlank(controlValue)) {

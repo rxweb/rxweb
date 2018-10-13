@@ -5,7 +5,7 @@ import { PROPERTY } from "../const"
 export function prop() {
     return function (
         target: Object,
-        propertyKey: string, parameterIndex?: number
+        propertyKey: string, parameterIndex?: any
     ) {
         var propertyInfo: PropertyInfo = {
             name : propertyKey,
