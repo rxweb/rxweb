@@ -37,6 +37,37 @@ console.log(propertyKey)
 console.log(target);
     };
 }
+export class Client{
+
+  _countryName:string ;
+  _countryCode:string ;
+  
+  
+  @prop()
+  clientName:string ;
+
+  set countryName(value:string){
+
+    this._countryName = value;
+    if(value == "Australia")
+      this.countryCode = "AU";
+  }
+
+  @prop()
+  get countryName(){
+    return this._countryName;
+  }
+
+  set countryCode(value:string){
+    this._countryCode = value;
+  }
+
+  @prop()
+  get countryCode(){
+    return this._countryCode;
+  }
+}
+
 export class Employee {
     @leapYear() leapYear:number;
     @factor({fieldName:'odd'}) factor:number;
@@ -101,6 +132,7 @@ export class Employee {
     private _updateChange:string;
     set updateChange(value:string){
       this._updateChange = value;
+this.classProperty = value;
     }
 
     @prop() get updateChange(){
@@ -126,8 +158,13 @@ export class AppComponent implements OnInit {
     secondEmployee:any = {};
 
   userInfoFormGroup: FormGroup
-
+clientFormGroup:FormGroup
   ngOnInit() {
+let client = new Client();
+    client.clientName = "ABC Corp";
+    client.countryName = "India";
+    client.countryCode = "IN";
+    this.clientFormGroup = this.validation.formGroup(client);
     this.largeFormGroup();
         this.angularFormGroup = this.validation.group({
           firstName:['',Validators.min(10)],
