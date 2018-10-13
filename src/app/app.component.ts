@@ -167,7 +167,7 @@ let client = new Client();
     this.clientFormGroup = this.validation.formGroup(client);
     this.largeFormGroup();
         this.angularFormGroup = this.validation.group({
-          firstName:['',Validators.min(10)],
+          firstName:['',RxwebValidators.required()],
           lastName:[''],
           address:this.validation.group({
             city:[''],

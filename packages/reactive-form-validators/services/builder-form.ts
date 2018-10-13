@@ -44,10 +44,12 @@ export class BuilderForm extends FormBuilder {
                   this.controls[columnName].setValue(entityObject[columnName],{updateChanged:true});
             } else if((this.controls[columnName] instanceof FormArray)){
                 for(let formGroup of this.controls[columnName].controls){
+                    if(formGroup["valueChangedSync"])
                     formGroup["valueChangedSync"]();
                 }
             } else if((this.controls[columnName] instanceof FormGroup)){
-                    this.controls[columnName]["valueChangedSync"]();
+                    if(this.controls[columnName]["valueChangedSync"])
+                      this.controls[columnName]["valueChangedSync"]();
             }
         })
     }
