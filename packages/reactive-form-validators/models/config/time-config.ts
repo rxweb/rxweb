@@ -1,5 +1,5 @@
-export interface TimeConfig{
+import { BaseConfig } from './base-config'
+export interface TimeConfig extends BaseConfig{
     allowSeconds?: boolean;
-    message?: string;
-    conditionalExpression?: string | Function;
+    
 }

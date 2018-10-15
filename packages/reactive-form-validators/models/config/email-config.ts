@@ -1,4 +1,3 @@
-export interface EmailConfig{
-    message?: string
-    conditionalExpression?: string | Function;
+import { BaseConfig } from './base-config'
+export interface EmailConfig extends BaseConfig{
 }

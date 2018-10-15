@@ -1,4 +1,5 @@
 import { PropValidationConfig } from "./prop-validation-config";
+import {ValidatorFn } from '@angular/forms'
 
 export class FormBuilderConfiguration{
     constructor(formBuilderConfiguration?: FormBuilderConfiguration) {
@@ -7,11 +8,9 @@ export class FormBuilderConfiguration{
                 this[column] = formBuilderConfiguration[column];
     }
 
-    includeArrayProps: string[] | string[][];
+    applyAllProps?:ValidatorFn[];
 
-    includeObjectdProps: string[] | string[][];
+    excludeProps?: string[];
 
-    excludeProps: string[];
-
-    validations: { [key: string]: PropValidationConfig }
+    dynamicValidation?: { [key: string]: PropValidationConfig }
 }

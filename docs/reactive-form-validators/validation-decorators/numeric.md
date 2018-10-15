@@ -23,6 +23,8 @@ Here we have covered Add and Edit form operations.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.ts)]
 ***
 
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\edit\numeric-edit.component.ts)]
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.html)]
 
