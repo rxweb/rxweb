@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume you are creating a user value form , which contains fields like name,birth year,joining year and you want the user to enter value which is in leap year format Here depending upon the requirement these scenarios may arise..
+Let's assume you are creating a user value form , which contains fields like name, birth year, joining year and you want the user to enter value which is in leap year format Here depending upon the requirement these scenarios may arise..
 1. Allow only leap year in the field of birthyear.
 2. Apply leapyear validation based on matched condition in the form, like if the name  is ‘John’ then the birthYear value should be leapyear.
 3. Adding Custom Message on joining Field.

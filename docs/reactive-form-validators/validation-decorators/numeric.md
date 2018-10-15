@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 
 # When to use
-Let’s assume that you are creating a user form, which contains fields like DataType, integerNumber,integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.
+Let’s assume that you are creating a user form, which contains fields like DataType, integerNumber, integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.
 1.  Allow only positive numbers in integerNumber.
 2.  Allow only Negative numbers in integerNumber.
 3.  Allow decimal value in integerNumber  

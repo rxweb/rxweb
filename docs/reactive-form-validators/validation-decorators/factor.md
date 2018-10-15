@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 
 # When to use
-Let's assume that you are creating a user form in which you want user to enter factor of a particular value which contains fields like firstNumber,secondNumber,ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise.
+Let's assume that you are creating a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise.
 1.	The Name of secondNumber field on which comparison is done.
 2.  Apply factor validation based on matched condition in the form, like if the firstNumber  is ‘25’ then the Fourthyear value should be factor.
 3.  The Custom Message on ThirdNumber field.

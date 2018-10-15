@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let’s assume that you are creating a website-info form, which contains fields like AdminWebsiteUrl,CustomerWebsiteUrl,MaintenanceWebsiteUrl and you want the user to enter valid url. Here depending upon the requirement these scenarios may arise.
+Let’s assume that you are creating a website-info form, which contains fields like AdminWebsiteUrl, CustomerWebsiteUrl, MaintenanceWebsiteUrl and you want the user to enter valid url. Here depending upon the requirement these scenarios may arise.
 1. Adding AdminWebsiteUrl without any conditional expression.
 2. Apply url validation based on matched condition in the form, like if the adminWebsiteUrl is ‘https://google.co.in’ then the customerWebsiteUrl value should be in proper format of url.
 3. Adding Custom Message on MaintenanceWebsiteUrl Field.
@@ -15,7 +15,7 @@ Let’s see how url validator fulfil the need.
 
 # Basic url Validation
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\validators\url\add\url-add.component.ts)]
 ***

@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 
 # When to use
-Let's assume that you are creating a  form in which you want user to enter mac address  which contains fields like device,macAddress,systemMacAddress. Here depending upon the requirement these scenarios may arise.
+Let's assume that you are creating a  form in which you want user to enter mac address  which contains fields like device, macAddress, systemMacAddress. Here depending upon the requirement these scenarios may arise.
 1.	The macAddress on which validation is checked.
 2.  Apply mac validation based on matched condition in the form, like if the device  is ‘Laptop’ then the macAddress value should be in proper format.
 3.  The Custom Message on systemMacAddress field.

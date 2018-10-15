@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let’s assume that you are creating a AttendanceDetail form, which contains field of EntryPlace,EntryTime,TotalTimeOut and Exit Time you want the user to enter valid time. Here depending upon the requirement these scenarios may arise.	
+Let’s assume that you are creating a AttendanceDetail form, which contains field of EntryPlace, EntryTime, TotalTimeOut and Exit Time you want the user to enter valid time. Here depending upon the requirement these scenarios may arise.	
 1.	Allow time in EntryTime without seconds.
 2.	Allowing seconds in TotalTimeOut.
 3.	Apply time validation based on matched condition in the form, like if the EntryPlace is ‘Lunch room’ then the EntryTime value should be in proper format of time .

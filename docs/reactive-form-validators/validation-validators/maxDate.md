@@ -16,7 +16,7 @@ Let’s see how MaxDate validator fulfil the need.
 
 # Basic MaxDate Validation
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\validators\maxDate\add\max-date-add.component.ts)]
 

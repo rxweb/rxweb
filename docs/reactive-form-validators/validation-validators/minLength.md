@@ -15,7 +15,7 @@ Let’s see how minLength validator fulfil the need.
 
 # Basic MinLength Validation
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\validators\minLength\add\min-length-add.component.ts)]
 ***

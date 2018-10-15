@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a user form and you have fields like Email,RecoveryEmail,OtherEmailAddress and you want user to enter valid EmailAddress Here depending upon the requirement these scenarios may arise.
+Let's assume that you are creating a user form and you have fields like Email, RecoveryEmail, OtherEmailAddress and you want user to enter valid EmailAddress Here depending upon the requirement these scenarios may arise.
 1. Adding field of email without any conditional expression.
 2. 	Apply email validation based on matched condition in the form, like if the Email is ‘abc@gmail.com’ then the RecoveryEmailAddress value should be valid email address.
 3. Adding Custom Message on OtherEmailAddress Field.

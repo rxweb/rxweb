@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a user form and you have fields like TotalMarks,ObtainedMarks,OtherMarks and you want user to enter ObtainedMarks,OtherMarks such that they should be less than or equal to TotalMarks Here depending upon the requirement these scenarios may arise
+Let's assume that you are creating a user form and you have fields like TotalMarks, ObtainedMarks, OtherMarks and you want user to enter ObtainedMarks, OtherMarks such that they should be less than or equal to TotalMarks Here depending upon the requirement these scenarios may arise
 1. Specify TotalMarks as fieldName such that LessThanEqualTo validation should be applied to the fieldname for comparing other fields.
 2. Apply LessThanEqualTo validation based on matched condition in the form, like if the TotalMarks is ‘100’ then the ObtainedMarks,OtherMarks value should be less than or equal to 100.
 3. Adding Custom Message on OtherMarks Field.

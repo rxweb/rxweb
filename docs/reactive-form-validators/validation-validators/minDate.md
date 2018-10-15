@@ -14,7 +14,7 @@ Let’s assume that you are creating a User form, which contains fields like Use
 Let’s see how minDate validator fulfil the need.
 
 # Basic MinDate Validation
-We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\validators\minDate\add\min-date-add.component.ts)]
 ***

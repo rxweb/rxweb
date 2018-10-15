@@ -14,7 +14,7 @@ Let’s assume that you are creating a User form, which contains fields like Age
 Let’s see how greaterThan validator fulfil the need.
 
 # Basic GreaterThan Validation
-We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\validators\greaterThan\add\greater-than-add.component.ts)]
 ***

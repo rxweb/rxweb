@@ -6,7 +6,7 @@ author:  rxcontributorone
 ---
 # When to use
 Let's assume that you are creating a user form and you want details like CreditCard and you have fields like CardType,VisaCard,AmericanExpress,MaestroCard,JCBcard,DiscoverCard,MasterCard  Here depending upon the requirement these scenarios may arise.  
-1.  CreditCard Type has different Card Types like Visa,AmericanExpress,Maestro,JCB,Discover,DinersClub,MasterCard.
+1.  CreditCard Type has different Card Types like Visa, AmericanExpress, Maestro, JCB, Discover, DinersClub, MasterCard.
 2. 	Apply CreditCard validation based on matched condition in the form, like if the CardType  is ‘visa’ then the VisaCard value should be in VisaCard format.
 3.  The Custom Message on VisaCard field.  
 4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
@@ -15,7 +15,7 @@ Let’s see how credit card validator fulfil the need.
 
 # Basic CreditCard Validation
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+Here we have covered Add operation. 
 
 [!code-typescript[](\assets\examples\validators\creditCard\add\credit-card-add.component.ts)]
 ***
