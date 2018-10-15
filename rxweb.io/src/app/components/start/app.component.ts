@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { OnInit } from "@angular/core";
 import { ReactiveFormConfig } from "@rxweb/reactive-form-validators";
+import { Router } from "@angular/router";
+import { NavigationEnd } from "@angular/router";
+import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
 
 @Component({
   selector: 'app-root',
@@ -9,6 +12,14 @@ import { ReactiveFormConfig } from "@rxweb/reactive-form-validators";
 })
 export class AppComponent implements OnInit {
   title = 'rx-app';
+  constructor(private router: Router,private applicationBroadCaster:ApplicationBroadcaster){
+      router.events.subscribe((val) => {
+        if(val instanceof NavigationEnd) {
+          var url = "https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators" +val.url + ".md"
+          applicationBroadCaster.urlBroadCast(url);
+        }
+    });
+  }
   ngOnInit() {
     ReactiveFormConfig.set({
       "internationalization": {

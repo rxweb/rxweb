@@ -1,20 +1,20 @@
 <aside id="menu" *ngIf="showComponent">
 	<div id="navigation" slimScroll>
 		<ul class="nav" id="side-menu">
-			<li>
+			<!--<li>
 				<div class="input-group">
 					<input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Search..." id="search-input">
 				</div>
-			</li>
-			<li *ngFor="let link of links | filter:searchText">
-				<a  (click)="link.isOpen = !link.isOpen" [routerLink]="link.uri" routerLinkActive="active"><span class="nav-label">{{link.title}}</span><span class="fa" [class.arrow]="link.isOpen" [class.fa-angle-down]="!link.isOpen"  *ngIf="link.childrens?.length > 0"></span></a>
+			</li>-->
+			<li *ngFor="let link of links">
+				<a  (click)="link.isOpen = !link.isOpen;navigateTo(link.uri)" routerLinkActive="active"><span class="nav-label">{{link.title}}</span><span class="fa" [class.arrow]="link.isOpen" [class.fa-angle-down]="!link.isOpen"  *ngIf="link.childrens?.length > 0"></span></a>
 				<ul [class.hide]="!link.isOpen" [class.show]="link.isOpen" class="nav nav-second-level collapse" aria-expanded="false" *ngIf="link.childrens?.length > 0">
 					<li *ngFor="let secondLevel of link.childrens;let i = index">
-						<a [routerLink]="secondLevel.uri" (click)="secondLevel.isOpen = !secondLevel.isOpen" routerLinkActive="active"><span class="nav-label">{{secondLevel.title}}</span><span class="fa" [class.arrow]="!secondLevel.isOpen" [class.fa-angle-down]="secondLevel.isOpen" *ngIf="secondLevel.childrens?.length > 0"></span>
+						<a (click)="secondLevel.isOpen = !secondLevel.isOpen;navigateTo(secondLevel.uri)" routerLinkActive="active"><span class="nav-label">{{secondLevel.title}}</span><span class="fa" [class.arrow]="!secondLevel.isOpen" [class.fa-angle-down]="secondLevel.isOpen" *ngIf="secondLevel.childrens?.length > 0"></span>
 						</a>
 						<ul [class.hide]="!secondLevel.isOpen" [class.show]="secondLevel.isOpen" class="nav nav-third-level collapse" aria-expanded="false" *ngIf="secondLevel.childrens?.length > 0">
 							<li *ngFor="let thirdLevel of secondLevel.childrens;let i = index">
-								<a [routerLink]="thirdLevel.uri" routerLinkActive="active">
+								<a (click)="navigateTo(thirdLevel.uri)" routerLinkActive="active">
 										<span class="nav-label">{{thirdLevel.title}}</span>
 									</a>
 							</li>

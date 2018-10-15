@@ -18,6 +18,7 @@ import { ImportModulesComponent } from "src/app/components/import-modules/import
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { ConfigureGlobalValidationMessagesComponent } from "src/app/components/configure-global-validation-messages/configure-global-validation-messages.component";
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
+import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
 
 
 
@@ -31,7 +32,7 @@ import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shar
     NgSlimScrollModule,
     
   ],
-  providers: [{
+  providers: [ApplicationBroadcaster, {
     provide: SLIMSCROLL_DEFAULTS,
     useValue: {
       position: "right",
@@ -48,7 +49,7 @@ import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shar
       alwaysVisible: true,
       visibleTimeout: 1000,
     }
-  },],
+  }],
 exports:[RouterModule],
   bootstrap: [AppComponent],
   schemas: [
