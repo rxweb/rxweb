@@ -8,6 +8,9 @@
 			<li [class.active]="activeTab == 'close'" (click)="tabClick('close')">
 				<a data-toggle="tab">Close</a>
 			</li>
+			<li [class.active]="activeTab == 'newIssue'" (click)="tabClick('newIssue')">
+				<a data-toggle="tab">New Feature Request</a>
+			</li>
 		</ul>
 		<div class="tab-content padding-zero-tab">
 			<div class="tab-pane" [class.active]="activeTab == 'open'">
@@ -80,8 +83,22 @@
 						</div>
 					</div>
 					<div class="p-2" *ngIf="closedIssuesList.length > 5">
-						<a href="https://github.com/rxweb/rxweb/issues?q=is%3Aissue+is%3Aclosed"  target="_blank" class="pull-right">show more...</a>
+						<a href="https://github.com/rxweb/rxweb/issues?q=is%3Aissue+is%3Aclosed" target="_blank" class="pull-right">show more...</a>
 					</div>
+				</div>
+			</div>
+			<div class="tab-pane" [class.active]="activeTab == 'newIssue'">
+				<div class="code-example">
+					<a *ngIf="showSignIn" href="http://localhost:61143/GitHub/AuthorizeGitHub?currentUrl={{currentUrl}}"  class="btn btn-primary pull-right">Sign In</a>
+					<form [formGroup]="issueFormGroup" *ngIf="!showSignIn">
+						<div class="form-group">
+							<input type="textbox" class="form-control" formControlName="title" placeholder="Enter Title" />
+						</div>
+						<div class="form-group">
+							<textarea class="form-control" formControlName="body" rows="10" cols="30" placeholder="Enter Description"></textarea>
+						</div>
+						<button class="btn btn-primary" (click)="addIssue()">Submit</button>
+					</form>
 				</div>
 			</div>
 		</div>
