@@ -13,7 +13,7 @@
 			<div class="tab-pane" [class.active]="activeTab == 'open'">
 				<p class="p-2" *ngIf="openIssuesList.length == 0">No Issues found.</p>
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" *ngIf="openIssuesList.length > 0">
-					<div class="panel" *ngFor="let item of openIssuesList;let i = index">
+					<div class="panel" *ngFor="let item of openIssuesList | slice:0:5;let i = index;">
 						<div class="panelheading" role="tab" id="heading{{item.id}}">
 							<h4 class="panel-title que">
 								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{item.id}}" aria-expanded="true" (click)="showOpenComments(item.comments_url,i)">
@@ -42,12 +42,15 @@
 							</div>
 						</div>
 					</div>
+					<div class="p-2" *ngIf="openIssuesList.length > 5">
+						<a href="https://github.com/rxweb/rxweb/issues" target="_blank" class="pull-right">show more...</a>
+					</div>
 				</div>
 			</div>
 			<div class="tab-pane" [class.active]="activeTab == 'close'">
 				<p class="p-2" *ngIf="closedIssuesList.length == 0">No Issues found.</p>
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" *ngIf="closedIssuesList.length > 0">
-					<div class="panel" *ngFor="let item of closedIssuesList;let i = index">
+					<div class="panel" *ngFor="let item of closedIssuesList | slice:0:5; let i = index">
 						<div class="panelheading" role="tab" id="heading{{item.id}}">
 							<h4 class="panel-title que">
 								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{item.id}}" aria-expanded="true" (click)="showCloseComments(item.comments_url,i)">
@@ -75,6 +78,9 @@
 								</div>
 							</div>
 						</div>
+					</div>
+					<div class="p-2" *ngIf="closedIssuesList.length > 5">
+						<a href="https://github.com/rxweb/rxweb/issues?q=is%3Aissue+is%3Aclosed"  target="_blank" class="pull-right">show more...</a>
 					</div>
 				</div>
 			</div>

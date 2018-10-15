@@ -9,7 +9,7 @@ import { CreditCardComponent } from './creditCard.component';
 import { CreditCardExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/creditCard/creditCard.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
-import { TitleCasePipe } from "@angular/common";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import { TitleCasePipe } from "@angular/common";
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers:[TitleCasePipe]
+  providers:[MergeDashPipe]
 })
 export class CreditCardDecoratorsModule { }
 
