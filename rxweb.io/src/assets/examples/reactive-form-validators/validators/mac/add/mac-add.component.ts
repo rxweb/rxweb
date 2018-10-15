@@ -16,8 +16,8 @@ export class MacAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.macAddressInfoFormGroup = this.formBuilder.formGroup({
-										systemMacAddress:['',RxwebValidators.mac()], 
+        this.macAddressInfoFormGroup = this.formBuilder.group({
+										systemMacAddress:['', RxwebValidators.mac()], 
 								});
     }
 }

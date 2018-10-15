@@ -16,8 +16,8 @@ export class AlphaAllowWhiteSpaceValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.addressInfoFormGroup = this.formBuilder.formGroup({
-										stateName:['',RxwebValidators.alpha({allowWhiteSpace:true })], 
+        this.addressInfoFormGroup = this.formBuilder.group({
+										stateName:['', RxwebValidators.alpha({allowWhiteSpace:true })], 
 								});
     }
 }

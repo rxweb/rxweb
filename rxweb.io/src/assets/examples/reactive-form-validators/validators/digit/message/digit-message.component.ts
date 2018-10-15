@@ -16,8 +16,8 @@ export class DigitMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										mobileNumber:['',RxwebValidators.digit({message:'Please enter only digit.' })], 
+        this.userFormGroup = this.formBuilder.group({
+										mobileNumber:['', RxwebValidators.digit({message:'Please enter only digit.' })], 
 								});
     }
 }

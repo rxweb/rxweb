@@ -1,6 +1,8 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-top-bar',
@@ -12,23 +14,22 @@ export class TopBarComponent implements OnInit {
   showComponent: boolean = false;
   showSearchMenu:boolean =false;
   FormValidators: any;
-  validationName:string;
-  constructor(private _formBuilder: FormBuilder,private http: HttpClient
+  url:string;
+  constructor(private _formBuilder: FormBuilder,private http: HttpClient,private applicationBroadCaster:ApplicationBroadcaster,private router:Router
   ) {
     this.searchFormGroup = this._formBuilder.group({
       search: ''
     })
+    applicationBroadCaster.urlSubscriber.subscribe(t => {
+      this.url = t;
+    });
   }
 
   ngOnInit(): void {
     this.http.get('assets/json/validation.json')
     .subscribe(response => {
       this.FormValidators = response;
-	  let splitedArray = location.pathname.split('/');
-	  if(splitedArray[2] != undefined){
-		this.validationName = splitedArray[2] +".md"
-		}
-		this.showComponent = true;  
+  	  this.showComponent = true;  
     }) ;
   }
 

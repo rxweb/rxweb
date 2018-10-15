@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { EmailAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/email/add/email-add.component';
 import { EmailCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/email/complete/email-complete.component';
 import { EmailDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/email/dynamic/email-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class EmailComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic Email Validation":null,"EmailConfig":["conditionalExpression","message"],"Complete Email Example":null,"Dynamic Email Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
    tab_3:string = "completeexample";
    tab_4:string = "dynamicexample";
    

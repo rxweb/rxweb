@@ -20,7 +20,7 @@ export class AlphaEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/alpha/edit/country-data.json').subscribe(country => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/alpha/edit/country-data.json').subscribe(country => {
             this.countryFormGroup = this.formBuilder.formGroup<Country>(Country,country);
         })
     }

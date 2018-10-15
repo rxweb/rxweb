@@ -16,8 +16,8 @@ export class LeapYearMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										joiningYear:['',RxwebValidators.leapYear({message:'{{0}} is not a leap year' })], 
+        this.userFormGroup = this.formBuilder.group({
+										joiningYear:['', RxwebValidators.leapYear({message:'{{0}} is not a leap year' })], 
 								});
     }
 }

@@ -16,10 +16,10 @@ export class UpperCaseConditionalExpressionValidatorComponent implements OnInit 
     ) { }
 
     ngOnInit() {
-        this.locationFormGroup = this.formBuilder.formGroup({
-										countryName:['',RxwebValidators.upperCase()], 
-													cityName:['',RxwebValidators.upperCase({conditionalExpression:x => x.countryName == "INDIA" })], 
-													stateName:['',RxwebValidators.upperCase({conditionalExpression:(x,y) =>{ return  x.countryName == "INDIA" } })], 
+        this.locationFormGroup = this.formBuilder.group({
+										countryName:['', RxwebValidators.upperCase()], 
+													cityName:['', RxwebValidators.upperCase({conditionalExpression:'x => x.countryName == "INDIA"' })], 
+													stateName:['', RxwebValidators.upperCase({conditionalExpression:(x,y) => x.countryName == "INDIA"  })], 
 								});
     }
 }

@@ -16,8 +16,8 @@ export class MinNumberMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.resultInfoFormGroup = this.formBuilder.formGroup({
-										science:['',RxwebValidators.minNumber({value:35  ,message:'Number should not be less than 35' })], 
+        this.resultInfoFormGroup = this.formBuilder.group({
+										science:['', RxwebValidators.minNumber({value:35  ,message:'Number should not be less than 35' })], 
 								});
     }
 }

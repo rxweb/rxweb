@@ -16,8 +16,8 @@ export class EmailMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										otherEmailAddress:['',RxwebValidators.email({message:'Please enter valid email' })], 
+        this.userFormGroup = this.formBuilder.group({
+										otherEmailAddress:['', RxwebValidators.email({message:'Please enter valid email' })], 
 								});
     }
 }

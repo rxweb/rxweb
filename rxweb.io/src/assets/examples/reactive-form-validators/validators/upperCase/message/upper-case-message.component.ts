@@ -16,8 +16,8 @@ export class UpperCaseMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.locationFormGroup = this.formBuilder.formGroup({
-										colonyName:['',RxwebValidators.upperCase({message:'You can enter only upperCase letters.' })], 
+        this.locationFormGroup = this.formBuilder.group({
+										colonyName:['', RxwebValidators.upperCase({message:'You can enter only upperCase letters.' })], 
 								});
     }
 }

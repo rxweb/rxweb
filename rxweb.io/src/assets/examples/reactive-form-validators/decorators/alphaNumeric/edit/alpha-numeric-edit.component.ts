@@ -20,7 +20,7 @@ export class AlphaNumericEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/alphaNumeric/edit/location-data.json').subscribe(location => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/alphaNumeric/edit/location-data.json').subscribe(location => {
             this.locationFormGroup = this.formBuilder.formGroup<Location>(Location,location);
         })
     }

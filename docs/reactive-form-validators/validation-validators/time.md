@@ -18,13 +18,12 @@ Let’s see how time validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add form operation. 
 
-[!code-typescript[](\assets\examples\validators\time\add\time-add.component.ts)]
-
-***
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\add\time-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\time\add\time-add.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\add\time-add.component.html?type=section)]
 
+[!example(?title=time validator for add Example)]
 <app-time-add-validator></app-time-add-validator>
 
 # TimeConfig 
@@ -46,12 +45,10 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\validators\time\conditionalExpression\attandance-detail.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\validators\time\conditionalExpression\time-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\conditionalExpression\time-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\validators\time\conditionalExpression\time-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\conditionalExpression\time-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=time validator with conditionalExpression)]
@@ -64,12 +61,10 @@ If you are allowed seconds in time format then you need to put this as true.
 [!codeExample(?title=allowSecondsExample)]
 
 [!TabGroup(?showHideCondition="allowSeconds")]
-# [Model](#tab\allowSecondsmodel)
-[!code-typescript[](\assets\examples\validators\time\allowSeconds\attandance-detail.model.ts)]
 # [Component](#tab\allowSecondsComponent)
-[!code-typescript[](\assets\examples\validators\time\allowSeconds\time-allow-seconds.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\allowSeconds\time-allow-seconds.component.ts)]
 # [Html](#tab\allowSecondsHtml)
-[!code-typescript[](\assets\examples\validators\time\allowSeconds\time-allow-seconds.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\allowSeconds\time-allow-seconds.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="allowSeconds=!allowSeconds"&title=time validator with allowSeconds)]
@@ -82,12 +77,10 @@ To override the global configuration message and show the custom message on part
 [!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\validators\time\message\attandance-detail.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\time\message\time-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\message\time-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\time\message\time-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\message\time-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=time validator with custom message)]
@@ -97,22 +90,18 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-time-complete-validator></app-time-complete-validator>
-# [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\validators\time\complete\attandance-detail.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\validators\time\complete\time-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\complete\time-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\validators\time\complete\time-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\complete\time-complete.component.html)]
 ***
 
 # Dynamic time Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-time-dynamic-validator></app-time-dynamic-validator>
-# [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\validators\time\dynamic\attandance-detail.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\validators\time\dynamic\time-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\dynamic\time-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\validators\time\dynamic\time-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\time\dynamic\time-dynamic.component.html)]
 ***

@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MaxDateAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/maxDate/add/max-date-add.component';
 import { MaxDateCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/maxDate/complete/max-date-complete.component';
 import { MaxDateDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/maxDate/dynamic/max-date-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class MaxDateComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic MaxDate Validation":null,"DateConfig":["conditionalExpression","message","value"],"Complete MaxDate Example":null,"Dynamic MaxDate Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
-   tab_3:string = "valueModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
+   tab_3:string = "valueComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

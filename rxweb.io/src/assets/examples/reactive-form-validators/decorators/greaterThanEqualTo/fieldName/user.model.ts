@@ -6,7 +6,7 @@ export class User {
 	age: number;
 
 	//If you want to apply conditional expression of type 'string'
-	@greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:x => x.age >= 18  }) 
+	@greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:'x => x.age >= 18 ' }) 
 	memberAge: number;
 
 	@greaterThanEqualTo({fieldName:'age'  ,message:'Please enter number greater than or equal to 1.' }) 

@@ -29,16 +29,16 @@ export class PatternDynamicValidatorComponent implements OnInit {
 			},
 						
 			contactNumber : {
-				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:(x,y) =>{ return  x.userName == "John" },} 
+				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:(x,y) => x.userName == "John" ,} 
 			},
 						
 			age : {
-				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:x=>x.userName=="John",} 
+				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:'x=>x.userName=="John"',} 
 			},
 			        };
 		 var user = {
 			userName:'', zipCode:'', contactNumber:'', age:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

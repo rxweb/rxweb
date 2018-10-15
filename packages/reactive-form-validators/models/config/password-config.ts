@@ -1,6 +1,6 @@
 import { PasswordValidation } from "../index";
 
-export interface PasswordConfig{
+export interface PasswordConfig {
     validation: PasswordValidation;
     message?: string;
 }

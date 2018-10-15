@@ -16,8 +16,8 @@ export class LowerCaseMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										lastName:['',RxwebValidators.lowerCase({message:'You can enter only lowerCase letters.' })], 
+        this.userFormGroup = this.formBuilder.group({
+										lastName:['', RxwebValidators.lowerCase({message:'You can enter only lowerCase letters.' })], 
 								});
     }
 }

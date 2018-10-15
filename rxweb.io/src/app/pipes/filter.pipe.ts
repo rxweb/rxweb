@@ -10,6 +10,7 @@ export class FilterPipe implements PipeTransform {
         if (!items || !searchText) {  
             return items;  
         }  
-        return items.filter(item => item[key].indexOf(searchText) !== -1);  
+        //return items.filter(item => item[key].indexOf(searchText) !== -1);  
+        return items.map( item =>item[key]).includes(searchText);
     }  
 } 

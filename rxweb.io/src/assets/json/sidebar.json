@@ -3,6 +3,7 @@
     {
       "title": "REACTIVE FORM VALIDATORS",
       "uri": "reactive-form-validators",
+      "isOpen" : true,
       "childrens": [
         {
           "title": "Import Modules",
@@ -15,6 +16,7 @@
         {
           "title": "VALIDATION DECORATORS",
           "uri": null,
+          "isOpen" : false,
           "childrens": [
             {
               "title": "alpha",
@@ -161,6 +163,7 @@
         {
           "title": "VALIDATION VALIDATORS",
           "uri": null,
+          "isOpen" : false,
           "childrens": [
             {
               "title": "alpha",

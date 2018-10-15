@@ -16,8 +16,9 @@ export class LessThanAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																passingMarks:['',RxwebValidators.lessThan({fieldName:'marks' })], 
+        this.userFormGroup = this.formBuilder.group({
+										marks:['',], 
+													passingMarks:['', RxwebValidators.lessThan({fieldName:'marks' })], 
 								});
     }
 }

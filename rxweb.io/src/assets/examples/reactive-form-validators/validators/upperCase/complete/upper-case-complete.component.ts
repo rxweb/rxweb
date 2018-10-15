@@ -16,11 +16,11 @@ export class UpperCaseCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.locationFormGroup = this.formBuilder.formGroup({
-										countryName:['',RxwebValidators.upperCase()], 
-													stateName:['',RxwebValidators.upperCase({conditionalExpression:(x,y) =>{ return  x.countryName == "INDIA" } })], 
-													cityName:['',RxwebValidators.upperCase({conditionalExpression:x => x.countryName == "INDIA" })], 
-													colonyName:['',RxwebValidators.upperCase({message:'You can enter only upperCase letters.' })], 
+        this.locationFormGroup = this.formBuilder.group({
+										countryName:['', RxwebValidators.upperCase()], 
+													stateName:['', RxwebValidators.upperCase({conditionalExpression:(x,y) => x.countryName == "INDIA"  })], 
+													cityName:['', RxwebValidators.upperCase({conditionalExpression:'x => x.countryName == "INDIA"' })], 
+													colonyName:['', RxwebValidators.upperCase({message:'You can enter only upperCase letters.' })], 
 								});
     }
 }

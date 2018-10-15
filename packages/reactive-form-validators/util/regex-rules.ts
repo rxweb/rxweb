@@ -6,6 +6,8 @@ export const RegExRule: { [key: string]: any } = {
 
     alphaWithSpace: /^[a-zA-Z\s]+$/,
 
+    macId : /^[a-fA-F0-9:]{17}|[a-fA-F0-9]{12}$/,
+
     onlyDigit: /^[0-9]+$/,
 
     isDigitExits: /\d/g,
@@ -41,6 +43,14 @@ export const RegExRule: { [key: string]: any } = {
     url: /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/,
 
     creditCard: new CreditCardRegex(),
+
+    ascii : /^[\x00-\x7F]+$/,
+
+    dataUri:/^data:([a-z]+\/[a-z0-9-+.]+(;[a-z0-9-.!#$%*+.{}|~`]+=[a-z0-9-.!#$%*+.{}|~`]+)*)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s]*?)$/i,
+
+    lat : /^\(?[+-]?(90(\.0+)?|[1-8]?\d(\.\d+)?)$/,
+
+    long : /^\s?[+-]?(180(\.0+)?|1[0-7]\d(\.\d+)?|\d{1,2}(\.\d+)?)\)?$/,
 }
 
 

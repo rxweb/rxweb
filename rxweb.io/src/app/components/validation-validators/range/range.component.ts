@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { RangeAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/range/add/range-add.component';
 import { RangeCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/range/complete/range-complete.component';
 import { RangeDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/range/dynamic/range-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,10 +17,10 @@ export class RangeComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic range Validation":null,"RangeConfig":["conditionalExpression","message","minimumNumber","maximumNumber"],"Complete range Example":null,"Dynamic range Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
-   tab_3:string = "minimumNumberModel";
-   tab_4:string = "maximumNumberModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
+   tab_3:string = "minimumNumberComponent";
+   tab_4:string = "maximumNumberComponent";
    tab_5:string = "completeexample";
    tab_6:string = "dynamicexample";
    

@@ -16,8 +16,8 @@ export class MaxDateAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										registrationDate:['',RxwebValidators.maxDate({value:new Date(2018,7,30) })], 
+        this.userFormGroup = this.formBuilder.group({
+										registrationDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30) })], 
 								});
     }
 }

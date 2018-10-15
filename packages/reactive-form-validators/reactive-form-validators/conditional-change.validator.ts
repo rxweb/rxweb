@@ -5,14 +5,7 @@ import {
     FormArray
 } from "@angular/forms";
 
-import { RegexValidator } from "../util/regex-validator";
-import { RegExRule } from "../util/regex-rules";
-import { DecoratorName } from "../util/decorator-name"
 import { ObjectMaker } from "../util/object-maker";
-import { AlphaConfig } from "../models/config/alpha-config";
-import { Linq } from "../util/linq";
-import { ApplicationUtil } from "../util/app-util";
-import { AnnotationTypes } from "../core/validator.static";
 
 export function conditionalChangeValidator(conditionalValidationProps: string[]): ValidatorFn {
     var timeOuts: number[] = [];

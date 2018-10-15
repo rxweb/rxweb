@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MaxNumberAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/maxNumber/add/max-number-add.component';
 import { MaxNumberCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/maxNumber/complete/max-number-complete.component';
 import { MaxNumberDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/maxNumber/dynamic/max-number-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class MaxNumberComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic MaxNumber Validation":null,"NumberConfig":["conditionalExpression","message","value"],"Complete MaxNumber Example":null,"Dynamic MaxNumber Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
-   tab_3:string = "valueModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
+   tab_3:string = "valueComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

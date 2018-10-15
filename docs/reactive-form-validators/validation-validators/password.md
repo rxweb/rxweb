@@ -16,12 +16,12 @@ Let’s see how password validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add form operation. 
 
-[!code-typescript[](\assets\examples\validators\password\add\password-add.component.ts)]
-***
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\add\password-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\password\add\password-add.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\add\password-add.component.html?type=section)]
 
+[!example(?title=password validator for add Example)]
 <app-password-add-validator></app-password-add-validator>
 
 # PasswordConfig 
@@ -39,12 +39,10 @@ To override the global configuration message and show the custom message on part
 [!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\validators\password\message\login-info.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\password\message\password-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\message\password-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\password\message\password-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\message\password-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=password validator with custom message)]
@@ -57,12 +55,10 @@ Password Validation is used for setting the parameters for password validation, 
 [!codeExample(?title=validationExample)]
 
 [!TabGroup(?showHideCondition="validation")]
-# [Model](#tab\validationModel)
-[!code-typescript[](\assets\examples\validators\password\validation\login-info.model.ts)]
 # [Component](#tab\validationComponent)
-[!code-typescript[](\assets\examples\validators\password\validation\password-validation.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\validation\password-validation.component.ts)]
 # [Html](#tab\validationHtml)
-[!code-typescript[](\assets\examples\validators\password\validation\password-validation.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\validation\password-validation.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="validation=!validation"&title=password validator with validation)]
@@ -72,22 +68,18 @@ Password Validation is used for setting the parameters for password validation, 
 [!TabGroup]
 # [Example](#tab\completeExample)
 <app-password-complete-validator></app-password-complete-validator>
-# [Model](#tab\completeModel)
-[!code-typescript[](\assets\examples\validators\password\complete\login-info.model.ts)]
 # [Component](#tab\completeComponent)
-[!code-typescript[](\assets\examples\validators\password\complete\password-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\complete\password-complete.component.ts)]
 # [Html](#tab\completeHtml)
-[!code-typescript[](\assets\examples\validators\password\complete\password-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\complete\password-complete.component.html)]
 ***
 
 # Dynamic password Example
 [!TabGroup]
 # [Example](#tab\dynamicExample)
 <app-password-dynamic-validator></app-password-dynamic-validator>
-# [Model](#tab\dynamicModel)
-[!code-typescript[](\assets\examples\validators\password\dynamic\login-info.model.ts)]
 # [Component](#tab\dynamicComponent)
-[!code-typescript[](\assets\examples\validators\password\dynamic\password-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\dynamic\password-dynamic.component.ts)]
 # [Html](#tab\dynamicHtml)
-[!code-typescript[](\assets\examples\validators\password\dynamic\password-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\dynamic\password-dynamic.component.html)]
 ***

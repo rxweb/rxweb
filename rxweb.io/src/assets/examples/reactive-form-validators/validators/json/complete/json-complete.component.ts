@@ -16,10 +16,11 @@ export class JsonCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.jsonInfoFormGroup = this.formBuilder.formGroup({
-																addressJson:['',RxwebValidators.json({conditionalExpression:(x,y)=>{ return x.location == "{CountryName:India}" } })], 
-													locationJson:['',RxwebValidators.json({conditionalExpression:x => x.location == "{CountryName:India}"  ,message:'Enter the text in JSON format --> {key:value}' })], 
-													contactJson:['',RxwebValidators.json({message:'Enter only JSON type data' })], 
+        this.jsonInfoFormGroup = this.formBuilder.group({
+										location:['',], 
+													addressJson:['', RxwebValidators.json({conditionalExpression:(x,y)=> x.location == "{CountryName:India}"  })], 
+													locationJson:['', RxwebValidators.json({conditionalExpression:'x => x.location == "{CountryName:India}"'  ,message:'Enter the text in JSON format --> {key:value}' })], 
+													contactJson:['', RxwebValidators.json({message:'Enter only JSON type data' })], 
 								});
     }
 }

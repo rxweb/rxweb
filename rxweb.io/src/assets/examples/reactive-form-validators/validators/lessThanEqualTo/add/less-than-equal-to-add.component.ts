@@ -16,8 +16,9 @@ export class LessThanEqualToAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																marks:['',RxwebValidators.lessThanEqualTo({fieldName:'totalMarks' })], 
+        this.userFormGroup = this.formBuilder.group({
+										totalMarks:['',], 
+													marks:['', RxwebValidators.lessThanEqualTo({fieldName:'totalMarks' })], 
 								});
     }
 }

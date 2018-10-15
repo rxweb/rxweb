@@ -20,7 +20,7 @@ export class RangeEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/range/edit/employee-info-data.json').subscribe(employeeInfo => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/range/edit/employee-info-data.json').subscribe(employeeInfo => {
             this.employeeInfoFormGroup = this.formBuilder.formGroup<EmployeeInfo>(EmployeeInfo,employeeInfo);
         })
     }

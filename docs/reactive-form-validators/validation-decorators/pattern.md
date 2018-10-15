@@ -15,21 +15,21 @@ Let’s see how pattern validator fulfil the need.
 
 # Basic Pattern Validation
 First we need to create a User class and define a property of UserName in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\pattern\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\pattern\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\pattern\add\pattern-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\add\pattern-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\pattern\edit\pattern-edit.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\edit\pattern-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\pattern\add\pattern-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\pattern\edit\pattern-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\add\pattern-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\edit\pattern-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=pattern Decorator for add Example)]
 <app-pattern-add></app-pattern-add>
@@ -55,11 +55,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\pattern\message\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\message\user.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\pattern\message\pattern-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\message\pattern-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\pattern\message\pattern-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\message\pattern-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=pattern decorator with custom message)]
@@ -77,11 +77,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
  [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionModel)
-[!code-typescript[](\assets\examples\pattern\conditionalExpression\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\pattern\conditionalExpression\pattern-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\conditionalExpression\pattern-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\pattern\conditionalExpression\pattern-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\conditionalExpression\pattern-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=pattern decorator with conditionalExpression)]
@@ -96,11 +96,11 @@ enter specific regex pattern
 
  [!TabGroup(?showHideCondition="pattern")]
 # [Model](#tab\patternModel)
-[!code-typescript[](\assets\examples\pattern\pattern\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\pattern\user.model.ts)]
 # [Component](#tab\patternComponent)
-[!code-typescript[](\assets\examples\pattern\pattern\pattern-pattern.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\pattern\pattern-pattern.component.ts)]
 # [Html](#tab\patternHtml)
-[!code-typescript[](\assets\examples\pattern\pattern\pattern-pattern.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\pattern\pattern-pattern.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="pattern=!pattern"&title=pattern decorator with pattern)]
@@ -114,11 +114,11 @@ This Complete pattern example which includes all the PatternConfig properties wi
 # [Example](#tab\completeExample)
 <app-pattern-complete></app-pattern-complete>
 # [Model](#tab\completeModel)
-[!code-typescript[](\assets\examples\pattern\complete\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\complete\user.model.ts)]
 # [Component](#tab\completeComponent)
-[!code-typescript[](\assets\examples\pattern\complete\pattern-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\complete\pattern-complete.component.ts)]
 # [Html](#tab\completeHtml)
-[!code-typescript[](\assets\examples\pattern\complete\pattern-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\complete\pattern-complete.component.html)]
 ***
 
 # Dynamic pattern Example
@@ -126,9 +126,9 @@ This Complete pattern example which includes all the PatternConfig properties wi
 # [Example](#tab\dynamicExample)
 <app-pattern-dynamic></app-pattern-dynamic>
 # [Model](#tab\dynamicModel)
-[!code-typescript[](\assets\examples\pattern\dynamic\user.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\dynamic\user.model.ts)]
 # [Component](#tab\dynamicComponent)
-[!code-typescript[](\assets\examples\pattern\dynamic\pattern-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\dynamic\pattern-dynamic.component.ts)]
 # [Html](#tab\dynamicHtml)
-[!code-typescript[](\assets\examples\pattern\dynamic\pattern-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\dynamic\pattern-dynamic.component.html)]
 ***

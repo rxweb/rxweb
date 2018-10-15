@@ -25,11 +25,11 @@ export class MaxLengthDynamicValidatorComponent implements OnInit {
 			},
 						
 			middleName : {
-				maxLength :  {value:16,conditionalExpression:(x,y)=>{ return x.firstName == "John"},} 
+				maxLength :  {value:16,conditionalExpression:(x,y)=> x.firstName == "John",} 
 			},
 						
 			lastName : {
-				maxLength :  {value:16,conditionalExpression:x=> x.firstName == "John",} 
+				maxLength :  {value:16,conditionalExpression:'x=> x.firstName == "John"',} 
 			},
 						
 			userName : {
@@ -39,6 +39,6 @@ export class MaxLengthDynamicValidatorComponent implements OnInit {
 		 var user = {
 			firstName:'', middleName:'', lastName:'', userName:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

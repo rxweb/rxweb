@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { TimeAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/time/add/time-add.component';
 import { TimeCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/time/complete/time-complete.component';
 import { TimeDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/time/dynamic/time-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class TimeComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic time Validation":null,"TimeConfig":["conditionalExpression","allowSeconds","message"],"Complete time Example":null,"Dynamic time Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "allowSecondsmodel";
-   tab_3:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "allowSecondsComponent";
+   tab_3:string = "messageComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

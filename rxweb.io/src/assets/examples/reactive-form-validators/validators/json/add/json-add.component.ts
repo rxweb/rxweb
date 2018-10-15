@@ -16,8 +16,8 @@ export class JsonAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.jsonInfoFormGroup = this.formBuilder.formGroup({
-										locationJson:['',RxwebValidators.json()], 
+        this.jsonInfoFormGroup = this.formBuilder.group({
+										locationJson:['', RxwebValidators.json()], 
 								});
     }
 }

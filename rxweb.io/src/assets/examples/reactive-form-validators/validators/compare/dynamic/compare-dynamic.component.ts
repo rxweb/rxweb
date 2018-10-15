@@ -25,8 +25,8 @@ export class CompareDynamicValidatorComponent implements OnInit {
 			},
 			        };
 		 var user = {
-			confirmPassword:'', 
+			password:'', confirmPassword:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

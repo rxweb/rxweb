@@ -16,9 +16,10 @@ export class OddConditionalExpressionValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																oddNumber:['',RxwebValidators.odd({conditionalExpression:x => x.type == "Odd" })], 
-													number:['',RxwebValidators.odd({conditionalExpression:(x,y) =>{ return  x.type == "Odd" } })], 
+        this.userFormGroup = this.formBuilder.group({
+										type:['',], 
+													oddNumber:['', RxwebValidators.odd({conditionalExpression:'x => x.type == "Odd"' })], 
+													number:['', RxwebValidators.odd({conditionalExpression:(x,y) => x.type == "Odd"  })], 
 								});
     }
 }

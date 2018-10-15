@@ -1,6 +1,8 @@
 import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 import { DashboardComponent } from "../dashboard/dashboard.component";
+import { ImportModulesComponent } from "src/app/components/import-modules/import.modules.component";
+import { ConfigureGlobalValidationMessagesComponent } from "src/app/components/configure-global-validation-messages/configure-global-validation-messages.component";
 
 
 const APP_LAZY_ROUTES: Routes = [
@@ -9,6 +11,12 @@ const APP_LAZY_ROUTES: Routes = [
   },
   {
     path: 'dashboard', component: DashboardComponent
+  },
+  {
+    path: 'import-modules', component: ImportModulesComponent
+  },
+  {
+    path: 'configure-global-validation-messages', component: ConfigureGlobalValidationMessagesComponent
   },
   {
     path: 'validation-decorators',

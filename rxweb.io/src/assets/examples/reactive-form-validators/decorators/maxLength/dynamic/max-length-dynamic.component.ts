@@ -29,11 +29,11 @@ export class MaxLengthDynamicComponent implements OnInit {
 			},
 						
 			middleName : {
-				maxLength :  {value:16,conditionalExpression:(x,y)=>{ return x.firstName == "John"},} 
+				maxLength :  {value:16,conditionalExpression:(x,y)=> x.firstName == "John",} 
 			},
 						
 			lastName : {
-				maxLength :  {value:16,conditionalExpression:x=> x.firstName == "John",} 
+				maxLength :  {value:16,conditionalExpression:'x=> x.firstName == "John"',} 
 			},
 						
 			userName : {

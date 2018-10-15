@@ -16,8 +16,8 @@ export class UpperCaseAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.locationFormGroup = this.formBuilder.formGroup({
-										countryName:['',RxwebValidators.upperCase()], 
+        this.locationFormGroup = this.formBuilder.group({
+										countryName:['', RxwebValidators.upperCase()], 
 								});
     }
 }

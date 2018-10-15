@@ -15,21 +15,21 @@ Let’s see how minNumber validator fulfil the need.
 
 # Basic MinNumber Validation
 First we need to create a ResultInfo class and define a property of Maths in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\minNumber\add\result-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\minNumber\edit\result-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\add\result-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\edit\result-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\minNumber\add\min-number-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\add\min-number-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\minNumber\edit\min-number-edit.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\edit\min-number-edit.component.ts)]
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\minNumber\add\min-number-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\minNumber\edit\min-number-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\add\min-number-add.component.html?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\edit\min-number-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=minNumber Decorator for add Example)]
 <app-minNumber-add></app-minNumber-add>
@@ -58,11 +58,11 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
  [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\minNumber\conditionalExpression\result-info.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\conditionalExpression\result-info.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\minNumber\conditionalExpression\min-number-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\conditionalExpression\min-number-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\minNumber\conditionalExpression\min-number-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\conditionalExpression\min-number-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=minNumber decorator with conditionalExpression)]
@@ -77,11 +77,11 @@ To override the global configuration message and show the custom message on part
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\minNumber\message\result-info.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\message\result-info.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\minNumber\message\min-number-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\message\min-number-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\minNumber\message\min-number-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\message\min-number-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=minNumber decorator with custom message)]
@@ -96,11 +96,11 @@ enter value which you want to restrict number in the property
 
 [!TabGroup(?showHideCondition="valueShow")]
 # [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\minNumber\value\result-info.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\value\result-info.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\minNumber\value\min-number-value.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\value\min-number-value.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\minNumber\value\min-number-value.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\value\min-number-value.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="valueShow=!valueShow"&title=minNumber decorator with value)]
@@ -114,11 +114,11 @@ This Complete minNumber example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <app-minNumber-complete></app-minNumber-complete>
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\minNumber\complete\result-info.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\complete\result-info.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\minNumber\complete\min-number-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\complete\min-number-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\minNumber\complete\min-number-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\complete\min-number-complete.component.html)]
 ***
 
 # Dynamic minNumber Example
@@ -126,9 +126,9 @@ This Complete minNumber example which includes all the NumberConfig properties w
 # [Example](#tab\dynamicexample)
 <app-minNumber-dynamic></app-minNumber-dynamic>
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\minNumber\dynamic\result-info.model.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\result-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\minNumber\dynamic\min-number-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\min-number-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\minNumber\dynamic\min-number-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\min-number-dynamic.component.html)]
 ***

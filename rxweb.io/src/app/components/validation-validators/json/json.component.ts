@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { JsonAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/json/add/json-add.component';
 import { JsonCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/json/complete/json-complete.component';
 import { JsonDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/json/dynamic/json-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class JsonComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic Json Validation":null,"DefaultConfig":["conditionalExpression","message"],"Complete Json Example":null,"Dynamic Json Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
    tab_3:string = "completeexample";
    tab_4:string = "dynamicexample";
    

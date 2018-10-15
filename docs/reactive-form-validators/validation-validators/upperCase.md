@@ -16,12 +16,12 @@ Let’s see how upperCase validator fulfil the need.
 # Basic UpperCase Validation
 We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
-[!code-typescript[](\assets\examples\validators\upperCase\add\upper-case-add.component.ts)]
-***
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\add\upper-case-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\upperCase\add\upper-case-add.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\add\upper-case-add.component.html?type=section)]
 
+[!example(?title=upperCase validator for add Example)]
 <app-upperCase-add-validator></app-upperCase-add-validator>
  
 # MessageConfig 
@@ -29,7 +29,7 @@ Below options are not mandatory to use in the `RxwebValidators.upperCase()` vali
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpression](#conditionalexpressions) | Uppercase validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpression) | Uppercase validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## conditionalExpression 
@@ -43,12 +43,10 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\validators\upperCase\conditionalExpression\location.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\validators\upperCase\conditionalExpression\upper-case-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\conditionalExpression\upper-case-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\validators\upperCase\conditionalExpression\upper-case-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\conditionalExpression\upper-case-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=upperCase validator with conditionalExpression)]
@@ -62,12 +60,10 @@ To override the global configuration message and show the custom message on part
 [!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\validators\upperCase\message\location.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\upperCase\message\upper-case-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\message\upper-case-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\upperCase\message\upper-case-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\message\upper-case-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=upperCase validator with custom message)]
@@ -77,22 +73,18 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-upperCase-complete-validator></app-upperCase-complete-validator>
-# [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\validators\upperCase\complete\location.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\validators\upperCase\complete\upper-case-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\complete\upper-case-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\validators\upperCase\complete\upper-case-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\complete\upper-case-complete.component.html)]
 ***
 
 # Dynamic upperCase Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-upperCase-dynamic-validator></app-upperCase-dynamic-validator>
-# [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\validators\upperCase\dynamic\location.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\validators\upperCase\dynamic\upper-case-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\dynamic\upper-case-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\validators\upperCase\dynamic\upper-case-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\dynamic\upper-case-dynamic.component.html)]
 ***

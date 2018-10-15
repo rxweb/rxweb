@@ -9,10 +9,10 @@ export class ResultInfo {
 	science: number;
 
 	//If you want to apply conditional expression of type 'function'
-	@minNumber({value:35  ,conditionalExpression:(x,y) =>{ return  x.maths == 50 } }) 
+	@minNumber({value:35  ,conditionalExpression:(x,y) => x.maths == 50  }) 
 	english: number;
 
-	@minNumber({value:35  ,conditionalExpression:x => x.maths == 50 }) 
+	@minNumber({value:35  ,conditionalExpression:'x => x.maths == 50' }) 
 	statstics: number;
 
 }

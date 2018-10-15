@@ -16,8 +16,8 @@ export class CreditCardAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										creditCardNumber:['',RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.Visa ] })], 
+        this.userFormGroup = this.formBuilder.group({
+										creditCardNumber:['', RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.Visa ] })], 
 								});
     }
 }

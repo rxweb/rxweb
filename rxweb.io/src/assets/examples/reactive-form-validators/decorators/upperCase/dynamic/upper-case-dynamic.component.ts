@@ -29,11 +29,11 @@ export class UpperCaseDynamicComponent implements OnInit {
 			},
 						
 			stateName : {
-				upperCase :  {conditionalExpression:(x,y) =>{ return  x.countryName == "INDIA" },} 
+				upperCase :  {conditionalExpression:(x,y) => x.countryName == "INDIA" ,} 
 			},
 						
 			cityName : {
-				upperCase :  {conditionalExpression:x => x.countryName == "INDIA",} 
+				upperCase :  {conditionalExpression:'x => x.countryName == "INDIA"',} 
 			},
 						
 			colonyName : {

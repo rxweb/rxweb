@@ -16,10 +16,10 @@ export class ContainsConditionalExpressionValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										emailAddress:['',RxwebValidators.contains({value:'@gmail.com' })], 
-													recoveryEmailAddress:['',RxwebValidators.contains({value:'@gmail.com'  ,conditionalExpression:x => x.emailAddress == "abc@gmail.com" })], 
-													businessEmailAddress:['',RxwebValidators.contains({value:'@gmail.com'  ,conditionalExpression:(x,y) =>{ return  x.emailAddress == "abc@gmail.com" } })], 
+        this.userFormGroup = this.formBuilder.group({
+										emailAddress:['', RxwebValidators.contains({value:'@gmail.com' })], 
+													recoveryEmailAddress:['', RxwebValidators.contains({value:'@gmail.com'  ,conditionalExpression:'x => x.emailAddress == "abc@gmail.com"' })], 
+													businessEmailAddress:['', RxwebValidators.contains({value:'@gmail.com'  ,conditionalExpression:(x,y) => x.emailAddress == "abc@gmail.com" })], 
 								});
     }
 }

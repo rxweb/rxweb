@@ -16,8 +16,8 @@ export class FactorAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										firstNumber:['',RxwebValidators.factor({dividend:50 })], 
+        this.userFormGroup = this.formBuilder.group({
+										firstNumber:['', RxwebValidators.factor({dividend:50 })], 
 								});
     }
 }

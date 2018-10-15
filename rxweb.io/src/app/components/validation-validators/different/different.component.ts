@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { DifferentAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/different/add/different-add.component';
 import { DifferentCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/different/complete/different-complete.component';
 import { DifferentDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/different/dynamic/different-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class DifferentComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic Different Validation":null,"DifferentConfig":["conditionalExpression","fieldName","message"],"Complete Different Example":null,"Dynamic Different Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "fieldNamemodel";
-   tab_3:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "fieldNameComponent";
+   tab_3:string = "messageComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

@@ -31,6 +31,6 @@ export class PasswordDynamicValidatorComponent implements OnInit {
 		 var loginInfo = {
 			newPassword:'', oldPassword:'', 
 		}
-		this.loginInfoFormGroup = this.formBuilder.formGroup(loginInfo,formBuilderConfiguration);
+		this.loginInfoFormGroup = this.formBuilder.group(loginInfo,formBuilderConfiguration);
     }
 }

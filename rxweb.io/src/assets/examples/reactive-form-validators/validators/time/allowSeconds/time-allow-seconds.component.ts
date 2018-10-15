@@ -16,8 +16,8 @@ export class TimeAllowSecondsValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.attandanceDetailFormGroup = this.formBuilder.formGroup({
-										totalOutTime:['',RxwebValidators.time({allowSeconds:true })], 
+        this.attandanceDetailFormGroup = this.formBuilder.group({
+										totalOutTime:['', RxwebValidators.time({allowSeconds:true })], 
 								});
     }
 }

@@ -25,11 +25,11 @@ export class TimeDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			totalIn : {
-				time :  {conditionalExpression:(x,y) =>{ return  x.entryPlace == "Lunch Room" },} 
+				time :  {conditionalExpression:(x,y) => x.entryPlace == "Lunch Room" ,} 
 			},
 						
 			entryTime : {
-				time :  {conditionalExpression:x => x.entryPlace == "Lunch Room",} 
+				time :  {conditionalExpression:'x => x.entryPlace == "Lunch Room"',} 
 			},
 						
 			totalOutTime : {

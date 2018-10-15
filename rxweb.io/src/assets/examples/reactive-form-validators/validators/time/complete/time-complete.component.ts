@@ -16,11 +16,12 @@ export class TimeCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.attandanceDetailFormGroup = this.formBuilder.formGroup({
-																totalIn:['',RxwebValidators.time({conditionalExpression:(x,y) =>{ return  x.entryPlace == "Lunch Room" } })], 
-													entryTime:['',RxwebValidators.time({conditionalExpression:x => x.entryPlace == "Lunch Room" })], 
-													totalOutTime:['',RxwebValidators.time({allowSeconds:true })], 
-													exitTime:['',RxwebValidators.time({message:'You can enter only time format data' })], 
+        this.attandanceDetailFormGroup = this.formBuilder.group({
+										entryPlace:['',], 
+													totalIn:['', RxwebValidators.time({conditionalExpression:(x,y) => x.entryPlace == "Lunch Room"  })], 
+													entryTime:['', RxwebValidators.time({conditionalExpression:'x => x.entryPlace == "Lunch Room"' })], 
+													totalOutTime:['', RxwebValidators.time({allowSeconds:true })], 
+													exitTime:['', RxwebValidators.time({message:'You can enter only time format data' })], 
 								});
     }
 }

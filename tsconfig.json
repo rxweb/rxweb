@@ -13,17 +13,7 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@rxweb/reactive-form-validators": [ "packages/reactive-form-validators" ],
-      "@rx/annotations": [ "packages/annotations" ],
-      "@rx/common": [ "packages/common" ],
-      "@rx/core": [ "packages/core" ],
-      "@rx/forms": [ "packages/forms" ],
-      "@rx/http": [ "packages/http" ],
-      "@rx/linq": [ "packages/linq" ],
-      "@rx/security": [ "packages/security" ],
-      "@rx/storage": [ "packages/storage" ],
-      "@rx/table": [ "packages/table" ],
-      "@rx/view": [ "packages/view" ]
+      "@rxweb/reactive-form-validators": [ "packages/reactive-form-validators" ]
     },
     "lib": [
       "es2017",

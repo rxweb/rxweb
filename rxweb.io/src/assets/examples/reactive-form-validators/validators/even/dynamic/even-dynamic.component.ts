@@ -21,11 +21,11 @@ export class EvenDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			number : {
-				even :  {conditionalExpression:(x,y) =>{ return  x.type == "Even" },} 
+				even :  {conditionalExpression:(x,y) => x.type == "Even" ,} 
 			},
 						
 			evenNumber : {
-				even :  {conditionalExpression:x => x.type == "Even",} 
+				even :  {conditionalExpression:'x => x.type == "Even"',} 
 			},
 						
 			multiplesOfEvenNumber : {
@@ -33,8 +33,8 @@ export class EvenDynamicValidatorComponent implements OnInit {
 			},
 			        };
 		 var user = {
-			number:'', evenNumber:'', multiplesOfEvenNumber:'', 
+			type:'', number:'', evenNumber:'', multiplesOfEvenNumber:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

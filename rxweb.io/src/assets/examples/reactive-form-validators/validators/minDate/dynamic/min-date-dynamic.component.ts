@@ -21,11 +21,11 @@ export class MinDateDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			birthDate : {
-				minDate :  {value:new Date(2018,7,30),conditionalExpression:(x,y) =>{ return  x.userName == "John" },} 
+				minDate :  {value:new Date(2018,7,30),conditionalExpression:(x,y) => x.userName == "John" ,} 
 			},
 						
 			admissionDate : {
-				minDate :  {value:new Date(2018,7,30),conditionalExpression:x => x.userName == "John",} 
+				minDate :  {value:new Date(2018,7,30),conditionalExpression:'x => x.userName == "John"',} 
 			},
 						
 			registrationDate : {
@@ -33,8 +33,8 @@ export class MinDateDynamicValidatorComponent implements OnInit {
 			},
 			        };
 		 var user = {
-			birthDate:'', admissionDate:'', registrationDate:'', 
+			userName:'', birthDate:'', admissionDate:'', registrationDate:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

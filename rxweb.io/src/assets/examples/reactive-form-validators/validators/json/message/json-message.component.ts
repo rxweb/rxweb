@@ -16,8 +16,8 @@ export class JsonMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.jsonInfoFormGroup = this.formBuilder.formGroup({
-										contactJson:['',RxwebValidators.json({message:'Enter only JSON type data' })], 
+        this.jsonInfoFormGroup = this.formBuilder.group({
+										contactJson:['', RxwebValidators.json({message:'Enter only JSON type data' })], 
 								});
     }
 }

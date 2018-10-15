@@ -17,12 +17,12 @@ Let’s see how different validator fulfil the need.
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
 Here we have covered Add form operation. 
 
-[!code-typescript[](\assets\examples\validators\different\add\different-add.component.ts)]
-***
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\add\different-add.component.ts?type=section)]
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\validators\different\add\different-add.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\add\different-add.component.html?type=section)]
 
+[!example(?title=different validator for add Example)]
 <app-different-add-validator></app-different-add-validator>
 
 # DifferentConfig
@@ -30,7 +30,7 @@ Below options are not mandatory to use in the `RxwebValidators.different()` vali
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpression](#conditionalexpressions) | Different validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalexpression) | Different validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[fieldName](#fieldName) | Current property is matched with the particular property. so we need to pass particular property name. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
@@ -45,12 +45,10 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
 [!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\validators\different\conditionalExpression\account-info.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\validators\different\conditionalExpression\different-conditional-expressions.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\conditionalExpression\different-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\validators\different\conditionalExpression\different-conditional-expressions.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\conditionalExpression\different-conditional-expressions.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=different validator with conditionalExpression)]
@@ -63,12 +61,10 @@ Current property is matched with the particular property. so we need to pass par
 [!codeExample(?title=fieldNameExample)]
 
 [!TabGroup(?showHideCondition="fieldName")]
-# [Model](#tab\fieldNamemodel)
-[!code-typescript[](\assets\examples\validators\different\fieldName\account-info.model.ts)]
 # [Component](#tab\fieldNameComponent)
-[!code-typescript[](\assets\examples\validators\different\fieldName\different-field-name.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\fieldName\different-field-name.component.ts)]
 # [Html](#tab\fieldNameHtml)
-[!code-typescript[](\assets\examples\validators\different\fieldName\different-field-name.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\fieldName\different-field-name.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="fieldName=!fieldName"&title=different validator with fieldName)]
@@ -81,12 +77,10 @@ To override the global configuration message and show the custom message on part
 [!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\validators\different\message\account-info.model.ts)]
 # [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\validators\different\message\different-message.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\message\different-message.component.ts)]
 # [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\validators\different\message\different-message.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\message\different-message.component.html)]
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=different validator with custom message)]
@@ -96,22 +90,18 @@ To override the global configuration message and show the custom message on part
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-different-complete-validator></app-different-complete-validator>
-# [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\validators\different\complete\account-info.model.ts)]
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\validators\different\complete\different-complete.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\complete\different-complete.component.ts)]
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\validators\different\complete\different-complete.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\complete\different-complete.component.html)]
 ***
 
 # Dynamic Different Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <app-different-dynamic-validator></app-different-dynamic-validator>
-# [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\validators\different\dynamic\account-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\validators\different\dynamic\different-dynamic.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\dynamic\different-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\validators\different\dynamic\different-dynamic.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\different\dynamic\different-dynamic.component.html)]
 ***

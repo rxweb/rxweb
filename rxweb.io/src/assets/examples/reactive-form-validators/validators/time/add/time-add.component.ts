@@ -16,8 +16,8 @@ export class TimeAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.attandanceDetailFormGroup = this.formBuilder.formGroup({
-										entryTime:['',RxwebValidators.time()], 
+        this.attandanceDetailFormGroup = this.formBuilder.group({
+										entryTime:['', RxwebValidators.time()], 
 								});
     }
 }

@@ -1,7 +1,7 @@
 import {FormArray, FormGroup,
     ValidatorFn,
     AbstractControl} from "@angular/forms";
-//import {CustomValidation } from '../validator.model';
+
 export function customValidator(customValidation:any,propName:string): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
         let currentControl: AbstractControl;

@@ -16,10 +16,10 @@ export class RangeConditionalExpressionValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.employeeInfoFormGroup = this.formBuilder.formGroup({
-										age:['',RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })], 
-													experience:['',RxwebValidators.range({minimumNumber:2  ,maximumNumber:20  ,conditionalExpression:x => x.age >=25 })], 
-													projectDuration:['',RxwebValidators.range({minimumNumber:6  ,maximumNumber:8  ,conditionalExpression:(x,y) =>{ return  x.age >= 25 } })], 
+        this.employeeInfoFormGroup = this.formBuilder.group({
+										age:['', RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })], 
+													experience:['', RxwebValidators.range({minimumNumber:2  ,maximumNumber:20  ,conditionalExpression:'x => x.age >=25' })], 
+													projectDuration:['', RxwebValidators.range({minimumNumber:6  ,maximumNumber:8  ,conditionalExpression:(x,y) => x.age >= 25  })], 
 								});
     }
 }

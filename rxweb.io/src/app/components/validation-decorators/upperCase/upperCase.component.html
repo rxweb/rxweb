@@ -1,6 +1,7 @@
 <div id="wrapper" *ngIf="showComponent">
 	<div class="content">
 		<div class="title">
+	<span class="label validator-type">decorators</span>
 	<h1> upperCase </h1>
 	<p> UpperCase validation decorator will allow user to enter the alphabets only in the upperCase format.</p>
 </div>
@@ -28,7 +29,7 @@
 <h2>Basic UpperCase Validation</h2>
 
 <p>First we need to create a Location class and define a property of CountryName in the model to achieve the functional need of point 1.</p>
- <div class="model-ts" *ngIf="tab_1=='basicadd'">
+<div class="model-ts" *ngIf="tab_1=='basicadd'">
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Model" (cbOnSuccess)="codeContent.add.ModelCopied = true" [class.copied]="codeContent.add.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -38,7 +39,7 @@
 </div>
 
 
- <div class="model-ts" *ngIf="tab_1=='basicedit'">
+<div class="model-ts" *ngIf="tab_1=='basicedit'">
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Model" (cbOnSuccess)="codeContent.edit.ModelCopied = true" [class.copied]="codeContent.edit.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -55,7 +56,7 @@
 </ul>
 <div class="tab-content" >
 			  <div class="tab-pane" [class.active]="tab_1=='basicadd'">
-			 <div  >
+			<div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -68,7 +69,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_1=='basicedit'">
-			 <div  >
+			<div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Component" (cbOnSuccess)="codeContent.edit.ComponentCopied = true" [class.copied]="codeContent.edit.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -82,7 +83,7 @@
 		  </div>
 	</div>																											
 <p>Next, we need to write html code.</p>
- <div class="model-ts" *ngIf="tab_1=='basicadd'">
+<div class="model-ts" *ngIf="tab_1=='basicadd'">
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Html" (cbOnSuccess)="codeContent.add.HtmlCopied = true" [class.copied]="codeContent.add.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -92,7 +93,7 @@
 </div>
 
 
- <div class="model-ts" *ngIf="tab_1=='basicedit'">
+<div class="model-ts" *ngIf="tab_1=='basicedit'">
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Html" (cbOnSuccess)="codeContent.edit.HtmlCopied = true" [class.copied]="codeContent.edit.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -147,7 +148,7 @@
 <p>Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span> </p>
 <p>Uppercase validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
 <p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
- <blockquote *ngIf="codeContent.conditionalExpressionExampleFunction.Notes?.length > 0">
+<blockquote *ngIf="codeContent.conditionalExpressionExampleFunction && codeContent.conditionalExpressionExampleFunction.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.conditionalExpressionExampleFunction.Notes">
 	  <p [innerHtml]="item"></p>
 	</ng-container>
@@ -161,7 +162,7 @@
 </div>
 
 
- <blockquote *ngIf="codeContent.conditionalExpressionExampleString.Notes?.length > 0">
+<blockquote *ngIf="codeContent.conditionalExpressionExampleString && codeContent.conditionalExpressionExampleString.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.conditionalExpressionExampleString.Notes">
 	  <p [innerHtml]="item"></p>
 	</ng-container>
@@ -182,7 +183,7 @@
 </ul>
 <div class="tab-content" *ngIf="conditionalExpression">
 			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionmodel'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Model" (cbOnSuccess)="codeContent.conditionalExpression.ModelCopied = true" [class.copied]="codeContent.conditionalExpression.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -195,7 +196,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionComponent'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Component" (cbOnSuccess)="codeContent.conditionalExpression.ComponentCopied = true" [class.copied]="codeContent.conditionalExpression.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -208,7 +209,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_2=='conditionalExpressionHtml'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalExpression.Html" (cbOnSuccess)="codeContent.conditionalExpression.HtmlCopied = true" [class.copied]="codeContent.conditionalExpression.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -240,7 +241,7 @@
 
 <p>Type :  <span class='highlighted'>string</span> </p>
 <p>To override the global configuration message and show the custom message on particular control property.</p>
- <blockquote *ngIf="codeContent.messageExample.Notes?.length > 0">
+<blockquote *ngIf="codeContent.messageExample && codeContent.messageExample.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.messageExample.Notes">
 	  <p [innerHtml]="item"></p>
 	</ng-container>
@@ -261,7 +262,7 @@
 </ul>
 <div class="tab-content" *ngIf="message">
 			  <div class="tab-pane" [class.active]="tab_3=='messageModel'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Model" (cbOnSuccess)="codeContent.message.ModelCopied = true" [class.copied]="codeContent.message.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -274,7 +275,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_3=='messageComponent'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Component" (cbOnSuccess)="codeContent.message.ComponentCopied = true" [class.copied]="codeContent.message.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -287,7 +288,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_3=='messageHtml'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Html" (cbOnSuccess)="codeContent.message.HtmlCopied = true" [class.copied]="codeContent.message.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -330,7 +331,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_4=='completemodel'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Model" (cbOnSuccess)="codeContent.complete.ModelCopied = true" [class.copied]="codeContent.complete.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -343,7 +344,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_4=='completecomponent'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Component" (cbOnSuccess)="codeContent.complete.ComponentCopied = true" [class.copied]="codeContent.complete.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -356,7 +357,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_4=='completehtml'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Html" (cbOnSuccess)="codeContent.complete.HtmlCopied = true" [class.copied]="codeContent.complete.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -387,7 +388,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_5=='dynamicmodel'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Model" (cbOnSuccess)="codeContent.dynamic.ModelCopied = true" [class.copied]="codeContent.dynamic.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -400,7 +401,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_5=='dynamiccomponent'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Component" (cbOnSuccess)="codeContent.dynamic.ComponentCopied = true" [class.copied]="codeContent.dynamic.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -413,7 +414,7 @@
 
 		  </div>
 			  <div class="tab-pane" [class.active]="tab_5=='dynamichtml'">
-			 <div  >
+			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Html" (cbOnSuccess)="codeContent.dynamic.HtmlCopied = true" [class.copied]="codeContent.dynamic.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">

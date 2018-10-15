@@ -16,9 +16,10 @@ export class JsonConditionalExpressionValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.jsonInfoFormGroup = this.formBuilder.formGroup({
-																locationJson:['',RxwebValidators.json({conditionalExpression:x => x.location == "{CountryName:India}"  ,message:'Enter the text in JSON format --> {key:value}' })], 
-													addressJson:['',RxwebValidators.json({conditionalExpression:(x,y)=>{ return x.location == "{CountryName:India}" } })], 
+        this.jsonInfoFormGroup = this.formBuilder.group({
+										location:['',], 
+													locationJson:['', RxwebValidators.json({conditionalExpression:'x => x.location == "{CountryName:India}"'  ,message:'Enter the text in JSON format --> {key:value}' })], 
+													addressJson:['', RxwebValidators.json({conditionalExpression:(x,y)=> x.location == "{CountryName:India}"  })], 
 								});
     }
 }

@@ -16,8 +16,8 @@ export class AlphaAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.countryFormGroup = this.formBuilder.formGroup({
-										countryName:['',RxwebValidators.alpha()], 
+        this.countryFormGroup = this.formBuilder.group({
+										countryName:['', RxwebValidators.alpha()], 
 								});
     }
 }

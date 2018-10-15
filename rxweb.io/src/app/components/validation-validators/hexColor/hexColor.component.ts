@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { HexColorAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/hexColor/add/hex-color-add.component';
 import { HexColorCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/hexColor/complete/hex-color-complete.component';
 import { HexColorDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/hexColor/dynamic/hex-color-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class HexColorComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic HexColor Validation":null,"HexColorConfig":["conditionalExpression","message"],"Complete hexColor Example":null,"Dynamic hexColor Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
    tab_3:string = "completeexample";
    tab_4:string = "dynamicexample";
    

@@ -25,11 +25,11 @@ export class RequiredDynamicValidatorComponent implements OnInit {
 			},
 						
 			middleName : {
-				required :  {conditionalExpression:(x,y) =>{ return  x.firstName == "John" },} 
+				required :  {conditionalExpression:(x,y) => x.firstName == "John" ,} 
 			},
 						
 			lastName : {
-				required :  {conditionalExpression:x => x.firstName == "John",} 
+				required :  {conditionalExpression:'x => x.firstName == "John"',} 
 			},
 						
 			userName : {
@@ -39,6 +39,6 @@ export class RequiredDynamicValidatorComponent implements OnInit {
 		 var user = {
 			firstName:'', middleName:'', lastName:'', userName:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

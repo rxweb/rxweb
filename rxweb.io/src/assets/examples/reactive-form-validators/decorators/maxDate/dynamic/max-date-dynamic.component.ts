@@ -25,11 +25,11 @@ export class MaxDateDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			birthDate : {
-				maxDate :  {value:new Date(2018,7,30),conditionalExpression:(x,y) => { return x.userName == "John" },} 
+				maxDate :  {value:new Date(2018,7,30),conditionalExpression:(x,y) => x.userName == "John" ,} 
 			},
 						
 			admissionDate : {
-				maxDate :  {value:new Date(2018,7,30),conditionalExpression:x => x.userName == "John",} 
+				maxDate :  {value:new Date(2018,7,30),conditionalExpression:'x => x.userName == "John"',} 
 			},
 						
 			registrationDate : {
