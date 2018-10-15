@@ -5,11 +5,11 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a user form, which contains fields like fileType, htmlDataUri, cssDataUri and javascriptDataUri and you want the user to enter input which is a proper data URI format. Here depending upon the requirement, these scenarios may arise..
+Let's assume you are creating a user form, which contains fields like scheme, htmlDataUri, cssDataUri and javascriptDataUri and you want the user to enter input which is a proper data URI format. Here depending upon the requirement, these scenarios may arise..
 
 1. Allow htmlDataUri which have proper data URI format and adding Custom Message on htmlDataUri.
-2. Apply cssDataUri validation based on matched condition in the form, like if the fileType is 'CSS', then the cssDataUri must be a data URI format (Used as a function).
-3. Apply javascriptDataUri validation based on matched condition in the form, like if the fileType is 'Javascript', then the javascriptDataUri must be a data URI format (Used as a string datatype).
+2. Apply cssDataUri validation based on matched condition in the form, like if the scheme is 'DataUri', then the cssDataUri must be a data URI format (Used as a function).
+3. Apply javascriptDataUri validation based on matched condition in the form, like if the scheme is 'DataUri', then the javascriptDataUri must be a data URI format (Used as a string datatype).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how dataUri decorator fulfil the need.
