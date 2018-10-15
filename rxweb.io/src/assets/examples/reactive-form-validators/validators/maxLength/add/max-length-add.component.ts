@@ -16,8 +16,8 @@ export class MaxLengthAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.locationFormGroup = this.formBuilder.formGroup({
-										firstName:['',RxwebValidators.maxLength({value:10 })], 
+        this.locationFormGroup = this.formBuilder.group({
+										firstName:['', RxwebValidators.maxLength({value:10 })], 
 								});
     }
 }

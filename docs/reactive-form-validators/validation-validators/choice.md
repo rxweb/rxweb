@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a employee form in which you want employee to enter value of a particular choice which contains fields like department,hobbies and skills.Here the field is taken in the form of array and according to that the choice is applied on the property by applying minlength and maxLength. Here depending upon the requirement these scenarios may arise.
+Let's assume that you are creating a employee form in which you want employee to enter value of a particular choice which contains fields like department, hobbies and skills.Here the field is taken in the form of array and according to that the choice is applied on the property by applying minlength and maxLength. Here depending upon the requirement these scenarios may arise.
 1.	The skills field in which you want the user to enter maximum three skills and minimum of one skill.
 2.  Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be maximum three and minimum one.
 3.  The Custom Message on Hobbies field.
@@ -16,7 +16,7 @@ Let’s see how choice validator fulfil the need.
 # Basic choice Validation
 
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\choice\add\choice-add.component.ts?type=section)]
 

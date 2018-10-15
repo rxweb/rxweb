@@ -17,8 +17,8 @@ export class NumericAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userInfoFormGroup = this.formBuilder.formGroup({
-										integerNumber:['',RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false })], 
+        this.userInfoFormGroup = this.formBuilder.group({
+										integerNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false })], 
 								});
     }
 }

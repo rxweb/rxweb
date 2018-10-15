@@ -20,7 +20,7 @@ export class UrlEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/url/edit/web-site-info-model-data.json').subscribe(webSiteInfoModel => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/url/edit/web-site-info-model-data.json').subscribe(webSiteInfoModel => {
             this.webSiteInfoModelFormGroup = this.formBuilder.formGroup<WebSiteInfoModel>(WebSiteInfoModel,webSiteInfoModel);
         })
     }

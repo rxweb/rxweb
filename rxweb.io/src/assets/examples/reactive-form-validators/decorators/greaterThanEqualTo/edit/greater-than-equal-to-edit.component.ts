@@ -20,7 +20,7 @@ export class GreaterThanEqualToEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/greaterThanEqualTo/edit/user-data.json').subscribe(user => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/greaterThanEqualTo/edit/user-data.json').subscribe(user => {
             this.userFormGroup = this.formBuilder.formGroup<User>(User,user);
         })
     }

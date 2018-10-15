@@ -33,11 +33,11 @@ export class MinLengthDynamicComponent implements OnInit {
 			},
 						
 			countryCode : {
-				minLength :  {value:3,conditionalExpression:(x,y)=>{ return x.countryName == "India"},} 
+				minLength :  {value:3,conditionalExpression:(x,y)=> x.countryName == "India",} 
 			},
 						
 			stateCode : {
-				minLength :  {value:3,conditionalExpression:x => x.countryName == "India",} 
+				minLength :  {value:3,conditionalExpression:'x => x.countryName == "India"',} 
 			},
 			        };
 		this.contactFormGroup = this.formBuilder.formGroup(contact,formBuilderConfiguration);

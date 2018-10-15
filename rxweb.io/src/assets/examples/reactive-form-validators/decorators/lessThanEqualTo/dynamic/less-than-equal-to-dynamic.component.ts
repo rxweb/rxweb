@@ -25,11 +25,11 @@ export class LessThanEqualToDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			obtainedMarks : {
-				lessThanEqualTo :  {fieldName:'totalMarks',conditionalExpression:(x,y) =>{ return  x.totalMarks == 100 },} 
+				lessThanEqualTo :  {fieldName:'totalMarks',conditionalExpression:(x,y) => x.totalMarks == 100 ,} 
 			},
 						
 			practicalExamMarks : {
-				lessThanEqualTo :  {fieldName:'totalMarks',conditionalExpression:x => x.totalMarks == 100,} 
+				lessThanEqualTo :  {fieldName:'totalMarks',conditionalExpression:'x => x.totalMarks == 100',} 
 			},
 						
 			otherMarks : {

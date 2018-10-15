@@ -16,8 +16,8 @@ export class UrlAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.webSiteInfoModelFormGroup = this.formBuilder.formGroup({
-										adminWebsiteUrl:['',RxwebValidators.url()], 
+        this.webSiteInfoModelFormGroup = this.formBuilder.group({
+										adminWebsiteUrl:['', RxwebValidators.url()], 
 								});
     }
 }

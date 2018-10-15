@@ -16,8 +16,8 @@ export class EvenAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										evenNumber:['',RxwebValidators.even()], 
+        this.userFormGroup = this.formBuilder.group({
+										evenNumber:['', RxwebValidators.even()], 
 								});
     }
 }

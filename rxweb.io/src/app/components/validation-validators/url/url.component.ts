@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { UrlAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/url/add/url-add.component';
 import { UrlCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/url/complete/url-complete.component';
 import { UrlDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/url/dynamic/url-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class UrlComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic url Validation":null,"DefaultConfig":["conditionalExpression","message"],"Complete url Example":null,"Dynamic url Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
    tab_3:string = "completeexample";
    tab_4:string = "dynamicexample";
    

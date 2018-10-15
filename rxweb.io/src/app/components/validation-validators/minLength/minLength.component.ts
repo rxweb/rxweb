@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MinLengthAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/minLength/add/min-length-add.component';
 import { MinLengthCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/minLength/complete/min-length-complete.component';
 import { MinLengthDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/minLength/dynamic/min-length-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class MinLengthComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic MinLength Validation":null,"NumberConfig":["conditionalExpression","message","value"],"Complete MinLength Example":null,"Dynamic MinLength Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
-   tab_3:string = "valueModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
+   tab_3:string = "valueComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

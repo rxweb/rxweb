@@ -20,7 +20,7 @@ export class LessThanEqualToEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/lessThanEqualTo/edit/user-data.json').subscribe(user => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/lessThanEqualTo/edit/user-data.json').subscribe(user => {
             this.userFormGroup = this.formBuilder.formGroup<User>(User,user);
         })
     }

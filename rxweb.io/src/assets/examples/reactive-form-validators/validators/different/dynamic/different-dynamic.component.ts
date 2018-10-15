@@ -25,16 +25,16 @@ export class DifferentDynamicValidatorComponent implements OnInit {
 			},
 						
 			lastName : {
-				different :  {fieldName:"firstName",conditionalExpression:(x,y) =>{ return  x.firstName == "John" },} 
+				different :  {fieldName:"firstName",conditionalExpression:(x,y) => x.firstName == "John" ,} 
 			},
 						
 			userName : {
-				different :  {fieldName:"firstName",conditionalExpression:x => x.firstName == "John",} 
+				different :  {fieldName:"firstName",conditionalExpression:'x => x.firstName == "John"',} 
 			},
 			        };
 		 var accountInfo = {
-			password:'', lastName:'', userName:'', 
+			firstName:'', password:'', lastName:'', userName:'', 
 		}
-		this.accountInfoFormGroup = this.formBuilder.formGroup(accountInfo,formBuilderConfiguration);
+		this.accountInfoFormGroup = this.formBuilder.group(accountInfo,formBuilderConfiguration);
     }
 }

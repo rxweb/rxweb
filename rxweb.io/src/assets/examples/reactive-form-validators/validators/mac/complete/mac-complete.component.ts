@@ -16,10 +16,11 @@ export class MacCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.macAddressInfoFormGroup = this.formBuilder.formGroup({
-																macAddress:['',RxwebValidators.mac({conditionalExpression:(x,y) =>{ return  x.device == "Laptop" } })], 
-													localMacAddress:['',RxwebValidators.mac({conditionalExpression:x => x.device =="Laptop" })], 
-													systemMacAddress:['',RxwebValidators.mac({message:'{{0}} is not a MAC address' })], 
+        this.macAddressInfoFormGroup = this.formBuilder.group({
+										device:['',], 
+													macAddress:['', RxwebValidators.mac({conditionalExpression:(x,y) => x.device == "Laptop"  })], 
+													localMacAddress:['', RxwebValidators.mac({conditionalExpression:'x => x.device =="Laptop"' })], 
+													systemMacAddress:['', RxwebValidators.mac({message:'{{0}} is not a MAC address' })], 
 								});
     }
 }

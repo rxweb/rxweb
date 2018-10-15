@@ -16,9 +16,10 @@ export class GreaterThanEqualToConditionalExpressionValidatorComponent implement
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																memberAge:['',RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:x => x.age >= 18  })], 
-													voterAge:['',RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:(x,y) =>{ return  x.age >= 18 } })], 
+        this.userFormGroup = this.formBuilder.group({
+										age:['',], 
+													memberAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:'x => x.age >= 18 ' })], 
+													voterAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:(x,y) => x.age >= 18  })], 
 								});
     }
 }

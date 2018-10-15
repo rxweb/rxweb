@@ -29,11 +29,11 @@ export class ContainsDynamicComponent implements OnInit {
 			},
 						
 			businessEmailAddress : {
-				contains :  {value:'@gmail.com',conditionalExpression:(x,y) =>{ return  x.emailAddress == "abc@gmail.com" },} 
+				contains :  {value:'@gmail.com',conditionalExpression:(x,y) => x.emailAddress == "abc@gmail.com",} 
 			},
 						
 			recoveryEmailAddress : {
-				contains :  {value:'@gmail.com',conditionalExpression:x => x.emailAddress == "abc@gmail.com",} 
+				contains :  {value:'@gmail.com',conditionalExpression:'x => x.emailAddress == "abc@gmail.com"',} 
 			},
 						
 			otherEmailAddress : {

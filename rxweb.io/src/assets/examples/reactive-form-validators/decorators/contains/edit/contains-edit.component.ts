@@ -20,7 +20,7 @@ export class ContainsEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/contains/edit/user-data.json').subscribe(user => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/contains/edit/user-data.json').subscribe(user => {
             this.userFormGroup = this.formBuilder.formGroup<User>(User,user);
         })
     }

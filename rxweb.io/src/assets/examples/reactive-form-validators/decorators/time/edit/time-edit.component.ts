@@ -20,7 +20,7 @@ export class TimeEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/time/edit/attandance-detail-data.json').subscribe(attandanceDetail => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/time/edit/attandance-detail-data.json').subscribe(attandanceDetail => {
             this.attandanceDetailFormGroup = this.formBuilder.formGroup<AttandanceDetail>(AttandanceDetail,attandanceDetail);
         })
     }

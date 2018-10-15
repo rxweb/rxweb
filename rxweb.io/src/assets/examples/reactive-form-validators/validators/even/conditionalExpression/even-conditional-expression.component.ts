@@ -16,9 +16,10 @@ export class EvenConditionalExpressionValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																evenNumber:['',RxwebValidators.even({conditionalExpression:x => x.type == "Even" })], 
-													number:['',RxwebValidators.even({conditionalExpression:(x,y) =>{ return  x.type == "Even" } })], 
+        this.userFormGroup = this.formBuilder.group({
+										type:['',], 
+													evenNumber:['', RxwebValidators.even({conditionalExpression:'x => x.type == "Even"' })], 
+													number:['', RxwebValidators.even({conditionalExpression:(x,y) => x.type == "Even"  })], 
 								});
     }
 }

@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { GreaterThanAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/greaterThan/add/greater-than-add.component';
 import { GreaterThanCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/greaterThan/complete/greater-than-complete.component';
 import { GreaterThanDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/greaterThan/dynamic/greater-than-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class GreaterThanComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic GreaterThan Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpression","message"],"Complete greaterThan Example":null,"Dynamic greaterThan Example":null};
-  tab_1:string = "fieldNamemodel";
-   tab_2:string = "conditionalExpressionmodel";
-   tab_3:string = "messageModel";
+  tab_1:string = "fieldNameComponent";
+   tab_2:string = "conditionalExpressionComponent";
+   tab_3:string = "messageComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

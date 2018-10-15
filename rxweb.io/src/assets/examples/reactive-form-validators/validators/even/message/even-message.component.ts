@@ -16,8 +16,8 @@ export class EvenMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										multiplesOfEvenNumber:['',RxwebValidators.even({message:'{{0}} is not an even number' })], 
+        this.userFormGroup = this.formBuilder.group({
+										multiplesOfEvenNumber:['', RxwebValidators.even({message:'{{0}} is not an even number' })], 
 								});
     }
 }

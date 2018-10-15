@@ -29,11 +29,11 @@ export class UrlDynamicComponent implements OnInit {
 			},
 						
 			qaWebsiteUrl : {
-				url :  {conditionalExpression:(x,y) =>{ return  x.adminWebsiteUrl == "https://google.co.in" },} 
+				url :  {conditionalExpression:(x,y) => x.adminWebsiteUrl == "https://google.co.in" ,} 
 			},
 						
 			customerWebsiteUrl : {
-				url :  {conditionalExpression:x => x.adminWebsiteUrl == "https://google.co.in" ,} 
+				url :  {conditionalExpression:'x => x.adminWebsiteUrl == "https://google.co.in"' ,} 
 			},
 						
 			maintenanceWebSiteUrl : {

@@ -1,5 +1,5 @@
-export interface RelationalOperatorConfig{
+import { BaseConfig } from './base-config'
+export interface RelationalOperatorConfig extends BaseConfig{
     fieldName: string;
-    message?: string;
-    conditionalExpression?: string | Function;
+    
 }

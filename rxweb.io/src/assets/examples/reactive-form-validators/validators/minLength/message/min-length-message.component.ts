@@ -16,8 +16,8 @@ export class MinLengthMessageValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.contactFormGroup = this.formBuilder.formGroup({
-										landLineNo:['',RxwebValidators.minLength({value:8  ,message:'Minimum 8 characters are allowed' })], 
+        this.contactFormGroup = this.formBuilder.group({
+										landLineNo:['', RxwebValidators.minLength({value:8  ,message:'Minimum 8 characters are allowed' })], 
 								});
     }
 }

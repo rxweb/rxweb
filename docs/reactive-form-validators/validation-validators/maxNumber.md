@@ -16,7 +16,7 @@ Let’s see how maxNumber validator fulfil the need.
 
 # Basic MaxNumber Validation
 We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\maxNumber\add\max-number-add.component.ts?type=section)]
 

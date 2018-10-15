@@ -16,8 +16,8 @@ export class EmailAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										email:['',RxwebValidators.email()], 
+        this.userFormGroup = this.formBuilder.group({
+										email:['', RxwebValidators.email()], 
 								});
     }
 }

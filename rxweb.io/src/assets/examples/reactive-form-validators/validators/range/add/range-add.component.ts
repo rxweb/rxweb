@@ -16,8 +16,8 @@ export class RangeAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.employeeInfoFormGroup = this.formBuilder.formGroup({
-										age:['',RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })], 
+        this.employeeInfoFormGroup = this.formBuilder.group({
+										age:['', RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })], 
 								});
     }
 }

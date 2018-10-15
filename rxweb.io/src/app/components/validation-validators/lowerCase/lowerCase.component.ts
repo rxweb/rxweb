@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { LowerCaseAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/lowerCase/add/lower-case-add.component';
 import { LowerCaseCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/lowerCase/complete/lower-case-complete.component';
 import { LowerCaseDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/lowerCase/dynamic/lower-case-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class LowerCaseComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic LowerCase Validation":null,"MessageConfig":["conditionalExpression","message"],"Complete lowercase Example":null,"Dynamic lowercase Example":null};
-  tab_1:string = "conditionalExpressionmodel";
-   tab_2:string = "messageModel";
+  tab_1:string = "conditionalExpressionComponent";
+   tab_2:string = "messageComponent";
    tab_3:string = "completeexample";
    tab_4:string = "dynamicexample";
    

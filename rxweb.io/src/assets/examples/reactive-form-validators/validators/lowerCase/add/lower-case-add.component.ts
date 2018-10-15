@@ -16,8 +16,8 @@ export class LowerCaseAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userInfoFormGroup = this.formBuilder.formGroup({
-										username:['',RxwebValidators.lowerCase()], 
+        this.userInfoFormGroup = this.formBuilder.group({
+										username:['', RxwebValidators.lowerCase()], 
 								});
     }
 }

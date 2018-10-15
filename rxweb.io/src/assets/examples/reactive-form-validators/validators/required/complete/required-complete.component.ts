@@ -16,11 +16,11 @@ export class RequiredCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										firstName:['',RxwebValidators.required()], 
-													middleName:['',RxwebValidators.required({conditionalExpression:(x,y) =>{ return  x.firstName == "John" } })], 
-													lastName:['',RxwebValidators.required({conditionalExpression:x => x.firstName == "John" })], 
-													userName:['',RxwebValidators.required({message:'Username cannot be blank.' })], 
+        this.userFormGroup = this.formBuilder.group({
+										firstName:['', RxwebValidators.required()], 
+													middleName:['', RxwebValidators.required({conditionalExpression:(x,y) => x.firstName == "John"  })], 
+													lastName:['', RxwebValidators.required({conditionalExpression:'x => x.firstName == "John"' })], 
+													userName:['', RxwebValidators.required({message:'Username cannot be blank.' })], 
 								});
     }
 }

@@ -16,8 +16,8 @@ export class MinLengthAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.contactFormGroup = this.formBuilder.formGroup({
-										countryName:['',RxwebValidators.minLength({value:8 })], 
+        this.contactFormGroup = this.formBuilder.group({
+										countryName:['', RxwebValidators.minLength({value:8 })], 
 								});
     }
 }

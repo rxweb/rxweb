@@ -16,8 +16,8 @@ export class HexColorAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										color:['',RxwebValidators.hexColor()], 
+        this.userFormGroup = this.formBuilder.group({
+										color:['', RxwebValidators.hexColor()], 
 								});
     }
 }

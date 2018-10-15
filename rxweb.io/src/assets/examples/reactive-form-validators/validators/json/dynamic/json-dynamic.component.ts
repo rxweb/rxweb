@@ -21,11 +21,11 @@ export class JsonDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			addressJson : {
-				json :  {conditionalExpression:(x,y)=>{ return x.location == "{CountryName:India}" },} 
+				json :  {conditionalExpression:(x,y)=> x.location == "{CountryName:India}" ,} 
 			},
 						
 			locationJson : {
-				json :  {conditionalExpression:x => x.location == "{CountryName:India}",message:'Enter the text in JSON format --> {key:value}',} 
+				json :  {conditionalExpression:'x => x.location == "{CountryName:India}"',message:'Enter the text in JSON format --> {key:value}',} 
 			},
 						
 			contactJson : {
@@ -33,8 +33,8 @@ export class JsonDynamicValidatorComponent implements OnInit {
 			},
 			        };
 		 var jsonInfo = {
-			addressJson:'', locationJson:'', contactJson:'', 
+			location:'', addressJson:'', locationJson:'', contactJson:'', 
 		}
-		this.jsonInfoFormGroup = this.formBuilder.formGroup(jsonInfo,formBuilderConfiguration);
+		this.jsonInfoFormGroup = this.formBuilder.group(jsonInfo,formBuilderConfiguration);
     }
 }

@@ -20,7 +20,7 @@ export class RequiredEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/required/edit/user-info-data.json').subscribe(userInfo => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/required/edit/user-info-data.json').subscribe(userInfo => {
             this.userInfoFormGroup = this.formBuilder.formGroup<UserInfo>(UserInfo,userInfo);
         })
     }

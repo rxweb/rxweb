@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { FactorAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/factor/add/factor-add.component';
 import { FactorCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/factor/complete/factor-complete.component';
 import { FactorDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/factor/dynamic/factor-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,10 +17,10 @@ export class FactorComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic Factor Validation":null,"FactorConfig":["dividend","fieldName","conditionalExpression","message"],"Complete Factor Example":null,"Dynamic Factor Example":null};
-  tab_1:string = "dividendmodel";
-   tab_2:string = "fieldNamemodel";
-   tab_3:string = "conditionalExpressionmodel";
-   tab_4:string = "messageModel";
+  tab_1:string = "dividendComponent";
+   tab_2:string = "fieldNameComponent";
+   tab_3:string = "conditionalExpressionComponent";
+   tab_4:string = "messageComponent";
    tab_5:string = "completeexample";
    tab_6:string = "dynamicexample";
    

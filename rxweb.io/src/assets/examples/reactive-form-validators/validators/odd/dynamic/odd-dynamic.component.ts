@@ -21,11 +21,11 @@ export class OddDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			number : {
-				odd :  {conditionalExpression:(x,y) =>{ return  x.type == "Odd" },} 
+				odd :  {conditionalExpression:(x,y) => x.type == "Odd" ,} 
 			},
 						
 			oddNumber : {
-				odd :  {conditionalExpression:x => x.type == "Odd",} 
+				odd :  {conditionalExpression:'x => x.type == "Odd"',} 
 			},
 						
 			multiplesOfOddNumber : {
@@ -33,8 +33,8 @@ export class OddDynamicValidatorComponent implements OnInit {
 			},
 			        };
 		 var user = {
-			number:'', oddNumber:'', multiplesOfOddNumber:'', 
+			type:'', number:'', oddNumber:'', multiplesOfOddNumber:'', 
 		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

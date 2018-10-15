@@ -16,9 +16,10 @@ export class DifferentConditionalExpressionValidatorComponent implements OnInit 
     ) { }
 
     ngOnInit() {
-        this.accountInfoFormGroup = this.formBuilder.formGroup({
-																userName:['',RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:x => x.firstName == "John" })], 
-													lastName:['',RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:(x,y) =>{ return  x.firstName == "John" } })], 
+        this.accountInfoFormGroup = this.formBuilder.group({
+										firstName:['',], 
+													userName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:'x => x.firstName == "John"' })], 
+													lastName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:(x,y) => x.firstName == "John"  })], 
 								});
     }
 }

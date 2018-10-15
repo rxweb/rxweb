@@ -16,8 +16,8 @@ export class PasswordAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.loginInfoFormGroup = this.formBuilder.formGroup({
-										password:['',RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true} })], 
+        this.loginInfoFormGroup = this.formBuilder.group({
+										password:['', RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true} })], 
 								});
     }
 }

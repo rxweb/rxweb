@@ -20,7 +20,7 @@ export class EvenEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/even/edit/user-data.json').subscribe(user => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/even/edit/user-data.json').subscribe(user => {
             this.userFormGroup = this.formBuilder.formGroup<User>(User,user);
         })
     }

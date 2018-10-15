@@ -16,10 +16,11 @@ export class DifferentCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.accountInfoFormGroup = this.formBuilder.formGroup({
-																password:['',RxwebValidators.different({fieldName:"firstName"  ,message:'{{0}} is same as firstName' })], 
-													lastName:['',RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:(x,y) =>{ return  x.firstName == "John" } })], 
-													userName:['',RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:x => x.firstName == "John" })], 
+        this.accountInfoFormGroup = this.formBuilder.group({
+										firstName:['',], 
+													password:['', RxwebValidators.different({fieldName:"firstName"  ,message:'{{0}} is same as firstName' })], 
+													lastName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:(x,y) => x.firstName == "John"  })], 
+													userName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:'x => x.firstName == "John"' })], 
 								});
     }
 }

@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { LessThanAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/lessThan/add/less-than-add.component';
 import { LessThanCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/lessThan/complete/less-than-complete.component';
 import { LessThanDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/lessThan/dynamic/less-than-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class LessThanComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic LessThan Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpression","message"],"Complete lessThan Example":null,"Dynamic lessThan Example":null};
-  tab_1:string = "fieldNamemodel";
-   tab_2:string = "conditionalExpressionmodel";
-   tab_3:string = "messageModel";
+  tab_1:string = "fieldNameComponent";
+   tab_2:string = "conditionalExpressionComponent";
+   tab_3:string = "messageComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

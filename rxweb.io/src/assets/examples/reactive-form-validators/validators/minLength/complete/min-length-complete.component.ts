@@ -16,11 +16,12 @@ export class MinLengthCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.contactFormGroup = this.formBuilder.formGroup({
-																mobileNo:['',RxwebValidators.minLength({value:10 })], 
-													landLineNo:['',RxwebValidators.minLength({value:8  ,message:'Minimum 8 characters are allowed' })], 
-													countryCode:['',RxwebValidators.minLength({value:3  ,conditionalExpression:(x,y)=>{ return x.countryName == "India"} })], 
-													stateCode:['',RxwebValidators.minLength({value:3  ,conditionalExpression:x => x.countryName == "India" })], 
+        this.contactFormGroup = this.formBuilder.group({
+										countryName:['',], 
+													mobileNo:['', RxwebValidators.minLength({value:10 })], 
+													landLineNo:['', RxwebValidators.minLength({value:8  ,message:'Minimum 8 characters are allowed' })], 
+													countryCode:['', RxwebValidators.minLength({value:3  ,conditionalExpression:(x,y)=> x.countryName == "India" })], 
+													stateCode:['', RxwebValidators.minLength({value:3  ,conditionalExpression:'x => x.countryName == "India"' })], 
 								});
     }
 }

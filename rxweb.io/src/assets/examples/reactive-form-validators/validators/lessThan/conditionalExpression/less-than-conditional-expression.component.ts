@@ -16,9 +16,10 @@ export class LessThanConditionalExpressionValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																passingMarks:['',RxwebValidators.lessThan({fieldName:'obtainedMarks'  ,conditionalExpression:x => x.obtainedMarks < 35  })], 
-													practicalExamMarks:['',RxwebValidators.lessThan({fieldName:'obtainedMarks'  ,conditionalExpression:(x,y) =>{ return  x.obtainedMarks < 35} })], 
+        this.userFormGroup = this.formBuilder.group({
+										obtainedMarks:['',], 
+													passingMarks:['', RxwebValidators.lessThan({fieldName:'obtainedMarks'  ,conditionalExpression:'x => x.obtainedMarks < 35' })], 
+													practicalExamMarks:['', RxwebValidators.lessThan({fieldName:'obtainedMarks'  ,conditionalExpression:(x,y) =>  x.obtainedMarks < 35 })], 
 								});
     }
 }

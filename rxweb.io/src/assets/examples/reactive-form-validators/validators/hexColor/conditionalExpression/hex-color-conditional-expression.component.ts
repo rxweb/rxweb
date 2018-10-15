@@ -16,10 +16,10 @@ export class HexColorConditionalExpressionValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.hexcolorInfoFormGroup = this.formBuilder.formGroup({
-										color:['',RxwebValidators.hexColor()], 
-													headerHexcolorCode:['',RxwebValidators.hexColor({conditionalExpression:x => x.color == "#AFAFAF" })], 
-													footerHexCode:['',RxwebValidators.hexColor({conditionalExpression:(x,y) =>{ return  x.color == "#AFAFAF"} })], 
+        this.hexcolorInfoFormGroup = this.formBuilder.group({
+										color:['', RxwebValidators.hexColor()], 
+													headerHexcolorCode:['', RxwebValidators.hexColor({conditionalExpression:'x => x.color == "#AFAFAF"' })], 
+													footerHexCode:['', RxwebValidators.hexColor({conditionalExpression:(x,y) =>x.color == "#AFAFAF" })], 
 								});
     }
 }

@@ -1,7 +1,7 @@
 import { ReactiveFormConfig } from "./reactive-form-config";
 
 export class ObjectMaker{
-    static toJson(key: string, message: any, values: string[]) {
+    static toJson(key: string, message: any, values: any) {
         let messageText = (message) ? message : (ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.validationMessage && ReactiveFormConfig.json.validationMessage[key])? ReactiveFormConfig.json.validationMessage[key] : '';
         values.forEach((t ,index)=> {
             messageText = messageText.replace(`{{${index}}}`, t);

@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 
 # When to use
-Let's assume that you are creating a user form in which you want to compare firstname and username which are entered by the user which contains fields like firstname and username,password Here depending upon the requirement these scenarios may arise.
+Let's assume that you are creating a user form in which you want to compare firstname and username which are entered by the user which contains fields like firstname and username, password Here depending upon the requirement these scenarios may arise.
 1.	The Name of username field on which comparison is done.
 2.  The Custom Message on password field.  
 3.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.

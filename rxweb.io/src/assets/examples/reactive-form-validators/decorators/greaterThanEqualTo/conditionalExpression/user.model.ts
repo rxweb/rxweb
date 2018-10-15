@@ -6,11 +6,11 @@ export class User {
 	age: number;
 
 	//If you want to apply conditional expression of type 'string'
-	@greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:x => x.age >= 18  }) 
+	@greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:'x => x.age >= 18 ' }) 
 	memberAge: number;
 
 	//If you want to apply conditional expression of type 'function'
-	@greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:(x,y) =>{ return  x.age >= 18 } }) 
+	@greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:(x,y) => x.age >= 18  }) 
 	voterAge: number;
 
 }

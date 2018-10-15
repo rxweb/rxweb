@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { PatternAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/pattern/add/pattern-add.component';
 import { PatternCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/pattern/complete/pattern-complete.component';
 import { PatternDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/pattern/dynamic/pattern-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class PatternComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic Pattern Validation":null,"PatternConfig":["message","conditionalExpression","pattern"],"Complete pattern Example":null,"Dynamic pattern Example":null};
-  tab_1:string = "messageModel";
-   tab_2:string = "conditionalExpressionModel";
-   tab_3:string = "patternModel";
+  tab_1:string = "messageComponent";
+   tab_2:string = "conditionalExpressionComponent";
+   tab_3:string = "patternComponent";
    tab_4:string = "completeExample";
    tab_5:string = "dynamicExample";
    

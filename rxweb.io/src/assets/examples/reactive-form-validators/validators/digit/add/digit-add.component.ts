@@ -16,8 +16,8 @@ export class DigitAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										age:['',RxwebValidators.digit()], 
+        this.userFormGroup = this.formBuilder.group({
+										age:['', RxwebValidators.digit()], 
 								});
     }
 }

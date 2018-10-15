@@ -1,5 +1,5 @@
-export interface DefaultConfig{
+import { BaseConfig } from './base-config'
+export interface DefaultConfig extends BaseConfig{
     value?: string;
-    message?: string;
-    conditionalExpression?: string | Function;
+    
 }

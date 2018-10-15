@@ -32,8 +32,10 @@ export class RightSideBarComponent implements OnInit {
             }
         }
         let url = 'https://api.github.com/repos/rxweb/rxweb/';
-        if (location.pathname.split('/')[2])
-            url += 'commits?path=docs/reactive-form-validators/validation-decorators/' + location.pathname.split('/')[2] + ".md"
+		if (location.pathname.split('/')[1] && !location.pathname.split('/')[2])
+            url += 'commits?path=docs/reactive-form-validators/'+location.pathname.split('/')[1]+".md"
+        if (location.pathname.split('/')[1] && location.pathname.split('/')[2])
+            url += 'commits?path=docs/reactive-form-validators/'+location.pathname.split('/')[1]+'/' + location.pathname.split('/')[2] + ".md"
         this.http.get(url).subscribe((response: any[]) => {
             const author = response.map(data => data.author);
             author.forEach(element => {

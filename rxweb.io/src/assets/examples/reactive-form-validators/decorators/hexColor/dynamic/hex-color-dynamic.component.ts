@@ -29,11 +29,11 @@ export class HexColorDynamicComponent implements OnInit {
 			},
 						
 			footerHexCode : {
-				hexColor :  {conditionalExpression:(x,y) =>{ return  x.color == "#AFAFAF"},} 
+				hexColor :  {conditionalExpression:(x,y) =>x.color == "#AFAFAF",} 
 			},
 						
 			headerHexcolorCode : {
-				hexColor :  {conditionalExpression:x => x.color == "#AFAFAF",} 
+				hexColor :  {conditionalExpression:'x => x.color == "#AFAFAF"',} 
 			},
 						
 			bodyHexcolorCode : {

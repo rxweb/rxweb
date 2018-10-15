@@ -25,11 +25,11 @@ export class OddDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			number : {
-				odd :  {conditionalExpression:(x,y) =>{ return  x.type == "Odd" },} 
+				odd :  {conditionalExpression:(x,y) => x.type == "Odd" ,} 
 			},
 						
 			oddNumber : {
-				odd :  {conditionalExpression:x => x.type == "Odd",} 
+				odd :  {conditionalExpression:'x => x.type == "Odd"',} 
 			},
 						
 			multiplesOfOddNumber : {

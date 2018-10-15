@@ -17,10 +17,11 @@ export class NumericCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userInfoFormGroup = this.formBuilder.formGroup({
-																integerNumber:['',RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false  ,conditionalExpression:(x,y) =>{ return  x.dataType == "Number" } })], 
-													realNumber:['',RxwebValidators.numeric({acceptValue:NumericValueType.Both  ,allowDecimal:false  ,conditionalExpression:x => x.dataType == "Number" })], 
-													negativeNumber:['',RxwebValidators.numeric({acceptValue:NumericValueType.NegativeNumber  ,allowDecimal:true  ,message:'{{0}} is not a negative number' })], 
+        this.userInfoFormGroup = this.formBuilder.group({
+										dataType:['',], 
+													integerNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false  ,conditionalExpression:(x,y) => x.dataType == "Number"  })], 
+													realNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.Both  ,allowDecimal:false  ,conditionalExpression:'x => x.dataType == "Number"' })], 
+													negativeNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.NegativeNumber  ,allowDecimal:true  ,message:'{{0}} is not a negative number' })], 
 								});
     }
 }

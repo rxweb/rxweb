@@ -16,8 +16,8 @@ export class MaxNumberAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.subjectDetailsFormGroup = this.formBuilder.formGroup({
-										passingMarks:['',RxwebValidators.maxNumber({value:50 })], 
+        this.subjectDetailsFormGroup = this.formBuilder.group({
+										passingMarks:['', RxwebValidators.maxNumber({value:50 })], 
 								});
     }
 }

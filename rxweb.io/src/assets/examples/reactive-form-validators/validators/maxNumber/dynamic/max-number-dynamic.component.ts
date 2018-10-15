@@ -21,11 +21,11 @@ export class MaxNumberDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			maximumMarks : {
-				maxNumber :  {value:100,conditionalExpression:(x,y) =>{ return   x.subjectCode == "8CS5A" },} 
+				maxNumber :  {value:100,conditionalExpression:(x,y) => x.subjectCode == "8CS5A" ,} 
 			},
 						
 			obtainedMarks : {
-				maxNumber :  {value:100,conditionalExpression:x => x.subjectCode == "8CS5A",} 
+				maxNumber :  {value:100,conditionalExpression:'x => x.subjectCode == "8CS5A"',} 
 			},
 						
 			passingMarks : {
@@ -33,8 +33,8 @@ export class MaxNumberDynamicValidatorComponent implements OnInit {
 			},
 			        };
 		 var subjectDetails = {
-			maximumMarks:'', obtainedMarks:'', passingMarks:'', 
+			subjectCode:'', maximumMarks:'', obtainedMarks:'', passingMarks:'', 
 		}
-		this.subjectDetailsFormGroup = this.formBuilder.formGroup(subjectDetails,formBuilderConfiguration);
+		this.subjectDetailsFormGroup = this.formBuilder.group(subjectDetails,formBuilderConfiguration);
     }
 }

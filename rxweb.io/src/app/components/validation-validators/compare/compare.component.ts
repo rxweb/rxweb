@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { CompareAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/compare/add/compare-add.component';
 import { CompareCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/compare/complete/compare-complete.component';
 import { CompareDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/compare/dynamic/compare-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,8 +17,8 @@ export class CompareComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic Compare Validation":null,"CompareConfig":["fieldName","message"],"Complete Compare Example":null,"Dynamic Compare Example":null};
-  tab_1:string = "fieldNamemodel";
-   tab_2:string = "messageModel";
+  tab_1:string = "fieldNameComponent";
+   tab_2:string = "messageComponent";
    tab_3:string = "completeexample";
    tab_4:string = "dynamicexample";
    

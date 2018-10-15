@@ -25,11 +25,11 @@ export class JsonDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			addressJson : {
-				json :  {conditionalExpression:(x,y)=>{ return x.location == "{CountryName:India}" },} 
+				json :  {conditionalExpression:(x,y)=> x.location == "{CountryName:India}" ,} 
 			},
 						
 			locationJson : {
-				json :  {conditionalExpression:x => x.location == "{CountryName:India}",message:'Enter the text in JSON format --> {key:value}',} 
+				json :  {conditionalExpression:'x => x.location == "{CountryName:India}"',message:'Enter the text in JSON format --> {key:value}',} 
 			},
 						
 			contactJson : {

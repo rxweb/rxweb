@@ -20,7 +20,7 @@ export class JsonEditComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/json/edit/json-info-data.json').subscribe(jsonInfo => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/json/edit/json-info-data.json').subscribe(jsonInfo => {
             this.jsonInfoFormGroup = this.formBuilder.formGroup<JsonInfo>(JsonInfo,jsonInfo);
         })
     }

@@ -16,8 +16,8 @@ export class RequiredAddValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userInfoFormGroup = this.formBuilder.formGroup({
-										firstName:['',RxwebValidators.required()], 
+        this.userInfoFormGroup = this.formBuilder.group({
+										firstName:['', RxwebValidators.required()], 
 								});
     }
 }

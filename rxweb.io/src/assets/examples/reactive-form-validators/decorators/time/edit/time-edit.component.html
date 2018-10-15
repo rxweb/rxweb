@@ -1,5 +1,5 @@
 <div>
-<form [formGroup]="attandanceDetailFormGroup">
+<form  *ngIf="attandanceDetailFormGroup"  [formGroup]="attandanceDetailFormGroup">
 <div class="form-group">
     <label>Entry Time</label>
     <input type="text" formControlName="entryTime" class="form-control"  />

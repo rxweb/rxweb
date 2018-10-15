@@ -16,10 +16,11 @@ export class OddCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																number:['',RxwebValidators.odd({conditionalExpression:(x,y) =>{ return  x.type == "Odd" } })], 
-													oddNumber:['',RxwebValidators.odd({conditionalExpression:x => x.type == "Odd" })], 
-													multiplesOfOddNumber:['',RxwebValidators.odd({message:'{{0}} is not an odd number' })], 
+        this.userFormGroup = this.formBuilder.group({
+										type:['',], 
+													number:['', RxwebValidators.odd({conditionalExpression:(x,y) => x.type == "Odd"  })], 
+													oddNumber:['', RxwebValidators.odd({conditionalExpression:'x => x.type == "Odd"' })], 
+													multiplesOfOddNumber:['', RxwebValidators.odd({message:'{{0}} is not an odd number' })], 
 								});
     }
 }

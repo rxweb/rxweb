@@ -16,10 +16,11 @@ export class FactorCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																secondNumber:['',RxwebValidators.factor({fieldName:"firstNumber"  ,conditionalExpression:(x,y) =>{ return  x.firstNumber == 25 } })], 
-													thirdNumber:['',RxwebValidators.factor({fieldName:"firstNumber"  ,conditionalExpression:x => x.firstNumber == 25 })], 
-													fourthNumber:['',RxwebValidators.factor({dividend:50  ,message:'{{0}} is not a factor of 50' })], 
+        this.userFormGroup = this.formBuilder.group({
+										firstNumber:['',], 
+													secondNumber:['', RxwebValidators.factor({fieldName:"firstNumber"  ,conditionalExpression:(x,y) =>x.firstNumber == 25  })], 
+													thirdNumber:['', RxwebValidators.factor({fieldName:"firstNumber"  ,conditionalExpression:'x => x.firstNumber == 25' })], 
+													fourthNumber:['', RxwebValidators.factor({dividend:50  ,message:'{{0}} is not a factor of 50' })], 
 								});
     }
 }

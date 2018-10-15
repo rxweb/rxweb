@@ -1,4 +1,4 @@
-export interface MessageConfig {
-    message?: string;
-    conditionalExpression?: string | Function;
+import { BaseConfig } from './base-config'
+export interface MessageConfig extends BaseConfig {
+    
 }

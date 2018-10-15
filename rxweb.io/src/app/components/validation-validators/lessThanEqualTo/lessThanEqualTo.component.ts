@@ -1,6 +1,5 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { LessThanEqualToAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/lessThanEqualTo/add/less-than-equal-to-add.component';
 import { LessThanEqualToCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/lessThanEqualTo/complete/less-than-equal-to-complete.component';
 import { LessThanEqualToDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/lessThanEqualTo/dynamic/less-than-equal-to-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
@@ -18,9 +17,9 @@ export class LessThanEqualToComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"When to use":null,"Basic LessThanEqualTo Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpression","message"],"Complete lessThanEqualTo Example":null,"Dynamic lessThanEqualTo Example":null};
-  tab_1:string = "fieldNamemodel";
-   tab_2:string = "conditionalExpressionmodel";
-   tab_3:string = "messageModel";
+  tab_1:string = "fieldNameComponent";
+   tab_2:string = "conditionalExpressionComponent";
+   tab_3:string = "messageComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    

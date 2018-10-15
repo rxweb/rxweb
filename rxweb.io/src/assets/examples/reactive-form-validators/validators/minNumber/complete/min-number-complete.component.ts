@@ -16,11 +16,11 @@ export class MinNumberCompleteValidatorComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.resultInfoFormGroup = this.formBuilder.formGroup({
-										maths:['',RxwebValidators.minNumber({value:35 })], 
-													science:['',RxwebValidators.minNumber({value:35  ,message:'Number should not be less than 35' })], 
-													english:['',RxwebValidators.minNumber({value:35  ,conditionalExpression:(x,y) =>{ return  x.maths == 50 } })], 
-													statstics:['',RxwebValidators.minNumber({value:35  ,conditionalExpression:x => x.maths == 50 })], 
+        this.resultInfoFormGroup = this.formBuilder.group({
+										maths:['', RxwebValidators.minNumber({value:35 })], 
+													science:['', RxwebValidators.minNumber({value:35  ,message:'Number should not be less than 35' })], 
+													english:['', RxwebValidators.minNumber({value:35  ,conditionalExpression:(x,y) => x.maths == 50  })], 
+													statstics:['', RxwebValidators.minNumber({value:35  ,conditionalExpression:'x => x.maths == 50' })], 
 								});
     }
 }

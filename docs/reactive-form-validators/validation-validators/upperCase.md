@@ -14,7 +14,7 @@ Let’s assume that you are creating a Location form, which contains fields like
 Let’s see how upperCase validator fulfil the need.
 
 # Basic UpperCase Validation
-We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\upperCase\add\upper-case-add.component.ts?type=section)]
 

@@ -9,11 +9,11 @@ export class User {
 	zipCode: string;
 
 	//If you want to apply conditional expression of type 'function'
-	@pattern({pattern:{'onlyDigit': RegExp('/^[0-9]*$/')}  ,conditionalExpression:(x,y) =>{ return  x.userName == "John" } }) 
+	@pattern({pattern:{'onlyDigit': RegExp('/^[0-9]*$/')}  ,conditionalExpression:(x,y) => x.userName == "John"  }) 
 	contactNumber: number;
 
 	//If you want to apply conditional expression of type 'string'
-	@pattern({pattern:{'onlyDigit': RegExp('/^[0-9]*$/')}  ,conditionalExpression:x=>x.userName=="John" }) 
+	@pattern({pattern:{'onlyDigit': RegExp('/^[0-9]*$/')}  ,conditionalExpression:'x=>x.userName=="John"' }) 
 	age: string;
 
 }
