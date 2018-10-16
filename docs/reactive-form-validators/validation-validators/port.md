@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\port\add\port-add.component.html?type=section)]
 
 [!example(?title=port validator for add Example)]
-<app-port-add-validator></app-port-add-validators>
+<app-port-add-validator></app-port-add-validator>
 
 # BaseConfig
 Below options are not mandatory to use in the `RxwebValidators.port()` validator. If needed then use the below options.
