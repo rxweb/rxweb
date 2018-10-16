@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\port\add\port-add.component.html?type=section)]
 
 [!example(?title=port validator for add Example)]
-<app-port-add></app-port-add>
+<app-port-add-validator></app-port-add-validators>
 
 # BaseConfig
 Below options are not mandatory to use in the `RxwebValidators.port()` validator. If needed then use the below options.
@@ -48,7 +48,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=port validator with conditionalExpression)]
-<app-port-conditionalExpression></app-port-conditionalExpression>
+<app-port-conditionalExpression-validator></app-port-conditionalExpression-validator>
 
 ## message 
 Type :  `string` 
@@ -63,12 +63,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=port validator with custom message)]
-<app-port-message></app-port-message>
+<app-port-message-validator></app-port-message-validator>
 
 # Complete Port Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-port-complete></app-port-complete>
+<app-port-complete-validator></app-port-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\port\complete\port-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic Port Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-port-dynamic></app-port-dynamic>
+<app-port-dynamic-validator></app-port-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\port\dynamic\port-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)

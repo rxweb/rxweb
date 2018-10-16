@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\startsWith\add\starts-with-add.component.html?type=section)]
 
 [!example(?title=startsWith validator for add Example)]
-<app-startsWith-add></app-startsWith-add>
+<app-startsWith-add-validator></app-startsWith-add-validator>
 
 
 # DefaultConfig
@@ -51,7 +51,7 @@ The `value` from which the input should starts with.
 ***
 
 [!example(?type=section&clickEventCode="value=!value"&title=startsWith validator with value)]
-<app-startsWith-value></app-startsWith-value>
+<app-startsWith-value-validator></app-startsWith-value-validator>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -67,7 +67,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=startsWith validator with conditionalExpression)]
-<app-startsWith-conditionalExpression></app-startsWith-conditionalExpression>
+<app-startsWith-conditionalExpression-validator></app-startsWith-conditionalExpression-validator>
 
 ## message 
 Type :  `string` 
@@ -82,12 +82,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=startsWith validator with custom message)]
-<app-startsWith-message></app-startsWith-message>
+<app-startsWith-message-validator></app-startsWith-message-validator>
 
 # Complete StartsWith Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-startsWith-complete></app-startsWith-complete>
+<app-startsWith-complete-validator></app-startsWith-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\startsWith\complete\starts-with-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -97,7 +97,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic StartsWith Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-startsWith-dynamic></app-startsWith-dynamic>
+<app-startsWith-dynamic-validator></app-startsWith-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\startsWith\dynamic\starts-with-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
