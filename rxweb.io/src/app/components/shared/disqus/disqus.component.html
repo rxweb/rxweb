@@ -8,12 +8,15 @@
 			<li [class.active]="activeTab == 'close'" (click)="tabClick('close')">
 				<a data-toggle="tab">Close</a>
 			</li>
+			<li [class.active]="activeTab == 'newIssue'" (click)="tabClick('newIssue')">
+				<a data-toggle="tab">New Feature Request</a>
+			</li>
 		</ul>
 		<div class="tab-content padding-zero-tab">
 			<div class="tab-pane" [class.active]="activeTab == 'open'">
 				<p class="p-2" *ngIf="openIssuesList.length == 0">No Issues found.</p>
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" *ngIf="openIssuesList.length > 0">
-					<div class="panel" *ngFor="let item of openIssuesList;let i = index">
+					<div class="panel" *ngFor="let item of openIssuesList | slice:0:5;let i = index;">
 						<div class="panelheading" role="tab" id="heading{{item.id}}">
 							<h4 class="panel-title que">
 								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{item.id}}" aria-expanded="true" (click)="showOpenComments(item.comments_url,i)">
@@ -42,12 +45,15 @@
 							</div>
 						</div>
 					</div>
+					<div class="p-2" *ngIf="openIssuesList.length > 5">
+						<a href="https://github.com/rxweb/rxweb/issues" target="_blank" class="pull-right">show more...</a>
+					</div>
 				</div>
 			</div>
 			<div class="tab-pane" [class.active]="activeTab == 'close'">
 				<p class="p-2" *ngIf="closedIssuesList.length == 0">No Issues found.</p>
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" *ngIf="closedIssuesList.length > 0">
-					<div class="panel" *ngFor="let item of closedIssuesList;let i = index">
+					<div class="panel" *ngFor="let item of closedIssuesList | slice:0:5; let i = index">
 						<div class="panelheading" role="tab" id="heading{{item.id}}">
 							<h4 class="panel-title que">
 								<a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{item.id}}" aria-expanded="true" (click)="showCloseComments(item.comments_url,i)">
@@ -76,6 +82,23 @@
 							</div>
 						</div>
 					</div>
+					<div class="p-2" *ngIf="closedIssuesList.length > 5">
+						<a href="https://github.com/rxweb/rxweb/issues?q=is%3Aissue+is%3Aclosed" target="_blank" class="pull-right">show more...</a>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" [class.active]="activeTab == 'newIssue'">
+				<div class="code-example">
+					<a *ngIf="showSignIn" href="http://localhost:61143/GitHub/AuthorizeGitHub?currentUrl={{currentUrl}}"  class="btn btn-primary pull-right">Sign In</a>
+					<form [formGroup]="issueFormGroup" *ngIf="!showSignIn">
+						<div class="form-group">
+							<input type="textbox" class="form-control" formControlName="title" placeholder="Enter Title" />
+						</div>
+						<div class="form-group">
+							<textarea class="form-control" formControlName="body" rows="10" cols="30" placeholder="Enter Description"></textarea>
+						</div>
+						<button class="btn btn-primary" (click)="addIssue()">Submit</button>
+					</form>
 				</div>
 			</div>
 		</div>
