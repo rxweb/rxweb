@@ -86,7 +86,7 @@ To override the global configuration message and show the custom message on part
 # Complete endsWith Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-endsWith-complete></app-endsWith-complete>
+<app-endsWith-complete-validator></app-endsWith-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\endsWith\complete\ends-with-complete.component.ts)]
 # [Html](#tab\completehtml)
