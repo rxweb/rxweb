@@ -5,13 +5,12 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a user form, which contains fields like userId, name, profession and taskId and you want the user to enter input which ends with a perticular value. Here depending upon the requirement, these scenarios may arise..
+Let's assume you are creating a user form, which contains fields like name, profession and taskId and you want the user to enter input which ends with a perticular value. Here depending upon the requirement, these scenarios may arise..
 
-1. Allow userId which ends with '#'
-2. Allow name which ends with 'A' and adding Custom Message on name.
-3. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the profession must ends with 'R' (Used as a string datatype).
-4. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the taskId must ends with '1' (Used as a function).
-5. Apply dynamic validation, If the validation is changed based on some criteria in the application.
+1. Allow name which ends with 'm' and adding Custom Message on name.
+2. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the profession must ends with 'r' (Used as a string datatype).
+3. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the taskId must ends with '1' (Used as a function).
+4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how endsWith validator fulfil the need.
 

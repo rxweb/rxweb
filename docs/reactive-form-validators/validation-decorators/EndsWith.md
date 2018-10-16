@@ -5,18 +5,17 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a user form, which contains fields like userId, name, profession and taskId and you want the user to enter input which ends with a perticular value. Here depending upon the requirement, these scenarios may arise..
+Let's assume you are creating a user form, which contains fields like name, profession and taskId and you want the user to enter input which ends with a perticular value. Here depending upon the requirement, these scenarios may arise..
 
-1. Allow userId which ends with '#'
-2. Allow name which ends with 'A' and adding Custom Message on name.
-3. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the profession must ends with 'R' (Used as a string datatype).
-4. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the taskId must ends with '1' (Used as a function).
-5. Apply dynamic validation, If the validation is changed based on some criteria in the application.
+1. Allow name which ends with 'm' and adding Custom Message on name.
+2. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the profession must ends with 'R' (Used as a string datatype).
+3. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the taskId must ends with '1' (Used as a function).
+4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how endsWith decorator fulfil the need.
 
 # Basic endsWith Validation
-First we need to create a User model and define a property of userId in the model to achieve the functional need of point 1.
+First we need to create a User model and define a property of name in the model to achieve the functional need of point 1.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\endsWith\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\endsWith\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
