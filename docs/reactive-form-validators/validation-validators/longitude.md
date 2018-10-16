@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\longitude\add\longitude-add.component.html?type=section)]
 
 [!example(?title=longitude validator for add Example)]
-<app-longitude-add></app-longitude-add>
+<app-longitude-add-validator></app-longitude-add-validator>
 
 # BaseConfig
 message and conditionalExpression are not mandatory to use in the `@longitude()` validators. If needed then use the below options.
@@ -48,7 +48,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=longitude validators with conditionalExpression)]
-<app-longitude-conditionalExpression></app-longitude-conditionalExpression>
+<app-longitude-conditionalExpression-validator></app-longitude-conditionalExpression-validator>
 
 ## message 
 Type :  `string` 
@@ -63,12 +63,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=longitude validators with custom message)]
-<app-longitude-message></app-longitude-message>
+<app-longitude-message-validator></app-longitude-message-validator>
 
 # Complete longitude Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-longitude-complete></app-longitude-complete>
+<app-longitude-complete-validator></app-longitude-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\longitude\complete\longitude-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic longitude Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-longitude-dynamic></app-longitude-dynamic>
+<app-longitude-dynamic-validator></app-longitude-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\longitude\dynamic\longitude-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)

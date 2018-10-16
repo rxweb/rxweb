@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\primeNumber\add\prime-number-add.component.html?type=section)]
 
 [!example(?title=primeNumber validator for add Example)]
-<app-primeNumber-add></app-primeNumber-add>
+<app-primeNumber-add-validator></app-primeNumber-add-validator>
 
 # BaseConfig
 Below options are not mandatory to use in the `RxwebValidators.primeNumber()` validator. If needed then use the below options.
@@ -48,7 +48,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=primeNumber validator with conditionalExpression)]
-<app-primeNumber-conditionalExpression></app-primeNumber-conditionalExpression>
+<app-primeNumber-conditionalExpression-validator></app-primeNumber-conditionalExpression-validator>
 
 ## message 
 Type :  `string` 
@@ -63,12 +63,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=primeNumber validator with custom message)]
-<app-primeNumber-message></app-primeNumber-message>
+<app-primeNumber-message-validator></app-primeNumber-message-validator>
 
 # Complete primeNumber Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-primeNumber-complete></app-primeNumber-complete>
+<app-primeNumber-complete-validator></app-primeNumber-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\primeNumber\complete\prime-number-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic primeNumber Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-primeNumber-dynamic></app-primeNumber-dynamic>
+<app-primeNumber-dynamic-validator></app-primeNumber-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\primeNumber\dynamic\prime-number-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
