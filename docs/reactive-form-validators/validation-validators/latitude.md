@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\latitude\add\latitude-add.component.html?type=section)]
 
 [!example(?title=latitude validator for add Example)]
-<app-latitude-add></app-latitude-add>
+<app-latitude-add-validator></app-latitude-add-validator>
 
 # BaseConfig
 Below options are not mandatory to use in the `RxwebValidators.latitude()` validator. If needed then use the below options.
@@ -48,7 +48,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=latitude validators with conditionalExpression)]
-<app-latitude-conditionalExpression></app-latitude-conditionalExpression>
+<app-latitude-conditionalExpression-validator></app-latitude-conditionalExpression-validator>
 
 ## message 
 Type :  `string` 
@@ -63,12 +63,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=latitude validators with custom message)]
-<app-latitude-message></app-latitude-message>
+<app-latitude-message-validator></app-latitude-message-validator>
 
 # Complete latitude Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-latitude-complete></app-latitude-complete>=
+<app-latitude-complete-validator></app-latitude-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\latitude\complete\latitude-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic latitude Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-latitude-dynamic></app-latitude-dynamic>
+<app-latitude-dynamic-validator></app-latitude-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\latitude\dynamic\latitude-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)

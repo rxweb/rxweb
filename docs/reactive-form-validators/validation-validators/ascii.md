@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\ascii\add\ascii-add.component.html?type=section)]
 
 [!example(?title=ascii validator for add Example)]
-<app-ascii-add></app-ascii-add>
+<app-ascii-add-validator></app-ascii-add-validator>
 
 # DefaultConfig
 message and conditionalExpression are not mandatory to use in the `RxwebValidators.ascii()` validator. If needed then use the below options.
@@ -48,7 +48,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=ascii decorator with conditionalExpression)]
-<app-ascii-conditionalExpression></app-ascii-conditionalExpression>
+<app-ascii-conditionalExpression-validator></app-ascii-conditionalExpression-validator>
 
 ## message 
 Type :  `string` 
@@ -63,12 +63,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=ascii decorator with custom message)]
-<app-ascii-message></app-ascii-message>
+<app-ascii-message-validator></app-ascii-message-validator>
 
 # Complete ascii Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-ascii-complete></app-ascii-complete>
+<app-ascii-complete-validator></app-ascii-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\ascii\complete\ascii-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic ascii Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-ascii-dynamic></app-ascii-dynamic>
+<app-ascii-dynamic-validator></app-ascii-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\ascii\dynamic\ascii-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)

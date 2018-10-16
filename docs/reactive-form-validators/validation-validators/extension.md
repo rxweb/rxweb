@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\extension\add\extension-add.component.html?type=section)]
 
 [!example(?title=extension validator for add Example)]
-<app-extension-add></app-extension-add>
+<app-extension-add-validator></app-extension-add-validator>
 
 
 # ExtensionConfig
@@ -49,7 +49,7 @@ extensions parameter is the array of multiple extensions which are allowed to be
 ***
 
 [!example(?type=section&clickEventCode="extensions=!extensions"&title=extension validator with maximum extension limitation)]
-<app-extension-extensions></app-extension-extensions>
+<app-extension-extensions-validator></app-extension-extensions-validator>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -65,7 +65,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=extension validator with conditionalExpression)]
-<app-extension-conditionalExpression></app-extension-conditionalExpression>
+<app-extension-conditionalExpression-validator></app-extension-conditionalExpression-validator>
 
 ## message 
 Type :  `string` 
@@ -80,12 +80,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=extension validator with custom message)]
-<app-extension-message></app-extension-message>
+<app-extension-message-validator></app-extension-message-validator>
 
 # Complete extension Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-extension-complete></app-extension-complete>
+<app-extension-complete-validator></app-extension-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\extension\complete\extension-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -95,7 +95,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic extension Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-extension-dynamic></app-extension-dynamic>
+<app-extension-dynamic-validator></app-extension-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\extension\dynamic\extension-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)

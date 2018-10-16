@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\dataUri\add\data-uri-add.component.html?type=section)]
 
 [!example(?title=dataUri validator for add Example)]
-<app-dataUri-add></app-dataUri-add>
+<app-dataUri-add-validator></app-dataUri-add-validator>
 
 # BaseConfig
 Below options are not mandatory to use in the `RxwebValidators.dataUri()` validator. If needed then use the below options.
@@ -48,7 +48,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=dataUri decorator with conditionalExpression)]
-<app-dataUri-conditionalExpression></app-dataUri-conditionalExpression>
+<app-dataUri-conditionalExpression-validator></app-dataUri-conditionalExpression-validator>
 
 ## message 
 Type :  `string` 
@@ -63,12 +63,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=dataUri decorator with custom message)]
-<app-dataUri-message></app-dataUri-message>
+<app-dataUri-message-validator></app-dataUri-message-validator>
 
 # Complete dataUri Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-dataUri-complete></app-dataUri-complete>
+<app-dataUri-complete-validator></app-dataUri-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\dataUri\complete\data-uri-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -78,7 +78,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic dataUri Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-dataUri-dynamic></app-dataUri-dynamic>
+<app-dataUri-dynamic-validator></app-dataUri-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\dataUri\dynamic\data-uri-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)

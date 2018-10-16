@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\fileSize\add\file-size-add.component.html?type=section)]
 
 [!example(?title=fileSize validator for add Example)]
-<app-fileSize-add></app-fileSize-add>
+<app-fileSize-add-validator></app-fileSize-add-validator>
 
 
 # SizeConfig
@@ -49,7 +49,7 @@ maxSize parameter is the maximum file size allowed to be entered by the user.
 ***
 
 [!example(?type=section&clickEventCode="maxSize=!maxSize"&title=fileSize validator with maxSize)]
-<app-fileSize-maxSize></app-fileSize-maxSize>
+<app-fileSize-maxSize-validator></app-fileSize-maxSize-validator>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -65,7 +65,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=fileSize validator with conditionalExpression)]
-<app-fileSize-conditionalExpression></app-fileSize-conditionalExpression>
+<app-fileSize-conditionalExpression-validator></app-fileSize-conditionalExpression-validator>
 
 ## message 
 Type :  `string` 
@@ -80,12 +80,12 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=fileSize validator with custom message)]
-<app-fileSize-message></app-fileSize-message>
+<app-fileSize-message-validator></app-fileSize-message-validator>
 
 # Complete fileSize Example
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-fileSize-complete></app-fileSize-complete>
+<app-fileSize-complete-validator></app-fileSize-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\fileSize\complete\file-size-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -95,7 +95,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic fileSize Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-fileSize-dynamic></app-fileSize-dynamic>
+<app-fileSize-dynamic-validator></app-fileSize-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\fileSize\dynamic\file-size-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)

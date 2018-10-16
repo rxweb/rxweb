@@ -24,7 +24,7 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\endsWith\add\ends-with-add.component.html?type=section)]
 
 [!example(?title=endsWith validator for add Example)]
-<app-endsWith-add></app-endsWith-add>
+<app-endsWith-add-validator></app-endsWith-add-validator>
 
 # DefaultConfig
 message and conditionalExpression are not mandatory to use in the `RxwebValidators.endsWith()` validator. If needed then use the below options.
@@ -50,7 +50,7 @@ The `value` from which the input should ends with.
 ***
 
 [!example(?type=section&clickEventCode="value=!value"&title=endsWith validators with value)]
-<app-endsWith-value></app-endsWith-value>
+<app-endsWith-value-validator></app-endsWith-value-validator>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -66,7 +66,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=endsWith validators with conditionalExpression)]
-<app-endsWith-conditionalExpression></app-endsWith-conditionalExpression>
+<app-endsWith-conditionalExpression-validator></app-endsWith-conditionalExpression-validator>
 
 ## message 
 Type :  `string` 
@@ -81,7 +81,7 @@ To override the global configuration message and show the custom message on part
 ***
 
 [!example(?type=section&clickEventCode="message=!message"&title=endsWith validators with custom message)]
-<app-endsWith-message></app-endsWith-message>
+<app-endsWith-message-validator></app-endsWith-message-validator>
 
 # Complete endsWith Example
 [!TabGroup]
@@ -96,7 +96,7 @@ To override the global configuration message and show the custom message on part
 # Dynamic endsWith Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-endsWith-dynamic></app-endsWith-dynamic>
+<app-endsWith-dynamic-validator></app-endsWith-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\endsWith\dynamic\ends-with-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)
