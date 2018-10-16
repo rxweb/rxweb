@@ -13,6 +13,12 @@
       "loadChildren": "./alphaNumeric/alphaNumeric.module#AlphaNumericModule"
     },
     {
+      "title": "@ascii",
+      "description": "Ascii validation decorator allows user to enter the input which is in the proper ascii format ",
+      "path": "ascii",
+      "loadChildren": "./ascii/ascii.module#AsciiModule"
+    },
+    {
       "title": "@compare",
       "description": "Compare validation decorator will compare two inputs. ",
       "path": "compare",
@@ -31,6 +37,12 @@
       "loadChildren": "./creditCard/creditCard.module#CreditCardModule"
     },
     {
+      "title": "@dataUri",
+      "description": "DataUri validation decorator allows user to enter the input which is in the proper data URI format. ",
+      "path": "dataUri",
+      "loadChildren": "./dataUri/dataUri.module#DataUriModule"
+    },
+    {
       "title": "@different",
       "description": "different validation decorator will check whether two value if they are different it will be valid",
       "path": "different",
@@ -47,6 +59,12 @@
       "description": "Email validation decorator will allow only emails to be entered. ",
       "path": "email",
       "loadChildren": "./email/email.module#EmailModule"
+    },
+    {
+      "title": "@endsWith",
+      "description": "EndsWith validation decorator allows user to enter the input which ends with perticular value ",
+      "path": "endsWith",
+      "loadChildren": "./endsWith/endsWith.module#EndsWithModule"
     },
     {
       "title": "@even",
@@ -86,6 +104,18 @@
       "loadChildren": "./json/json.module#JsonModule"
     },
     {
+      "title": "@latitude",
+      "description": "Latitude validation decorator allows user to enter the input which is in the proper latitude format.",
+      "path": "latitude",
+      "loadChildren": "./latitude/latitude.module#LatitudeModule"
+    },
+    {
+      "title": "@latLong",
+      "description": "LatLong validation decorator allows user to enter the input which is in the proper Latitude or longitude "      ,
+      "path": "latLong",
+      "loadChildren": "./latLong/latLong.module#LatLongModule"
+    },
+    {
       "title": "@leapYear",
       "description": "LeapYear validation decorator will check whether the value entered is a leap year or not."      ,
       "path": "leapYear",
@@ -102,6 +132,12 @@
       "description": "Less than validation decorator will check that input property is less than value. ",
       "path": "lessThan",
       "loadChildren": "./lessThan/lessThan.module#LessThanModule"
+    }, 
+    {
+      "title": "@longitude",
+      "description": "Longitude validation decorator allows user to enter the input which is in the proper longitude format. ",
+      "path": "longitude",
+      "loadChildren": "./longitude/longitude.module#LongitudeModule"
     }, 
     {
       "title": "@lowerCase",
@@ -178,6 +214,18 @@
       "loadChildren": "./pattern/pattern.module#PatternModule"
     },
     {
+      "title": "@port",
+      "description": "Port validation decorator allows user to enter the input which is in the proper port format.",
+      "path": "port",
+      "loadChildren": "./port/port.module#PortModule"
+    },
+    {
+      "title": "@primeNumber",
+      "description": "PrimeNumber validation decorator allows user to enter only the prime number. ",
+      "path": "primeNumber",
+      "loadChildren": "./primeNumber/primeNumber.module#PrimeNumberModule"
+    },
+    {
       "title": "@range",
       "description": "Range validation decorator will allow only in specify range will be entered. ",
       "path": "range",
@@ -188,6 +236,18 @@
       "description": "Required validation decorator will check that value is entered or not in the property.",
       "path": "required",
       "loadChildren": "./required/required.module#RequiredModule"
+    },
+    {
+      "title": "@size",
+      "description": "Size validation decorator allows user to enter the input which is in the proper size format.",
+      "path": "size",
+      "loadChildren": "./size/size.module#SizeModule"
+    },
+    {
+      "title": "@startsWith",
+      "description": "StartsWith validation decorator allows user to enter the input which starts with perticular value",
+      "path": "startsWith",
+      "loadChildren": "./startsWith/startsWith.module#StartsWithModule"
     },
     {
       "title": "@time",

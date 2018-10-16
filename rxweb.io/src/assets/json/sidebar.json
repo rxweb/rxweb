@@ -27,6 +27,10 @@
               "uri": "validation-decorators/alphaNumeric"
             },
             {
+              "title": "ascii",
+              "uri": "validation-decorators/ascii"
+            },
+            {
               "title": "compare",
               "uri": "validation-decorators/compare"
             },
@@ -41,6 +45,11 @@
             },
          
             {
+              "title": "dataUri",
+              "uri": "validation-decorators/dataUri"
+            },
+
+            {
               "title": "different",
               "uri": "validation-decorators/different"
             },
@@ -51,6 +60,10 @@
             {
               "title": "email",
               "uri": "validation-decorators/email"
+            },
+            {
+              "title": "endsWith",
+              "uri": "validation-decorators/endsWith"
             },
             {
               "title": "even",
@@ -78,6 +91,14 @@
               "uri": "validation-decorators/json"
             },
             {
+              "title": "latitude",
+              "uri": "validation-decorators/latitude"
+            },
+            {
+              "title": "latLong",
+              "uri": "validation-decorators/latLong"
+            },
+            {
               "title": "leapYear",
               "uri": "validation-decorators/leapYear"
             },   
@@ -88,7 +109,11 @@
             {
               "title": "lessThan",
               "uri": "validation-decorators/lessThan"
-            },          
+            },      
+            {
+              "title": "longitude",
+              "uri": "validation-decorators/longitude"
+            }, 
             {
               "title": "lowerCase",
               "uri": "validation-decorators/lowerCase"
@@ -139,12 +164,28 @@
               "uri": "validation-decorators/pattern"
             },
             {
+              "title": "port",
+              "uri": "validation-decorators/port"
+            },
+            {
+              "title": "primeNumber",
+              "uri": "validation-decorators/primeNumber"
+            },
+            {
               "title": "range",
               "uri": "validation-decorators/range"
             },
             {
               "title": "required",
               "uri": "validation-decorators/required"
+            },
+            {
+              "title": "size",
+              "uri": "validation-decorators/size"
+            },
+            {
+              "title": "startsWith",
+              "uri": "validation-decorators/startsWith"
             },
             {
               "title": "time",
@@ -174,6 +215,10 @@
               "uri": "validation-validators/alphaNumeric"
             },
             {
+              "title": "ascii",
+              "uri": "validation-validators/ascii"
+            },
+            {
               "title": "compare",
               "uri": "validation-validators/compare"
             },
@@ -186,7 +231,10 @@
               "title": "creditCard",
               "uri": "validation-validators/creditCard"
             },
-         
+            {
+              "title": "dataUri",
+              "uri": "validation-validators/dataUri"
+            },
             {
               "title": "different",
               "uri": "validation-validators/different"
@@ -198,6 +246,10 @@
             {
               "title": "email",
               "uri": "validation-validators/email"
+            },
+            {
+              "title": "endsWith",
+              "uri": "validation-validators/endsWith"
             },
             {
               "title": "even",
@@ -225,6 +277,14 @@
               "uri": "validation-validators/json"
             },
             {
+              "title": "latitude",
+              "uri": "validation-validators/latitude"
+            },
+            {
+              "title": "latLong",
+              "uri": "validation-validators/latLong"
+            },
+            {
               "title": "leapYear",
               "uri": "validation-validators/leapYear"
             },   
@@ -235,7 +295,11 @@
             {
               "title": "lessThan",
               "uri": "validation-validators/lessThan"
-            },          
+            },     
+            {
+              "title": "longitude",
+              "uri": "validation-validators/longitude"
+            },      
             {
               "title": "lowerCase",
               "uri": "validation-validators/lowerCase"
@@ -286,12 +350,28 @@
               "uri": "validation-validators/pattern"
             },
             {
+              "title": "port",
+              "uri": "validation-validators/port"
+            },
+            {
+              "title": "primeNumber",
+              "uri": "validation-validators/primeNumber"
+            },
+            {
               "title": "range",
               "uri": "validation-validators/range"
             },
             {
               "title": "required",
               "uri": "validation-validators/required"
+            },
+            {
+              "title": "size",
+              "uri": "validation-validators/size"
+            },
+            {
+              "title": "startsWith",
+              "uri": "validation-validators/startsWith"
             },
             {
               "title": "time",
