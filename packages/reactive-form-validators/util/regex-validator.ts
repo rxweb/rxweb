@@ -32,7 +32,7 @@ export class RegexValidator {
         for (let propertyName of objectProperties) {
             switch (propertyName) {
                 case ALPHABET:
-                    isValid = RegexValidator.isExits(value, RegExRule.alpha);
+                    isValid = RegexValidator.isExits(value, RegExRule.alphaExits);
                     keyName = ALPHABET;
                     break;
                 case DIGIT:

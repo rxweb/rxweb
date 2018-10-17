@@ -47,6 +47,11 @@ export class ApplicationUtil{
         }
       return regex;
     }
+
+    static configureControl(control:any,config:any,type:string){
+      if(config)
+                Object.assign(control,{config:config,type:type})
+    }
   
 
 }

@@ -11,3 +11,4 @@ export const STRING:string = "string";
 export const MESSAGE:string = "message";
 
 export const BLANK:string = "";
+

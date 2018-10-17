@@ -31,9 +31,8 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
                         }
                     })
                 } else {
-                    var control = parentFormGroup.get([t]);
-                    if (!control)
-                        control = parentFormGroup.root.get([t]);
+                    var control = null;
+                      t.split('.').forEach((name,index)=>{ control = (index == 0) ? parentFormGroup.controls[name] : control.controls[name];})
                     if (control) {
                         setTimeOut(control);
                     }
