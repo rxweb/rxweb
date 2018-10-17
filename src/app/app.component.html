@@ -1,3 +1,54 @@
+
+<div>
+  <div class="container">
+    <main class="col-12">
+      <h3 class="bd-title" id="content">Best way to put FormGroup into a Class</h3>
+      <br>
+      <form [formGroup]="userFormGroup">
+        <div class="form-group">
+          <input type="text" formControlName="pseudo" placeholder="Pseudo" class="form-control" />
+        </div>
+        <div class="form-group">
+          <input type="text" formControlName="email" placeholder="Email" class="form-control" />
+        </div>
+        <div [formGroup]="userFormGroup.controls.matchPasswords">
+          <div class="form-group">
+            <input type="text" formControlName="password" placeholder="Password" class="form-control" />
+            {{userFormGroup.controls.matchPasswords.controls.password.errorMessage}}
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="confirmPassword" placeholder="confirm password" class="form-control" />
+            {{userFormGroup.controls.matchPasswords.controls.confirmPassword.errorMessage}}
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" formControlName="terms" placeholder="Confirm Password" /> Terms
+        </div>
+
+
+        <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+      </form>
+    </main>
+  </div>
+</div>
+<div class="container">
+  <main class="col-12">
+    <h1 class="bd-title" id="content">Form Group Based Validation</h1>
+    <br>
+    <form [formGroup]="validatorUserFormGroup">
+      <div class="form-group">
+        <label>firstName</label>
+        <input type="text" formControlName="firstName" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>LastName</label><small></small>
+        <input type="text" formControlName="lastName" class="form-control" />
+      </div>
+      <button [disabled]="!validatorUserFormGroup.valid" class="btn btn-primary">Submit</button>
+    </form>
+  </main>
+</div>
+
 <div class="container">
   <main class="col-12">
     <h1 class="bd-title" id="content">Model Based Angular Reactive Form</h1>

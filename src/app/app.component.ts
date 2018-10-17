@@ -18,6 +18,37 @@ latitude,
 longitude
 } from "@rxweb/reactive-form-validators";
 
+
+export class MatchPassword{
+
+  @required()
+  @alphaNumeric()
+  @minLength({value:5})
+  password:string;
+
+  @compare({fieldName:'password'})
+  confirmPassword:string;
+
+
+}
+
+export class User {
+
+  @required()
+  pseudo:string;
+
+  @required()
+  @email()
+  email:string;
+
+  @propObject(MatchPassword)
+  matchPasswords:MatchPassword
+
+  @required()
+  terms:boolean;
+
+}
+
 import { CLIENT_SETTINGS } from './client-setting'
 export class Attendance {
     @prop() @required({ conditionalExpression: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'" }) startTime: number;
@@ -156,10 +187,25 @@ export class AppComponent implements OnInit {
     }
 
     secondEmployee:any = {};
-
+validatorUserFormGroup:FormGroup;
   userInfoFormGroup: FormGroup
 clientFormGroup:FormGroup
+userFormGroup:FormGroup;
+  user:User
+
   ngOnInit() {
+
+ console.log("text")
+    this.user = new User();
+    this.user.matchPasswords = new MatchPassword();
+    
+    this.userFormGroup = this.validation.formGroup(this.user);
+    console.log(this.userFormGroup)
+
+this.validatorUserFormGroup = this.formBuilder.group({
+firstName:['',[RxwebValidators.alpha()]],
+lastName:['',[Validators.required,Validators.minLength(2)]]
+})
 let client = new Client();
     client.clientName = "ABC Corp";
     client.countryName = "India";
@@ -209,7 +255,8 @@ let client = new Client();
                 "contains": "you should contains ",
                 "onlyDigit": "abc",
                 "required":"this field is required",
-                "min":"minimum number are allowed {{0}}"
+                "min":"minimum number are allowed {{0}}",
+                "minLength":"minimum length is {{0}}"
 
             }
         });
