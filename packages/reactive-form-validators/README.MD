@@ -139,9 +139,9 @@ export class AppComponent implements OnInit {
 There are 40+ validators, but the below code example is for alpha validation. The field will only valid, if the entered value is in alphabets. see the complete code example on **[stackblitz](https://stackblitz.com/edit/rxweb-alpha-validator-angular-reactive-form?file=src%2Fapp%2Fuser-info%2Fadd%2Fuser-info-add.component.ts)**.
 ```js
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
+import { FormGroup,FormBuilder } from "@angular/forms"
 
-import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 
 @Component({
@@ -153,7 +153,7 @@ export class UserInfoAddComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
