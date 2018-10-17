@@ -114,11 +114,11 @@ export class RxFormBuilder extends BaseFormBuilder {
             let instance = this.getInstanceContainer(t.entity);
             if (instance.conditionalValidationProps) {
                 for (var key in instance.conditionalValidationProps) {
-                    var prop = instance.properties.filter(t => t.name == key)[0];
-                    if (!prop)
-                        prop = instanceContainer.properties.filter(t => t.name == key)[0];
+                     var   prop = instanceContainer.properties.filter(t => t.name == key)[0];
                     if (prop) {
-                        if (!instanceContainer.conditionalValidationProps)
+                        if (!instanceContainer.conditionalValidationProps){
+                            instanceContainer.conditionalValidationProps = {};
+                          }
                             if (!instanceContainer.conditionalValidationProps[key])
                                 instanceContainer.conditionalValidationProps[key] = [];
                         instance.conditionalValidationProps[key].forEach(x => {
