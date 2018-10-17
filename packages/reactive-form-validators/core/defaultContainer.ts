@@ -13,7 +13,8 @@ export const defaultContainer:
         init(target: any,parameterIndex:any,propertyKey:string, annotationType:string, config:any) : void,
         initPropertyObject(name:string,propertyType:string,entity:any,target) : void,
         modelIncrementCount:number,
-        clearInstance(instance:any):void
+        clearInstance(instance:any):void,
+        setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string):void
     } = new (class {
         private instances: InstanceContainer[] = [];
         modelIncrementCount:number = 0;
@@ -89,7 +90,7 @@ export const defaultContainer:
             }
         }
 
-        private setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string) {
+        setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string) {
             if (!instance.conditionalValidationProps)
                 instance.conditionalValidationProps = {};
             if (!instance.conditionalValidationProps[propName])
