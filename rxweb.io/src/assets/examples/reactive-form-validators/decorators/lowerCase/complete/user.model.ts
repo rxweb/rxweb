@@ -6,7 +6,7 @@ export class User {
 	username: string;
 
 	//If you want to apply conditional expression of type 'function'
-	@lowerCase({conditionalExpression:(x, y) =>  x.username == "jonathan.feldman"  }) 
+	@lowerCase({conditionalExpression:(x,y) =>  x.username == "jonathan.feldman"  }) 
 	firstName: string;
 
 	//If you want to apply conditional expression of type 'string'

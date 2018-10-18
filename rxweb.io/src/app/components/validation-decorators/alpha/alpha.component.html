@@ -16,10 +16,10 @@
 
 <p>Let’s assume that you are creating a Country form, which contains fields like CountryName, CountryCode, StateName, StateCode and you want the user to enter only alphabets Here depending upon the requirement these scenarios may arise.</p>
 <ol>
-	<li>	Allow only alphabets in CountryCode without space.</li>
-	<li>	Allowing WhiteSpace in CountryName</li>
+	<li>	Allow only alphabets in CountryName without space.</li>
+	<li>	Allowing WhiteSpace in StateName</li>
 	<li>	Apply alpha validation based on matched condition in the form, like if the CountryName  is ‘Australia’ then the StateCode value should be in alphabets.</li>
-	<li>	Adding Custom Message on StateName Field.</li>
+	<li>	Adding Custom Message on StateCode Field.</li>
 	<li>	Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
 </ol>
 <p>Let’s see how alpha decorator fulfil the need.</p>
@@ -29,7 +29,7 @@
 <div class='col-lg-12'>
 <h2>Basic Alpha Validation</h2>
 
-<p>First we need to create a Country class and define a property of CountryCode in the model to achieve the functional need of point 1.</p>
+<p>First we need to create a Country class and define a property of CountryName in the model to achieve the functional need of point 1.</p>
 <div class="model-ts" *ngIf="tab_1=='basicadd'">
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Model" (cbOnSuccess)="codeContent.add.ModelCopied = true" [class.copied]="codeContent.add.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>

@@ -1,0 +1,27 @@
+<div>
+<form  [formGroup]="userFormGroup">
+<div class="form-group">
+    <label>Name</label>
+    <input type="text" formControlName="name" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Profession' or 'Task Id', then you need to add 'name' input as 'John'<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.name.errors">{{userFormGroup.controls.name.errors.startsWith.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Task Id</label>
+    <input type="text" formControlName="taskId" class="form-control"  />
+    <small class="form-text text-muted">You can enter value which starts with '#'<br/></small>
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Task Id' then you need to add 'name' input as 'John'.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.taskId.errors">{{userFormGroup.controls.taskId.errors.startsWith.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Profession</label>
+    <input type="text" formControlName="profession" class="form-control"  />
+    <small class="form-text text-muted">You can enter value which starts with 'Senior'<br/></small>
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Profession' then you need to add 'name' input as 'John'.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
+    <small class="form-text text-danger" *ngIf="userFormGroup.controls.profession.errors">{{userFormGroup.controls.profession.errors.startsWith.message}}<br/></small>
+</div>
+<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

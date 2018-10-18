@@ -10,7 +10,7 @@ export class User {
 	middleName: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@maxLength({value:16  ,conditionalExpression:'x=> x.firstName == "John"' }) 
+	@maxLength({value:16  ,conditionalExpression:'x => x.firstName == "John"' }) 
 	lastName: string;
 
 	@maxLength({value:10  ,message:'Maximum 10 characters are allowed' }) 

@@ -33,7 +33,7 @@ export class MaxLengthDynamicComponent implements OnInit {
 			},
 						
 			lastName : {
-				maxLength :  {value:16,conditionalExpression:'x=> x.firstName == "John"',} 
+				maxLength :  {value:16,conditionalExpression:'x => x.firstName == "John"',} 
 			},
 						
 			userName : {

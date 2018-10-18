@@ -19,7 +19,7 @@ export class LowerCaseConditionalExpressionValidatorComponent implements OnInit 
         this.userFormGroup = this.formBuilder.group({
 										username:['', RxwebValidators.lowerCase()], 
 													middleName:['', RxwebValidators.lowerCase({conditionalExpression:'x => x.username == "jonathan.feldman"' })], 
-													firstName:['', RxwebValidators.lowerCase({conditionalExpression:(x, y) =>  x.username == "jonathan.feldman"  })], 
+													firstName:['', RxwebValidators.lowerCase({conditionalExpression:(x,y) =>  x.username == "jonathan.feldman"  })], 
 								});
     }
 }

@@ -11,6 +11,10 @@ const VALIDATION_VALIDATORS_ROUTES: Routes = [
 	loadChildren: './alphaNumeric/alphaNumeric-validators.module#AlphaNumericValidatorsModule',
 },
  {
+	path:'ascii',
+	loadChildren: './ascii/ascii-validators.module#AsciiValidatorsModule',
+},
+ {
 	path:'compare',
 	loadChildren: './compare/compare-validators.module#CompareValidatorsModule',
 },
@@ -23,6 +27,10 @@ const VALIDATION_VALIDATORS_ROUTES: Routes = [
 	loadChildren: './creditCard/creditCard-validators.module#CreditCardValidatorsModule',
 },
  {
+	path:'dataUri',
+	loadChildren: './dataUri/dataUri-validators.module#DataUriValidatorsModule',
+},
+ {
 	path:'different',
 	loadChildren: './different/different-validators.module#DifferentValidatorsModule',
 },
@@ -33,6 +41,10 @@ const VALIDATION_VALIDATORS_ROUTES: Routes = [
  {
 	path:'email',
 	loadChildren: './email/email-validators.module#EmailValidatorsModule',
+},
+ {
+	path:'endsWith',
+	loadChildren: './endsWith/endsWith-validators.module#EndsWithValidatorsModule',
 },
  {
 	path:'even',
@@ -59,6 +71,14 @@ const VALIDATION_VALIDATORS_ROUTES: Routes = [
 	loadChildren: './json/json-validators.module#JsonValidatorsModule',
 },
  {
+	path:'latitude',
+	loadChildren: './latitude/latitude-validators.module#LatitudeValidatorsModule',
+},
+ {
+	path:'latLong',
+	loadChildren: './latLong/latLong-validators.module#LatLongValidatorsModule',
+},
+ {
 	path:'leapYear',
 	loadChildren: './leapYear/leapYear-validators.module#LeapYearValidatorsModule',
 },
@@ -69,6 +89,10 @@ const VALIDATION_VALIDATORS_ROUTES: Routes = [
  {
 	path:'lessThan',
 	loadChildren: './lessThan/lessThan-validators.module#LessThanValidatorsModule',
+},
+ {
+	path:'longitude',
+	loadChildren: './longitude/longitude-validators.module#LongitudeValidatorsModule',
 },
  {
 	path:'lowerCase',
@@ -119,12 +143,28 @@ const VALIDATION_VALIDATORS_ROUTES: Routes = [
 	loadChildren: './pattern/pattern-validators.module#PatternValidatorsModule',
 },
  {
+	path:'port',
+	loadChildren: './port/port-validators.module#PortValidatorsModule',
+},
+ {
+	path:'primeNumber',
+	loadChildren: './primeNumber/primeNumber-validators.module#PrimeNumberValidatorsModule',
+},
+ {
 	path:'range',
 	loadChildren: './range/range-validators.module#RangeValidatorsModule',
 },
  {
 	path:'required',
 	loadChildren: './required/required-validators.module#RequiredValidatorsModule',
+},
+ {
+	path:'fileSize',
+	loadChildren: './fileSize/fileSize-validators.module#FileSizeValidatorsModule',
+},
+ {
+	path:'startsWith',
+	loadChildren: './startsWith/startsWith-validators.module#StartsWithValidatorsModule',
 },
  {
 	path:'time',

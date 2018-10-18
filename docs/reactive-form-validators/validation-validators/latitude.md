@@ -55,7 +55,7 @@ Type :  `string`
 
 To override the global configuration message and show the custom message on particular control property.
 
-[!TabGroup(?showHideCondition="message")]=
+[!TabGroup(?showHideCondition="message")]
 # [Component](#tab\messageComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\latitude\message\latitude-message.component.ts)]
 # [Html](#tab\messageHtml)

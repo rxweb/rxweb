@@ -1,0 +1,11 @@
+<div>
+<form  [formGroup]="numberInfoFormGroup">
+<div class="form-group">
+    <label>First Country Latitude</label>
+    <input type="text" formControlName="firstCountryLatitude" class="form-control"  />
+    <small class="form-text text-muted">You must enter a valid latitude<br/></small>
+    <small class="form-text text-danger" *ngIf="numberInfoFormGroup.controls.firstCountryLatitude.errors">{{numberInfoFormGroup.controls.firstCountryLatitude.errors.latitude.message}}<br/></small>
+</div>
+<button [disabled]="!numberInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>

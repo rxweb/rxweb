@@ -6,7 +6,7 @@ export class User {
 	userName: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@pattern({pattern:{'onlyDigit': RegExp('/^[0-9]*$/')}  ,conditionalExpression:'x=>x.userName=="John"' }) 
+	@pattern({pattern:{'onlyDigit': RegExp('/^[0-9]*$/')}  ,conditionalExpression:'x => x.userName=="John"' }) 
 	age: string;
 
 	//If you want to apply conditional expression of type 'function'

@@ -16,7 +16,7 @@
 
 <p>Let's assume that you are creating a user form and you want details like CreditCard and you have fields like CardType,VisaCard,AmericanExpress,MaestroCard,JCBcard,DiscoverCard,MasterCard  Here depending upon the requirement these scenarios may arise.  </p>
 <ol>
-	<li>  CreditCard Type has different Card Types like Visa,AmericanExpress,Maestro,JCB,Discover,DinersClub,MasterCard.</li>
+	<li>  CreditCard Type has different Card Types like Visa, AmericanExpress, Maestro, JCB, Discover, DinersClub, MasterCard.</li>
 	<li> 	Apply CreditCard validation based on matched condition in the form, like if the CardType  is ‘visa’ then the VisaCard value should be in VisaCard format.</li>
 	<li>  The Custom Message on VisaCard field.  </li>
 	<li>	Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
@@ -29,7 +29,7 @@
 <h2>Basic CreditCard Validation</h2>
 
 <p>We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
-<p>Here we have covered Add and Edit form operations. </p>
+<p>Here we have covered Add operation. </p>
 <div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>

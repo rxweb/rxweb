@@ -29,7 +29,7 @@ export class MaxLengthDynamicValidatorComponent implements OnInit {
 			},
 						
 			lastName : {
-				maxLength :  {value:16,conditionalExpression:'x=> x.firstName == "John"',} 
+				maxLength :  {value:16,conditionalExpression:'x => x.firstName == "John"',} 
 			},
 						
 			userName : {

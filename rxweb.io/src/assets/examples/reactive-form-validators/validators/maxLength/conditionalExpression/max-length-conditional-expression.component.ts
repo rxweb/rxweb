@@ -18,7 +18,7 @@ export class MaxLengthConditionalExpressionValidatorComponent implements OnInit 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
 										firstName:['', RxwebValidators.maxLength({value:16 })], 
-													lastName:['', RxwebValidators.maxLength({value:16  ,conditionalExpression:'x=> x.firstName == "John"' })], 
+													lastName:['', RxwebValidators.maxLength({value:16  ,conditionalExpression:'x => x.firstName == "John"' })], 
 													middleName:['', RxwebValidators.maxLength({value:16  ,conditionalExpression:(x,y)=> x.firstName == "John" })], 
 								});
     }

@@ -91,7 +91,7 @@ enter value which you want to restrict number in the property
 [!TabGroup]
 # [Example](#tab\completeexample)
 <app-minDate-complete-validator></app-minDate-complete-validator>
-# [Component](#tab\completecomponent)
+# [Component](#tab\completecomponent)             
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\complete\min-date-complete.component.ts)]
 # [Html](#tab\completehtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\complete\min-date-complete.component.html)]
@@ -100,7 +100,7 @@ enter value which you want to restrict number in the property
 # Dynamic minDate Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-minDate-dynamic-validator></app-minDate-dynamic-vali
+<app-minDate-dynamic-validator></app-minDate-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\dynamic\min-date-dynamic.component.ts)]
 # [Html](#tab\dynamichtml)

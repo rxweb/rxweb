@@ -25,7 +25,7 @@ export class LowerCaseDynamicValidatorComponent implements OnInit {
 			},
 						
 			firstName : {
-				lowerCase :  {conditionalExpression:(x, y) =>  x.username == "jonathan.feldman" ,} 
+				lowerCase :  {conditionalExpression:(x,y) =>  x.username == "jonathan.feldman" ,} 
 			},
 						
 			middleName : {

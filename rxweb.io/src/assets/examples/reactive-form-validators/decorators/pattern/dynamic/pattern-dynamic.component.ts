@@ -37,7 +37,7 @@ export class PatternDynamicComponent implements OnInit {
 			},
 						
 			age : {
-				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:'x=>x.userName=="John"',} 
+				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:'x => x.userName=="John"',} 
 			},
 			        };
 		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);

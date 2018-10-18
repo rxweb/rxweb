@@ -1,0 +1,32 @@
+<div>
+<form  [formGroup]="countryFormGroup">
+<div class="form-group">
+    <label>Continent</label>
+    <input type="text" formControlName="continent" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Second Country' or 'Third Country', then you need to add 'Continent' input as 'Asia'<br/></small>
+    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.continent.errors">{{countryFormGroup.controls.continent.errors.latLong.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Second Country</label>
+    <input type="text" formControlName="secondCountry" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Second Country' then you need to add 'Continent' input as 'Asia'.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
+    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.secondCountry.errors">{{countryFormGroup.controls.secondCountry.errors.latLong.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Third Country</label>
+    <input type="text" formControlName="thirdCountry" class="form-control"  />
+    <small class="form-text text-muted">If you want to apply conditional validation on 'Third Country' then you need to add 'Continent' input as 'Asia'.<br/></small>
+    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.thirdCountry.errors">{{countryFormGroup.controls.thirdCountry.errors.latLong.message}}<br/></small>
+</div>
+<div class="form-group">
+    <label>First Country</label>
+    <input type="text" formControlName="firstCountry" class="form-control"  />
+    <small class="form-text text-muted">enter latitude or longitude only<br/></small>
+    <small class="form-text text-muted">Shows custom message.<br/></small>
+    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.firstCountry.errors">{{countryFormGroup.controls.firstCountry.errors.latLong.message}}<br/></small>
+</div>
+<button [disabled]="!countryFormGroup.valid" class="btn btn-primary">Submit</button>
+</form>
+</div>
