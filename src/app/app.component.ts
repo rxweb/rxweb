@@ -163,7 +163,13 @@ clientFormGroup:FormGroup
 userFormGroup:FormGroup;
   
 testFormGroup:FormGroup;
+testForm:FormGroup
   ngOnInit() {
+this.testForm = this.formBuilder.group({
+  password:[''],
+  confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
+  age:['',RxwebValidators.range({minimumNumber:1,maximumNumber:10})]
+});
         this.angularFormGroup = this.validation.group({
           firstName:['',RxwebValidators.required()],
           lastName:[''],

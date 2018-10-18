@@ -5,7 +5,7 @@ import { defaultContainer } from "../core/defaultContainer";
 import { BaseDirective } from "./base-directive"
 
 @Directive({
-    selector: '[formValidator]',
+    selector: '[formGroup]',
 })
 export class RxwebFormDirective extends BaseDirective implements AfterContentInit, OnDestroy {
     
@@ -17,7 +17,7 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
     @Input() formGroup: FormGroup;
 
     ngAfterContentInit(): void {
-      if(this.formGroup){
+      if(this.formGroup && !this.formGroup["model"]){
         Object.keys(this.formGroup.controls).forEach(fieldName => {
               let formControl:any = this.formGroup.controls[fieldName];
               if(formControl.config){
