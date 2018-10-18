@@ -238,10 +238,10 @@
       "loadChildren": "./required/required.module#RequiredModule"
     },
     {
-      "title": "@size",
-      "description": "Size validation decorator allows user to enter the input which is in the proper size format.",
-      "path": "size",
-      "loadChildren": "./size/size.module#SizeModule"
+      "title": "@fileSize",
+      "description": "FileSize validation decorator allows user to enter the input which is in the proper fileSize format.",
+      "path": "fileSize",
+      "loadChildren": "./fileSize/fileSize.module#FileSizeModule"
     },
     {
       "title": "@startsWith",

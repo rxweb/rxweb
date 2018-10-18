@@ -180,8 +180,8 @@
               "uri": "validation-decorators/required"
             },
             {
-              "title": "size",
-              "uri": "validation-decorators/size"
+              "title": "fileSize",
+              "uri": "validation-decorators/fileSize"
             },
             {
               "title": "startsWith",
@@ -366,8 +366,8 @@
               "uri": "validation-validators/required"
             },
             {
-              "title": "size",
-              "uri": "validation-validators/size"
+              "title": "fileSize",
+              "uri": "validation-validators/fileSize"
             },
             {
               "title": "startsWith",
