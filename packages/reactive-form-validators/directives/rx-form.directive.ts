@@ -3,6 +3,7 @@ import { FormGroup } from "@angular/forms";
 import { AnnotationTypes } from "../core/validator.static";
 import { defaultContainer } from "../core/defaultContainer";
 import { BaseDirective } from "./base-directive"
+import { Linq } from "../util/linq";
 
 @Directive({
     selector: '[formGroup]',
@@ -21,6 +22,10 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
         Object.keys(this.formGroup.controls).forEach(fieldName => {
               let formControl:any = this.formGroup.controls[fieldName];
               if(formControl.config){
+                  if (formControl.config && formControl.config.conditionalExpression) {
+                     let columns = Linq.expressionColumns(formControl.config.conditionalExpression);
+                      defaultContainer.addChangeValidation(this.validationRule, fieldName, columns);
+                    }
                   if (formControl.config && (formControl.type == AnnotationTypes.compare || formControl.type == AnnotationTypes.greaterThan || formControl.type == AnnotationTypes.greaterThanEqualTo || formControl.type == AnnotationTypes.lessThan || formControl.type == AnnotationTypes.lessThanEqualTo  || formControl.type == AnnotationTypes.different  || formControl.type == AnnotationTypes.factor)) {
                       defaultContainer.setConditionalValueProp(this.validationRule, formControl.config.fieldName, fieldName)
                   }

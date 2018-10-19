@@ -166,7 +166,7 @@ testFormGroup:FormGroup;
 testForm:FormGroup
   ngOnInit() {
 this.testForm = this.formBuilder.group({
-  password:[''],
+  password:['',RxwebValidators.required({conditionalExpression:(x) => x.age > 18 })],
   confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
   age:['',RxwebValidators.range({minimumNumber:1,maximumNumber:10})]
 });
