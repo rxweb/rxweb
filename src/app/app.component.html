@@ -2,6 +2,8 @@
   <input type="text" formControlName="password" /> {{testForm.controls.password.errors | json}}
   <input type="text" formControlName="confirmPassword" />{{testForm.controls.confirmPassword.errors | json}}
   <input type="number" formControlName="age" />{{testForm.controls.age.errors | json}}
+  <input type="text" formControlName="cardType" />{{testForm.controls.cardType.errors | json}}
+  <input type="text" formControlName="creditCard" />{{testForm.controls.creditCard.errors | json}}
 </form>
 <form [formGroup]="userInfoFormGroup">
   <div class="form-group">

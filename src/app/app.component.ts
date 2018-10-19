@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl,FormCo
 import {
   choice,
     contains,
-    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType, minLength
+    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, minLength
   , FormGroupExtension, different, numeric, NumericValueType, even, odd, factor, leapYear, time, RxwebValidators,
 ascii,
 dataUri,
@@ -108,7 +108,7 @@ export class Employee {
     @greaterThanEqualTo({ fieldName: 'minNumber' }) greaterThanEqualTo: string;
     @lessThan({ fieldName: 'minNumber' }) lessThan: string;
     @lessThanEqualTo({ fieldName: 'minNumber' }) lessThanEqualTo: string;
-    @creditCard({ creditCardTypes: [CreditCardType.AmericanExpress,] }) creditCard: string;
+    @creditCard({ creditCardTypes: ["AmericanExpress",] }) creditCard: string;
     @ascii()                          ascii:string;
     @dataUri()                        dataUri:string;
     @port()                           port:number;
@@ -168,7 +168,9 @@ testForm:FormGroup
 this.testForm = this.formBuilder.group({
   password:['',RxwebValidators.required({conditionalExpression:(x) => x.age > 18 })],
   confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
-  age:['',RxwebValidators.range({minimumNumber:1,maximumNumber:10})]
+  age:['',RxwebValidators.range({minimumNumber:1,maximumNumber:10})],
+  cardType:[''],
+  creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})]
 });
         this.angularFormGroup = this.validation.group({
           firstName:['',RxwebValidators.required()],

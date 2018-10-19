@@ -26,7 +26,7 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
                      let columns = Linq.expressionColumns(formControl.config.conditionalExpression);
                       defaultContainer.addChangeValidation(this.validationRule, fieldName, columns);
                     }
-                  if (formControl.config && (formControl.type == AnnotationTypes.compare || formControl.type == AnnotationTypes.greaterThan || formControl.type == AnnotationTypes.greaterThanEqualTo || formControl.type == AnnotationTypes.lessThan || formControl.type == AnnotationTypes.lessThanEqualTo  || formControl.type == AnnotationTypes.different  || formControl.type == AnnotationTypes.factor)) {
+                  if (formControl.config && ((formControl.type == AnnotationTypes.compare || formControl.type == AnnotationTypes.greaterThan || formControl.type == AnnotationTypes.greaterThanEqualTo || formControl.type == AnnotationTypes.lessThan || formControl.type == AnnotationTypes.lessThanEqualTo  || formControl.type == AnnotationTypes.different  || formControl.type == AnnotationTypes.factor) || (formControl.type == AnnotationTypes.creditCard && formControl.config.fieldName))) {
                       defaultContainer.setConditionalValueProp(this.validationRule, formControl.config.fieldName, fieldName)
                   }
             }

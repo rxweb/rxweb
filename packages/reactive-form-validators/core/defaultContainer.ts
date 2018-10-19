@@ -85,7 +85,7 @@ export const defaultContainer:
                 let columns = Linq.expressionColumns(decoratorConfiguration.config.conditionalExpression);
                 this.addChangeValidation(instance, decoratorConfiguration.propertyName, columns);
             }
-            if (instance && decoratorConfiguration.config && (decoratorConfiguration.annotationType == AnnotationTypes.compare || decoratorConfiguration.annotationType == AnnotationTypes.greaterThan || decoratorConfiguration.annotationType == AnnotationTypes.greaterThanEqualTo || decoratorConfiguration.annotationType == AnnotationTypes.lessThan || decoratorConfiguration.annotationType == AnnotationTypes.lessThanEqualTo  || decoratorConfiguration.annotationType == AnnotationTypes.different  || decoratorConfiguration.annotationType == AnnotationTypes.factor)) {
+            if (instance && decoratorConfiguration.config && ((decoratorConfiguration.annotationType == AnnotationTypes.compare || decoratorConfiguration.annotationType == AnnotationTypes.greaterThan || decoratorConfiguration.annotationType == AnnotationTypes.greaterThanEqualTo || decoratorConfiguration.annotationType == AnnotationTypes.lessThan || decoratorConfiguration.annotationType == AnnotationTypes.lessThanEqualTo  || decoratorConfiguration.annotationType == AnnotationTypes.different  || decoratorConfiguration.annotationType == AnnotationTypes.factor) || (decoratorConfiguration.annotationType == AnnotationTypes.creditCard && decoratorConfiguration.config.fieldName))) {
                 this.setConditionalValueProp(instance, decoratorConfiguration.config.fieldName, decoratorConfiguration.propertyName)
             }
         }
