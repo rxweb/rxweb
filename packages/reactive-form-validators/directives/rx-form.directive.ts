@@ -1,9 +1,10 @@
-import { Directive, Input, AfterContentInit,OnDestroy,ElementRef } from "@angular/core"
-import { FormGroup } from "@angular/forms";
+import { Directive, Input, AfterContentInit,OnDestroy,ElementRef,Renderer } from "@angular/core"
+import { FormGroup,AbstractControl } from "@angular/forms";
 import { AnnotationTypes } from "../core/validator.static";
 import { defaultContainer } from "../core/defaultContainer";
 import { BaseDirective } from "./base-directive"
 import { Linq } from "../util/linq";
+import { DecimalProvider } from "../domain/element-processor/decimal.provider"
 
 @Directive({
     selector: '[formGroup]',
@@ -11,8 +12,8 @@ import { Linq } from "../util/linq";
 export class RxwebFormDirective extends BaseDirective implements AfterContentInit, OnDestroy {
     
     
-    constructor(elementRef: ElementRef) {
-      super(elementRef);
+    constructor(elementRef: ElementRef,decimalProvider:DecimalProvider,renderer: Renderer,) {
+      super(elementRef,decimalProvider,renderer);
     }
 
     @Input() formGroup: FormGroup;

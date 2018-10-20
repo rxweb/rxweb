@@ -69,4 +69,12 @@ export class RegexValidator {
         }
         return { isValid: isValid, keyName: keyName }
     }
+
+    static isZero(value: any) {
+        return value == 0;
+    }
+
+    static commaRegex(): RegExp {
+        return new RegExp(",", "g");
+    }
 }

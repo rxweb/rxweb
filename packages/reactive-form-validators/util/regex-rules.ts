@@ -14,11 +14,11 @@ export const RegExRule: { [key: string]: any } = {
 
     isDigitExits: /[0-9]/,
 
-    lowerCase: /[a-z]/g,
+    lowerCase: /[a-z]/,
 
-    upperCase: /[A-Z]/g,
+    upperCase: /[A-Z]/,
 
-    specialCharacter: /[!@#$%^&*(),.?":{}|<>]/g,
+    specialCharacter: /[!@#$%^&*(),.?":{}|<>]/,
 
     advancedEmail: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
 

@@ -166,11 +166,19 @@ testFormGroup:FormGroup;
 testForm:FormGroup
   ngOnInit() {
 this.testForm = this.formBuilder.group({
-  password:['',RxwebValidators.required({conditionalExpression:(x) => x.age > 18 })],
+  password:['',[RxwebValidators.password ({
+        validation:{
+          upperCase:true,
+          lowerCase:true,
+        }
+      }),RxwebValidators.minLength({value:8}),
+      RxwebValidators.maxLength({value:10})]],
   confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
   age:['',RxwebValidators.range({minimumNumber:1,maximumNumber:10})],
   cardType:[''],
-  creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})]
+  creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
+  amount:['',RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]
+  
 });
         this.angularFormGroup = this.validation.group({
           firstName:['',RxwebValidators.required()],

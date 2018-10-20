@@ -4,6 +4,8 @@
   <input type="number" formControlName="age" />{{testForm.controls.age.errors | json}}
   <input type="text" formControlName="cardType" />{{testForm.controls.cardType.errors | json}}
   <input type="text" formControlName="creditCard" />{{testForm.controls.creditCard.errors | json}}
+  <input type="text" formControlName="amount" />{{testForm.controls.amount.errors | json}}
+  {{testForm.controls.amount.value}}
 </form>
 <form [formGroup]="userInfoFormGroup">
   <div class="form-group">
