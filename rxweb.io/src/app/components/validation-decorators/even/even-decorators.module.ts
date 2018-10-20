@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { EVEN_ROUTING } from './even.routing';
 import { EvenComponent } from './even.component';
-import { EvenExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/even/even.module';
+import { EvenDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/even/even-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     EVEN_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, EvenExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, EvenDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [EvenComponent],
   exports: [RouterModule],
   schemas: [

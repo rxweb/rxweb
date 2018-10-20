@@ -12,8 +12,8 @@ import { AttandanceDetail } from './attandance-detail.model';
 export class TimeAddComponent implements OnInit {
 
     attandanceDetailFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

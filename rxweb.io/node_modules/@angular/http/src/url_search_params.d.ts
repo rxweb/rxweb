@@ -9,8 +9,8 @@
  * @deprecated see https://angular.io/guide/http
  **/
 export declare class QueryEncoder {
-    encodeKey(k: string): string;
-    encodeValue(v: string): string;
+    encodeKey(key: string): string;
+    encodeValue(value: string): string;
 }
 /**
  * Map-like representation of url search parameters, based on

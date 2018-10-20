@@ -13,8 +13,9 @@ import { User } from './user.model';
 export class CompareEditComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

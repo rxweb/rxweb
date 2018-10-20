@@ -64,7 +64,7 @@ export declare class MergeScanSubscriber<T, R> extends OuterSubscriber<T, R> {
     protected index: number;
     constructor(destination: Subscriber<R>, accumulator: (acc: R, value: T) => ObservableInput<R>, acc: R, concurrent: number);
     protected _next(value: any): void;
-    private _innerSub(ish, value, index);
+    private _innerSub;
     protected _complete(): void;
     notifyNext(outerValue: T, innerValue: R, outerIndex: number, innerIndex: number, innerSub: InnerSubscriber<T, R>): void;
     notifyComplete(innerSub: Subscription): void;

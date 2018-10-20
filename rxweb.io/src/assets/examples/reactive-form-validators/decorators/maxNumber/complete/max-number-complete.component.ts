@@ -12,8 +12,11 @@ import { SubjectDetails } from './subject-details.model';
 export class MaxNumberCompleteComponent implements OnInit {
 
     subjectDetailsFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

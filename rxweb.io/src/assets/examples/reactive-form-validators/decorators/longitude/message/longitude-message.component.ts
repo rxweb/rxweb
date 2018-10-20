@@ -12,8 +12,8 @@ import { Country } from './country.model';
 export class LongitudeMessageComponent implements OnInit {
 
     countryFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

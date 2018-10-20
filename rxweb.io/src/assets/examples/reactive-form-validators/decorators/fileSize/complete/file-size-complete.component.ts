@@ -12,8 +12,11 @@ import { StorageCapacity } from './storage-capacity.model';
 export class FileSizeCompleteComponent implements OnInit {
 
     storageCapacityFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

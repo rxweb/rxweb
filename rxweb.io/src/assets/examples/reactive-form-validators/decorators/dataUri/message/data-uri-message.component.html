@@ -2,8 +2,8 @@
 <form  [formGroup]="userFormGroup">
 <div class="form-group">
     <label>HTML Data Uri</label>
-    <input type="text" formControlName="htmlDataUri" class="form-control"  />
-    <small class="form-text text-muted">enter Data URI only<br/></small>
+		<input type="text" formControlName="htmlDataUri" class="form-control"  />
+	    <small class="form-text text-muted">enter Data URI only<br/></small>
     <small class="form-text text-muted">Shows custom message.<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.htmlDataUri.errors">{{userFormGroup.controls.htmlDataUri.errors.dataUri.message}}<br/></small>
 </div>

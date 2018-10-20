@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ASCII_ROUTING } from './ascii.routing';
 import { AsciiComponent } from './ascii.component';
-import { AsciiExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/ascii/ascii.module';
+import { AsciiDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/ascii/ascii-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     ASCII_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AsciiExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AsciiDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [AsciiComponent],
   exports: [RouterModule],
   schemas: [

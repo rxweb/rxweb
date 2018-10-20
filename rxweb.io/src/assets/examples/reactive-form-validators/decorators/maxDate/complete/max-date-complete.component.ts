@@ -12,8 +12,11 @@ import { User } from './user.model';
 export class MaxDateCompleteComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

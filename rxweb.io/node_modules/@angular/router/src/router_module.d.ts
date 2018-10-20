@@ -112,6 +112,7 @@ export declare function provideForRootGuard(router: Router): any;
  *
  * Registers routes.
  *
+ * @usageNotes
  * ### Example
  *
  * ```

@@ -12,8 +12,8 @@ import { NumberInfo } from './number-info.model';
 export class PrimeNumberAddComponent implements OnInit {
 
     numberInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

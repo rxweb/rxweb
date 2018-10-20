@@ -14,8 +14,11 @@ import { HexcolorInfo } from './hexcolor-info.model';
 export class HexColorDynamicComponent implements OnInit {
 
     hexcolorInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -12,8 +12,8 @@ import { StorageCapacity } from './storage-capacity.model';
 export class FileSizeMessageComponent implements OnInit {
 
     storageCapacityFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

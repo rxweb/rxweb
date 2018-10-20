@@ -13,8 +13,8 @@ import { NumberInfo } from './number-info.model';
 export class LatitudeEditComponent implements OnInit {
 
     numberInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

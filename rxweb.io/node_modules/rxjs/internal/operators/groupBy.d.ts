@@ -24,7 +24,7 @@ export interface RefCountSubscription {
 export declare class GroupedObservable<K, T> extends Observable<T> {
     key: K;
     private groupSubject;
-    private refCountSubscription;
+    private refCountSubscription?;
     /** @deprecated Do not construct this type. Internal use only */
     constructor(key: K, groupSubject: Subject<T>, refCountSubscription?: RefCountSubscription);
     /** @deprecated This is an internal implementation detail, do not use. */

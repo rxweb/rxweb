@@ -13,8 +13,8 @@ import { Location } from './location.model';
 export class AlphaNumericEditComponent implements OnInit {
 
     locationFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

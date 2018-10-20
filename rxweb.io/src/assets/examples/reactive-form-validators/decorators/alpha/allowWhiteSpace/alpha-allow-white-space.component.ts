@@ -12,8 +12,8 @@ import { AddressInfo } from './address-info.model';
 export class AlphaAllowWhiteSpaceComponent implements OnInit {
 
     addressInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

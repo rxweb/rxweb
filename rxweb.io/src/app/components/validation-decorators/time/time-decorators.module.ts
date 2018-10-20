@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TIME_ROUTING } from './time.routing';
 import { TimeComponent } from './time.component';
-import { TimeExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/time/time.module';
+import { TimeDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/time/time-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     TIME_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, TimeExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, TimeDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [TimeComponent],
   exports: [RouterModule],
   schemas: [

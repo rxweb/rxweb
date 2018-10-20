@@ -52,6 +52,7 @@ export declare class TsCompilerAotCompilerTypeCheckHostAdapter implements ts.Com
     getDefaultLibLocation: () => string;
     trace: (s: string) => void;
     getDirectories: (path: string) => string[];
+    resolveTypeReferenceDirectives?: (names: string[], containingFile: string) => ts.ResolvedTypeReferenceDirective[];
     directoryExists?: (directoryName: string) => boolean;
     constructor(rootFiles: ReadonlyArray<string>, options: CompilerOptions, context: CompilerHost, metadataProvider: MetadataProvider, codeGenerator: CodeGenerator, librarySummaries?: Map<string, LibrarySummary>);
     private resolveModuleName;

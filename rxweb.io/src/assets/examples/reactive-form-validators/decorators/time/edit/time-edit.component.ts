@@ -13,8 +13,8 @@ import { AttandanceDetail } from './attandance-detail.model';
 export class TimeEditComponent implements OnInit {
 
     attandanceDetailFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

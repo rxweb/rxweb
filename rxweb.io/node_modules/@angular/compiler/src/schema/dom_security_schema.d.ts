@@ -6,7 +6,6 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { SecurityContext } from '../core';
-/** Map from tagName|propertyName SecurityContext. Properties applying to all tags use '*'. */
-export declare const SECURITY_SCHEMA: {
+export declare function SECURITY_SCHEMA(): {
     [k: string]: SecurityContext;
 };

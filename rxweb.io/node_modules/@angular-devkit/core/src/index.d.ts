@@ -12,4 +12,4 @@ export * from './exception/exception';
 export * from './json';
 export * from './utils';
 export * from './virtual-fs';
-export { experimental, logging, terminal };
+export { experimental, logging, terminal, };

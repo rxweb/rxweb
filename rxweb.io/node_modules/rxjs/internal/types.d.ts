@@ -29,7 +29,8 @@ export interface SubscriptionLike extends Unsubscribable {
 export declare type SubscribableOrPromise<T> = Subscribable<T> | Subscribable<never> | PromiseLike<T> | InteropObservable<T>;
 /** OBSERVABLE INTERFACES */
 export interface Subscribable<T> {
-    subscribe(observerOrNext?: PartialObserver<T> | ((value: T) => void), error?: (error: any) => void, complete?: () => void): Unsubscribable;
+    subscribe(observer?: PartialObserver<T>): Unsubscribable;
+    subscribe(next?: (value: T) => void, error?: (error: any) => void, complete?: () => void): Unsubscribable;
 }
 export declare type ObservableInput<T> = SubscribableOrPromise<T> | ArrayLike<T> | Iterable<T>;
 /** @deprecated use {@link InteropObservable } */

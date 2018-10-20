@@ -2,21 +2,21 @@
 <form  [formGroup]="userFormGroup">
 <div class="form-group">
     <label>Type</label>
-    <input type="text" formControlName="type" class="form-control"  />
-    <small class="form-text text-muted">If you want to apply conditional validation on 'Number' or 'Odd Number', then you need to add 'Type' input as 'Odd'<br/></small>
+		<input type="text" formControlName="type" class="form-control"  />
+	    <small class="form-text text-muted">If you want to apply conditional validation on 'Number' or 'Odd Number', then you need to add 'Type' input as 'Odd'<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.type.errors">{{userFormGroup.controls.type.errors.odd.message}}<br/></small>
 </div>
 <div class="form-group">
     <label>Odd Number</label>
-    <input type="text" formControlName="oddNumber" class="form-control"  />
-    <small class="form-text text-muted">If you want to apply conditional validation on 'Odd Number' then you need to add 'Type' input as 'Odd'.<br/></small>
+		<input type="text" formControlName="oddNumber" class="form-control"  />
+	    <small class="form-text text-muted">If you want to apply conditional validation on 'Odd Number' then you need to add 'Type' input as 'Odd'.<br/></small>
     <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.oddNumber.errors">{{userFormGroup.controls.oddNumber.errors.odd.message}}<br/></small>
 </div>
 <div class="form-group">
     <label>Number</label>
-    <input type="text" formControlName="number" class="form-control"  />
-    <small class="form-text text-muted">If you want to apply conditional validation on 'Number' then you need to add 'Type' input as 'Odd'.<br/></small>
+		<input type="text" formControlName="number" class="form-control"  />
+	    <small class="form-text text-muted">If you want to apply conditional validation on 'Number' then you need to add 'Type' input as 'Odd'.<br/></small>
     <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.number.errors">{{userFormGroup.controls.number.errors.odd.message}}<br/></small>
 </div>

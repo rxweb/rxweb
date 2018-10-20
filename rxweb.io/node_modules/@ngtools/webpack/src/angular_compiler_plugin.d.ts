@@ -48,7 +48,7 @@ export interface AngularCompilerPluginOptions {
 }
 export declare enum PLATFORM {
     Browser = 0,
-    Server = 1,
+    Server = 1
 }
 export declare class AngularCompilerPlugin {
     private _options;
@@ -88,24 +88,24 @@ export declare class AngularCompilerPlugin {
         className: string;
     } | null;
     static isSupported(): boolean;
-    private _setupOptions(options);
-    private _getTsProgram();
-    private _getChangedTsFiles();
+    private _setupOptions;
+    private _getTsProgram;
+    private _getChangedTsFiles;
     updateChangedFileExtensions(extension: string): void;
-    private _getChangedCompilationFiles();
-    private _createOrUpdateProgram();
-    private _getLazyRoutesFromNgtools();
-    private _findLazyRoutesInAst(changedFilePaths);
-    private _listLazyRoutesFromProgram();
-    private _processLazyRoutes(discoveredLazyRoutes);
-    private _createForkedTypeChecker();
-    private _killForkedTypeChecker();
-    private _updateForkedTypeChecker(rootNames, changedCompilationFiles);
+    private _getChangedCompilationFiles;
+    private _createOrUpdateProgram;
+    private _getLazyRoutesFromNgtools;
+    private _findLazyRoutesInAst;
+    private _listLazyRoutesFromProgram;
+    private _processLazyRoutes;
+    private _createForkedTypeChecker;
+    private _killForkedTypeChecker;
+    private _updateForkedTypeChecker;
     apply(compiler: Compiler): void;
-    private _make(compilation);
-    private pushCompilationErrors(compilation);
-    private _makeTransformers();
-    private _update();
+    private _make;
+    private pushCompilationErrors;
+    private _makeTransformers;
+    private _update;
     writeI18nOutFile(): void;
     getCompiledFile(fileName: string): {
         outputText: string;
@@ -114,6 +114,6 @@ export declare class AngularCompilerPlugin {
     };
     getDependencies(fileName: string): string[];
     getResourceDependencies(fileName: string): string[];
-    private _emit(sourceFiles);
-    private _validateLocale(locale);
+    private _emit;
+    private _validateLocale;
 }

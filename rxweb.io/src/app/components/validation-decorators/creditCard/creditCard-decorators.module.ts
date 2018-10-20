@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { CREDIT_CARD_ROUTING } from './creditCard.routing';
 import { CreditCardComponent } from './creditCard.component';
-import { CreditCardExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/creditCard/creditCard.module';
+import { CreditCardDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/creditCard/creditCard-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     CREDIT_CARD_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, CreditCardExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, CreditCardDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [CreditCardComponent],
   exports: [RouterModule],
   schemas: [

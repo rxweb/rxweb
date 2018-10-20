@@ -12,8 +12,8 @@ import { UserInfo } from './user-info.model';
 export class LowerCaseAddComponent implements OnInit {
 
     userInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

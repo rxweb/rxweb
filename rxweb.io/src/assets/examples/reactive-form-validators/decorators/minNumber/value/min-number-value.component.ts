@@ -12,8 +12,10 @@ import { ResultInfo } from './result-info.model';
 export class MinNumberValueComponent implements OnInit {
 
     resultInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -9,7 +9,7 @@ import * as ts from 'typescript';
 export declare enum OPERATION_KIND {
     Remove = 0,
     Add = 1,
-    Replace = 2,
+    Replace = 2
 }
 export interface StandardTransform {
     (sourceFile: ts.SourceFile): TransformOperation[];
@@ -24,8 +24,8 @@ export declare class RemoveNodeOperation extends TransformOperation {
     constructor(sourceFile: ts.SourceFile, target: ts.Node);
 }
 export declare class AddNodeOperation extends TransformOperation {
-    before: ts.Node | undefined;
-    after: ts.Node | undefined;
+    before?: ts.Node | undefined;
+    after?: ts.Node | undefined;
     constructor(sourceFile: ts.SourceFile, target: ts.Node, before?: ts.Node | undefined, after?: ts.Node | undefined);
 }
 export declare class ReplaceNodeOperation extends TransformOperation {

@@ -14,8 +14,12 @@ import { AttandanceDetail } from './attandance-detail.model';
 export class TimeDynamicComponent implements OnInit {
 
     attandanceDetailFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

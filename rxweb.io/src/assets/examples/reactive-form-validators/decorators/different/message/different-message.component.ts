@@ -12,8 +12,10 @@ import { AccountInfo } from './account-info.model';
 export class DifferentMessageComponent implements OnInit {
 
     accountInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

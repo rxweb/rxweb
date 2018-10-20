@@ -12,8 +12,8 @@ import { EmployeeInfo } from './employee-info.model';
 export class RangeAddComponent implements OnInit {
 
     employeeInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -13,8 +13,8 @@ import { SubjectDetails } from './subject-details.model';
 export class MaxNumberEditComponent implements OnInit {
 
     subjectDetailsFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

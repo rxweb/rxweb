@@ -26,6 +26,6 @@ export declare class ScriptsWebpackPlugin {
     private _cachedOutput?;
     constructor(options?: Partial<ScriptsWebpackPluginOptions>);
     shouldSkip(compilation: any, scripts: string[]): boolean;
-    private _insertOutput(compilation, {filename, source}, cached?);
+    private _insertOutput;
     apply(compiler: Compiler): void;
 }

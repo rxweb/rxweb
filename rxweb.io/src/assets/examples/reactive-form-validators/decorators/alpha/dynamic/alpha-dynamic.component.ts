@@ -14,8 +14,12 @@ import { AddressInfo } from './address-info.model';
 export class AlphaDynamicComponent implements OnInit {
 
     addressInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

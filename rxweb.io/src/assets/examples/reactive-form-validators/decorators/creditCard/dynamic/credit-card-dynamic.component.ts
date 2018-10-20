@@ -3,7 +3,6 @@ import { FormGroup } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,
-	CreditCardType
 } from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
@@ -15,8 +14,17 @@ import { User } from './user.model';
 export class CreditCardDynamicComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+								creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
+				
+					
+					
+					
+					
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
@@ -26,35 +34,35 @@ export class CreditCardDynamicComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			visaCard : {
-				creditCard :  {creditCardTypes:[CreditCardType.Visa],conditionalExpression:(x,y) => x.cardType == "visa" ,message:'Invalid Visa Credit Card Number.',} 
+				creditCard :  {fieldName:'cardType',conditionalExpression:(x,y) => x.cardType == "Visa" ,message:'Invalid Visa Credit Card Number.',} 
 			},
 						
 			otherVisaCard : {
-				creditCard :  {creditCardTypes:[CreditCardType.Visa],conditionalExpression:'x => x.cardType == "visa"',message:'Invalid Visa Credit Card Number.',} 
+				creditCard :  {fieldName:'cardType',conditionalExpression:'x => x.cardType == "Visa"',message:'Invalid Visa Credit Card Number.',} 
 			},
 						
 			americanExpressCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.AmericanExpress ],conditionalExpression:'x => x.cardType == "AmericanExpress"',} 
+				creditCard :  {fieldName:'cardType',conditionalExpression:'x => x.cardType == "AmericanExpress"',} 
 			},
 						
 			maestroCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.Maestro ],conditionalExpression:'x => x.cardType == "maestroCard"',} 
+				creditCard :  {fieldName:'cardType',conditionalExpression:'x => x.cardType == "Maestro"',} 
 			},
 						
 			jcbCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.JCB ],conditionalExpression:'x => x.cardType == "jcbCard"',} 
+				creditCard :  {fieldName:'cardType',conditionalExpression:'x => x.cardType == "JCB"',} 
 			},
 						
 			discoverCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.Discover ],conditionalExpression:'x => x.cardType == "discoverCard"',} 
+				creditCard :  {fieldName:'cardType',conditionalExpression:'x => x.cardType == "Discover"',} 
 			},
 						
 			masterCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.MasterCard ],conditionalExpression:'x => x.cardType == "masterCard"',} 
+				creditCard :  {fieldName:'cardType',conditionalExpression:'x => x.cardType == "MasterCard"',} 
 			},
 						
 			dinersClubCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.DinersClub ],conditionalExpression:'x => x.cardType == "dinersClubCard"',} 
+				creditCard :  {fieldName:'cardType',conditionalExpression:'x => x.cardType == "DinersClub"',} 
 			},
 			        };
 		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);

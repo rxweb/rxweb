@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { CONTAINS_ROUTING } from './contains.routing';
 import { ContainsComponent } from './contains.component';
-import { ContainsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/contains/contains.module';
+import { ContainsValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/contains/contains-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     CONTAINS_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, ContainsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, ContainsValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [ContainsComponent],
   exports: [RouterModule],
   schemas: [

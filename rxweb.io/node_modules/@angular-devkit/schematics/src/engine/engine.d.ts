@@ -39,7 +39,7 @@ export declare class UnknownTaskDependencyException extends BaseException {
 export declare class CollectionImpl<CollectionT extends object, SchematicT extends object> implements Collection<CollectionT, SchematicT> {
     private _description;
     private _engine;
-    readonly baseDescriptions: CollectionDescription<CollectionT>[] | undefined;
+    readonly baseDescriptions?: CollectionDescription<CollectionT>[] | undefined;
     constructor(_description: CollectionDescription<CollectionT>, _engine: SchematicEngine<CollectionT, SchematicT>, baseDescriptions?: CollectionDescription<CollectionT>[] | undefined);
     readonly description: CollectionDescription<CollectionT>;
     readonly name: string;
@@ -52,14 +52,14 @@ export declare class TaskScheduler {
     private _taskIds;
     private static _taskIdCounter;
     constructor(_context: SchematicContext);
-    private _calculatePriority(dependencies);
-    private _mapDependencies(dependencies?);
+    private _calculatePriority;
+    private _mapDependencies;
     schedule<T>(taskConfiguration: TaskConfiguration<T>): TaskId;
     finalize(): ReadonlyArray<TaskInfo>;
 }
 export declare class SchematicEngine<CollectionT extends object, SchematicT extends object> implements Engine<CollectionT, SchematicT> {
     private _host;
-    protected _workflow: Workflow | undefined;
+    protected _workflow?: Workflow | undefined;
     private _collectionCache;
     private _schematicCache;
     private _taskSchedulers;
@@ -67,7 +67,7 @@ export declare class SchematicEngine<CollectionT extends object, SchematicT exte
     readonly workflow: Workflow | null;
     readonly defaultMergeStrategy: MergeStrategy;
     createCollection(name: string): Collection<CollectionT, SchematicT>;
-    private _createCollectionDescription(name, parentNames?);
+    private _createCollectionDescription;
     createContext(schematic: Schematic<CollectionT, SchematicT>, parent?: Partial<TypedSchematicContext<CollectionT, SchematicT>>): TypedSchematicContext<CollectionT, SchematicT>;
     createSchematic(name: string, collection: Collection<CollectionT, SchematicT>, allowPrivate?: boolean): Schematic<CollectionT, SchematicT>;
     listSchematicNames(collection: Collection<CollectionT, SchematicT>): string[];

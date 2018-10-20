@@ -13,8 +13,8 @@ import { EmployeeInfo } from './employee-info.model';
 export class RangeEditComponent implements OnInit {
 
     employeeInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

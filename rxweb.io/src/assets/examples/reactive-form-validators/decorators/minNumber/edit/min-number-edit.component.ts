@@ -13,8 +13,8 @@ import { ResultInfo } from './result-info.model';
 export class MinNumberEditComponent implements OnInit {
 
     resultInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

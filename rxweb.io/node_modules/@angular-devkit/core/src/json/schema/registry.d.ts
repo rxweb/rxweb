@@ -25,7 +25,7 @@ export declare class CoreSchemaRegistry implements SchemaRegistry {
     private _sourceMap;
     private _smartDefaultRecord;
     constructor(formats?: SchemaFormat[]);
-    private _fetch(uri);
+    private _fetch;
     /**
      * Add a transformation step before the validation of any Json.
      * @param {JsonVisitor} visitor The visitor to transform every value.
@@ -47,5 +47,5 @@ export declare class CoreSchemaRegistry implements SchemaRegistry {
     compile(schema: JsonObject): Observable<SchemaValidator>;
     addFormat(format: SchemaFormat): void;
     addSmartDefaultProvider<T>(source: string, provider: SmartDefaultProvider<T>): void;
-    private _applySmartDefaults(data);
+    private _applySmartDefaults;
 }

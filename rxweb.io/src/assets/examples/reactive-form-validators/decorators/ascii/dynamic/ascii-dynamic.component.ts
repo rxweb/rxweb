@@ -14,8 +14,11 @@ import { User } from './user.model';
 export class AsciiDynamicComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

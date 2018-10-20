@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { DATA_URI_ROUTING } from './dataUri.routing';
 import { DataUriComponent } from './dataUri.component';
-import { DataUriExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/dataUri/dataUri.module';
+import { DataUriDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/dataUri/dataUri-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     DATA_URI_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, DataUriExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, DataUriDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [DataUriComponent],
   exports: [RouterModule],
   schemas: [

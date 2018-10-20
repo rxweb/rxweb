@@ -19,6 +19,6 @@ export declare class NewCommand extends SchematicCommand {
     private initialized;
     initialize(options: any): Promise<void>;
     run(options: any): Promise<number | void>;
-    private parseCollectionName(options);
-    private removeLocalOptions(options);
+    private parseCollectionName;
+    private removeLocalOptions;
 }

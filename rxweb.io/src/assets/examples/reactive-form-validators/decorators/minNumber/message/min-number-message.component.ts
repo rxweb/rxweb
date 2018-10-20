@@ -12,8 +12,8 @@ import { ResultInfo } from './result-info.model';
 export class MinNumberMessageComponent implements OnInit {
 
     resultInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

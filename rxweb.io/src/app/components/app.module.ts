@@ -36,9 +36,9 @@ import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
     provide: SLIMSCROLL_DEFAULTS,
     useValue: {
       position: "right",
-      barBackground: "none",
+      barBackground: "gray",
       barOpacity: "0.8",
-      barWidth: "0",
+      barWidth: "2",
       barBorderRadius: "20",
       barMargin: "0",
       gridBackground: "none",

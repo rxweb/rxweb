@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ALPHA_NUMERIC_ROUTING } from './alphaNumeric.routing';
 import { AlphaNumericComponent } from './alphaNumeric.component';
-import { AlphaNumericExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/alphaNumeric/alphaNumeric.module';
+import { AlphaNumericValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/alphaNumeric/alphaNumeric-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     ALPHA_NUMERIC_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaNumericExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaNumericValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [AlphaNumericComponent],
   exports: [RouterModule],
   schemas: [

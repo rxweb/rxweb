@@ -12,8 +12,11 @@ import { NumberInfo } from './number-info.model';
 export class PrimeNumberCompleteComponent implements OnInit {
 
     numberInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

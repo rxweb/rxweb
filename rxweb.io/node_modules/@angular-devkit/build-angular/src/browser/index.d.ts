@@ -21,7 +21,7 @@ export declare class BrowserBuilder implements Builder<BrowserBuilderSchema> {
     constructor(context: BuilderContext);
     run(builderConfig: BuilderConfiguration<BrowserBuilderSchema>): Observable<BuildEvent>;
     buildWebpackConfig(root: Path, projectRoot: Path, host: virtualFs.Host<fs.Stats>, options: NormalizedBrowserBuilderSchema): any;
-    private _deleteOutputDir(root, outputPath, host);
+    private _deleteOutputDir;
 }
 export declare const getBrowserLoggingCb: (verbose: boolean) => LoggingCallback;
 export default BrowserBuilder;

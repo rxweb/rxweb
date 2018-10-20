@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { LOWER_CASE_ROUTING } from './lowerCase.routing';
 import { LowerCaseComponent } from './lowerCase.component';
-import { LowerCaseExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/lowerCase/lowerCase.module';
+import { LowerCaseDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/lowerCase/lowerCase-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     LOWER_CASE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LowerCaseExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LowerCaseDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [LowerCaseComponent],
   exports: [RouterModule],
   schemas: [

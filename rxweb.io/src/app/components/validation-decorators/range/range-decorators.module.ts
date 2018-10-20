@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { RANGE_ROUTING } from './range.routing';
 import { RangeComponent } from './range.component';
-import { RangeExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/range/range.module';
+import { RangeDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/range/range-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     RANGE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, RangeExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, RangeDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [RangeComponent],
   exports: [RouterModule],
   schemas: [

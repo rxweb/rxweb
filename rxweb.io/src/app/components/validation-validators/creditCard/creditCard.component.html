@@ -75,30 +75,8 @@
 				</tr>
 		</thead>
 		<tbody>
-			<tr>	<td><a href='#creditcardtypes' title='creditCardTypes' (click)='scrollTo("#creditcardtypes")'>creditCardTypes</a></td> 	<td>Credit card type has different Card types e.g. Visa, AmericanExpress, Maestro, JCB, Discover, DinersClub, MasterCard. </td> </tr>	<tr>	<td><a href='#conditionalexpression' title='conditionalExpression' (click)='scrollTo("#conditionalexpression")'>conditionalExpression</a></td> 	<td>Credit Card validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
+			<tr>	<td><a href='#conditionalexpression' title='conditionalExpression' (click)='scrollTo("#conditionalexpression")'>conditionalExpression</a></td> 	<td>Credit Card validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function. </td> </tr>	<tr>	<td><a href='#message' title='message' (click)='scrollTo("#message")'>message</a></td> 	<td>To override the global configuration message and show the custom message on particular control property. </td> </tr>		</tbody>
 	 </table>
-
-</div>
-</div>
-<div class='row' id= 'creditcardtypes'>
-<div class='col-lg-12'>
-<h2>creditCardTypes</h2>
-
-<p>Type :  <span class='highlighted'>CreditCardType[]</span> </p>
-<p>Credit card type has different Card types e.g. Visa, AmericanExpress, Maestro, JCB, Discover, DinersClub, MasterCard. </p>
-<blockquote *ngIf="codeContent.creditCardTypesExample && codeContent.creditCardTypesExample.Notes?.length > 0">
-	<ng-container *ngFor="let item of codeContent.creditCardTypesExample.Notes">
-	  <p [innerHtml]="item"></p>
-	</ng-container>
-</blockquote>
-<div class="model-ts">
-	<div class="code">
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.creditCardTypesExample.Model"></code></pre>
-			</div>
-	</div>
-</div>
-
 
 <ul class="nav nav-tabs" *ngIf="creditCardTypesShow">
 	<li [class.active]="tab_1=='creditCardTypesComponent'" (click)="tab_1='creditCardTypesComponent'"><a>Component</a></li>
@@ -132,14 +110,6 @@
 
 		  </div>
 	</div>																											
-<div class="model-ts " >
-<a class="float-right copy-icon" (click)="creditCardTypesShow=!creditCardTypesShow"><i aria-hidden="true" class="fa fa-code"></i></a>
-
-	<div class="code-example">
-			 <app-creditCard-creditCardTypes-validator></app-creditCard-creditCardTypes-validator>
-
-	</div>
-</div>
 </div>
 </div>
 <div class='row' id= 'conditionalexpression'>

@@ -12,8 +12,8 @@ import { Contact } from './contact.model';
 export class MinLengthAddComponent implements OnInit {
 
     contactFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

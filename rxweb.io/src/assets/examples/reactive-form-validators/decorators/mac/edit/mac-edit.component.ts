@@ -13,8 +13,8 @@ import { MacAddressInfo } from './mac-address-info.model';
 export class MacEditComponent implements OnInit {
 
     macAddressInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

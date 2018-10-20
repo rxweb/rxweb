@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MIN_LENGTH_ROUTING } from './minLength.routing';
 import { MinLengthComponent } from './minLength.component';
-import { MinLengthExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/minLength/minLength.module';
+import { MinLengthDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/minLength/minLength-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     MIN_LENGTH_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinLengthExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinLengthDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [MinLengthComponent],
   exports: [RouterModule],
   schemas: [

@@ -30,7 +30,7 @@ export declare class MergeMapSubscriber<T, R> extends OuterSubscriber<T, R> {
     constructor(destination: Subscriber<R>, project: (value: T, index: number) => ObservableInput<R>, concurrent?: number);
     protected _next(value: T): void;
     protected _tryNext(value: T): void;
-    private _innerSub(ish, value, index);
+    private _innerSub;
     protected _complete(): void;
     notifyNext(outerValue: T, innerValue: R, outerIndex: number, innerIndex: number, innerSub: InnerSubscriber<T, R>): void;
     notifyComplete(innerSub: Subscription): void;

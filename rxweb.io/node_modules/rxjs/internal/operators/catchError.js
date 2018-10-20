@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -11,6 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var OuterSubscriber_1 = require("../OuterSubscriber");
+var InnerSubscriber_1 = require("../InnerSubscriber");
 var subscribeToResult_1 = require("../util/subscribeToResult");
 function catchError(selector) {
     return function catchErrorOperatorFunction(source) {
@@ -48,7 +52,9 @@ var CatchSubscriber = (function (_super) {
                 return;
             }
             this._unsubscribeAndRecycle();
-            this.add(subscribeToResult_1.subscribeToResult(this, result));
+            var innerSubscriber = new InnerSubscriber_1.InnerSubscriber(this, undefined, undefined);
+            this.add(innerSubscriber);
+            subscribeToResult_1.subscribeToResult(this, result, undefined, undefined, innerSubscriber);
         }
     };
     return CatchSubscriber;

@@ -12,8 +12,8 @@ import { JsonInfo } from './json-info.model';
 export class JsonAddComponent implements OnInit {
 
     jsonInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

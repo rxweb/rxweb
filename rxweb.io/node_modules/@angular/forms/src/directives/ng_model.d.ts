@@ -64,11 +64,7 @@ export declare const formControlBinding: any;
  * * Radio buttons: `RadioControlValueAccessor`
  * * Selects: `SelectControlValueAccessor`
  *
- * **npm package**: `@angular/forms`
- *
- * **NgModule**: `FormsModule`
- *
- *
+ * @ngModule FormsModule
  */
 export declare class NgModel extends NgControl implements OnChanges, OnDestroy {
     readonly control: FormControl;

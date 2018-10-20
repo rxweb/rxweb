@@ -8,8 +8,8 @@
 import { TaskConfiguration, TaskConfigurationGenerator } from '../../src';
 import { NodePackageTaskOptions } from './options';
 export declare class NodePackageLinkTask implements TaskConfigurationGenerator<NodePackageTaskOptions> {
-    packageName: string | undefined;
-    workingDirectory: string | undefined;
+    packageName?: string | undefined;
+    workingDirectory?: string | undefined;
     quiet: boolean;
     constructor(packageName?: string | undefined, workingDirectory?: string | undefined);
     toConfiguration(): TaskConfiguration<NodePackageTaskOptions>;

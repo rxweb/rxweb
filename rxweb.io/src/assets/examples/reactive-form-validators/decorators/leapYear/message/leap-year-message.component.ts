@@ -12,8 +12,8 @@ import { User } from './user.model';
 export class LeapYearMessageComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -12,8 +12,11 @@ import { User } from './user.model';
 export class EmailCompleteComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

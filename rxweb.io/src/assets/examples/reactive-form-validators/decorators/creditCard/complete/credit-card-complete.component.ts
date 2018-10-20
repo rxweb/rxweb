@@ -12,8 +12,17 @@ import { User } from './user.model';
 export class CreditCardCompleteComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+								creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
+				
+					
+					
+					
+					
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

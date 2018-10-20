@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { PORT_ROUTING } from './port.routing';
 import { PortComponent } from './port.component';
-import { PortExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/port/port.module';
+import { PortValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/port/port-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     PORT_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PortExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PortValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [PortComponent],
   exports: [RouterModule],
   schemas: [

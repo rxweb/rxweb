@@ -10,6 +10,6 @@ export * from './file-system-engine-host-base';
 export * from './file-system-host';
 export * from './workflow/node-workflow';
 export { FileSystemEngineHost } from './file-system-engine-host';
-export { NodeModulesEngineHost, NodePackageDoesNotSupportSchematics } from './node-module-engine-host';
+export { NodeModulesEngineHost, NodePackageDoesNotSupportSchematics, } from './node-module-engine-host';
 export { NodeModulesTestEngineHost } from './node-modules-test-engine-host';
 export { validateOptionsWithSchema } from './schema-option-transform';

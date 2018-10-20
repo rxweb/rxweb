@@ -2,8 +2,8 @@
 <form  [formGroup]="storageCapacityFormGroup">
 <div class="form-group">
     <label>Video Storage Size</label>
-    <input type="text" formControlName="videoStorageSize" class="form-control"  />
-    <small class="form-text text-muted">you can enter upto 50<br/></small>
+		<input type="text" formControlName="videoStorageSize" class="form-control"  />
+	    <small class="form-text text-muted">you can enter upto 50<br/></small>
     <small class="form-text text-muted">Shows custom message.<br/></small>
     <small class="form-text text-danger" *ngIf="storageCapacityFormGroup.controls.videoStorageSize.errors">{{storageCapacityFormGroup.controls.videoStorageSize.errors.fileSize.message}}<br/></small>
 </div>

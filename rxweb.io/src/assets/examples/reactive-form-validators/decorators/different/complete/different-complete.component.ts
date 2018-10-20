@@ -12,8 +12,11 @@ import { AccountInfo } from './account-info.model';
 export class DifferentCompleteComponent implements OnInit {
 
     accountInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

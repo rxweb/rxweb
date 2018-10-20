@@ -1,8 +1,11 @@
-import {  creditCard,prop, CreditCardType, } from "@rxweb/reactive-form-validators"
+import {  creditCard,prop, } from "@rxweb/reactive-form-validators"
 
 export class User {
 
-	@creditCard({creditCardTypes:[ CreditCardType.Visa ] }) 
+	@prop()
+	cardType: string;
+
+	@creditCard({fieldName:'cardType' }) 
 	creditCardNumber: string;
 
 }

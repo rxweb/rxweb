@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { FILE_SIZE_ROUTING } from './fileSize.routing';
 import { FileSizeComponent } from './fileSize.component';
-import { FileSizeExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/fileSize/fileSize.module';
+import { FileSizeDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/fileSize/fileSize-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     FILE_SIZE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, FileSizeExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, FileSizeDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [FileSizeComponent],
   exports: [RouterModule],
   schemas: [

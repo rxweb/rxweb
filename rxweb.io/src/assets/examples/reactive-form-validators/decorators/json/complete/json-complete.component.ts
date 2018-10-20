@@ -12,8 +12,11 @@ import { JsonInfo } from './json-info.model';
 export class JsonCompleteComponent implements OnInit {
 
     jsonInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

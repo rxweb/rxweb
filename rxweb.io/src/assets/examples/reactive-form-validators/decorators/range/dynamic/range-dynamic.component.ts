@@ -14,8 +14,11 @@ import { EmployeeInfo } from './employee-info.model';
 export class RangeDynamicComponent implements OnInit {
 
     employeeInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

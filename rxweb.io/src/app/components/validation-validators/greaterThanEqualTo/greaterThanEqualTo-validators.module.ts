@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { GREATER_THAN_EQUAL_TO_ROUTING } from './greaterThanEqualTo.routing';
 import { GreaterThanEqualToComponent } from './greaterThanEqualTo.component';
-import { GreaterThanEqualToExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/greaterThanEqualTo/greaterThanEqualTo.module';
+import { GreaterThanEqualToValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/greaterThanEqualTo/greaterThanEqualTo-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     GREATER_THAN_EQUAL_TO_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, GreaterThanEqualToExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, GreaterThanEqualToValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [GreaterThanEqualToComponent],
   exports: [RouterModule],
   schemas: [

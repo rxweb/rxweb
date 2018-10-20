@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ODD_ROUTING } from './odd.routing';
 import { OddComponent } from './odd.component';
-import { OddExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/odd/odd.module';
+import { OddValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/odd/odd-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     ODD_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, OddExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, OddValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [OddComponent],
   exports: [RouterModule],
   schemas: [

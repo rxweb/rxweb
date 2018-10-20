@@ -12,8 +12,11 @@ import { Location } from './location.model';
 export class UpperCaseCompleteComponent implements OnInit {
 
     locationFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

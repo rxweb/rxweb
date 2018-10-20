@@ -28,6 +28,6 @@ import { Observable } from '../Observable';
  */
 export declare const NEVER: Observable<never>;
 /**
- * @deprecated Deprecated in favor of using NEVER constant.
+ * @deprecated Deprecated in favor of using {@link NEVER} constant.
  */
 export declare function never(): Observable<never>;

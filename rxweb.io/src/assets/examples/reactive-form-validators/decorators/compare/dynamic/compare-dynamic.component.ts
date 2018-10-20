@@ -14,8 +14,9 @@ import { User } from './user.model';
 export class CompareDynamicComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

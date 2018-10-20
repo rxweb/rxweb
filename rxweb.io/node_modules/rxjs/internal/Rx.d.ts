@@ -158,16 +158,15 @@ import * as _operators from './operators/index';
 export declare const operators: typeof _operators;
 /**
  * @typedef {Object} Rx.Scheduler
+ * @property {SchedulerLike} asap Schedules on the micro task queue, which is the same
+ * queue used for promises. Basically after the current job, but before the next job.
+ * Use this for asynchronous conversions.
  * @property {SchedulerLike} queue Schedules on a queue in the current event frame
  * (trampoline scheduler). Use this for iteration operations.
- * @property {SchedulerLike} asap Schedules on the micro task queue, which uses the
- * fastest transport mechanism available, either Node.js' `process.nextTick()`
- * or Web Worker MessageChannel or setTimeout or others. Use this for
- * asynchronous conversions.
+ * @property {SchedulerLike} animationFrame Schedules work with `requestAnimationFrame`.
+ * Use this for synchronizing with the platform's painting.
  * @property {SchedulerLike} async Schedules work with `setInterval`. Use this for
  * time-based operations.
- * @property {SchedulerLike} animationFrame Schedules work with `requestAnimationFrame`.
- * Use this for synchronizing with the platform's painting
  */
 declare let Scheduler: {
     asap: AsapScheduler;

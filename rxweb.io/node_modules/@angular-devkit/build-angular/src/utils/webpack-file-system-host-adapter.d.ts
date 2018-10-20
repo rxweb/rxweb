@@ -13,7 +13,7 @@ export declare class WebpackFileSystemHostAdapter implements InputFileSystem {
     protected _host: virtualFs.Host<Stats>;
     protected _syncHost: virtualFs.SyncDelegateHost<Stats> | null;
     constructor(_host: virtualFs.Host<Stats>);
-    private _doHostCall<T>(o, callback);
+    private _doHostCall;
     stat(path: string, callback: Callback<Stats>): void;
     readdir(path: string, callback: Callback<string[]>): void;
     readFile(path: string, callback: Callback<Buffer>): void;

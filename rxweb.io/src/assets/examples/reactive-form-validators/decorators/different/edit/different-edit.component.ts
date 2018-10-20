@@ -13,8 +13,9 @@ import { AccountInfo } from './account-info.model';
 export class DifferentEditComponent implements OnInit {
 
     accountInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

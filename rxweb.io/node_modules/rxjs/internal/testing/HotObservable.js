@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -26,10 +29,12 @@ var HotObservable = (function (_super) {
     HotObservable.prototype._subscribe = function (subscriber) {
         var subject = this;
         var index = subject.logSubscribedFrame();
-        subscriber.add(new Subscription_1.Subscription(function () {
+        var subscription = new Subscription_1.Subscription();
+        subscription.add(new Subscription_1.Subscription(function () {
             subject.logUnsubscribedFrame(index);
         }));
-        return _super.prototype._subscribe.call(this, subscriber);
+        subscription.add(_super.prototype._subscribe.call(this, subscriber));
+        return subscription;
     };
     HotObservable.prototype.setup = function () {
         var subject = this;

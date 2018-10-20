@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
-import { RxFormBuilder,RxwebValidators 
+import { RxFormBuilder,RxwebValidators
 } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
@@ -11,8 +11,9 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class CompareDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-
-    constructor(
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

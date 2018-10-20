@@ -12,8 +12,8 @@ import { WebSiteInfoModel } from './web-site-info-model.model';
 export class UrlAddComponent implements OnInit {
 
     webSiteInfoModelFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

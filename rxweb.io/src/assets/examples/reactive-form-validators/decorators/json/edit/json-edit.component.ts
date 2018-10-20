@@ -13,8 +13,8 @@ import { JsonInfo } from './json-info.model';
 export class JsonEditComponent implements OnInit {
 
     jsonInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

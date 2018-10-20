@@ -13,8 +13,9 @@ import { User } from './user.model';
 export class GreaterThanEditComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

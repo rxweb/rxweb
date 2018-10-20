@@ -22,8 +22,8 @@ export declare class ProtractorBuilder implements Builder<ProtractorBuilderOptio
     context: BuilderContext;
     constructor(context: BuilderContext);
     run(builderConfig: BuilderConfiguration<ProtractorBuilderOptions>): Observable<BuildEvent>;
-    private _startDevServer(options);
-    private _updateWebdriver(projectRoot);
-    private _runProtractor(root, options);
+    private _startDevServer;
+    private _updateWebdriver;
+    private _runProtractor;
 }
 export default ProtractorBuilder;

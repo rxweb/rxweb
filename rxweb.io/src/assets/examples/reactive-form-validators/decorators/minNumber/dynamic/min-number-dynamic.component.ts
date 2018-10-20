@@ -14,8 +14,11 @@ import { ResultInfo } from './result-info.model';
 export class MinNumberDynamicComponent implements OnInit {
 
     resultInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

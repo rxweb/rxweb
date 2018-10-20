@@ -12,8 +12,8 @@ import { SubjectDetails } from './subject-details.model';
 export class MaxNumberValueComponent implements OnInit {
 
     subjectDetailsFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -14,8 +14,11 @@ import { User } from './user.model';
 export class PatternDynamicComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

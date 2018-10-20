@@ -13,8 +13,8 @@ import { User } from './user.model';
 export class FactorEditComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

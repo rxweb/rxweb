@@ -69,7 +69,7 @@ export declare class ObserveOnSubscriber<T> extends Subscriber<T> {
     /** @nocollapse */
     static dispatch(this: SchedulerAction<ObserveOnMessage>, arg: ObserveOnMessage): void;
     constructor(destination: Subscriber<T>, scheduler: SchedulerLike, delay?: number);
-    private scheduleMessage(notification);
+    private scheduleMessage;
     protected _next(value: T): void;
     protected _error(err: any): void;
     protected _complete(): void;

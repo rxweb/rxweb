@@ -13,8 +13,8 @@ import { LoginInfo } from './login-info.model';
 export class PasswordEditComponent implements OnInit {
 
     loginInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

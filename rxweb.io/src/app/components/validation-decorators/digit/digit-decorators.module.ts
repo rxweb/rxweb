@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { DIGIT_ROUTING } from './digit.routing';
 import { DigitComponent } from './digit.component';
-import { DigitExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/digit/digit.module';
+import { DigitDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/digit/digit-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     DIGIT_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, DigitExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, DigitDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [DigitComponent],
   exports: [RouterModule],
   schemas: [

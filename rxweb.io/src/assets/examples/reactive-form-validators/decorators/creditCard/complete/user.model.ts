@@ -1,4 +1,4 @@
-import {  creditCard,prop, CreditCardType, } from "@rxweb/reactive-form-validators"
+import {  creditCard,prop, } from "@rxweb/reactive-form-validators"
 
 export class User {
 
@@ -6,29 +6,29 @@ export class User {
 	cardType: string;
 
 	//If you want to apply conditional expression of type 'function'
-	@creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:(x,y) => x.cardType == "visa"   ,message:'Invalid Visa Credit Card Number.' }) 
+	@creditCard({fieldName:'cardType'  ,conditionalExpression:(x,y) => x.cardType == "Visa"   ,message:'Invalid Visa Credit Card Number.' }) 
 	visaCard: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:'x => x.cardType == "visa"'  ,message:'Invalid Visa Credit Card Number.' }) 
+	@creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "Visa"'  ,message:'Invalid Visa Credit Card Number.' }) 
 	otherVisaCard: string;
 
-	@creditCard({creditCardTypes:[ CreditCardType.AmericanExpress ]  ,conditionalExpression:'x => x.cardType == "AmericanExpress"' }) 
+	@creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "AmericanExpress"' }) 
 	americanExpressCard: string;
 
-	@creditCard({creditCardTypes:[ CreditCardType.Maestro ]  ,conditionalExpression:'x => x.cardType == "maestroCard"' }) 
+	@creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "Maestro"' }) 
 	maestroCard: string;
 
-	@creditCard({creditCardTypes:[ CreditCardType.JCB ]  ,conditionalExpression:'x => x.cardType == "jcbCard"' }) 
+	@creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "JCB"' }) 
 	jcbCard: string;
 
-	@creditCard({creditCardTypes:[ CreditCardType.Discover ]  ,conditionalExpression:'x => x.cardType == "discoverCard"' }) 
+	@creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "Discover"' }) 
 	discoverCard: string;
 
-	@creditCard({creditCardTypes:[ CreditCardType.MasterCard ]  ,conditionalExpression:'x => x.cardType == "masterCard"' }) 
+	@creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "MasterCard"' }) 
 	masterCard: string;
 
-	@creditCard({creditCardTypes:[ CreditCardType.DinersClub ]  ,conditionalExpression:'x => x.cardType == "dinersClubCard"' }) 
+	@creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "DinersClub"' }) 
 	dinersClubCard: string;
 
 }

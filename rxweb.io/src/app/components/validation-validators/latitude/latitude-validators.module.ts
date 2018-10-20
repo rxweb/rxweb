@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { LATITUDE_ROUTING } from './latitude.routing';
 import { LatitudeComponent } from './latitude.component';
-import { LatitudeExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/latitude/latitude.module';
+import { LatitudeValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/latitude/latitude-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     LATITUDE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LatitudeExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LatitudeValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [LatitudeComponent],
   exports: [RouterModule],
   schemas: [

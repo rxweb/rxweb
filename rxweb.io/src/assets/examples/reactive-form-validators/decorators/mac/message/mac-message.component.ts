@@ -12,8 +12,8 @@ import { MacAddressInfo } from './mac-address-info.model';
 export class MacMessageComponent implements OnInit {
 
     macAddressInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

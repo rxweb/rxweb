@@ -14,8 +14,11 @@ import { SubjectDetails } from './subject-details.model';
 export class MaxNumberDynamicComponent implements OnInit {
 
     subjectDetailsFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -52,7 +52,7 @@ export declare const EMPTY: Observable<never>;
  * @static true
  * @name empty
  * @owner Observable
- * @deprecated Deprecated in favor of using EMPTY constant.
+ * @deprecated Deprecated in favor of using {@link index/EMPTY} constant.
  */
 export declare function empty(scheduler?: SchedulerLike): Observable<never>;
 export declare function emptyScheduled(scheduler: SchedulerLike): Observable<never>;

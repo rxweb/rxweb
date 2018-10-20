@@ -15,11 +15,11 @@ export interface CommandConstructor {
 export declare enum CommandScope {
     everywhere = 0,
     inProject = 1,
-    outsideProject = 2,
+    outsideProject = 2
 }
 export declare enum ArgumentStrategy {
     MapToOptions = 0,
-    Nothing = 1,
+    Nothing = 1
 }
 export declare abstract class Command<T = any> {
     protected _rawArgs: string[];
@@ -32,10 +32,10 @@ export declare abstract class Command<T = any> {
     protected printHelpUsage(name: string, args: string[], options: Option[]): void;
     protected printHelpOptions(options: Option[]): void;
     abstract run(options: T): number | void | Promise<number | void>;
-    readonly abstract name: string;
-    readonly abstract description: string;
-    readonly abstract arguments: string[];
-    readonly abstract options: Option[];
+    abstract readonly name: string;
+    abstract readonly description: string;
+    abstract readonly arguments: string[];
+    abstract readonly options: Option[];
     argStrategy: ArgumentStrategy;
     hidden: boolean;
     unknown: boolean;
@@ -48,12 +48,12 @@ export interface CommandContext {
     project: any;
 }
 export declare abstract class Option {
-    readonly abstract name: string;
-    readonly abstract description: string;
+    abstract readonly name: string;
+    abstract readonly description: string;
     readonly default?: string | number | boolean;
     readonly required?: boolean;
-    readonly abstract aliases?: string[];
-    readonly abstract type: any;
+    abstract readonly aliases?: string[];
+    abstract readonly type: any;
     readonly format?: string;
     readonly values?: any[];
     readonly hidden?: boolean;

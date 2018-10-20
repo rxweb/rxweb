@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { REQUIRED_ROUTING } from './required.routing';
 import { RequiredComponent } from './required.component';
-import { RequiredExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/required/required.module';
+import { RequiredDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/required/required-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     REQUIRED_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, RequiredExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, RequiredDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [RequiredComponent],
   exports: [RouterModule],
   schemas: [

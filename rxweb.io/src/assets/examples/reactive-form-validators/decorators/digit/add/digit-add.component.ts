@@ -12,8 +12,8 @@ import { User } from './user.model';
 export class DigitAddComponent implements OnInit {
 
     userFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -106,15 +106,23 @@ class ExhaustMapSubscriber<T, R> extends OuterSubscriber<T, R> {
   }
 
   private tryNext(value: T): void {
+    let result: ObservableInput<R>;
     const index = this.index++;
-    const destination = this.destination;
     try {
-      const result = this.project(value, index);
-      this.hasSubscription = true;
-      this.add(subscribeToResult(this, result, value, index));
+      result = this.project(value, index);
     } catch (err) {
-      destination.error(err);
+      this.destination.error(err);
+      return;
     }
+    this.hasSubscription = true;
+    this._innerSub(result, value, index);
+  }
+
+  private _innerSub(result: ObservableInput<R>, value: T, index: number): void {
+    const innerSubscriber = new InnerSubscriber(this, undefined, undefined);
+    const destination = this.destination as Subscription;
+    destination.add(innerSubscriber);
+    subscribeToResult<T, R>(this, result, value, index, innerSubscriber);
   }
 
   protected _complete(): void {
@@ -122,6 +130,7 @@ class ExhaustMapSubscriber<T, R> extends OuterSubscriber<T, R> {
     if (!this.hasSubscription) {
       this.destination.complete();
     }
+    this.unsubscribe();
   }
 
   notifyNext(outerValue: T, innerValue: R,
@@ -135,7 +144,8 @@ class ExhaustMapSubscriber<T, R> extends OuterSubscriber<T, R> {
   }
 
   notifyComplete(innerSub: Subscription): void {
-    this.remove(innerSub);
+    const destination = this.destination as Subscription;
+    destination.remove(innerSub);
 
     this.hasSubscription = false;
     if (this.hasCompleted) {

@@ -12,8 +12,8 @@ import { Location } from './location.model';
 export class AlphaNumericAllowWhiteSpaceComponent implements OnInit {
 
     locationFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

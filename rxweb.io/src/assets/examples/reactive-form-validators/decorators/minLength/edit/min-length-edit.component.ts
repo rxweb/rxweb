@@ -13,8 +13,8 @@ import { Contact } from './contact.model';
 export class MinLengthEditComponent implements OnInit {
 
     contactFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder,		private http: HttpClient
 
     ) { }

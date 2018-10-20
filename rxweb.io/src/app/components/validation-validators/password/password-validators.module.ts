@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { PASSWORD_ROUTING } from './password.routing';
 import { PasswordComponent } from './password.component';
-import { PasswordExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/password/password.module';
+import { PasswordValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/password/password-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     PASSWORD_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PasswordExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PasswordValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [PasswordComponent],
   exports: [RouterModule],
   schemas: [

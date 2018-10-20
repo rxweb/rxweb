@@ -6,7 +6,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { GREATER_THAN_ROUTING } from './greaterThan.routing';
 import { GreaterThanComponent } from './greaterThan.component';
-import { GreaterThanExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/greaterThan/greaterThan.module';
+import { GreaterThanValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/greaterThan/greaterThan-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
@@ -14,7 +14,7 @@ import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 @NgModule({
   imports: [
     GREATER_THAN_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, GreaterThanExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, GreaterThanValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
   declarations: [GreaterThanComponent],
   exports: [RouterModule],
   schemas: [

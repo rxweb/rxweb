@@ -13,8 +13,8 @@ export interface CommitOptions {
     email?: string;
 }
 export declare class RepositoryInitializerTask implements TaskConfigurationGenerator<RepositoryInitializerTaskOptions> {
-    workingDirectory: string | undefined;
-    commitOptions: CommitOptions | undefined;
+    workingDirectory?: string | undefined;
+    commitOptions?: CommitOptions | undefined;
     constructor(workingDirectory?: string | undefined, commitOptions?: CommitOptions | undefined);
     toConfiguration(): TaskConfiguration<RepositoryInitializerTaskOptions>;
 }

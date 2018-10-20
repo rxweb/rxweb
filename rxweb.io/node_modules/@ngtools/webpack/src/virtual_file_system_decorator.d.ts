@@ -15,8 +15,8 @@ export declare class VirtualFileSystemDecorator implements InputFileSystem {
     private _inputFileSystem;
     private _webpackCompilerHost;
     constructor(_inputFileSystem: InputFileSystem, _webpackCompilerHost: WebpackCompilerHost);
-    private _readFileSync(path);
-    private _statSync(path);
+    private _readFileSync;
+    private _statSync;
     getVirtualFilesPaths(): string[];
     stat(path: string, callback: Callback<Stats>): void;
     readdir(path: string, callback: Callback<string[]>): void;
@@ -32,9 +32,10 @@ export declare class VirtualFileSystemDecorator implements InputFileSystem {
 }
 export declare class VirtualWatchFileSystemDecorator extends NodeWatchFileSystem {
     private _virtualInputFileSystem;
-    private _replacements;
+    private _replacements?;
     constructor(_virtualInputFileSystem: VirtualFileSystemDecorator, _replacements?: Map<Path, Path> | ((path: Path) => Path) | undefined);
-    watch(files: string[], dirs: string[], missing: string[], startTime: number | undefined, options: {}, callback: any, callbackUndelayed: (filename: string, timestamp: number) => void): {
+    watch(files: string[], dirs: string[], missing: string[], startTime: number | undefined, options: {}, callback: any, // tslint:disable-line:no-any
+    callbackUndelayed: (filename: string, timestamp: number) => void): {
         close: () => any;
         pause: () => any;
         getFileTimestamps: () => Map<string, number>;

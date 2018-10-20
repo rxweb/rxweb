@@ -12,8 +12,11 @@ import { HexcolorInfo } from './hexcolor-info.model';
 export class HexColorCompleteComponent implements OnInit {
 
     hexcolorInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -2,21 +2,21 @@
 <form  [formGroup]="userFormGroup">
 <div class="form-group">
     <label>Obtained Marks</label>
-    <input type="text" formControlName="obtainedMarks" class="form-control"  />
-    <small class="form-text text-muted">If you want to apply conditional validation on 'Practical Exam Marks' or 'Passing Marks', then Obtained Marks must be less than '35'<br/></small>
+		<input type="text" formControlName="obtainedMarks" class="form-control"  />
+	    <small class="form-text text-muted">If you want to apply conditional validation on 'Practical Exam Marks' or 'Passing Marks', then Obtained Marks must be less than '35'<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.obtainedMarks.errors">{{userFormGroup.controls.obtainedMarks.errors.lessThan.message}}<br/></small>
 </div>
 <div class="form-group">
     <label>Passing Marks</label>
-    <input type="text" formControlName="passingMarks" class="form-control"  />
-    <small class="form-text text-muted">If you want to apply conditional validation on 'Passing Marks' then you need to add 'Obtained Marks' field less than '35'.<br/></small>
+		<input type="text" formControlName="passingMarks" class="form-control"  />
+	    <small class="form-text text-muted">If you want to apply conditional validation on 'Passing Marks' then you need to add 'Obtained Marks' field less than '35'.<br/></small>
     <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.passingMarks.errors">{{userFormGroup.controls.passingMarks.errors.lessThan.message}}<br/></small>
 </div>
 <div class="form-group">
     <label>Other Marks</label>
-    <input type="text" formControlName="otherMarks" class="form-control"  />
-    <small class="form-text text-muted">Shows custom message<br/></small>
+		<input type="text" formControlName="otherMarks" class="form-control"  />
+	    <small class="form-text text-muted">Shows custom message<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.otherMarks.errors">{{userFormGroup.controls.otherMarks.errors.lessThan.message}}<br/></small>
 </div>
 <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>

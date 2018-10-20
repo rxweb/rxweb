@@ -12,8 +12,12 @@ import { AddressInfo } from './address-info.model';
 export class AlphaCompleteComponent implements OnInit {
 
     addressInfoFormGroup: FormGroup
-
-    constructor(
+					
+					
+					
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -12,8 +12,8 @@ import { LoginInfo } from './login-info.model';
 export class PasswordValidationComponent implements OnInit {
 
     loginInfoFormGroup: FormGroup
-
-    constructor(
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

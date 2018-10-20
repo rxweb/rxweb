@@ -16,7 +16,7 @@ export class CreditCardComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic CreditCard Validation":null,"CreditCardConfig":["creditCardTypes","conditionalExpression","message"],"Complete CreditCard Example":null,"Dynamic CreditCard Example":null};
+  sidebarLinks:any = {"When to use":null,"Basic CreditCard Validation":null,"CreditCardConfig":["conditionalExpression","message"],"Complete CreditCard Example":null,"Dynamic CreditCard Example":null};
   tab_1:string = "creditCardTypesComponent";
    tab_2:string = "conditionalExpressionComponent";
    tab_3:string = "messageComponent";

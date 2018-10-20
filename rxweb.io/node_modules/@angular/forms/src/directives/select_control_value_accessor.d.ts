@@ -20,6 +20,7 @@ export declare const SELECT_VALUE_ACCESSOR: StaticProvider;
  * value accessor will be active on any select control that has a form directive. You do
  * **not** need to add a special selector to activate it.
  *
+ * @usageNotes
  * ### How to use select controls with form directives
  *
  * To use a select in a template-driven form, simply add an `ngModel` and a `name`
@@ -48,7 +49,7 @@ export declare const SELECT_VALUE_ACCESSOR: StaticProvider;
  * `compareWith` takes a **function** which has two arguments: `option1` and `option2`.
  * If `compareWith` is given, Angular selects option by the return value of the function.
  *
- * #### Syntax
+ * ### Syntax
  *
  * ```
  * <select [compareWith]="compareFn"  [(ngModel)]="selectedCountries">
@@ -67,9 +68,8 @@ export declare const SELECT_VALUE_ACCESSOR: StaticProvider;
  * https://bugzilla.mozilla.org/show_bug.cgi?id=1024350
  * https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4660045/
  *
- * * **npm package**: `@angular/forms`
- *
- *
+ * @ngModule FormsModule
+ * @ngModule ReactiveFormsModule
  */
 export declare class SelectControlValueAccessor implements ControlValueAccessor {
     private _renderer;
@@ -92,7 +92,8 @@ export declare class SelectControlValueAccessor implements ControlValueAccessor 
  *
  * See docs for `SelectControlValueAccessor` for usage examples.
  *
- *
+ * @ngModule FormsModule
+ * @ngModule ReactiveFormsModule
  */
 export declare class NgSelectOption implements OnDestroy {
     private _element;

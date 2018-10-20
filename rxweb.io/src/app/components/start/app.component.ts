@@ -11,7 +11,7 @@ import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'rx-app';
+  title = 'rx.web.io';
   constructor(private router: Router,private applicationBroadCaster:ApplicationBroadcaster){
       router.events.subscribe((val) => {
         if(val instanceof NavigationEnd) {

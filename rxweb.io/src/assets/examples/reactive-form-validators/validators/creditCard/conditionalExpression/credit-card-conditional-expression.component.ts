@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
-import { RxFormBuilder,RxwebValidators	,CreditCardType 
+import { RxFormBuilder,RxwebValidators
 } from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -10,16 +10,19 @@ import { RxFormBuilder,RxwebValidators	,CreditCardType
 })
 export class CreditCardConditionalExpressionValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-
-    constructor(
+								creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
+				
+					
+					
+	    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
 										cardType:['',], 
-													otherVisaCard:['', RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:'x => x.cardType == "visa"'  ,message:'Invalid Visa Credit Card Number.' })], 
-													dinersClubCard:['', RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.DinersClub ]  ,conditionalExpression:'x => x.cardType == "dinersClubCard"' })], 
+													otherVisaCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "Visa"'  ,message:'Invalid Visa Credit Card Number.' })], 
+													dinersClubCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "DinersClub"' })], 
 								});
     }
 }
