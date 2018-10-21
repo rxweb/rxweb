@@ -1,3 +1,13 @@
+<form [formGroup]="userForm">
+  <div class="form-group">
+    <input type="text" formControlName="nationality" placeholder="Nationality" class="form-control" />
+    
+  </div>
+  <div class="form-group">
+    <input type="text" formControlName="intlNumber" placeholder="International Number" class="form-control" />
+    {{userForm.controls.intlNumber.errors  | json}}
+  </div>
+</form>
 <form [formGroup]="testForm">
   <input type="text" formControlName="password" /> {{testForm.controls.password.errors | json}}
   <input type="text" formControlName="confirmPassword" />{{testForm.controls.confirmPassword.errors | json}}

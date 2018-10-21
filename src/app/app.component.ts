@@ -163,8 +163,20 @@ clientFormGroup:FormGroup
 userFormGroup:FormGroup;
   
 testFormGroup:FormGroup;
-testForm:FormGroup
+testForm:FormGroup;
+userForm:FormGroup;
   ngOnInit() {
+this.userForm = this.formBuilder.group({
+  nationality:[''],
+  intlNumber:['',[ RxwebValidators.compose({
+validators:[
+RxwebValidators.required(),
+RxwebValidators.maxLength({value:14}),
+RxwebValidators.minLength({value:11})
+],
+conditionalExpression:(x) => x.nationality == 'Abroad' })
+    ]]
+});
 this.testForm = this.formBuilder.group({
   password:['',[RxwebValidators.password ({
         validation:{
