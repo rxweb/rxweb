@@ -1,54 +1,58 @@
 <div id="header">
-  <div class="color-line">
-  </div>
+  <!--<div class="color-line">
+  </div>-->
   <div id="logo" class="light-version">
     <a routerLink="/dashboard">
-    <img src="/assets/images/rx-web-logo.png" width="150" height="40"/>
+    <img src="/assets/images/rxweb-logo.png" width="111" height="31"/>
     </a>
   </div>
   <nav role="navigation">
   <div class="header-link hide-menu" (click)="hideSideBar()"><i class="fa fa-bars"></i></div>
   <!-- right -->
-	<form [formGroup]="searchFormGroup" role="search" class="navbar-form-custom search-form-group" method="post" action="#">
+	<!--<form [formGroup]="searchFormGroup" role="search" class="navbar-form-custom search-form-group" method="post" action="#">
 		<div class="form-group">
 			<input type="text" formControlName="search" placeholder="Search something special" (click)="showSearchMenu=true"   autocomplete="off" class="form-control search-form" name="search">
 		</div>
-	</form>
+	</form>-->
     <div class="mobile-menu">
       <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-Target="#mobile-collapse">
         <i class="fa fa-chevron-down"></i>
       </button>
 	    <div class="collapse mobile-navbar" id="mobile-collapse">
         <ul class="nav navbar-nav">
-					<li>
+				<li>
 						<a href="{{url}}" target="_blank">Edit</a>
 					</li>
-					<li>
-						<a href="https://stackoverflow.com/search?q=rxweb" target="_blank">Stack Overflow</a>
-					</li>
-					<li>
-						<a href="https://gitter.im/rx-web/Lobby" target="_blank">Comment</a>
-					</li>
+			
+				
 					<li>
 						<a href="https://github.com/rxweb/rxweb" target="_blank">GitHub</a>
+					</li>
+						<li>
+						<a href="https://stackoverflow.com/search?q=rxweb" target="_blank">Stack Overflow</a>
+					</li>
+						<li>
+						<a href="https://gitter.im/rx-web/Lobby" target="_blank">Comment</a>
 					</li>
 				</ul>
 		 </div>
     </div>
 		<div class="navbar-right">
       <ul class="nav navbar-nav no-borders">
-				<li>
+				<!--<li>
 					<a href="{{url}}" title="Edit" target="_blank"><i class="fa fa-pencil"></i></a>
-				</li>
-				<li>
-					<a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i></a>
-				</li>
-				<li>
-					<a href="https://gitter.im/rx-web/Lobby" title="Comment" target="_blank"><i class="fa fa-comment"></i></a>
-				</li>
+				</li>-->
+			
 				<li>
 					<a href="https://github.com/rxweb/rxweb" title="GitHub" target="_blank"><i class="fa fa-github"></i></a>
 				</li>
+					<li>
+					<a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i></a>
+				</li>
+				<li>
+					<a href="https://gitter.im/rx-web/Lobby" title="Comment" target="_blank"><i class="fa fa-comments-o"></i></a>
+				</li>
+
 		</ul>
 		</div>
 	</nav>
