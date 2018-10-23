@@ -20,8 +20,8 @@ export class AlphaNumericConditionalExpressionValidatorComponent implements OnIn
     ngOnInit() {
         this.locationFormGroup = this.formBuilder.group({
 										areaName:['', RxwebValidators.alphaNumeric()], 
-													cityCode:['', RxwebValidators.alphaNumeric({conditionalExpression:'x => x.areaName =="Boston"' })], 
-													countryCode:['', RxwebValidators.alphaNumeric({conditionalExpression:(x,y) => x.areaName == "Boston"  })], 
+													cityCode:['', RxwebValidators.alphaNumeric({conditionalExpression:'x => x.areaName =="Gujarat"' })], 
+													countryCode:['', RxwebValidators.alphaNumeric({conditionalExpression:(x,y) => x.areaName == "Gujarat"  })], 
 								});
     }
 }

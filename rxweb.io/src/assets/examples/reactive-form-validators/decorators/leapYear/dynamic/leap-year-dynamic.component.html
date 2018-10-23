@@ -3,20 +3,20 @@
 <div class="form-group">
     <label>Name</label>
 		<input type="text" formControlName="name" class="form-control"  />
-	    <small class="form-text text-muted">If you want to apply conditional validation on 'Birth Year' or 'Admission Date', then you need to add 'Name' input as 'John'<br/></small>
+	    <small class="form-text text-muted">If you want to apply conditional validation on 'Birth Year' or 'Admission Date', then you need to add 'Name' input as 'Bharat'<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.name.errors">{{userFormGroup.controls.name.errors.leapYear.message}}<br/></small>
 </div>
 <div class="form-group">
     <label>Birth Year</label>
 		<input type="text" formControlName="birthYear" class="form-control"  />
-	    <small class="form-text text-muted">To apply the validation of Leap Year on 'Birth Year' field, then enter the value 'John' in 'Name' textbox<br/></small>
+	    <small class="form-text text-muted">To apply the validation of Leap Year on 'Birth Year' field, then enter the value 'Bharat' in 'Name' textbox<br/></small>
     <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.birthYear.errors">{{userFormGroup.controls.birthYear.errors.leapYear.message}}<br/></small>
 </div>
 <div class="form-group">
     <label>Admission Year</label>
 		<input type="text" formControlName="admissionYear" class="form-control"  />
-	    <small class="form-text text-muted">To apply the validation of leap on 'Admission Year' field, then enter the value 'John' in 'Name' textbox<br/></small>
+	    <small class="form-text text-muted">To apply the validation of leap on 'Admission Year' field, then enter the value 'Bharat' in 'Name' textbox<br/></small>
     <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
     <small class="form-text text-danger" *ngIf="userFormGroup.controls.admissionYear.errors">{{userFormGroup.controls.admissionYear.errors.leapYear.message}}<br/></small>
 </div>

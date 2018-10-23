@@ -12,11 +12,19 @@ import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
 })
 export class AppComponent implements OnInit {
   title = 'rx.web.io';
+  isHome = true;
   constructor(private router: Router,private applicationBroadCaster:ApplicationBroadcaster){
       router.events.subscribe((val) => {
         if(val instanceof NavigationEnd) {
           var url = "https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators" +val.url + ".md"
           applicationBroadCaster.urlBroadCast(url);
+          if (val.url.indexOf("home")==-1)
+          {
+            this.isHome = false;
+            document.body.classList.remove("landing-page")
+          }
+          else
+            document.body.classList.add("landing-page")
         }
     });
   }

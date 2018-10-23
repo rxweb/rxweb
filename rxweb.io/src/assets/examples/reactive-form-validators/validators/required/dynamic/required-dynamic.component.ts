@@ -28,11 +28,11 @@ export class RequiredDynamicValidatorComponent implements OnInit {
 			},
 						
 			middleName : {
-				required :  {conditionalExpression:(x,y) => x.firstName == "John" ,} 
+				required :  {conditionalExpression:(x,y) => x.firstName == "Bharat" ,} 
 			},
 						
 			lastName : {
-				required :  {conditionalExpression:'x => x.firstName == "John"',} 
+				required :  {conditionalExpression:'x => x.firstName == "Bharat"',} 
 			},
 						
 			userName : {

@@ -6,15 +6,16 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MIN_NUMBER_ROUTING } from './minNumber.routing';
 import { MinNumberComponent } from './minNumber.component';
-import { MinNumberValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/minNumber/minNumber-validators-extended.module';
+import { MinNumberValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/minNumber/min-number-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     MIN_NUMBER_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinNumberValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinNumberValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [MinNumberComponent],
   exports: [RouterModule],
   schemas: [

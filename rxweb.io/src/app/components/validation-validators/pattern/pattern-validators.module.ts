@@ -9,12 +9,13 @@ import { PatternComponent } from './pattern.component';
 import { PatternValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/pattern/pattern-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     PATTERN_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PatternValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PatternValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [PatternComponent],
   exports: [RouterModule],
   schemas: [

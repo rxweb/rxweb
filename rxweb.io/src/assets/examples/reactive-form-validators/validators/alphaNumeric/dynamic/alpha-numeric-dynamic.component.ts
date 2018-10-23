@@ -37,11 +37,11 @@ export class AlphaNumericDynamicValidatorComponent implements OnInit {
 			},
 						
 			countryCode : {
-				alphaNumeric :  {conditionalExpression:(x,y) => x.areaName == "Boston" ,} 
+				alphaNumeric :  {conditionalExpression:(x,y) => x.areaName == "Gujarat" ,} 
 			},
 						
 			cityCode : {
-				alphaNumeric :  {conditionalExpression:'x => x.areaName =="Boston"',} 
+				alphaNumeric :  {conditionalExpression:'x => x.areaName =="Gujarat"',} 
 			},
 			        };
 		 var location = {

@@ -6,15 +6,16 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MAX_LENGTH_ROUTING } from './maxLength.routing';
 import { MaxLengthComponent } from './maxLength.component';
-import { MaxLengthValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/maxLength/maxLength-validators-extended.module';
+import { MaxLengthValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/maxLength/max-length-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     MAX_LENGTH_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MaxLengthValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MaxLengthValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [MaxLengthComponent],
   exports: [RouterModule],
   schemas: [

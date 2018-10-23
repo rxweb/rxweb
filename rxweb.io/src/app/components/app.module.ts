@@ -19,13 +19,14 @@ import { RightSideBarSharedModule } from "src/app/components/shared/right-sideba
 import { ConfigureGlobalValidationMessagesComponent } from "src/app/components/configure-global-validation-messages/configure-global-validation-messages.component";
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
+import { HomeComponent } from "src/app/components/home/home.component";
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe,ImportModulesComponent,ConfigureGlobalValidationMessagesComponent
+    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe,ImportModulesComponent,ConfigureGlobalValidationMessagesComponent,HomeComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,
     HighlightModule.forRoot({ theme: 'default' }), ClipboardModule ,

@@ -20,8 +20,8 @@ export class RequiredConditionalExpressionValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
 										firstName:['', RxwebValidators.required()], 
-													lastName:['', RxwebValidators.required({conditionalExpression:'x => x.firstName == "John"' })], 
-													middleName:['', RxwebValidators.required({conditionalExpression:(x,y) => x.firstName == "John"  })], 
+													lastName:['', RxwebValidators.required({conditionalExpression:'x => x.firstName == "Bharat"' })], 
+													middleName:['', RxwebValidators.required({conditionalExpression:(x,y) => x.firstName == "Bharat"  })], 
 								});
     }
 }

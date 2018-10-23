@@ -36,11 +36,11 @@ export class PatternDynamicComponent implements OnInit {
 			},
 						
 			contactNumber : {
-				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:(x,y) => x.userName == "John" ,} 
+				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:(x,y) => x.userName == "Bharat" ,} 
 			},
 						
 			age : {
-				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:'x => x.userName=="John"',} 
+				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:'x => x.userName=="Bharat"',} 
 			},
 			        };
 		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);

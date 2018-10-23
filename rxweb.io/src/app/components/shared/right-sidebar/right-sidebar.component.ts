@@ -31,23 +31,23 @@ export class RightSideBarComponent implements OnInit {
                 this.sidebarItem.push(currentObject);
             }
         }
-        let url = 'https://api.github.com/repos/rxweb/rxweb/';
-		if (location.pathname.split('/')[1] && !location.pathname.split('/')[2])
-            url += 'commits?path=docs/reactive-form-validators/'+location.pathname.split('/')[1]+".md"
-        if (location.pathname.split('/')[1] && location.pathname.split('/')[2])
-            url += 'commits?path=docs/reactive-form-validators/'+location.pathname.split('/')[1]+'/' + location.pathname.split('/')[2] + ".md"
-        this.http.get(url).subscribe((response: any[]) => {
-            const author = response.map(data => data.author);
-            author.forEach(element => {
-                if(element)                
-                {
-                    let indexObj = this.contributorList.find(a=>a.id == element.id);
-                    if(!indexObj)
-                        this.contributorList.push(element);
-                }
-            });
+        //let url = 'https://api.github.com/repos/rxweb/rxweb/';
+		//if (location.pathname.split('/')[1] && !location.pathname.split('/')[2])
+        //    url += 'commits?path=docs/reactive-form-validators/'+location.pathname.split('/')[1]+".md"
+        //if (location.pathname.split('/')[1] && location.pathname.split('/')[2])
+         //   url += 'commits?path=docs/reactive-form-validators/'+location.pathname.split('/')[1]+'/' + location.pathname.split('/')[2] + ".md"
+        //this.http.get(url).subscribe((response: any[]) => {
+          //  const author = response.map(data => data.author);
+            //author.forEach(element => {
+              //  if(element)                
+                //{
+                   // let indexObj = this.contributorList.find(a=>a.id == element.id);
+                    //if(!indexObj)
+                      //  this.contributorList.push(element);
+                //}
+            //});
             this.showComponent = true;
-        })
+        //})
     }
     scrollTo(section) {
         var node = document.querySelector('#' + section);

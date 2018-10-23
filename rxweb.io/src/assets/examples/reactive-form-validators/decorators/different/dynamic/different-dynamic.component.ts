@@ -32,11 +32,11 @@ export class DifferentDynamicComponent implements OnInit {
 			},
 						
 			lastName : {
-				different :  {fieldName:"firstName",conditionalExpression:(x,y) => x.firstName == "John" ,} 
+				different :  {fieldName:"firstName",conditionalExpression:(x,y) => x.firstName == "Bharat" ,} 
 			},
 						
 			userName : {
-				different :  {fieldName:"firstName",conditionalExpression:'x => x.firstName == "John"',} 
+				different :  {fieldName:"firstName",conditionalExpression:'x => x.firstName == "Bharat"',} 
 			},
 			        };
 		this.accountInfoFormGroup = this.formBuilder.formGroup(accountInfo,formBuilderConfiguration);

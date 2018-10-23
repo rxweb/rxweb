@@ -21,8 +21,8 @@ export class RequiredCompleteValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
 										firstName:['', RxwebValidators.required()], 
-													middleName:['', RxwebValidators.required({conditionalExpression:(x,y) => x.firstName == "John"  })], 
-													lastName:['', RxwebValidators.required({conditionalExpression:'x => x.firstName == "John"' })], 
+													middleName:['', RxwebValidators.required({conditionalExpression:(x,y) => x.firstName == "Bharat"  })], 
+													lastName:['', RxwebValidators.required({conditionalExpression:'x => x.firstName == "Bharat"' })], 
 													userName:['', RxwebValidators.required({message:'Username cannot be blank.' })], 
 								});
     }

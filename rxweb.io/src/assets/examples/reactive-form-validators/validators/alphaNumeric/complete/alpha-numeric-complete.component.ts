@@ -24,8 +24,8 @@ export class AlphaNumericCompleteValidatorComponent implements OnInit {
 										areaName:['', RxwebValidators.alphaNumeric()], 
 													flatAddress:['', RxwebValidators.alphaNumeric({allowWhiteSpace:true })], 
 													postalAddress:['', RxwebValidators.alphaNumeric({allowWhiteSpace:true  ,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.' })], 
-													countryCode:['', RxwebValidators.alphaNumeric({conditionalExpression:(x,y) => x.areaName == "Boston"  })], 
-													cityCode:['', RxwebValidators.alphaNumeric({conditionalExpression:'x => x.areaName =="Boston"' })], 
+													countryCode:['', RxwebValidators.alphaNumeric({conditionalExpression:(x,y) => x.areaName == "Gujarat"  })], 
+													cityCode:['', RxwebValidators.alphaNumeric({conditionalExpression:'x => x.areaName =="Gujarat"' })], 
 								});
     }
 }

@@ -9,12 +9,13 @@ import { NumericComponent } from './numeric.component';
 import { NumericValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/numeric/numeric-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     NUMERIC_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, NumericValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, NumericValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [NumericComponent],
   exports: [RouterModule],
   schemas: [

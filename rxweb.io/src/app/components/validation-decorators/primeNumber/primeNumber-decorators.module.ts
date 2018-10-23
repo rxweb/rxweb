@@ -6,15 +6,16 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { PRIME_NUMBER_ROUTING } from './primeNumber.routing';
 import { PrimeNumberComponent } from './primeNumber.component';
-import { PrimeNumberDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/primeNumber/primeNumber-decorators-extended.module';
+import { PrimeNumberDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/primeNumber/prime-number-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     PRIME_NUMBER_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PrimeNumberDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PrimeNumberDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [PrimeNumberComponent],
   exports: [RouterModule],
   schemas: [

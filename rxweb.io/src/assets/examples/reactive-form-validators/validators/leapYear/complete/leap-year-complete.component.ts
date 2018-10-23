@@ -21,8 +21,8 @@ export class LeapYearCompleteValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
 										name:['',], 
-													birthYear:['', RxwebValidators.leapYear({conditionalExpression:(x,y) => x.name == "John"  })], 
-													admissionYear:['', RxwebValidators.leapYear({conditionalExpression:'x => x.name == "John"' })], 
+													birthYear:['', RxwebValidators.leapYear({conditionalExpression:(x,y) => x.name == "Bharat"  })], 
+													admissionYear:['', RxwebValidators.leapYear({conditionalExpression:'x => x.name == "Bharat"' })], 
 													joiningYear:['', RxwebValidators.leapYear({message:'{{0}} is not a leap year' })], 
 								});
     }

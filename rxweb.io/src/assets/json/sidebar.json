@@ -13,8 +13,195 @@
           "title": "Global Validation Messages",
           "uri": "configure-global-validation-messages"
         },
+       
         {
-          "title": "VALIDATION DECORATORS",
+          "title": "Validators",
+          "uri": null,
+          "isOpen" : false,
+          "childrens": [
+            {
+              "title": "alpha",
+              "uri": "validation-validators/alpha"
+            },
+            {
+              "title": "alphaNumeric",
+              "uri": "validation-validators/alphaNumeric"
+            },
+            {
+              "title": "ascii",
+              "uri": "validation-validators/ascii"
+            },
+            {
+              "title": "compare",
+              "uri": "validation-validators/compare"
+            },
+            {
+              "title": "contains",
+              "uri": "validation-validators/contains"
+            },
+           
+            {
+              "title": "creditCard",
+              "uri": "validation-validators/creditCard"
+            },
+            {
+              "title": "dataUri",
+              "uri": "validation-validators/dataUri"
+            },
+            {
+              "title": "different",
+              "uri": "validation-validators/different"
+            },
+            {
+              "title": "digit",
+              "uri": "validation-validators/digit"
+            },
+            {
+              "title": "email",
+              "uri": "validation-validators/email"
+            },
+            {
+              "title": "endsWith",
+              "uri": "validation-validators/endsWith"
+            },
+            {
+              "title": "even",
+              "uri": "validation-validators/even"
+            },
+            {
+              "title": "factor",
+              "uri": "validation-validators/factor"
+            },
+            {
+              "title": "greaterThanEqualTo",
+              "uri": "validation-validators/greaterThanEqualTo"
+            },
+            {
+              "title": "greaterThan",
+              "uri": "validation-validators/greaterThan"
+            },
+           
+            {
+              "title": "hexColor",
+              "uri": "validation-validators/hexColor"
+            },
+            {
+              "title": "json",
+              "uri": "validation-validators/json"
+            },
+            {
+              "title": "latitude",
+              "uri": "validation-validators/latitude"
+            },
+            {
+              "title": "latLong",
+              "uri": "validation-validators/latLong"
+            },
+            {
+              "title": "leapYear",
+              "uri": "validation-validators/leapYear"
+            },   
+            {
+              "title": "lessThanEqualTo",
+              "uri": "validation-validators/lessThanEqualTo"
+            },     
+            {
+              "title": "lessThan",
+              "uri": "validation-validators/lessThan"
+            },     
+            {
+              "title": "longitude",
+              "uri": "validation-validators/longitude"
+            },      
+            {
+              "title": "lowerCase",
+              "uri": "validation-validators/lowerCase"
+            },
+            {
+              "title": "mac",
+              "uri": "validation-validators/mac"
+            },
+            {
+              "title": "maxDate",
+              "uri": "validation-validators/maxDate"
+            },
+            {
+              "title": "maxLength",
+              "uri": "validation-validators/maxLength"
+            },
+            {
+              "title": "maxNumber",
+              "uri": "validation-validators/maxNumber"
+            },
+           
+            {
+              "title": "minDate",
+              "uri": "validation-validators/minDate"
+            },
+            {
+              "title": "minLength",
+              "uri": "validation-validators/minLength"
+            },
+            {
+              "title": "minNumber",
+              "uri": "validation-validators/minNumber"
+            },
+            {
+              "title": "numeric",
+              "uri": "validation-validators/numeric"
+            },
+            {
+              "title": "odd",
+              "uri": "validation-validators/odd"
+            },
+            {
+              "title": "password",
+              "uri": "validation-validators/password"
+            },
+            {
+              "title": "pattern",
+              "uri": "validation-validators/pattern"
+            },
+            {
+              "title": "port",
+              "uri": "validation-validators/port"
+            },
+            {
+              "title": "primeNumber",
+              "uri": "validation-validators/primeNumber"
+            },
+            {
+              "title": "range",
+              "uri": "validation-validators/range"
+            },
+            {
+              "title": "required",
+              "uri": "validation-validators/required"
+            },
+            {
+              "title": "fileSize",
+              "uri": "validation-validators/fileSize"
+            },
+            {
+              "title": "startsWith",
+              "uri": "validation-validators/startsWith"
+            },
+            {
+              "title": "time",
+              "uri": "validation-validators/time"
+            },
+            {
+              "title": "upperCase",
+              "uri": "validation-validators/upperCase"
+            },
+            {
+              "title": "url",
+              "uri": "validation-validators/url"
+            }   
+          ]
+        },
+         {
+          "title": "Validation Decorators",
           "uri": null,
           "isOpen" : false,
           "childrens": [
@@ -200,193 +387,8 @@
               "uri": "validation-decorators/url"
             }   
           ]
-        },
-        {
-          "title": "VALIDATION VALIDATORS",
-          "uri": null,
-          "isOpen" : false,
-          "childrens": [
-            {
-              "title": "alpha",
-              "uri": "validation-validators/alpha"
-            },
-            {
-              "title": "alphaNumeric",
-              "uri": "validation-validators/alphaNumeric"
-            },
-            {
-              "title": "ascii",
-              "uri": "validation-validators/ascii"
-            },
-            {
-              "title": "compare",
-              "uri": "validation-validators/compare"
-            },
-            {
-              "title": "contains",
-              "uri": "validation-validators/contains"
-            },
-           
-            {
-              "title": "creditCard",
-              "uri": "validation-validators/creditCard"
-            },
-            {
-              "title": "dataUri",
-              "uri": "validation-validators/dataUri"
-            },
-            {
-              "title": "different",
-              "uri": "validation-validators/different"
-            },
-            {
-              "title": "digit",
-              "uri": "validation-validators/digit"
-            },
-            {
-              "title": "email",
-              "uri": "validation-validators/email"
-            },
-            {
-              "title": "endsWith",
-              "uri": "validation-validators/endsWith"
-            },
-            {
-              "title": "even",
-              "uri": "validation-validators/even"
-            },
-            {
-              "title": "factor",
-              "uri": "validation-validators/factor"
-            },
-            {
-              "title": "greaterThanEqualTo",
-              "uri": "validation-validators/greaterThanEqualTo"
-            },
-            {
-              "title": "greaterThan",
-              "uri": "validation-validators/greaterThan"
-            },
-           
-            {
-              "title": "hexColor",
-              "uri": "validation-validators/hexColor"
-            },
-            {
-              "title": "json",
-              "uri": "validation-validators/json"
-            },
-            {
-              "title": "latitude",
-              "uri": "validation-validators/latitude"
-            },
-            {
-              "title": "latLong",
-              "uri": "validation-validators/latLong"
-            },
-            {
-              "title": "leapYear",
-              "uri": "validation-validators/leapYear"
-            },   
-            {
-              "title": "lessThanEqualTo",
-              "uri": "validation-validators/lessThanEqualTo"
-            },     
-            {
-              "title": "lessThan",
-              "uri": "validation-validators/lessThan"
-            },     
-            {
-              "title": "longitude",
-              "uri": "validation-validators/longitude"
-            },      
-            {
-              "title": "lowerCase",
-              "uri": "validation-validators/lowerCase"
-            },
-            {
-              "title": "mac",
-              "uri": "validation-validators/mac"
-            },
-            {
-              "title": "maxDate",
-              "uri": "validation-validators/maxDate"
-            },
-            {
-              "title": "maxLength",
-              "uri": "validation-validators/maxLength"
-            },
-            {
-              "title": "maxNumber",
-              "uri": "validation-validators/maxNumber"
-            },
-           
-            {
-              "title": "minDate",
-              "uri": "validation-validators/minDate"
-            },
-            {
-              "title": "minLength",
-              "uri": "validation-validators/minLength"
-            },
-            {
-              "title": "minNumber",
-              "uri": "validation-validators/minNumber"
-            },
-            {
-              "title": "numeric",
-              "uri": "validation-validators/numeric"
-            },
-            {
-              "title": "odd",
-              "uri": "validation-validators/odd"
-            },
-            {
-              "title": "password",
-              "uri": "validation-validators/password"
-            },
-            {
-              "title": "pattern",
-              "uri": "validation-validators/pattern"
-            },
-            {
-              "title": "port",
-              "uri": "validation-validators/port"
-            },
-            {
-              "title": "primeNumber",
-              "uri": "validation-validators/primeNumber"
-            },
-            {
-              "title": "range",
-              "uri": "validation-validators/range"
-            },
-            {
-              "title": "required",
-              "uri": "validation-validators/required"
-            },
-            {
-              "title": "fileSize",
-              "uri": "validation-validators/fileSize"
-            },
-            {
-              "title": "startsWith",
-              "uri": "validation-validators/startsWith"
-            },
-            {
-              "title": "time",
-              "uri": "validation-validators/time"
-            },
-            {
-              "title": "upperCase",
-              "uri": "validation-validators/upperCase"
-            },
-            {
-              "title": "url",
-              "uri": "validation-validators/url"
-            }   
-          ]
         }
+
       ]
     }
   ]

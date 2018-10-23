@@ -6,15 +6,16 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ALPHA_NUMERIC_ROUTING } from './alphaNumeric.routing';
 import { AlphaNumericComponent } from './alphaNumeric.component';
-import { AlphaNumericDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/alphaNumeric/alphaNumeric-decorators-extended.module';
+import { AlphaNumericDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/alphaNumeric/alpha-numeric-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     ALPHA_NUMERIC_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaNumericDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaNumericDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [AlphaNumericComponent],
   exports: [RouterModule],
   schemas: [

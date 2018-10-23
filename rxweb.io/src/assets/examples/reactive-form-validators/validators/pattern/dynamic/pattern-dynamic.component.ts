@@ -32,11 +32,11 @@ export class PatternDynamicValidatorComponent implements OnInit {
 			},
 						
 			contactNumber : {
-				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:(x,y) => x.userName == "John" ,} 
+				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:(x,y) => x.userName == "Bharat" ,} 
 			},
 						
 			age : {
-				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:'x => x.userName=="John"',} 
+				pattern :  {pattern:{'onlyDigit': RegExp('/^[0-9]*$/')},conditionalExpression:'x => x.userName=="Bharat"',} 
 			},
 			        };
 		 var user = {

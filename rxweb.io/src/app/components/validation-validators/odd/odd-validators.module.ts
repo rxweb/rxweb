@@ -9,12 +9,13 @@ import { OddComponent } from './odd.component';
 import { OddValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/odd/odd-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     ODD_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, OddValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, OddValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [OddComponent],
   exports: [RouterModule],
   schemas: [

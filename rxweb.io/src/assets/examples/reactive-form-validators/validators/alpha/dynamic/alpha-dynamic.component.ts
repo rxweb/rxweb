@@ -29,11 +29,11 @@ export class AlphaDynamicValidatorComponent implements OnInit {
 			},
 						
 			countryCode : {
-				alpha :  {conditionalExpression:(x,y) => x.countryName == "Australia",} 
+				alpha :  {conditionalExpression:(x,y) => x.countryName == "India",} 
 			},
 						
 			cityName : {
-				alpha :  {conditionalExpression:'x => x.countryName =="Australia"',} 
+				alpha :  {conditionalExpression:'x => x.countryName =="India"',} 
 			},
 						
 			stateName : {

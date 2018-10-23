@@ -6,11 +6,11 @@ export class User {
 	name: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@startsWith({value:'#'  ,conditionalExpression:'x => x.name =="John"' }) 
+	@startsWith({value:'#'  ,conditionalExpression:'x => x.name =="Bharat"' }) 
 	taskId: string;
 
 	//If you want to apply conditional expression of type 'function'
-	@startsWith({value:'Senior'  ,conditionalExpression:(x,y) => x.name == "John"  }) 
+	@startsWith({value:'Senior'  ,conditionalExpression:(x,y) => x.name == "Bharat"  }) 
 	profession: string;
 
 }

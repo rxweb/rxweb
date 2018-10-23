@@ -9,12 +9,13 @@ import { EmailComponent } from './email.component';
 import { EmailDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/email/email-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     EMAIL_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, EmailDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, EmailDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [EmailComponent],
   exports: [RouterModule],
   schemas: [

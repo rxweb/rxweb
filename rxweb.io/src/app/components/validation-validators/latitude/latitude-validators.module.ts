@@ -9,12 +9,13 @@ import { LatitudeComponent } from './latitude.component';
 import { LatitudeValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/latitude/latitude-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     LATITUDE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LatitudeValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LatitudeValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [LatitudeComponent],
   exports: [RouterModule],
   schemas: [

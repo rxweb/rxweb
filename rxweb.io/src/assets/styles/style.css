@@ -2278,7 +2278,7 @@ p.alpha-con-title {
     line-height: 23px;
 }
 .sidebar-list li a {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 21px;
     color: #34495e;
 }
@@ -3839,7 +3839,7 @@ body {
 }
 #wrapper {
        /*margin: 0 353px 0 252px;*/
-       margin:0px 352px 0 249px;
+       margin:0px 300px 0 249px;
     padding: 0;
     background: #f1f3f6;
     transition: margin .4s ease 0s;
@@ -3946,7 +3946,7 @@ body {
       background-color: #ffffff;
     position: fixed;
     top: 62px;
-    width: 347px!important;
+    width: 300px!important;
     z-index: 1009;
     bottom: 0;
     right: 0;
@@ -5146,11 +5146,14 @@ body.light-skin.fixed-footer .footer {
 
 .landing-page .heading {
     margin-top: 60px;
-    color: #edf0f5
+    color: #edf0f5 !important;
+}
+.landing-page h1 {
+    color: #edf0f5 !important;
 }
 
 .landing-page .heading h1 {
-    font-weight: 600;
+    font-weight: 600 !important;
     font-size: 34px;
     margin-bottom: 5px;
     letter-spacing: -0.5px
@@ -5168,17 +5171,27 @@ body.light-skin.fixed-footer .footer {
     font-size: 13px;
     font-weight: 600
 }
+.landing-page .heading div.left {
+    font-size: 13px;
+    font-weight: 600;
+    width:50%;
+float: left;
+}
+.landing-page .heading div.right {
+    width:50%;
+    float: right;
+}
 
 .landing-page .heading p.small {
     margin-top: 10px;
     color: #a7afb8;
-    max-width: 260px
+    max-width: 305px
 }
 
 .landing-page .heading-image {
     position: absolute;
     right: 60px;
-    top: 120px;
+    top: 305px;
     text-align: right
 }
 
@@ -5386,10 +5399,9 @@ input.ng-invalid{
     opacity: 1;
 }
 .sidebar-link{
-    font-size: 15px;
+    font-size: 12px;
     line-height: 21px;
     padding-top: 0px;
-    padding-right: 20px;
     padding-bottom: 8px;
     padding-left: 20px;
     color: #6a6c6f;

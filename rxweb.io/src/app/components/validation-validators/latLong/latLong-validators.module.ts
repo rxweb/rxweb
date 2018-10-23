@@ -6,15 +6,16 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { LAT_LONG_ROUTING } from './latLong.routing';
 import { LatLongComponent } from './latLong.component';
-import { LatLongValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/latLong/latLong-validators-extended.module';
+import { LatLongValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/latLong/lat-long-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     LAT_LONG_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LatLongValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, LatLongValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [LatLongComponent],
   exports: [RouterModule],
   schemas: [

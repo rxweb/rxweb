@@ -22,8 +22,8 @@ export class DifferentCompleteValidatorComponent implements OnInit {
         this.accountInfoFormGroup = this.formBuilder.group({
 										firstName:['',], 
 													password:['', RxwebValidators.different({fieldName:"firstName"  ,message:'{{0}} is same as firstName' })], 
-													lastName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:(x,y) => x.firstName == "John"  })], 
-													userName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:'x => x.firstName == "John"' })], 
+													lastName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:(x,y) => x.firstName == "Bharat"  })], 
+													userName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:'x => x.firstName == "Bharat"' })], 
 								});
     }
 }

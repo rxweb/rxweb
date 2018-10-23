@@ -31,11 +31,11 @@ export class StartsWithDynamicComponent implements OnInit {
 			},
 						
 			profession : {
-				startsWith :  {value:'Senior',conditionalExpression:(x,y) => x.name == "John" ,} 
+				startsWith :  {value:'Senior',conditionalExpression:(x,y) => x.name == "Bharat" ,} 
 			},
 						
 			taskId : {
-				startsWith :  {value:'#',conditionalExpression:'x => x.name =="John"',} 
+				startsWith :  {value:'#',conditionalExpression:'x => x.name =="Bharat"',} 
 			},
 			        };
 		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);

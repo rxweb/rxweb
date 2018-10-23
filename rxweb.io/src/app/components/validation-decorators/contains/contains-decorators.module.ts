@@ -9,12 +9,13 @@ import { ContainsComponent } from './contains.component';
 import { ContainsDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/contains/contains-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
+import { PipeCommonModule } from "src/app/pipes";
 import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     CONTAINS_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, ContainsDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, ContainsDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [ContainsComponent],
   exports: [RouterModule],
   schemas: [

@@ -3,14 +3,18 @@ import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 import { DashboardComponent } from "../dashboard/dashboard.component";
 import { ImportModulesComponent } from "src/app/components/import-modules/import.modules.component";
 import { ConfigureGlobalValidationMessagesComponent } from "src/app/components/configure-global-validation-messages/configure-global-validation-messages.component";
+import { HomeComponent } from "src/app/components/home/home.component";
 
 
 const APP_LAZY_ROUTES: Routes = [
   {
-    path: '', redirectTo: 'dashboard', pathMatch: 'full'
+    path: '', redirectTo: 'home', pathMatch: 'full'
   },
   {
     path: 'dashboard', component: DashboardComponent
+  },
+  {
+    path: 'home', component: HomeComponent
   },
   {
     path: 'import-modules', component: ImportModulesComponent
