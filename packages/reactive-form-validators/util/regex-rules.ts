@@ -8,7 +8,7 @@ export const RegExRule: { [key: string]: any } = {
 
     alphaWithSpace: /^[a-zA-Z\s]+$/,
 
-    macId : /^[a-fA-F0-9:]{17}|[a-fA-F0-9]{12}$/,
+    macId : /^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$/,
 
     onlyDigit: /^[0-9]+$/,
 
@@ -28,9 +28,9 @@ export const RegExRule: { [key: string]: any } = {
     
     alphaNumericWithSpace: /^[0-9a-zA-Z\s]+$/,
 
-    hexColor: /#([a-f0-9]{3}|[a-f0-9]{4}(?:[a-f0-9]{2}){0,2})\b/gi,
+    hexColor: /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i,
 
-    strictHexColor: /^#([a-f0-9]{3,4}|[a-f0-9]{4}(?:[a-f0-9]{2}){1,2})\b$/i,
+    strictHexColor: /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i,
 
     float: /^(?:[-+]?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$/,
 

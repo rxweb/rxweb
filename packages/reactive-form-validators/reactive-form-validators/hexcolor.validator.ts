@@ -13,7 +13,7 @@ export function hexColorValidator(config:HexColorConfig): ValidatorFn {
         config = ApplicationUtil.getConfigObject(config);
         if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
-                let hexRegex = config.isStrict ? RegExRule.strictHexColor : RegExRule.hexColor;
+                let hexRegex = RegExRule.strictHexColor;
                 if (!RegexValidator.isValid(control.value, hexRegex))
                     return ObjectMaker.toJson(AnnotationTypes.hexColor, config.message || null, [control.value])
             }

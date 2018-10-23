@@ -48,3 +48,4 @@ export * from './primeNumber.validator';
 export * from './latitude.validator';
 export * from './longitude.validator';
 export * from './compose.validator';
+export * from './rule.validator';

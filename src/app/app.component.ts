@@ -15,9 +15,19 @@ endsWith,
 startsWith,
 primeNumber,
 latitude,
-longitude
+longitude,rule
 } from "@rxweb/reactive-form-validators";
 
+export class Address {
+    zipCode:number;
+    city:string;
+    country:string;
+
+    @rule({customRules:[(entity)=> {
+       let jObject = {};
+       return entity.zipCode == null ? {'zipcode':'should select zipcode'} : null;  } ]})
+    address:string;
+}
 
 import { CLIENT_SETTINGS } from './client-setting'
 export class Attendance {
@@ -75,7 +85,7 @@ export class Employee {
     @odd() odd:number;
     @even() even:number;
     @numeric({acceptValue:NumericValueType.NegativeNumber}) numeric:number;
-    @different({ fieldName:'firstName' }) different: string;
+    @different({ fieldName:'firstName', conditionalExpression: (x) => x.lastName == "ojha"  }) different: string;
     @choice({ minLength: 1, maxLength:2 }) skills: number[];
     @prop() firstName: string;
     @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
@@ -84,7 +94,7 @@ export class Employee {
     @prop()
     digit: string;
     @email({ message: "email", conditionalExpression: "(x,y) => x.firstName == 'john' && y.firstName == 'john'" }) email: string;
-    @hexColor({ message: "hex", conditionalExpression: "x => x.firstName == 'john'" }) hexColor: string;
+    @hexColor({ message: "hex"}) hexColor: string;
     @lowerCase({ message: "lowercase", conditionalExpression: "x => x.firstName == 'john'" }) lowerCase: string;
     @maxDate({ value: new Date(2018,7-1,30) }) maxDate: string; // do some work
     @minDate({ value: new Date(2000, 0, 1) }) minDates: string; // do some work
@@ -161,11 +171,14 @@ validatorUserFormGroup:FormGroup;
   userInfoFormGroup: FormGroup
 clientFormGroup:FormGroup
 userFormGroup:FormGroup;
-  
+   
 testFormGroup:FormGroup;
 testForm:FormGroup;
 userForm:FormGroup;
+modelRuleGroup:FormGroup;
   ngOnInit() {
+let address = new Address();
+this.modelRuleGroup = this.validation.formGroup(address);
 this.userForm = this.formBuilder.group({
   nationality:[''],
   intlNumber:['',[ RxwebValidators.compose({
@@ -186,7 +199,7 @@ this.testForm = this.formBuilder.group({
       }),RxwebValidators.minLength({value:8}),
       RxwebValidators.maxLength({value:10})]],
   confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
-  age:['',RxwebValidators.range({minimumNumber:1,maximumNumber:10})],
+  age:['',RxwebValidators.startsWith({value:"n"})],
   cardType:[''],
   creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
   amount:['',RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]

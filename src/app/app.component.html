@@ -1,7 +1,14 @@
+<form [formGroup]="modelRuleGroup">
+  <div class="form-group">
+    <input type="text" formControlName="address" placeholder="Address" class="form-control" />
+    {{modelRuleGroup.controls.address.errors | json}}
+  </div>
+</form>
+
 <form [formGroup]="userForm">
   <div class="form-group">
     <input type="text" formControlName="nationality" placeholder="Nationality" class="form-control" />
-    
+
   </div>
   <div class="form-group">
     <input type="text" formControlName="intlNumber" placeholder="International Number" class="form-control" />
@@ -11,7 +18,7 @@
 <form [formGroup]="testForm">
   <input type="text" formControlName="password" /> {{testForm.controls.password.errors | json}}
   <input type="text" formControlName="confirmPassword" />{{testForm.controls.confirmPassword.errors | json}}
-  <input type="number" formControlName="age" />{{testForm.controls.age.errors | json}}
+  <input type="text" formControlName="age" />{{testForm.controls.age.errors | json}}
   <input type="text" formControlName="cardType" />{{testForm.controls.cardType.errors | json}}
   <input type="text" formControlName="creditCard" />{{testForm.controls.creditCard.errors | json}}
   <input type="text" formControlName="amount" />{{testForm.controls.amount.errors | json}}
