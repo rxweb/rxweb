@@ -16,7 +16,7 @@ export class LowerCaseComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic LowerCase Validation":null,"MessageConfig":["conditionalExpression","message"],"Complete lowerCase Example":null,"Dynamic lowercase Example":null};
+  sidebarLinks:any = {"lowerCase":null,"When to use":null,"Basic LowerCase Validation":null,"MessageConfig":["conditionalExpression","message"],"Complete lowerCase Example":null,"Dynamic lowercase Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";

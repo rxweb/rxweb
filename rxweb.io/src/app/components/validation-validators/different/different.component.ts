@@ -16,7 +16,7 @@ export class DifferentComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Different Validation":null,"DifferentConfig":["conditionalExpression","fieldName","message"],"Complete Different Example":null,"Dynamic Different Example":null};
+  sidebarLinks:any = {"different":null,"When to use":null,"Basic Different Validation":null,"DifferentConfig":["conditionalExpression","fieldName","message"],"Complete Different Example":null,"Dynamic Different Example":null};
   tab_1:string = "conditionalExpressionComponent";
    tab_2:string = "fieldNameComponent";
    tab_3:string = "messageComponent";

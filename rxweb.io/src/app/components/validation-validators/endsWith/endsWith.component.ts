@@ -16,7 +16,7 @@ export class EndsWithComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic endsWith Validation":null,"DefaultConfig":["value","conditionalExpression","message"],"Complete endsWith Example":null,"Dynamic endsWith Example":null};
+  sidebarLinks:any = {"endsWith":null,"When to use":null,"Basic endsWith Validation":null,"DefaultConfig":["value","conditionalExpression","message"],"Complete endsWith Example":null,"Dynamic endsWith Example":null};
   tab_1:string = "allowWhiteSpaceComponent";
    tab_2:string = "conditionalExpressionComponent";
    tab_3:string = "messageComponent";

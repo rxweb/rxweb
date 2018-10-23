@@ -16,7 +16,7 @@ export class GreaterThanEqualToComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic GreaterThanEqualTo Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpression","message"],"Complete greaterThanEqualTo Example":null,"Dynamic greaterThanEqualTo Example":null};
+  sidebarLinks:any = {"greaterThanEqualTo":null,"When to use":null,"Basic GreaterThanEqualTo Validation":null,"RelationalOperatorConfig":["fieldName","conditionalExpression","message"],"Complete greaterThanEqualTo Example":null,"Dynamic greaterThanEqualTo Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "fieldNamemodel";
    tab_3:string = "conditionalExpressionmodel";

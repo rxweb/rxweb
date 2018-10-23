@@ -16,7 +16,7 @@ export class DataUriComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic dataUri Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete dataUri Example":null,"Dynamic dataUri Example":null};
+  sidebarLinks:any = {"dataUri":null,"When to use":null,"Basic dataUri Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete dataUri Example":null,"Dynamic dataUri Example":null};
   tab_1:string = "conditionalExpressionComponent";
    tab_2:string = "messageComponent";
    tab_3:string = "completeexample";

@@ -16,7 +16,7 @@ export class AsciiComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Ascii Validation":null,"DefaultConfig":["conditionalExpression","message"],"Complete ascii Example":null,"Dynamic ascii Example":null};
+  sidebarLinks:any = {"ascii":null,"When to use":null,"Basic Ascii Validation":null,"DefaultConfig":["conditionalExpression","message"],"Complete ascii Example":null,"Dynamic ascii Example":null};
   tab_1:string = "conditionalExpressionComponent";
    tab_2:string = "messageComponent";
    tab_3:string = "completeexample";

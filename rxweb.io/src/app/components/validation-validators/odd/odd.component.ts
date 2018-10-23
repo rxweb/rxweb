@@ -16,7 +16,7 @@ export class OddComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Odd Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete Odd Example":null,"Dynamic Odd Example":null};
+  sidebarLinks:any = {"odd":null,"When to use":null,"Basic Odd Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete Odd Example":null,"Dynamic Odd Example":null};
   tab_1:string = "conditionalExpressionComponent";
    tab_2:string = "messageComponent";
    tab_3:string = "completeexample";

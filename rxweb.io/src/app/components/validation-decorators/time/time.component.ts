@@ -16,7 +16,7 @@ export class TimeComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic time Validation":null,"TimeConfig":["conditionalExpression","allowSeconds","message"],"Complete time Example":null,"Dynamic time Example":null};
+  sidebarLinks:any = {"time":null,"When to use":null,"Basic time Validation":null,"TimeConfig":["conditionalExpression","allowSeconds","message"],"Complete time Example":null,"Dynamic time Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "allowSecondsmodel";

@@ -16,7 +16,7 @@ export class HexColorComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic HexColor Validation":null,"HexColorConfig":["conditionalExpression","message"],"Complete hexColor Example":null,"Dynamic hexColor Example":null};
+  sidebarLinks:any = {"hexColor":null,"When to use":null,"Basic HexColor Validation":null,"HexColorConfig":["conditionalExpression","message"],"Complete hexColor Example":null,"Dynamic hexColor Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";

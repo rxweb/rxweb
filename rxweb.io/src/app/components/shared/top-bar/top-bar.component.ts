@@ -13,24 +13,24 @@ export class TopBarComponent implements OnInit {
   searchFormGroup: FormGroup
   showComponent: boolean = false;
   showSearchMenu:boolean =false;
-  FormValidators: any;
+  /*formValidators: any;*/
   url:string;
   constructor(private _formBuilder: FormBuilder,private http: HttpClient,private applicationBroadCaster:ApplicationBroadcaster,private router:Router
   ) {
-    this.searchFormGroup = this._formBuilder.group({
+    /*this.searchFormGroup = this._formBuilder.group({
       search: ''
-    })
+    })*/
     applicationBroadCaster.urlSubscriber.subscribe(t => {
       this.url = t;
     });
   }
 
   ngOnInit(): void {
-    this.http.get('assets/json/validation.json')
+    /*this.http.get('assets/json/validation.json')
     .subscribe(response => {
-      this.FormValidators = response;
+      this.formValidators = response;
   	  this.showComponent = true;  
-    }) ;
+    }) ;*/
   }
 
   hideSideBar(): void {

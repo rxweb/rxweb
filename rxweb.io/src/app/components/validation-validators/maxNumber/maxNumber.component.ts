@@ -16,7 +16,7 @@ export class MaxNumberComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic MaxNumber Validation":null,"NumberConfig":["conditionalExpression","message","value"],"Complete MaxNumber Example":null,"Dynamic MaxNumber Example":null};
+  sidebarLinks:any = {"maxNumber":null,"When to use":null,"Basic MaxNumber Validation":null,"NumberConfig":["conditionalExpression","message","value"],"Complete MaxNumber Example":null,"Dynamic MaxNumber Example":null};
   tab_1:string = "conditionalExpressionComponent";
    tab_2:string = "messageComponent";
    tab_3:string = "valueComponent";

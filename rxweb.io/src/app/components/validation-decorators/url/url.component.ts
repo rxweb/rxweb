@@ -16,7 +16,7 @@ export class UrlComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic url Validation":null,"DefaultConfig":["conditionalExpression","message"],"Complete url Example":null,"Dynamic url Example":null};
+  sidebarLinks:any = {"url":null,"When to use":null,"Basic url Validation":null,"DefaultConfig":["conditionalExpression","message"],"Complete url Example":null,"Dynamic url Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";

@@ -16,7 +16,7 @@ export class LeapYearComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic LeapYear Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete LeapYear Example":null,"Dynamic LeapYear Example":null};
+  sidebarLinks:any = {"leapYear":null,"When to use":null,"Basic LeapYear Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete LeapYear Example":null,"Dynamic LeapYear Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";

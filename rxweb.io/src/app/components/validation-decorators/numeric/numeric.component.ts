@@ -16,7 +16,7 @@ export class NumericComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic numeric Validation":null,"NumericConfig":["acceptValue","allowDecimal","conditionalExpression","message"],"Complete numeric Example":null,"Dynamic numeric Example":null};
+  sidebarLinks:any = {"numeric":null,"When to use":null,"Basic numeric Validation":null,"NumericConfig":["acceptValue","allowDecimal","conditionalExpression","message"],"Complete numeric Example":null,"Dynamic numeric Example":null};
   tab_1:string = "acceptValuemodel";
    tab_2:string = "allowDecimalmodel";
    tab_3:string = "conditionalExpressionmodel";

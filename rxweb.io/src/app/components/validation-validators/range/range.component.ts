@@ -16,7 +16,7 @@ export class RangeComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic range Validation":null,"RangeConfig":["conditionalExpression","message","minimumNumber","maximumNumber"],"Complete range Example":null,"Dynamic range Example":null};
+  sidebarLinks:any = {"range":null,"When to use":null,"Basic range Validation":null,"RangeConfig":["conditionalExpression","message","minimumNumber","maximumNumber"],"Complete range Example":null,"Dynamic range Example":null};
   tab_1:string = "conditionalExpressionComponent";
    tab_2:string = "messageComponent";
    tab_3:string = "minimumNumberComponent";

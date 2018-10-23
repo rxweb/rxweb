@@ -16,7 +16,7 @@ export class AlphaNumericComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic AlphaNumeric Validation":null,"AlphaConfig":["allowWhiteSpace","conditionalExpression","message"],"Complete AlphaNumeric Example":null,"Dynamic AlphaNumeric Example":null};
+  sidebarLinks:any = {"alphaNumeric":null,"When to use":null,"Basic AlphaNumeric Validation":null,"AlphaConfig":["allowWhiteSpace","conditionalExpression","message"],"Complete AlphaNumeric Example":null,"Dynamic AlphaNumeric Example":null};
   tab_1:string = "allowWhiteSpaceComponent";
    tab_2:string = "conditionalExpressionComponent";
    tab_3:string = "messageComponent";

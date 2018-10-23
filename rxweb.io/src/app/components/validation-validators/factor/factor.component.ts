@@ -16,7 +16,7 @@ export class FactorComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Factor Validation":null,"FactorConfig":["dividend","fieldName","conditionalExpression","message"],"Complete Factor Example":null,"Dynamic Factor Example":null};
+  sidebarLinks:any = {"factor":null,"When to use":null,"Basic Factor Validation":null,"FactorConfig":["dividend","fieldName","conditionalExpression","message"],"Complete Factor Example":null,"Dynamic Factor Example":null};
   tab_1:string = "dividendComponent";
    tab_2:string = "fieldNameComponent";
    tab_3:string = "conditionalExpressionComponent";

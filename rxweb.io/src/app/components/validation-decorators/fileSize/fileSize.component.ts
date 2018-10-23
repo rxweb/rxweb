@@ -16,7 +16,7 @@ export class FileSizeComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic fileSize Validation":null,"SizeConfig":["maxSize","conditionalExpression","message"],"Complete fileSize Example":null,"Dynamic fileSize Example":null};
+  sidebarLinks:any = {"fileSize":null,"When to use":null,"Basic fileSize Validation":null,"SizeConfig":["maxSize","conditionalExpression","message"],"Complete fileSize Example":null,"Dynamic fileSize Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "maxSizeModel";
    tab_3:string = "conditionalExpressionmodel";

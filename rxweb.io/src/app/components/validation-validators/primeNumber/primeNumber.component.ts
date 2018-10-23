@@ -16,7 +16,7 @@ export class PrimeNumberComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic primeNumber Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete primeNumber Example":null,"Dynamic primeNumber Example":null};
+  sidebarLinks:any = {"primeNumber":null,"When to use":null,"Basic primeNumber Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete primeNumber Example":null,"Dynamic primeNumber Example":null};
   tab_1:string = "conditionalExpressionComponent";
    tab_2:string = "messageComponent";
    tab_3:string = "completeexample";

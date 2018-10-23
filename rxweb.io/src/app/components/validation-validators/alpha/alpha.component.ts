@@ -16,7 +16,7 @@ export class AlphaComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Alpha Validation":null,"AlphaConfig":["allowWhiteSpace","conditionalExpression","message"],"Complete Alpha Example":null,"Dynamic Alpha Example":null};
+  sidebarLinks:any = {"alpha":null,"When to use":null,"Basic Alpha Validation":null,"AlphaConfig":["allowWhiteSpace","conditionalExpression","message"],"Complete Alpha Example":null,"Dynamic Alpha Example":null};
   tab_1:string = "allowWhiteSpaceComponent";
    tab_2:string = "conditionalExpressionComponent";
    tab_3:string = "messageComponent";

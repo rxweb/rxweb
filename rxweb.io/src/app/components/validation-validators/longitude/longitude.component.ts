@@ -16,7 +16,7 @@ export class LongitudeComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic longitude Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete longitude Example":null,"Dynamic longitude Example":null};
+  sidebarLinks:any = {"longitude":null,"When to use":null,"Basic longitude Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete longitude Example":null,"Dynamic longitude Example":null};
   tab_1:string = "conditionalExpressionComponent";
    tab_2:string = "messageComponent";
    tab_3:string = "completeexample";

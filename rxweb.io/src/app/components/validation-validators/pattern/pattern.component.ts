@@ -16,7 +16,7 @@ export class PatternComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Pattern Validation":null,"PatternConfig":["message","conditionalExpression","pattern"],"Complete pattern Example":null,"Dynamic pattern Example":null};
+  sidebarLinks:any = {"pattern":null,"When to use":null,"Basic Pattern Validation":null,"PatternConfig":["message","conditionalExpression","pattern"],"Complete pattern Example":null,"Dynamic pattern Example":null};
   tab_1:string = "messageComponent";
    tab_2:string = "conditionalExpressionComponent";
    tab_3:string = "patternComponent";

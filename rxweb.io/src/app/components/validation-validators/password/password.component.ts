@@ -16,7 +16,7 @@ export class PasswordComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic password Validation":null,"PasswordConfig":["message","validation"],"Complete password Example":null,"Dynamic password Example":null};
+  sidebarLinks:any = {"password":null,"When to use":null,"Basic password Validation":null,"PasswordConfig":["message","validation"],"Complete password Example":null,"Dynamic password Example":null};
   tab_1:string = "messageComponent";
    tab_2:string = "validationComponent";
    tab_3:string = "completeExample";

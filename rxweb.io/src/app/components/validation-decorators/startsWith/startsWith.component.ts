@@ -16,7 +16,7 @@ export class StartsWithComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic StartsWith Validation":null,"DefaultConfig":["value","conditionalExpression","message"],"Complete StartsWith Example":null,"Dynamic StartsWith Example":null};
+  sidebarLinks:any = {"startsWith":null,"When to use":null,"Basic StartsWith Validation":null,"DefaultConfig":["value","conditionalExpression","message"],"Complete StartsWith Example":null,"Dynamic StartsWith Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "valuemodel";
    tab_3:string = "conditionalExpressionmodel";

@@ -16,7 +16,7 @@ export class MinDateComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic MinDate Validation":null,"DateConfig":["conditionalExpression","message","value"],"Complete minDate Example":null,"Dynamic minDate Example":null};
+  sidebarLinks:any = {"minDate":null,"When to use":null,"Basic MinDate Validation":null,"DateConfig":["conditionalExpression","message","value"],"Complete minDate Example":null,"Dynamic minDate Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";

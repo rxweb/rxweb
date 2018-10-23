@@ -16,7 +16,7 @@ export class LatLongComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic latLong Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete latLong Example":null,"Dynamic latLong Example":null};
+  sidebarLinks:any = {"latLong":null,"When to use":null,"Basic latLong Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete latLong Example":null,"Dynamic latLong Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";

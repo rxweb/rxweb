@@ -16,7 +16,7 @@ export class MaxDateComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic MaxDate Validation":null,"DateConfig":["conditionalExpression","message","value"],"Complete MaxDate Example":null,"Dynamic MaxDate Example":null};
+  sidebarLinks:any = {"maxDate":null,"When to use":null,"Basic MaxDate Validation":null,"DateConfig":["conditionalExpression","message","value"],"Complete MaxDate Example":null,"Dynamic MaxDate Example":null};
   tab_1:string = "conditionalExpressionComponent";
    tab_2:string = "messageComponent";
    tab_3:string = "valueComponent";

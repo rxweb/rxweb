@@ -16,7 +16,7 @@ export class LatitudeComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic latitude Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete latitude Example":null,"Dynamic latitude Example":null};
+  sidebarLinks:any = {"latitude":null,"When to use":null,"Basic latitude Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete latitude Example":null,"Dynamic latitude Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";

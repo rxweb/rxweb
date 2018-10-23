@@ -16,7 +16,7 @@ export class MacComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic mac Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete mac Example":null,"Dynamic mac Example":null};
+  sidebarLinks:any = {"mac":null,"When to use":null,"Basic mac Validation":null,"BaseConfig":["conditionalExpression","message"],"Complete mac Example":null,"Dynamic mac Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";

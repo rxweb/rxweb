@@ -16,7 +16,7 @@ export class DigitComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic digit Validation":null,"DigitConfig":["conditionalExpression","message"],"Complete digit Example":null,"Dynamic digit Example":null};
+  sidebarLinks:any = {"digit":null,"When to use":null,"Basic digit Validation":null,"DigitConfig":["conditionalExpression","message"],"Complete digit Example":null,"Dynamic digit Example":null};
   tab_1:string = "conditionalExpressionComponent";
    tab_2:string = "messageComponent";
    tab_3:string = "completeexample";

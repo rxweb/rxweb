@@ -1,9 +1,7 @@
 <div id="header">
-  <!--<div class="color-line">
-  </div>-->
   <div id="logo" class="light-version">
-    <a routerLink="/dashboard">
-    <img src="/assets/images/rxweb-logo.png" width="111" height="31"/>
+    <a routerLink="/home">
+    <img src="/assets/images/rxweb-logo.png" width="150" height="40"/>
     </a>
   </div>
   <nav role="navigation">
@@ -20,18 +18,13 @@
       </button>
 	    <div class="collapse mobile-navbar" id="mobile-collapse">
         <ul class="nav navbar-nav">
-				<li>
-						<a href="{{url}}" target="_blank">Edit</a>
-					</li>
-			
-				
 					<li>
 						<a href="https://github.com/rxweb/rxweb" target="_blank">GitHub</a>
 					</li>
-						<li>
+					<li>
 						<a href="https://stackoverflow.com/search?q=rxweb" target="_blank">Stack Overflow</a>
 					</li>
-						<li>
+					<li>
 						<a href="https://gitter.im/rx-web/Lobby" target="_blank">Comment</a>
 					</li>
 				</ul>
@@ -39,26 +32,21 @@
     </div>
 		<div class="navbar-right">
       <ul class="nav navbar-nav no-borders">
-				<!--<li>
-					<a href="{{url}}" title="Edit" target="_blank"><i class="fa fa-pencil"></i></a>
-				</li>-->
-			
 				<li>
 					<a href="https://github.com/rxweb/rxweb" title="GitHub" target="_blank"><i class="fa fa-github"></i></a>
 				</li>
-					<li>
+				<li>
 					<a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i></a>
 				</li>
 				<li>
-					<a href="https://gitter.im/rx-web/Lobby" title="Comment" target="_blank"><i class="fa fa-comments-o"></i></a>
+					<a href="https://gitter.im/rx-web/Lobby" title="Comment" target="_blank"><i class="fa fa-comment"></i></a>
 				</li>
-
 		</ul>
 		</div>
 	</nav>
 </div>
 
-<div class="searchMenu FormValidators" id="searchContent" *ngIf="showSearchMenu">
+<!--<div class="searchMenu formValidators" id="searchContent" *ngIf="showSearchMenu">
 		<div class="bg-white">	<button class="searchclose" (click)="showSearchMenu=false"> <span class="glyphicon glyphicon-remove"></span></button> </div>
 	<app-dashboard  searchText={{searchFormGroup.value.search}} ></app-dashboard>
-</div>
+</div>-->
