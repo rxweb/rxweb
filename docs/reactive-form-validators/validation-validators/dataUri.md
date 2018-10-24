@@ -1,6 +1,6 @@
 ---
 title: dataUri
-description: dataUri validation decorator allows user to enter the input which is in the proper data URI format.
+description: dataUri validation validator allows user to enter the input which is in the proper data URI format.
 author: rxcontributortwo
 
 ---
