@@ -1,6 +1,6 @@
 {
   "name": "@rxweb/reactive-form-validators",
-  "version": "1.2.1",
+  "version": "1.2.5",
   "ngPackage": {
     "lib": {
       "entryFile": "index.ts"
