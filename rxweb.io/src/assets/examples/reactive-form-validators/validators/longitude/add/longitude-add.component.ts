@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-longitude-add-validator',
@@ -10,14 +8,14 @@ import { RxFormBuilder,RxwebValidators
 })
 export class LongitudeAddValidatorComponent implements OnInit {
     numberInfoFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         this.numberInfoFormGroup = this.formBuilder.group({
-										firstCountryLongitude:['', RxwebValidators.longitude()], 
-								});
+            firstCountryLongitude:['', RxwebValidators.longitude()], 
+        });
     }
 }

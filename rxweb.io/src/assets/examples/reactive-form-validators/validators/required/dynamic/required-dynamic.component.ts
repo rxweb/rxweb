@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,37 +9,25 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class RequiredDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
 			firstName : {
-				required : true  
-			},
-						
-			middleName : {
-				required :  {conditionalExpression:(x,y) => x.firstName == "Bharat" ,} 
-			},
-						
+				required :true  
+			},			
 			lastName : {
-				required :  {conditionalExpression:'x => x.firstName == "Bharat"',} 
-			},
-						
+				required : {conditionalExpression:'x => x.firstName == "Bharat"',} 
+			},			
 			userName : {
-				required :  {message:'Username cannot be blank.',} 
+				required : {message:'Username cannot be blank.',} 
 			},
-			        };
-		 var user = {
-			firstName:'', middleName:'', lastName:'', userName:'', 
-		}
+		};
+		var user = { firstName:'', middleName:'', lastName:'', userName:'',  }
 		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

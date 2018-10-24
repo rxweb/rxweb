@@ -6,9 +6,6 @@ export class Location {
 	countryName: string;
 
 	@prop()
-	stateName: string;
-
-	@prop()
 	cityName: string;
 
 	@prop()

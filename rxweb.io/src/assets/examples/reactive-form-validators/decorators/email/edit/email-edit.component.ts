@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
@@ -11,11 +10,10 @@ import { User } from './user.model';
     templateUrl: './email-edit.component.html'
 })
 export class EmailEditComponent implements OnInit {
-
     userFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder,		private http: HttpClient
+
+    constructor(
+        private formBuilder: RxFormBuilder,        private http: HttpClient
 
     ) { }
 

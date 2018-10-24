@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,12 +9,9 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class MinNumberDynamicValidatorComponent implements OnInit {
     resultInfoFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
@@ -24,24 +19,16 @@ export class MinNumberDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			maths : {
-				minNumber :  {value:35,} 
-			},
-						
+				minNumber : {value:35,} 
+			},			
 			science : {
-				minNumber :  {value:35,message:'Number should not be less than 35',} 
-			},
-						
-			english : {
-				minNumber :  {value:35,conditionalExpression:(x,y) => x.maths == 50 ,} 
-			},
-						
+				minNumber : {value:35,message:'Number should not be less than 35',} 
+			},			
 			statstics : {
-				minNumber :  {value:35,conditionalExpression:'x => x.maths == 50',} 
+				minNumber : {value:35,conditionalExpression:'x => x.maths == 50',} 
 			},
-			        };
-		 var resultInfo = {
-			maths:'', science:'', english:'', statstics:'', 
-		}
+		};
+		var resultInfo = { maths:'', science:'', english:'', statstics:'',  }
 		this.resultInfoFormGroup = this.formBuilder.group(resultInfo,formBuilderConfiguration);
     }
 }

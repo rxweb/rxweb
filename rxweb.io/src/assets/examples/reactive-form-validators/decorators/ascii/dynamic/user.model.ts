@@ -6,9 +6,6 @@ export class User {
 	language: string;
 
 	@prop()
-	numberAsciiCode: string;
-
-	@prop()
 	alphabetAsciiCode: string;
 
 	@prop()

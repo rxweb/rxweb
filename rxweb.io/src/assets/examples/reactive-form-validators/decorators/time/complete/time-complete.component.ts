@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { AttandanceDetail } from './attandance-detail.model';
@@ -10,14 +9,9 @@ import { AttandanceDetail } from './attandance-detail.model';
     templateUrl: './time-complete.component.html'
 })
 export class TimeCompleteComponent implements OnInit {
-
     attandanceDetailFormGroup: FormGroup
-					
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

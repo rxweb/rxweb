@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { Contact } from './contact.model';
 
@@ -12,14 +10,9 @@ import { Contact } from './contact.model';
     templateUrl: './min-length-dynamic.component.html'
 })
 export class MinLengthDynamicComponent implements OnInit {
-
     contactFormGroup: FormGroup
-					
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
@@ -27,23 +20,17 @@ export class MinLengthDynamicComponent implements OnInit {
         let contact = new Contact();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
+	
 			mobileNo : {
-				minLength :  {value:10,} 
-			},
-						
+				minLength : {value:10,} 
+			},	
 			landLineNo : {
-				minLength :  {value:8,message:'Minimum 8 characters are allowed',} 
-			},
-						
-			countryCode : {
-				minLength :  {value:3,conditionalExpression:(x,y)=> x.countryName == "India",} 
-			},
-						
+				minLength : {value:8,message:'Minimum 8 characters are allowed',} 
+			},	
+	
 			stateCode : {
-				minLength :  {value:3,conditionalExpression:'x => x.countryName == "India"',} 
-			},
-			        };
-		this.contactFormGroup = this.formBuilder.formGroup(contact,formBuilderConfiguration);
+				minLength : {value:3,conditionalExpression:'x => x.countryName == "India"',} 
+			},		};
+        this.contactFormGroup = this.formBuilder.formGroup(contact,formBuilderConfiguration);
     }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-contains-conditionalExpression-validator',
@@ -10,18 +8,16 @@ import { RxFormBuilder,RxwebValidators
 })
 export class ContainsConditionalExpressionValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-										emailAddress:['', RxwebValidators.contains({value:'@gmail.com' })], 
-													recoveryEmailAddress:['', RxwebValidators.contains({value:'@gmail.com'  ,conditionalExpression:'x => x.emailAddress == "abc@gmail.com"' })], 
-													businessEmailAddress:['', RxwebValidators.contains({value:'@gmail.com'  ,conditionalExpression:(x,y) => x.emailAddress == "abc@gmail.com" })], 
-								});
+            emailAddress:['', RxwebValidators.contains({value:'@gmail.com' })], 
+            recoveryEmailAddress:['', RxwebValidators.contains({value:'@gmail.com'  ,conditionalExpression:'x => x.emailAddress == "abc@gmail.com"' })], 
+            businessEmailAddress:['', RxwebValidators.contains({value:'@gmail.com'  ,conditionalExpression:(x,y) => x.emailAddress == "abc@gmail.com" })], 
+        });
     }
 }

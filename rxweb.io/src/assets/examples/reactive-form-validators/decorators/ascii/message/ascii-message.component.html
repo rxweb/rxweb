@@ -1,12 +1,12 @@
 <div>
-<form  [formGroup]="userFormGroup">
-<div class="form-group">
-    <label>Special Charscter Ascii Code</label>
-		<input type="text" formControlName="specialCharAsciiCode" class="form-control"  />
-	    <small class="form-text text-muted">enter Ascii Code only<br/></small>
-    <small class="form-text text-muted">Shows custom message.<br/></small>
-    <small class="form-text text-danger" *ngIf="userFormGroup.controls.specialCharAsciiCode.errors">{{userFormGroup.controls.specialCharAsciiCode.errors.ascii.message}}<br/></small>
-</div>
-<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Special Charscter Ascii Code</label>
+      <input type="text" formControlName="specialCharAsciiCode" class="form-control"  />
+      <small class="form-text text-muted">enter Ascii Code only<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.specialCharAsciiCode.errors">{{userFormGroup.controls.specialCharAsciiCode.errors.ascii.message}}<br/></small>
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
 </div>

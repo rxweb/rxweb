@@ -9,9 +9,6 @@ export class ResultInfo {
 	science: number;
 
 	@prop()
-	english: number;
-
-	@prop()
 	statstics: number;
 
 }

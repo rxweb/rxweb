@@ -1,12 +1,14 @@
 <div id="header">
+   <div class="header-link hide-menu" (click)="hideSideBar()">
+		<svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+   </div>
   <div id="logo" class="light-version">
     <a routerLink="/home">
     <img src="/assets/images/rxweb-logo.png" width="150" height="40"/>
     </a>
   </div>
   <nav role="navigation">
-  <div class="header-link hide-menu" (click)="hideSideBar()"><i class="fa fa-bars"></i></div>
-  <!-- right -->
+	<!-- right -->
 	<!--<form [formGroup]="searchFormGroup" role="search" class="navbar-form-custom search-form-group" method="post" action="#">
 		<div class="form-group">
 			<input type="text" formControlName="search" placeholder="Search something special" (click)="showSearchMenu=true"   autocomplete="off" class="form-control search-form" name="search">

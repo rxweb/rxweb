@@ -1,25 +1,25 @@
 <div>
-<form  [formGroup]="numberInfoFormGroup">
-<div class="form-group">
-    <label>Number Type</label>
-		<input type="text" formControlName="numberType" class="form-control"  />
-	    <small class="form-text text-muted">If you want to apply conditional validation on 'Second Number' or 'Third Number', then you need to add 'Number Type' input as 'Prime'.<br/></small>
-    <small class="form-text text-danger" *ngIf="numberInfoFormGroup.controls.numberType.errors">{{numberInfoFormGroup.controls.numberType.errors.primeNumber.message}}<br/></small>
-</div>
-<div class="form-group">
-    <label>Third Number</label>
-		<input type="text" formControlName="thirdNumber" class="form-control"  />
-	    <small class="form-text text-muted">If you want to apply conditional validation on 'Third Number' then you need to add 'Number Type' input as 'Prime'.<br/></small>
-    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-    <small class="form-text text-danger" *ngIf="numberInfoFormGroup.controls.thirdNumber.errors">{{numberInfoFormGroup.controls.thirdNumber.errors.primeNumber.message}}<br/></small>
-</div>
-<div class="form-group">
-    <label>Second Number</label>
-		<input type="text" formControlName="secondNumber" class="form-control"  />
-	    <small class="form-text text-muted">If you want to apply conditional validation on 'Second Number' then you need to add 'Number Type' input as 'Prime'.<br/></small>
-    <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-    <small class="form-text text-danger" *ngIf="numberInfoFormGroup.controls.secondNumber.errors">{{numberInfoFormGroup.controls.secondNumber.errors.primeNumber.message}}<br/></small>
-</div>
-<button [disabled]="!numberInfoFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>
+  <form  [formGroup]="numberInfoFormGroup">
+    <div class="form-group">
+      <label>Number Type</label>
+      <input type="text" formControlName="numberType" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Second Number' or 'Third Number', then you need to add 'Number Type' input as 'Prime'.<br/></small>
+      <small class="form-text text-danger" *ngIf="numberInfoFormGroup.controls.numberType.errors">{{numberInfoFormGroup.controls.numberType.errors.primeNumber.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Third Number</label>
+      <input type="text" formControlName="thirdNumber" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Third Number' then you need to add 'Number Type' input as 'Prime'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+      <small class="form-text text-danger" *ngIf="numberInfoFormGroup.controls.thirdNumber.errors">{{numberInfoFormGroup.controls.thirdNumber.errors.primeNumber.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Second Number</label>
+      <input type="text" formControlName="secondNumber" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Second Number' then you need to add 'Number Type' input as 'Prime'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
+      <small class="form-text text-danger" *ngIf="numberInfoFormGroup.controls.secondNumber.errors">{{numberInfoFormGroup.controls.secondNumber.errors.primeNumber.message}}<br/></small>
+    </div>
+    <button [disabled]="!numberInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
 </div>

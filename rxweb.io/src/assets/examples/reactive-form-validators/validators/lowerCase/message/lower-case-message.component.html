@@ -1,10 +1,10 @@
 <div>
-<form  [formGroup]="userFormGroup">
-<div class="form-group">
-    <label>Last name</label>
-		<input type="text" formControlName="lastName" class="form-control"  />
-	    <small class="form-text text-danger" *ngIf="userFormGroup.controls.lastName.errors">{{userFormGroup.controls.lastName.errors.lowerCase.message}}<br/></small>
-</div>
-<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Last name</label>
+      <input type="text" formControlName="lastName" class="form-control"  />
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.lastName.errors">{{userFormGroup.controls.lastName.errors.lowerCase.message}}<br/></small>
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
 </div>

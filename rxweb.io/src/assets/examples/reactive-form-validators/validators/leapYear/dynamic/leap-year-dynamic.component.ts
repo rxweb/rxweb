@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,33 +9,23 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class LeapYearDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
 			
-			birthYear : {
-				leapYear :  {conditionalExpression:(x,y) => x.name == "Bharat" ,} 
-			},
-						
 			admissionYear : {
-				leapYear :  {conditionalExpression:'x => x.name == "Bharat"',} 
-			},
-						
+				leapYear : {conditionalExpression:'x => x.name == "Bharat"',} 
+			},			
 			joiningYear : {
-				leapYear :  {message:'{{0}} is not a leap year',} 
+				leapYear : {message:'{{0}} is not a leap year',} 
 			},
-			        };
-		 var user = {
-			name:'', birthYear:'', admissionYear:'', joiningYear:'', 
-		}
+		};
+		var user = { name:'', birthYear:'', admissionYear:'', joiningYear:'',  }
 		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

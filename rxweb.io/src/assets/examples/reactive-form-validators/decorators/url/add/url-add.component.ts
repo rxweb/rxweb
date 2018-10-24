@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { WebSiteInfoModel } from './web-site-info-model.model';
@@ -10,10 +9,9 @@ import { WebSiteInfoModel } from './web-site-info-model.model';
     templateUrl: './url-add.component.html'
 })
 export class UrlAddComponent implements OnInit {
-
     webSiteInfoModelFormGroup: FormGroup
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

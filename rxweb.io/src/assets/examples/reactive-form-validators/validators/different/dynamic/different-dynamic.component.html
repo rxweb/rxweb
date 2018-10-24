@@ -1,32 +1,25 @@
 <div>
-<form  [formGroup]="accountInfoFormGroup">
-<div class="form-group">
-    <label>First Name</label>
-		<input type="text" formControlName="firstName" class="form-control"  />
-	    <small class="form-text text-muted">If you want to apply conditional validation on 'Last Name' or 'Username', then you need to add 'First Name' input as 'Bharat'<br/></small>
-    <small class="form-text text-danger" *ngIf="accountInfoFormGroup.controls.firstName.errors">{{accountInfoFormGroup.controls.firstName.errors.different.message}}<br/></small>
-</div>
-<div class="form-group">
-    <label>Password</label>
-		<input type="text" formControlName="password" class="form-control"  />
-	    <small class="form-text text-muted">Password and firstName must be different<br/></small>
-    <small class="form-text text-muted">Shows custom message.<br/></small>
-    <small class="form-text text-danger" *ngIf="accountInfoFormGroup.controls.password.errors">{{accountInfoFormGroup.controls.password.errors.different.message}}<br/></small>
-</div>
-<div class="form-group">
-    <label>Last Name</label>
-		<input type="text" formControlName="lastName" class="form-control"  />
-	    <small class="form-text text-muted">If you want to apply conditional validation on 'Username' then you need to add 'First Name' input as 'Bharat'.<br/></small>
-    <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-    <small class="form-text text-danger" *ngIf="accountInfoFormGroup.controls.lastName.errors">{{accountInfoFormGroup.controls.lastName.errors.different.message}}<br/></small>
-</div>
-<div class="form-group">
-    <label>Username</label>
-		<input type="text" formControlName="userName" class="form-control"  />
-	    <small class="form-text text-muted">If you want to apply conditional validation on 'Username' then you need to add 'First Name' input as 'Bharat'.<br/></small>
-    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-    <small class="form-text text-danger" *ngIf="accountInfoFormGroup.controls.userName.errors">{{accountInfoFormGroup.controls.userName.errors.different.message}}<br/></small>
-</div>
-<button [disabled]="!accountInfoFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>
+  <form  [formGroup]="accountInfoFormGroup">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" formControlName="firstName" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Last Name' or 'Username', then you need to add 'First Name' input as 'Bharat'<br/></small>
+      <small class="form-text text-danger" *ngIf="accountInfoFormGroup.controls.firstName.errors">{{accountInfoFormGroup.controls.firstName.errors.different.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="text" formControlName="password" class="form-control"  />
+      <small class="form-text text-muted">Password and firstName must be different<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+      <small class="form-text text-danger" *ngIf="accountInfoFormGroup.controls.password.errors">{{accountInfoFormGroup.controls.password.errors.different.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" formControlName="userName" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Username' then you need to add 'First Name' input as 'Bharat'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+      <small class="form-text text-danger" *ngIf="accountInfoFormGroup.controls.userName.errors">{{accountInfoFormGroup.controls.userName.errors.different.message}}<br/></small>
+    </div>
+    <button [disabled]="!accountInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
 </div>

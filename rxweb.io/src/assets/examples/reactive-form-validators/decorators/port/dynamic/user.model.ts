@@ -6,9 +6,6 @@ export class User {
 	browser: string;
 
 	@prop()
-	entertainmentWebsitePort: string;
-
-	@prop()
 	shoppingWebsitePort: string;
 
 	@prop()

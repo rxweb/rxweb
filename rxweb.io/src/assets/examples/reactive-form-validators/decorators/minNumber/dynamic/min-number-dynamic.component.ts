@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { ResultInfo } from './result-info.model';
 
@@ -12,13 +10,9 @@ import { ResultInfo } from './result-info.model';
     templateUrl: './min-number-dynamic.component.html'
 })
 export class MinNumberDynamicComponent implements OnInit {
-
     resultInfoFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
@@ -26,23 +20,17 @@ export class MinNumberDynamicComponent implements OnInit {
         let resultInfo = new ResultInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
+	
 			maths : {
-				minNumber :  {value:35,} 
-			},
-						
+				minNumber : {value:35,} 
+			},	
 			science : {
-				minNumber :  {value:35,message:'Number should not be less than 35',} 
-			},
-						
-			english : {
-				minNumber :  {value:35,conditionalExpression:(x,y) => x.maths == 50 ,} 
-			},
-						
+				minNumber : {value:35,message:'Number should not be less than 35',} 
+			},	
+	
 			statstics : {
-				minNumber :  {value:35,conditionalExpression:'x => x.maths == 50',} 
-			},
-			        };
-		this.resultInfoFormGroup = this.formBuilder.formGroup(resultInfo,formBuilderConfiguration);
+				minNumber : {value:35,conditionalExpression:'x => x.maths == 50',} 
+			},		};
+        this.resultInfoFormGroup = this.formBuilder.formGroup(resultInfo,formBuilderConfiguration);
     }
 }

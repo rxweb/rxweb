@@ -9,30 +9,7 @@ import { Router } from "@angular/router";
   templateUrl: './top-bar.component.html',
 })
 
-export class TopBarComponent implements OnInit {
-  searchFormGroup: FormGroup
-  showComponent: boolean = false;
-  showSearchMenu:boolean =false;
-  /*formValidators: any;*/
-  url:string;
-  constructor(private _formBuilder: FormBuilder,private http: HttpClient,private applicationBroadCaster:ApplicationBroadcaster,private router:Router
-  ) {
-    /*this.searchFormGroup = this._formBuilder.group({
-      search: ''
-    })*/
-    applicationBroadCaster.urlSubscriber.subscribe(t => {
-      this.url = t;
-    });
-  }
-
-  ngOnInit(): void {
-    /*this.http.get('assets/json/validation.json')
-    .subscribe(response => {
-      this.formValidators = response;
-  	  this.showComponent = true;  
-    }) ;*/
-  }
-
+export class TopBarComponent{
   hideSideBar(): void {
     const body = document.getElementsByTagName('body')[0];
     if (window.innerWidth < 769) {

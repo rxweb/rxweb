@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { MacAddressInfo } from './mac-address-info.model';
@@ -11,11 +10,10 @@ import { MacAddressInfo } from './mac-address-info.model';
     templateUrl: './mac-edit.component.html'
 })
 export class MacEditComponent implements OnInit {
-
     macAddressInfoFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder,		private http: HttpClient
+
+    constructor(
+        private formBuilder: RxFormBuilder,        private http: HttpClient
 
     ) { }
 

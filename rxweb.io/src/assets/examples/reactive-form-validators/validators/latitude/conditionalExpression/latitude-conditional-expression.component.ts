@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-latitude-conditionalExpression-validator',
@@ -10,18 +8,16 @@ import { RxFormBuilder,RxwebValidators
 })
 export class LatitudeConditionalExpressionValidatorComponent implements OnInit {
     countryFormGroup: FormGroup
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         this.countryFormGroup = this.formBuilder.group({
-										continent:['',], 
-													thirdCountryLatitude:['', RxwebValidators.latitude({conditionalExpression:'x => x.continent =="Asia"' })], 
-													secondCountryLatitude:['', RxwebValidators.latitude({conditionalExpression:(x,y) => x.continent == "Asia"  })], 
-								});
+            continent:['',], 
+            thirdCountryLatitude:['', RxwebValidators.latitude({conditionalExpression:'x => x.continent =="Asia"' })], 
+            secondCountryLatitude:['', RxwebValidators.latitude({conditionalExpression:(x,y) => x.continent == "Asia"  })], 
+        });
     }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-password-add-validator',
@@ -10,14 +8,14 @@ import { RxFormBuilder,RxwebValidators
 })
 export class PasswordAddValidatorComponent implements OnInit {
     loginInfoFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         this.loginInfoFormGroup = this.formBuilder.group({
-										password:['', RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true} })], 
-								});
+            password:['', RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true} })], 
+        });
     }
 }

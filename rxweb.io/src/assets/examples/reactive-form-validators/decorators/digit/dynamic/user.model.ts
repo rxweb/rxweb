@@ -6,9 +6,6 @@ export class User {
 	age: number;
 
 	@prop()
-	phoneNumber: number;
-
-	@prop()
 	faxNumber: number;
 
 	@prop()

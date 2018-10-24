@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
 
@@ -12,13 +10,9 @@ import { User } from './user.model';
     templateUrl: './greater-than-dynamic.component.html'
 })
 export class GreaterThanDynamicComponent implements OnInit {
-
     userFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
@@ -26,19 +20,14 @@ export class GreaterThanDynamicComponent implements OnInit {
         let user = new User();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
-			memberAge : {
-				greaterThan :  {fieldName:'age',conditionalExpression:(x,y) => x.age > 17 ,} 
-			},
-						
+	
+	
 			voterAge : {
-				greaterThan :  {fieldName:'age',conditionalExpression:'x => x.age > 17',} 
-			},
-						
+				greaterThan : {fieldName:'age',conditionalExpression:'x => x.age > 17',} 
+			},	
 			otherAge : {
-				greaterThan :  {fieldName:'age',message:'Please enter number greater than 0.',} 
-			},
-			        };
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+				greaterThan : {fieldName:'age',message:'Please enter number greater than 0.',} 
+			},		};
+        this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
     }
 }

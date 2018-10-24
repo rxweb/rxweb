@@ -6,9 +6,6 @@ export class User {
 	username: string;
 
 	@prop()
-	firstName: string;
-
-	@prop()
 	middleName: string;
 
 	@prop()

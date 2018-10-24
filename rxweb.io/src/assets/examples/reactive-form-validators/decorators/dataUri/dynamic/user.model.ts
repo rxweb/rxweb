@@ -6,9 +6,6 @@ export class User {
 	scheme: string;
 
 	@prop()
-	cssDataUri: string;
-
-	@prop()
 	javascriptDataUri: string;
 
 	@prop()

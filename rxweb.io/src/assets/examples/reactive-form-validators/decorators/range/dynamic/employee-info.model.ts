@@ -6,9 +6,6 @@ export class EmployeeInfo {
 	age: number;
 
 	@prop()
-	projectDuration: number;
-
-	@prop()
 	experience: number;
 
 	@prop()

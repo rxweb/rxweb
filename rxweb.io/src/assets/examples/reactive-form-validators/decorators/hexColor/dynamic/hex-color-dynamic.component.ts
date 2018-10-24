@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { HexcolorInfo } from './hexcolor-info.model';
 
@@ -12,13 +10,9 @@ import { HexcolorInfo } from './hexcolor-info.model';
     templateUrl: './hex-color-dynamic.component.html'
 })
 export class HexColorDynamicComponent implements OnInit {
-
     hexcolorInfoFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
@@ -26,23 +20,17 @@ export class HexColorDynamicComponent implements OnInit {
         let hexcolorInfo = new HexcolorInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
+	
 			color : {
-				hexColor : true  
-			},
-						
-			footerHexCode : {
-				hexColor :  {conditionalExpression:(x,y) =>x.color == "#AFAFAF",} 
-			},
-						
+				hexColor :true  
+			},	
+	
 			headerHexcolorCode : {
-				hexColor :  {conditionalExpression:'x => x.color == "#AFAFAF"',} 
-			},
-						
+				hexColor : {conditionalExpression:'x => x.color == "#AFAFAF"',} 
+			},	
 			bodyHexcolorCode : {
-				hexColor :  {message:'Please enter the right format of hexcode for body like "#AFAFAF"',} 
-			},
-			        };
-		this.hexcolorInfoFormGroup = this.formBuilder.formGroup(hexcolorInfo,formBuilderConfiguration);
+				hexColor : {message:'Please enter the right format of hexcode for body like "#AFAFAF"',} 
+			},		};
+        this.hexcolorInfoFormGroup = this.formBuilder.formGroup(hexcolorInfo,formBuilderConfiguration);
     }
 }

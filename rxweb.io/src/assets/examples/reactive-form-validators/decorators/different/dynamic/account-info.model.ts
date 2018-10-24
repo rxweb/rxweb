@@ -9,9 +9,6 @@ export class AccountInfo {
 	password: string;
 
 	@prop()
-	lastName: string;
-
-	@prop()
 	userName: string;
 
 }

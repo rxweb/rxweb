@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { StorageCapacity } from './storage-capacity.model';
@@ -10,10 +9,9 @@ import { StorageCapacity } from './storage-capacity.model';
     templateUrl: './file-size-add.component.html'
 })
 export class FileSizeAddComponent implements OnInit {
-
     storageCapacityFormGroup: FormGroup
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

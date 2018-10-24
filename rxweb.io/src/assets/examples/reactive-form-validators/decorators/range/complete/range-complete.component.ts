@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { EmployeeInfo } from './employee-info.model';
@@ -10,13 +9,9 @@ import { EmployeeInfo } from './employee-info.model';
     templateUrl: './range-complete.component.html'
 })
 export class RangeCompleteComponent implements OnInit {
-
     employeeInfoFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

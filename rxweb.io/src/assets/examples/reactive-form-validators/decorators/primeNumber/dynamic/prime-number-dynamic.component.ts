@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { NumberInfo } from './number-info.model';
 
@@ -12,13 +10,9 @@ import { NumberInfo } from './number-info.model';
     templateUrl: './prime-number-dynamic.component.html'
 })
 export class PrimeNumberDynamicComponent implements OnInit {
-
     numberInfoFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
@@ -26,19 +20,14 @@ export class PrimeNumberDynamicComponent implements OnInit {
         let numberInfo = new NumberInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
-			secondNumber : {
-				primeNumber :  {conditionalExpression:(x,y) => x.numberType == "Prime" ,} 
-			},
-						
+	
+	
 			thirdNumber : {
-				primeNumber :  {conditionalExpression:'x => x.numberType =="Prime"',} 
-			},
-						
+				primeNumber : {conditionalExpression:'x => x.numberType =="Prime"',} 
+			},	
 			firstNumber : {
-				primeNumber :  {message:'{{0}} is not a prime number',} 
-			},
-			        };
-		this.numberInfoFormGroup = this.formBuilder.formGroup(numberInfo,formBuilderConfiguration);
+				primeNumber : {message:'{{0}} is not a prime number',} 
+			},		};
+        this.numberInfoFormGroup = this.formBuilder.formGroup(numberInfo,formBuilderConfiguration);
     }
 }

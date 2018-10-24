@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-minNumber-add-validator',
@@ -10,14 +8,14 @@ import { RxFormBuilder,RxwebValidators
 })
 export class MinNumberAddValidatorComponent implements OnInit {
     resultInfoFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         this.resultInfoFormGroup = this.formBuilder.group({
-										maths:['', RxwebValidators.minNumber({value:35 })], 
-								});
+            maths:['', RxwebValidators.minNumber({value:35 })], 
+        });
     }
 }

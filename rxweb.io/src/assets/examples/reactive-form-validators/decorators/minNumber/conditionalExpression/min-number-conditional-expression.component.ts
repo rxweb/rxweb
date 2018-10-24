@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { ResultInfo } from './result-info.model';
@@ -10,12 +9,9 @@ import { ResultInfo } from './result-info.model';
     templateUrl: './min-number-conditional-expression.component.html'
 })
 export class MinNumberConditionalExpressionComponent implements OnInit {
-
     resultInfoFormGroup: FormGroup
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

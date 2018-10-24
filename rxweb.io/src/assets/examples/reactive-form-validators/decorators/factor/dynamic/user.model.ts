@@ -6,9 +6,6 @@ export class User {
 	firstNumber: number;
 
 	@prop()
-	secondNumber: number;
-
-	@prop()
 	thirdNumber: number;
 
 	@prop()

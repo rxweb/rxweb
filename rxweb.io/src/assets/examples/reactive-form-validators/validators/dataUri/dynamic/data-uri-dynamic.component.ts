@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,33 +9,23 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class DataUriDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
 			
-			cssDataUri : {
-				dataUri :  {conditionalExpression:(x,y) => x.scheme == "DataUri" ,} 
-			},
-						
 			javascriptDataUri : {
-				dataUri :  {conditionalExpression:'x => x.scheme =="DataUri"',} 
-			},
-						
+				dataUri : {conditionalExpression:'x => x.scheme =="DataUri"',} 
+			},			
 			htmlDataUri : {
-				dataUri :  {message:'{{0}} is not a proper data URI',} 
+				dataUri : {message:'{{0}} is not a proper data URI',} 
 			},
-			        };
-		 var user = {
-			scheme:'', cssDataUri:'', javascriptDataUri:'', htmlDataUri:'', 
-		}
+		};
+		var user = { scheme:'', cssDataUri:'', javascriptDataUri:'', htmlDataUri:'',  }
 		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
@@ -10,11 +9,9 @@ import { User } from './user.model';
     templateUrl: './greater-than-equal-to-add.component.html'
 })
 export class GreaterThanEqualToAddComponent implements OnInit {
-
     userFormGroup: FormGroup
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

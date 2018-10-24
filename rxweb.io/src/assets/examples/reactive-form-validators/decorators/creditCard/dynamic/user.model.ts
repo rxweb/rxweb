@@ -6,9 +6,6 @@ export class User {
 	cardType: string;
 
 	@prop()
-	visaCard: string;
-
-	@prop()
 	otherVisaCard: string;
 
 	@prop()

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-alpha-allowWhiteSpace-validator',
@@ -10,14 +8,14 @@ import { RxFormBuilder,RxwebValidators
 })
 export class AlphaAllowWhiteSpaceValidatorComponent implements OnInit {
     addressInfoFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         this.addressInfoFormGroup = this.formBuilder.group({
-										stateName:['', RxwebValidators.alpha({allowWhiteSpace:true })], 
-								});
+            stateName:['', RxwebValidators.alpha({allowWhiteSpace:true })], 
+        });
     }
 }

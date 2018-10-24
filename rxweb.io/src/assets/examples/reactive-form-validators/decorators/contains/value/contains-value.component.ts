@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
@@ -10,10 +9,9 @@ import { User } from './user.model';
     templateUrl: './contains-value.component.html'
 })
 export class ContainsValueComponent implements OnInit {
-
     userFormGroup: FormGroup
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

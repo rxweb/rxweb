@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { SubjectDetails } from './subject-details.model';
@@ -10,10 +9,9 @@ import { SubjectDetails } from './subject-details.model';
     templateUrl: './max-number-value.component.html'
 })
 export class MaxNumberValueComponent implements OnInit {
-
     subjectDetailsFormGroup: FormGroup
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

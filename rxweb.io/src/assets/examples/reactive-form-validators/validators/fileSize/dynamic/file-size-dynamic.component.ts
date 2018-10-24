@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,33 +9,23 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class FileSizeDynamicValidatorComponent implements OnInit {
     storageCapacityFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
 			
-			documentStorageSize : {
-				fileSize :  {maxSize:50,conditionalExpression:(x,y) => x.device == "SmartPhone" ,} 
-			},
-						
 			photographStorageSize : {
-				fileSize :  {maxSize:50,conditionalExpression:'x => x.device =="SmartPhone"',} 
-			},
-						
+				fileSize : {maxSize:50,conditionalExpression:'x => x.device =="SmartPhone"',} 
+			},			
 			videoStorageSize : {
-				fileSize :  {maxSize:50,message:'{{0}} is not a valid size',} 
+				fileSize : {maxSize:50,message:'{{0}} is not a valid size',} 
 			},
-			        };
-		 var storageCapacity = {
-			device:'', documentStorageSize:'', photographStorageSize:'', videoStorageSize:'', 
-		}
+		};
+		var storageCapacity = { device:'', documentStorageSize:'', photographStorageSize:'', videoStorageSize:'',  }
 		this.storageCapacityFormGroup = this.formBuilder.group(storageCapacity,formBuilderConfiguration);
     }
 }

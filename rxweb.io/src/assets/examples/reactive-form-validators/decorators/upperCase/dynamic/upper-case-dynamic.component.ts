@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { Location } from './location.model';
 
@@ -12,13 +10,9 @@ import { Location } from './location.model';
     templateUrl: './upper-case-dynamic.component.html'
 })
 export class UpperCaseDynamicComponent implements OnInit {
-
     locationFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
@@ -26,23 +20,17 @@ export class UpperCaseDynamicComponent implements OnInit {
         let location = new Location();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
+	
 			countryName : {
-				upperCase : true  
-			},
-						
-			stateName : {
-				upperCase :  {conditionalExpression:(x,y) => x.countryName == "INDIA" ,} 
-			},
-						
+				upperCase :true  
+			},	
+	
 			cityName : {
-				upperCase :  {conditionalExpression:'x => x.countryName == "INDIA"',} 
-			},
-						
+				upperCase : {conditionalExpression:'x => x.countryName == "INDIA"',} 
+			},	
 			colonyName : {
-				upperCase :  {message:'You can enter only upperCase letters.',} 
-			},
-			        };
-		this.locationFormGroup = this.formBuilder.formGroup(location,formBuilderConfiguration);
+				upperCase : {message:'You can enter only upperCase letters.',} 
+			},		};
+        this.locationFormGroup = this.formBuilder.formGroup(location,formBuilderConfiguration);
     }
 }

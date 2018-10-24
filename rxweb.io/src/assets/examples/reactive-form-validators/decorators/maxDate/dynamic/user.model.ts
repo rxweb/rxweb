@@ -6,9 +6,6 @@ export class User {
 	userName: string;
 
 	@prop()
-	birthDate: Date;
-
-	@prop()
 	admissionDate: Date;
 
 	@prop()

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
@@ -10,10 +9,9 @@ import { User } from './user.model';
     templateUrl: './starts-with-add.component.html'
 })
 export class StartsWithAddComponent implements OnInit {
-
     userFormGroup: FormGroup
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

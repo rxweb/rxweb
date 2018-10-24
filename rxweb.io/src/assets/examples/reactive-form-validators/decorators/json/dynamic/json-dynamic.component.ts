@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { JsonInfo } from './json-info.model';
 
@@ -12,13 +10,9 @@ import { JsonInfo } from './json-info.model';
     templateUrl: './json-dynamic.component.html'
 })
 export class JsonDynamicComponent implements OnInit {
-
     jsonInfoFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
@@ -26,19 +20,14 @@ export class JsonDynamicComponent implements OnInit {
         let jsonInfo = new JsonInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
-			addressJson : {
-				json :  {conditionalExpression:(x,y)=> x.location == "{CountryName:India}" ,} 
-			},
-						
+	
+	
 			locationJson : {
-				json :  {conditionalExpression:'x => x.location == "{CountryName:India}"',message:'Enter the text in JSON format --> {key:value}',} 
-			},
-						
+				json : {conditionalExpression:'x => x.location == "{CountryName:India}"',message:'Enter the text in JSON format --> {key:value}',} 
+			},	
 			contactJson : {
-				json :  {message:'Enter only JSON type data',} 
-			},
-			        };
-		this.jsonInfoFormGroup = this.formBuilder.formGroup(jsonInfo,formBuilderConfiguration);
+				json : {message:'Enter only JSON type data',} 
+			},		};
+        this.jsonInfoFormGroup = this.formBuilder.formGroup(jsonInfo,formBuilderConfiguration);
     }
 }

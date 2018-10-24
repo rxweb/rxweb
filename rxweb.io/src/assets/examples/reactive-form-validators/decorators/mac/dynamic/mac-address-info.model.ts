@@ -6,9 +6,6 @@ export class MacAddressInfo {
 	device: string;
 
 	@prop()
-	macAddress: string;
-
-	@prop()
 	localMacAddress: string;
 
 	@prop()

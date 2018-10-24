@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { Location } from './location.model';
@@ -11,11 +10,10 @@ import { Location } from './location.model';
     templateUrl: './upper-case-edit.component.html'
 })
 export class UpperCaseEditComponent implements OnInit {
-
     locationFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder,		private http: HttpClient
+
+    constructor(
+        private formBuilder: RxFormBuilder,        private http: HttpClient
 
     ) { }
 

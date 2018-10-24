@@ -12,9 +12,6 @@ export class Location {
 	postalAddress: string;
 
 	@prop()
-	countryCode: string;
-
-	@prop()
 	cityCode: string;
 
 }

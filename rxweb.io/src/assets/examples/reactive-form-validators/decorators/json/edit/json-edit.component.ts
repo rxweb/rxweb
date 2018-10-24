@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { JsonInfo } from './json-info.model';
@@ -11,11 +10,10 @@ import { JsonInfo } from './json-info.model';
     templateUrl: './json-edit.component.html'
 })
 export class JsonEditComponent implements OnInit {
-
     jsonInfoFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder,		private http: HttpClient
+
+    constructor(
+        private formBuilder: RxFormBuilder,        private http: HttpClient
 
     ) { }
 
