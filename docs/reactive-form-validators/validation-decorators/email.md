@@ -5,9 +5,9 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a user form and you have fields like Email, RecoveryEmail, OtherEmailAddress and you want user to enter valid EmailAddress Here depending upon the requirement these scenarios may arise.
-1. Adding field of email without any conditional expression.
-2. 	Apply email validation based on matched condition in the form, like if the Email is ‘abc@gmail.com’ then the RecoveryEmailAddress value should be valid email address.
+Suppose you want to create a user form and you have fields like Email, RecoveryEmail, OtherEmailAddress and you want user to enter valid EmailAddress Here depending upon the requirement these scenarios may arise.
+1. Adding email validation on the field named email without any conditional expression.
+2. Apply email validation based on matched condition in the form, like if the Email is ‘abc@gmail.com’ then the RecoveryEmailAddress value should be valid email address.
 3. Adding Custom Message on OtherEmailAddress Field.
 4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
@@ -18,7 +18,7 @@ First we need to create User model class define a property of Email in the model
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\email\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\email\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

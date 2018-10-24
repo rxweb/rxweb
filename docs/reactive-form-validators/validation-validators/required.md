@@ -1,10 +1,11 @@
 ---
 title: required 
-description: Required validation decorator will check that the user has entered the value in the property or not.
+description: Required validation validator will check that the user has entered the value in the property or not.
 author: rxcontributortwo
+
 ---
 # When to use
-Let’s assume that you are creating a UserInfo form, which contains fields like FirstName, LastName, Username and you want the user to must enter anything in that field. That field can not be empty. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a UserInfo form, which contains fields like FirstName, LastName, Username and you want the user to must enter anything in that field. That field can not be empty. Here depending upon the requirement these scenarios may arise.
 1. Make the FirstName a required field without any condition.
 2.	Apply required validation based on matched condition in the form, like if the FirstName is `John`, then only the required validation will be applied to LastName field.
 3.	Adding Custom Message on Username Field.
@@ -13,7 +14,7 @@ Let’s assume that you are creating a UserInfo form, which contains fields like
 Let’s see how required validator fulfil the need.
 
 # Basic Required Validation
-We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
+We need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\required\add\required-add.component.ts?type=section)]
 

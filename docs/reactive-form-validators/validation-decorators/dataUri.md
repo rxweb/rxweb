@@ -1,15 +1,14 @@
 ---
 title: dataUri
-description: dataUri validation decorator allows user to enter the input which is in the proper data URI format.
+description: dataUri validation decorator allows user to enter the input which is a valid data Uri.
 author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a user form, which contains fields like scheme, htmlDataUri, cssDataUri and javascriptDataUri and you want the user to enter input which is a proper data URI format. Here depending upon the requirement, these scenarios may arise..
-
-1. Allow htmlDataUri which have proper data URI format and adding Custom Message on htmlDataUri.
-2. Apply cssDataUri validation based on matched condition in the form, like if the scheme is 'DataUri', then the cssDataUri must be a data URI format (Used as a function).
-3. Apply javascriptDataUri validation based on matched condition in the form, like if the scheme is 'DataUri', then the javascriptDataUri must be a data URI format (Used as a string datatype).
+Suppose you want to create a user form, which contains fields like scheme, AudioDataUri, VideoDataUri and ImageDataUri and you want the user to enter input which is a proper data URI format. depending on the requirements, these scenarios may arise..
+1. Allow the user to enter valid dataUri in the field of AudioDataUri with custom error message.
+2. Apply validation on VideoDataUri  field based on matched condition in the form, like if the scheme is 'DataUri', then the VideoDataUri must be a data URI format (Used as a function).
+3. Apply validation on ImageDataUri based on matched condition in the form, like if the scheme is 'DataUri', then the ImageDataUri must be a data URI format (Used as a string datatype).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how dataUri decorator fulfil the need.
@@ -19,7 +18,7 @@ First we need to create a user model and define a property of htmlDataUri in the
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\dataUri\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\dataUri\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

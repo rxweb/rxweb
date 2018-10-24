@@ -6,15 +6,15 @@ author: rxcontributorone
 ---
 
 # When to use
-Let's assume that you are creating a user form in which you want to compare firstname and username which are entered by the user which contains fields like firstname and username, password Here depending upon the requirement these scenarios may arise.
-1.	The Name of username field on which comparison is done.
-2.  The Custom Message on password field.  
-3.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+Suppose you want to create a user form in which you want to compare firstname and LastName which are entered by the user which contains fields like firstname and lastname, password Here depending upon the requirement these scenarios may arise.
+1. The Name of firstName field on which comparison is done.
+2. The Custom Message on password field.
+3. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
 Let’s see how different validator fulfil the need.
 
 # Basic Different Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\different\add\different-add.component.ts?type=section)]

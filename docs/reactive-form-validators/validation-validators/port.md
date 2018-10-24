@@ -5,18 +5,17 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a websiteInfo form, which contains fields like browser, educationalWebsitePort, entertainmentWebsitePort and shoppingWebsitePort and you want the user to enter input which is a proper port number. Here depending upon the requirement, these scenarios may arise..
-
+Suppose you want to create a websiteInfo form, which contains fields like browser, educationalWebsitePort, entertainmentWebsitePort and shoppingWebsitePort and you want the user to enter input which is a proper port number. Here depending upon the requirement, these scenarios may arise..
 1. Allow educationalWebsitePort which have proper port format and adding Custom Message on educationalWebsitePort.
-2. Apply entertainmentWebsitePort validation based on matched condition in the form, like if the browser is 'Chrome', then the entertainmentWebsitePort must be a port number (Used as a function).
-3. Apply shoppingWebsitePort validation based on matched condition in the form, like if the browser is 'Chrome', then the shoppingWebsitePort must be a port number (Used as a string datatype).
+2. Apply port validation on entertainmentWebsitePort field based on matched condition in the form, like if the browser is 'Chrome', then the      entertainmentWebsitePort must be a port number (Used as a function).
+3. Apply port validation on shoppingWebsitePort field based on matched condition in the form, like if the browser is 'Chrome', then the shoppingWebsitePort must be a port number (Used as a string datatype).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how port validator fulfil the need.
 
 # Basic port Validation
 
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\port\add\port-add.component.ts?type=section)]
 

@@ -5,8 +5,8 @@ author: rxcontributorone
 
 ---
 # When to use
-Let’s assume that you are creating a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
-1. Adding Custom Message on oldPassword Field.
+Suppose you want to create a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
+1. Adding validation on oldPassword Field and adding  Custom Message on it.
 2. Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
 3. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
@@ -17,7 +17,7 @@ First we need to create LoginInfo model class define a property of password in t
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\add\login-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\edit\login-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
 
 [!TabGroup]

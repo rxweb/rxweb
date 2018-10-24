@@ -1,12 +1,12 @@
 ---
 title: mac
-description: mac validation validator will check whether the value entered is in proper format of mac address.
+description: mac validation decorator will check whether the value entered is a valid mac address.
 author: rxcontributorone
 
 ---
 
 # When to use
-Let's assume that you are creating a  form in which you want user to enter mac address  which contains fields like device, macAddress,  systemMacAddress. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a form in which you want user to enter mac address  which contains fields like device, macAddress,  systemMacAddress. Here depending upon the requirement these scenarios may arise.
 1.	The macAddress on which validation is checked.
 2.  Apply mac validation based on matched condition in the form, like if the device  is ‘Laptop’ then the macAddress value should be in proper format.
 3.  The Custom Message on systemMacAddress field.
@@ -15,7 +15,7 @@ Let's assume that you are creating a  form in which you want user to enter mac a
 Let’s see how mac validator fulfil the need.
 
 # Basic mac Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\mac\add\mac-add.component.ts?type=section)]

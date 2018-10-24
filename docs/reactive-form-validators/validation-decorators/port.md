@@ -1,15 +1,14 @@
 ---
 title: port
-description: port validation decorator allows user to enter the input which is in the proper port format.
+description: port validation decorator allows user to enter the input which is a valid port number.
 author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a websiteInfo form, which contains fields like browser, educationalWebsitePort, entertainmentWebsitePort and shoppingWebsitePort and you want the user to enter input which is a proper port number. Here depending upon the requirement, these scenarios may arise..
-
+Suppose you want to create a websiteInfo form, which contains fields like browser, educationalWebsitePort, entertainmentWebsitePort and shoppingWebsitePort and you want the user to enter input which is a proper port number. Here depending upon the requirement, these scenarios may arise..
 1. Allow educationalWebsitePort which have proper port format and adding Custom Message on educationalWebsitePort.
-2. Apply entertainmentWebsitePort validation based on matched condition in the form, like if the browser is 'Chrome', then the entertainmentWebsitePort must be a port number (Used as a function).
-3. Apply shoppingWebsitePort validation based on matched condition in the form, like if the browser is 'Chrome', then the shoppingWebsitePort must be a port number (Used as a string datatype).
+2. Apply port validation on entertainmentWebsitePort field based on matched condition in the form, like if the browser is 'Chrome', then the      entertainmentWebsitePort must be a port number (Used as a function).
+3. Apply port validation on shoppingWebsitePort field based on matched condition in the form, like if the browser is 'Chrome', then the shoppingWebsitePort must be a port number (Used as a string datatype).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how port decorator fulfil the need.
@@ -19,7 +18,7 @@ First we need to create a model and define a property of educationalWebsitePort 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\add\website-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\edit\website-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

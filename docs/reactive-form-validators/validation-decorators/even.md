@@ -4,10 +4,9 @@ description: Even validation decorator will check whether the value entered by u
 author: rxcontributorone
 
 ---
-
 # When to use
-Let’s assume that you are creating a user form, which contains fields like Number, Type, EvenNumber and you want the user to enter only even numbers Here depending upon the requirement these scenarios may arise.
-1.	Allow only evennumbers in EvenNumber .
+Suppose you want to create a user form, which contains fields like Number, Type, EvenNumber and you want the user to enter only even numbers Here depending upon the requirement these scenarios may arise.
+1.  Allow only evennumbers in EvenNumber’s field .
 2.	Apply Even validation based on matched condition in the form, like if the type  is ‘Even’ then the number value should be even number.
 3.	Adding Custom Message on EvenNumber Field.
 4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
@@ -19,7 +18,7 @@ First we need to create  User class and define a property of even in the model t
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\even\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\even\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

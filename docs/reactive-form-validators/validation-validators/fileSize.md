@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a storageCapacity form, which contains fields like device, videoStorageSize, documentStorageSize and photographStorageSize and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..
+Suppose you want to create a storageCapacity form, which contains fields like device, videoStorageSize, documentStorageSize and photographStorageSize and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..
 
 1. Allow videoStorageSize which have proper file size format and adding Custom Message on videoStorageSize.
 2. Apply documentStorageSize validation based on matched condition in the form, like if the device is 'SmartPhone', then the documentStorageSize must be a file size format (Used as a function).
@@ -16,7 +16,7 @@ Let's see how fileSize validator fulfil the need.
 
 # Basic fileSize Validation
 
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\fileSize\add\file-size-add.component.ts?type=section)]
 

@@ -5,18 +5,17 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a numberInfo form, which contains fields like numberType, firstNumber, secondNumber and thirdNumber and you want the user to enter input which is a prime number. Here depending upon the requirement, these scenarios may arise..
-
+Suppose you want to create a numberInfo form, which contains fields like numberType, firstNumber, secondNumber and thirdNumber and you want the user to enter input which is a prime number. Here depending upon the requirement, these scenarios may arise..
 1. Allow firstNumber which have proper primeNumber format and adding Custom Message on firstNumber.
-2. Apply secondNumber validation based on matched condition in the form, like if the numberType is 'Prime', then the secondNumber must be a primeNumber (Used as a function).
-3. Apply thirdNumber validation based on matched condition in the form, like if the numberType is 'Prime', then the thirdNumber must be a primeNumber (Used as a string datatype).
-4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
+2. Apply validation on secondNumber field based on matched condition in the form, like if the numberType is 'Prime', then the secondNumber must be a primeNumber (Used as a function).
+3. Apply validation on thirdNumber field based on matched condition in the form, like if the numberType is 'Prime', then the thirdNumber must be a primeNumber (Used as a string datatype).
+4. Apply dynamic validation, If the validation is changed based on some criteria in the application
 
 Let's see how primeNumber validator fulfil the need.
 
 # Basic primeNumber Validation
 
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\primeNumber\add\prime-number-add.component.ts?type=section)]
 

@@ -1,15 +1,14 @@
 ---
 title: primeNumber
-description: primeNumber validation decorator allows user to enter only the prime number.
+description: primeNumber validation decorator allows user to enter only prime number.
 author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a numberInfo form, which contains fields like numberType, firstNumber, secondNumber and thirdNumber and you want the user to enter input which is a prime number. Here depending upon the requirement, these scenarios may arise..
-
+Suppose you want to create a numberInfo form, which contains fields like numberType, firstNumber, secondNumber and thirdNumber and you want the user to enter input which is a prime number. Here depending upon the requirement, these scenarios may arise..
 1. Allow firstNumber which have proper primeNumber format and adding Custom Message on firstNumber.
-2. Apply secondNumber validation based on matched condition in the form, like if the numberType is 'Prime', then the secondNumber must be a primeNumber (Used as a function).
-3. Apply thirdNumber validation based on matched condition in the form, like if the numberType is 'Prime', then the thirdNumber must be a primeNumber (Used as a string datatype).
+2. Apply validation on secondNumber field based on matched condition in the form, like if the numberType is 'Prime', then the secondNumber must be a primeNumber (Used as a function).
+3. Apply validation on thirdNumber field based on matched condition in the form, like if the numberType is 'Prime', then the thirdNumber must be a primeNumber (Used as a string datatype).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how primeNumber decorator fulfil the need.
@@ -19,7 +18,7 @@ First we need to create a numberInfo model and define a property of firstNumber 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\primeNumber\add\number-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\primeNumber\edit\number-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

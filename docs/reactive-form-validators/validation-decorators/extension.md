@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a storageCapacity form, which contains fields like device, videoFileExtension, documentFileExtension and photographFileExtension and you want the user to enter input which is a proper extension format. Here depending upon the requirement, these scenarios may arise..
+Suppose you want to create a storageCapacity form, which contains fields like device, videoFileExtension, documentFileExtension and photographFileExtension and you want the user to enter input which is a proper extension format. Here depending upon the requirement, these scenarios may arise..
 
 1. Allow videoFileExtension which have proper extension format and adding Custom Message on videoFileExtension.
 2. Apply documentFileExtension validation based on matched condition in the form, like if the device is 'SmartPhone', then the documentFileExtension must be a extension format (Used as a function).
@@ -19,7 +19,7 @@ First we need to create a storageCapacity model and define a property of videoFi
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\extension\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\extension\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

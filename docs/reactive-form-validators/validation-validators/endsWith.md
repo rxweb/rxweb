@@ -5,10 +5,9 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a user form, which contains fields like name, profession and taskId and you want the user to enter input which ends with a perticular value. Here depending upon the requirement, these scenarios may arise..
-
-1. Allow name which ends with 'm' and adding Custom Message on name.
-2. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the profession must ends with 'r' (Used as a string datatype).
+Suppose you want to create a user form, which contains fields like name, profession and taskId and you want the user to enter input which ends with a particular value. Here depending upon the requirement, these scenarios may arise..
+1. Apply validation on name field in which you want the user to enter value which ends with ‘m’.
+2. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the profession must ends with 'R' (Used as a string datatype).
 3. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the taskId must ends with '1' (Used as a function).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
@@ -16,7 +15,7 @@ Let's see how endsWith validator fulfil the need.
 
 # Basic endsWith Validation
 
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\endsWith\add\ends-with-add.component.ts?type=section)]
 

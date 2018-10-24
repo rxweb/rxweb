@@ -5,11 +5,10 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a user form, which contains fields like language, numberAsciiCode, alphabetAsciiCode and specialCharAsciiCode and you want the user to enter input which is an ascii code. Here depending upon the requirement, these scenarios may arise..
-
-1. Allow specialCharAsciiCode which have proper ascii format and adding Custom Message on specialCharAsciiCode.
-2. Apply numberAsciiCode validation based on matched condition in the form, like if the language is 'Java', then the numberAsciiCode must be an ascii code (Used as a function).
-3. Apply alphabetAsciiCode validation based on matched condition in the form, like if the language is 'Java', then the alphabetAsciiCode must be an ascii code (Used as a string datatype).
+Suppose you want to create a user form in which you want the user to enter an  input which is in form of valid ascii code. The form contains fields like language, numberAsciiCode, alphabetAsciiCode and specialCharAsciiCode. depending on requirements these scenarios may arise..
+1. Allow valid ascii code input in field of specialCharAsciiCode and add custom error message to it.
+2. Apply validation on numberAsciiCode field based on matched condition in the form, like if the language is 'Java', then the numberAsciiCode must be an ascii code (Used as a function).
+3. Apply validation on specialCharAsciiCode field validation based on matched condition in the form, like if the language is 'Java', then the alphabetAsciiCode must be an ascii code (Used as a string datatype).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how ascii decorator fulfil the need.
@@ -19,7 +18,7 @@ First we need to create a model and define a property of specialCharAsciiCode in
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\ascii\add\ascii.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\ascii\edit\ascii.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

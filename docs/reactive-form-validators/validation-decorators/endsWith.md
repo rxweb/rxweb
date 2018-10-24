@@ -1,13 +1,12 @@
 ---
 title: endsWith
-description: endsWith validation decorator allows user to enter the input which ends with perticular value
+description: endsWith validation decorator allows user to enter the input which ends with particular value
 author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a user form, which contains fields like name, profession and taskId and you want the user to enter input which ends with a perticular value. Here depending upon the requirement, these scenarios may arise..
-
-1. Allow name which ends with 'm' and adding Custom Message on name.
+Suppose you want to create a user form, which contains fields like name, profession and taskId and you want the user to enter input which ends with a particular value. Here depending upon the requirement, these scenarios may arise..
+1. Apply validation on name field in which you want the user to enter value which ends with ‘m’.
 2. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the profession must ends with 'R' (Used as a string datatype).
 3. Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the taskId must ends with '1' (Used as a function).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.

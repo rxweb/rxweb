@@ -5,16 +5,16 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a location based jsonInfo form and you have fields like locationJson, location, AddressJson,ContactJson and you want the user to enter only Json value i.e in key and value form. Here depending upon the requirement these scenarios may arise.
-1. Adding LocationJson without any conditional expression.
-2. 	Apply json validation based on matched condition in the form, like if the location is ‘India’ then the AddressJson value should be valid Json value.
+Suppose you want to create a location based jsonInfo form and you have fields like locationJson, location, AddressJson, ContactJson and you want the user to enter only Json value i.e in key and value form. Here depending upon the requirement these scenarios may arise.
+1. Apply json validation on LocationJson field  without any conditional expression.
+2. Apply json validation based on matched condition in the form, like if the location is ‘India’ then the AddressJson value should be valid Json value.
 3. Adding Custom Message on ContactJson Field.
 4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
 Let’s see how json validator fulfil the need.
 
 # Basic Json Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add form operation. 
 
 

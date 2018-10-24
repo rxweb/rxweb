@@ -1,15 +1,14 @@
 ---
 title: latLong
-description: latLong validation decorator allows user to enter the input which is in the proper Latitude or longitude format.
+description: latLong validation decorator allows user to enter the input which is valid Latitude or longitude.
 author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a country form, which contains fields like continent, firstCountry, secondCountry and thirdCountry and you want the user to enter input which is a proper Latitude or longitude format. Here depending upon the requirement, these scenarios may arise..
-
+Suppose you want to create a country form, which contains fields like continent, firstCountry, secondCountry and thirdCountry and you want the user to enter input which is a proper Latitude or longitude format. Here depending upon the requirement, these scenarios may arise..
 1. Allow firstCountry which have proper Latitude or longitude format and adding Custom Message on firstCountry.
-2. Apply secondCountry validation based on matched condition in the form, like if the continent is 'Asia', then the secondCountry must be a Latitude or longitude format (Used as a function).
-3. Apply thirdCountry validation based on matched condition in the form, like if the continent is 'Asia', then the thirdCountry must be a Latitude or longitude format (Used as a string datatype).
+2. Apply latLong validation on secondCountry field based on matched condition in the form, like if the continent is 'Asia', then the secondCountry must be a Latitude or longitude format (Used as a function).
+3. Apply latLong validation on thirdCountry field based on matched condition in the form, like if the continent is 'Asia', then the thirdCountry must be a Latitude or longitude format (Used as a string datatype).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how latLong decorator fulfil the need.
@@ -19,7 +18,7 @@ First we need to create a model and define a property of firstCountry in the mod
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\latLong\add\country.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\latLong\edit\country.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

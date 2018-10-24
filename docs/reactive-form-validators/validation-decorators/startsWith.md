@@ -1,13 +1,12 @@
 ---
 title: startsWith
-description: startsWith validation decorator allows user to enter the input which starts with perticular value
+description: startsWith validation decorator allows user to enter the input which starts with particular value.
 author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a user form, which contains fields like userId, name, profession and taskId and you want the user to enter input which starts with a perticular value. Here depending upon the requirement, these scenarios may arise..
-
-1. Allow name which starts with 'J' and adding Custom Message on name.
+Suppose you want to create a user form, which contains fields like userId, name, profession and taskId and you want the user to enter input which starts with a perticular value. Here depending upon the requirement, these scenarios may arise..
+1. Apply validation on name field in which you want the user to enter value which starts with ‘j’.
 2. Apply startsWith validation based on matched condition in the form, like if the name is 'John', then the profession must starts with 'Senior ' (Used as a function).
 3. Apply startsWith validation based on matched condition in the form, like if the name is 'John', then the taskId must starts with '#' (Used as a string datatype).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
@@ -19,7 +18,7 @@ First we need to create a User model and define a property of name in the model 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\startsWith\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\startsWith\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

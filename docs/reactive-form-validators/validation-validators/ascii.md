@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a user form, which contains fields like language, numberAsciiCode, alphabetAsciiCode and specialCharAsciiCode and you want the user to enter input which is an ascii code. Here depending upon the requirement, these scenarios may arise..
+Suppose you want to create a user form, which contains fields like language, numberAsciiCode, alphabetAsciiCode and specialCharAsciiCode and you want the user to enter input which is an ascii code. Here depending upon the requirement, these scenarios may arise..
 
 1. Allow specialCharAsciiCode which have proper ascii format and adding Custom Message on specialCharAsciiCode.
 2. Apply numberAsciiCode validation based on matched condition in the form, like if the language is 'Java', then the numberAsciiCode must be an ascii code (Used as a function).
@@ -16,7 +16,7 @@ Let's see how ascii validator fulfil the need.
 
 # Basic Ascii Validation
 
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\ascii\add\ascii-add.component.ts?type=section)]
 

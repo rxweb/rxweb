@@ -5,7 +5,7 @@ author: rxcontributorone
 
 --- 
 # When to use
-Let's assume that you are creating a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.
 1.	The Name of Password field on which comparison is done.
 2.  The Custom Message on ConfirmPassword field.  
 3.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
@@ -13,7 +13,7 @@ Let's assume that you are creating a user form in which you want to compare pass
 Let’s see how compare validator fulfil the need.
 
 # Basic Compare Validation 
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add form operation.
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\add\compare-add.component.ts?type=section)]

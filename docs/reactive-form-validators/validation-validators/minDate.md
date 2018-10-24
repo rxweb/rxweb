@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let’s assume that you are creating a User form, which contains fields like Username, BirthDate, RegistrationDate and you want the user to enter date which must be greater rhan a minimum date. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a User form, which contains fields like Username, BirthDate, RegistrationDate and you want the user to enter date which must be greater rhan a minimum date. Here depending upon the requirement these scenarios may arise.
 1.	Allow date greater than `30/07/2018 ` in RegistrationDate.
 2.	Apply minDate validation based on matched condition in the form, like if the UserName is `john`, then only the minDate validation will be applied to BirthDate field (i.e., BirthDate must be greater than `30/07/2018 `).
 3.	Adding Custom Message on RegistrationDate Field.
@@ -14,7 +14,7 @@ Let’s assume that you are creating a User form, which contains fields like Use
 Let’s see how minDate validator fulfil the need.
 
 # Basic MinDate Validation
-We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
+We need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\add\min-date-add.component.ts?type=section)]
 

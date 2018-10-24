@@ -5,7 +5,7 @@ author:  rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a user form and you want details like CreditCard and you have fields like CardType,VisaCard,AmericanExpress,MaestroCard,JCBcard,DiscoverCard,MasterCard  Here depending upon the requirement these scenarios may arise.  
+Supppose you want to create a user form and you want details like CreditCard and you have fields like CardType, VisaCard, AmericanExpress,MaestroCard, JCBcard, DiscoverCard, MasterCard  Here depending upon the requirement these scenarios may arise.  
 1.  CreditCard Type has different Card Types like Visa,AmericanExpress,Maestro,JCB,Discover,DinersClub,MasterCard.
 2. 	Apply CreditCard validation based on matched condition in the form, like if the CardType  is ‘visa’ then the VisaCard value should be in VisaCard format.
 3.  The Custom Message on VisaCard field.  
@@ -18,7 +18,7 @@ First we need to create User model class define a property of CreditCardNo in th
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

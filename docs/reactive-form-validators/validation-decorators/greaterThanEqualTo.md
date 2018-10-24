@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a user form and you have fields like Age, VoterAge, OtherAge and you want user to enter Age such that VoterAge,OtherAge should be greater than or equal to Age Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a user form and you have fields like Age, VoterAge, OtherAge and you want user to enter Age such that VoterAge,OtherAge should be greater than or equal to Age Here depending upon the requirement these scenarios may arise.
 1. Specify Age as fieldName such that greaterThanEqualTo validation should be applied to the fieldname for comparing other fields.
 2. Apply greaterThanEqualTo validation based on matched condition in the form, like if the Age is ‘18’ then the VoterAge,OtherAge value should be Greater than or equal to 18.
 3. Adding Custom Message on OtherAge Field.
@@ -18,7 +18,7 @@ First we need to create User model class define a property of Age and VoterAge  
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]

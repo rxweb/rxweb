@@ -1,22 +1,21 @@
 ---
 title: latitude
-description: latitude validation validators allows user to enter the input which is in the proper latitude format.
+description: latitude validation decorator allows user to enter value which is valid latitude.
 author: rxcontributortwo
 
 ---
 # When to use
-Let's assume you are creating a country form, which contains fields like continent, firstCountryLatitude, secondCountryLatitude and thirdCountryLatitude and you want the user to enter input which is a proper latitude format. Here depending upon the requirement, these scenarios may arise..
-
-1. Allow firstCountryLatitude which have proper latitude format and adding Custom Message on firstCountryLatitude.
-2. Apply secondCountryLatitude validation based on matched condition in the form, like if the continent is 'Asia', then the secondCountryLatitude must be a latitude format (Used as a function).
-3. Apply thirdCountryLatitude validation based on matched condition in the form, like if the continent is 'Asia', then the thirdCountryLatitude must be a latitude format (Used as a string datatype).
+Suppose you want to create a country form, which contains fields like continent, firstCountryLatitude, secondCountryLatitude and thirdCountryLatitude and you want the user to enter input which is a proper latitude format. Here depending upon the requirement, these scenarios may arise..
+1. Apply validation on firstCountryLatitude field and add Custom Message on it.
+2. Apply latitude validation on secondCountryLatitude field based on matched condition in the form, like if the continent is 'Asia', then the       secondCountryLatitude must be a latitude format (Used as a function).
+3. Apply latitude validation on thirdCountryLatitude field  based on matched condition in the form, like if the continent is 'Asia', then the       thirdCountryLatitude must be a latitude format (Used as a string datatype).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how latitude validator fulfil the need.
 
 # Basic latitude Validation
 
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\latitude\add\latitude-add.component.ts?type=section)]
 
