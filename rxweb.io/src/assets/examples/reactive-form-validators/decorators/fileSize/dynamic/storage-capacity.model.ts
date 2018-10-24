@@ -6,9 +6,6 @@ export class StorageCapacity {
 	device: string;
 
 	@prop()
-	documentStorageSize: string;
-
-	@prop()
 	photographStorageSize: string;
 
 	@prop()

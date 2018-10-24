@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-	,NumericValueType
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators ,NumericValueType} from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-numeric-add-validator',
@@ -11,14 +8,14 @@ import { RxFormBuilder,RxwebValidators
 })
 export class NumericAddValidatorComponent implements OnInit {
     userInfoFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({
-										integerNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false })], 
-								});
+            integerNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false })], 
+        });
     }
 }

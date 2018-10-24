@@ -1,7 +1,6 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
-import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
 
 @Component({
   selector: 'app-side-bar',
@@ -14,7 +13,7 @@ export class SideBarComponent implements OnInit {
   isthirdLevelCollapse : boolean = false;
   showComponent: boolean;
   constructor(
-    private http: HttpClient,private router: Router,private applicationBroadCaster:ApplicationBroadcaster
+    private http: HttpClient,private router: Router
   ) {
   }
   ngOnInit(): void {
@@ -26,8 +25,6 @@ export class SideBarComponent implements OnInit {
   navigateTo(urlObj:string):void{
     if(urlObj!=null)
     {
-      var url = "https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/" +urlObj + ".md"
-      this.applicationBroadCaster.urlBroadCast(url);
       this.router.navigateByUrl(urlObj);
     }
   }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,33 +9,23 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class LatitudeDynamicValidatorComponent implements OnInit {
     countryFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
 			
-			secondCountryLatitude : {
-				latitude :  {conditionalExpression:(x,y) => x.continent == "Asia" ,} 
-			},
-						
 			thirdCountryLatitude : {
-				latitude :  {conditionalExpression:'x => x.continent =="Asia"',} 
-			},
-						
+				latitude : {conditionalExpression:'x => x.continent =="Asia"',} 
+			},			
 			firstCountryLatitude : {
-				latitude :  {message:'{{0}} is not a latitude',} 
+				latitude : {message:'{{0}} is not a latitude',} 
 			},
-			        };
-		 var country = {
-			continent:'', secondCountryLatitude:'', thirdCountryLatitude:'', firstCountryLatitude:'', 
-		}
+		};
+		var country = { continent:'', secondCountryLatitude:'', thirdCountryLatitude:'', firstCountryLatitude:'',  }
 		this.countryFormGroup = this.formBuilder.group(country,formBuilderConfiguration);
     }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { AttandanceDetail } from './attandance-detail.model';
@@ -10,12 +9,9 @@ import { AttandanceDetail } from './attandance-detail.model';
     templateUrl: './time-conditional-expression.component.html'
 })
 export class TimeConditionalExpressionComponent implements OnInit {
-
     attandanceDetailFormGroup: FormGroup
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

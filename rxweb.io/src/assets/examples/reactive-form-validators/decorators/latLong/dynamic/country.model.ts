@@ -6,9 +6,6 @@ export class Country {
 	continent: string;
 
 	@prop()
-	secondCountry: string;
-
-	@prop()
 	thirdCountry: string;
 
 	@prop()

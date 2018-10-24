@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { AccountInfo } from './account-info.model';
 
@@ -12,13 +10,9 @@ import { AccountInfo } from './account-info.model';
     templateUrl: './different-dynamic.component.html'
 })
 export class DifferentDynamicComponent implements OnInit {
-
     accountInfoFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
@@ -26,19 +20,14 @@ export class DifferentDynamicComponent implements OnInit {
         let accountInfo = new AccountInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
+	
 			password : {
-				different :  {fieldName:"firstName",message:'{{0}} is same as firstName',} 
-			},
-						
-			lastName : {
-				different :  {fieldName:"firstName",conditionalExpression:(x,y) => x.firstName == "Bharat" ,} 
-			},
-						
+				different : {fieldName:"firstName",message:'{{0}} is same as firstName',} 
+			},	
+	
 			userName : {
-				different :  {fieldName:"firstName",conditionalExpression:'x => x.firstName == "Bharat"',} 
-			},
-			        };
-		this.accountInfoFormGroup = this.formBuilder.formGroup(accountInfo,formBuilderConfiguration);
+				different : {fieldName:"firstName",conditionalExpression:'x => x.firstName == "Bharat"',} 
+			},		};
+        this.accountInfoFormGroup = this.formBuilder.formGroup(accountInfo,formBuilderConfiguration);
     }
 }

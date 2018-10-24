@@ -6,9 +6,6 @@ export class HexcolorInfo {
 	color: string;
 
 	@prop()
-	footerHexCode: string;
-
-	@prop()
 	headerHexcolorCode: string;
 
 	@prop()

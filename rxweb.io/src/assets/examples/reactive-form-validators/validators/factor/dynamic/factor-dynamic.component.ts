@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,33 +9,23 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class FactorDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
 			
-			secondNumber : {
-				factor :  {fieldName:"firstNumber",conditionalExpression:(x,y) =>x.firstNumber == 25 ,} 
-			},
-						
 			thirdNumber : {
-				factor :  {fieldName:"firstNumber",conditionalExpression:'x => x.firstNumber == 25',} 
-			},
-						
+				factor : {fieldName:"firstNumber",conditionalExpression:'x => x.firstNumber == 25',} 
+			},			
 			fourthNumber : {
-				factor :  {dividend:50,message:'{{0}} is not a factor of 50',} 
+				factor : {dividend:50,message:'{{0}} is not a factor of 50',} 
 			},
-			        };
-		 var user = {
-			firstNumber:'', secondNumber:'', thirdNumber:'', fourthNumber:'', 
-		}
+		};
+		var user = { firstNumber:'', secondNumber:'', thirdNumber:'', fourthNumber:'',  }
 		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

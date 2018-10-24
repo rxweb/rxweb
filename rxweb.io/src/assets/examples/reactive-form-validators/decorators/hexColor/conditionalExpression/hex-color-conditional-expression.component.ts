@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { HexcolorInfo } from './hexcolor-info.model';
@@ -10,12 +9,9 @@ import { HexcolorInfo } from './hexcolor-info.model';
     templateUrl: './hex-color-conditional-expression.component.html'
 })
 export class HexColorConditionalExpressionComponent implements OnInit {
-
     hexcolorInfoFormGroup: FormGroup
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

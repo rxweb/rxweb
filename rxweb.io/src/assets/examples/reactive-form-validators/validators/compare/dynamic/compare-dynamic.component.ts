@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,10 +9,9 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class CompareDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
@@ -22,12 +19,10 @@ export class CompareDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			confirmPassword : {
-				compare :  {fieldName:'password',message:'Both Input is not matched',} 
+				compare : {fieldName:'password',message:'Both Input is not matched',} 
 			},
-			        };
-		 var user = {
-			password:'', confirmPassword:'', 
-		}
+		};
+		var user = { password:'', confirmPassword:'',  }
 		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

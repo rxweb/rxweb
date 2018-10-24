@@ -6,9 +6,6 @@ export class User {
 	type: string;
 
 	@prop()
-	number: number;
-
-	@prop()
 	evenNumber: number;
 
 	@prop()

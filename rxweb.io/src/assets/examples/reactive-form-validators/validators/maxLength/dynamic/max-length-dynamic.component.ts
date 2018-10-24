@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,12 +9,9 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class MaxLengthDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
@@ -24,24 +19,16 @@ export class MaxLengthDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			firstName : {
-				maxLength :  {value:16,} 
-			},
-						
-			middleName : {
-				maxLength :  {value:16,conditionalExpression:(x,y)=> x.firstName == "Bharat",} 
-			},
-						
+				maxLength : {value:16,} 
+			},			
 			lastName : {
-				maxLength :  {value:16,conditionalExpression:'x => x.firstName == "Bharat"',} 
-			},
-						
+				maxLength : {value:16,conditionalExpression:'x => x.firstName == "Bharat"',} 
+			},			
 			userName : {
-				maxLength :  {value:10,message:'Maximum 10 characters are allowed',} 
+				maxLength : {value:10,message:'Maximum 10 characters are allowed',} 
 			},
-			        };
-		 var user = {
-			firstName:'', middleName:'', lastName:'', userName:'', 
-		}
+		};
+		var user = { firstName:'', middleName:'', lastName:'', userName:'',  }
 		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,12 +9,9 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class ContainsDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
@@ -24,24 +19,16 @@ export class ContainsDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			emailAddress : {
-				contains :  {value:'@gmail.com',} 
-			},
-						
-			businessEmailAddress : {
-				contains :  {value:'@gmail.com',conditionalExpression:(x,y) => x.emailAddress == "abc@gmail.com",} 
-			},
-						
+				contains : {value:'@gmail.com',} 
+			},			
 			recoveryEmailAddress : {
-				contains :  {value:'@gmail.com',conditionalExpression:'x => x.emailAddress == "abc@gmail.com"',} 
-			},
-						
+				contains : {value:'@gmail.com',conditionalExpression:'x => x.emailAddress == "abc@gmail.com"',} 
+			},			
 			otherEmailAddress : {
-				contains :  {value:'@gmail.com',message:'Please enter valid gmailId',} 
+				contains : {value:'@gmail.com',message:'Please enter valid gmailId',} 
 			},
-			        };
-		 var user = {
-			emailAddress:'', businessEmailAddress:'', recoveryEmailAddress:'', otherEmailAddress:'', 
-		}
+		};
+		var user = { emailAddress:'', businessEmailAddress:'', recoveryEmailAddress:'', otherEmailAddress:'',  }
 		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

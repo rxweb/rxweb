@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,42 +9,28 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class AlphaNumericDynamicValidatorComponent implements OnInit {
     locationFormGroup: FormGroup
-					
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
 			areaName : {
-				alphaNumeric : true  
-			},
-						
+				alphaNumeric :true  
+			},			
 			flatAddress : {
-				alphaNumeric :  {allowWhiteSpace:true,} 
-			},
-						
+				alphaNumeric : {allowWhiteSpace:true,} 
+			},			
 			postalAddress : {
-				alphaNumeric :  {allowWhiteSpace:true,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.',} 
-			},
-						
-			countryCode : {
-				alphaNumeric :  {conditionalExpression:(x,y) => x.areaName == "Gujarat" ,} 
-			},
-						
+				alphaNumeric : {allowWhiteSpace:true,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.',} 
+			},			
 			cityCode : {
-				alphaNumeric :  {conditionalExpression:'x => x.areaName =="Gujarat"',} 
+				alphaNumeric : {conditionalExpression:'x => x.areaName =="Delhi"',} 
 			},
-			        };
-		 var location = {
-			areaName:'', flatAddress:'', postalAddress:'', countryCode:'', cityCode:'', 
-		}
+		};
+		var location = { areaName:'', flatAddress:'', postalAddress:'', countryCode:'', cityCode:'',  }
 		this.locationFormGroup = this.formBuilder.group(location,formBuilderConfiguration);
     }
 }

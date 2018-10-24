@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { EmployeeInfo } from './employee-info.model';
@@ -11,11 +10,10 @@ import { EmployeeInfo } from './employee-info.model';
     templateUrl: './range-edit.component.html'
 })
 export class RangeEditComponent implements OnInit {
-
     employeeInfoFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder,		private http: HttpClient
+
+    constructor(
+        private formBuilder: RxFormBuilder,        private http: HttpClient
 
     ) { }
 

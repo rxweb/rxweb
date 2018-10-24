@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { LoginInfo } from './login-info.model';
@@ -10,10 +9,9 @@ import { LoginInfo } from './login-info.model';
     templateUrl: './password-message.component.html'
 })
 export class PasswordMessageComponent implements OnInit {
-
     loginInfoFormGroup: FormGroup
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,42 +9,28 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class AlphaDynamicValidatorComponent implements OnInit {
     addressInfoFormGroup: FormGroup
-					
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
 			countryName : {
-				alpha : true  
-			},
-						
-			countryCode : {
-				alpha :  {conditionalExpression:(x,y) => x.countryName == "India",} 
-			},
-						
+				alpha :true  
+			},			
 			cityName : {
-				alpha :  {conditionalExpression:'x => x.countryName =="India"',} 
-			},
-						
+				alpha : {conditionalExpression:'x => x.countryName =="India"',} 
+			},			
 			stateName : {
-				alpha :  {allowWhiteSpace:true,} 
-			},
-						
+				alpha : {allowWhiteSpace:true,} 
+			},			
 			stateCode : {
-				alpha :  {message:'You can enter only alphabets.',} 
+				alpha : {message:'You can enter only alphabets.',} 
 			},
-			        };
-		 var addressInfo = {
-			countryName:'', countryCode:'', cityName:'', stateName:'', stateCode:'', 
-		}
+		};
+		var addressInfo = { countryName:'', countryCode:'', cityName:'', stateName:'', stateCode:'',  }
 		this.addressInfoFormGroup = this.formBuilder.group(addressInfo,formBuilderConfiguration);
     }
 }

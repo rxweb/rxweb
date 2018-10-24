@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { AccountInfo } from './account-info.model';
@@ -10,13 +9,9 @@ import { AccountInfo } from './account-info.model';
     templateUrl: './different-complete.component.html'
 })
 export class DifferentCompleteComponent implements OnInit {
-
     accountInfoFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

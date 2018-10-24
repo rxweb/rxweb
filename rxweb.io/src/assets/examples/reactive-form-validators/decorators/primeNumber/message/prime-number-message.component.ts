@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { NumberInfo } from './number-info.model';
@@ -10,10 +9,9 @@ import { NumberInfo } from './number-info.model';
     templateUrl: './prime-number-message.component.html'
 })
 export class PrimeNumberMessageComponent implements OnInit {
-
     numberInfoFormGroup: FormGroup
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,11 +9,9 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class EndsWithDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
@@ -23,20 +19,13 @@ export class EndsWithDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			name : {
-				endsWith :  {value:'m',message:'{{0}} does not ends with `m`',} 
-			},
-						
-			profession : {
-				endsWith :  {value:'r',conditionalExpression:(x,y) => x.name == "Adam" ,} 
-			},
-						
+				endsWith : {value:'m',message:'{{0}} does not ends with `m`',} 
+			},			
 			taskId : {
-				endsWith :  {value:'#',conditionalExpression:'x => x.name =="Adam"',} 
+				endsWith : {value:'#',conditionalExpression:'x => x.name =="Adam"',} 
 			},
-			        };
-		 var user = {
-			name:'', profession:'', taskId:'', 
-		}
+		};
+		var user = { name:'', profession:'', taskId:'',  }
 		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

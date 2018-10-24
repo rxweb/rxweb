@@ -6,9 +6,6 @@ export class AttandanceDetail {
 	entryPlace: string;
 
 	@prop()
-	totalIn: string;
-
-	@prop()
 	entryTime: string;
 
 	@prop()

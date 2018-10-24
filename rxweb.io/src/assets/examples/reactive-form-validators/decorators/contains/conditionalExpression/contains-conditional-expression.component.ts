@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
@@ -10,12 +9,9 @@ import { User } from './user.model';
     templateUrl: './contains-conditional-expression.component.html'
 })
 export class ContainsConditionalExpressionComponent implements OnInit {
-
     userFormGroup: FormGroup
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

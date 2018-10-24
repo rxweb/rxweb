@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { Contact } from './contact.model';
@@ -10,10 +9,9 @@ import { Contact } from './contact.model';
     templateUrl: './min-length-add.component.html'
 })
 export class MinLengthAddComponent implements OnInit {
-
     contactFormGroup: FormGroup
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

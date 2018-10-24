@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { WebSiteInfoModel } from './web-site-info-model.model';
@@ -11,11 +10,10 @@ import { WebSiteInfoModel } from './web-site-info-model.model';
     templateUrl: './url-edit.component.html'
 })
 export class UrlEditComponent implements OnInit {
-
     webSiteInfoModelFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder,		private http: HttpClient
+
+    constructor(
+        private formBuilder: RxFormBuilder,        private http: HttpClient
 
     ) { }
 

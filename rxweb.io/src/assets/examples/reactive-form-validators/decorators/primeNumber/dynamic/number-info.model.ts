@@ -6,9 +6,6 @@ export class NumberInfo {
 	numberType: string;
 
 	@prop()
-	secondNumber: string;
-
-	@prop()
 	thirdNumber: string;
 
 	@prop()

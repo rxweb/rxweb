@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { AddressInfo } from './address-info.model';
@@ -10,10 +9,9 @@ import { AddressInfo } from './address-info.model';
     templateUrl: './alpha-allow-white-space.component.html'
 })
 export class AlphaAllowWhiteSpaceComponent implements OnInit {
-
     addressInfoFormGroup: FormGroup
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

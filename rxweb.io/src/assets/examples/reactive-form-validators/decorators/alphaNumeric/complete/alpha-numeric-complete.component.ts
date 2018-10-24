@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { Location } from './location.model';
@@ -10,14 +9,9 @@ import { Location } from './location.model';
     templateUrl: './alpha-numeric-complete.component.html'
 })
 export class AlphaNumericCompleteComponent implements OnInit {
-
     locationFormGroup: FormGroup
-					
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

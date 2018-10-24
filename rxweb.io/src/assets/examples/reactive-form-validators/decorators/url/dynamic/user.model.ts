@@ -6,9 +6,6 @@ export class User {
 	adminWebsiteUrl: string;
 
 	@prop()
-	qaWebsiteUrl: string;
-
-	@prop()
 	customerWebsiteUrl: string;
 
 	@prop()

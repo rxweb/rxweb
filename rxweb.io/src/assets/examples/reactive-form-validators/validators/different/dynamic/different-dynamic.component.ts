@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,12 +9,9 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class DifferentDynamicValidatorComponent implements OnInit {
     accountInfoFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
@@ -24,20 +19,13 @@ export class DifferentDynamicValidatorComponent implements OnInit {
         formBuilderConfiguration.dynamicValidation = {
 			
 			password : {
-				different :  {fieldName:"firstName",message:'{{0}} is same as firstName',} 
-			},
-						
-			lastName : {
-				different :  {fieldName:"firstName",conditionalExpression:(x,y) => x.firstName == "Bharat" ,} 
-			},
-						
+				different : {fieldName:"firstName",message:'{{0}} is same as firstName',} 
+			},			
 			userName : {
-				different :  {fieldName:"firstName",conditionalExpression:'x => x.firstName == "Bharat"',} 
+				different : {fieldName:"firstName",conditionalExpression:'x => x.firstName == "Bharat"',} 
 			},
-			        };
-		 var accountInfo = {
-			firstName:'', password:'', lastName:'', userName:'', 
-		}
+		};
+		var accountInfo = { firstName:'', password:'', lastName:'', userName:'',  }
 		this.accountInfoFormGroup = this.formBuilder.group(accountInfo,formBuilderConfiguration);
     }
 }

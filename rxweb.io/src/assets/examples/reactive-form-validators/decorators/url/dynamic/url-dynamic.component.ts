@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
 
@@ -12,13 +10,9 @@ import { User } from './user.model';
     templateUrl: './url-dynamic.component.html'
 })
 export class UrlDynamicComponent implements OnInit {
-
     userFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 
@@ -26,23 +20,17 @@ export class UrlDynamicComponent implements OnInit {
         let user = new User();
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
+	
 			adminWebsiteUrl : {
-				url : true  
-			},
-						
-			qaWebsiteUrl : {
-				url :  {conditionalExpression:(x,y) => x.adminWebsiteUrl == "https://google.co.in" ,} 
-			},
-						
+				url :true  
+			},	
+	
 			customerWebsiteUrl : {
-				url :  {conditionalExpression:'x => x.adminWebsiteUrl == "https://google.co.in"' ,} 
-			},
-						
+				url : {conditionalExpression:'x => x.adminWebsiteUrl == "https://google.co.in"' ,} 
+			},	
 			maintenanceWebSiteUrl : {
-				url :  {message:'Is not the correct url pattern.',} 
-			},
-			        };
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+				url : {message:'Is not the correct url pattern.',} 
+			},		};
+        this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
     }
 }

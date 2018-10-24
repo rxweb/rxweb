@@ -6,9 +6,6 @@ export class User {
 	name: string;
 
 	@prop()
-	profession: string;
-
-	@prop()
 	taskId: string;
 
 }

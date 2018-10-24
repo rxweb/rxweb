@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { UserInfo } from './user-info.model';
@@ -11,11 +10,10 @@ import { UserInfo } from './user-info.model';
     templateUrl: './required-edit.component.html'
 })
 export class RequiredEditComponent implements OnInit {
-
     userInfoFormGroup: FormGroup
-					
-	    constructor(
-        private formBuilder: RxFormBuilder,		private http: HttpClient
+
+    constructor(
+        private formBuilder: RxFormBuilder,        private http: HttpClient
 
     ) { }
 

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,37 +9,25 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class DigitDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
 			age : {
-				digit : true  
-			},
-						
-			phoneNumber : {
-				digit :  {conditionalExpression:(x,y) => x.age >= 25 ,} 
-			},
-						
+				digit :true  
+			},			
 			faxNumber : {
-				digit :  {conditionalExpression:'x => x.age ==25',} 
-			},
-						
+				digit : {conditionalExpression:'x => x.age ==25',} 
+			},			
 			mobileNumber : {
-				digit :  {message:'Please enter only digit.',} 
+				digit : {message:'Please enter only digit.',} 
 			},
-			        };
-		 var user = {
-			age:'', phoneNumber:'', faxNumber:'', mobileNumber:'', 
-		}
+		};
+		var user = { age:'', phoneNumber:'', faxNumber:'', mobileNumber:'',  }
 		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

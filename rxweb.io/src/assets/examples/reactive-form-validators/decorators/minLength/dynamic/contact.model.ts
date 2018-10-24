@@ -12,9 +12,6 @@ export class Contact {
 	landLineNo: string;
 
 	@prop()
-	countryCode: string;
-
-	@prop()
 	stateCode: string;
 
 }

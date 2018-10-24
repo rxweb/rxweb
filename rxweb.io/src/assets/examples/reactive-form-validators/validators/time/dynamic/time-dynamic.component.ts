@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,38 +9,26 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class TimeDynamicValidatorComponent implements OnInit {
     attandanceDetailFormGroup: FormGroup
-					
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
 			
-			totalIn : {
-				time :  {conditionalExpression:(x,y) => x.entryPlace == "Lunch Room" ,} 
-			},
-						
 			entryTime : {
-				time :  {conditionalExpression:'x => x.entryPlace == "Lunch Room"',} 
-			},
-						
+				time : {conditionalExpression:'x => x.entryPlace == "Lunch Room"',} 
+			},			
 			totalOutTime : {
-				time :  {allowSeconds:true,} 
-			},
-						
+				time : {allowSeconds:true,} 
+			},			
 			exitTime : {
-				time :  {message:'You can enter only time format data',} 
+				time : {message:'You can enter only time format data',} 
 			},
-			        };
-		 var attandanceDetail = {
-			entryPlace:'', totalIn:'', entryTime:'', totalOutTime:'', exitTime:'', 
-		}
+		};
+		var attandanceDetail = { entryPlace:'', totalIn:'', entryTime:'', totalOutTime:'', exitTime:'',  }
 		this.attandanceDetailFormGroup = this.formBuilder.group(attandanceDetail,formBuilderConfiguration);
     }
 }

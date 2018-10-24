@@ -1,11 +1,11 @@
 <div>
-<form  [formGroup]="userFormGroup">
-<div class="form-group">
-    <label>Mobile Number</label>
-		<input type="text" formControlName="mobileNumber" class="form-control"  />
-	    <small class="form-text text-muted">Shows custom message<br/></small>
-    <small class="form-text text-danger" *ngIf="userFormGroup.controls.mobileNumber.errors">{{userFormGroup.controls.mobileNumber.errors.digit.message}}<br/></small>
-</div>
-<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input type="text" formControlName="mobileNumber" class="form-control"  />
+      <small class="form-text text-muted">Shows custom message<br/></small>
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.mobileNumber.errors">{{userFormGroup.controls.mobileNumber.errors.digit.message}}<br/></small>
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
 </div>

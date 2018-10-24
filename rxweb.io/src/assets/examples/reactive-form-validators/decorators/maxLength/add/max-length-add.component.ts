@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { Location } from './location.model';
@@ -10,10 +9,9 @@ import { Location } from './location.model';
     templateUrl: './max-length-add.component.html'
 })
 export class MaxLengthAddComponent implements OnInit {
-
     locationFormGroup: FormGroup
-					
-	    constructor(
+
+    constructor(
         private formBuilder: RxFormBuilder
     ) { }
 

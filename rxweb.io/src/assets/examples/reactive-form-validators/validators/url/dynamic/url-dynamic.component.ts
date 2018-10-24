@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,37 +9,25 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 })
 export class UrlDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
-					
-					
-					
-					
-	    constructor(
-        private formBuilder: RxFormBuilder
+
+	constructor(
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
         let formBuilderConfiguration = new FormBuilderConfiguration();
         formBuilderConfiguration.dynamicValidation = {
-			
 			adminWebsiteUrl : {
-				url : true  
-			},
-						
-			qaWebsiteUrl : {
-				url :  {conditionalExpression:(x,y) => x.adminWebsiteUrl == "https://google.co.in" ,} 
-			},
-						
+				url :true  
+			},			
 			customerWebsiteUrl : {
-				url :  {conditionalExpression:'x => x.adminWebsiteUrl == "https://google.co.in"' ,} 
-			},
-						
+				url : {conditionalExpression:'x => x.adminWebsiteUrl == "https://google.co.in"' ,} 
+			},			
 			maintenanceWebSiteUrl : {
-				url :  {message:'Is not the correct url pattern.',} 
+				url : {message:'Is not the correct url pattern.',} 
 			},
-			        };
-		 var user = {
-			adminWebsiteUrl:'', qaWebsiteUrl:'', customerWebsiteUrl:'', maintenanceWebSiteUrl:'', 
-		}
+		};
+		var user = { adminWebsiteUrl:'', qaWebsiteUrl:'', customerWebsiteUrl:'', maintenanceWebSiteUrl:'',  }
 		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
     }
 }

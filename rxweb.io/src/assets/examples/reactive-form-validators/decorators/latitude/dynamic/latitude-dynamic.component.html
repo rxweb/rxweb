@@ -1,32 +1,25 @@
 <div>
-<form  [formGroup]="countryFormGroup">
-<div class="form-group">
-    <label> Continent</label>
-		<input type="text" formControlName="continent" class="form-control"  />
-	    <small class="form-text text-muted">If you want to apply conditional validation on 'Second Country Latitude' or 'Third Country Latitude', then you need to add 'Continent' input as 'Asia'.<br/></small>
-    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.continent.errors">{{countryFormGroup.controls.continent.errors.latitude.message}}<br/></small>
-</div>
-<div class="form-group">
-    <label>Second Country Latitude</label>
-		<input type="text" formControlName="secondCountryLatitude" class="form-control"  />
-	    <small class="form-text text-muted">If you want to apply conditional validation on 'Second Country Latitude' then you need to add 'Continent' input as 'Asia'.<br/></small>
-    <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.secondCountryLatitude.errors">{{countryFormGroup.controls.secondCountryLatitude.errors.latitude.message}}<br/></small>
-</div>
-<div class="form-group">
-    <label>Third Country Latitude</label>
-		<input type="text" formControlName="thirdCountryLatitude" class="form-control"  />
-	    <small class="form-text text-muted">If you want to apply conditional validation on 'Third Country Latitude' then you need to add 'Continent' input as 'Asia'.<br/></small>
-    <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.thirdCountryLatitude.errors">{{countryFormGroup.controls.thirdCountryLatitude.errors.latitude.message}}<br/></small>
-</div>
-<div class="form-group">
-    <label>First Country Latitude</label>
-		<input type="text" formControlName="firstCountryLatitude" class="form-control"  />
-	    <small class="form-text text-muted">You can enter only latitude<br/></small>
-    <small class="form-text text-muted">Shows custom message.<br/></small>
-    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.firstCountryLatitude.errors">{{countryFormGroup.controls.firstCountryLatitude.errors.latitude.message}}<br/></small>
-</div>
-<button [disabled]="!countryFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>
+  <form  [formGroup]="countryFormGroup">
+    <div class="form-group">
+      <label> Continent</label>
+      <input type="text" formControlName="continent" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Second Country Latitude' or 'Third Country Latitude', then you need to add 'Continent' input as 'Asia'.<br/></small>
+      <small class="form-text text-danger" *ngIf="countryFormGroup.controls.continent.errors">{{countryFormGroup.controls.continent.errors.latitude.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Third Country Latitude</label>
+      <input type="text" formControlName="thirdCountryLatitude" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Third Country Latitude' then you need to add 'Continent' input as 'Asia'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+      <small class="form-text text-danger" *ngIf="countryFormGroup.controls.thirdCountryLatitude.errors">{{countryFormGroup.controls.thirdCountryLatitude.errors.latitude.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>First Country Latitude</label>
+      <input type="text" formControlName="firstCountryLatitude" class="form-control"  />
+      <small class="form-text text-muted">You can enter only latitude<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+      <small class="form-text text-danger" *ngIf="countryFormGroup.controls.firstCountryLatitude.errors">{{countryFormGroup.controls.firstCountryLatitude.errors.latitude.message}}<br/></small>
+    </div>
+    <button [disabled]="!countryFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
 </div>
