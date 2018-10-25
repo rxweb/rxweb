@@ -146,6 +146,8 @@ This Complete range example which includes all the RangeConfig properties will f
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\dynamic\employee-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\dynamic\range-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\dynamic\range-dynamic.component.html)]
 ***

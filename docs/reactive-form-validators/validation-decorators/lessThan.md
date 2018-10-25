@@ -129,6 +129,8 @@ This Complete lessThan example which includes all the RelationalOperatorConfig p
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\less-than-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\less-than-dynamic.component.html)]
 ***

@@ -86,6 +86,8 @@ To override the global configuration message and show the custom message on part
 <app-leapYear-dynamic-validator></app-leapYear-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\leapYear\dynamic\leap-year-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\leapYear\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\leapYear\dynamic\leap-year-dynamic.component.html)]
 ***

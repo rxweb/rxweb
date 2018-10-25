@@ -129,6 +129,8 @@ This Complete MinLength example which includes all the NumberConfig properties w
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\dynamic\contact.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\dynamic\max-number-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minLength\dynamic\min-length-dynamic.component.html)]
 ***

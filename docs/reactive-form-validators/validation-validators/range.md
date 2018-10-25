@@ -119,6 +119,8 @@ Maximum number is for define a maximum number of range
 <app-range-dynamic-validator></app-range-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\range\dynamic\range-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\range\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\range\dynamic\range-dynamic.component.html)]
 ***

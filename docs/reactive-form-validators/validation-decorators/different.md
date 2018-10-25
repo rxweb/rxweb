@@ -127,6 +127,8 @@ This Complete Different example which includes all the DifferentConfig propertie
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\dynamic\account-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\dynamic\different-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\dynamic\different-dynamic.component.html)]
 ***

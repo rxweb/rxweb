@@ -85,6 +85,8 @@ To override the global configuration message and show the custom message on part
 <app-digit-dynamic-validator></app-digit-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\dynamic\digit-dynamic.component.ts)]
+ # [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\digit\dynamic\digit-dynamic.component.html)]
 ***

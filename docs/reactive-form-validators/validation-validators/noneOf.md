@@ -104,6 +104,8 @@ To override the global configuration message and show the custom message on part
 <app-noneOf-dynamic-validator></app-noneOf-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\noneOf\dynamic\noneOf-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\noneOf\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\noneOf\dynamic\noneOf-dynamic.component.html)]
 ***

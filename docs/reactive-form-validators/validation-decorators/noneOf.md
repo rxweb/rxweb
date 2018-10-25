@@ -127,6 +127,8 @@ This Complete noneOf example which includes all the ArrayConfig properties will 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\dynamic\noneOf-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\noneOf\dynamic\noneOf-dynamic.component.html)]
 ***

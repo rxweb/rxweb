@@ -101,6 +101,8 @@ To override the global configuration message and show the custom message on part
 <app-greaterThanEqualTo-dynamic-validator></app-greaterThanEqualTo-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\greaterThanEqualTo\dynamic\greater-than-equal-to-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\greaterThanEqualTo\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\greaterThanEqualTo\dynamic\greater-than-equal-to-dynamic.component.html)]
 ***

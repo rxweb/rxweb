@@ -103,6 +103,8 @@ enter value which you want to restrict string length in the property.
 <app-minLength-dynamic-validator></app-minLength-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minLength\dynamic\max-number-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minLength\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minLength\dynamic\min-length-dynamic.component.html)]
 ***

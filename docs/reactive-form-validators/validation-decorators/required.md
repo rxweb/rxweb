@@ -109,6 +109,8 @@ This Complete required example which includes all the RequiredConfig properties 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\user.model.ts)]
 # [Component](#tab\dynamicComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\required-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\dynamic.json)]
 # [Html](#tab\dynamicHtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\required-dynamic.component.html)]
 ***

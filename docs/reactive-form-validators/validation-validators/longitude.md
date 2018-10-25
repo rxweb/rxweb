@@ -80,6 +80,8 @@ To override the global configuration message and show the custom message on part
 <app-longitude-dynamic-validator></app-longitude-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\longitude\dynamic\longitude-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\longitude\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\longitude\dynamic\longitude-dynamic.component.html)]
 ***

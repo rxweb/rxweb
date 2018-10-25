@@ -111,6 +111,8 @@ This Complete Email example which includes all the EmailConfig properties will f
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\email\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\email\dynamic\email-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\email\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\email\dynamic\email-dynamic.component.html)]
 ***

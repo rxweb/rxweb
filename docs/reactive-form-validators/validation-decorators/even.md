@@ -111,6 +111,8 @@ This Complete even example which includes all the BaseConfig properties will ful
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\even\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\even\dynamic\even-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\even\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\even\dynamic\even-dynamic.component.html)]
 ***

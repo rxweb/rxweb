@@ -129,6 +129,8 @@ This Complete Contains example which includes all the ContainsConfig properties 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\contains-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\contains-dynamic.component.html)]
 ***

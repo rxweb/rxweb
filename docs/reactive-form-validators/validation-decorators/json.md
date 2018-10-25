@@ -111,6 +111,8 @@ This Complete Json example which includes all the DefaultConfig properties will 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\dynamic\json-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\dynamic\json-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\dynamic\json-dynamic.component.html)]
 ***

@@ -108,6 +108,8 @@ This Complete url example which includes all the UrlConfig properties will fulfi
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\dynamic\web-site-info-model.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\dynamic\url-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\dynamic\url-dynamic.component.html)]
 ***

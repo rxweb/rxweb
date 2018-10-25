@@ -103,6 +103,8 @@ enter value which you want to restrict number in the property
 <app-minDate-dynamic-validator></app-minDate-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\dynamic\min-date-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minDate\dynamic\min-date-dynamic.component.html)]
 ***

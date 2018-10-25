@@ -98,6 +98,8 @@ To override the global configuration message and show the custom message on part
 <app-fileSize-dynamic-validator></app-fileSize-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\fileSize\dynamic\file-size-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\fileSize\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\fileSize\dynamic\file-size-dynamic.component.html)]
 ***

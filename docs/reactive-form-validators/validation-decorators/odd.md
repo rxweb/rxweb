@@ -110,6 +110,8 @@ This Complete Odd example which includes all the BaseConfig properties will fulf
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\odd-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\odd-dynamic.component.html)]
 ***

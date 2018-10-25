@@ -110,6 +110,8 @@ This Complete hexColor example which includes all the HexColorConfig properties 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\dynamic\hexcolor-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\dynamic\hex-color-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\dynamic\hex-color-dynamic.component.html)]
 ***

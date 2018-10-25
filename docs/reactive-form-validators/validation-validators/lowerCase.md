@@ -86,6 +86,8 @@ To override the global configuration message and show the custom message on part
 <app-lowerCase-dynamic-validator></app-lowerCase-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\lowerCase\dynamic\lower-case-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\lowerCase\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\lowerCase\dynamic\lower-case-dynamic.component.html)]
 ***

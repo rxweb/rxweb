@@ -129,6 +129,8 @@ This Complete pattern example which includes all the PatternConfig properties wi
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\dynamic\user.model.ts)]
 # [Component](#tab\dynamicComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\dynamic\pattern-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\dynamic\dynamic.json)]
 # [Html](#tab\dynamicHtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\pattern\dynamic\pattern-dynamic.component.html)]
 ***

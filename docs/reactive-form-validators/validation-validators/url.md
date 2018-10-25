@@ -84,6 +84,8 @@ To override the global configuration message and show the custom message on part
 <app-url-dynamic-validator></app-url-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\url\dynamic\url-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\url\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\url\dynamic\url-dynamic.component.html)]
 ***

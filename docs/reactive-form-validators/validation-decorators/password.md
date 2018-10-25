@@ -104,6 +104,8 @@ This Complete password example which includes all the PasswordConfig properties 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\login-info.model.ts)]
 # [Component](#tab\dynamicComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\password-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\dynamic.json)]
 # [Html](#tab\dynamicHtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\password-dynamic.component.html)]
 ***

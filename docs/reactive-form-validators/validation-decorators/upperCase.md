@@ -109,6 +109,8 @@ This Complete upperCase example which includes all the MessageConfig properties 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\upperCase\dynamic\location.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\upperCase\dynamic\upper-case-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\upperCase\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\upperCase\dynamic\upper-case-dynamic.component.html)]
 ***

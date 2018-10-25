@@ -104,6 +104,8 @@ enter value which you want to restrict number in the property
 <app-minNumber-dynamic-validator></app-minNumber-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\dynamic\min-number-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\dynamic\min-number-dynamic.component.html)]
 ***

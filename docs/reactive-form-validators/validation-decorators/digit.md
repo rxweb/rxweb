@@ -109,6 +109,8 @@ This Complete digit example which includes all the DigitConfig properties will f
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\digit\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\digit\dynamic\digit-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\digit\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\digit\dynamic\digit-dynamic.component.html)]
 ***

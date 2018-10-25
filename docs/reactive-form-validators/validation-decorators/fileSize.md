@@ -120,6 +120,8 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\dynamic\storage-capacity.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\dynamic\file-size-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\dynamic\file-size-dynamic.component.html)]
 ***

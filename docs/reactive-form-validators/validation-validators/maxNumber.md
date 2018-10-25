@@ -103,6 +103,8 @@ enter value which you want to restrict number in the property.
 <app-maxNumber-dynamic-validator></app-maxNumber-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\maxNumber\dynamic\max-number-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\maxNumber\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\maxNumber\dynamic\max-number-dynamic.component.html)]
 ***

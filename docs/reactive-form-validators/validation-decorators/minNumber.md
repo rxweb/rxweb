@@ -129,6 +129,8 @@ This Complete minNumber example which includes all the NumberConfig properties w
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\result-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\min-number-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\min-number-dynamic.component.html)]
 ***

@@ -127,6 +127,8 @@ This Complete greaterThanEqualTo example which includes all the RelationalOperat
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\dynamic\greater-than-equal-to-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThanEqualTo\dynamic\greater-than-equal-to-dynamic.component.html)]
 ***

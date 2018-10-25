@@ -88,6 +88,8 @@ To override the global configuration message and show the custom message on part
 <app-hexColor-dynamic-validator></app-hexColor-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\hexColor\dynamic\hex-color-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\hexColor\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\hexColor\dynamic\hex-color-dynamic.component.html)]
 ***

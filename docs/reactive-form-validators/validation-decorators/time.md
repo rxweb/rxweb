@@ -128,6 +128,8 @@ This Complete time example which includes all the TimeConfig properties will ful
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\time\dynamic\attandance-detail.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\time\dynamic\time-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\time\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\time\dynamic\time-dynamic.component.html)]
 ***

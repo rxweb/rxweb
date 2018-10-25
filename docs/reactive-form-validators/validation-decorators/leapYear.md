@@ -110,6 +110,8 @@ This Complete LeapYear example which includes all the BaseConfig properties will
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\dynamic\leapYear-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\dynamic\leapYear-dynamic.component.html)]
 ***

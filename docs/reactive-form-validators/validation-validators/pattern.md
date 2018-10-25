@@ -103,6 +103,8 @@ enter specific regex pattern
 <app-pattern-dynamic-validator></app-pattern-dynamic-validator>
 # [Component](#tab\dynamicComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\dynamic\pattern-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\dynamic\dynamic.json)]
 # [Html](#tab\dynamicHtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\dynamic\pattern-dynamic.component.html)]
 ***

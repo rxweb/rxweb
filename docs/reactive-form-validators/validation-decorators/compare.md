@@ -98,6 +98,8 @@ This Complete Compare example which includes all the CompareConfig properties wi
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\compare-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\compare-dynamic.component.html)]
 ***

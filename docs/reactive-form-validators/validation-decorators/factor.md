@@ -148,6 +148,8 @@ This Complete Factor example which includes all the FactorConfig properties will
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\factor-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\factor-dynamic.component.html)]
 ***

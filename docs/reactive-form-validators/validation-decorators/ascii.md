@@ -101,6 +101,8 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\ascii\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\ascii\dynamic\ascii-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\ascii\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\ascii\dynamic\ascii-dynamic.component.html)]
 ***

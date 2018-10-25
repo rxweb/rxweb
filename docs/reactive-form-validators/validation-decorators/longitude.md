@@ -101,6 +101,8 @@ To override the global configuration message and show the custom message on part
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\longitude\dynamic\country.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\longitude\dynamic\longitude-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\longitude\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\longitude\dynamic\longitude-dynamic.component.html)]
 ***
