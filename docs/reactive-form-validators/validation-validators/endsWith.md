@@ -1,6 +1,6 @@
 ---
 title: endsWith
-description: endsWith validation validators allows user to enter the input which ends with perticular value
+description: endsWith validation validator allows user to enter the input which ends with perticular value
 author: rxcontributortwo
 
 ---

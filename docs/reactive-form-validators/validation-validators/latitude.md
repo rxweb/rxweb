@@ -1,6 +1,6 @@
 ---
 title: latitude
-description: latitude validation decorator allows user to enter value which is valid latitude.
+description: latitude validation validator allows user to enter value which is valid latitude.
 author: rxcontributortwo
 
 ---

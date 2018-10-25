@@ -1,6 +1,6 @@
 ---
 title: factor 
-description: factor validation decorator will allow user to enter factor of a number which is called dividend.
+description: factor validation validator will allow user to enter factor of a number which is called dividend.
 author: rxcontributorone
 
 ---

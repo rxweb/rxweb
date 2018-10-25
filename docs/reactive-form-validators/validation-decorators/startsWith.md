@@ -23,9 +23,9 @@ Here we have covered Add and Edit form operations.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\startsWith\add\starts-with-add.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\startsWith\add\starts-with-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\startsWith\edit\starts-with-edit.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\startsWith\edit\starts-with-edit.component.ts)]
 ***
 
 Next, we need to write html code.

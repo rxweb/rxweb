@@ -1,6 +1,6 @@
 ---
 title: longitude
-description: longitude validation validators allows user to enter the input which is in the proper longitude format.
+description: longitude validation validator allows user to enter the input which is in the proper longitude format.
 author: rxcontributortwo
 
 ---

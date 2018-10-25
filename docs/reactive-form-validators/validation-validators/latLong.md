@@ -1,6 +1,6 @@
 ---
 title: latLong
-description: latLong validation decorator allows user to enter the input which is valid Latitude or longitude.
+description: latLong validation validator allows user to enter the input which is valid Latitude or longitude.
 author: rxcontributortwo
 
 ---

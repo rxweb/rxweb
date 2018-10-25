@@ -1,6 +1,6 @@
 ---
 title: mac
-description: mac validation decorator will check whether the value entered is a valid mac address.
+description: mac validation validator will check whether the value entered is a valid mac address.
 author: rxcontributorone
 
 ---

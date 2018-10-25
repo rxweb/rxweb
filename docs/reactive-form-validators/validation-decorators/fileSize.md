@@ -24,9 +24,9 @@ Here we have covered Add and Edit form operations.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\add\file-size-add.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\add\file-size-add.component.ts)]
 # [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\edit\file-size-edit.component.ts?type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\edit\file-size-edit.component.ts)]
 ***
 
 Next, we need to write html code.
