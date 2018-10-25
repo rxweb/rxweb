@@ -13,7 +13,7 @@
 <div class='col-lg-12'>
 <h2>When to use</h2>
 
-<p>Let's assume you are creating a storageCapacity form, which contains fields like device, videoStorageSize, documentStorageSize and photographStorageSize and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..</p>
+<p>Suppose you want to create a storageCapacity form, which contains fields like device, videoStorageSize, documentStorageSize and photographStorageSize and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..</p>
 <ol>
 	<li> Allow videoStorageSize which have proper file size format and adding Custom Message on videoStorageSize.</li>
 	<li> Apply documentStorageSize validation based on matched condition in the form, like if the device is 'SmartPhone', then the documentStorageSize must be a file size format (Used as a function).</li>
@@ -27,7 +27,7 @@
 <div class='col-lg-12'>
 <h2>Basic fileSize Validation</h2>
 
-<p>We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
+<p>We need to create a <span class='highlighted'>FormGroup</span> in the component. To achieve this we need to add <span class='highlighted'>RxFormBuilder</span>. The <span class='highlighted'>RxFormBuilder</span> is an injectable service that is provided with the <span class='highlighted'>RxReactiveFormsModule</span>. Inject this dependency by adding it to the component constructor.</p>
 <div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>

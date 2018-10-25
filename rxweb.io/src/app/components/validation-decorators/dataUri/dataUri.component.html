@@ -2,7 +2,7 @@
 	<div class="content">
 		<div class="title" id="datauri">
 	<h1> dataUri<a target="_blank" href="https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/validation-decorators/dataUri.md" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a><span class="label validator-type">decorators</span></h1>
-	<p> dataUri validation decorator allows user to enter the input which is in the proper data URI format.</p>
+	<p> dataUri validation decorator allows user to enter the input which is a valid data Uri.</p>
 </div>
 		<div class="bg-white py-3 border-radius">
 			<div class="row">
@@ -13,11 +13,11 @@
 <div class='col-lg-12'>
 <h2>When to use</h2>
 
-<p>Let's assume you are creating a user form, which contains fields like scheme, htmlDataUri, cssDataUri and javascriptDataUri and you want the user to enter input which is a proper data URI format. Here depending upon the requirement, these scenarios may arise..</p>
+<p>Suppose you want to create a user form, which contains fields like scheme, AudioDataUri, VideoDataUri and ImageDataUri and you want the user to enter input which is a proper data URI format. depending on the requirements, these scenarios may arise..</p>
 <ol>
-	<li> Allow htmlDataUri which have proper data URI format and adding Custom Message on htmlDataUri.</li>
-	<li> Apply cssDataUri validation based on matched condition in the form, like if the scheme is 'DataUri', then the cssDataUri must be a data URI format (Used as a function).</li>
-	<li> Apply javascriptDataUri validation based on matched condition in the form, like if the scheme is 'DataUri', then the javascriptDataUri must be a data URI format (Used as a string datatype).</li>
+	<li> Allow the user to enter valid dataUri in the field of AudioDataUri with custom error message.</li>
+	<li> Apply validation on VideoDataUri  field based on matched condition in the form, like if the scheme is 'DataUri', then the VideoDataUri must be a data URI format (Used as a function).</li>
+	<li> Apply validation on ImageDataUri based on matched condition in the form, like if the scheme is 'DataUri', then the ImageDataUri must be a data URI format (Used as a string datatype).</li>
 	<li> Apply dynamic validation, If the validation is changed based on some criteria in the application.</li>
 </ol>
 <p>Let's see how dataUri decorator fulfil the need.</p>
@@ -48,7 +48,7 @@
 </div>
 
 
-<p>Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
+<p>Now, we need to create a <span class='highlighted'>FormGroup</span> in the component. To achieve this we need to add <span class='highlighted'>RxFormBuilder</span>. The <span class='highlighted'>RxFormBuilder</span> is an injectable service that is provided with the <span class='highlighted'>RxReactiveFormsModule</span>. Inject this dependency by adding it to the component constructor.</p>
 <p>Here we have covered Add and Edit form operations. </p>
 <ul class="nav nav-tabs" >
 	<li [class.active]="tab_1=='basicadd'" (click)="tab_1='basicadd'"><a>Add</a></li>

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700');
 .h-modal-icon {
     font-size: 66px
 }
@@ -2380,7 +2381,7 @@ p.alpha-con-title {
 } */
 .comment-section .que a{
     padding: 0 20px;
-
+text-transform: none;
 }
 .comment-section .issue p {
     padding: 18px;
@@ -4218,7 +4219,7 @@ body.modal-open {
     color: #34495e;
     font-size: 19px;
     display: inline-block;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 .header-link.hide-menu svg{
     width: 32px;
@@ -5415,7 +5416,12 @@ input.ng-invalid{
   .text-blue{
       color:#007dc5 !important;
   }
-
+  .text-white{
+      color:#fff !important;
+  }
+.bg-blue{
+    background-color: #007dc5 !important;
+}
  select.ng-invalid{
     background-color:#DA5235;
     color:white;
@@ -5461,6 +5467,7 @@ input.ng-invalid{
     right: 0;
     bottom: 0;
     z-index: 1010; 
+    -webkit-box-shadow: 0 1px 5px 10px rgba(0,0,0,.1);
     box-shadow: 0 1px 5px 10px rgba(0,0,0,.1);
     background-color: #f1f3f6 !important;
 }
@@ -5483,6 +5490,7 @@ input.ng-invalid{
 .dashboard .border-green {
     border-top: 2px solid #a0a19f;
     margin: 20px 10px;
+    -webkit-box-shadow: 0 10px 6px -6px #dadada;
     -moz-box-shadow: 0 10px 6px -6px #dadada;
     box-shadow: 0 10px 6px -6px #dadada;
 }
@@ -5576,6 +5584,7 @@ input.ng-invalid{
 }
 .model-ts.combined {
     background: #fff;
+    -webkit-box-shadow:  0 1px 4px 0px #eee;
     box-shadow: 0 1px 4px 0px #eee;
 }
 blockquote{
@@ -5601,4 +5610,200 @@ a.edit:hover, a.edit:focus {
     border-bottom: 1px solid #eee;
     display: block;
     font-weight: normal;
+}
+/*----- HOME PAGE CSS ------*/
+.home-page {
+    background: #FFF;
+    font-family: 'Roboto', sans-serif;
+}
+.home-page .box-shadow {
+    -webkit-box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.3);
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+.home-page .banner-text h1, .home-page h1, .home-page .h1 {
+    font-size: 65px;
+    font-weight: 700 !important;
+    font-family: 'Roboto', sans-serif;
+color: #fff;
+margin-bottom: 20px;
+}
+.home-page .banner-text p {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 32px;
+    color: #fff;
+}
+.home-page .banner-text {
+    padding-top: 100px;
+}
+.home-page .banner-text .doc-btn {
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #111111;
+    padding: 12px 34px;
+    border-radius: 100px;
+    display: inline-block;
+    box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.45);
+    margin-top:30px;
+    transition: all .3s ease-in-out 0s;
+}
+.home-page .banner-text .doc-btn:hover {
+    background: transparent;
+}
+.home-page .banner-text .doc-btn:hover i {
+   color:#111111;
+}
+header.banner {
+    background-color: #007dc5;
+    color: #fff;
+    background: url("../images/banner-round-shape.png");
+    background-repeat: no-repeat;
+    height: 775px;
+    background-size: 160%;
+    background-position: top 100% center;
+    padding-top: 15px;
+    padding-bottom: 100px;
+}
+.home-page .banner-text .doc-btn i {
+    color: #007dc5;
+    font-weight: normal;
+    padding-left: 16px;
+    transition: all .3s ease-in-out 0s;
+}
+header.banner .top-bar {
+    padding: 15px;
+    clear: both;
+    overflow: auto;
+}
+header.banner .top-bar .navbar-nav li {
+    height: auto;
+    padding: 0 15px;
+}
+header.banner .top-bar .navbar-nav a {
+    padding: 0;
+    height: auto;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 100%;
+    transition: all 0.3s;
+}
+header.banner .top-bar .navbar-nav a:hover {
+    background: #fff;
+    color: #007dc5;
+}
+.home-page h2, .home-page .h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 20px;
+}
+.home-page p, .home-page {
+    font-size: 16px;
+    line-height: 25px;
+    color: #111111;
+    font-weight: 400;
+}
+.home-page h3, .home-page .h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #007dc5;
+}
+.downloads-counter{
+    text-align: center;
+    width: 330px;
+    margin: 60px auto;
+    box-shadow: 0 1px 9px -3px #fff;
+    padding: 30px;
+    border-radius: 10px;
+}
+.downloads-counter i{
+    font-size: 100px;
+    display: block;
+    padding-top: 10px;
+}
+.downloads-counter .number{
+    color: #fff;
+    font-weight: 300;
+    margin-top: 10px;
+    display: block;
+}
+.downloads-counter p{
+    line-height: 24px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.why-rxweb {
+    padding: 80px 0;
+}
+.output.box-shadow {
+    margin: 25px 0;
+}
+.features h2 {
+    margin-bottom: 40px;
+}
+.home-page img.separator {
+    margin-bottom: 60px;
+    padding-top: 30px;
+}
+.home-page .tab-content {
+    border-left: 1px solid #eee;
+}
+.code-content.left-space {
+    padding-left: 20px;
+}
+.code-content.right-space {
+    padding-right: 20px;
+}
+.foot-brand p {
+    border-top: 1px solid #fff;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+.foot-brand{
+    text-align: center;
+    width: 180px;
+    margin-left: auto;
+    margin-right:0;
+}
+.footer-links a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+}
+ul.menu {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+ul.menu li {
+    display: inline-block;
+    padding-right: 30px;
+}
+.home-page .page-footer .version-note {
+    font-size: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 10px;
+    margin-top: 12px;
+}
+.home-page footer.page-footer {
+    padding: 60px 0 48px;
+    margin-top:80px;
+}
+.home-page footer.page-footer .footer-links {
+    max-width: 350px;
+}
+.height-300{
+    height:300px;
+    padding: 20px 20px 20px 20px;
+}
+.height-600{
+    height:600px;
+    padding: 20px 20px 20px 20px;
 }

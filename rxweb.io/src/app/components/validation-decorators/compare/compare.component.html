@@ -13,7 +13,7 @@
 <div class='col-lg-12'>
 <h2>When to use</h2>
 
-<p>Let's assume that you are creating a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.</p>
+<p>Suppose you want to create a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.</p>
 <ol>
 	<li>	The Name of Password field on which comparison is done.</li>
 	<li>  The Custom Message on ConfirmPassword field.  </li>
@@ -47,15 +47,9 @@
 </div>
 
 
-<p>Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
-<p>Here we have covered Add and Edit form operations. </p>
-<ul class="nav nav-tabs" >
-	<li [class.active]="tab_1=='basicadd'" (click)="tab_1='basicadd'"><a>Add</a></li>
-	<li [class.active]="tab_1=='basicedit'" (click)="tab_1='basicedit'"><a>Edit</a></li>
-</ul>
-<div class="tab-content" >
-			  <div class="tab-pane" [class.active]="tab_1=='basicadd'">
-			<div  >
+<p>Now, we need to create a <span class='highlighted'>FormGroup</span> in the component. To achieve this we need to add <span class='highlighted'>RxFormBuilder</span>. The <span class='highlighted'>RxFormBuilder</span> is an injectable service that is provided with the <span class='highlighted'>RxReactiveFormsModule</span>. Inject this dependency by adding it to the component constructor.</p>
+<p>Here we have covered Add and Edit form operations.</p>
+<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -65,24 +59,8 @@
 </div>
 
 
-
-		  </div>
-			  <div class="tab-pane" [class.active]="tab_1=='basicedit'">
-			<div  >
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Component" (cbOnSuccess)="codeContent.edit.ComponentCopied = true" [class.copied]="codeContent.edit.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.edit.Component"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-
-		  </div>
-	</div>																											
 <p>Next, we need to write html code.</p>
-<div class="model-ts" *ngIf="tab_1=='basicadd'">
+<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Html" (cbOnSuccess)="codeContent.add.HtmlCopied = true" [class.copied]="codeContent.add.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
@@ -92,31 +70,12 @@
 </div>
 
 
-<div class="model-ts" *ngIf="tab_1=='basicedit'">
-	<div class="code">
-<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.edit.Html" (cbOnSuccess)="codeContent.edit.HtmlCopied = true" [class.copied]="codeContent.edit.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-			<div highlight="pre code">
-				<pre><code [textContent]="codeContent.edit.Html"></code></pre>
-			</div>
-	</div>
-</div>
-
-
-<div class="model-ts combined " *ngIf="tab_1=='basicadd'">
+<div class="model-ts combined " >
 	<div class="code-example-title">
 		compare Decorator for add Example
 	</div>
 	<div class="code-example">
 			 <app-compare-add></app-compare-add>
-
-	</div>
-</div>
-<div class="model-ts combined " *ngIf="tab_1=='basicedit'">
-	<div class="code-example-title">
-		compare Decorator for edit Example
-	</div>
-	<div class="code-example">
-			 <app-compare-edit></app-compare-edit>
 
 	</div>
 </div>
@@ -161,12 +120,12 @@
 
 
 <ul class="nav nav-tabs" *ngIf="fieldName">
-	<li [class.active]="tab_2=='fieldNamemodel'" (click)="tab_2='fieldNamemodel'"><a>Model</a></li>
-	<li [class.active]="tab_2=='fieldNameComponent'" (click)="tab_2='fieldNameComponent'"><a>Component</a></li>
-	<li [class.active]="tab_2=='fieldNameHtml'" (click)="tab_2='fieldNameHtml'"><a>Html</a></li>
+	<li [class.active]="tab_1=='fieldNamemodel'" (click)="tab_1='fieldNamemodel'"><a>Model</a></li>
+	<li [class.active]="tab_1=='fieldNameComponent'" (click)="tab_1='fieldNameComponent'"><a>Component</a></li>
+	<li [class.active]="tab_1=='fieldNameHtml'" (click)="tab_1='fieldNameHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="fieldName">
-			  <div class="tab-pane" [class.active]="tab_2=='fieldNamemodel'">
+			  <div class="tab-pane" [class.active]="tab_1=='fieldNamemodel'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.fieldName.Model" (cbOnSuccess)="codeContent.fieldName.ModelCopied = true" [class.copied]="codeContent.fieldName.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -179,7 +138,7 @@
 
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_2=='fieldNameComponent'">
+			  <div class="tab-pane" [class.active]="tab_1=='fieldNameComponent'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.fieldName.Component" (cbOnSuccess)="codeContent.fieldName.ComponentCopied = true" [class.copied]="codeContent.fieldName.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -192,7 +151,7 @@
 
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_2=='fieldNameHtml'">
+			  <div class="tab-pane" [class.active]="tab_1=='fieldNameHtml'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.fieldName.Html" (cbOnSuccess)="codeContent.fieldName.HtmlCopied = true" [class.copied]="codeContent.fieldName.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -240,12 +199,12 @@
 
 
 <ul class="nav nav-tabs" *ngIf="message">
-	<li [class.active]="tab_3=='messageModel'" (click)="tab_3='messageModel'"><a>Model</a></li>
-	<li [class.active]="tab_3=='messageComponent'" (click)="tab_3='messageComponent'"><a>Component</a></li>
-	<li [class.active]="tab_3=='messageHtml'" (click)="tab_3='messageHtml'"><a>Html</a></li>
+	<li [class.active]="tab_2=='messageModel'" (click)="tab_2='messageModel'"><a>Model</a></li>
+	<li [class.active]="tab_2=='messageComponent'" (click)="tab_2='messageComponent'"><a>Component</a></li>
+	<li [class.active]="tab_2=='messageHtml'" (click)="tab_2='messageHtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" *ngIf="message">
-			  <div class="tab-pane" [class.active]="tab_3=='messageModel'">
+			  <div class="tab-pane" [class.active]="tab_2=='messageModel'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Model" (cbOnSuccess)="codeContent.message.ModelCopied = true" [class.copied]="codeContent.message.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -258,7 +217,7 @@
 
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_3=='messageComponent'">
+			  <div class="tab-pane" [class.active]="tab_2=='messageComponent'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Component" (cbOnSuccess)="codeContent.message.ComponentCopied = true" [class.copied]="codeContent.message.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -271,7 +230,7 @@
 
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_3=='messageHtml'">
+			  <div class="tab-pane" [class.active]="tab_2=='messageHtml'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.message.Html" (cbOnSuccess)="codeContent.message.HtmlCopied = true" [class.copied]="codeContent.message.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -304,17 +263,17 @@
 
 <p>This Complete Compare example which includes all the CompareConfig properties will fulfil the requirement of scenarios 1 and 2.</p>
 <ul class="nav nav-tabs" >
-	<li [class.active]="tab_4=='completeexample'" (click)="tab_4='completeexample'"><a>Example</a></li>
-	<li [class.active]="tab_4=='completemodel'" (click)="tab_4='completemodel'"><a>Model</a></li>
-	<li [class.active]="tab_4=='completecomponent'" (click)="tab_4='completecomponent'"><a>Component</a></li>
-	<li [class.active]="tab_4=='completehtml'" (click)="tab_4='completehtml'"><a>Html</a></li>
+	<li [class.active]="tab_3=='completeexample'" (click)="tab_3='completeexample'"><a>Example</a></li>
+	<li [class.active]="tab_3=='completemodel'" (click)="tab_3='completemodel'"><a>Model</a></li>
+	<li [class.active]="tab_3=='completecomponent'" (click)="tab_3='completecomponent'"><a>Component</a></li>
+	<li [class.active]="tab_3=='completehtml'" (click)="tab_3='completehtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" >
-			  <div class="tab-pane" [class.active]="tab_4=='completeexample'">
+			  <div class="tab-pane" [class.active]="tab_3=='completeexample'">
 			<app-compare-complete></app-compare-complete>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_4=='completemodel'">
+			  <div class="tab-pane" [class.active]="tab_3=='completemodel'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Model" (cbOnSuccess)="codeContent.complete.ModelCopied = true" [class.copied]="codeContent.complete.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -327,7 +286,7 @@
 
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_4=='completecomponent'">
+			  <div class="tab-pane" [class.active]="tab_3=='completecomponent'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Component" (cbOnSuccess)="codeContent.complete.ComponentCopied = true" [class.copied]="codeContent.complete.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -340,7 +299,7 @@
 
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_4=='completehtml'">
+			  <div class="tab-pane" [class.active]="tab_3=='completehtml'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.complete.Html" (cbOnSuccess)="codeContent.complete.HtmlCopied = true" [class.copied]="codeContent.complete.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -361,17 +320,17 @@
 <h2>Dynamic Compare Example</h2>
 
 <ul class="nav nav-tabs" >
-	<li [class.active]="tab_5=='dynamicexample'" (click)="tab_5='dynamicexample'"><a>Example</a></li>
-	<li [class.active]="tab_5=='dynamicmodel'" (click)="tab_5='dynamicmodel'"><a>Model</a></li>
-	<li [class.active]="tab_5=='dynamiccomponent'" (click)="tab_5='dynamiccomponent'"><a>Component</a></li>
-	<li [class.active]="tab_5=='dynamichtml'" (click)="tab_5='dynamichtml'"><a>Html</a></li>
+	<li [class.active]="tab_4=='dynamicexample'" (click)="tab_4='dynamicexample'"><a>Example</a></li>
+	<li [class.active]="tab_4=='dynamicmodel'" (click)="tab_4='dynamicmodel'"><a>Model</a></li>
+	<li [class.active]="tab_4=='dynamiccomponent'" (click)="tab_4='dynamiccomponent'"><a>Component</a></li>
+	<li [class.active]="tab_4=='dynamichtml'" (click)="tab_4='dynamichtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" >
-			  <div class="tab-pane" [class.active]="tab_5=='dynamicexample'">
+			  <div class="tab-pane" [class.active]="tab_4=='dynamicexample'">
 			<app-compare-dynamic></app-compare-dynamic>
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_5=='dynamicmodel'">
+			  <div class="tab-pane" [class.active]="tab_4=='dynamicmodel'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Model" (cbOnSuccess)="codeContent.dynamic.ModelCopied = true" [class.copied]="codeContent.dynamic.ModelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -384,7 +343,7 @@
 
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_5=='dynamiccomponent'">
+			  <div class="tab-pane" [class.active]="tab_4=='dynamiccomponent'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Component" (cbOnSuccess)="codeContent.dynamic.ComponentCopied = true" [class.copied]="codeContent.dynamic.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -397,7 +356,7 @@
 
 
 		  </div>
-			  <div class="tab-pane" [class.active]="tab_5=='dynamichtml'">
+			  <div class="tab-pane" [class.active]="tab_4=='dynamichtml'">
 			<div  >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Html" (cbOnSuccess)="codeContent.dynamic.HtmlCopied = true" [class.copied]="codeContent.dynamic.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>

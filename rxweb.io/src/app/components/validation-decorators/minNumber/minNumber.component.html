@@ -13,7 +13,7 @@
 <div class='col-lg-12'>
 <h2>When to use</h2>
 
-<p>Let’s assume that you are creating a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.</p>
+<p>Suppose you want to create a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.</p>
 <ol>
 	<li>	Allow number greater than 35 in Maths field.</li>
 	<li>	Apply minNumber validation based on matched condition in the form, like if the input of Maths is 50, then only the minNumber validation will be applied to Statistics field.</li>
@@ -48,7 +48,7 @@
 </div>
 
 
-<p>Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
+<p>Now, we need to create a <span class='highlighted'>FormGroup</span> in the component. To achieve this, we need to add <span class='highlighted'>RxFormBuilder</span>. The <span class='highlighted'>RxFormBuilder</span> is an injectable service that is provided with the <span class='highlighted'>RxReactiveFormsModule</span>. Inject this dependency by adding it to the component constructor.</p>
 <ul class="nav nav-tabs" >
 	<li [class.active]="tab_1=='basicadd'" (click)="tab_1='basicadd'"><a>Add</a></li>
 	<li [class.active]="tab_1=='basicedit'" (click)="tab_1='basicedit'"><a>Edit</a></li>

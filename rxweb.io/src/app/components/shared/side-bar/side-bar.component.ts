@@ -22,7 +22,7 @@ export class SideBarComponent implements OnInit {
       this.showComponent = true;
     });
   }
-  navigateTo(urlObj:string):void{
+  navigateTo(urlObj:string,length:number):void{
     if(urlObj!=null)
     {
       this.router.navigateByUrl(urlObj);

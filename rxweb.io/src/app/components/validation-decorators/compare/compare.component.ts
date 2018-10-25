@@ -17,11 +17,10 @@ export class CompareComponent implements OnInit {
   options: any = { responseType: 'text' };
   codeContent:any = {};
   sidebarLinks:any = {"compare":null,"When to use":null,"Basic Compare Validation":null,"CompareConfig":["fieldName","message"],"Complete Compare Example":null,"Dynamic Compare Example":null};
-  tab_1:string = "basicadd";
-   tab_2:string = "fieldNamemodel";
-   tab_3:string = "messageModel";
-   tab_4:string = "completeexample";
-   tab_5:string = "dynamicexample";
+  tab_1:string = "fieldNamemodel";
+   tab_2:string = "messageModel";
+   tab_3:string = "completeexample";
+   tab_4:string = "dynamicexample";
    
   constructor(
     private http: HttpClient   ,private mergeDashPipe:MergeDashPipe

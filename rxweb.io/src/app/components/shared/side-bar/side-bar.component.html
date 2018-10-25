@@ -7,14 +7,14 @@
 				</div>
 			</li>-->
 			<li *ngFor="let link of links">
-				<a  (click)="link.isOpen = !link.isOpen;navigateTo(link.uri)" routerLinkActive="active"><span class="nav-label">{{link.title}}</span><span class="fa" [class.fa-angle-down]="link.isOpen" [class.arrow]="!link.isOpen"  *ngIf="link.childrens?.length > 0"></span></a>
+				<a  (click)="link.isOpen = !link.isOpen;navigateTo(link.uri,link.childrens?.length)" routerLinkActive="active"><span class="nav-label">{{link.title}}</span></a>
 				<ul [class.hide]="!link.isOpen" [class.show]="link.isOpen" class="nav nav-second-level collapse" aria-expanded="false" *ngIf="link.childrens?.length > 0">
 					<li *ngFor="let secondLevel of link.childrens;let i = index">
-						<a (click)="secondLevel.isOpen = !secondLevel.isOpen;navigateTo(secondLevel.uri)" routerLinkActive="active"><span class="nav-label">{{secondLevel.title}}</span><span class="fa" [class.arrow]="!secondLevel.isOpen" [class.fa-angle-down]="secondLevel.isOpen" *ngIf="secondLevel.childrens?.length > 0"></span>
+						<a (click)="secondLevel.isOpen = !secondLevel.isOpen;navigateTo(secondLevel.uri,secondLevel.childrens?.length)" routerLinkActive="active"><span class="nav-label">{{secondLevel.title}}</span><span class="fa" [class.arrow]="!secondLevel.isOpen" [class.fa-angle-down]="secondLevel.isOpen" *ngIf="secondLevel.childrens?.length > 0"></span>
 						</a>
 						<ul [class.hide]="!secondLevel.isOpen" [class.show]="secondLevel.isOpen" class="nav nav-third-level collapse" aria-expanded="false" *ngIf="secondLevel.childrens?.length > 0">
 							<li *ngFor="let thirdLevel of secondLevel.childrens;let i = index">
-								<a (click)="navigateTo(thirdLevel.uri)" routerLinkActive="active">
+								<a (click)="navigateTo(thirdLevel.uri,thirdLevel.childrens?.length)" routerLinkActive="active">
 										<span class="nav-label">{{thirdLevel.title}}</span>
 									</a>
 							</li>
@@ -24,7 +24,5 @@
 			</li>
 		</ul>
 	</div>
-	<div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 0px; position: absolute; top: 0px; opacity: 0.3; display: none; border-radius: 7px; z-index: 99; right: 1px; height: auto;"></div> 
-	<div class="slimScrollRail" style="width: 0px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
 </aside>
 

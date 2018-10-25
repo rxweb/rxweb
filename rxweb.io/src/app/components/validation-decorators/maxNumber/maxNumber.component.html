@@ -13,7 +13,7 @@
 <div class='col-lg-12'>
 <h2>When to use</h2>
 
-<p>Let’s assume that you are creating a Subject-detail form, which contains fields like subjectCode, maximumMarks, PassingMarks and you want the user to enter valid  Number which does not exceed the Maximum number. Here depending upon the requirement these scenarios may arise.</p>
+<p>Suppose you want to create a Subject-detail form, which contains fields like subjectCode, maximumMarks, PassingMarks and you want the user to enter valid  Number which does not exceed the Maximum number. Here depending upon the requirement these scenarios may arise.</p>
 <ol>
 	<li>	Adding field of PassingMarks without any conditional expression.</li>
 	<li>	Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .</li>
@@ -49,7 +49,7 @@
 </div>
 
 
-<p>Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.</p>
+<p>Now, we need to create a <span class='highlighted'>FormGroup</span> in the component. To achieve this we need to add <span class='highlighted'>RxFormBuilder</span>. The <span class='highlighted'>RxFormBuilder</span> is an injectable service that is provided with the <span class='highlighted'>RxReactiveFormsModule</span>. Inject this dependency by adding it to the component constructor.</p>
 <p>Here we have covered Add and Edit form operations.</p>
 <ul class="nav nav-tabs" >
 	<li [class.active]="tab_1=='basicadd'" (click)="tab_1='basicadd'"><a>Add</a></li>

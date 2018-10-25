@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators"
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -28,7 +29,7 @@ import { HomeComponent } from "src/app/components/home/home.component";
   declarations: [
     AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe,ImportModulesComponent,ConfigureGlobalValidationMessagesComponent,HomeComponent
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,
+  imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,
     HighlightModule.forRoot({ theme: 'default' }), ClipboardModule ,
     NgSlimScrollModule,
     

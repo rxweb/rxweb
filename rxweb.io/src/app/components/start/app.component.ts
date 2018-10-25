@@ -17,10 +17,9 @@ export class AppComponent implements OnInit {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         if (val.url == "/" || val.url == "/home")
-          document.body.classList.add("landing-page")
+          {}
         else {
           this.isHome = false;
-          document.body.classList.remove("landing-page")
         }
       }
     });
