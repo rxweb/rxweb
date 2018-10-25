@@ -34,15 +34,14 @@ export class AppComponent implements OnInit {
   
 	constructor() {  }
   
-	ngOnInit(): void 
-	{
+	ngOnInit(): void {
 		ReactiveFormConfig.set({ 
-            "validationMessage": {
-                "required": "this field is required.",
-				//.... set key name of validator name and assign the message of that particular key.
-            }
-        });
-  }
+                  "validationMessage": {
+                      "required": "this field is required.",
+                      //.... set key name of validator name and assign the message of that particular key.
+                  }
+              });
+        }
 }`
     this.showComponent = true;
   }

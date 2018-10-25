@@ -5803,7 +5803,17 @@ ul.menu li {
     height:300px;
     padding: 20px 20px 20px 20px;
 }
-.height-600{
-    height:600px;
+.height-500{
+    height:480px;
     padding: 20px 20px 20px 20px;
+}
+#full-wrapper{
+    top:62px;
+    margin: 0px 0px 0 250px;
+    padding: 0;
+    background: #ffffff;
+    transition: margin .4s ease 0s;
+    position: relative;
+    min-height: 100%;
+    padding: 0 30px;   
 }
