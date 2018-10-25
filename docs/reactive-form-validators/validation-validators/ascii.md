@@ -1,6 +1,6 @@
 ---
 title: ascii
-description: ascii validation decorator allows user to enter the input which is in the proper ascii format.
+description: ascii validation validator allows user to enter the input which is in the proper ascii format.
 author: rxcontributortwo
 
 ---
