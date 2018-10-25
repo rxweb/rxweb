@@ -27,6 +27,10 @@ Here we have covered Add and Edit form operations.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\edit\password-edit.component.ts)]
 ***
 
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `login-info-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\password\edit\login-info-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\add\password-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\edit\password-edit.component.html?condition="tab_1=='basicedit'"&type=section)]

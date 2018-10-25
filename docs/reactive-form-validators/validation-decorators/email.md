@@ -19,7 +19,8 @@ First we need to create User model class define a property of Email in the model
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\email\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+Here we have covered Add and Edit form operations.
+
 
 [!TabGroup]
 # [Add](#tab\basicadd)
@@ -27,6 +28,11 @@ Here we have covered Add and Edit form operations.
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\email\edit\email-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\email\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\email\add\email-add.component.html?condition="tab_1=='basicadd'"&type=section)]

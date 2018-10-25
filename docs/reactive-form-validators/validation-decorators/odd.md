@@ -28,6 +28,10 @@ Here we have covered Add and Edit form operations.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\edit\odd-edit.component.ts)]
 ***
 
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\odd\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\add\odd-add.component.html?condition="tab_1=='basicadd'"&type=section&title=odd Decorator for add Example)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\edit\odd-edit.component.html?condition="tab_1=='basicedit'"&type=section&title=odd Decorator for edit Example)]

@@ -28,6 +28,10 @@ Here we have covered Add and Edit form operations.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\latLong\edit\lat-long-edit.component.ts?type=section)]
 ***
 
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `country-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\latLong\edit\country-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\latLong\add\lat-long-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\latLong\edit\lat-long-edit.component.html?condition="tab_1=='basicedit'"&type=section)]

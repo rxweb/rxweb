@@ -28,6 +28,10 @@ Here we have covered Add and Edit form operations.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\longitude\edit\longitude-edit.component.ts)]
 ***
 
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `number-info-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\longitude\edit\number-info-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\longitude\add\longitude-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\longitude\edit\longitude-edit.component.html?condition="tab_1=='basicedit'"&type=section)]

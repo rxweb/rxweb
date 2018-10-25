@@ -21,12 +21,17 @@ First we need to create a Location class and define a property of AreaName in th
 
 Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
+
 [!TabGroup]
 # [Add](#tab\basicadd)
 [!code-typescript[](\assets\examples\alphaNumeric\add\alpha-numeric-add.component.ts)]
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\alphaNumeric\edit\alpha-numeric-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `location-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\alphaNumeric\edit\location-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\alphaNumeric\add\alpha-numeric-add.component.html?condition="tab_1=='basicadd'"&type=section)]

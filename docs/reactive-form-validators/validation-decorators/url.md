@@ -28,6 +28,10 @@ Here we have covered Add and Edit form operations.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\edit\url-edit.component.ts)]
 ***
 
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `web-site-info-model-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\url\edit\web-site-info-model-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\add\url-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\edit\url-edit.component.html?condition="tab_1=='basicedit'"&type=section)]

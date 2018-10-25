@@ -19,13 +19,21 @@ Let’s see how Numeric validator fulfil the need.
 Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
+[!TabGroup]
+# [Add](#tab\basicadd)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.ts)]
+# [Edit](#tab\basicedit)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\edit\numeric-edit.component.ts)]
 ***
 
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\edit\numeric-edit.component.ts)]
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-info-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\numeric\edit\user-info-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.html?condition="tab_1=='basicadd'"&type=section&title=numeric Decorator for add Example)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\edit\numeric-edit.component.html?condition="tab_1=='basicedit'"&type=section&title=numeric Decorator for edit Example)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=numeric Decorator for add Example)]
 <app-numeric-add></app-numeric-add>
