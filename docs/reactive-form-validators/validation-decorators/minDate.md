@@ -31,10 +31,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minDate\add\min-date-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minDate\edit\min-date-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=minDate Decorator for add Example)]
 <app-minDate-add></app-minDate-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=minDate Decorator for edit Example)]
 <app-minDate-edit></app-minDate-edit>
 
 # DateConfig 

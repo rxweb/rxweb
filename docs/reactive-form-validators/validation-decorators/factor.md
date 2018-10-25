@@ -121,7 +121,7 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\messageHtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\message\factor-message.component.html)]
 ***
-
+  
 [!example(?type=section&clickEventCode="message=!message"&title=factor decorator with custom message)]
 <app-factor-message></app-factor-message>
 
