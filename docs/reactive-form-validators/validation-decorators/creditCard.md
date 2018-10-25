@@ -21,12 +21,17 @@ First we need to create User model class define a property of CreditCardNo in th
 Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
+
 [!TabGroup]
 # [Add](#tab\basicadd)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\add\credit-card-add.component.ts)]
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\edit\credit-card-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\creditCard\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\add\credit-card-add.component.html?condition="tab_1=='basicadd'"&type=section)]

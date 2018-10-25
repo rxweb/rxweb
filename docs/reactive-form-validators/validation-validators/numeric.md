@@ -1,6 +1,6 @@
 ---
 title: numeric
-description: numeric validation decorator will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.
+description: numeric validation validator will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.
 author: rxcontributorone
 
 ---

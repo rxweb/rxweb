@@ -29,6 +29,10 @@ Here we have covered Add and Edit form operations.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\edit\factor-edit.component.ts)]
 ***
 
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\factor\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\add\factor-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\edit\factor-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
@@ -121,7 +125,7 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\messageHtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\message\factor-message.component.html)]
 ***
-
+  
 [!example(?type=section&clickEventCode="message=!message"&title=factor decorator with custom message)]
 <app-factor-message></app-factor-message>
 

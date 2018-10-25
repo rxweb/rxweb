@@ -29,6 +29,10 @@ Here we have covered Add and Edit form operations.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\time\edit\time-edit.component.ts)]
 ***
 
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `attandance-detail-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\time\edit\attandance-detail-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\time\add\time-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\time\edit\time-edit.component.html?condition="tab_1=='basicedit'"&type=section)]

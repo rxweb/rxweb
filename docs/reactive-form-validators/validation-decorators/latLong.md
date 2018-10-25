@@ -28,6 +28,10 @@ Here we have covered Add and Edit form operations.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\latLong\edit\lat-long-edit.component.ts?type=section)]
 ***
 
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `country-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\latLong\edit\country-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\latLong\add\lat-long-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\latLong\edit\lat-long-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
@@ -52,6 +56,10 @@ Type :  `Function`  |  `string`
 latLong validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
+[!codeExample(?title=conditionalExpressionExampleFunction)]
+
+[!codeExample(?title=conditionalExpressionExampleString)]
+
 [!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\latLong\conditionalExpression\country.model.ts)]
@@ -68,6 +76,8 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `string` 
 
 To override the global configuration message and show the custom message on particular control property.
+
+[!codeExample(?title=messageExample)]
 
 [!TabGroup(?showHideCondition="message")]
 # [Model](#tab\messageModel)

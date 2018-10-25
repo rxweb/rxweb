@@ -24,7 +24,7 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-sm-12 col-md-6">
+                    <div class="col-xs-12 col-sm-6">
 
                         <h1>Clean Code. <br/>Built with Purpose</h1>
                         <p>The most powerful form validation framework with tons of validation scenarios, which fulfil every
@@ -33,7 +33,7 @@
                         <a routerLink="/import-modules" class="doc-btn">Documentation <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 
                     </div>
-                    <div class="col-sm-12 col-md-6">
+                    <div class="col-xs-12 col-sm-6">
                         <div class="downloads-counter">
                             <i class="fa fa-download" aria-hidden="true"></i>
                             <span class="number h2">3,000</span>
@@ -66,6 +66,30 @@
         <div class="container">
             <h2>Core features of reactive form validators</h2>
             <div class="row">
+                <div class="col-sm-12 col-md-6 pull-right">
+                    <div class="code-content left-space">
+                        <h3>Compare Password Cross Field Validation</h3>
+                        <p>Angular provides good validators but doesn’t fulfil enterprise application’s need with minimal line
+                            of code. Easily this can be achieved with rxweb validation framework.</p>
+                        <div class="box-shadow output height-300">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form [formGroup]="userFormGroup">
+                                        <div class="form-group">
+                                            <label>New Password</label>
+                                            <input type="text" formControlName="password" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm Password</label>
+                                            <input type="text" formControlName="confirmPassword" class="form-control" />
+                                        </div>
+                                        <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-12 col-md-6">
                     <ul class="nav nav-tabs">
                         <li [class.active]="comparePasswordTab=='component'" (click)="comparePasswordTab='component'"><a>Component</a></li>
@@ -96,34 +120,35 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class="code-content left-space">
-                        <h3>Compare Password Cross Field Validation</h3>
-                        <p>Angular provides good validators but doesn’t fulfil enterprise application’s need with minimal line
-                            of code. Easily this can be achieved with rxweb validation framework.</p>
+            </div>
+            <img src="/assets/images/border-gradient.png" class="align-center separator" />
+            <div class="row"> 
+            <div class="col-sm-12 col-md-6">
+                    <div class="code-content right-space">
+                        <h3>Conditional Validation</h3>
+                        <p>There is no need to create custom validators to manage the conditional validation and putting more
+                            if/else clause in the code to become messy code. Conditional Validation can be achieved with
+                            one line of code.</p>
                         <div class="box-shadow output height-300">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form [formGroup]="userFormGroup">
+                                    <form [formGroup]="userForm">
                                         <div class="form-group">
-                                            <label>New Password</label>
-                                            <input type="text" formControlName="password" class="form-control" />
+                                            <label>Country Name</label>
+                                            <input type="text" formControlName="country" class="form-control" />
                                         </div>
                                         <div class="form-group">
-                                            <label>Confirm Password</label>
-                                            <input type="text" formControlName="confirmPassword" class="form-control" />
+                                            <label>Identity Number</label>
+                                            <input type="text" formControlName="identityNumber" class="form-control" />
                                         </div>
-                                        <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+                                        <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <img src="/assets/images/border-gradient.png" class="align-center separator" />
-            <div class="row">
-                <div class="col-sm-12 col-md-6 pull-right">
+                <div class="col-sm-12 col-md-6">
 
                     <ul class="nav nav-tabs">
                         <li [class.active]="conditionalValidationRequiredTab=='component'" (click)="conditionalValidationRequiredTab='component'"><a>Component</a></li>
@@ -155,34 +180,31 @@
                     </div>
 
                 </div>
-                <div class="col-sm-12 col-md-6">
+            </div>
+            <img src="/assets/images/border-gradient.png" class="align-center separator" />
+            <div class="row">
+                <div class="col-sm-12 col-md-6 pull-right">
                     <div class="code-content right-space">
-                        <h3>Conditional Validation</h3>
-                        <p>There is no need to create custom validators to manage the conditional validation and putting more
-                            if/else clause in the code to become messy code. Conditional Validation can be achieved with
-                            one line of code.</p>
+                        <h3>Dynamic Validation</h3>
+                        <p>Most of large scale enterprise application requires to apply form validation based on server rules.
+                            The most efficient way of rxweb to provide the dynamic form validation on FormControl without
+                            writing much lines of code.</p>
                         <div class="box-shadow output height-300">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form [formGroup]="userForm">
+                                    <form *ngIf="userModelFormGroup" [formGroup]="userModelFormGroup">
                                         <div class="form-group">
-                                            <label>Country Name</label>
-                                            <input type="text" formControlName="country" class="form-control" />
+                                            <label>First Name</label>
+                                            <input type="text" formControlName="firstName" class="form-control" />
+                                            <small class="form-text text-danger">{{userModelFormGroup.controls.firstName.errorMessage}}<br/></small>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Identity Number</label>
-                                            <input type="text" formControlName="identityNumber" class="form-control" />
-                                        </div>
-                                        <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+                                        <button [disabled]="!userModelFormGroup.valid" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <img src="/assets/images/border-gradient.png" class="align-center separator" />
-            <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <ul class="nav nav-tabs">
                         <li [class.active]="dynamicValidationTab=='component'" (click)="dynamicValidationTab='component'"><a>Component</a></li>
@@ -226,34 +248,49 @@
                     </div>
 
                 </div>
+                
+            </div>
+            <img src="/assets/images/border-gradient.png" class="align-center separator" />
+            <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="code-content right-space">
-                        <h3>Dynamic Validation</h3>
-                        <p>Most of large scale enterprise application requires to apply form validation based on server rules.
-                            The most efficient way of rxweb to provide the dynamic form validation on FormControl without
-                            writing much lines of code.</p>
-                        <div class="box-shadow output height-300">
+                        <h3>Decorator based model based validation</h3>
+                        <p>Angular doesn’t provide model based FormGroup property binding. The major disadvantage of having
+                            more duplicate code in respective components. The rxweb provides validation decorators on property
+                            for managing code consistency and reusability purpose. Benefit of using this approach is code
+                            will be much cleaner and easy to use same class in other components. </p>
+                        <div class="box-shadow output height-500">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form *ngIf="userModelFormGroup" [formGroup]="userModelFormGroup">
+                                    <form [formGroup]="userInfoFormGroup">
                                         <div class="form-group">
                                             <label>First Name</label>
                                             <input type="text" formControlName="firstName" class="form-control" />
-                                            <small class="form-text text-danger">{{userModelFormGroup.controls.firstName.errorMessage}}<br/></small>
                                         </div>
-                                        <button [disabled]="!userModelFormGroup.valid" class="btn btn-primary">Submit</button>
+                                        <div class="form-group">
+                                            <label>User Name</label>
+                                            <input type="text" formControlName="userName" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="text" formControlName="password" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm Password</label>
+                                            <input type="text" formControlName="confirmPassword" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="text" formControlName="email" class="form-control" />
+                                        </div>
+                                        <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <img src="/assets/images/border-gradient.png" class="align-center separator" />
-            <div class="row">
-                <div class="col-sm-12 col-md-6 pull-right">
-
-                   
+                <div class="col-sm-12 col-md-6">
                     <ul class="nav nav-tabs">
                         <li [class.active]="decoratorbasedModelValidationTab=='component'" (click)="decoratorbasedModelValidationTab='component'"><a>Component</a></li>
                         <li [class.active]="decoratorbasedModelValidationTab=='html'" (click)="decoratorbasedModelValidationTab='html'"><a>Html</a></li>
@@ -296,44 +333,7 @@
                     </div>
 
                 </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class="code-content right-space">
-                        <h3>Decorator based model based validation</h3>
-                        <p>Angular doesn’t provide model based FormGroup property binding. The major disadvantage of having
-                            more duplicate code in respective components. The rxweb provides validation decorators on property
-                            for managing code consistency and reusability purpose. Benefit of using this approach is code
-                            will be much cleaner and easy to use same class in other components. </p>
-                        <div class="box-shadow output height-500">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form [formGroup]="userInfoFormGroup">
-                                        <div class="form-group">
-                                            <label>First Name</label>
-                                            <input type="text" formControlName="firstName" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>User Name</label>
-                                            <input type="text" formControlName="userName" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <input type="text" formControlName="password" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Confirm Password</label>
-                                            <input type="text" formControlName="confirmPassword" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="text" formControlName="email" class="form-control" />
-                                        </div>
-                                        <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>

@@ -29,6 +29,11 @@ Here we have covered Add and Edit form operations.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxDate\edit\max-date-edit.component.ts)]
 ***
 
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\maxDate\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
+
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxDate\add\max-date-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxDate\edit\max-date-edit.component.html?condition="tab_1=='basicedit'"&type=section)]

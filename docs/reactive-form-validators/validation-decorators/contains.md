@@ -27,6 +27,10 @@ Now, we need to create a `FormGroup` in the component. To achieve this, we need 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\edit\contains-edit.component.ts)]
 ***
 
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\contains\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\add\contains-add.component.html?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\edit\contains-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
