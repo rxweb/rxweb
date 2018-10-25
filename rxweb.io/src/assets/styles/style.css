@@ -2238,8 +2238,8 @@ h1, .h1 {
   margin-top: 15px;
   margin-bottom:10px;
   border: 1px solid #eee;
-  box-shadow: 0 0px 5px 0 #eee;
-  background: #fbfbfb;
+  box-shadow: 0 2px 5px 0 #eee;
+  background: #f1f1f1;
 }
 .validation-tab .description {
     margin: 30px 10px 10px 10px;
@@ -3806,7 +3806,8 @@ body {
     position: absolute;
     top: 62px;
     transition: margin .4s ease 0s;
-    max-height: 886px;
+    /* max-height: 886px; */
+    height: 100%;
     overflow-y: auto;
     box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.1);
     z-index: 999;
@@ -3830,7 +3831,7 @@ body {
 }
 #wrapper {
     /* margin: 0 353px 0 252px; */
-    margin: 0px 286px 0 250px;
+    margin: 0px 280px 0 250px;
     padding: 0;
     background: #ffffff;
     transition: margin .4s ease 0s;
@@ -3944,7 +3945,7 @@ body {
     bottom: 0;
     right: 0;
     display: inline-block;
-    margin-right: 5px;
+    /* margin-right: 5px; */
     padding-top: 10px;
 }
 
@@ -4583,27 +4584,26 @@ a:focus {
 
 @media(max-width:768px) {
     .navbar-form-custom,
-    .navbar-right,
-    #logo {
-        display: none
+    .fixed-navbar #header .mobile-menu{
+        display: none;
     }
     .navbar-static-top {
-        margin: 0
+        margin: 0;
     }
     .small-logo {
         display: block;
-        float: left
+        float: left;
     }
     .header-line div {
-        display: none
+        display: none;
     }
     .color-demo .header-line {
-        height: 48px
+        height: 48px;
     }
     #hbreadcrumb {
         float: none!important;
         margin-bottom: 10px;
-        margin-top: 0
+        margin-top: 0;
     }
 }
 
@@ -5537,7 +5537,7 @@ input.ng-invalid{
     font-weight: 500;
     font-size: 15px;
     color: #343438;
-    background: #f5f5f5;
+    background: #f1f1f1;
     border-bottom: 1px solid #eee;
 }
 .tab-content + .combined {
@@ -5679,8 +5679,8 @@ header.banner {
 header.banner .top-bar {
     padding: 15px;
     clear: both;
-    overflow: auto;
 }
+header.banner .top-bar > a{display: inline-block;}
 header.banner .top-bar .navbar-nav li {
     height: auto;
     padding: 0 15px;
@@ -5718,7 +5718,7 @@ header.banner .top-bar .navbar-nav a:hover {
 }
 .downloads-counter{
     text-align: center;
-    width: 330px;
+    max-width:330px;
     margin: 60px auto;
     box-shadow: 0 1px 9px -3px #fff;
     padding: 30px;
@@ -5741,10 +5741,11 @@ header.banner .top-bar .navbar-nav a:hover {
     margin-top: 10px;
 }
 .why-rxweb {
-    padding: 80px 0;
+    padding: 80px 0 60px;
 }
 .output.box-shadow {
     margin: 25px 0;
+    padding: 20px 20px 40px 20px;
 }
 .features h2 {
     margin-bottom: 40px;
@@ -5800,12 +5801,12 @@ ul.menu li {
     max-width: 350px;
 }
 .height-300{
-    height:300px;
-    padding: 20px 20px 20px 20px;
+    /* height:300px; */
+    /* padding: 20px 20px 40px 20px; */
 }
 .height-500{
-    height:480px;
-    padding: 20px 20px 20px 20px;
+    /* height:480px; */
+    /* padding: 20px 20px 40px 20px; */
 }
 #full-wrapper{
     top:62px;
@@ -5816,4 +5817,160 @@ ul.menu li {
     position: relative;
     min-height: 100%;
     padding: 0 30px;   
+}
+/*=============== media query ================*/
+@media only screen and (max-width:1199px) {
+    header.banner{
+        height:auto;
+        background-image:none;
+        background: #007dc5;
+        padding-bottom: 80px;
+    }
+    .home-page .banner-text h1, .home-page h1, .home-page .h1{
+        font-size: 55px;
+    }
+    .home-page .banner-text p{
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .home-page h2, .home-page .h2{
+        font-size: 34px;
+        margin-bottom: 15px;
+    }
+    .features h2 {
+        margin-bottom: 40px;
+    }
+    #menu{width: 240px;}
+    #wrapper{margin: 0px 220px 0 240px;padding: 0 20px;}
+    #rightsidebar{width: 240px!important;}
+}
+@media only screen and (max-width:991px){
+    .downloads-counter{
+        max-width: 300px;
+        padding: 20px;
+        margin-left: auto;
+        margin-right: 0;
+        margin-top: 30px;
+    }
+    header.banner{padding-bottom: 70px;}
+    .downloads-counter i{font-size: 80px;}
+    .home-page .banner-text { padding-top: 50px;}
+    .home-page .banner-text h1, .home-page h1, .home-page .h1 {
+        font-size: 40px;
+    }
+    .home-page .banner-text p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+    .home-page .banner-text .doc-btn{
+        font-size: 18px;
+        padding: 12px 26px;
+        margin-top: 20px;
+    }
+    .home-page .top-bar .navbar-right {
+        display: inline-block !important;
+        float: right;
+    }
+    header.banner .top-bar .navbar-nav li, .fixed-navbar #header .navbar-nav>li{
+        float: left;
+    }
+    .why-rxweb {
+        padding: 60px 0 40px;
+    }
+    .features h2 {
+        margin-bottom: 25px;
+    }
+    .code-content.left-space, .code-content.right-space {
+        padding-bottom: 10px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .home-page img.separator {
+        margin-bottom: 40px;
+        padding-top: 50px;
+    }
+    .home-page footer.page-footer{
+        padding: 50px 0 35px;
+        margin-top: 60px;
+    }
+    body.fixed-navbar #menu {
+        margin-left: -250px;
+    }
+    body.hide-sidebar #menu, body.show-sidebar #menu {
+        margin-left: 0px;
+    }
+    #wrapper, .dashboard#wrapper{margin-left:0;}
+}
+@media only screen and (max-width:767px){
+    .home-page .banner-text{
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 5px;
+    }
+    .downloads-counter{margin: 40px auto 0;}
+    header.banner .top-bar{padding: 0 15px;}
+    header.banner .top-bar > a {
+        margin-top: 10px;
+    }
+    .home-page .banner-text h1, .home-page h1, .home-page .h1 {
+        font-size: 30px;
+    }
+    .home-page .banner-text .doc-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+    header.banner {
+        padding-bottom: 60px;
+    }  
+    .home-page h2, .home-page .h2 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+    .downloads-counter .number{
+        font-size: 34px;
+    }  
+    .features h2 {
+        margin-bottom: 10px;
+    }
+    .why-rxweb {
+        padding: 30px 0 20px;
+    }
+    .home-page h3, .home-page .h3 {
+        font-size: 20px;
+    }
+    .home-page footer.page-footer {
+        padding: 40px 0 20px;
+        margin-top: 50px;
+    }
+    .home-page footer.page-footer .footer-links{
+        max-width:100%;
+    }
+    .foot-brand{
+        width:100%;
+        text-align: left;
+        padding-top: 20px;
+    }
+    .foot-brand p{
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    header.banner .top-bar .navbar-nav li{padding: 0 6px;}
+    #logo.light-version{  
+        padding: 3px 0;
+        width: auto;
+    }
+    .fixed-navbar #header nav{display: inline-block;float:right;}
+    .fixed-navbar #header .navbar-nav>li{height:auto;}
+    .fixed-navbar #header .navbar-nav{margin:0;}
+    .fixed-navbar #header .navbar-nav>li:last-child>a, .fixed-navbar #header .navbar-nav>li>a{padding: 15px 15px;}
+    .header-link {
+        padding: 15px 17px 2px 17px;
+        margin-right: 5px;
+    }
+    app-right-sidebar {
+        display: none;
+    }
+    #wrapper{margin-right:0;padding: 0;}
+}
+@media only screen and (max-width: 575px){
+    header.banner .top-bar{padding: 0;}
 }
