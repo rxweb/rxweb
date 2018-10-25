@@ -4400,7 +4400,7 @@ body.hide-sidebar #menu {
     margin-left: -250px
 }
 
-body.hide-sidebar #wrapper {
+body.hide-sidebar #wrapper, body.hide-sidebar #full-wrapper {
     margin-left: 0
 }
 
@@ -5841,7 +5841,8 @@ ul.menu li {
         margin-bottom: 40px;
     }
     #menu{width: 240px;}
-    #wrapper{margin: 0px 220px 0 240px;padding: 0 20px;}
+    #wrapper, #full-wrapper{margin: 0px 220px 0 240px;padding: 0 20px;}
+    #full-wrapper{margin-right:0;}
     #rightsidebar{width: 240px!important;}
 }
 @media only screen and (max-width:991px){
@@ -5899,7 +5900,7 @@ ul.menu li {
     body.hide-sidebar #menu, body.show-sidebar #menu {
         margin-left: 0px;
     }
-    #wrapper, .dashboard#wrapper{margin-left:0;}
+    #wrapper, .dashboard#wrapper, #full-wrapper{margin-left:0;}
 }
 @media only screen and (max-width:767px){
     .home-page .banner-text{
@@ -5969,7 +5970,7 @@ ul.menu li {
     app-right-sidebar {
         display: none;
     }
-    #wrapper{margin-right:0;padding: 0;}
+    #wrapper, #full-wrapper{margin-right:0;padding: 0;}
 }
 @media only screen and (max-width: 575px){
     header.banner .top-bar{padding: 0;}
