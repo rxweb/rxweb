@@ -16,11 +16,11 @@ Let’s see how minNumber validator fulfil the need.
 # Basic MinNumber Validation
 We need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
-
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\add\min-number-add.component.ts?type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\add\min-number-add.component.html?type=section)]
+
 
 [!example(?title=minNumber validator for add Example)]
 <app-minNumber-add-validator></app-minNumber-add-validator>
