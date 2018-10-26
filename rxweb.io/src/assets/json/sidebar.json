@@ -73,6 +73,10 @@
               "uri": "validation-validators/factor"
             },
             {
+              "title": "fileSize",
+              "uri": "validation-validators/fileSize"
+            },
+            {
               "title": "greaterThanEqualTo",
               "uri": "validation-validators/greaterThanEqualTo"
             },
@@ -133,7 +137,6 @@
               "title": "maxNumber",
               "uri": "validation-validators/maxNumber"
             },
-           
             {
               "title": "minDate",
               "uri": "validation-validators/minDate"
@@ -178,10 +181,7 @@
               "title": "required",
               "uri": "validation-validators/required"
             },
-            {
-              "title": "fileSize",
-              "uri": "validation-validators/fileSize"
-            },
+            
             {
               "title": "startsWith",
               "uri": "validation-validators/startsWith"
@@ -259,6 +259,10 @@
             {
               "title": "factor",
               "uri": "validation-decorators/factor"
+            },
+            {
+              "title": "fileSize",
+              "uri": "validation-decorators/fileSize"
             },
             {
               "title": "greaterThanEqualTo",
@@ -365,10 +369,6 @@
             {
               "title": "required",
               "uri": "validation-decorators/required"
-            },
-            {
-              "title": "fileSize",
-              "uri": "validation-decorators/fileSize"
             },
             {
               "title": "startsWith",

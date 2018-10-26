@@ -60,7 +60,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
- [!TabGroup(?showHideCondition="conditionalExpression")]
+[!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\conditionalExpression\result-info.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
