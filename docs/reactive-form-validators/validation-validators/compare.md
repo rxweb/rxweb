@@ -81,7 +81,7 @@ To override the global configuration message and show the custom message on part
 <app-compare-dynamic-validator></app-compare-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\dynamic\compare-dynamic.component.ts)]
- # [Json](#tab\dynamicjson)
+# [Json](#tab\dynamicjson)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\compare\dynamic\compare-dynamic.component.html)]

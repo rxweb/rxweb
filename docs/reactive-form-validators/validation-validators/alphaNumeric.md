@@ -105,7 +105,7 @@ To override the global configuration message and show the custom message on part
 <app-alphaNumeric-dynamic-validator></app-alphaNumeric-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\validators\alphaNumeric\dynamic\alpha-numeric-dynamic.component.ts)]
- # [Json](#tab\dynamicjson)
+# [Json](#tab\dynamicjson)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\alphaNumeric\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\validators\alphaNumeric\dynamic\alpha-numeric-dynamic.component.html)]
