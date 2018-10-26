@@ -60,7 +60,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
- [!TabGroup(?showHideCondition="conditionalExpression")]
+[!TabGroup(?showHideCondition="conditionalExpression")]
 # [Component](#tab\conditionalExpressionComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\conditionalExpression\pattern-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
@@ -77,7 +77,7 @@ enter specific regex pattern
 
 [!codeExample(?title=patternExample)]
 
- [!TabGroup(?showHideCondition="pattern")]
+[!TabGroup(?showHideCondition="pattern")]
 # [Component](#tab\patternComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\pattern\pattern-pattern.component.ts)]
 # [Html](#tab\patternHtml)
