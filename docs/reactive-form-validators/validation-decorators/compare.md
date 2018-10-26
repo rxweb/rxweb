@@ -18,7 +18,7 @@ First we need to create a User Model class and define property of Password and C
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
 Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations.
+Here we have covered Add form operation.
 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\compare-add.component.ts)]
 
