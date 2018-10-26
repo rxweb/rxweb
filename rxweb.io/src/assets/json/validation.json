@@ -79,6 +79,12 @@
       "loadChildren": "./factor/factor.module#FactorModule"
     },
     {
+      "title": "@fileSize",
+      "description": "FileSize validation decorator allows user to enter the input which is in the proper fileSize format.",
+      "path": "fileSize",
+      "loadChildren": "./fileSize/fileSize.module#FileSizeModule"
+    },
+    {
       "title": "@greaterThanEqualTo",
       "description": "Greater than equal to validation decorator will check that input property is greater than equal to value. ",
       "path": "greaterThanEqualTo",
@@ -236,12 +242,6 @@
       "description": "Required validation decorator will check that value is entered or not in the property.",
       "path": "required",
       "loadChildren": "./required/required.module#RequiredModule"
-    },
-    {
-      "title": "@fileSize",
-      "description": "FileSize validation decorator allows user to enter the input which is in the proper fileSize format.",
-      "path": "fileSize",
-      "loadChildren": "./fileSize/fileSize.module#FileSizeModule"
     },
     {
       "title": "@startsWith",
