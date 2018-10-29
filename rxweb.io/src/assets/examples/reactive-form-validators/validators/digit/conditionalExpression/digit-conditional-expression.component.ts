@@ -16,7 +16,7 @@ export class DigitConditionalExpressionValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
             age:['', RxwebValidators.digit()], 
-            faxNumber:['', RxwebValidators.digit({conditionalExpression:'x => x.age ==25' })], 
+            faxNumber:['', RxwebValidators.digit({conditionalExpression:'x => x.age >=25' })], 
             phoneNumber:['', RxwebValidators.digit({conditionalExpression:(x,y) => x.age >= 25  })], 
         });
     }

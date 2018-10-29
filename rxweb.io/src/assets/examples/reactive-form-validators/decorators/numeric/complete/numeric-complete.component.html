@@ -7,6 +7,13 @@
 	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.dataType.errors">{{userInfoFormGroup.controls.dataType.errors.numeric.message}}<br/></small>	
     </div>
     <div class="form-group">
+      <label>Negative Number</label>
+      <input type="text" formControlName="negativeNumber" class="form-control"  />
+      <small class="form-text text-muted">you can enter only a negative number<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.negativeNumber.errors">{{userInfoFormGroup.controls.negativeNumber.errors.numeric.message}}<br/></small>	
+    </div>
+    <div class="form-group">
       <label>Integer Number</label>
       <input type="text" formControlName="integerNumber" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Integer Number' then you need to add 'Data Type' input as 'Number'.<br/></small>
@@ -19,13 +26,6 @@
       <small class="form-text text-muted">If you want to apply conditional validation on 'Real Number' then you need to add 'Data Type' input as 'Number'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
 	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.realNumber.errors">{{userInfoFormGroup.controls.realNumber.errors.numeric.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Negative Number</label>
-      <input type="text" formControlName="negativeNumber" class="form-control"  />
-      <small class="form-text text-muted">you can enter only a negative number<br/></small>
-      <small class="form-text text-muted">Shows custom message.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.negativeNumber.errors">{{userInfoFormGroup.controls.negativeNumber.errors.numeric.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

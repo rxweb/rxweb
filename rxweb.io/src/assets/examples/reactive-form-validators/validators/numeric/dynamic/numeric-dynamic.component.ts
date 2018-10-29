@@ -19,7 +19,7 @@ export class NumericDynamicValidatorComponent implements OnInit {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/validators/numeric/dynamic/dynamic.json').subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			var userInfo = { dataType:'', integerNumber:'', realNumber:'', negativeNumber:'',  }
+			var userInfo = { dataType:'', negativeNumber:'', integerNumber:'', realNumber:'',  }
 			this.userInfoFormGroup = this.formBuilder.group(userInfo,formBuilderConfiguration);
 		})
     }
