@@ -12,7 +12,7 @@ Suppose you want to create a user form, which contains fields like Number, Type,
 3.	Adding Custom Message on EvenNumber Field.
 4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
-Let’s see how Even validator fulfil the need.
+Let’s see how even validator fulfil the need.
 
 # Basic Even Validation
 We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
