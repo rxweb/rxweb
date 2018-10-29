@@ -5,7 +5,7 @@ export class User {
 	@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} }) 
 	userName: string;
 
-	@pattern({pattern:{'zipCode':RegExp('/^\d{5}(?:[-\s]\d{4})?$/') }  ,message:'Zipcode must be 5 digits' }) 
+	@pattern({pattern:{'zipCode':RegExp('^[0-9]{5}(?:-[0-9]{4})?$') }  ,message:'Zip code should match 12345 or 12345-6789' }) 
 	zipCode: string;
 
 	//If you want to apply conditional expression of type 'function'

@@ -8,8 +8,8 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { NumericCompleteValidatorComponent } from './complete/numeric-complete.component';
 import { NumericAcceptValueValidatorComponent } from './acceptValue/numeric-accept-value.component';
 import { NumericAllowDecimalValidatorComponent } from './allowDecimal/numeric-allow-decimal.component';
-import { NumericConditionalExpressionValidatorComponent } from './conditionalExpression/numeric-conditional-expression.component';
 import { NumericMessageValidatorComponent } from './message/numeric-message.component';
+import { NumericConditionalExpressionValidatorComponent } from './conditionalExpression/numeric-conditional-expression.component';
 import { NumericDynamicValidatorComponent } from './dynamic/numeric-dynamic.component';
 import { NumericAddValidatorComponent } from './add/numeric-add.component';
 
@@ -18,8 +18,8 @@ import { NumericAddValidatorComponent } from './add/numeric-add.component';
 	NumericCompleteValidatorComponent,
 	NumericAcceptValueValidatorComponent,
 	NumericAllowDecimalValidatorComponent,
-	NumericConditionalExpressionValidatorComponent,
 	NumericMessageValidatorComponent,
+	NumericConditionalExpressionValidatorComponent,
 	NumericDynamicValidatorComponent,
 	NumericAddValidatorComponent,
   ],
@@ -27,8 +27,8 @@ entryComponents: [
 	NumericCompleteValidatorComponent,
 	NumericAcceptValueValidatorComponent,
 	NumericAllowDecimalValidatorComponent,
-	NumericConditionalExpressionValidatorComponent,
 	NumericMessageValidatorComponent,
+	NumericConditionalExpressionValidatorComponent,
 	NumericDynamicValidatorComponent,
 	NumericAddValidatorComponent,
   ],
@@ -42,8 +42,8 @@ entryComponents: [
 	NumericCompleteValidatorComponent,
 	NumericAcceptValueValidatorComponent,
 	NumericAllowDecimalValidatorComponent,
-	NumericConditionalExpressionValidatorComponent,
 	NumericMessageValidatorComponent,
+	NumericConditionalExpressionValidatorComponent,
 	NumericDynamicValidatorComponent,
 	NumericAddValidatorComponent,
   ],
