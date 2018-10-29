@@ -54,7 +54,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=maxLength validator with conditionalExpression)]
 <app-maxLength-conditionalExpression-validator></app-maxLength-conditionalExpression-validator>
  
- ## message 
+## message 
 Type :  `string` 
 
 To override the global configuration message and show the custom message on particular control property.
