@@ -1,140 +1,168 @@
-<form [formGroup]="modelRuleGroup">
-  <div class="form-group">
-    <input type="text" formControlName="address" placeholder="Address" class="form-control" />
-    {{modelRuleGroup.controls.address.errors | json}}
-  </div>
-</form>
+<rxweb-dynamic-form #df="rxwebForm">
+  <ng-template htmlControlTemplate="text" let-control>
+   fancontrol <input type="text" [formControl]="control" />
+  </ng-template>
+  <ng-template htmlControlTemplate="number" let-control>
+   number <input type="number" [formControl]="control" />
+    {{control.value}}
+  </ng-template>
+  <ng-template  htmlControlTemplate="url" let-control>
+   url <input type="url" [formControl]="control" />
+  </ng-template>
+</rxweb-dynamic-form>
 
-<form [formGroup]="userForm">
-  <div class="form-group">
-    <input type="text" formControlName="nationality" placeholder="Nationality" class="form-control" />
+<form #heroForm="ngForm" rxwebForm>
+  name
+  <input id="password" name="password" class="form-control"
+         
+         [(ngModel)]="hero.password" #password="ngModel">
+  {{password.errors | json}}
+  <input id="confirmPassword" [compare]="{fieldName:'password'}" name="confirmPassword" class="form-control"
+         
+         [(ngModel)]="hero.confirmPassword" #confirmPassword="ngModel">
+  {{confirmPassword.errors | json}}
+  </form>
 
-  </div>
-  <div class="form-group">
-    <input type="text" formControlName="intlNumber" placeholder="International Number" class="form-control" />
-    {{userForm.controls.intlNumber.errors  | json}}
-  </div>
-</form>
-<form [formGroup]="testForm">
-  <input type="text" formControlName="password" /> {{testForm.controls.password.errors | json}}
-  <input type="text" formControlName="confirmPassword" />{{testForm.controls.confirmPassword.errors | json}}
-  <input type="text" formControlName="age" />{{testForm.controls.age.errors | json}}
-  <input type="text" formControlName="cardType" />{{testForm.controls.cardType.errors | json}}
-  <input type="text" formControlName="creditCard" />{{testForm.controls.creditCard.errors | json}}
-  <input type="text" formControlName="amount" />{{testForm.controls.amount.errors | json}}
-  {{testForm.controls.amount.value}}
-</form>
-<form [formGroup]="userInfoFormGroup">
-  <div class="form-group">
-    <label>First Name</label>
-    <input type="text" formControlName="firstName" class="form-control" />
-    <small class="form-text text-danger">{{userInfoFormGroup.controls.firstName.errorMessage}}<br /></small>
-  </div>
-  <div class="form-group">
-    <label>Last Name</label>
-    <input type="text" formControlName="lastName" class="form-control" />
-    <small class="form-text text-danger">{{userInfoFormGroup.controls.lastName.errorMessage}}<br /></small>
+  <form [formGroup]="modelRuleGroup">
+    <div class="form-group">
+      <rxweb-control type="number" [data]="modelRuleGroup.controls.address" [dynamicForm]="df"></rxweb-control>
+      <input type="text" formControlName="address" placeholder="Address" class="form-control" />
+      <input type="text" formControlName="address" placeholder="Address" class="form-control" />
+      {{modelRuleGroup.controls.address.errors | json}}
+    </div>
+    {{modelRuleGroup.value | json}}
+  </form>
 
-  </div>
-  <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
-  {{userInfoFormGroup.isDirty()}}
-</form>
-<form [formGroup]="angularFormGroup">
-  <input type="text" formControlName="firstName" />{{angularFormGroup.controls.firstName.errorMessage}}<br />
-  <input type="text" formControlName="lastName" />{{angularFormGroup.controls.lastName.errors | json}}<br />
-  <div [formGroup]="angularFormGroup.controls.address">
-    <input type="text" formControlName="city" />{{angularFormGroup.controls.address.controls.city.errors | json}}<br />
-    <input type="text" formControlName="country" />{{angularFormGroup.controls.address.controls.country.errors | json}}<br />
-  </div>
-  <div [formGroup]="skill" *ngFor="let skill of angularFormGroup.controls.skills.controls">
-    skill  <input type="text" formControlName="skillName" />{{skill.controls.skillName.errors | json}}<br />
+  <form [formGroup]="userForm">
+    <div class="form-group">
+      <input type="text" formControlName="nationality" placeholder="Nationality" class="form-control" />
 
-  </div>
+    </div>
+    <div class="form-group">
+      <input type="text" formControlName="intlNumber" placeholder="International Number" class="form-control" />
+      {{userForm.controls.intlNumber.errors  | json}}
+    </div>
+  </form>
+  <form [formGroup]="testForm">
+    <input type="text" formControlName="password" /> {{testForm.controls.password.errors | json}}
+    <input type="text" formControlName="confirmPassword" />{{testForm.controls.confirmPassword.errors | json}}
+    <input type="text" formControlName="age" />{{testForm.controls.age.errors | json}}
+    <input type="text" formControlName="cardType" />{{testForm.controls.cardType.errors | json}}
+    <input type="text" formControlName="creditCard" />{{testForm.controls.creditCard.errors | json}}
+    <input type="text" formControlName="amount" />{{testForm.controls.amount.errors | json}}
+    {{testForm.controls.amount.value}}
+  </form>
+  <form [formGroup]="userInfoFormGroup">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" formControlName="firstName" class="form-control" />
+      <small class="form-text text-danger">{{userInfoFormGroup.controls.firstName.errorMessage}}<br /></small>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" formControlName="lastName" class="form-control" />
+      <small class="form-text text-danger">{{userInfoFormGroup.controls.lastName.errorMessage}}<br /></small>
 
-</form>
-<h1>RxWeb FormGroup</h1>
-{{sampleFormGroup.isDirty()}}
-<form [formGroup]="sampleFormGroup">
-  updateChange <input type="text" formControlName="updateChange" /> {{sampleFormGroup.controls.updateChange.errors | json}}<br />
-  ascii <input type="text" formControlName="ascii" /> {{sampleFormGroup.controls.ascii.errors | json}}<br />
-  dataUri <input type="text" formControlName="dataUri" /> {{sampleFormGroup.controls.dataUri.errors | json}}<br />
-  port <input type="text" formControlName="port" /> {{sampleFormGroup.controls.port.errors | json}}<br />
-  latLong <input type="text" formControlName="latLong" /> {{sampleFormGroup.controls.latLong.errors | json}}<br />
-  endsWith <input type="text" formControlName="endsWith" /> {{sampleFormGroup.controls.endsWith.errors | json}}<br />
-  startsWith <input type="text" formControlName="startsWith" /> {{sampleFormGroup.controls.startsWith.errors | json}}<br />
-  primeNumber <input type="text" formControlName="primeNumber" /> {{sampleFormGroup.controls.primeNumber.errors | json}}<br />
-  latitude <input type="text" formControlName="latitude" /> {{sampleFormGroup.controls.latitude.errors | json}}<br />
-  longitude <input type="text" formControlName="longitude" /> {{sampleFormGroup.controls.longitude.errors | json}}<br />
-  extension <input type="file" formControlName="extension" /> {{sampleFormGroup.controls.extension.errors | json}}<br />
+    </div>
+    <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+    {{userInfoFormGroup.isDirty()}}
+  </form>
+  <form [formGroup]="angularFormGroup">
+    <input type="text" formControlName="firstName" />{{angularFormGroup.controls.firstName.errorMessage}}<br />
+    <input type="text" formControlName="lastName" />{{angularFormGroup.controls.lastName.errors | json}}<br />
+    <div [formGroup]="angularFormGroup.controls.address">
+      <input type="text" formControlName="city" />{{angularFormGroup.controls.address.controls.city.errors | json}}<br />
+      <input type="text" formControlName="country" />{{angularFormGroup.controls.address.controls.country.errors | json}}<br />
+    </div>
+    <div [formGroup]="skill" *ngFor="let skill of angularFormGroup.controls.skills.controls">
+      skill  <input type="text" formControlName="skillName" />{{skill.controls.skillName.errors | json}}<br />
 
-  leapYear <input type="text" formControlName="leapYear" /> {{sampleFormGroup.controls.leapYear.errors | json}}<br />
-  factor <input type="text" formControlName="factor" /> {{sampleFormGroup.controls.factor.errors | json}}<br />
-  odd <input type="text" formControlName="odd" /> {{sampleFormGroup.controls.odd.errors | json}}<br />
-  even <input type="text" formControlName="even" /> {{sampleFormGroup.controls.even.errors | json}}<br />
-  numeric <input type="text" formControlName="numeric" /> {{sampleFormGroup.controls.numeric.errors | json}}<br />
-  different <input type="text" formControlName="different" /> {{sampleFormGroup.controls.different.errors | json}}<br />
-  alpha   <input type="text" formControlName="firstName" /> {{sampleFormGroup.controls.firstName.errors | json}} {{sampleFormGroup.controls.firstName.errorMessage}}<br />
-  alpha numeric <input type="text" formControlName="lastName" />{{
-sampleFormGroup.controls.lastName.errors | json
-  }}<br />
-  accessor <input type="text" formControlName="classProperty" />{{sampleFormGroup.controls.classProperty.errors | json}}<br />
-  contains <input type="text" formControlName="contains" />{{sampleFormGroup.controls.contains.errors | json}}<br />
-  digit <input type="text" formControlName="digit" />{{sampleFormGroup.controls.digit.errors | json}}<br />
-  email <input type="text" formControlName="email" />{{sampleFormGroup.controls.email.errors | json}}<br />
-  hexColor <input type="text" formControlName="hexColor" />{{sampleFormGroup.controls.hexColor.errors | json}}<br />
-  lowerCase <input type="text" formControlName="lowerCase" />{{sampleFormGroup.controls.lowerCase.errors | json}}<br />
-  maxDate <input type="text" formControlName="maxDate" />{{sampleFormGroup.controls.maxDate.errors | json}}<br />
-  minDate <input type="text" formControlName="minDates" />{{sampleFormGroup.controls.minDates.errors | json}}<br />
-  maxLength <input type="text" formControlName="maxLength" />{{sampleFormGroup.controls.maxLength.errors | json}}<br />
-  maxNumber <input type="text" formControlName="maxNumber" />{{sampleFormGroup.controls.maxNumber.errors | json}}<br />
-  minNumber <input type="text" rxDecimal="0.0-2" formControlName="minNumber" />{{sampleFormGroup.controls.minNumber.errors | json}}<br />
-  minLength <input type="text" rxDecimal="0.0-2" formControlName="minLength" />{{sampleFormGroup.controls.minLength.errors | json}}<br />
-  password <input type="text" formControlName="password" />{{sampleFormGroup.controls.password.errors | json}}<br />
-  pattern <input type="text" formControlName="pattern" />{{sampleFormGroup.controls.pattern.errors | json}}<br />
-  range <input type="text" formControlName="range" />{{sampleFormGroup.controls.range.errors | json}}<br />
-  required <input type="text" formControlName="required" />{{sampleFormGroup.controls.required.errors | json}}<br /> {{errorObject.required}}
-  upperCase <input type="text" formControlName="upperCase" />{{sampleFormGroup.controls.upperCase.errors | json}}<br />
-  state <input type="text" formControlName="state" />{{sampleFormGroup.controls.state.errors | json}}<br />
-  country<input type="text" formControlName="country" />{{sampleFormGroup.controls.country.errors | json}}<br />
-  time<input type="text" formControlName="time" />{{sampleFormGroup.controls.time.errors | json}}<br />
-  url<input type="text" formControlName="url" />{{sampleFormGroup.controls.url.errors | json}}<br />
-  creditcard<input type="text" formControlName="creditCard" />{{sampleFormGroup.controls.creditCard.errors | json}}<br />
-  json<input type="text" formControlName="json" />{{sampleFormGroup.controls.json.errors | json}}<br />
-  greaterthan<input type="text" formControlName="greaterThan" />{{sampleFormGroup.controls.greaterThan.errors | json}}<br />
-  greaterthanequalto<input type="text" formControlName="greaterThanEqualTo" />{{sampleFormGroup.controls.greaterThanEqualTo.errors | json}}<br />
-  lessthan<input type="text" formControlName="lessThan" />{{sampleFormGroup.controls.lessThan.errors | json}}<br />
-  lessthanequalto<input type="text" formControlName="lessThanEqualTo" />{{sampleFormGroup.controls.lessThanEqualTo.errors | json}}<br />
-  <div [formGroup]="sampleFormGroup.controls.employeeDetail">
-    propobject <input type="text" formControlName="areaName" />{{sampleFormGroup.controls.employeeDetail.controls.areaName.errors | json}}<br />
-  </div>
+    </div>
 
-  <div [formGroup]="sampleFormGroup.controls.attendances.controls[0]">
-    proparray <input type="text" formControlName="startTime" />{{sampleFormGroup.controls.attendances.controls[0].controls.startTime.errors | json}}<br />
-  </div>
-
-  <input (click)="addItem($event.target)" type="checkbox" value="ajay" /> Ajay
-  <input (click)="addItem($event.target)" type="checkbox" value="ojha" /> Ojha
-  <input (click)="addItem($event.target)" type="checkbox" value="abhay" /> Abhay
-
-  {{sampleFormGroup.controls.skills.value}}
-  {{sampleFormGroup.dirty}}
+  </form>
+  <h1>RxWeb FormGroup</h1>
   {{sampleFormGroup.isDirty()}}
-  {{sampleFormGroup.error}}
+  <form [formGroup]="sampleFormGroup">
+    updateChange <input type="text" formControlName="updateChange" /> {{sampleFormGroup.controls.updateChange.errors | json}}<br />
+    ascii <input type="text" formControlName="ascii" /> {{sampleFormGroup.controls.ascii.errors | json}}<br />
+    dataUri <input type="text" formControlName="dataUri" /> {{sampleFormGroup.controls.dataUri.errors | json}}<br />
+    port <input type="text" formControlName="port" /> {{sampleFormGroup.controls.port.errors | json}}<br />
+    latLong <input type="text" formControlName="latLong" /> {{sampleFormGroup.controls.latLong.errors | json}}<br />
+    endsWith <input type="text" formControlName="endsWith" /> {{sampleFormGroup.controls.endsWith.errors | json}}<br />
+    startsWith <input type="text" formControlName="startsWith" /> {{sampleFormGroup.controls.startsWith.errors | json}}<br />
+    primeNumber <input type="text" formControlName="primeNumber" /> {{sampleFormGroup.controls.primeNumber.errors | json}}<br />
+    latitude <input type="text" formControlName="latitude" /> {{sampleFormGroup.controls.latitude.errors | json}}<br />
+    longitude <input type="text" formControlName="longitude" /> {{sampleFormGroup.controls.longitude.errors | json}}<br />
+    extension <input type="file" formControlName="extension" /> {{sampleFormGroup.controls.extension.errors | json}}<br />
 
-  <button (click)="resetData()">Submit</button>
-  <button (click)="setDefault()">Change</button>
-  <button (click)="resetData()">Reset</button>
-</form>
+    leapYear <input type="text" formControlName="leapYear" /> {{sampleFormGroup.controls.leapYear.errors | json}}<br />
+    factor <input type="text" formControlName="factor" /> {{sampleFormGroup.controls.factor.errors | json}}<br />
+    odd <input type="text" formControlName="odd" /> {{sampleFormGroup.controls.odd.errors | json}}<br />
+    even <input type="text" formControlName="even" /> {{sampleFormGroup.controls.even.errors | json}}<br />
+    numeric <input type="text" formControlName="numeric" /> {{sampleFormGroup.controls.numeric.errors | json}}<br />
+    different <input type="text" formControlName="different" /> {{sampleFormGroup.controls.different.errors | json}}<br />
+    alpha   <input type="text" formControlName="firstName" /> {{sampleFormGroup.controls.firstName.errors | json}} {{sampleFormGroup.controls.firstName.errorMessage}}<br />
+    alpha numeric <input type="text" formControlName="lastName" />{{
+sampleFormGroup.controls.lastName.errors | json
+    }}<br />
+    accessor <input type="text" formControlName="classProperty" />{{sampleFormGroup.controls.classProperty.errors | json}}<br />
+    contains <input type="text" formControlName="contains" />{{sampleFormGroup.controls.contains.errors | json}}<br />
+    digit <input type="text" formControlName="digit" />{{sampleFormGroup.controls.digit.errors | json}}<br />
+    email <input type="text" formControlName="email" />{{sampleFormGroup.controls.email.errors | json}}<br />
+    hexColor <input type="text" formControlName="hexColor" />{{sampleFormGroup.controls.hexColor.errors | json}}<br />
+    lowerCase <input type="text" formControlName="lowerCase" />{{sampleFormGroup.controls.lowerCase.errors | json}}<br />
+    maxDate <input type="text" formControlName="maxDate" />{{sampleFormGroup.controls.maxDate.errors | json}}<br />
+    minDate <input type="text" formControlName="minDates" />{{sampleFormGroup.controls.minDates.errors | json}}<br />
+    maxLength <input type="text" formControlName="maxLength" />{{sampleFormGroup.controls.maxLength.errors | json}}<br />
+    maxNumber <input type="text" formControlName="maxNumber" />{{sampleFormGroup.controls.maxNumber.errors | json}}<br />
+    minNumber <input type="text" rxDecimal="0.0-2" formControlName="minNumber" />{{sampleFormGroup.controls.minNumber.errors | json}}<br />
+    minLength <input type="text" rxDecimal="0.0-2" formControlName="minLength" />{{sampleFormGroup.controls.minLength.errors | json}}<br />
+    password <input type="text" formControlName="password" />{{sampleFormGroup.controls.password.errors | json}}<br />
+    pattern <input type="text" formControlName="pattern" />{{sampleFormGroup.controls.pattern.errors | json}}<br />
+    range <input type="text" formControlName="range" />{{sampleFormGroup.controls.range.errors | json}}<br />
+    required <input type="text" formControlName="required" />{{sampleFormGroup.controls.required.errors | json}}<br /> {{errorObject.required}}
+    upperCase <input type="text" formControlName="upperCase" />{{sampleFormGroup.controls.upperCase.errors | json}}<br />
+    state <input type="text" formControlName="state" />{{sampleFormGroup.controls.state.errors | json}}<br />
+    country<input type="text" formControlName="country" />{{sampleFormGroup.controls.country.errors | json}}<br />
+    time<input type="text" formControlName="time" />{{sampleFormGroup.controls.time.errors | json}}<br />
+    url<input type="text" formControlName="url" />{{sampleFormGroup.controls.url.errors | json}}<br />
+    creditcard<input type="text" formControlName="creditCard" />{{sampleFormGroup.controls.creditCard.errors | json}}<br />
+    json<input type="text" formControlName="json" />{{sampleFormGroup.controls.json.errors | json}}<br />
+    greaterthan<input type="text" formControlName="greaterThan" />{{sampleFormGroup.controls.greaterThan.errors | json}}<br />
+    greaterthanequalto<input type="text" formControlName="greaterThanEqualTo" />{{sampleFormGroup.controls.greaterThanEqualTo.errors | json}}<br />
+    lessthan<input type="text" formControlName="lessThan" />{{sampleFormGroup.controls.lessThan.errors | json}}<br />
+    lessthanequalto<input type="text" formControlName="lessThanEqualTo" />{{sampleFormGroup.controls.lessThanEqualTo.errors | json}}<br />
+    <div [formGroup]="sampleFormGroup.controls.employeeDetail">
+      propobject <input type="text" formControlName="areaName" />{{sampleFormGroup.controls.employeeDetail.controls.areaName.errors | json}}<br />
+    </div>
+
+    <div [formGroup]="sampleFormGroup.controls.attendances.controls[0]">
+      proparray <input type="text" formControlName="startTime" />{{sampleFormGroup.controls.attendances.controls[0].controls.startTime.errors | json}}<br />
+    </div>
+
+    <input (click)="addItem($event.target)" type="checkbox" value="ajay" /> Ajay
+    <input (click)="addItem($event.target)" type="checkbox" value="ojha" /> Ojha
+    <input (click)="addItem($event.target)" type="checkbox" value="abhay" /> Abhay
+
+    {{sampleFormGroup.controls.skills.value}}
+    {{sampleFormGroup.dirty}}
+    {{sampleFormGroup.isDirty()}}
+    {{sampleFormGroup.error}}
+
+    <button (click)="resetData()">Submit</button>
+    <button (click)="setDefault()">Change</button>
+    <button (click)="resetData()">Reset</button>
+  </form>
 
 
-<h1 class="bd-title" id="content">Alpha Validator Example</h1>
-<br />
-<form *ngIf="countryFormGroup" [formGroup]="countryFormGroup">
-  <div class="form-group">
-    <label>Country Name</label>
-    <input type="text" formControlName="countryName" class="form-control" />
-    <small class="form-text text-danger" *ngIf="countryFormGroup.controls.countryName.errors">{{countryFormGroup.controls.countryName.errors.alpha.message}}<br /></small>
-  </div>
-  <!--[disabled]="!countryFormGroup.valid"-->
-  <button class="btn btn-primary">Submit</button>
-</form>
+  <h1 class="bd-title" id="content">Alpha Validator Example</h1>
+  <br />
+  <form *ngIf="countryFormGroup" [formGroup]="countryFormGroup">
+    <div class="form-group">
+      <label>Country Name</label>
+      <input type="text" formControlName="countryName" class="form-control" />
+      <small class="form-text text-danger" *ngIf="countryFormGroup.controls.countryName.errors">{{countryFormGroup.controls.countryName.errors.alpha.message}}<br /></small>
+    </div>
+    <!--[disabled]="!countryFormGroup.valid"-->
+    <button class="btn btn-primary">Submit</button>
+  </form>

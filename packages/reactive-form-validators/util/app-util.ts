@@ -49,9 +49,13 @@ export class ApplicationUtil{
     }
 
     static configureControl(control:any,config:any,type:string){
-      if(config)
-                Object.assign(control,{config:config,type:type})
+      if(config){
+          if(!control.validatorConfig){
+            let jObject= {};
+            jObject[type] = config;
+            Object.assign(control,{validatorConfig:jObject})
+          } else
+            control.validatorConfig[type] = config;
+      }
     }
-  
-
 }

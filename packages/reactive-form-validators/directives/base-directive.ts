@@ -1,6 +1,7 @@
-import {Input, ElementRef ,Renderer } from "@angular/core"
-import { FormGroup , AbstractControl } from "@angular/forms"
+import {Input, ElementRef ,Renderer,ContentChildren,QueryList } from "@angular/core"
+import { FormGroup , AbstractControl,NgModel } from "@angular/forms"
 import { AnnotationTypes } from "../core/validator.static";
+import { NgModelDirective } from './template-validations/required.directive'
 import {INPUT,SELECT,CHECKBOX,TEXTAREA,KEYPRESS, ONCHANGE,ONKEYUP,ONCLICK,
 RADIO,FILE, ONBLUR,ONFOCUS,ELEMENT_VALUE
   } from "../const";
@@ -10,7 +11,9 @@ export abstract class BaseDirective {
     htmlElements:string[] = ["input","select","textarea"]
     validationRule:any = {};
     @Input() formGroup: FormGroup;
-    
+    @ContentChildren(NgModelDirective) ngModelElements: QueryList<NgModelDirective>;
+    @ContentChildren(NgModel) ngModels: QueryList<NgModel>;
+
     constructor(private elementRef: ElementRef,private decimalProvider:DecimalProvider,private renderer: Renderer){
       this.element = this.elementRef.nativeElement;
     }
@@ -41,13 +44,23 @@ export abstract class BaseDirective {
     }
 
     getControl(name:string) {
-      var element = null;
+      var element = this.getNgModelElement(name);
+      if (!element) {
       for(var i=0;i<this.htmlElements.length;i++) {
           element = this.element.querySelectorAll(`${this.htmlElements[i]}[formControlName='${name}']`);
           if(element)
             break;
       }
+    }
       return element;
+    }
+
+    getNgModelElement(name:string) : any{
+      if(this.ngModelElements && this.ngModelElements.length > 0){
+        let findElement = this.ngModelElements.filter(t=>t.name == name)[0];
+        return findElement ? [findElement.element] : undefined;
+      }
+        return undefined;
     }
 
     validationChange(props:string[],formGroup:FormGroup) {
@@ -75,6 +88,7 @@ export abstract class BaseDirective {
     }
 
     handleNumeric(){
+      if(this.formGroup){
       for(var controlName in this.formGroup.controls){
           let control:any = this.formGroup.controls[controlName];
           if(control.config && control.type == AnnotationTypes.numeric && control.config.isFormat){
@@ -85,6 +99,8 @@ export abstract class BaseDirective {
                 }
           }
       }
+
+    }
     }
 
     private setValueOnElement(element:any,value: any) {

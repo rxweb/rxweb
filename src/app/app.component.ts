@@ -160,6 +160,7 @@ this.classProperty = value;
 })
 export class AppComponent implements OnInit {
     title = 'app';
+    hero = {name:''};
     sampleFormGroup: FormGroup;
     angularFormGroup:FormGroup;
     constructor(private formBuilder: FormBuilder, private validation: RxFormBuilder) {
@@ -202,7 +203,7 @@ this.testForm = this.formBuilder.group({
   age:['',RxwebValidators.startsWith({value:"n"})],
   cardType:[''],
   creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
-  amount:['',RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]
+  amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]]
   
 });
         this.angularFormGroup = this.validation.group({
