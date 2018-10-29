@@ -12,20 +12,14 @@ export class DecimalProvider {
         ) {
     }
 
-    replacer(control:any): void {
-        if (control.value) {
-            let value = control.value;
+    replacer(value:any): void {
             value = value.replace(RegexValidator.commaRegex(), BLANK);
             var splitValue = value.split(".");
             value = (splitValue.length > 1 && splitValue[1] && RegexValidator.isZero(splitValue[1])) ? splitValue[0] : value;
             return value;
-        }
-        return control.value;
     }
     
-    transFormDecimal(control:any): string {
-        if (!(control.errors && control.errors.numeric)) {
-            return this.decimalPipe.transform(control.value, control.config.digits);
-      } 
+    transFormDecimal(value:any,digitsInfo:string): string {
+            return this.decimalPipe.transform(value, digitsInfo);
     }
 }

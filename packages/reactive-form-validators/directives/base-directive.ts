@@ -1,7 +1,8 @@
 import {Input, ElementRef ,Renderer,ContentChildren,QueryList } from "@angular/core"
 import { FormGroup , AbstractControl,NgModel } from "@angular/forms"
+
 import { AnnotationTypes } from "../core/validator.static";
-import { NgModelDirective } from './template-validations/required.directive'
+import { NgModelDirective } from './template-validations/ngmodel.directive'
 import {INPUT,SELECT,CHECKBOX,TEXTAREA,KEYPRESS, ONCHANGE,ONKEYUP,ONCLICK,
 RADIO,FILE, ONBLUR,ONFOCUS,ELEMENT_VALUE
   } from "../const";
@@ -12,26 +13,43 @@ export abstract class BaseDirective {
     validationRule:any = {};
     @Input() formGroup: FormGroup;
     @ContentChildren(NgModelDirective) ngModelElements: QueryList<NgModelDirective>;
-    @ContentChildren(NgModel) ngModels: QueryList<NgModel>;
 
     constructor(private elementRef: ElementRef,private decimalProvider:DecimalProvider,private renderer: Renderer){
       this.element = this.elementRef.nativeElement;
     }
 
     bindEvents():void {
+      this.setControl();
       if(this.validationRule && this.validationRule.conditionalValidationProps){
                 for(var columnName in this.validationRule.conditionalValidationProps){
-                      let controlElement = this.getControl(columnName);
-                      if(controlElement && controlElement.length > 0)
-                        controlElement[0][this.getEventName(controlElement[0])] = this.validationChange(this.validationRule.conditionalValidationProps[columnName],this.formGroup);
+                      if(this.ngModelElements){
+                        let modelDirective = this.ngModelElements.filter(t=>t.name == columnName || t.formControlName == columnName)[0];
+                        if(modelDirective)
+                        {
+                            let jObject : {[key:string]:any} = {};
+                            this.validationRule.conditionalValidationProps[columnName].forEach(x=>{
+                              jObject[x] = this.formGroup.controls[x];
+                            })
+                            modelDirective.validationControls  = jObject;
+                        }
+                      }
                 }      
       }
       this.handleNumeric();
     }
 
-    getEventName(element:any){
+
+    private setControl(){
+      for(var fieldName in this.formGroup.controls){
+          let modelDirective = this.ngModelElements.filter(t=>t.name == fieldName || t.formControlName == fieldName)[0];
+          if(modelDirective && !modelDirective.formControl)
+            modelDirective.formControl = this.formGroup.controls[fieldName];
+      }
+    }
+
+    getEventName(element:any) {
       var eventName:string = '';
-      switch(element.tagName){
+      switch(element.tagName) {
         case INPUT:
         case TEXTAREA:
          eventName = (element.type == CHECKBOX || element.type == RADIO || element.type == FILE) ?  ONCHANGE : ONKEYUP;
@@ -74,8 +92,6 @@ export abstract class BaseDirective {
 
     onFocus(control:AbstractControl){
       return (event) => {
-        let value = this.decimalProvider.replacer(control);
-        this.setValueOnElement(event.srcElement,value);
       }
     }
 
@@ -89,7 +105,7 @@ export abstract class BaseDirective {
 
     handleNumeric(){
       if(this.formGroup){
-      for(var controlName in this.formGroup.controls){
+        for(var controlName in this.formGroup.controls){
           let control:any = this.formGroup.controls[controlName];
           if(control.config && control.type == AnnotationTypes.numeric && control.config.isFormat){
                 let controlElement = this.getControl(controlName);

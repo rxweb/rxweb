@@ -11,17 +11,19 @@
   </ng-template>
 </rxweb-dynamic-form>
 
-<form #heroForm="ngForm" rxwebForm>
+<form #heroForm="ngForm" [rxwebForm]="heroForm">
   name
   <input id="password" name="password" class="form-control"
-         
          [(ngModel)]="hero.password" #password="ngModel">
   {{password.errors | json}}
   <input id="confirmPassword" [compare]="{fieldName:'password'}" name="confirmPassword" class="form-control"
-         
          [(ngModel)]="hero.confirmPassword" #confirmPassword="ngModel">
   {{confirmPassword.errors | json}}
-  </form>
+  <input id="amount" [numeric]="{allowDecimal:true,digitsInfo:'1.0',isFormat:true}" name="amount" class="form-control"
+         [(ngModel)]="hero.amount" #amount="ngModel">
+  {{amount.errors | json}}
+  {{hero.amount}}
+</form>
 
   <form [formGroup]="modelRuleGroup">
     <div class="form-group">

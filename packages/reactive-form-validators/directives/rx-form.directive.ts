@@ -13,29 +13,40 @@ import { ApplicationUtil } from '../util/app-util';
     selector: '[formGroup],[rxwebForm]',
 })
 export class RxwebFormDirective extends BaseDirective implements AfterContentInit, OnDestroy {
-    
+    private clearTimeout:number = 0;
+    @Input('rxwebForm') ngForm;
+
     constructor(elementRef: ElementRef,decimalProvider:DecimalProvider,renderer: Renderer,) {
       super(elementRef,decimalProvider,renderer);
     }
 
     ngAfterContentInit(): void {
-      console.log(this.ngModelElements);
+      
       if(this.formGroup && !this.formGroup["model"]){
         this.expressionProcessor(this.formGroup.controls);
         super.bindEvents();
       } else if(this.ngModelElements && this.ngModelElements.length > 0){
-          let controls = {}
-          this.ngModelElements.forEach(t=>{
-                controls[t.name] = {};
-                Object.keys(AnnotationTypes).forEach(validatorName=>{
-                  if(t[validatorName])
-                    ApplicationUtil.configureControl(controls[t.name],t[validatorName],validatorName);
-                })
-          });
-          this.expressionProcessor(controls);
-          debugger;
-          this.bindEvents();
+       if(this.ngForm){
+        this.configureModelValidations();
       }
+      }
+    }
+
+    private configureModelValidations(){
+        this.clearTimeout = window.setTimeout(()=>{
+          window.clearTimeout(this.clearTimeout);
+          this.formGroup = this.ngForm.form;
+          let controls = {}
+                this.ngModelElements.forEach(t=>{
+                      controls[t.name] = {};
+                      Object.keys(AnnotationTypes).forEach(validatorName=>{
+                        if(t[validatorName])
+                          ApplicationUtil.configureControl(controls[t.name],t[validatorName],validatorName);
+                      })
+                });
+                this.expressionProcessor(controls);
+                this.bindEvents();
+        },500)
     }
 
     private expressionProcessor(controls:{[key:string]:any}){
