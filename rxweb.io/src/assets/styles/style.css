@@ -718,8 +718,8 @@
 }
 
 .btn-primary {
-    background-color: #34495e;
-    border-color: #34495e;
+    background-color: #007dc5;
+    border-color: #007dc5;
     color: #fff
 }
 
@@ -728,8 +728,8 @@
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    background-color: #3f5872;
-    border-color: #3f5872;
+    background-color: #0a6ba2;
+    border-color: #0a6ba2;
     color: #fff
 }
 
@@ -2334,7 +2334,7 @@ p.alpha-con-title {
 	padding-top: 20px;
 }
 .panel-title.que {
-    padding: 20px 0;
+    padding: 20px 0 0;
 }
 
 /* .comment-section .panel{
@@ -2356,6 +2356,8 @@ p.alpha-con-title {
 .comment-section .model-ts{
     position:relative;
     margin-top: 10px;
+    width:100%;
+    box-shadow: none;
 }
 .comment-section .model-ts:after {
     position: absolute;
@@ -2370,7 +2372,7 @@ p.alpha-con-title {
     border-color: transparent;
     border-style: solid solid outset;
     border-width: 8px;
-    border-right-color: #e3e3e3;
+    border-right-color: #eee;
 }
 /* .comment-section textarea.form-control{
 	width: 1104px;
@@ -2390,7 +2392,7 @@ text-transform: none;
     padding-left: 0;
 }
 
-.comment-section .issue p h1{
+/* .comment-section .issue p h1{
     margin-top: 0 !important;
     padding-bottom: 0.3em;
     font-size: 2em;
@@ -2398,7 +2400,7 @@ text-transform: none;
     margin-bottom: -4px;
     font-weight: 600 !important;
     line-height: 1.25;
-}
+} */
 .comment-section .nav-tabs>li.active>a, .comment-section .nav-tabs>li.active>a:hover, .comment-section .nav-tabs>li.active>a:focus {
     border-top: 2px solid #000;
 }
@@ -5520,7 +5522,7 @@ input.ng-invalid{
     padding-left: 0;
 }
 
-.comment-section .issue p h1{
+/* .comment-section .issue p h1{
     margin-top: 0 !important;
     padding-bottom: 0.3em;
     font-size: 2em;
@@ -5528,7 +5530,7 @@ input.ng-invalid{
     margin-bottom: -4px;
     font-weight: 600 !important;
     line-height: 1.25;
-}
+} */
 .code-example-title {
     padding-left: 20px;
     padding-bottom: 0px;
@@ -5756,6 +5758,8 @@ header.banner .top-bar .navbar-nav a:hover {
 }
 .home-page .tab-content {
     border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
 }
 .code-content.left-space {
     padding-left: 20px;
@@ -5817,6 +5821,26 @@ ul.menu li {
     position: relative;
     min-height: 100%;
     padding: 0 30px;   
+}
+.comment-section .issue p{padding: 0;}
+.comment-section .panel-body {
+    padding: 0 20px;
+    padding-top: 15px !important;
+}
+.comment-section .panel-body .issue h3, .comment-section .panel-body .issue h1{
+    font-size:18px;
+    margin: 10px 0;
+    font-weight: 600 !important;
+    line-height:1.5;
+
+}
+.comment-section .ts-title {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+}
+.comment-section .code {
+    padding: 12px;
+    background: #fff;
 }
 /*=============== media query ================*/
 @media only screen and (max-width:1199px) {
@@ -5975,3 +5999,5 @@ ul.menu li {
 @media only screen and (max-width: 575px){
     header.banner .top-bar{padding: 0;}
 }
+
+/*-------- do not add any css here ---------- */
