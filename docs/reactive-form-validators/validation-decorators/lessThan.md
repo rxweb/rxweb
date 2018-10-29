@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let’s assume that you are creating a User form, which contains fields like ObtainedMarks, PassingMarks, OtherMarks and you want the user to enter the numbers which are less than a related field. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a User form, which contains fields like ObtainedMarks, PassingMarks, OtherMarks and you want the user to enter the numbers which are less than a related field. Here depending upon the requirement these scenarios may arise.
 1.	Allow numbers which are less than a perticular field like in PassingMarks.
 2.	Apply lessThan validation based on matched condition in the form, like if the ObtainedMarks is less than 35, then only the greater than validation will be applied to PassingMarks field.
 3.	Adding Custom Message on OtherMarks Field.
@@ -18,7 +18,7 @@ First we need to create a User class and define a property of Marks and PassingM
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
@@ -26,6 +26,10 @@ Now, we need to create a FormGroup in the component. To achieve this, we need to
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\edit\less-than-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\lessThan\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\add\less-than-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -129,6 +133,8 @@ This Complete lessThan example which includes all the RelationalOperatorConfig p
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\less-than-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\less-than-dynamic.component.html)]
 ***

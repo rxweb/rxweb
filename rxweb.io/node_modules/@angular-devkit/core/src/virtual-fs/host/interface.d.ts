@@ -17,7 +17,7 @@ export declare const enum HostWatchEventType {
     Changed = 0,
     Created = 1,
     Deleted = 2,
-    Renamed = 3,
+    Renamed = 3
 }
 export declare type Stats<T extends object = {}> = T & {
     isFile(): boolean;

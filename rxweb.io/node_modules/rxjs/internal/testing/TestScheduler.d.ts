@@ -21,10 +21,24 @@ export declare class TestScheduler extends VirtualTimeScheduler {
     private runMode;
     constructor(assertDeepEqual: (actual: any, expected: any) => boolean | void);
     createTime(marbles: string): number;
-    createColdObservable<T>(marbles: string, values?: any, error?: any): ColdObservable<T>;
-    createHotObservable<T>(marbles: string, values?: any, error?: any): HotObservable<T>;
-    private materializeInnerObservable(observable, outerFrame);
-    expectObservable(observable: Observable<any>, unsubscriptionMarbles?: string): ({
+    /**
+     * @param marbles A diagram in the marble DSL. Letters map to keys in `values` if provided.
+     * @param values Values to use for the letters in `marbles`. If ommitted, the letters themselves are used.
+     * @param error The error to use for the `#` marble (if present).
+     */
+    createColdObservable<T = string>(marbles: string, values?: {
+        [marble: string]: T;
+    }, error?: any): ColdObservable<T>;
+    /**
+     * @param marbles A diagram in the marble DSL. Letters map to keys in `values` if provided.
+     * @param values Values to use for the letters in `marbles`. If ommitted, the letters themselves are used.
+     * @param error The error to use for the `#` marble (if present).
+     */
+    createHotObservable<T = string>(marbles: string, values?: {
+        [marble: string]: T;
+    }, error?: any): HotObservable<T>;
+    private materializeInnerObservable;
+    expectObservable(observable: Observable<any>, subscriptionMarbles?: string): ({
         toBe: observableToBeFn;
     });
     expectSubscriptions(actualSubscriptionLogs: SubscriptionLog[]): ({

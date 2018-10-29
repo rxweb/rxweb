@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rx-app": {
+    "rx.web.io": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rx-app",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -56,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rx-app:build"
+            "browserTarget": "rx.web.io:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rx-app:build:production"
+              "browserTarget": "rx.web.io:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rx-app:build"
+            "browserTarget": "rx.web.io:build"
           }
         },
         "test": {
@@ -102,7 +102,7 @@
         }
       }
     },
-    "rx-app-e2e": {
+    "rx.web.io-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -110,11 +110,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "rx-app:serve"
+            "devServerTarget": "rx.web.io:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "rx-app:serve:production"
+              "devServerTarget": "rx.web.io:serve:production"
             }
           }
         },
@@ -130,5 +130,5 @@
       }
     }
   },
-  "defaultProject": "rx-app"
+  "defaultProject": "rx.web.io"
 }

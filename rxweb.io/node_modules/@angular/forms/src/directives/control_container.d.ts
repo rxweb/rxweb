@@ -8,20 +8,24 @@
 import { AbstractControlDirective } from './abstract_control_directive';
 import { Form } from './form_interface';
 /**
- * A directive that contains multiple `NgControl`s.
- *
+ * @description
+ * A base class for directives that contain multiple registered instances of `NgControl`.
  * Only used by the forms module.
- *
- *
  */
 export declare abstract class ControlContainer extends AbstractControlDirective {
+    /**
+     * @description
+     * The name for the control
+     */
     name: string;
     /**
-     * Get the form to which this container belongs.
+     * @description
+     * The top-level form directive for the control.
      */
     readonly formDirective: Form | null;
     /**
-     * Get the path to this container.
+     * @description
+     * The path to this group.
      */
     readonly path: string[] | null;
 }

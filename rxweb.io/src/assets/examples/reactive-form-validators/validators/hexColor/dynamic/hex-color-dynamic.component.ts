@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -12,33 +11,16 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 export class HexColorDynamicValidatorComponent implements OnInit {
     hexcolorInfoFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			color : {
-				hexColor : true  
-			},
-						
-			footerHexCode : {
-				hexColor :  {conditionalExpression:(x,y) =>{ return  x.color == "#AFAFAF"},} 
-			},
-						
-			headerHexcolorCode : {
-				hexColor :  {conditionalExpression:x => x.color == "#AFAFAF",} 
-			},
-						
-			bodyHexcolorCode : {
-				hexColor :  {message:'Please enter the right format of hexcode for body like "#AFAFAF"',} 
-			},
-			        };
-		 var hexcolorInfo = {
-			color:'', footerHexCode:'', headerHexcolorCode:'', bodyHexcolorCode:'', 
-		}
-		this.hexcolorInfoFormGroup = this.formBuilder.formGroup(hexcolorInfo,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/hexColor/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var hexcolorInfo = { color:'', footerHexCode:'', headerHexcolorCode:'', bodyHexcolorCode:'',  }
+			this.hexcolorInfoFormGroup = this.formBuilder.group(hexcolorInfo,formBuilderConfiguration);
+		})
     }
 }

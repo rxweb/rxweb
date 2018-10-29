@@ -31,7 +31,7 @@ Reactive Extensions Library for JavaScript. This is a rewrite of [Reactive-Exten
 
 ## Versions In This Repository
 
-- [master](https://github.com/ReactiveX/rxjs/commits/master) - This all of the current, unreleased work, which is against v6 of RxJS right now
+- [master](https://github.com/ReactiveX/rxjs/commits/master) - This is all of the current, unreleased work, which is against v6 of RxJS right now
 - [stable](https://github.com/ReactiveX/rxjs/commits/stable) - This is the branch for the latest version you'd get if you do `npm install rxjs`
 
 ## Important
@@ -107,6 +107,7 @@ range(1, 200)
 
 - `npm run build_all` - builds everything
 - `npm test` - runs tests
+- `npm run test_no_cache` - run test with `ts-node` set to false
 
 `npm run info` will list available scripts (there are a lot LOL)
 
@@ -117,11 +118,7 @@ Run `npm run build_perf` or `npm run perf` to run the performance tests with `pr
 Run `npm run perf_micro [operator]` to run micro performance test benchmarking operator.
 
 ## Adding documentation
-RxNext uses [ESDoc](https://esdoc.org/) to generate API documentation. Refer to ESDoc's documentation for syntax. Run `npm run build_docs` to generate.
-
-At the moment we are trying to improve the documentation. For this purpose the Documentation is in a separate [GitHub Repository](https://github.com/ReactiveX/rxjs-docs).
-For a quick instruction take a look at the [documentation guidelines](https://github.com/ReactiveX/rxjs-docs/blob/master/DOCUMENTATION_GUIDELINES.md).
-We are really happy about any type of contributions! 
+We appreciate all contributions to the documentation of any type. All of the information needed to get the docs app up and running locally as well as how to contribute can be found in the [documentation directory](./docs_app).
 
 ## Generating PNG marble diagrams
 

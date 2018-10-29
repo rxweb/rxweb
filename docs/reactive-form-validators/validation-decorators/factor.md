@@ -1,16 +1,15 @@
 ---
 title: factor 
-description: factor validation decorator will allow user to enter only the factor of the particular value or perticular field.
+description: factor validation decorator will allow user to enter factor of a number which is called dividend.
 author: rxcontributorone
 
 ---
-
 # When to use
-Let's assume that you are creating a user form in which you want user to enter factor of a particular value which contains fields like firstNumber,secondNumber,ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise.
-1.	The Name of secondNumber field on which comparison is done.
+Suppose you want to create a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise.
+1.  Apply factor validation on firstNumber field by setting  dividend property as 50 so the validation will allow only factors of 50
 2.  Apply factor validation based on matched condition in the form, like if the firstNumber  is ‘25’ then the Fourthyear value should be factor.
 3.  The Custom Message on ThirdNumber field.
-4.   Apply factor validation based of dividend, dividend is the value for which factors are calculated.
+4.  Apply factor validation based of dividend, dividend is the value for which factors are calculated.
 5.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
 Let’s see how factor validator fulfil the need.
@@ -20,7 +19,7 @@ First we need to create a User Model class and define property of firstNumber an
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
@@ -29,6 +28,10 @@ Here we have covered Add and Edit form operations.
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\edit\factor-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\factor\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\add\factor-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -96,7 +99,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
- [!TabGroup(?showHideCondition="conditionalExpression")]
+[!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\conditionalExpression\user.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
@@ -122,7 +125,7 @@ To override the global configuration message and show the custom message on part
 # [Html](#tab\messageHtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\message\factor-message.component.html)]
 ***
-
+  
 [!example(?type=section&clickEventCode="message=!message"&title=factor decorator with custom message)]
 <app-factor-message></app-factor-message>
 
@@ -149,6 +152,8 @@ This Complete Factor example which includes all the FactorConfig properties will
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\factor-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\dynamic\factor-dynamic.component.html)]
 ***

@@ -7,7 +7,7 @@ export declare class WebpackResourceLoader {
     constructor();
     update(parentCompilation: any): void;
     getResourceDependencies(filePath: string): string[];
-    private _compile(filePath);
-    private _evaluate({outputName, source});
+    private _compile;
+    private _evaluate;
     get(filePath: string): Promise<string>;
 }

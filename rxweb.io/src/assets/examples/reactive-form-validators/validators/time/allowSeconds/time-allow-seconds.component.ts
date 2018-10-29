@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-time-allowSeconds-validator',
@@ -11,13 +9,13 @@ import { RxFormBuilder,RxwebValidators
 export class TimeAllowSecondsValidatorComponent implements OnInit {
     attandanceDetailFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
-        this.attandanceDetailFormGroup = this.formBuilder.formGroup({
-										totalOutTime:['',RxwebValidators.time({allowSeconds:true })], 
-								});
+        this.attandanceDetailFormGroup = this.formBuilder.group({
+            totalOutTime:['', RxwebValidators.time({allowSeconds:true })], 
+        });
     }
 }

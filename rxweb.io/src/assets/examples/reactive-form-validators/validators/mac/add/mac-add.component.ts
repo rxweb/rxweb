@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-mac-add-validator',
@@ -11,13 +9,13 @@ import { RxFormBuilder,RxwebValidators
 export class MacAddValidatorComponent implements OnInit {
     macAddressInfoFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
-        this.macAddressInfoFormGroup = this.formBuilder.formGroup({
-										systemMacAddress:['',RxwebValidators.mac()], 
-								});
+        this.macAddressInfoFormGroup = this.formBuilder.group({
+            systemMacAddress:['', RxwebValidators.mac()], 
+        });
     }
 }

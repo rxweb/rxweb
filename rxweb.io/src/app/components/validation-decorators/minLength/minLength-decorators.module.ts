@@ -6,21 +6,22 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MIN_LENGTH_ROUTING } from './minLength.routing';
 import { MinLengthComponent } from './minLength.component';
-import { MinLengthExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/minLength/minLength.module';
+import { MinLengthDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/minLength/min-length-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
-import { TitleCasePipe } from "@angular/common";
+import { PipeCommonModule } from "src/app/pipes";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     MIN_LENGTH_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinLengthExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, MinLengthDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [MinLengthComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers:[TitleCasePipe]
+  providers:[MergeDashPipe]
 })
 export class MinLengthDecoratorsModule { }
 

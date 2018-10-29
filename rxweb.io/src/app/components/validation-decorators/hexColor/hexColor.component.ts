@@ -4,7 +4,7 @@ import { HexColorCompleteComponent } from 'src/assets/examples/reactive-form-val
 import { HexColorDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/hexColor/dynamic/hex-color-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { TitleCasePipe } from "@angular/common";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @Component({
   templateUrl: './hexColor.component.html',
@@ -16,7 +16,7 @@ export class HexColorComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic HexColor Validation":null,"HexColorConfig":["conditionalExpression","message"],"Complete hexColor Example":null,"Dynamic hexColor Example":null};
+  sidebarLinks:any = {"hexColor":null,"When to use":null,"Basic HexColor Validation":null,"HexColorConfig":["conditionalExpression","message"],"Complete hexColor Example":null,"Dynamic hexColor Example":null};
   tab_1:string = "basicadd";
    tab_2:string = "conditionalExpressionmodel";
    tab_3:string = "messageModel";
@@ -24,7 +24,7 @@ export class HexColorComponent implements OnInit {
    tab_5:string = "dynamicexample";
    
   constructor(
-    private http: HttpClient   ,private titlecasePipe:TitleCasePipe
+    private http: HttpClient   ,private mergeDashPipe:MergeDashPipe
   ) {
   }
   ngOnInit(): void {
@@ -32,9 +32,9 @@ export class HexColorComponent implements OnInit {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)
-		document.title = this.titlecasePipe.transform(splitedArray[2]) + " : " + this.titlecasePipe.transform(splitedArray[1])
+		document.title = splitedArray[2] + " : " + this.mergeDashPipe.transform(splitedArray[1])
 	  else
-		document.title = splitedArray[1] ? this.titlecasePipe.transform(splitedArray[1]) : "RxApp"
+		document.title = splitedArray[1] ? this.mergeDashPipe.transform(splitedArray[1]) : "RxApp"
 	  this.showComponent = true;
     })
   }

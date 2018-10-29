@@ -17,6 +17,6 @@ export declare class KarmaBuilder implements Builder<KarmaBuilderSchema> {
     context: BuilderContext;
     constructor(context: BuilderContext);
     run(builderConfig: BuilderConfiguration<KarmaBuilderSchema>): Observable<BuildEvent>;
-    private _buildWebpackConfig(root, projectRoot, host, options);
+    private _buildWebpackConfig;
 }
 export default KarmaBuilder;

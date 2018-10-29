@@ -5,21 +5,21 @@ author: rxcontributorone
 
 ---
 # When to use
-Let’s assume that you are creating a Country form, which contains fields like CountryName, CountryCode, StateName, StateCode and you want the user to enter only alphabets Here depending upon the requirement these scenarios may arise.
-1.	Allow only alphabets in CountryCode without space.
-2.	Allowing WhiteSpace in CountryName
+Suppose you want to create a Country form, which contains fields like CountryName, CountryCode, StateName, StateCode and you want the user to enter only alphabets Here depending upon the requirement these scenarios may arise.
+1.	Allow only alphabets in CountryName without space.
+2.	Allowing WhiteSpace in StateName
 3.	Apply alpha validation based on matched condition in the form, like if the CountryName  is ‘Australia’ then the StateCode value should be in alphabets.
-4.	Adding Custom Message on StateName Field.
+4.	Adding Custom Message on StateCode Field.
 5.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
 Let’s see how alpha decorator fulfil the need.
  
 # Basic Alpha Validation
-First we need to create a Country class and define a property of CountryCode in the model to achieve the functional need of point 1.
+First we need to create a Country class and define a property of CountryName in the model to achieve the functional need of point 1.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\add\country.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\edit\country.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
@@ -28,6 +28,11 @@ Here we have covered Add and Edit form operations.
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\edit\alpha-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `country-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\alpha\edit\country-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\add\alpha-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -131,6 +136,8 @@ This Complete Alpha example which includes all the AlphaConfig properties will f
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\dynamic\address-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\dynamic\alpha-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\dynamic\alpha-dynamic.component.html)]
 ***

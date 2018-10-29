@@ -1,3 +1,8 @@
+export interface ArgumentOutOfRangeError extends Error {
+}
+export interface ArgumentOutOfRangeErrorCtor {
+    new (): ArgumentOutOfRangeError;
+}
 /**
  * An error thrown when an element was queried at a certain index of an
  * Observable, but no such index or position exists in that sequence.
@@ -8,7 +13,4 @@
  *
  * @class ArgumentOutOfRangeError
  */
-export declare class ArgumentOutOfRangeError extends Error {
-    readonly name: string;
-    constructor();
-}
+export declare const ArgumentOutOfRangeError: ArgumentOutOfRangeErrorCtor;

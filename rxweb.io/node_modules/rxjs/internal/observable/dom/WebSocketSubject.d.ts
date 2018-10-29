@@ -58,7 +58,7 @@ export declare class WebSocketSubject<T> extends AnonymousSubject<T> {
     private _socket;
     constructor(urlConfigOrSource: string | WebSocketSubjectConfig<T> | Observable<T>, destination?: Observer<T>);
     lift<R>(operator: Operator<T, R>): WebSocketSubject<R>;
-    private _resetState();
+    private _resetState;
     /**
      * Creates an {@link Observable}, that when subscribed to, sends a message,
      * defined by the `subMsg` function, to the server over the socket to begin a
@@ -78,7 +78,7 @@ export declare class WebSocketSubject<T> extends AnonymousSubject<T> {
      * from the server for the output stream.
      */
     multiplex(subMsg: () => any, unsubMsg: () => any, messageFilter: (value: T) => boolean): Observable<any>;
-    private _connectSocket();
+    private _connectSocket;
     /** @deprecated This is an internal implementation detail, do not use. */
     _subscribe(subscriber: Subscriber<T>): Subscription;
     unsubscribe(): void;

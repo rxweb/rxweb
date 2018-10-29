@@ -6,9 +6,6 @@ export class User {
 	email: string;
 
 	@prop()
-	recoveryEmailAddress: string;
-
-	@prop()
 	businessEmailAddress: string;
 
 	@prop()

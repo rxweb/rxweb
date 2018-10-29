@@ -6,21 +6,22 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { EMAIL_ROUTING } from './email.routing';
 import { EmailComponent } from './email.component';
-import { EmailExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/email/email.module';
+import { EmailDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/email/email-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
-import { TitleCasePipe } from "@angular/common";
+import { PipeCommonModule } from "src/app/pipes";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     EMAIL_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, EmailExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, EmailDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [EmailComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers:[TitleCasePipe]
+  providers:[MergeDashPipe]
 })
 export class EmailDecoratorsModule { }
 

@@ -133,15 +133,6 @@ export declare abstract class ReflectiveInjector implements Injector {
      *
      * <!-- TODO: Add a link to the section of the user guide talking about hierarchical injection.
      * -->
-     *
-     * @usageNotes
-     * ### Example
-     *
-     * ```typescript
-     * var parent = ReflectiveInjector.resolveAndCreate([]);
-     * var child = parent.resolveAndCreateChild([]);
-     * expect(child.parent).toBe(parent);
-     * ```
      */
     abstract readonly parent: Injector | null;
     /**

@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let’s assume that you are creating a User form, which contains fields like EmailAddress, RecoveryEmailAddress, OtherEmailAddress and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a User form, which contains fields like EmailAddress, RecoveryEmailAddress, OtherEmailAddress and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.
 1.	Allow input which contains the predefined value in EmailAddress.
 2.	Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the the contains validation must be applied to RecoveryEmailAddress value.
 3.	Adding Custom Message on OtherEmailAddress Field.
@@ -18,7 +18,7 @@ First we need to create a User class and define a property of EmailAddress in th
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
@@ -26,6 +26,10 @@ Now, we need to create a FormGroup in the component. To achieve this, we need to
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\edit\contains-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\contains\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\add\contains-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -129,6 +133,8 @@ This Complete Contains example which includes all the ContainsConfig properties 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\contains-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\contains-dynamic.component.html)]
 ***

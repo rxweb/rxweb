@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -12,33 +11,16 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 export class LowerCaseDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			username : {
-				lowerCase : true  
-			},
-						
-			firstName : {
-				lowerCase :  {conditionalExpression:(x, y) => { return x.username == "jonathan.feldman" },} 
-			},
-						
-			middleName : {
-				lowerCase :  {conditionalExpression:x => x.username == "jonathan.feldman",} 
-			},
-						
-			lastName : {
-				lowerCase :  {message:'You can enter only lowerCase letters.',} 
-			},
-			        };
-		 var user = {
-			username:'', firstName:'', middleName:'', lastName:'', 
-		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/lowerCase/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var user = { username:'', firstName:'', middleName:'', lastName:'',  }
+			this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
+		})
     }
 }

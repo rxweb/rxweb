@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let’s assume that you are creating a User form, which contains fields like Username, FirstName, LastName and you want the user to enter any string only in lowercase. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a User form, which contains fields like Username, FirstName, LastName and you want the user to enter any string only in lowercase. Here depending upon the requirement these scenarios may arise.
 1.	Allow only lowercase alphabets in Username.
 2.	Apply lowerCase validation based on matched condition in the form, like if the Username is `jonathan.feldman`, then only the lowerCase validation will be applied to FirstName field.
 3.	Adding Custom Message on LastName Field.
@@ -14,7 +14,7 @@ Let’s assume that you are creating a User form, which contains fields like Use
 Let’s see how lowerCase validator fulfil the need.
 
 # Basic LowerCase Validation
-We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\lowerCase\add\lower-case-add.component.ts?type=section)]
 ***
@@ -86,6 +86,8 @@ To override the global configuration message and show the custom message on part
 <app-lowerCase-dynamic-validator></app-lowerCase-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\lowerCase\dynamic\lower-case-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\lowerCase\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\lowerCase\dynamic\lower-case-dynamic.component.html)]
 ***

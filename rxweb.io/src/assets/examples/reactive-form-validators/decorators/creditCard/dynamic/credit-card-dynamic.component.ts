@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-	CreditCardType
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
 
@@ -13,50 +11,18 @@ import { User } from './user.model';
     templateUrl: './credit-card-dynamic.component.html'
 })
 export class CreditCardDynamicComponent implements OnInit {
-
     userFormGroup: FormGroup
+				creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let user = new User();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			visaCard : {
-				creditCard :  {creditCardTypes:[CreditCardType.Visa],conditionalExpression:(x,y) =>{ return  x.cardType == "visa" },message:'Invalid Visa Credit Card Number.',} 
-			},
-						
-			otherVisaCard : {
-				creditCard :  {creditCardTypes:[CreditCardType.Visa],conditionalExpression:x => x.cardType == "visa",message:'Invalid Visa Credit Card Number.',} 
-			},
-						
-			americanExpressCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.AmericanExpress ],conditionalExpression:x => x.cardType == "AmericanExpress" ,} 
-			},
-						
-			maestroCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.Maestro ],conditionalExpression:x => x.cardType == "maestroCard",} 
-			},
-						
-			jcbCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.JCB ],conditionalExpression:x => x.cardType == "jcbCard",} 
-			},
-						
-			discoverCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.Discover ],conditionalExpression:x => x.cardType == "discoverCard",} 
-			},
-						
-			masterCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.MasterCard ],conditionalExpression:x => x.cardType == "masterCard",} 
-			},
-						
-			dinersClubCard : {
-				creditCard :  {creditCardTypes:[ CreditCardType.DinersClub ],conditionalExpression:x => x.cardType == "dinersClubCard",} 
-			},
-			        };
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/creditCard/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+        })
     }
 }

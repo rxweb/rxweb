@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-hexColor-add-validator',
@@ -11,13 +9,13 @@ import { RxFormBuilder,RxwebValidators
 export class HexColorAddValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										color:['',RxwebValidators.hexColor()], 
-								});
+        this.userFormGroup = this.formBuilder.group({
+            color:['', RxwebValidators.hexColor()], 
+        });
     }
 }

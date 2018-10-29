@@ -45,7 +45,12 @@ export class TestScheduler extends VirtualTimeScheduler {
     return indexOf * TestScheduler.frameTimeFactor;
   }
 
-  createColdObservable<T>(marbles: string, values?: any, error?: any): ColdObservable<T> {
+  /**
+   * @param marbles A diagram in the marble DSL. Letters map to keys in `values` if provided.
+   * @param values Values to use for the letters in `marbles`. If ommitted, the letters themselves are used.
+   * @param error The error to use for the `#` marble (if present).
+   */
+  createColdObservable<T = string>(marbles: string, values?: { [marble: string]: T }, error?: any): ColdObservable<T> {
     if (marbles.indexOf('^') !== -1) {
       throw new Error('cold observable cannot have subscription offset "^"');
     }
@@ -58,7 +63,12 @@ export class TestScheduler extends VirtualTimeScheduler {
     return cold;
   }
 
-  createHotObservable<T>(marbles: string, values?: any, error?: any): HotObservable<T> {
+  /**
+   * @param marbles A diagram in the marble DSL. Letters map to keys in `values` if provided.
+   * @param values Values to use for the letters in `marbles`. If ommitted, the letters themselves are used.
+   * @param error The error to use for the `#` marble (if present).
+   */
+  createHotObservable<T = string>(marbles: string, values?: { [marble: string]: T }, error?: any): HotObservable<T> {
     if (marbles.indexOf('!') !== -1) {
       throw new Error('hot observable cannot have unsubscription marker "!"');
     }
@@ -82,11 +92,13 @@ export class TestScheduler extends VirtualTimeScheduler {
   }
 
   expectObservable(observable: Observable<any>,
-                   unsubscriptionMarbles: string = null): ({ toBe: observableToBeFn }) {
+                   subscriptionMarbles: string = null): ({ toBe: observableToBeFn }) {
     const actual: TestMessage[] = [];
     const flushTest: FlushableTest = { actual, ready: false };
-    const unsubscriptionFrame = TestScheduler
-      .parseMarblesAsSubscriptions(unsubscriptionMarbles, this.runMode).unsubscribedFrame;
+    const subscriptionParsed = TestScheduler.parseMarblesAsSubscriptions(subscriptionMarbles, this.runMode);
+    const subscriptionFrame = subscriptionParsed.subscribedFrame === Number.POSITIVE_INFINITY ?
+      0 : subscriptionParsed.subscribedFrame;
+    const unsubscriptionFrame = subscriptionParsed.unsubscribedFrame;
     let subscription: Subscription;
 
     this.schedule(() => {
@@ -102,7 +114,7 @@ export class TestScheduler extends VirtualTimeScheduler {
       }, () => {
         actual.push({ frame: this.frame, notification: Notification.createComplete() });
       });
-    }, 0);
+    }, subscriptionFrame);
 
     if (unsubscriptionFrame !== Number.POSITIVE_INFINITY) {
       this.schedule(() => subscription.unsubscribe(), unsubscriptionFrame);

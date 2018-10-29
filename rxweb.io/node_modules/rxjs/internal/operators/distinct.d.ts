@@ -68,6 +68,6 @@ export declare class DistinctSubscriber<T, K> extends OuterSubscriber<T, T> {
     notifyNext(outerValue: T, innerValue: T, outerIndex: number, innerIndex: number, innerSub: InnerSubscriber<T, T>): void;
     notifyError(error: any, innerSub: InnerSubscriber<T, T>): void;
     protected _next(value: T): void;
-    private _useKeySelector(value);
-    private _finalizeNext(key, value);
+    private _useKeySelector;
+    private _finalizeNext;
 }

@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a user form and you have fields like TotalMarks,ObtainedMarks,OtherMarks and you want user to enter ObtainedMarks,OtherMarks such that they should be less than or equal to TotalMarks Here depending upon the requirement these scenarios may arise
+Suppose you want to create a user form and you have fields like TotalMarks, ObtainedMarks, OtherMarks and you want user to enter ObtainedMarks, OtherMarks such that they should be less than or equal to TotalMarks Here depending upon the requirement these scenarios may arise
 1. Specify TotalMarks as fieldName such that LessThanEqualTo validation should be applied to the fieldname for comparing other fields.
 2. Apply LessThanEqualTo validation based on matched condition in the form, like if the TotalMarks is ‘100’ then the ObtainedMarks,OtherMarks value should be less than or equal to 100.
 3. Adding Custom Message on OtherMarks Field.
@@ -14,8 +14,8 @@ Let's assume that you are creating a user form and you have fields like TotalMar
 Let’s see how lessThanEqualTo validator fulfil the need.
 
 # Basic LessThanEqualTo Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\lessThanEqualTo\add\less-than-equal-to-add.component.ts?type=section)]
 ***
@@ -103,6 +103,8 @@ To override the global configuration message and show the custom message on part
 <app-lessThanEqualTo-dynamic-validator></app-lessThanEqualTo-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\lessThanEqualTo\dynamic\less-than-equal-to-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\lessThanEqualTo\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\lessThanEqualTo\dynamic\less-than-equal-to-dynamic.component.html)]
 ***

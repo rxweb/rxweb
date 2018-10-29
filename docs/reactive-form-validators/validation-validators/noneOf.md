@@ -15,8 +15,8 @@ Let's assume that you are creating a employee form in which you want employee to
 Let’s see how noneOf validator fulfil the need.
 
 # Basic noneOf Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\noneOf\add\noneOf-add.component.ts?type=section)]
 
@@ -104,6 +104,8 @@ To override the global configuration message and show the custom message on part
 <app-noneOf-dynamic-validator></app-noneOf-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\noneOf\dynamic\noneOf-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\noneOf\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\noneOf\dynamic\noneOf-dynamic.component.html)]
 ***

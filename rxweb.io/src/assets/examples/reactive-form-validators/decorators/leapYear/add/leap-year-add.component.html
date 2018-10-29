@@ -1,11 +1,11 @@
 <div>
-<form [formGroup]="userFormGroup">
-<div class="form-group">
-    <label>Birth Year</label>
-    <input type="text" formControlName="birthYear" class="form-control"  />
-    <small class="form-text text-muted">you can enter only a leap year<br/></small>
-    <small class="form-text text-danger" *ngIf="userFormGroup.controls.birthYear.errors">{{userFormGroup.controls.birthYear.errors.leapYear.message}}<br/></small>
-</div>
-<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Birth Year</label>
+      <input type="text" formControlName="birthYear" class="form-control"  />
+      <small class="form-text text-muted">you can enter only a leap year<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.birthYear.errors">{{userFormGroup.controls.birthYear.errors.leapYear.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
 </div>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -12,29 +11,16 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 export class MacDynamicValidatorComponent implements OnInit {
     macAddressInfoFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			macAddress : {
-				mac :  {conditionalExpression:(x,y) =>{ return  x.device == "Laptop" },} 
-			},
-						
-			localMacAddress : {
-				mac :  {conditionalExpression:x => x.device =="Laptop",} 
-			},
-						
-			systemMacAddress : {
-				mac :  {message:'{{0}} is not a MAC address',} 
-			},
-			        };
-		 var macAddressInfo = {
-			macAddress:'', localMacAddress:'', systemMacAddress:'', 
-		}
-		this.macAddressInfoFormGroup = this.formBuilder.formGroup(macAddressInfo,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/mac/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var macAddressInfo = { device:'', macAddress:'', localMacAddress:'', systemMacAddress:'',  }
+			this.macAddressInfoFormGroup = this.formBuilder.group(macAddressInfo,formBuilderConfiguration);
+		})
     }
 }

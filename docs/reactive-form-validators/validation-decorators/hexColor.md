@@ -5,8 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let’s assume that you are creating a User form, which contains fields like ColorPicker, HeaderHexColorCode, BodyHexColorCode, StrictHexColorCode and you want the user to enter only the hex color format. Here depending upon the requirement these scenarios may arise.
-
+Suppose you want to create a User form, which contains fields like ColorPicker, HeaderHexColorCode, BodyHexColorCode, StrictHexColorCode and you want the user to enter only the hex color format. Here depending upon the requirement these scenarios may arise.
 1.	Allow string which is a hex color format like in ColorPicker field.
 2.	Apply hexColor validation based on matched condition in the form, like if the ColorPicker is `#AFAFAF`, then only the HeaderHexColorCode field will be validated to hexColor validator.
 3.	Adding Custom Message on BodyHexColorCode field.
@@ -20,7 +19,7 @@ First we need to create a User class and define a property of Color in the model
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
@@ -28,6 +27,10 @@ Now, we need to create a FormGroup in the component. To achieve this, we need to
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\edit\hex-color-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\hexColor\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\add\hex-color-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -111,6 +114,8 @@ This Complete hexColor example which includes all the HexColorConfig properties 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\dynamic\hexcolor-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\dynamic\hex-color-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\hexColor\dynamic\hex-color-dynamic.component.html)]
 ***

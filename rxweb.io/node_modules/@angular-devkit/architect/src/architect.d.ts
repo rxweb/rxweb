@@ -94,12 +94,12 @@ export declare class Architect {
     constructor(_workspace: experimental.workspace.Workspace);
     loadArchitect(): Observable<this>;
     listProjectTargets(projectName: string): string[];
-    private _getProjectTargetMap(projectName);
-    private _getProjectTarget<T>(projectName, targetName);
+    private _getProjectTargetMap;
+    private _getProjectTarget;
     getBuilderConfiguration<OptionsT>(targetSpec: TargetSpecifier): BuilderConfiguration<OptionsT>;
     run<OptionsT>(builderConfig: BuilderConfiguration<OptionsT>, partialContext?: Partial<BuilderContext>): Observable<BuildEvent>;
     getBuilderDescription<OptionsT>(builderConfig: BuilderConfiguration<OptionsT>): Observable<BuilderDescription>;
     validateBuilderOptions<OptionsT>(builderConfig: BuilderConfiguration<OptionsT>, builderDescription: BuilderDescription): Observable<BuilderConfiguration<OptionsT>>;
     getBuilder<OptionsT>(builderDescription: BuilderDescription, context: BuilderContext): Builder<OptionsT>;
-    private _loadJsonFile(path);
+    private _loadJsonFile;
 }

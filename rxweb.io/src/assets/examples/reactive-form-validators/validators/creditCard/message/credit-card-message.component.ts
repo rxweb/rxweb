@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators	,CreditCardType 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-creditCard-message-validator',
@@ -11,14 +9,19 @@ import { RxFormBuilder,RxwebValidators	,CreditCardType
 export class CreditCardMessageValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+				creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
+	
+	
+	
+	constructor(
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																otherVisaCard:['',RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:x => x.cardType == "visa"  ,message:'Invalid Visa Credit Card Number.' })], 
-													visaCard:['',RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:(x,y) =>{ return  x.cardType == "visa" }  ,message:'Invalid Visa Credit Card Number.' })], 
-								});
+        this.userFormGroup = this.formBuilder.group({
+            cardType:['',], 
+            otherVisaCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "Visa"'  ,message:'Invalid Visa Credit Card Number.' })], 
+            visaCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:(x,y) => x.cardType == "Visa"   ,message:'Invalid Visa Credit Card Number.' })], 
+        });
     }
 }

@@ -1,6 +1,6 @@
 import { isFunction } from './util/isFunction';
 import { empty as emptyObserver } from './Observer';
-import { Observer, PartialObserver } from './types';
+import { Observer, PartialObserver, TeardownLogic } from './types';
 import { Subscription } from './Subscription';
 import { rxSubscriber as rxSubscriberSymbol } from '../internal/symbol/rxSubscriber';
 import { config } from './config';
@@ -45,7 +45,9 @@ export class Subscriber<T> extends Subscription implements Observer<T> {
   /** @internal */ syncErrorThrowable: boolean = false;
 
   protected isStopped: boolean = false;
-  protected destination: PartialObserver<any>; // this `any` is the escape hatch to erase extra type param (e.g. R)
+  protected destination: PartialObserver<any> | Subscriber<any>; // this `any` is the escape hatch to erase extra type param (e.g. R)
+
+  private _parentSubscription: Subscription | null = null;
 
   /**
    * @param {Observer|function(value: T): void} [destinationOrNext] A partially
@@ -70,13 +72,10 @@ export class Subscriber<T> extends Subscription implements Observer<T> {
           break;
         }
         if (typeof destinationOrNext === 'object') {
-          // HACK(benlesh): For situations where Node has multiple copies of rxjs in
-          // node_modules, we cannot rely on `instanceof` checks
-          if (isTrustedSubscriber(destinationOrNext)) {
-            const trustedSubscriber = destinationOrNext[rxSubscriberSymbol]() as Subscriber<any>;
-            this.syncErrorThrowable = trustedSubscriber.syncErrorThrowable;
-            this.destination = trustedSubscriber;
-            trustedSubscriber.add(this);
+          if (destinationOrNext instanceof Subscriber) {
+            this.syncErrorThrowable = destinationOrNext.syncErrorThrowable;
+            this.destination = destinationOrNext;
+            destinationOrNext.add(this);
           } else {
             this.syncErrorThrowable = true;
             this.destination = new SafeSubscriber<T>(this, <PartialObserver<any>> destinationOrNext);
@@ -162,6 +161,7 @@ export class Subscriber<T> extends Subscription implements Observer<T> {
     this.isStopped = false;
     this._parent = _parent;
     this._parents = _parents;
+    this._parentSubscription = null;
     return this;
   }
 }
@@ -171,7 +171,7 @@ export class Subscriber<T> extends Subscription implements Observer<T> {
  * @ignore
  * @extends {Ignored}
  */
-class SafeSubscriber<T> extends Subscriber<T> {
+export class SafeSubscriber<T> extends Subscriber<T> {
 
   private _context: any;
 
@@ -297,15 +297,11 @@ class SafeSubscriber<T> extends Subscriber<T> {
     return false;
   }
 
-  /** @deprecated This is an internal implementation detail, do not use. */
+  /** @internal This is an internal implementation detail, do not use. */
   _unsubscribe(): void {
     const { _parentSubscriber } = this;
     this._context = null;
     this._parentSubscriber = null;
     _parentSubscriber.unsubscribe();
   }
-}
-
-function isTrustedSubscriber(obj: any) {
-  return obj instanceof Subscriber || ('syncErrorThrowable' in obj && obj[rxSubscriberSymbol]);
 }

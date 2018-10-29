@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -46,16 +49,19 @@ var ObserveOnSubscriber = (function (_super) {
         this.unsubscribe();
     };
     ObserveOnSubscriber.prototype.scheduleMessage = function (notification) {
-        this.add(this.scheduler.schedule(ObserveOnSubscriber.dispatch, this.delay, new ObserveOnMessage(notification, this.destination)));
+        var destination = this.destination;
+        destination.add(this.scheduler.schedule(ObserveOnSubscriber.dispatch, this.delay, new ObserveOnMessage(notification, this.destination)));
     };
     ObserveOnSubscriber.prototype._next = function (value) {
         this.scheduleMessage(Notification_1.Notification.createNext(value));
     };
     ObserveOnSubscriber.prototype._error = function (err) {
         this.scheduleMessage(Notification_1.Notification.createError(err));
+        this.unsubscribe();
     };
     ObserveOnSubscriber.prototype._complete = function () {
         this.scheduleMessage(Notification_1.Notification.createComplete());
+        this.unsubscribe();
     };
     return ObserveOnSubscriber;
 }(Subscriber_1.Subscriber));

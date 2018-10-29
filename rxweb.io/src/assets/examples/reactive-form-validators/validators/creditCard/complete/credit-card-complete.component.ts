@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators	,CreditCardType 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-creditCard-complete-validator',
@@ -11,20 +9,31 @@ import { RxFormBuilder,RxwebValidators	,CreditCardType
 export class CreditCardCompleteValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+				creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	constructor(
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																visaCard:['',RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:(x,y) =>{ return  x.cardType == "visa" }  ,message:'Invalid Visa Credit Card Number.' })], 
-													otherVisaCard:['',RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:x => x.cardType == "visa"  ,message:'Invalid Visa Credit Card Number.' })], 
-													americanExpressCard:['',RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.AmericanExpress ]  ,conditionalExpression:x => x.cardType == "AmericanExpress"  })], 
-													maestroCard:['',RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.Maestro ]  ,conditionalExpression:x => x.cardType == "maestroCard" })], 
-													jcbCard:['',RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.JCB ]  ,conditionalExpression:x => x.cardType == "jcbCard" })], 
-													discoverCard:['',RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.Discover ]  ,conditionalExpression:x => x.cardType == "discoverCard" })], 
-													masterCard:['',RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.MasterCard ]  ,conditionalExpression:x => x.cardType == "masterCard" })], 
-													dinersClubCard:['',RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.DinersClub ]  ,conditionalExpression:x => x.cardType == "dinersClubCard" })], 
-								});
+        this.userFormGroup = this.formBuilder.group({
+            cardType:['',], 
+            visaCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:(x,y) => x.cardType == "Visa"   ,message:'Invalid Visa Credit Card Number.' })], 
+            otherVisaCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "Visa"'  ,message:'Invalid Visa Credit Card Number.' })], 
+            americanExpressCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "AmericanExpress"' })], 
+            maestroCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "Maestro"' })], 
+            jcbCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "JCB"' })], 
+            discoverCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "Discover"' })], 
+            masterCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "MasterCard"' })], 
+            dinersClubCard:['', RxwebValidators.creditCard({fieldName:'cardType'  ,conditionalExpression:'x => x.cardType == "DinersClub"' })], 
+        });
     }
 }

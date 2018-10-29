@@ -6,21 +6,22 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { DIGIT_ROUTING } from './digit.routing';
 import { DigitComponent } from './digit.component';
-import { DigitExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/digit/digit.module';
+import { DigitValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/digit/digit-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
-import { TitleCasePipe } from "@angular/common";
+import { PipeCommonModule } from "src/app/pipes";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     DIGIT_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, DigitExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, DigitValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [DigitComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers:[TitleCasePipe]
+  providers:[MergeDashPipe]
 })
 export class DigitValidatorsModule { }
 

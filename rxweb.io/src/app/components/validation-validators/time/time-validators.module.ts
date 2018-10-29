@@ -6,21 +6,22 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TIME_ROUTING } from './time.routing';
 import { TimeComponent } from './time.component';
-import { TimeExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/time/time.module';
+import { TimeValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/time/time-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
-import { TitleCasePipe } from "@angular/common";
+import { PipeCommonModule } from "src/app/pipes";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     TIME_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, TimeExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, TimeValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [TimeComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers:[TitleCasePipe]
+  providers:[MergeDashPipe]
 })
 export class TimeValidatorsModule { }
 

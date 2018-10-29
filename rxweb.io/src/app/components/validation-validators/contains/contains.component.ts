@@ -1,11 +1,10 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { ContainsAddValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/contains/add/contains-add.component';
 import { ContainsCompleteValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/contains/complete/contains-complete.component';
 import { ContainsDynamicValidatorComponent } from 'src/assets/examples/reactive-form-validators/validators/contains/dynamic/contains-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { TitleCasePipe } from "@angular/common";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @Component({
   templateUrl: './contains.component.html',
@@ -17,15 +16,15 @@ export class ContainsComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Contains Validation":null,"ContainsConfig":["value","conditionalExpression","message"],"Complete Contains Example":null,"Dynamic Contains Example":null};
-  tab_1:string = "valuemodel";
-   tab_2:string = "conditionalExpressionmodel";
-   tab_3:string = "messageModel";
+  sidebarLinks:any = {"contains":null,"When to use":null,"Basic Contains Validation":null,"ContainsConfig":["value","conditionalExpression","message"],"Complete Contains Example":null,"Dynamic Contains Example":null};
+  tab_1:string = "valueComponent";
+   tab_2:string = "conditionalExpressionComponent";
+   tab_3:string = "messageComponent";
    tab_4:string = "completeexample";
    tab_5:string = "dynamicexample";
    
   constructor(
-    private http: HttpClient   ,private titlecasePipe:TitleCasePipe
+    private http: HttpClient   ,private mergeDashPipe:MergeDashPipe
   ) {
   }
   ngOnInit(): void {
@@ -33,9 +32,9 @@ export class ContainsComponent implements OnInit {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)
-		document.title = this.titlecasePipe.transform(splitedArray[2]) + " : " + this.titlecasePipe.transform(splitedArray[1])
+		document.title = splitedArray[2] + " : " + this.mergeDashPipe.transform(splitedArray[1])
 	  else
-		document.title = splitedArray[1] ? this.titlecasePipe.transform(splitedArray[1]) : "RxApp"
+		document.title = splitedArray[1] ? this.mergeDashPipe.transform(splitedArray[1]) : "RxApp"
 	  this.showComponent = true;
     })
   }

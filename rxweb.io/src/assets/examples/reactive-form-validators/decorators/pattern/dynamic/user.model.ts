@@ -9,9 +9,6 @@ export class User {
 	zipCode: string;
 
 	@prop()
-	contactNumber: number;
-
-	@prop()
 	age: string;
 
 }

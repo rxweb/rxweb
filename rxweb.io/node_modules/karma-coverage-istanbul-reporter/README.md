@@ -50,7 +50,7 @@ module.exports = function(config) {
       // if using webpack and pre-loaders, work around webpack breaking the source path
       fixWebpackSourcePaths: true,
 
-      // stop istanbul outputting messages like `File [${filename}] ignored, nothing could be mapped`
+      // Omit files with no statements, no functions and no branches from the report
       skipFilesWithNoCoverage: true,
 
       // Most reporters accept additional config options. You can pass these through the `report-config` option

@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let’s assume that you are creating a Subject-detail form, which contains fields like subjectCode, maximumMarks, PassingMarks and you want the user to enter valid  Number which does not exceed the Maximum number. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a Subject-detail form, which contains fields like subjectCode, maximumMarks, PassingMarks and you want the user to enter valid  Number which does not exceed the Maximum number. Here depending upon the requirement these scenarios may arise.
 1.	Adding field of PassingMarks without any conditional expression.
 2.	Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .
 3.	Adding Custom Message on PassingMarks Field.
@@ -19,7 +19,7 @@ First we need to create subject-detail model class define a property of PassingM
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxNumber\add\subject-details.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxNumber\edit\subject-details.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
 
 [!TabGroup]
@@ -28,6 +28,10 @@ Here we have covered Add and Edit form operations.
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxNumber\edit\max-number-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `subject-details-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\maxNumber\edit\subject-details-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxNumber\add\max-number-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -128,6 +132,8 @@ This Complete MaxNumber example which includes all the NumberConfig properties w
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxNumber\dynamic\subject-details.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxNumber\dynamic\max-number-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxNumber\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxNumber\dynamic\max-number-dynamic.component.html)]
 ***

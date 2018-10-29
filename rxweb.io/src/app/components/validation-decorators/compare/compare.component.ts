@@ -4,7 +4,7 @@ import { CompareCompleteComponent } from 'src/assets/examples/reactive-form-vali
 import { CompareDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/compare/dynamic/compare-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { TitleCasePipe } from "@angular/common";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @Component({
   templateUrl: './compare.component.html',
@@ -16,15 +16,14 @@ export class CompareComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic Compare Validation":null,"CompareConfig":["fieldName","message"],"Complete Compare Example":null,"Dynamic Compare Example":null};
-  tab_1:string = "basicadd";
-   tab_2:string = "fieldNamemodel";
-   tab_3:string = "messageModel";
-   tab_4:string = "completeexample";
-   tab_5:string = "dynamicexample";
+  sidebarLinks:any = {"compare":null,"When to use":null,"Basic Compare Validation":null,"CompareConfig":["fieldName","message"],"Complete Compare Example":null,"Dynamic Compare Example":null};
+  tab_1:string = "fieldNamemodel";
+   tab_2:string = "messageModel";
+   tab_3:string = "completeexample";
+   tab_4:string = "dynamicexample";
    
   constructor(
-    private http: HttpClient   ,private titlecasePipe:TitleCasePipe
+    private http: HttpClient   ,private mergeDashPipe:MergeDashPipe
   ) {
   }
   ngOnInit(): void {
@@ -32,9 +31,9 @@ export class CompareComponent implements OnInit {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)
-		document.title = this.titlecasePipe.transform(splitedArray[2]) + " : " + this.titlecasePipe.transform(splitedArray[1])
+		document.title = splitedArray[2] + " : " + this.mergeDashPipe.transform(splitedArray[1])
 	  else
-		document.title = splitedArray[1] ? this.titlecasePipe.transform(splitedArray[1]) : "RxApp"
+		document.title = splitedArray[1] ? this.mergeDashPipe.transform(splitedArray[1]) : "RxApp"
 	  this.showComponent = true;
     })
   }

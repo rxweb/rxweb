@@ -1,11 +1,11 @@
 <div>
-<form [formGroup]="userFormGroup">
-<div class="form-group">
-    <label>Other Email Address</label>
-    <input type="text" formControlName="otherEmailAddress" class="form-control"  />
-    <small class="form-text text-muted">Shows custom message<br/></small>
-    <small class="form-text text-danger" *ngIf="userFormGroup.controls.otherEmailAddress.errors">{{userFormGroup.controls.otherEmailAddress.errors.contains.message}}<br/></small>
-</div>
-<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Other Email Address</label>
+      <input type="text" formControlName="otherEmailAddress" class="form-control"  />
+      <small class="form-text text-muted">Shows custom message<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.otherEmailAddress.errors">{{userFormGroup.controls.otherEmailAddress.errors.contains.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
 </div>

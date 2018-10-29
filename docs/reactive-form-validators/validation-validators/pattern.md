@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let’s assume that you are creating a User form, which contains fields like Username, Zipcode, Age and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a User form, which contains fields like Username, Zipcode, Age and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.
 1.	Allow input which contains only Alphabet in Username.
 2.	Apply pattern validation based on matched condition in the form, like if the Username is `John`, then only the the pattern validation must be applied to Age value(i.e., Age field must only be a digit).
 3.	Adding Custom Message on Zipcode Field.
@@ -14,7 +14,7 @@ Let’s assume that you are creating a User form, which contains fields like Use
 Let’s see how pattern validator fulfil the need.
 
 # Basic Pattern Validation
-We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\add\pattern-add.component.ts?type=section)]
 
@@ -30,7 +30,7 @@ message,conditionalExpression options are not mandatory to use in the `RxwebVali
 |Option | Description |
 |--- | ---- |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
-|[conditionalExpression](#conditionalexpression) | Pattern validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalExpression) | Pattern validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[pattern](#pattern) | enter specific regex pattern |
 
 ## message 
@@ -60,7 +60,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
- [!TabGroup(?showHideCondition="conditionalExpression")]
+[!TabGroup(?showHideCondition="conditionalExpression")]
 # [Component](#tab\conditionalExpressionComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\conditionalExpression\pattern-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
@@ -77,7 +77,7 @@ enter specific regex pattern
 
 [!codeExample(?title=patternExample)]
 
- [!TabGroup(?showHideCondition="pattern")]
+[!TabGroup(?showHideCondition="pattern")]
 # [Component](#tab\patternComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\pattern\pattern-pattern.component.ts)]
 # [Html](#tab\patternHtml)
@@ -103,6 +103,8 @@ enter specific regex pattern
 <app-pattern-dynamic-validator></app-pattern-dynamic-validator>
 # [Component](#tab\dynamicComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\dynamic\pattern-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\dynamic\dynamic.json)]
 # [Html](#tab\dynamicHtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\pattern\dynamic\pattern-dynamic.component.html)]
 ***

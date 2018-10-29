@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -12,33 +11,16 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 export class UrlDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			adminWebsiteUrl : {
-				url : true  
-			},
-						
-			qaWebsiteUrl : {
-				url :  {conditionalExpression:(x,y) =>{ return  x.adminWebsiteUrl == "https://google.co.in" },} 
-			},
-						
-			customerWebsiteUrl : {
-				url :  {conditionalExpression:x => x.adminWebsiteUrl == "https://google.co.in" ,} 
-			},
-						
-			maintenanceWebSiteUrl : {
-				url :  {message:'Is not the correct url pattern.',} 
-			},
-			        };
-		 var user = {
-			adminWebsiteUrl:'', qaWebsiteUrl:'', customerWebsiteUrl:'', maintenanceWebSiteUrl:'', 
-		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/url/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var user = { adminWebsiteUrl:'', qaWebsiteUrl:'', customerWebsiteUrl:'', maintenanceWebSiteUrl:'',  }
+			this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
+		})
     }
 }

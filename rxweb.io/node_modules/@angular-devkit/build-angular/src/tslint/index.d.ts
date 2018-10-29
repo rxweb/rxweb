@@ -21,6 +21,6 @@ export interface TslintBuilderOptions {
 export default class TslintBuilder implements Builder<TslintBuilderOptions> {
     context: BuilderContext;
     constructor(context: BuilderContext);
-    private loadTslint();
+    private loadTslint;
     run(builderConfig: BuilderConfiguration<TslintBuilderOptions>): Observable<BuildEvent>;
 }

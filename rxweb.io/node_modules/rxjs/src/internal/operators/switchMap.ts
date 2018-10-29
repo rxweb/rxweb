@@ -53,8 +53,8 @@ export function switchMap<T, I, R>(project: (value: T, index: number) => Observa
  * that, when applied to an item emitted by the source Observable, returns an
  * Observable.
  * @return {Observable} An Observable that emits the result of applying the
- * projection function (and the optional `resultSelector`) to each item emitted
- * by the source Observable and taking only the values from the most recently
+ * projection function (and the optional deprecated `resultSelector`) to each item
+ * emitted by the source Observable and taking only the values from the most recently
  * projected inner Observable.
  * @method switchMap
  * @owner Observable
@@ -113,7 +113,10 @@ class SwitchMapSubscriber<T, R> extends OuterSubscriber<T, R> {
     if (innerSubscription) {
       innerSubscription.unsubscribe();
     }
-    this.add(this.innerSubscription = subscribeToResult(this, result, value, index));
+    const innerSubscriber = new InnerSubscriber(this, undefined, undefined);
+    const destination = this.destination as Subscription;
+    destination.add(innerSubscriber);
+    this.innerSubscription = subscribeToResult(this, result, value, index, innerSubscriber);
   }
 
   protected _complete(): void {
@@ -121,6 +124,7 @@ class SwitchMapSubscriber<T, R> extends OuterSubscriber<T, R> {
     if (!innerSubscription || innerSubscription.closed) {
       super._complete();
     }
+    this.unsubscribe();
   }
 
   protected _unsubscribe() {
@@ -128,7 +132,8 @@ class SwitchMapSubscriber<T, R> extends OuterSubscriber<T, R> {
   }
 
   notifyComplete(innerSub: Subscription): void {
-    this.remove(innerSub);
+    const destination = this.destination as Subscription;
+    destination.remove(innerSub);
     this.innerSubscription = null;
     if (this.isStopped) {
       super._complete();

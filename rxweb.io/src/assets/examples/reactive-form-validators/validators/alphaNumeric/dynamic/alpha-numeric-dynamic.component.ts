@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -12,37 +11,16 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 export class AlphaNumericDynamicValidatorComponent implements OnInit {
     locationFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			areaName : {
-				alphaNumeric : true  
-			},
-						
-			flatAddress : {
-				alphaNumeric :  {allowWhiteSpace:true,} 
-			},
-						
-			postalAddress : {
-				alphaNumeric :  {allowWhiteSpace:true,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.',} 
-			},
-						
-			countryCode : {
-				alphaNumeric :  {conditionalExpression:(x,y) =>{ return  x.areaName == "Boston" },} 
-			},
-						
-			cityCode : {
-				alphaNumeric :  {conditionalExpression:x => x.areaName =="Boston",} 
-			},
-			        };
-		 var location = {
-			areaName:'', flatAddress:'', postalAddress:'', countryCode:'', cityCode:'', 
-		}
-		this.locationFormGroup = this.formBuilder.formGroup(location,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/alphaNumeric/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var location = { areaName:'', flatAddress:'', postalAddress:'', countryCode:'', cityCode:'',  }
+			this.locationFormGroup = this.formBuilder.group(location,formBuilderConfiguration);
+		})
     }
 }

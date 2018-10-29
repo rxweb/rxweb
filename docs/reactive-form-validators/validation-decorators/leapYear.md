@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume you are creating a user value form , which contains fields like name,birth year,joining year and you want the user to enter value which is in leap year format Here depending upon the requirement these scenarios may arise..
+Suppose you want to create a user value form, which contains fields like name, birth year, joining year and you want the user to enter value which is in leap year format Here depending upon the requirement these scenarios may arise..
 1. Allow only leap year in the field of birthyear.
 2. Apply leapyear validation based on matched condition in the form, like if the name  is ‘John’ then the birthYear value should be leapyear.
 3. Adding Custom Message on joining Field.
@@ -18,7 +18,7 @@ First we need to create ea User class and define a property of leapyear in the m
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
@@ -27,6 +27,10 @@ Here we have covered Add and Edit form operations.
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\edit\leapYear-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\leapYear\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\add\leapYear-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -110,6 +114,8 @@ This Complete LeapYear example which includes all the BaseConfig properties will
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\dynamic\leapYear-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\leapYear\dynamic\leapYear-dynamic.component.html)]
 ***

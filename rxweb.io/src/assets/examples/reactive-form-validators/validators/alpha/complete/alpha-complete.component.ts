@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-alpha-complete-validator',
@@ -11,17 +9,17 @@ import { RxFormBuilder,RxwebValidators
 export class AlphaCompleteValidatorComponent implements OnInit {
     addressInfoFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
-        this.addressInfoFormGroup = this.formBuilder.formGroup({
-										countryName:['',RxwebValidators.alpha()], 
-													countryCode:['',RxwebValidators.alpha({conditionalExpression:(x,y) => x.countryName == "Australia" })], 
-													cityName:['',RxwebValidators.alpha({conditionalExpression:'x => x.countryName =="Australia"' })], 
-													stateName:['',RxwebValidators.alpha({allowWhiteSpace:true })], 
-													stateCode:['',RxwebValidators.alpha({message:'You can enter only alphabets.' })], 
-								});
+        this.addressInfoFormGroup = this.formBuilder.group({
+            countryName:['', RxwebValidators.alpha()], 
+            countryCode:['', RxwebValidators.alpha({conditionalExpression:(x,y) => x.countryName == "India" })], 
+            cityName:['', RxwebValidators.alpha({conditionalExpression:'x => x.countryName =="India"' })], 
+            stateName:['', RxwebValidators.alpha({allowWhiteSpace:true })], 
+            stateCode:['', RxwebValidators.alpha({message:'You can enter only alphabets.' })], 
+        });
     }
 }

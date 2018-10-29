@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { Country } from './country.model';
@@ -11,16 +10,13 @@ import { Country } from './country.model';
     templateUrl: './alpha-edit.component.html'
 })
 export class AlphaEditComponent implements OnInit {
-
     countryFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,		private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/alpha/edit/country-data.json').subscribe(country => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/alpha/edit/country-data.json').subscribe(country => {
             this.countryFormGroup = this.formBuilder.formGroup<Country>(Country,country);
         })
     }

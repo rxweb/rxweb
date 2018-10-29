@@ -1,3 +1,8 @@
+export interface TimeoutError extends Error {
+}
+export interface TimeoutErrorCtor {
+    new (): TimeoutError;
+}
 /**
  * An error thrown when duetime elapses.
  *
@@ -5,7 +10,4 @@
  *
  * @class TimeoutError
  */
-export declare class TimeoutError extends Error {
-    readonly name: string;
-    constructor();
-}
+export declare const TimeoutError: TimeoutErrorCtor;

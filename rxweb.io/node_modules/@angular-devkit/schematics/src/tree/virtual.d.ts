@@ -31,6 +31,7 @@ export declare class VirtualTree implements Tree {
     protected _cacheMap: Map<Path, FileEntry>;
     protected _root: VirtualDirEntry;
     protected _tree: Map<Path, FileEntry>;
+    static isVirtualTree(tree: Tree): tree is VirtualTree;
     /**
      * Normalize the path. Made available to subclasses to overload.
      * @param path The path to normalize.

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-different-conditionalExpression-validator',
@@ -11,14 +9,15 @@ import { RxFormBuilder,RxwebValidators
 export class DifferentConditionalExpressionValidatorComponent implements OnInit {
     accountInfoFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
-        this.accountInfoFormGroup = this.formBuilder.formGroup({
-																userName:['',RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:x => x.firstName == "John" })], 
-													lastName:['',RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:(x,y) =>{ return  x.firstName == "John" } })], 
-								});
+        this.accountInfoFormGroup = this.formBuilder.group({
+            firstName:['',], 
+            userName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:'x => x.firstName == "Bharat"' })], 
+            lastName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:(x,y) => x.firstName == "Bharat"  })], 
+        });
     }
 }

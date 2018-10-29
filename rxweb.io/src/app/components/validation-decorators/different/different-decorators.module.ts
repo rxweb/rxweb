@@ -6,21 +6,22 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { DIFFERENT_ROUTING } from './different.routing';
 import { DifferentComponent } from './different.component';
-import { DifferentExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/different/different.module';
+import { DifferentDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/different/different-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
-import { TitleCasePipe } from "@angular/common";
+import { PipeCommonModule } from "src/app/pipes";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     DIFFERENT_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, DifferentExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, DifferentDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [DifferentComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers:[TitleCasePipe]
+  providers:[MergeDashPipe]
 })
 export class DifferentDecoratorsModule { }
 

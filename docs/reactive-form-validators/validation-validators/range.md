@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let’s assume that you are creating a employeeInfo form, which contains field of employeeAge,employeeExperience,salary and you want the user to enter value in a specified range. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a employeeInfo form, which contains field of employeeAge, employeeExperience, salary and you want the user to enter value in a specified range. Here depending upon the requirement these scenarios may arise.
 1. Adding value which you want to restrict number in the property. The minimum number is 18 and maximum number is 60. 
 2. Apply range validation based on matched condition in the form, like if the age is greater than ‘25’ then the employeeExperience value should be between 2 to 20.
 3. Adding Custom Message on Salary Field.
@@ -14,8 +14,8 @@ Let’s assume that you are creating a employeeInfo form, which contains field o
 Let’s see how range validator fulfil the need.
 
 # Basic range Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\range\add\range-add.component.ts?type=section)]
 ***
@@ -119,6 +119,8 @@ Maximum number is for define a maximum number of range
 <app-range-dynamic-validator></app-range-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\range\dynamic\range-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\range\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\range\dynamic\range-dynamic.component.html)]
 ***

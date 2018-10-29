@@ -31,7 +31,7 @@ export declare function combineLatest<T>(...observables: Array<ObservableInput<T
 export declare function combineLatest<T, R>(...observables: Array<ObservableInput<T> | ((...values: Array<T>) => R) | SchedulerLike>): Observable<R>;
 export declare function combineLatest<R>(...observables: Array<ObservableInput<any> | ((...values: Array<any>) => R) | SchedulerLike>): Observable<R>;
 export declare class CombineLatestOperator<T, R> implements Operator<T, R> {
-    private resultSelector;
+    private resultSelector?;
     constructor(resultSelector?: (...values: Array<any>) => R);
     call(subscriber: Subscriber<R>, source: any): any;
 }
@@ -41,7 +41,7 @@ export declare class CombineLatestOperator<T, R> implements Operator<T, R> {
  * @extends {Ignored}
  */
 export declare class CombineLatestSubscriber<T, R> extends OuterSubscriber<T, R> {
-    private resultSelector;
+    private resultSelector?;
     private active;
     private values;
     private observables;
@@ -51,5 +51,5 @@ export declare class CombineLatestSubscriber<T, R> extends OuterSubscriber<T, R>
     protected _complete(): void;
     notifyComplete(unused: Subscriber<R>): void;
     notifyNext(outerValue: T, innerValue: R, outerIndex: number, innerIndex: number, innerSub: InnerSubscriber<T, R>): void;
-    private _tryResultSelector(values);
+    private _tryResultSelector;
 }

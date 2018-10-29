@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.
 1.	The Name of Password field on which comparison is done.
 2.  The Custom Message on ConfirmPassword field.  
 3.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
@@ -17,25 +17,18 @@ First we need to create a User Model class and define property of Password and C
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation.
 
-[!TabGroup]
-# [Add](#tab\basicadd)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\compare-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\edit\compare-edit.component.ts)]
+
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\compare-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\edit\compare-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\compare-add.component.html)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=compare Decorator for add Example)]
+[!example(?title=compare Decorator for add Example)]
 <app-compare-add></app-compare-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=compare Decorator for edit Example)]
-<app-compare-edit></app-compare-edit>
 
 # CompareConfig
 Below options are not mandatory to use in the `@compare()` decorator. If needed then use the below options.
@@ -105,6 +98,8 @@ This Complete Compare example which includes all the CompareConfig properties wi
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\compare-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\compare-dynamic.component.html)]
 ***

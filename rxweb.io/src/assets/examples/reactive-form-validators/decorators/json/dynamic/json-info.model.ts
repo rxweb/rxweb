@@ -6,9 +6,6 @@ export class JsonInfo {
 	location: string;
 
 	@prop()
-	addressJson: string;
-
-	@prop()
 	locationJson: string;
 
 	@prop()

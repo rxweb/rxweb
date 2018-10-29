@@ -87,7 +87,7 @@ export declare class NgForOfContext<T> {
  * See a [live demo](http://plnkr.co/edit/KVuXxDp0qinGDyo307QW?p=preview) for a more detailed
  * example.
  *
- *
+ * @ngModule CommonModule
  */
 export declare class NgForOf<T> implements DoCheck {
     private _viewContainer;

@@ -28,7 +28,8 @@ export declare class Subscriber<T> extends Subscription implements Observer<T> {
     /** @internal */ syncErrorThrown: boolean;
     /** @internal */ syncErrorThrowable: boolean;
     protected isStopped: boolean;
-    protected destination: PartialObserver<any>;
+    protected destination: PartialObserver<any> | Subscriber<any>;
+    private _parentSubscription;
     /**
      * @param {Observer|function(value: T): void} [destinationOrNext] A partially
      * defined Observer or a `next` callback function.
@@ -67,4 +68,21 @@ export declare class Subscriber<T> extends Subscription implements Observer<T> {
     protected _complete(): void;
     /** @deprecated This is an internal implementation detail, do not use. */
     _unsubscribeAndRecycle(): Subscriber<T>;
+}
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+export declare class SafeSubscriber<T> extends Subscriber<T> {
+    private _parentSubscriber;
+    private _context;
+    constructor(_parentSubscriber: Subscriber<T>, observerOrNext?: PartialObserver<T> | ((value: T) => void), error?: (e?: any) => void, complete?: () => void);
+    next(value?: T): void;
+    error(err?: any): void;
+    complete(): void;
+    private __tryOrUnsub;
+    private __tryOrSetError;
+    /** @internal This is an internal implementation detail, do not use. */
+    _unsubscribe(): void;
 }

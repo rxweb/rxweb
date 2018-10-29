@@ -11,6 +11,10 @@ const VALIDATION_DECORATORS_ROUTES: Routes = [
 	loadChildren: './alphaNumeric/alphaNumeric-decorators.module#AlphaNumericDecoratorsModule',
 },
  {
+	path:'ascii',
+	loadChildren: './ascii/ascii-decorators.module#AsciiDecoratorsModule',
+},
+ {
 	path:'compare',
 	loadChildren: './compare/compare-decorators.module#CompareDecoratorsModule',
 },
@@ -23,6 +27,10 @@ const VALIDATION_DECORATORS_ROUTES: Routes = [
 	loadChildren: './creditCard/creditCard-decorators.module#CreditCardDecoratorsModule',
 },
  {
+	path:'dataUri',
+	loadChildren: './dataUri/dataUri-decorators.module#DataUriDecoratorsModule',
+},
+ {
 	path:'different',
 	loadChildren: './different/different-decorators.module#DifferentDecoratorsModule',
 },
@@ -33,6 +41,10 @@ const VALIDATION_DECORATORS_ROUTES: Routes = [
  {
 	path:'email',
 	loadChildren: './email/email-decorators.module#EmailDecoratorsModule',
+},
+ {
+	path:'endsWith',
+	loadChildren: './endsWith/endsWith-decorators.module#EndsWithDecoratorsModule',
 },
  {
 	path:'even',
@@ -59,6 +71,14 @@ const VALIDATION_DECORATORS_ROUTES: Routes = [
 	loadChildren: './json/json-decorators.module#JsonDecoratorsModule',
 },
  {
+	path:'latitude',
+	loadChildren: './latitude/latitude-decorators.module#LatitudeDecoratorsModule',
+},
+ {
+	path:'latLong',
+	loadChildren: './latLong/latLong-decorators.module#LatLongDecoratorsModule',
+},
+ {
 	path:'leapYear',
 	loadChildren: './leapYear/leapYear-decorators.module#LeapYearDecoratorsModule',
 },
@@ -69,6 +89,10 @@ const VALIDATION_DECORATORS_ROUTES: Routes = [
  {
 	path:'lessThan',
 	loadChildren: './lessThan/lessThan-decorators.module#LessThanDecoratorsModule',
+},
+ {
+	path:'longitude',
+	loadChildren: './longitude/longitude-decorators.module#LongitudeDecoratorsModule',
 },
  {
 	path:'lowerCase',
@@ -119,12 +143,28 @@ const VALIDATION_DECORATORS_ROUTES: Routes = [
 	loadChildren: './pattern/pattern-decorators.module#PatternDecoratorsModule',
 },
  {
+	path:'port',
+	loadChildren: './port/port-decorators.module#PortDecoratorsModule',
+},
+ {
+	path:'primeNumber',
+	loadChildren: './primeNumber/primeNumber-decorators.module#PrimeNumberDecoratorsModule',
+},
+ {
 	path:'range',
 	loadChildren: './range/range-decorators.module#RangeDecoratorsModule',
 },
  {
 	path:'required',
 	loadChildren: './required/required-decorators.module#RequiredDecoratorsModule',
+},
+ {
+	path:'fileSize',
+	loadChildren: './fileSize/fileSize-decorators.module#FileSizeDecoratorsModule',
+},
+ {
+	path:'startsWith',
+	loadChildren: './startsWith/startsWith-decorators.module#StartsWithDecoratorsModule',
 },
  {
 	path:'time',

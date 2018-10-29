@@ -3,7 +3,7 @@ import { CancellationToken } from './gather_diagnostics';
 import { CompilerOptions } from './ngtools_api';
 export declare enum MESSAGE_KIND {
     Init = 0,
-    Update = 1,
+    Update = 1
 }
 export declare abstract class TypeCheckerMessage {
     kind: MESSAGE_KIND;
@@ -29,8 +29,8 @@ export declare class TypeChecker {
     private _program;
     private _compilerHost;
     constructor(_compilerOptions: CompilerOptions, _basePath: string, _JitMode: boolean, _rootNames: string[]);
-    private _update(rootNames, changedCompilationFiles);
-    private _createOrUpdateProgram();
-    private _diagnose(cancellationToken);
+    private _update;
+    private _createOrUpdateProgram;
+    private _diagnose;
     update(rootNames: string[], changedCompilationFiles: string[], cancellationToken: CancellationToken): void;
 }

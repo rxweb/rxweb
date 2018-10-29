@@ -1,10 +1,10 @@
 <div>
-<form [formGroup]="userFormGroup">
-<div class="form-group">
-    <label>Color Picker</label>
-    <input type="text" formControlName="color" class="form-control"  />
-    <small class="form-text text-danger" *ngIf="userFormGroup.controls.color.errors">{{userFormGroup.controls.color.errors.hexColor.message}}<br/></small>
-</div>
-<button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Color Picker</label>
+      <input type="text" formControlName="color" class="form-control"  />
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.color.errors">{{userFormGroup.controls.color.errors.hexColor.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
 </div>

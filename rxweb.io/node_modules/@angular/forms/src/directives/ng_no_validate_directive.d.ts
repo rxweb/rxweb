@@ -19,6 +19,8 @@
  * ```
  *
  * @experimental
+ * @ngModule ReactiveFormsModule
+ * @ngModule FormsModule
  */
 export declare class NgNoValidate {
 }

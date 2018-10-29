@@ -28,6 +28,7 @@ export declare class HostTree implements Tree {
     private _recordSync;
     private _ancestry;
     private _dirCache;
+    static isHostTree(tree: Tree): tree is HostTree;
     constructor(_backend?: virtualFs.ReadonlyHost<{}>);
     protected _normalizePath(path: string): Path;
     protected _willCreate(path: Path): boolean;

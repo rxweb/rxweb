@@ -8,7 +8,7 @@
 import { Compiler } from 'webpack';
 import { HashFormat } from '../models/webpack-configs/utils';
 export interface RemoveHashPluginOptions {
-    chunkIds: string[];
+    chunkNames: string[];
     hashFormat: HashFormat;
 }
 export declare class RemoveHashPlugin {

@@ -6,21 +6,22 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { UPPER_CASE_ROUTING } from './upperCase.routing';
 import { UpperCaseComponent } from './upperCase.component';
-import { UpperCaseExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/upperCase/upperCase.module';
+import { UpperCaseValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/upperCase/upper-case-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
-import { TitleCasePipe } from "@angular/common";
+import { PipeCommonModule } from "src/app/pipes";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     UPPER_CASE_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, UpperCaseExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, UpperCaseValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [UpperCaseComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers:[TitleCasePipe]
+  providers:[MergeDashPipe]
 })
 export class UpperCaseValidatorsModule { }
 

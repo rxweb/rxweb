@@ -63,6 +63,7 @@ import { Injector, NgModuleFactory, OnChanges, OnDestroy, SimpleChanges, Type, V
  * {@example common/ngComponentOutlet/ts/module.ts region='NgModuleFactoryExample'}
  *
  * @experimental
+ * @ngModule CommonModule
  */
 export declare class NgComponentOutlet implements OnChanges, OnDestroy {
     private _viewContainerRef;

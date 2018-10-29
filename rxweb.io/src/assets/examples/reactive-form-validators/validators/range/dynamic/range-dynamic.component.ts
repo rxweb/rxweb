@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -12,33 +11,16 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 export class RangeDynamicValidatorComponent implements OnInit {
     employeeInfoFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			age : {
-				range :  {minimumNumber:18,maximumNumber:60,} 
-			},
-						
-			projectDuration : {
-				range :  {minimumNumber:6,maximumNumber:8,conditionalExpression:(x,y) =>{ return  x.age >= 25 },} 
-			},
-						
-			experience : {
-				range :  {minimumNumber:2,maximumNumber:20,conditionalExpression:x => x.age >=25,} 
-			},
-						
-			salary : {
-				range :  {minimumNumber:1000,maximumNumber:200000,message:'Your Salary should be between 10000 to 200000.',} 
-			},
-			        };
-		 var employeeInfo = {
-			age:'', projectDuration:'', experience:'', salary:'', 
-		}
-		this.employeeInfoFormGroup = this.formBuilder.formGroup(employeeInfo,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/range/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var employeeInfo = { age:'', projectDuration:'', experience:'', salary:'',  }
+			this.employeeInfoFormGroup = this.formBuilder.group(employeeInfo,formBuilderConfiguration);
+		})
     }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators	,CreditCardType 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-creditCard-add-validator',
@@ -11,13 +9,17 @@ import { RxFormBuilder,RxwebValidators	,CreditCardType
 export class CreditCardAddValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+				creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
+	
+	
+	constructor(
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-										creditCardNumber:['',RxwebValidators.creditCard({creditCardTypes:[ CreditCardType.Visa ] })], 
-								});
+        this.userFormGroup = this.formBuilder.group({
+            cardType:['',], 
+            creditCardNumber:['', RxwebValidators.creditCard({fieldName:'cardType' })], 
+        });
     }
 }

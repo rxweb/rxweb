@@ -33,6 +33,7 @@ export interface CompilerHost extends ts.CompilerHost {
 export declare class NgtscCompilerHost implements CompilerHost {
     private delegate;
     constructor(delegate: ts.CompilerHost);
+    resolveTypeReferenceDirectives?: (names: string[], containingFile: string) => ts.ResolvedTypeReferenceDirective[];
     getSourceFile(fileName: string, languageVersion: ts.ScriptTarget, onError?: ((message: string) => void) | undefined, shouldCreateNewSourceFile?: boolean | undefined): ts.SourceFile | undefined;
     getDefaultLibFileName(options: ts.CompilerOptions): string;
     writeFile(fileName: string, data: string, writeByteOrderMark: boolean, onError: ((message: string) => void) | undefined, sourceFiles: ReadonlyArray<ts.SourceFile>): void;

@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a employee form in which contains fields like department,hobbies and skills.You want employee to enter all value of a particular field, here the field is taken in the form of array and according to that the choice is applied on the property by applying matchvalues. Here depending upon the requirement these scenarios may arise.
+Let's assume that you are creating a employee form in which contains fields like department, hobbies and skills.You want employee to enter all value of a particular field, here the field is taken in the form of array and according to that the choice is applied on the property by applying matchvalues. Here depending upon the requirement these scenarios may arise.
 1.	The skills field in which you want the user to enter skills based upon matchvalues.
 2.  Apply allOf validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be based upon matchvalues.
 3.  The Custom Message on Hobbies field.
@@ -15,8 +15,8 @@ Let’s see how allOf validator fulfil the need.
 
 # Basic allOf Validation
 
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\add\all-of-add.component.ts?type=section)]
 
@@ -105,6 +105,8 @@ To override the global configuration message and show the custom message on part
 <app-allOf-dynamic-validator></app-allOf-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\dynamic\all-of-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\allOf\dynamic\all-of-dynamic.component.html)]
 ***

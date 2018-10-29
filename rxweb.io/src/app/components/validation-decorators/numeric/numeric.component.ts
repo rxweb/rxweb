@@ -4,7 +4,7 @@ import { NumericCompleteComponent } from 'src/assets/examples/reactive-form-vali
 import { NumericDynamicComponent } from 'src/assets/examples/reactive-form-validators/decorators/numeric/dynamic/numeric-dynamic.component';
 import { DisqusComponent } from '../../shared/disqus/disqus.component';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { TitleCasePipe } from "@angular/common";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @Component({
   templateUrl: './numeric.component.html',
@@ -16,16 +16,17 @@ export class NumericComponent implements OnInit {
   showComponent: boolean = false;
   options: any = { responseType: 'text' };
   codeContent:any = {};
-  sidebarLinks:any = {"When to use":null,"Basic numeric Validation":null,"NumericConfig":["acceptValue","allowDecimal","conditionalExpression","message"],"Complete numeric Example":null,"Dynamic numeric Example":null};
-  tab_1:string = "acceptValuemodel";
-   tab_2:string = "allowDecimalmodel";
-   tab_3:string = "conditionalExpressionmodel";
-   tab_4:string = "messageModel";
-   tab_5:string = "completeexample";
-   tab_6:string = "dynamicexample";
+  sidebarLinks:any = {"numeric":null,"When to use":null,"Basic numeric Validation":null,"NumericConfig":["acceptValue","allowDecimal","conditionalExpression","message"],"Complete numeric Example":null,"Dynamic numeric Example":null};
+  tab_1:string = "basicadd";
+   tab_2:string = "acceptValuemodel";
+   tab_3:string = "allowDecimalmodel";
+   tab_4:string = "conditionalExpressionmodel";
+   tab_5:string = "messageModel";
+   tab_6:string = "completeexample";
+   tab_7:string = "dynamicexample";
    
   constructor(
-    private http: HttpClient   ,private titlecasePipe:TitleCasePipe
+    private http: HttpClient   ,private mergeDashPipe:MergeDashPipe
   ) {
   }
   ngOnInit(): void {
@@ -33,9 +34,9 @@ export class NumericComponent implements OnInit {
       this.codeContent = JSON.parse(response.toString());
 	  let splitedArray = location.pathname.split('/');
 	  if(splitedArray[2] != undefined)
-		document.title = this.titlecasePipe.transform(splitedArray[2]) + " : " + this.titlecasePipe.transform(splitedArray[1])
+		document.title = splitedArray[2] + " : " + this.mergeDashPipe.transform(splitedArray[1])
 	  else
-		document.title = splitedArray[1] ? this.titlecasePipe.transform(splitedArray[1]) : "RxApp"
+		document.title = splitedArray[1] ? this.mergeDashPipe.transform(splitedArray[1]) : "RxApp"
 	  this.showComponent = true;
     })
   }

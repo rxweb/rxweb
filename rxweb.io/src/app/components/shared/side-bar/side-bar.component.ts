@@ -13,7 +13,7 @@ export class SideBarComponent implements OnInit {
   isthirdLevelCollapse : boolean = false;
   showComponent: boolean;
   constructor(
-    private http: HttpClient
+    private http: HttpClient,private router: Router
   ) {
   }
   ngOnInit(): void {
@@ -22,6 +22,11 @@ export class SideBarComponent implements OnInit {
       this.showComponent = true;
     });
   }
+  navigateTo(urlObj:string):void{
+    if(urlObj!=null)
+    {
+      this.router.navigateByUrl(urlObj);
+    }
+  }
 }
-
 

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -12,29 +11,16 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 export class DifferentDynamicValidatorComponent implements OnInit {
     accountInfoFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			password : {
-				different :  {fieldName:"firstName",message:'{{0}} is same as firstName',} 
-			},
-						
-			lastName : {
-				different :  {fieldName:"firstName",conditionalExpression:(x,y) =>{ return  x.firstName == "John" },} 
-			},
-						
-			userName : {
-				different :  {fieldName:"firstName",conditionalExpression:x => x.firstName == "John",} 
-			},
-			        };
-		 var accountInfo = {
-			password:'', lastName:'', userName:'', 
-		}
-		this.accountInfoFormGroup = this.formBuilder.formGroup(accountInfo,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/different/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var accountInfo = { firstName:'', password:'', lastName:'', userName:'',  }
+			this.accountInfoFormGroup = this.formBuilder.group(accountInfo,formBuilderConfiguration);
+		})
     }
 }

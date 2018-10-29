@@ -7,8 +7,6 @@
  */
 import { PipeTransform } from '@angular/core';
 /**
- * @ngModule CommonModule
- *
  * Formats a number as text. Group sizing and separator and other locale-specific
  * configurations are based on the active locale.
  *
@@ -31,6 +29,7 @@ import { PipeTransform } from '@angular/core';
  *
  * {@example common/pipes/ts/number_pipe.ts region='DeprecatedNumberPipe'}
  *
+ * @ngModule CommonModule
  */
 export declare class DeprecatedDecimalPipe implements PipeTransform {
     private _locale;

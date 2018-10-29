@@ -1,3 +1,10 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 import { ArgumentStrategy, Command, Option } from './command';
 export interface CoreSchematicOptions {
     dryRun: boolean;
@@ -35,7 +42,7 @@ export declare abstract class SchematicCommand extends Command {
     protected runSchematic(options: RunSchematicOptions): Promise<number | void>;
     protected removeCoreOptions(options: any): any;
     protected getOptions(options: GetOptionsOptions): Promise<GetOptionsResult>;
-    private _loadWorkspace();
-    private _cleanDefaults<T, K>(defaults, undefinedOptions);
-    private readDefaults(collectionName, schematicName, options);
+    private _loadWorkspace;
+    private _cleanDefaults;
+    private readDefaults;
 }

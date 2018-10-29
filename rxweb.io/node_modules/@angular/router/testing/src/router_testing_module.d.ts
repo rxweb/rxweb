@@ -77,6 +77,7 @@ export declare function setupTestingRouter(urlSerializer: UrlSerializer, context
  * It provides spy implementations of `Location`, `LocationStrategy`, and {@link
  * NgModuleFactoryLoader}.
  *
+ * @usageNotes
  * ### Example
  *
  * ```

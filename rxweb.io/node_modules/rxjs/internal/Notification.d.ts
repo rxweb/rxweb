@@ -16,8 +16,8 @@ import { Observable } from './Observable';
  */
 export declare class Notification<T> {
     kind: string;
-    value: T;
-    error: any;
+    value?: T;
+    error?: any;
     hasValue: boolean;
     constructor(kind: string, value?: T, error?: any);
     /**

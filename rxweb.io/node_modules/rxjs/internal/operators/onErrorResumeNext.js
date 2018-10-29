@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -13,6 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var from_1 = require("../observable/from");
 var isArray_1 = require("../util/isArray");
 var OuterSubscriber_1 = require("../OuterSubscriber");
+var InnerSubscriber_1 = require("../InnerSubscriber");
 var subscribeToResult_1 = require("../util/subscribeToResult");
 function onErrorResumeNext() {
     var nextSources = [];
@@ -63,14 +67,19 @@ var OnErrorResumeNextSubscriber = (function (_super) {
     };
     OnErrorResumeNextSubscriber.prototype._error = function (err) {
         this.subscribeToNextSource();
+        this.unsubscribe();
     };
     OnErrorResumeNextSubscriber.prototype._complete = function () {
         this.subscribeToNextSource();
+        this.unsubscribe();
     };
     OnErrorResumeNextSubscriber.prototype.subscribeToNextSource = function () {
         var next = this.nextSources.shift();
         if (next) {
-            this.add(subscribeToResult_1.subscribeToResult(this, next));
+            var innerSubscriber = new InnerSubscriber_1.InnerSubscriber(this, undefined, undefined);
+            var destination = this.destination;
+            destination.add(innerSubscriber);
+            subscribeToResult_1.subscribeToResult(this, next, undefined, undefined, innerSubscriber);
         }
         else {
             this.destination.complete();

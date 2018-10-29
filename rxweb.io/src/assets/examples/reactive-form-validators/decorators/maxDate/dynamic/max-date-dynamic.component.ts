@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
 
@@ -12,30 +11,17 @@ import { User } from './user.model';
     templateUrl: './max-date-dynamic.component.html'
 })
 export class MaxDateDynamicComponent implements OnInit {
-
     userFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let user = new User();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			birthDate : {
-				maxDate :  {value:new Date(2018,7,30),conditionalExpression:(x,y) => { return x.userName == "John" },} 
-			},
-						
-			admissionDate : {
-				maxDate :  {value:new Date(2018,7,30),conditionalExpression:x => x.userName == "John",} 
-			},
-						
-			registrationDate : {
-				maxDate :  {value:new Date(2018,7,30),message:'{{0}} exceeds the Maximum Date Limit',} 
-			},
-			        };
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/maxDate/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+        })
     }
 }

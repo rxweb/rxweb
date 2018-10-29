@@ -228,7 +228,7 @@ export declare class Validators {
      * @description
      * Validator that performs no operation.
      */
-    static nullValidator(c: AbstractControl): ValidationErrors | null;
+    static nullValidator(control: AbstractControl): ValidationErrors | null;
     /**
      * @description
      * Compose multiple validators into a single function that returns the union

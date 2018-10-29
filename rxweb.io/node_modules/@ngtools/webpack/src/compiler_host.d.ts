@@ -67,7 +67,7 @@ export declare class VirtualFileStats extends VirtualStats {
     bufferContent: virtualFs.FileBuffer;
     setSourceFile(sourceFile: ts.SourceFile): void;
     getSourceFile(languageVersion: ts.ScriptTarget, setParentNodes: boolean): ts.SourceFile;
-    private resetMetadata();
+    private resetMetadata;
     isFile(): boolean;
     readonly size: number;
 }
@@ -84,10 +84,10 @@ export declare class WebpackCompilerHost implements ts.CompilerHost {
     private _cache;
     private _resourceLoader?;
     constructor(_options: ts.CompilerOptions, basePath: string, _host?: virtualFs.Host<fs.Stats>);
-    private _normalizePath(path);
+    private _normalizePath;
     denormalizePath(path: string): string;
     resolve(path: string): Path;
-    private _cacheFile(fileName, stats);
+    private _cacheFile;
     readonly dirty: boolean;
     enableCaching(): void;
     resetChangedFileTracker(): void;
@@ -97,7 +97,7 @@ export declare class WebpackCompilerHost implements ts.CompilerHost {
     fileExists(fileName: string, delegate?: boolean): boolean;
     readFile(fileName: string): string | undefined;
     readFileBuffer(fileName: string): Buffer | undefined;
-    private findVirtualFile(fileName);
+    private findVirtualFile;
     stat(path: string): VirtualStats | null;
     directoryExists(directoryName: string, delegate?: boolean): boolean;
     getFiles(path: string): string[];

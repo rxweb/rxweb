@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { HexcolorInfo } from './hexcolor-info.model';
@@ -10,12 +9,10 @@ import { HexcolorInfo } from './hexcolor-info.model';
     templateUrl: './hex-color-complete.component.html'
 })
 export class HexColorCompleteComponent implements OnInit {
-
     hexcolorInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let hexcolorInfo = new HexcolorInfo();

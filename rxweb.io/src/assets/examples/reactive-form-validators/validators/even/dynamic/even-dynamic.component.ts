@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -12,29 +11,16 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 export class EvenDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			number : {
-				even :  {conditionalExpression:(x,y) =>{ return  x.type == "Even" },} 
-			},
-						
-			evenNumber : {
-				even :  {conditionalExpression:x => x.type == "Even",} 
-			},
-						
-			multiplesOfEvenNumber : {
-				even :  {message:'{{0}} is not an even number',} 
-			},
-			        };
-		 var user = {
-			number:'', evenNumber:'', multiplesOfEvenNumber:'', 
-		}
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/even/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var user = { type:'', number:'', evenNumber:'', multiplesOfEvenNumber:'',  }
+			this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
+		})
     }
 }

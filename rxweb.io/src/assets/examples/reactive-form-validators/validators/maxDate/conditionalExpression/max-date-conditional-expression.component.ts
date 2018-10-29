@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-maxDate-conditionalExpression-validator',
@@ -11,14 +9,15 @@ import { RxFormBuilder,RxwebValidators
 export class MaxDateConditionalExpressionValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.formGroup({
-																admissionDate:['',RxwebValidators.maxDate({value:new Date(2018,7,30)  ,conditionalExpression:x => x.userName == "John" })], 
-													birthDate:['',RxwebValidators.maxDate({value:new Date(2018,7,30)  ,conditionalExpression:(x,y) => { return x.userName == "John" } })], 
-								});
+        this.userFormGroup = this.formBuilder.group({
+            userName:['',], 
+            admissionDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30)  ,conditionalExpression:'x => x.userName == "Bharat"' })], 
+            birthDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30)  ,conditionalExpression:(x,y) => x.userName == "Bharat"  })], 
+        });
     }
 }

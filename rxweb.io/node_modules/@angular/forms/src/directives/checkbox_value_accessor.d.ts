@@ -11,12 +11,15 @@ export declare const CHECKBOX_VALUE_ACCESSOR: any;
 /**
  * The accessor for writing a value and listening to changes on a checkbox input element.
  *
- *  ### Example
- *  ```
- *  <input type="checkbox" name="rememberLogin" ngModel>
- *  ```
+ * @usageNotes
+ * ### Example
  *
+ * ```
+ * <input type="checkbox" name="rememberLogin" ngModel>
+ * ```
  *
+ * @ngModule FormsModule
+ * @ngModule ReactiveFormsModule
  */
 export declare class CheckboxControlValueAccessor implements ControlValueAccessor {
     private _renderer;

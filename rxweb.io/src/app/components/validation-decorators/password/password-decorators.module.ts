@@ -6,21 +6,22 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { PASSWORD_ROUTING } from './password.routing';
 import { PasswordComponent } from './password.component';
-import { PasswordExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/password/password.module';
+import { PasswordDecoratorsExtendedModule } from 'src/assets/examples/reactive-form-validators/decorators/password/password-decorators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
-import { TitleCasePipe } from "@angular/common";
+import { PipeCommonModule } from "src/app/pipes";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     PASSWORD_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PasswordExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, PasswordDecoratorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [PasswordComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers:[TitleCasePipe]
+  providers:[MergeDashPipe]
 })
 export class PasswordDecoratorsModule { }
 

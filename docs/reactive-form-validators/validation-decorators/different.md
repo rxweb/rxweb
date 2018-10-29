@@ -4,12 +4,11 @@ description: Different validation decorator will check two inputs whether they a
 author: rxcontributorone
 
 ---
-
 # When to use
-Let's assume that you are creating a user form in which you want to compare firstname and username which are entered by the user which contains fields like firstname and username,password Here depending upon the requirement these scenarios may arise.
-1.	The Name of username field on which comparison is done.
-2.  The Custom Message on password field.  
-3.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+Suppose you want to create a user form in which you want to compare firstname and LastName which are entered by the user which contains fields like firstname and lastname, password Here depending upon the requirement these scenarios may arise.
+1. The Name of firstName field on which comparison is done.
+2. The Custom Message on password field.
+3. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
 Let’s see how different validator fulfil the need.
 
@@ -18,7 +17,7 @@ First we need to create a User Model class and define property of Password and C
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\add\account-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\edit\account-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
@@ -27,6 +26,10 @@ Here we have covered Add and Edit form operations.
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\edit\different-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `account-info-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\different\edit\account-info-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\add\different-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -128,6 +131,8 @@ This Complete Different example which includes all the DifferentConfig propertie
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\dynamic\account-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\dynamic\different-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\different\dynamic\different-dynamic.component.html)]
 ***

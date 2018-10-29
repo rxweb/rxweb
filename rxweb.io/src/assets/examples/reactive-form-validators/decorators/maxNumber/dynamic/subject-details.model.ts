@@ -6,9 +6,6 @@ export class SubjectDetails {
 	subjectCode: string;
 
 	@prop()
-	maximumMarks: number;
-
-	@prop()
 	obtainedMarks: number;
 
 	@prop()

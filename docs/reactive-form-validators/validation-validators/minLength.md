@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let’s assume that you are creating a Contact form, which contains fields like countryName, MobileNo,LandlineNo and you want the user to enter valid  Number which should be of the minimum specified length. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a Contact form, which contains fields like countryName, MobileNo,LandlineNo and you want the user to enter valid  Number which should be of the minimum specified length. Here depending upon the requirement these scenarios may arise.
 1. Apply MinLength validation based on matched condition in the form, like if the CountryName is ‘India’ then the countryCode value  should be of the minimum specified length. .
 2. Adding Custom Message on LandlineNo Field.
 3. Adding value which you want to restrict number in the property. The Minimum length is '10'. 
@@ -14,8 +14,8 @@ Let’s assume that you are creating a Contact form, which contains fields like 
 Let’s see how minLength validator fulfil the need.
 
 # Basic MinLength Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minLength\add\min-length-add.component.ts?type=section)]
 
@@ -103,6 +103,8 @@ enter value which you want to restrict string length in the property.
 <app-minLength-dynamic-validator></app-minLength-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minLength\dynamic\max-number-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minLength\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minLength\dynamic\min-length-dynamic.component.html)]
 ***

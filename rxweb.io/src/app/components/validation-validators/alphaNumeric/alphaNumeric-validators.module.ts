@@ -6,21 +6,22 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ALPHA_NUMERIC_ROUTING } from './alphaNumeric.routing';
 import { AlphaNumericComponent } from './alphaNumeric.component';
-import { AlphaNumericExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/alphaNumeric/alphaNumeric.module';
+import { AlphaNumericValidatorsExtendedModule } from 'src/assets/examples/reactive-form-validators/validators/alphaNumeric/alpha-numeric-validators-extended.module';
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
-import { TitleCasePipe } from "@angular/common";
+import { PipeCommonModule } from "src/app/pipes";
+import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
 
 @NgModule({
   imports: [
     ALPHA_NUMERIC_ROUTING,
-    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaNumericExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule],
+    CommonModule, FormsModule, ReactiveFormsModule, HighlightModule, AlphaNumericValidatorsExtendedModule, ClipboardModule,DisqusSharedModule,RightSideBarSharedModule,PipeCommonModule],
   declarations: [AlphaNumericComponent],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers:[TitleCasePipe]
+  providers:[MergeDashPipe]
 })
 export class AlphaNumericValidatorsModule { }
 

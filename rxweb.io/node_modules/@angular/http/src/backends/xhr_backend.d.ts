@@ -57,6 +57,7 @@ export declare class CookieXSRFStrategy implements XSRFStrategy {
  * overridden if a different backend implementation should be used,
  * such as in a node backend.
  *
+ * @usageNotes
  * ### Example
  *
  * ```

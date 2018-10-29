@@ -1,11 +1,11 @@
 <div>
-<form [formGroup]="addressInfoFormGroup">
-<div class="form-group">
-    <label>State Code</label>
-    <input type="text" formControlName="stateCode" class="form-control"  />
-    <small class="form-text text-muted">Shows custom message<br/></small>
-    <small class="form-text text-danger" *ngIf="addressInfoFormGroup.controls.stateCode.errors">{{addressInfoFormGroup.controls.stateCode.errors.alpha.message}}<br/></small>
-</div>
-<button [disabled]="!addressInfoFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>
+  <form  [formGroup]="addressInfoFormGroup">
+    <div class="form-group">
+      <label>State Code</label>
+      <input type="text" formControlName="stateCode" class="form-control"  />
+      <small class="form-text text-muted">Shows custom message<br/></small>
+	 <small class="form-text text-danger" *ngIf="addressInfoFormGroup.controls.stateCode.errors">{{addressInfoFormGroup.controls.stateCode.errors.alpha.message}}<br/></small>	
+    </div>
+    <button [disabled]="!addressInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
 </div>

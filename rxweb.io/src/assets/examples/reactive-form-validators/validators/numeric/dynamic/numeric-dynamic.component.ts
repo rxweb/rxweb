@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-	,NumericValueType
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators ,NumericValueType} from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -13,29 +11,16 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 export class NumericDynamicValidatorComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			integerNumber : {
-				numeric :  {acceptValue:NumericValueType.PositiveNumber,allowDecimal:false,conditionalExpression:(x,y) =>{ return  x.dataType == "Number" },} 
-			},
-						
-			realNumber : {
-				numeric :  {acceptValue:NumericValueType.Both,allowDecimal:false,conditionalExpression:x => x.dataType == "Number",} 
-			},
-						
-			negativeNumber : {
-				numeric :  {acceptValue:NumericValueType.NegativeNumber,allowDecimal:true,message:'{{0}} is not a negative number',} 
-			},
-			        };
-		 var userInfo = {
-			integerNumber:'', realNumber:'', negativeNumber:'', 
-		}
-		this.userInfoFormGroup = this.formBuilder.formGroup(userInfo,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/numeric/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var userInfo = { dataType:'', integerNumber:'', realNumber:'', negativeNumber:'',  }
+			this.userInfoFormGroup = this.formBuilder.group(userInfo,formBuilderConfiguration);
+		})
     }
 }

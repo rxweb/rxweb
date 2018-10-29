@@ -17,6 +17,7 @@ export declare function containsTree(container: UrlTree, containee: UrlTree, exa
  * serialized tree.
  * UrlTree is a data structure that provides a lot of affordances in dealing with URLs
  *
+ * @usageNotes
  * ### Example
  *
  * ```
@@ -88,7 +89,8 @@ export declare class UrlSegmentGroup {
  * A UrlSegment is a part of a URL between the two slashes. It contains a path and the matrix
  * parameters associated with the segment.
  *
- * ## Example
+ * @usageNotes
+ * ### Example
  *
  * ```
  * @Component({templateUrl:'template.html'})

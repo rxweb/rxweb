@@ -6,11 +6,11 @@ export class User {
 	firstName: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@maxLength({value:16  ,conditionalExpression:x=> x.firstName == "John" }) 
+	@maxLength({value:16  ,conditionalExpression:'x => x.firstName == "Bharat"' }) 
 	lastName: string;
 
 	//If you want to apply conditional expression of type 'function'
-	@maxLength({value:16  ,conditionalExpression:(x,y)=>{ return x.firstName == "John"} }) 
+	@maxLength({value:16  ,conditionalExpression:(x,y)=> x.firstName == "Bharat" }) 
 	middleName: string;
 
 }

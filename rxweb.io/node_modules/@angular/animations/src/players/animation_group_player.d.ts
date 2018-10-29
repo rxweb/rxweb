@@ -6,6 +6,14 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { AnimationPlayer } from './animation_player';
+/**
+ * A programmatic controller for a group of reusable animations.
+ * Used internally to control animations.
+ *
+ * @see `AnimationPlayer`
+ * @see `{@link animations/group group()}`
+ *
+ */
 export declare class AnimationGroupPlayer implements AnimationPlayer {
     private _onDoneFns;
     private _onStartFns;

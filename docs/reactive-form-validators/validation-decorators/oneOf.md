@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 
 # When to use
-Let's assume that you are creating a employee form in which you want employee to enter any one value of a particular value which contains fields like department,hobbies and skills.Here the field is taken in the form of array and according to that the oneOf is applied on the property by applying matchvalues. Here depending upon the requirement these scenarios may arise.
+Let's assume that you are creating a employee form in which you want employee to enter any one value of a particular value which contains fields like department, hobbies and skills.Here the field is taken in the form of array and according to that the oneOf is applied on the property by applying matchvalues. Here depending upon the requirement these scenarios may arise.
 1.	The skills field in which you want the user to enter skills based upon matchvalues.
 2.  Apply oneOf validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be based upon matchvalues.
 3.  The Custom Message on Hobbies field.
@@ -19,7 +19,7 @@ First we need to create a employee Model class and define property of hobbies in
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\oneOf\add\employee-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\oneOf\edit\employee-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
@@ -129,6 +129,8 @@ This Complete oneOf example which includes all the ArrayConfig properties will f
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\oneOf\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\oneOf\dynamic\oneOf-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\oneOf\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\oneOf\dynamic\oneOf-dynamic.component.html)]
 ***

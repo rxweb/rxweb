@@ -4,10 +4,9 @@ description: Odd validation decorator will check whether the value entered is an
 author: rxcontributorone
 
 ---
-
 # When to use
-Let’s assume that you are creating a user form, which contains fields like Number, Type, OddNumber and you want the user to enter only odd numbers Here depending upon the requirement these scenarios may arise.
-1.	Allow only oddnumbers in OddNumber .
+Suppose you want to create a user form, which contains fields like Number, Type, OddNumber and you want the user to enter only odd numbers Here depending upon the requirement these scenarios may arise.
+1.	Allow only odd numbers in oddNumber’s field.
 2.	Apply Odd validation based on matched condition in the form, like if the type  is ‘Odd’ then the number value should be odd number.
 3.	Adding Custom Message on OddNumber Field.
 4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
@@ -19,7 +18,7 @@ First we need to create a User class and define a property of odd in the model t
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
@@ -28,6 +27,10 @@ Here we have covered Add and Edit form operations.
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\edit\odd-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\odd\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\add\odd-add.component.html?condition="tab_1=='basicadd'"&type=section&title=odd Decorator for add Example)]
@@ -111,6 +114,8 @@ This Complete Odd example which includes all the BaseConfig properties will fulf
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\odd-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\odd-dynamic.component.html)]
 ***

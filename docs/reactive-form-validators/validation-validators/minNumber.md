@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let’s assume that you are creating a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.
 1.	Allow number greater than 35 in Maths field.
 2.	Apply minNumber validation based on matched condition in the form, like if the input of Maths is 50, then only the minNumber validation will be applied to Statistics field.
 3.	Adding Custom Message on Science Field.
@@ -14,13 +14,13 @@ Let’s assume that you are creating a ResultInfo form, which contains fields li
 Let’s see how minNumber validator fulfil the need.
 
 # Basic MinNumber Validation
-We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-
+We need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\add\min-number-add.component.ts?type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\add\min-number-add.component.html?type=section)]
+
 
 [!example(?title=minNumber validator for add Example)]
 <app-minNumber-add-validator></app-minNumber-add-validator>
@@ -44,7 +44,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
- [!TabGroup(?showHideCondition="conditionalExpression")]
+[!TabGroup(?showHideCondition="conditionalExpression")]
 # [Component](#tab\conditionalExpressionComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\conditionalExpression\min-number-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
@@ -104,6 +104,8 @@ enter value which you want to restrict number in the property
 <app-minNumber-dynamic-validator></app-minNumber-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\dynamic\min-number-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\minNumber\dynamic\min-number-dynamic.component.html)]
 ***

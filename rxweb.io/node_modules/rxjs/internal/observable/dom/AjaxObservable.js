@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -151,7 +154,12 @@ var AjaxSubscriber = (function (_super) {
         this.done = true;
         var _a = this, xhr = _a.xhr, request = _a.request, destination = _a.destination;
         var response = new AjaxResponse(e, xhr, request);
-        destination.next(response);
+        if (response.response === errorObject_1.errorObject) {
+            destination.error(errorObject_1.errorObject.e);
+        }
+        else {
+            destination.next(response);
+        }
     };
     AjaxSubscriber.prototype.send = function () {
         var _a = this, request = _a.request, _b = _a.request, user = _b.user, method = _b.method, url = _b.url, async = _b.async, password = _b.password, headers = _b.headers, body = _b.body;
@@ -226,7 +234,13 @@ var AjaxSubscriber = (function (_super) {
             if (progressSubscriber) {
                 progressSubscriber.error(e);
             }
-            subscriber.error(new AjaxTimeoutError(this, request));
+            var ajaxTimeoutError = new exports.AjaxTimeoutError(this, request);
+            if (ajaxTimeoutError.response === errorObject_1.errorObject) {
+                subscriber.error(errorObject_1.errorObject.e);
+            }
+            else {
+                subscriber.error(ajaxTimeoutError);
+            }
         }
         xhr.ontimeout = xhrTimeout;
         xhrTimeout.request = request;
@@ -253,7 +267,13 @@ var AjaxSubscriber = (function (_super) {
                 if (progressSubscriber) {
                     progressSubscriber.error(e);
                 }
-                subscriber.error(new AjaxError('ajax error', this, request));
+                var ajaxError = new exports.AjaxError('ajax error', this, request);
+                if (ajaxError.response === errorObject_1.errorObject) {
+                    subscriber.error(errorObject_1.errorObject.e);
+                }
+                else {
+                    subscriber.error(ajaxError);
+                }
             };
             xhr.onerror = xhrError_1;
             xhrError_1.request = request;
@@ -286,7 +306,13 @@ var AjaxSubscriber = (function (_super) {
                     if (progressSubscriber) {
                         progressSubscriber.error(e);
                     }
-                    subscriber.error(new AjaxError('ajax error ' + status_1, this, request));
+                    var ajaxError = new exports.AjaxError('ajax error ' + status_1, this, request);
+                    if (ajaxError.response === errorObject_1.errorObject) {
+                        subscriber.error(errorObject_1.errorObject.e);
+                    }
+                    else {
+                        subscriber.error(ajaxError);
+                    }
                 }
             }
         }
@@ -317,32 +343,31 @@ var AjaxResponse = (function () {
     return AjaxResponse;
 }());
 exports.AjaxResponse = AjaxResponse;
-var AjaxError = (function (_super) {
-    __extends(AjaxError, _super);
-    function AjaxError(message, xhr, request) {
-        var _this = _super.call(this, message) || this;
-        _this.name = 'AjaxError';
-        _this.message = message;
-        _this.xhr = xhr;
-        _this.request = request;
-        _this.status = xhr.status;
-        _this.responseType = xhr.responseType || request.responseType;
-        _this.response = parseXhrResponse(_this.responseType, xhr);
-        Object.setPrototypeOf(_this, AjaxError.prototype);
-        return _this;
+function AjaxErrorImpl(message, xhr, request) {
+    Error.call(this);
+    this.message = message;
+    this.name = 'AjaxError';
+    this.xhr = xhr;
+    this.request = request;
+    this.status = xhr.status;
+    this.responseType = xhr.responseType || request.responseType;
+    this.response = parseXhrResponse(this.responseType, xhr);
+    return this;
+}
+AjaxErrorImpl.prototype = Object.create(Error.prototype);
+exports.AjaxError = AjaxErrorImpl;
+function parseJson(xhr) {
+    if ('response' in xhr) {
+        return xhr.responseType ? xhr.response : JSON.parse(xhr.response || xhr.responseText || 'null');
     }
-    return AjaxError;
-}(Error));
-exports.AjaxError = AjaxError;
+    else {
+        return JSON.parse(xhr.responseText || 'null');
+    }
+}
 function parseXhrResponse(responseType, xhr) {
     switch (responseType) {
         case 'json':
-            if ('response' in xhr) {
-                return xhr.responseType ? xhr.response : JSON.parse(xhr.response || xhr.responseText || 'null');
-            }
-            else {
-                return JSON.parse(xhr.responseText || 'null');
-            }
+            return tryCatch_1.tryCatch(parseJson)(xhr);
         case 'xml':
             return xhr.responseXML;
         case 'text':
@@ -350,15 +375,10 @@ function parseXhrResponse(responseType, xhr) {
             return ('response' in xhr) ? xhr.response : xhr.responseText;
     }
 }
-var AjaxTimeoutError = (function (_super) {
-    __extends(AjaxTimeoutError, _super);
-    function AjaxTimeoutError(xhr, request) {
-        var _this = _super.call(this, 'ajax timeout', xhr, request) || this;
-        _this.name = 'AjaxTimeoutError';
-        Object.setPrototypeOf(_this, AjaxTimeoutError.prototype);
-        return _this;
-    }
-    return AjaxTimeoutError;
-}(AjaxError));
-exports.AjaxTimeoutError = AjaxTimeoutError;
+function AjaxTimeoutErrorImpl(xhr, request) {
+    exports.AjaxError.call(this, 'ajax timeout', xhr, request);
+    this.name = 'AjaxTimeoutError';
+    return this;
+}
+exports.AjaxTimeoutError = AjaxTimeoutErrorImpl;
 //# sourceMappingURL=AjaxObservable.js.map

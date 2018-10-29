@@ -6,17 +6,17 @@ author: rxcontributorone
 ---
 
 # When to use
-Let’s assume that you are creating a user form, which contains fields like Number, Type, EvenNumber and you want the user to enter only even numbers Here depending upon the requirement these scenarios may arise.
-1.	Allow only evennumbers in EvenNumber .
+Suppose you want to create a user form, which contains fields like Number, Type, EvenNumber and you want the user to enter only even numbers Here depending upon the requirement these scenarios may arise.
+1.  Allow only evennumbers in EvenNumber’s field .
 2.	Apply Even validation based on matched condition in the form, like if the type  is ‘Even’ then the number value should be even number.
 3.	Adding Custom Message on EvenNumber Field.
 4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
-Let’s see how Even validator fulfil the need.
+Let’s see how even validator fulfil the need.
 
 # Basic Even Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\even\add\even-add.component.ts?type=section)]
 
@@ -87,6 +87,8 @@ To override the global configuration message and show the custom message on part
 <app-even-dynamic-validator></app-even-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\validators\even\dynamic\even-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\even\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\validators\even\dynamic\even-dynamic.component.html)]
 ***

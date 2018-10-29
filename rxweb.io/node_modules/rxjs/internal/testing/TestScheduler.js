@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -69,13 +72,15 @@ var TestScheduler = (function (_super) {
         });
         return messages;
     };
-    TestScheduler.prototype.expectObservable = function (observable, unsubscriptionMarbles) {
+    TestScheduler.prototype.expectObservable = function (observable, subscriptionMarbles) {
         var _this = this;
-        if (unsubscriptionMarbles === void 0) { unsubscriptionMarbles = null; }
+        if (subscriptionMarbles === void 0) { subscriptionMarbles = null; }
         var actual = [];
         var flushTest = { actual: actual, ready: false };
-        var unsubscriptionFrame = TestScheduler
-            .parseMarblesAsSubscriptions(unsubscriptionMarbles, this.runMode).unsubscribedFrame;
+        var subscriptionParsed = TestScheduler.parseMarblesAsSubscriptions(subscriptionMarbles, this.runMode);
+        var subscriptionFrame = subscriptionParsed.subscribedFrame === Number.POSITIVE_INFINITY ?
+            0 : subscriptionParsed.subscribedFrame;
+        var unsubscriptionFrame = subscriptionParsed.unsubscribedFrame;
         var subscription;
         this.schedule(function () {
             subscription = observable.subscribe(function (x) {
@@ -89,7 +94,7 @@ var TestScheduler = (function (_super) {
             }, function () {
                 actual.push({ frame: _this.frame, notification: Notification_1.Notification.createComplete() });
             });
-        }, 0);
+        }, subscriptionFrame);
         if (unsubscriptionFrame !== Number.POSITIVE_INFINITY) {
             this.schedule(function () { return subscription.unsubscribe(); }, unsubscriptionFrame);
         }

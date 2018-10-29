@@ -1,12 +1,11 @@
 ---
 title: numeric
-description: numeric validation decorator will check whether the value entered is a valid number or not.
+description: numeric validation decorator will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.
 author: rxcontributorone
 
 ---
-
 # When to use
-Let’s assume that you are creating a user form, which contains fields like DataType, integerNumber,integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a user form, which contains fields like DataType, integerNumber, integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.
 1.  Allow only positive numbers in integerNumber.
 2.  Allow only Negative numbers in integerNumber.
 3.  Allow decimal value in integerNumber  
@@ -17,16 +16,24 @@ Let’s assume that you are creating a user form, which contains fields like Dat
 Let’s see how Numeric validator fulfil the need.
 
 # Basic numeric Validation
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
+[!TabGroup]
+# [Add](#tab\basicadd)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.ts)]
+# [Edit](#tab\basicedit)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\edit\numeric-edit.component.ts)]
 ***
 
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\edit\numeric-edit.component.ts)]
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-info-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\numeric\edit\user-info-data.json?condition="tab_1=='basicedit'"&type=section)]
+
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\numeric-add.component.html?condition="tab_1=='basicadd'"&type=section&title=numeric Decorator for add Example)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\edit\numeric-edit.component.html?condition="tab_1=='basicedit'"&type=section&title=numeric Decorator for edit Example)]
 
 [!example(?condition="tab_1=='basicadd'"&type=tab&title=numeric Decorator for add Example)]
 <app-numeric-add></app-numeric-add>
@@ -146,6 +153,8 @@ This Complete numeric example which includes all the NumericConfig properties wi
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\dynamic\user.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\dynamic\numeric-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\dynamic\numeric-dynamic.component.html)]
 ***

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { ResultInfo } from './result-info.model';
 
@@ -12,34 +11,17 @@ import { ResultInfo } from './result-info.model';
     templateUrl: './min-number-dynamic.component.html'
 })
 export class MinNumberDynamicComponent implements OnInit {
-
     resultInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let resultInfo = new ResultInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			maths : {
-				minNumber :  {value:35,} 
-			},
-						
-			science : {
-				minNumber :  {value:35,message:'Number should not be less than 35',} 
-			},
-						
-			english : {
-				minNumber :  {value:35,conditionalExpression:(x,y) =>{ return  x.maths == 50 },} 
-			},
-						
-			statstics : {
-				minNumber :  {value:35,conditionalExpression:x => x.maths == 50,} 
-			},
-			        };
-		this.resultInfoFormGroup = this.formBuilder.formGroup(resultInfo,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/minNumber/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.resultInfoFormGroup = this.formBuilder.formGroup(resultInfo,formBuilderConfiguration);
+        })
     }
 }

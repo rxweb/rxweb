@@ -96,7 +96,7 @@ import { TemplateRef, ViewContainerRef } from '@angular/core';
  * <ng-template #elseBlock>...</ng-template>
  * ```
  *
- *
+ * @ngModule CommonModule
  */
 export declare class NgIf {
     private _viewContainer;

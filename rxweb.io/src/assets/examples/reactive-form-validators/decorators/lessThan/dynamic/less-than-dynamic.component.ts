@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
-import { FormBuilderConfiguration,
-} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
 
@@ -12,30 +11,17 @@ import { User } from './user.model';
     templateUrl: './less-than-dynamic.component.html'
 })
 export class LessThanDynamicComponent implements OnInit {
-
     userFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let user = new User();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			practicalExamMarks : {
-				lessThan :  {fieldName:'obtainedMarks',conditionalExpression:(x,y) =>{ return  x.obtainedMarks < 35},} 
-			},
-						
-			passingMarks : {
-				lessThan :  {fieldName:'obtainedMarks',conditionalExpression:x => x.obtainedMarks < 35 ,} 
-			},
-						
-			otherMarks : {
-				lessThan :  {fieldName:'obtainedMarks',message:'Please enter number greater than 100.',} 
-			},
-			        };
-		this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/lessThan/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+        })
     }
 }

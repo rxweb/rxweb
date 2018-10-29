@@ -1,5 +1,5 @@
 /** Symbol.observable addition */
-declare global  {
+declare global {
     interface SymbolConstructor {
         readonly observable: symbol;
     }

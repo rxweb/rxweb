@@ -5,16 +5,16 @@ author: rxcontributorone
 
 ---
 # When to use
-Let’s assume that you are creating a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
-1. Adding Custom Message on oldPassword Field.
+Suppose you want to create a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
+1. Adding validation on oldPassword Field and adding  Custom Message on it.
 2. Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
 3. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
 Let’s see how password validator fulfil the need.
 
 # Basic password Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations.
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\password\add\password-add.component.ts?type=section)]
 
@@ -80,6 +80,8 @@ Password Validation is used for setting the parameters for password validation, 
 <app-password-dynamic-validator></app-password-dynamic-validator>
 # [Component](#tab\dynamicComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\password\dynamic\password-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\password\dynamic\dynamic.json)]
 # [Html](#tab\dynamicHtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\password\dynamic\password-dynamic.component.html)]
 ***

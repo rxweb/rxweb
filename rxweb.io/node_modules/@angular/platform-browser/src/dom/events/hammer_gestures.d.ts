@@ -21,6 +21,7 @@ export declare const HAMMER_LOADER: InjectionToken<HammerLoader>;
 export interface HammerInstance {
     on(eventName: string, callback?: Function): void;
     off(eventName: string, callback?: Function): void;
+    destroy?(): void;
 }
 /**
  * An injectable [HammerJS Manager](http://hammerjs.github.io/api/#hammer.manager)

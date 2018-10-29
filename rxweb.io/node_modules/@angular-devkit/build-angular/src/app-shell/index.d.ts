@@ -8,6 +8,7 @@
 import { BuildEvent, Builder, BuilderConfiguration, BuilderContext } from '@angular-devkit/architect';
 import { Path } from '@angular-devkit/core';
 import { Observable } from 'rxjs';
+import { BrowserBuilderSchema } from '../browser/schema';
 import { BuildWebpackAppShellSchema } from './schema';
 export declare class AppShellBuilder implements Builder<BuildWebpackAppShellSchema> {
     context: BuilderContext;
@@ -15,7 +16,7 @@ export declare class AppShellBuilder implements Builder<BuildWebpackAppShellSche
     run(builderConfig: BuilderConfiguration<BuildWebpackAppShellSchema>): Observable<BuildEvent>;
     build(targetString: string, overrides: {}): Observable<BuildEvent>;
     getServerModuleBundlePath(options: BuildWebpackAppShellSchema): Observable<Path>;
-    getBrowserIndexOutputPath(options: BuildWebpackAppShellSchema): Observable<Path>;
+    getBrowserBuilderConfig(options: BuildWebpackAppShellSchema): Observable<BuilderConfiguration<BrowserBuilderSchema>>;
     renderUniversal(options: BuildWebpackAppShellSchema): Observable<BuildEvent>;
 }
 export default AppShellBuilder;

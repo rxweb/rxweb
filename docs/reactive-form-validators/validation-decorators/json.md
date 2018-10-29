@@ -5,9 +5,9 @@ author: rxcontributorone
 
 ---
 # When to use
-Let's assume that you are creating a location based jsonInfo form and you have fields like locationJson,location,AddressJson,ContactJson and you want the user to enter only Json value i.e in key and value form. Here depending upon the requirement these scenarios may arise.
-1. Adding LocationJson without any conditional expression.
-2. 	Apply json validation based on matched condition in the form, like if the location is ‘India’ then the AddressJson value should be valid Json value.
+Suppose you want to create a location based jsonInfo form and you have fields like locationJson, location, AddressJson, ContactJson and you want the user to enter only Json value i.e in key and value form. Here depending upon the requirement these scenarios may arise.
+1. Apply json validation on LocationJson field  without any conditional expression.
+2. Apply json validation based on matched condition in the form, like if the location is ‘India’ then the AddressJson value should be valid Json value.
 3. Adding Custom Message on ContactJson Field.
 4. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
@@ -18,7 +18,7 @@ First we need to create location model class define a property of LocationJson i
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\add\json-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\edit\json-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
@@ -27,6 +27,10 @@ Here we have covered Add and Edit form operations.
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\edit\json-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `json-info-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\json\edit\json-info-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\add\json-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -111,6 +115,8 @@ This Complete Json example which includes all the DefaultConfig properties will 
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\dynamic\json-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\dynamic\json-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\json\dynamic\json-dynamic.component.html)]
 ***

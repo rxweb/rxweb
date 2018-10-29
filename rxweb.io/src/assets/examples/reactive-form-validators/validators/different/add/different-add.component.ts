@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-different-add-validator',
@@ -11,13 +9,14 @@ import { RxFormBuilder,RxwebValidators
 export class DifferentAddValidatorComponent implements OnInit {
     accountInfoFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
-        this.accountInfoFormGroup = this.formBuilder.formGroup({
-																lastName:['',RxwebValidators.different({fieldName:"firstName" })], 
-								});
+        this.accountInfoFormGroup = this.formBuilder.group({
+            firstName:['',], 
+            lastName:['', RxwebValidators.different({fieldName:"firstName" })], 
+        });
     }
 }

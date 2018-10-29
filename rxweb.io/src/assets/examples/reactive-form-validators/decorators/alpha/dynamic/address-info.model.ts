@@ -6,9 +6,6 @@ export class AddressInfo {
 	countryName: string;
 
 	@prop()
-	countryCode: string;
-
-	@prop()
 	cityName: string;
 
 	@prop()

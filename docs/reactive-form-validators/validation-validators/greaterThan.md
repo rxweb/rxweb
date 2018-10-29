@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 #  When to use
-Let’s assume that you are creating a User form, which contains fields like Age, VoterAge, OtherAge and you want the user to enter the numbers which are greater than a related field. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a User form, which contains fields like Age, VoterAge, OtherAge and you want the user to enter the numbers which are greater than a related field. Here depending upon the requirement these scenarios may arise.
 1.	Allow numbers which are greater than a perticular field like in VoterAge.
 2.	Apply greaterThan validation based on matched condition in the form, like if the Age is greater than    17, then only the greater than validation will be applied to VoterAge field.
 3.	Adding Custom Message on OtherAge Field.
@@ -14,7 +14,7 @@ Let’s assume that you are creating a User form, which contains fields like Age
 Let’s see how greaterThan validator fulfil the need.
 
 # Basic GreaterThan Validation
-We need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+We need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\greaterThan\add\greater-than-add.component.ts?type=section)]
 
@@ -103,6 +103,8 @@ To override the global configuration message and show the custom message on part
 <app-greaterThan-dynamic-validator></app-greaterThan-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\greaterThan\dynamic\greater-than-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\greaterThan\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\greaterThan\dynamic\greater-than-dynamic.component.html)]
 ***

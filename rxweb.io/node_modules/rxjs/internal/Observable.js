@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var canReportError_1 = require("./util/canReportError");
 var toSubscriber_1 = require("./util/toSubscriber");
 var observable_1 = require("../internal/symbol/observable");
 var pipe_1 = require("./util/pipe");
@@ -47,7 +48,12 @@ var Observable = (function () {
                 sink.syncErrorThrown = true;
                 sink.syncErrorValue = err;
             }
-            sink.error(err);
+            if (canReportError_1.canReportError(sink)) {
+                sink.error(err);
+            }
+            else {
+                console.warn(err);
+            }
         }
     };
     Observable.prototype.forEach = function (next, promiseCtor) {

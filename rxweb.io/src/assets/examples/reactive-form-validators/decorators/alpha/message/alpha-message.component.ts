@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { AddressInfo } from './address-info.model';
@@ -10,12 +9,10 @@ import { AddressInfo } from './address-info.model';
     templateUrl: './alpha-message.component.html'
 })
 export class AlphaMessageComponent implements OnInit {
-
     addressInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let addressInfo = new AddressInfo();

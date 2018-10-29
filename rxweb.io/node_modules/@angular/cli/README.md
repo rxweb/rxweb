@@ -146,17 +146,20 @@ You can find more details about changes between versions in [the Releases tab on
 
 ```bash
 git clone https://github.com/angular/angular-cli.git
-cd angular-cli
+npm install
+npm run build
+cd dist/@angular/cli
 npm link
 ```
 
 `npm link` is very similar to `npm install -g` except that instead of downloading the package
-from the repo, the just cloned `angular-cli/` folder becomes the global package.
+from the repo, the just built `dist/@angular/cli/` folder becomes the global package.
 Additionally, this repository publishes several packages and we use special logic to load all of them
 on development setups.
 
 Any changes to the files in the `angular-cli/` folder will immediately affect the global `@angular/cli` package,
-allowing you to quickly test any changes you make to the cli project.
+meaning that, in order to quickly test any changes you make to the cli project, you should simply just run `npm run build`
+again.
 
 Now you can use `@angular/cli` via the command line:
 
@@ -178,12 +181,34 @@ You can also use `ng new foo --link-cli` to automatically link the `@angular/cli
 Please read the official [npm-link documentation](https://docs.npmjs.com/cli/link)
 and the [npm-link cheatsheet](http://browsenpm.org/help#linkinganynpmpackagelocally) for more information.
 
-To run the Angular CLI test suite use the `node tests/run_e2e.js` command.
-It can also receive a filename to only run that test (e.g. `node tests/run_e2e.js tests/e2e/tests/build/dev-build.ts`).
+To run the Angular CLI E2E test suite, use the `node ./tests/legacy-cli/run_e2e` command.
+It can also receive a filename to only run that test (e.g. `node ./tests/legacy-cli/run_e2e tests/legacy-cli/e2e/tests/build/dev-build.ts`).
 
 As part of the test procedure, all packages will be built and linked.
 You will need to re-run `npm link` to re-link the development Angular CLI environment after tests finish.
 
+### Debugging with VS Code
+
+In order to debug some Angular CLI behaviour using Visual Studio Code, you can run `npm run build`, and then use a launch configuration like the following:
+
+```json
+{
+    "type": "node",
+    "request": "launch",
+    "name": "ng serve",
+    "cwd": "<path to an Angular project generated with Angular-CLI>",
+    "program": "${workspaceFolder}/dist/@angular/cli/bin/ng",
+    "args": [
+        "<ng command>",
+        ...other arguments
+    ],
+    "console": "integratedTerminal"
+}
+```
+
+Then you can add breakpoints in `dist/@angular` files.
+
+For more informations about Node.js debugging in VS Code, see the related [VS Code Documentation](https://code.visualstudio.com/docs/nodejs/nodejs-debugging).
 
 ## Documentation
 

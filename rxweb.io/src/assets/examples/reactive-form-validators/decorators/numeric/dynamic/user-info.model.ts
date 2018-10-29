@@ -6,9 +6,6 @@ export class UserInfo {
 	dataType: string;
 
 	@prop()
-	integerNumber: number;
-
-	@prop()
 	realNumber: number;
 
 	@prop()

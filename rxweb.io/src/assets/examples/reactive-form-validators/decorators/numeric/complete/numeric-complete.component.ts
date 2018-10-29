@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
-
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { UserInfo } from './user-info.model';
@@ -10,12 +9,10 @@ import { UserInfo } from './user-info.model';
     templateUrl: './numeric-complete.component.html'
 })
 export class NumericCompleteComponent implements OnInit {
-
     userInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let userInfo = new UserInfo();

@@ -5,7 +5,7 @@ author: rxcontributortwo
 
 ---
 # When to use
-Let’s assume that you are creating a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.
 1.	Allow number greater than 35 in Maths field.
 2.	Apply minNumber validation based on matched condition in the form, like if the input of Maths is 50, then only the minNumber validation will be applied to Statistics field.
 3.	Adding Custom Message on Science Field.
@@ -18,7 +18,7 @@ First we need to create a ResultInfo class and define a property of Maths in the
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\add\result-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\edit\result-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this, we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
 [!TabGroup]
 # [Add](#tab\basicadd)
@@ -26,6 +26,10 @@ Now, we need to create a FormGroup in the component. To achieve this, we need to
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\edit\min-number-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `result-info-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\minNumber\edit\result-info-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\add\min-number-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -42,7 +46,7 @@ message and conditional expression options are not mandatory to use in the `@min
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpression](#conditionalexpressions) | Min Number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalExpressiony) | Min Number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 |[value](#value) | enter value which you want to restrict number in the property |
 
@@ -56,7 +60,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
- [!TabGroup(?showHideCondition="conditionalExpression")]
+[!TabGroup(?showHideCondition="conditionalExpression")]
 # [Model](#tab\conditionalExpressionmodel)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\conditionalExpression\result-info.model.ts)]
 # [Component](#tab\conditionalExpressionComponent)
@@ -129,6 +133,8 @@ This Complete minNumber example which includes all the NumberConfig properties w
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\result-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\min-number-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\min-number-dynamic.component.html)]
 ***

@@ -1,12 +1,12 @@
 ---
 title: mac
-description: mac validation validator will check whether the value entered is in proper format of mac address.
+description: mac validation validator will check whether the value entered is a valid mac address.
 author: rxcontributorone
 
 ---
 
 # When to use
-Let's assume that you are creating a  form in which you want user to enter mac address  which contains fields like device,macAddress,systemMacAddress. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a form in which you want user to enter mac address  which contains fields like device, macAddress,  systemMacAddress. Here depending upon the requirement these scenarios may arise.
 1.	The macAddress on which validation is checked.
 2.  Apply mac validation based on matched condition in the form, like if the device  is ‘Laptop’ then the macAddress value should be in proper format.
 3.  The Custom Message on systemMacAddress field.
@@ -15,8 +15,8 @@ Let's assume that you are creating a  form in which you want user to enter mac a
 Let’s see how mac validator fulfil the need.
 
 # Basic mac Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\mac\add\mac-add.component.ts?type=section)]
 ***
@@ -41,11 +41,11 @@ Type :  `Function`  |  `string`
 mac validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
  
- [!codeExample(?title=conditionalExpressionExampleFunction)]
+[!codeExample(?title=conditionalExpressionExampleFunction)]
 
 [!codeExample(?title=conditionalExpressionExampleString)]
 
- [!TabGroup(?showHideCondition="conditionalExpression")]
+[!TabGroup(?showHideCondition="conditionalExpression")]
 # [Component](#tab\conditionalExpressionComponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\mac\conditionalExpression\mac-conditional-expressions.component.ts)]
 # [Html](#tab\conditionalExpressionHtml)
@@ -88,6 +88,8 @@ To override the global configuration message and show the custom message on part
 <app-mac-dynamic-validator></app-mac-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\mac\dynamic\mac-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\mac\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\mac\dynamic\mac-dynamic.component.html)]
 ***

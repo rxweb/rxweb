@@ -101,6 +101,15 @@ function CoverageIstanbulReporter(baseReporterDecorator, logger, config) {
     const remappedCoverageMap = sourceMapStore.transformCoverage(coverageMap)
       .map;
 
+    if (!coverageConfig.skipFilesWithNoCoverage) {
+      coverageMap.files().forEach(path => {
+        if (!(path in remappedCoverageMap)) {
+          // Re-add empty coverage record
+          remappedCoverageMap.addFileCoverage(path);
+        }
+      });
+    }
+
     log.debug('Writing coverage reports:', reportTypes);
     reporter.write(remappedCoverageMap);
 

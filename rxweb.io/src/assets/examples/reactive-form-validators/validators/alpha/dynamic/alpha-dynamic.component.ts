@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
-
-import { RxFormBuilder,RxwebValidators 
-} from '@rxweb/reactive-form-validators';
+import { FormGroup, FormBuilder } from "@angular/forms"
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -12,37 +11,16 @@ import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 export class AlphaDynamicValidatorComponent implements OnInit {
     addressInfoFormGroup: FormGroup
 
-    constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+	constructor(
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			countryName : {
-				alpha : true  
-			},
-						
-			countryCode : {
-				alpha :  {conditionalExpression:(x,y) => x.countryName == "Australia",} 
-			},
-						
-			cityName : {
-				alpha :  {conditionalExpression:'x => x.countryName =="Australia"',} 
-			},
-						
-			stateName : {
-				alpha :  {allowWhiteSpace:true,} 
-			},
-						
-			stateCode : {
-				alpha :  {message:'You can enter only alphabets.',} 
-			},
-			        };
-		 var addressInfo = {
-			countryName:'', countryCode:'', cityName:'', stateName:'', stateCode:'', 
-		}
-		this.addressInfoFormGroup = this.formBuilder.formGroup(addressInfo,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/alpha/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var addressInfo = { countryName:'', countryCode:'', cityName:'', stateName:'', stateCode:'',  }
+			this.addressInfoFormGroup = this.formBuilder.group(addressInfo,formBuilderConfiguration);
+		})
     }
 }

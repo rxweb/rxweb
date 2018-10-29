@@ -64,5 +64,5 @@ export declare class Subscription implements SubscriptionLike {
      */
     remove(subscription: Subscription): void;
     /** @internal */
-    private _addParent(parent);
+    private _addParent;
 }

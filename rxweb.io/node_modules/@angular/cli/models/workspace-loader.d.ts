@@ -14,7 +14,7 @@ export declare class WorkspaceLoader {
     constructor(_host: virtualFs.Host);
     loadGlobalWorkspace(): Observable<experimental.workspace.Workspace | null>;
     loadWorkspace(projectPath?: string): Observable<experimental.workspace.Workspace | null>;
-    private _getProjectWorkspaceFilePath(projectPath?);
-    private _getGlobalWorkspaceFilePath();
-    private _loadWorkspaceFromPath(workspacePath);
+    private _getProjectWorkspaceFilePath;
+    private _getGlobalWorkspaceFilePath;
+    private _loadWorkspaceFromPath;
 }

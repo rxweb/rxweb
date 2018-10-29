@@ -20,16 +20,23 @@ export declare function errorHandler(): ErrorHandler;
 export declare function _document(): any;
 export declare const BROWSER_MODULE_PROVIDERS: StaticProvider[];
 /**
- * The ng module for the browser.
+ * Exports required infrastructure for all Angular apps.
+ * Included by defaults in all Angular apps created with the CLI
+ * `new` command.
+ * Re-exports `CommonModule` and `ApplicationModule`, making their
+ * exports and providers available to all apps.
  *
  *
  */
 export declare class BrowserModule {
     constructor(parentModule: BrowserModule | null);
     /**
-     * Configures a browser-based application to transition from a server-rendered app, if
-     * one is present on the page. The specified parameters must include an application id,
-     * which must match between the client and server applications.
+     * Configures a browser-based app to transition from a server-rendered app, if
+     * one is present on the page.
+     *
+     * @param params An object containing an identifier for the app to transition.
+     * The ID must match between the client and server versions of the app.
+     * @returns The reconfigured `BrowserModule` to import into the app's root `AppModule`.
      *
      * @experimental
      */

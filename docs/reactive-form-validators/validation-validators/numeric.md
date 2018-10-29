@@ -1,12 +1,11 @@
 ---
 title: numeric
-description: numeric validation validator will check whether the value entered is a valid number or not.
-author: rxcontributoroneif
+description: numeric validation validator will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.
+author: rxcontributorone
 
 ---
-
 # When to use
-Let’s assume that you are creating a user form, which contains fields like DataType, integerNumber,integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a user form, which contains fields like DataType, integerNumber,integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.
 1.  Allow only positive numbers in integerNumber.
 2.  Allow only Negative numbers in integerNumber.
 3.  Allow decimal value in integerNumber  
@@ -17,8 +16,8 @@ Let’s assume that you are creating a user form, which contains fields like Dat
 Let’s see how Numeric validator fulfil the need.
 
 # Basic numeric Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\reactive-form-validators\validators\numeric\add\numeric-add.component.ts?type=section)]
 ***
@@ -126,6 +125,8 @@ To override the global configuration message and show the custom message on part
 <app-numeric-dynamic-validator></app-numeric-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\numeric\dynamic\numeric-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\numeric\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\numeric\dynamic\numeric-dynamic.component.html)]
 ***

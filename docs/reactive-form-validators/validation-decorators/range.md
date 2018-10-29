@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let’s assume that you are creating a employeeInfo form, which contains field of employeeAge,employeeExperience,salary and you want the user to enter value in a specified range. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a employeeInfo form, which contains field of employeeAge, employeeExperience, salary and you want the user to enter value in a specified range. Here depending upon the requirement these scenarios may arise.
 1. Adding value which you want to restrict number in the property. The minimum number is 18 and maximum number is 60. 
 2. Apply range validation based on matched condition in the form, like if the age is greater than ‘25’ then the employeeExperience value should be between 2 to 20.
 3. Adding Custom Message on Salary Field.
@@ -18,7 +18,7 @@ First we need to create employeeInfo model class define a property of employeeAg
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\add\employee-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\edit\employee-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations.
 
 [!TabGroup]
@@ -27,6 +27,10 @@ Here we have covered Add and Edit form operations.
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\edit\range-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `employee-info-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\range\edit\employee-info-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\add\range-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -43,7 +47,7 @@ conditionalExpression and message options are not mandatory to use in the `@rang
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpression](#conditionalexpressions) | Range validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalExpression) | Range validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 |[minimumNumber](#minimumnumber) | Minimum number is for define a minimum number of range |
 |[maximumNumber](#maximumnumber) | Maximum number is for define a maximum number of range |
@@ -146,6 +150,8 @@ This Complete range example which includes all the RangeConfig properties will f
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\dynamic\employee-info.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\dynamic\range-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\range\dynamic\range-dynamic.component.html)]
 ***

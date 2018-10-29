@@ -4,10 +4,9 @@ description: Odd validation validator will check whether the value entered is an
 author: rxcontributorone
 
 ---
-
 # When to use
-Let’s assume that you are creating a user form, which contains fields like Number, Type, OddNumber and you want the user to enter only odd numbers Here depending upon the requirement these scenarios may arise.
-1.	Allow only oddnumbers in OddNumber .
+Suppose you want to create a user form, which contains fields like Number, Type, OddNumber and you want the user to enter only odd numbers Here depending upon the requirement these scenarios may arise.
+1.	Allow only odd numbers in oddNumber’s field.
 2.	Apply Odd validation based on matched condition in the form, like if the type  is ‘Odd’ then the number value should be odd number.
 3.	Adding Custom Message on OddNumber Field.
 4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
@@ -15,8 +14,8 @@ Let’s assume that you are creating a user form, which contains fields like Num
 Let’s see how Odd validator fulfil the need.
 
 # Basic Odd Validation
-We need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+We need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add form operation. 
 
 [!code-typescript[](\assets\examples\reactive-form-validators\reactive-form-validators\validators\odd\add\odd-add.component.ts?type=section)]
 ***
@@ -88,6 +87,8 @@ To override the global configuration message and show the custom message on part
 <app-odd-dynamic-validator></app-odd-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\dynamic\odd-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\odd\dynamic\odd-dynamic.component.html)]
 ***

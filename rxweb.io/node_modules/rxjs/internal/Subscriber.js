@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -24,6 +27,7 @@ var Subscriber = (function (_super) {
         _this.syncErrorThrown = false;
         _this.syncErrorThrowable = false;
         _this.isStopped = false;
+        _this._parentSubscription = null;
         switch (arguments.length) {
             case 0:
                 _this.destination = Observer_1.empty;
@@ -34,11 +38,10 @@ var Subscriber = (function (_super) {
                     break;
                 }
                 if (typeof destinationOrNext === 'object') {
-                    if (isTrustedSubscriber(destinationOrNext)) {
-                        var trustedSubscriber = destinationOrNext[rxSubscriber_1.rxSubscriber]();
-                        _this.syncErrorThrowable = trustedSubscriber.syncErrorThrowable;
-                        _this.destination = trustedSubscriber;
-                        trustedSubscriber.add(_this);
+                    if (destinationOrNext instanceof Subscriber) {
+                        _this.syncErrorThrowable = destinationOrNext.syncErrorThrowable;
+                        _this.destination = destinationOrNext;
+                        destinationOrNext.add(_this);
                     }
                     else {
                         _this.syncErrorThrowable = true;
@@ -103,6 +106,7 @@ var Subscriber = (function (_super) {
         this.isStopped = false;
         this._parent = _parent;
         this._parents = _parents;
+        this._parentSubscription = null;
         return this;
     };
     return Subscriber;
@@ -242,7 +246,5 @@ var SafeSubscriber = (function (_super) {
     };
     return SafeSubscriber;
 }(Subscriber));
-function isTrustedSubscriber(obj) {
-    return obj instanceof Subscriber || ('syncErrorThrowable' in obj && obj[rxSubscriber_1.rxSubscriber]);
-}
+exports.SafeSubscriber = SafeSubscriber;
 //# sourceMappingURL=Subscriber.js.map

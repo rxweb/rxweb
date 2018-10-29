@@ -5,7 +5,7 @@ author: rxcontributorone
 
 ---
 # When to use
-Let’s assume that you are creating a website-info form, which contains fields like AdminWebsiteUrl,CustomerWebsiteUrl,MaintenanceWebsiteUrl and you want the user to enter valid url. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a website-info form, which contains fields like AdminWebsiteUrl, CustomerWebsiteUrl, MaintenanceWebsiteUrl and you want the user to enter valid url. Here depending upon the requirement these scenarios may arise.
 1. Adding AdminWebsiteUrl without any conditional expression.
 2. Apply url validation based on matched condition in the form, like if the adminWebsiteUrl is ‘https://google.co.in’ then the customerWebsiteUrl value should be in proper format of url.
 3. Adding Custom Message on MaintenanceWebsiteUrl Field.
@@ -18,7 +18,7 @@ First we need to create a User class and define a property of AdminWebsiteUrl in
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\add\web-site-info-model.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\edit\web-site-info-model.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
 [!TabGroup]
@@ -27,6 +27,10 @@ Here we have covered Add and Edit form operations.
 # [Edit](#tab\basicedit)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\edit\url-edit.component.ts)]
 ***
+
+[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `web-site-info-model-data.json` for getting data from the server
+
+[!code-typescript[](\assets\examples\url\edit\web-site-info-model-data.json?condition="tab_1=='basicedit'"&type=section)]
 
 Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\add\url-add.component.html?condition="tab_1=='basicadd'"&type=section)]
@@ -43,7 +47,7 @@ Next, we need to write html code.
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpression](#conditionalexpressions) | Url validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalExpression) | Url validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## conditionalExpression 
@@ -108,6 +112,8 @@ This Complete url example which includes all the UrlConfig properties will fulfi
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\dynamic\web-site-info-model.model.ts)]
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\dynamic\url-dynamic.component.ts)]
+# [Json](#tab\dynamicjson)
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\dynamic\dynamic.json)]
 # [Html](#tab\dynamichtml)
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\url\dynamic\url-dynamic.component.html)]
 ***
