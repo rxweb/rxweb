@@ -67,7 +67,7 @@ To apply validation based on checking positive or negative value or both.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\acceptValue\numeric-acceptValue.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="acceptValue=!acceptValue"&title=numeric decorator depending upon acceptValue")]
+[!example(?type=section&clickEventCode="acceptValue=!acceptValue"&title=numeric decorator depending upon acceptValue)]
 <app-numeric-acceptValue></app-numeric-acceptValue>
 
 ## allowDecimal 

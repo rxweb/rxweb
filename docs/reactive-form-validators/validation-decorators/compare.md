@@ -20,14 +20,14 @@ First we need to create a User Model class and define property of Password and C
 Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add form operation.
 
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\compare-add.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\compare-add.component.ts?type=section)]
 
 ***
 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\compare-add.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\compare-add.component.html?type=section)]
 
-[!example(?title=compare Decorator for add Example)]
+[!example(?title=compare Decorator for add Example&title=numeric Decorator for add Example)]
 <app-compare-add></app-compare-add>
 
 # CompareConfig
