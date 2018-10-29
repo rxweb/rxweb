@@ -9,7 +9,7 @@ Suppose you want to create a Subject-detail form, which contains fields like sub
 1.	Adding field of PassingMarks without any conditional expression.
 2.	Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .
 3.	Adding Custom Message on PassingMarks Field.
-4.	Adding value which you want to restrict number in the property. The maximum number is '100s'. 
+4.	Adding value which you want to restrict number in the property. The maximum number is '100'. 
 5.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
 Let’s see how maxNumber validator fulfil the need.
