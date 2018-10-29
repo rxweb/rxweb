@@ -36,10 +36,10 @@ Next, we need to write html code.
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\add\odd-add.component.html?condition="tab_1=='basicadd'"&type=section&title=odd Decorator for add Example)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\edit\odd-edit.component.html?condition="tab_1=='basicedit'"&type=section&title=odd Decorator for edit Example)]
 
-[!example(?condition="tab_1=='basicadd'"&type=tab)]
+[!example(?condition="tab_1=='basicadd'"&type=tab&title=odd Decorator for add Example)]
 <app-odd-add></app-odd-add>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab)]
+[!example(?condition="tab_1=='basicedit'"&type=tab&title=odd Decorator for edit Example)]
 <app-odd-edit></app-odd-edit>
 
 # BaseConfig
