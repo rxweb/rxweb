@@ -7,8 +7,8 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { NumericCompleteValidatorComponent } from './complete/numeric-complete.component';
 import { NumericAcceptValueValidatorComponent } from './acceptValue/numeric-accept-value.component';
-import { NumericAllowDecimalValidatorComponent } from './allowDecimal/numeric-allow-decimal.component';
 import { NumericMessageValidatorComponent } from './message/numeric-message.component';
+import { NumericAllowDecimalValidatorComponent } from './allowDecimal/numeric-allow-decimal.component';
 import { NumericConditionalExpressionValidatorComponent } from './conditionalExpression/numeric-conditional-expression.component';
 import { NumericDynamicValidatorComponent } from './dynamic/numeric-dynamic.component';
 import { NumericAddValidatorComponent } from './add/numeric-add.component';
@@ -17,8 +17,8 @@ import { NumericAddValidatorComponent } from './add/numeric-add.component';
   declarations: [
 	NumericCompleteValidatorComponent,
 	NumericAcceptValueValidatorComponent,
-	NumericAllowDecimalValidatorComponent,
 	NumericMessageValidatorComponent,
+	NumericAllowDecimalValidatorComponent,
 	NumericConditionalExpressionValidatorComponent,
 	NumericDynamicValidatorComponent,
 	NumericAddValidatorComponent,
@@ -26,8 +26,8 @@ import { NumericAddValidatorComponent } from './add/numeric-add.component';
 entryComponents: [
 	NumericCompleteValidatorComponent,
 	NumericAcceptValueValidatorComponent,
-	NumericAllowDecimalValidatorComponent,
 	NumericMessageValidatorComponent,
+	NumericAllowDecimalValidatorComponent,
 	NumericConditionalExpressionValidatorComponent,
 	NumericDynamicValidatorComponent,
 	NumericAddValidatorComponent,
@@ -41,8 +41,8 @@ entryComponents: [
   exports: [
 	NumericCompleteValidatorComponent,
 	NumericAcceptValueValidatorComponent,
-	NumericAllowDecimalValidatorComponent,
 	NumericMessageValidatorComponent,
+	NumericAllowDecimalValidatorComponent,
 	NumericConditionalExpressionValidatorComponent,
 	NumericDynamicValidatorComponent,
 	NumericAddValidatorComponent,

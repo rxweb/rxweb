@@ -1,11 +1,11 @@
 <div>
   <form  [formGroup]="userInfoFormGroup">
     <div class="form-group">
-      <label>Integer Number</label>
-      <input type="text" formControlName="integerNumber" class="form-control"  />
-      <small class="form-text text-muted">If you want to apply conditional validation on 'Integer Number' then you need to add 'Data Type' input as 'Number'.<br/></small>
-      <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.integerNumber.errors">{{userInfoFormGroup.controls.integerNumber.errors.numeric.message}}<br/></small>	
+      <label>Decimal Number</label>
+      <input type="text" formControlName="decimalNumber" class="form-control"  />
+      <small class="form-text text-muted">you can enter only a decimal number<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.decimalNumber.errors">{{userInfoFormGroup.controls.decimalNumber.errors.numeric.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

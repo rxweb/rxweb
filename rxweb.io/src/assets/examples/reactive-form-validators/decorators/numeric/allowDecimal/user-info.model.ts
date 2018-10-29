@@ -2,8 +2,7 @@ import {  numeric,prop, NumericValueType, } from "@rxweb/reactive-form-validator
 
 export class UserInfo {
 
-	//If you want to apply conditional expression of type 'function'
-	@numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false  ,conditionalExpression:(x,y) => x.dataType == "Number"  }) 
-	integerNumber: number;
+	@numeric({allowDecimal:true  ,message:'{{0}} is not a decimal number' }) 
+	decimalNumber: number;
 
 }

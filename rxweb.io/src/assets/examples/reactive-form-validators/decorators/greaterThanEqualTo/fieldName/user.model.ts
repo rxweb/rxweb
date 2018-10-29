@@ -9,7 +9,8 @@ export class User {
 	@greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:'x => x.age >= 18 ' }) 
 	memberAge: number;
 
-	@greaterThanEqualTo({fieldName:'age'  ,message:'Please enter number greater than or equal to 1.' }) 
-	otherAge: number;
+	//If you want to apply conditional expression of type 'function'
+	@greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:(x,y) => x.age >= 18  }) 
+	voterAge: number;
 
 }

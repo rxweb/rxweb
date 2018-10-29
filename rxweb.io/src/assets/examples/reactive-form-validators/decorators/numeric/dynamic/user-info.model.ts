@@ -9,6 +9,9 @@ export class UserInfo {
 	negativeNumber: number;
 
 	@prop()
+	decimalNumber: number;
+
+	@prop()
 	realNumber: number;
 
 }

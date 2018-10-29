@@ -17,7 +17,7 @@ export class LessThanEqualToFieldNameValidatorComponent implements OnInit {
         this.userFormGroup = this.formBuilder.group({
             totalMarks:['',], 
             practicalExamMarks:['', RxwebValidators.lessThanEqualTo({fieldName:'totalMarks'  ,conditionalExpression:'x => x.totalMarks == 100' })], 
-            otherMarks:['', RxwebValidators.lessThanEqualTo({fieldName:'totalMarks'  ,message:'Please enter number less than 100.' })], 
+            obtainedMarks:['', RxwebValidators.lessThanEqualTo({fieldName:'totalMarks'  ,conditionalExpression:(x,y) => x.totalMarks == 100  })], 
         });
     }
 }

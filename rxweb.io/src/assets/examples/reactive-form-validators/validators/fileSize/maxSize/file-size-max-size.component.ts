@@ -15,7 +15,9 @@ export class FileSizeMaxSizeValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.storageCapacityFormGroup = this.formBuilder.group({
-            videoStorageSize:['', RxwebValidators.fileSize({maxSize:50  ,message:'{{0}} is not a valid size' })], 
+            device:['',], 
+            photographStorageSize:['', RxwebValidators.fileSize({maxSize:50  ,conditionalExpression:'x => x.device =="SmartPhone"' })], 
+            documentStorageSize:['', RxwebValidators.fileSize({maxSize:50  ,conditionalExpression:(x,y) => x.device == "SmartPhone"  })], 
         });
     }
 }

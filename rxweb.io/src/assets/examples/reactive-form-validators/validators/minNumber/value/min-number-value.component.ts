@@ -15,7 +15,7 @@ export class MinNumberValueValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.resultInfoFormGroup = this.formBuilder.group({
-            english:['', RxwebValidators.minNumber({value:35  ,conditionalExpression:(x,y) => x.maths == 50  })], 
+            maths:['', RxwebValidators.minNumber({value:35 })], 
         });
     }
 }
