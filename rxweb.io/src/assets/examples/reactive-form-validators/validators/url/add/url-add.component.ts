@@ -10,8 +10,8 @@ export class UrlAddValidatorComponent implements OnInit {
     webSiteInfoModelFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.webSiteInfoModelFormGroup = this.formBuilder.group({

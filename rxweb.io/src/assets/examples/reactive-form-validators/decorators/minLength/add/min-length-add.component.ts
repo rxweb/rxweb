@@ -12,8 +12,7 @@ export class MinLengthAddComponent implements OnInit {
     contactFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let contact = new Contact();

@@ -13,9 +13,7 @@ export class UrlEditComponent implements OnInit {
     webSiteInfoModelFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/url/edit/web-site-info-model-data.json').subscribe(webSiteInfoModel => {

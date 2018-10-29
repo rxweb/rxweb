@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
@@ -14,36 +15,14 @@ export class CreditCardDynamicComponent implements OnInit {
 				creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let user = new User();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-	
-	
-			otherVisaCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "Visa"',message:'Invalid Visa Credit Card Number.',} 
-			},	
-			americanExpressCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "AmericanExpress"',} 
-			},	
-			maestroCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "Maestro"',} 
-			},	
-			jcbCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "JCB"',} 
-			},	
-			discoverCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "Discover"',} 
-			},	
-			masterCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "MasterCard"',} 
-			},	
-			dinersClubCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "DinersClub"',} 
-			},		};
-        this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/creditCard/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
+        })
     }
 }

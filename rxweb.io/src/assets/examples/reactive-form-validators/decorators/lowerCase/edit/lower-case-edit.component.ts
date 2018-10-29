@@ -13,9 +13,7 @@ export class LowerCaseEditComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/lowerCase/edit/user-info-data.json').subscribe(userInfo => {

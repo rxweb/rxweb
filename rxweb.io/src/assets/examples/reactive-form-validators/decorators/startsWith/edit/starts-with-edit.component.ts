@@ -13,9 +13,7 @@ export class StartsWithEditComponent implements OnInit {
     userFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/startsWith/edit/user-data.json').subscribe(user => {

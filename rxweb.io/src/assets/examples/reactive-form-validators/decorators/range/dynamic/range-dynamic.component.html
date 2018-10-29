@@ -1,5 +1,5 @@
 <div>
-  <form  [formGroup]="employeeInfoFormGroup">
+  <form  *ngIf="employeeInfoFormGroup"  [formGroup]="employeeInfoFormGroup">
     <div class="form-group">
       <label>Employee Age</label>
       <input type="text" formControlName="age" class="form-control"  />

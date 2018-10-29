@@ -12,8 +12,7 @@ export class StartsWithValueComponent implements OnInit {
     userFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let user = new User();

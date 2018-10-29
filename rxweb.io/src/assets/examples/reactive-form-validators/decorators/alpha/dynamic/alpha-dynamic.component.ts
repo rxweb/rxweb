@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
@@ -13,27 +14,14 @@ export class AlphaDynamicComponent implements OnInit {
     addressInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let addressInfo = new AddressInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-	
-			countryName : {
-				alpha :true  
-			},	
-	
-			cityName : {
-				alpha : {conditionalExpression:'x => x.countryName =="India"',} 
-			},	
-			stateName : {
-				alpha : {allowWhiteSpace:true,} 
-			},	
-			stateCode : {
-				alpha : {message:'You can enter only alphabets.',} 
-			},		};
-        this.addressInfoFormGroup = this.formBuilder.formGroup(addressInfo,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/alpha/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.addressInfoFormGroup = this.formBuilder.formGroup(addressInfo,formBuilderConfiguration);
+        })
     }
 }

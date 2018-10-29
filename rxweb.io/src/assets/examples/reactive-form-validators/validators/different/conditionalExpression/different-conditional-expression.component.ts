@@ -10,8 +10,8 @@ export class DifferentConditionalExpressionValidatorComponent implements OnInit 
     accountInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.accountInfoFormGroup = this.formBuilder.group({

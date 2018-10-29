@@ -1,5 +1,5 @@
 <div>
-  <form  [formGroup]="userFormGroup">
+  <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Card Type</label>
       <select formControlName="cardType" class="form-control">

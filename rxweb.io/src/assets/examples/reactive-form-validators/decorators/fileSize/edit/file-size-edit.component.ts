@@ -13,9 +13,7 @@ export class FileSizeEditComponent implements OnInit {
     storageCapacityFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/fileSize/edit/storage-capacity-data.json').subscribe(storageCapacity => {

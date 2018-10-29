@@ -10,8 +10,8 @@ export class MacCompleteValidatorComponent implements OnInit {
     macAddressInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.macAddressInfoFormGroup = this.formBuilder.group({

@@ -13,21 +13,21 @@
 <div class='col-lg-12'>
 <h2>When to use</h2>
 
-<p>Suppose you want to create a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.</p>
+<p >Suppose you want to create a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.</p>
 <ol>
 	<li>	Allow number greater than 35 in Maths field.</li>
 	<li>	Apply minNumber validation based on matched condition in the form, like if the input of Maths is 50, then only the minNumber validation will be applied to Statistics field.</li>
 	<li>	Adding Custom Message on Science Field.</li>
 	<li>	Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
 </ol>
-<p>Let’s see how minNumber validator fulfil the need.</p>
+<p >Let’s see how minNumber validator fulfil the need.</p>
 </div>
 </div>
 <div class='row' id= 'basicminnumbervalidation'>
 <div class='col-lg-12'>
 <h2>Basic MinNumber Validation</h2>
 
-<p>We need to create a <span class='highlighted'>FormGroup</span> in the component. To achieve this, we need to add <span class='highlighted'>RxFormBuilder</span>. The <span class='highlighted'>RxFormBuilder</span> is an injectable service that is provided with the <span class='highlighted'>RxReactiveFormsModule</span>. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. </p>
+<p >We need to create a <span class='highlighted'>FormGroup</span> in the component. To achieve this, we need to add <span class='highlighted'>RxFormBuilder</span>. The <span class='highlighted'>RxFormBuilder</span> is an injectable service that is provided with the <span class='highlighted'>RxReactiveFormsModule</span>. Inject this dependency by adding it to the component constructor.Here we have covered Add form operation. </p>
 <div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -38,7 +38,7 @@
 </div>
 
 
-<p>Next, we need to write html code.</p>
+<p >Next, we need to write html code.</p>
 <div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Html" (cbOnSuccess)="codeContent.add.HtmlCopied = true" [class.copied]="codeContent.add.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -64,7 +64,7 @@
 <div class='col-lg-12'>
 <h2>NumberConfig</h2>
 
-<p>message and conditional expression options are not mandatory to use in the <span class='highlighted'>RxwebValidators.minNumber()</span> validator but value is mandatory. If needed then use the below options.</p>
+<p >message and conditional expression options are not mandatory to use in the <span class='highlighted'>RxwebValidators.minNumber()</span> validator but value is mandatory. If needed then use the below options.</p>
  <table class="table table-bordered table-striped">
 			<thead>
 		<tr>
@@ -82,9 +82,9 @@
 <div class='col-lg-12'>
 <h2>conditionalExpression</h2>
 
-<p>Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span> </p>
-<p>Min Number validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
-<p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
+<p >Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span> </p>
+<p >Min Number validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
+<p >If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
 <blockquote *ngIf="codeContent.conditionalExpressionExampleString && codeContent.conditionalExpressionExampleString.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.conditionalExpressionExampleString.Notes">
 	  <p [innerHtml]="item"></p>
@@ -99,11 +99,11 @@
 </div>
 
 
-<ul class="nav nav-tabs" >
+<ul class="nav nav-tabs" *ngIf="conditionalExpression">
 	<li [class.active]="tab_1=='conditionalExpressionComponent'" (click)="tab_1='conditionalExpressionComponent'"><a>Component</a></li>
 	<li [class.active]="tab_1=='conditionalExpressionHtml'" (click)="tab_1='conditionalExpressionHtml'"><a>Html</a></li>
 </ul>
-<div class="tab-content" >
+<div class="tab-content" *ngIf="conditionalExpression">
 			  <div class="tab-pane" [class.active]="tab_1=='conditionalExpressionComponent'">
 			<div  >
 	<div class="code">
@@ -148,8 +148,8 @@
 <div class='col-lg-12'>
 <h2>message</h2>
 
-<p>Type :  <span class='highlighted'>string</span> </p>
-<p>To override the global configuration message and show the custom message on particular control property.</p>
+<p >Type :  <span class='highlighted'>string</span> </p>
+<p >To override the global configuration message and show the custom message on particular control property.</p>
 <blockquote *ngIf="codeContent.messageExample && codeContent.messageExample.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.messageExample.Notes">
 	  <p [innerHtml]="item"></p>
@@ -213,8 +213,8 @@
 <div class='col-lg-12'>
 <h2>value</h2>
 
-<p>Type :  <span class='highlighted'>number</span> </p>
-<p>enter value which you want to restrict number in the property</p>
+<p >Type :  <span class='highlighted'>number</span> </p>
+<p >enter value which you want to restrict number in the property</p>
 <blockquote *ngIf="codeContent.valueExample && codeContent.valueExample.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.valueExample.Notes">
 	  <p [innerHtml]="item"></p>
@@ -324,6 +324,7 @@
 <ul class="nav nav-tabs" >
 	<li [class.active]="tab_5=='dynamicexample'" (click)="tab_5='dynamicexample'"><a>Example</a></li>
 	<li [class.active]="tab_5=='dynamiccomponent'" (click)="tab_5='dynamiccomponent'"><a>Component</a></li>
+	<li [class.active]="tab_5=='dynamicjson'" (click)="tab_5='dynamicjson'"><a>Json</a></li>
 	<li [class.active]="tab_5=='dynamichtml'" (click)="tab_5='dynamichtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" >
@@ -337,6 +338,19 @@
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Component" (cbOnSuccess)="codeContent.dynamic.ComponentCopied = true" [class.copied]="codeContent.dynamic.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
 				<pre><code [textContent]="codeContent.dynamic.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_5=='dynamicjson'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Json" (cbOnSuccess)="codeContent.dynamic.JsonCopied = true" [class.copied]="codeContent.dynamic.JsonCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Json"></code></pre>
 			</div>
 	</div>
 </div>

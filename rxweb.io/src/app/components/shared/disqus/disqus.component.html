@@ -65,16 +65,14 @@
 									<p [innerHTML]="item.body"></p>
 								</div>
 								<div class="d-flex" *ngFor="let comment of comments;">
-									<!-- <a href="{{comment.user.html_url}}" target="_blank"><img class="img-responsive d-inline-block avatar" src="{{comment.user.avatar_url}}" width="30" height="30"></a>
-									 -->
-									 <a href="{{comment.user.html_url}}" target="_blank"><img class="img-responsive d-inline-block avatar" src="{{comment.user.avatar_url}}" width="30" height="30"></a>
+									<a href="{{comment.user.html_url}}" target="_blank"><img class="img-responsive d-inline-block avatar" src="{{comment.user.avatar_url}}" width="30" height="30"></a>
 									<div class="model-ts">
 										<p class="ts-title">
 											<a class="comment-author muted-link" target="_blank" href="{{comment.user.html_url}}" data-bi-name="github-issue-comment-user">{{comment.user.login}}</a>
-											<span> commented on {{comment.user.dayAgo}} </span>
+											<span> commented on {{comment.user.dayAgo}}</span>
 										</p>
 										<div class="code">
-											<p [innerHtml]="comment.body">Please provide incorrect values so cuatjsf jsfo sdpf posu iposdf psf pisfp iaspg </p>
+											<p [innerHtml]="comment.body"></p>
 										</div>
 									</div>
 								</div>

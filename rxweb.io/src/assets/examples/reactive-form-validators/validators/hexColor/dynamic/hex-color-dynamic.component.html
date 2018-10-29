@@ -1,5 +1,5 @@
 <div>
-  <form  [formGroup]="hexcolorInfoFormGroup">
+  <form  *ngIf="hexcolorInfoFormGroup"  [formGroup]="hexcolorInfoFormGroup">
     <div class="form-group">
       <label>Color Picker</label>
       <input type="text" formControlName="color" class="form-control"  />

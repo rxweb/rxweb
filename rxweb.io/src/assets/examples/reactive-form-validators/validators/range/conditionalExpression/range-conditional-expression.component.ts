@@ -10,8 +10,8 @@ export class RangeConditionalExpressionValidatorComponent implements OnInit {
     employeeInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.employeeInfoFormGroup = this.formBuilder.group({

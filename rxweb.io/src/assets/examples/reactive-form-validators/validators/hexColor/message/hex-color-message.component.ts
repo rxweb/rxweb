@@ -10,8 +10,8 @@ export class HexColorMessageValidatorComponent implements OnInit {
     hexcolorInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.hexcolorInfoFormGroup = this.formBuilder.group({

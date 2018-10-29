@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
@@ -13,24 +14,14 @@ export class HexColorDynamicComponent implements OnInit {
     hexcolorInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let hexcolorInfo = new HexcolorInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-	
-			color : {
-				hexColor :true  
-			},	
-	
-			headerHexcolorCode : {
-				hexColor : {conditionalExpression:'x => x.color == "#AFAFAF"',} 
-			},	
-			bodyHexcolorCode : {
-				hexColor : {message:'Please enter the right format of hexcode for body like "#AFAFAF"',} 
-			},		};
-        this.hexcolorInfoFormGroup = this.formBuilder.formGroup(hexcolorInfo,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/hexColor/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.hexcolorInfoFormGroup = this.formBuilder.formGroup(hexcolorInfo,formBuilderConfiguration);
+        })
     }
 }

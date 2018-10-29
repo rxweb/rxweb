@@ -5,7 +5,7 @@
       <input type="text" formControlName="firstCountry" class="form-control"  />
       <small class="form-text text-muted">enter latitude or longitude only<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
-      <small class="form-text text-danger" *ngIf="countryFormGroup.controls.firstCountry.errors">{{countryFormGroup.controls.firstCountry.errors.latLong.message}}<br/></small>
+	 <small class="form-text text-danger" *ngIf="countryFormGroup.controls.firstCountry.errors">{{countryFormGroup.controls.firstCountry.errors.latLong.message}}<br/></small>	
     </div>
     <button [disabled]="!countryFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

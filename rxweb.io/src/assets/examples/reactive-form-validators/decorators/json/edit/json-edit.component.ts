@@ -13,9 +13,7 @@ export class JsonEditComponent implements OnInit {
     jsonInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/json/edit/json-info-data.json').subscribe(jsonInfo => {

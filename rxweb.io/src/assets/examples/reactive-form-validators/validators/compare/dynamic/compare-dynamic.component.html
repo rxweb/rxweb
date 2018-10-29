@@ -1,5 +1,5 @@
 <div>
-  <form  [formGroup]="userFormGroup">
+  <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Password</label>
       <input type="text" formControlName="password" class="form-control"  />

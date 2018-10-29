@@ -13,9 +13,9 @@
                         <li>
                             <a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i></a>
                         </li>
-                        <!--<li>
+                        <li>
                             <a href="https://gitter.im/rx-web/Lobby" title="Comment" target="_blank"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
-                        </li>-->
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -25,18 +25,16 @@
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-
                         <h1>Clean Code. <br/>Built with Purpose</h1>
                         <p>The most powerful form validation framework with tons of validation scenarios, which fulfil every
                             large scale enterprise application’s need. The most easiest way to implement complex form validation
                             solution with less line of code and quick to develop.</p>
                         <a routerLink="/import-modules" class="doc-btn">Documentation <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="downloads-counter">
                             <i class="fa fa-download" aria-hidden="true"></i>
-                            <span class="number h2">3,000</span>
+                            <span class="number h2">3,500+</span>
                             <p>It's just a beginning, <br>Many more to come</p>
                         </div>
                     </div>
@@ -51,9 +49,9 @@
                     <h2>Why rxweb framework</h2>
                     <p>Bring in versatile clean code with rxweb open source framework for rapid application development. Presented
                         by a leading and experienced community at Radixweb, our first open source framework rxweb helps to
-                        build more robust large enterprise web applications in a simpler, faster and hassle-free manner.
-                        We have delivered very niche projects with this framework since last 5+ year. Validation framework
-                        is just our beginning, few other most powerful apis are coming in near feature.</p>
+                        build robust large enterprise web applications in a simpler, faster and hassle-free manner. We have
+                        delivered very niche projects with this framework last many year. Validation framework is just our
+                        beginning, few other most powerful apis are coming in near future.</p>
                 </div>
                 <!--<div class="col-sm-12 col-md-6 text-center">
                     <img src="/assets/images/commit-activity-chart.jpg" width="246" height="230" />
@@ -82,6 +80,7 @@
                                         <div class="form-group">
                                             <label>Confirm Password</label>
                                             <input type="text" formControlName="confirmPassword" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply compare validation on 'Confirm Password' field matched value with 'Password' field.<br/></small>
                                         </div>
                                         <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
                                     </form>
@@ -122,8 +121,8 @@
                 </div>
             </div>
             <img src="/assets/images/border-gradient.png" class="align-center separator" />
-            <div class="row"> 
-            <div class="col-sm-12 col-md-6">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
                     <div class="code-content right-space">
                         <h3>Conditional Validation</h3>
                         <p>There is no need to create custom validators to manage the conditional validation and putting more
@@ -136,10 +135,12 @@
                                         <div class="form-group">
                                             <label>Country Name</label>
                                             <input type="text" formControlName="country" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply conditional required validation on 'Identity Number' then you need to add this input as 'India'.</small>
                                         </div>
                                         <div class="form-group">
                                             <label>Identity Number</label>
                                             <input type="text" formControlName="identityNumber" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply conditional required validation on 'Identity Number' then you need to add 'Country Name' input as 'India'.</small>
                                         </div>
                                         <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
                                     </form>
@@ -169,7 +170,7 @@
                         <div class="tab-pane" [class.active]="conditionalValidationRequiredTab=='html'">
                             <div>
                                 <div class="code">
-                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalValidationRequiredJson.html" (cbOnSuccess)="codeContent.crossFieldValidationJson.htmlCopied = true"
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalValidationRequiredJson.html" (cbOnSuccess)="codeContent.conditionalValidationRequiredJson.htmlCopied = true"
                                         [class.copied]="codeContent.conditionalValidationRequiredJson.htmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
                                     <div highlight="pre code">
                                         <pre><code [textContent]="codeContent.conditionalValidationRequiredJson.html"></code></pre>
@@ -196,7 +197,8 @@
                                         <div class="form-group">
                                             <label>First Name</label>
                                             <input type="text" formControlName="firstName" class="form-control" />
-                                            <small class="form-text text-danger">{{userModelFormGroup.controls.firstName.errorMessage}}<br/></small>
+                                            <small class="form-text text-muted">If you want to apply dynamic validation on 'First Name'. This validate alphabets, required and max length upto 10 digit as per dynamic json configuration<br/></small>
+                                            <small class="form-text text-danger" *ngIf="userModelFormGroup.controls.firstName.errorMessage">{{userModelFormGroup.controls.firstName.errorMessage}}<br/></small>
                                         </div>
                                         <button [disabled]="!userModelFormGroup.valid" class="btn btn-primary">Submit</button>
                                     </form>
@@ -248,7 +250,7 @@
                     </div>
 
                 </div>
-                
+
             </div>
             <img src="/assets/images/border-gradient.png" class="align-center separator" />
             <div class="row">
@@ -266,22 +268,27 @@
                                         <div class="form-group">
                                             <label>First Name</label>
                                             <input type="text" formControlName="firstName" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply validation as required and maxlength upto 20 characters</small>
                                         </div>
                                         <div class="form-group">
                                             <label>User Name</label>
                                             <input type="text" formControlName="userName" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply validation as required and not match with first name as different validation.</small>
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>
                                             <input type="text" formControlName="password" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply password validation. which contains alphabet, numeric, minlength upto 6 character and maxlength upto 10 charcter and contains lower and uppercase letters</small>
                                         </div>
                                         <div class="form-group">
                                             <label>Confirm Password</label>
                                             <input type="text" formControlName="confirmPassword" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply compare validation. you need to compare with field 'Password'</small>
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
                                             <input type="text" formControlName="email" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply email validation on this input.</small>
                                         </div>
                                         <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
                                     </form>
@@ -319,7 +326,7 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="tab-pane" [class.active]="decoratorbasedModelValidationTab=='model'">
+                        <div class="tab-pane" [class.active]="decoratorbasedModelValidationTab=='model'">
                             <div>
                                 <div class="code">
                                     <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.decoratorbasedModelValidationJson.model" (cbOnSuccess)="codeContent.decoratorbasedModelValidationJson.modelCopied = true"
@@ -333,7 +340,7 @@
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -351,7 +358,7 @@
                 <div class="col-xs-12 col-sm-6">
                     <div class="foot-brand">
                         <img src="/assets/images/rxweb-logo.png" width="111" height="31" />
-                        <p class="text-white">Powered by : <strong>RADIXWEB</strong></p>
+                        <p class="text-white">Powered by : <a href="https://radixweb.com"><strong>RADIXWEB</strong></a></p>
                     </div>
                 </div>
             </div>

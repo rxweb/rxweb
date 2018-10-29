@@ -13,9 +13,7 @@ export class PortEditComponent implements OnInit {
     userFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/port/edit/user-data.json').subscribe(user => {

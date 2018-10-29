@@ -10,8 +10,8 @@ export class GreaterThanConditionalExpressionValidatorComponent implements OnIni
     userFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({

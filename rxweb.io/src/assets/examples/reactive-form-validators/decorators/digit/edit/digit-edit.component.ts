@@ -13,9 +13,7 @@ export class DigitEditComponent implements OnInit {
     userFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/digit/edit/user-data.json').subscribe(user => {

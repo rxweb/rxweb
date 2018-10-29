@@ -1,5 +1,5 @@
 <div>
-  <form  [formGroup]="countryFormGroup">
+  <form  *ngIf="countryFormGroup"  [formGroup]="countryFormGroup">
     <div class="form-group">
       <label>Continent</label>
       <input type="text" formControlName="continent" class="form-control"  />

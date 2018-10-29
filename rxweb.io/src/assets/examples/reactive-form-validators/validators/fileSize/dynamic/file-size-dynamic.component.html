@@ -1,5 +1,5 @@
 <div>
-  <form  [formGroup]="storageCapacityFormGroup">
+  <form  *ngIf="storageCapacityFormGroup"  [formGroup]="storageCapacityFormGroup">
     <div class="form-group">
       <label>Device</label>
       <input type="text" formControlName="device" class="form-control"  />

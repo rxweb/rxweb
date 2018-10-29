@@ -1,5 +1,5 @@
 <div>
-  <form  [formGroup]="userFormGroup">
+  <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>First Number</label>
       <input type="text" formControlName="firstNumber" class="form-control"  />

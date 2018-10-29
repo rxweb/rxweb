@@ -10,8 +10,8 @@ export class PasswordMessageValidatorComponent implements OnInit {
     loginInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.loginInfoFormGroup = this.formBuilder.group({

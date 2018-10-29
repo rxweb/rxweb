@@ -12,8 +12,7 @@ export class MacAddComponent implements OnInit {
     macAddressInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let macAddressInfo = new MacAddressInfo();

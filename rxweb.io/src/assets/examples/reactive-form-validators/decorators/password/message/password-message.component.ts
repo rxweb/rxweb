@@ -12,8 +12,7 @@ export class PasswordMessageComponent implements OnInit {
     loginInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let loginInfo = new LoginInfo();

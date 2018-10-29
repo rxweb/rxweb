@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -21,36 +22,15 @@ export class CreditCardDynamicValidatorComponent implements OnInit {
 	
 	
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			otherVisaCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "Visa"',message:'Invalid Visa Credit Card Number.',} 
-			},			
-			americanExpressCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "AmericanExpress"',} 
-			},			
-			maestroCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "Maestro"',} 
-			},			
-			jcbCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "JCB"',} 
-			},			
-			discoverCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "Discover"',} 
-			},			
-			masterCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "MasterCard"',} 
-			},			
-			dinersClubCard : {
-				creditCard : {fieldName:'cardType',conditionalExpression:'x => x.cardType == "DinersClub"',} 
-			},
-		};
-		var user = { cardType:'', visaCard:'', otherVisaCard:'', americanExpressCard:'', maestroCard:'', jcbCard:'', discoverCard:'', masterCard:'', dinersClubCard:'',  }
-		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/creditCard/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var user = { cardType:'', visaCard:'', otherVisaCard:'', americanExpressCard:'', maestroCard:'', jcbCard:'', discoverCard:'', masterCard:'', dinersClubCard:'',  }
+			this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
+		})
     }
 }

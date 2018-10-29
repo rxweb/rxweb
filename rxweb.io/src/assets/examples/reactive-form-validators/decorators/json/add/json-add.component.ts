@@ -12,8 +12,7 @@ export class JsonAddComponent implements OnInit {
     jsonInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let jsonInfo = new JsonInfo();

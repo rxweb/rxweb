@@ -12,8 +12,7 @@ export class AlphaNumericMessageComponent implements OnInit {
     locationFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let location = new Location();

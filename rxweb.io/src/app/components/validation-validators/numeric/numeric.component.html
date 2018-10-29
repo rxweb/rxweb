@@ -2,7 +2,7 @@
 	<div class="content">
 		<div class="title" id="numeric">
 	<h1> numeric<a target="_blank" href="https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/validation-validators/numeric.md" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a><span class="label validator-type">validators</span></h1>
-	<p> numeric validation decorator will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.</p>
+	<p> numeric validation validator will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.</p>
 </div>
 		<div class="bg-white py-3 border-radius">
 			<div class="row">
@@ -13,7 +13,7 @@
 <div class='col-lg-12'>
 <h2>When to use</h2>
 
-<p>Suppose you want to create a user form, which contains fields like DataType, integerNumber,integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.</p>
+<p >Suppose you want to create a user form, which contains fields like DataType, integerNumber,integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.</p>
 <ol>
 	<li>  Allow only positive numbers in integerNumber.</li>
 	<li>  Allow only Negative numbers in integerNumber.</li>
@@ -22,15 +22,15 @@
 	<li>	Adding Custom Message on Negative value Field.</li>
 	<li>	Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
 </ol>
-<p>Let’s see how Numeric validator fulfil the need.</p>
+<p >Let’s see how Numeric validator fulfil the need.</p>
 </div>
 </div>
 <div class='row' id= 'basicnumericvalidation'>
 <div class='col-lg-12'>
 <h2>Basic numeric Validation</h2>
 
-<p>We need to create a <span class='highlighted'>FormGroup</span> in the component. To achieve this we need to add <span class='highlighted'>RxFormBuilder</span>. The <span class='highlighted'>RxFormBuilder</span> is an injectable service that is provided with the <span class='highlighted'>RxReactiveFormsModule</span>. Inject this dependency by adding it to the component constructor.</p>
-<p>Here we have covered Add form operation. </p>
+<p >We need to create a <span class='highlighted'>FormGroup</span> in the component. To achieve this we need to add <span class='highlighted'>RxFormBuilder</span>. The <span class='highlighted'>RxFormBuilder</span> is an injectable service that is provided with the <span class='highlighted'>RxReactiveFormsModule</span>. Inject this dependency by adding it to the component constructor.</p>
+<p >Here we have covered Add form operation. </p>
 <div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Component" (cbOnSuccess)="codeContent.add.ComponentCopied = true" [class.copied]="codeContent.add.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -41,7 +41,7 @@
 </div>
 
 
-<p>Next, we need to write html code.</p>
+<p >Next, we need to write html code.</p>
 <div class="model-ts" >
 	<div class="code">
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.add.Html" (cbOnSuccess)="codeContent.add.HtmlCopied = true" [class.copied]="codeContent.add.HtmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
@@ -67,7 +67,7 @@
 <div class='col-lg-12'>
 <h2>NumericConfig</h2>
 
-<p>Below options are not mandatory to use in the <span class='highlighted'>RxwebValidators.numeric()</span> validator. If needed then use the below options.</p>
+<p >Below options are not mandatory to use in the <span class='highlighted'>RxwebValidators.numeric()</span> validator. If needed then use the below options.</p>
  <table class="table table-bordered table-striped">
 			<thead>
 		<tr>
@@ -85,8 +85,8 @@
 <div class='col-lg-12'>
 <h2>acceptValue</h2>
 
-<p>Type :  <span class='highlighted'>NumericValueType</span> </p>
-<p>To apply validation based on checking positive or negative value or both.</p>
+<p >Type :  <span class='highlighted'>NumericValueType</span> </p>
+<p >To apply validation based on checking positive or negative value or both.</p>
 <blockquote *ngIf="codeContent.acceptValueExample && codeContent.acceptValueExample.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.acceptValueExample.Notes">
 	  <p [innerHtml]="item"></p>
@@ -150,8 +150,8 @@
 <div class='col-lg-12'>
 <h2>allowDecimal</h2>
 
-<p>Type :  <span class='highlighted'>boolean</span> </p>
-<p>This will allow decimal in particular control property.The default value is <span class='highlighted'>false</span>.</p>
+<p >Type :  <span class='highlighted'>boolean</span> </p>
+<p >This will allow decimal in particular control property.The default value is <span class='highlighted'>false</span>.</p>
 <blockquote *ngIf="codeContent.allowDecimalExample && codeContent.allowDecimalExample.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.allowDecimalExample.Notes">
 	  <p [innerHtml]="item"></p>
@@ -215,9 +215,9 @@
 <div class='col-lg-12'>
 <h2>conditionalExpression</h2>
 
-<p>Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span> </p>
-<p>Numeric validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
-<p>If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
+<p >Type :  <span class='highlighted'>Function</span>  |  <span class='highlighted'>string</span> </p>
+<p >Numeric validation should be applied if the condition is matched in the <span class='highlighted'>conditionalExpression</span> function. Validation framework will pass two parameters at the time of <span class='highlighted'>conditionalExpression</span> check. Those two parameters are current <span class='highlighted'>FormGroup</span> value and root <span class='highlighted'>FormGroup</span> value. You can apply the condition on respective object value.</p>
+<p >If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in <span class='highlighted'>string</span> format. The <span class='highlighted'>conditionalExpression</span> will work as same as client function.</p>
 <blockquote *ngIf="codeContent.conditionalExpressionExampleFunction && codeContent.conditionalExpressionExampleFunction.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.conditionalExpressionExampleFunction.Notes">
 	  <p [innerHtml]="item"></p>
@@ -295,8 +295,8 @@
 <div class='col-lg-12'>
 <h2>message</h2>
 
-<p>Type :  <span class='highlighted'>string</span> </p>
-<p>To override the global configuration message and show the custom message on particular control property.</p>
+<p >Type :  <span class='highlighted'>string</span> </p>
+<p >To override the global configuration message and show the custom message on particular control property.</p>
 <blockquote *ngIf="codeContent.messageExample && codeContent.messageExample.Notes?.length > 0">
 	<ng-container *ngFor="let item of codeContent.messageExample.Notes">
 	  <p [innerHtml]="item"></p>
@@ -406,6 +406,7 @@
 <ul class="nav nav-tabs" >
 	<li [class.active]="tab_6=='dynamicexample'" (click)="tab_6='dynamicexample'"><a>Example</a></li>
 	<li [class.active]="tab_6=='dynamiccomponent'" (click)="tab_6='dynamiccomponent'"><a>Component</a></li>
+	<li [class.active]="tab_6=='dynamicjson'" (click)="tab_6='dynamicjson'"><a>Json</a></li>
 	<li [class.active]="tab_6=='dynamichtml'" (click)="tab_6='dynamichtml'"><a>Html</a></li>
 </ul>
 <div class="tab-content" >
@@ -419,6 +420,19 @@
 <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Component" (cbOnSuccess)="codeContent.dynamic.ComponentCopied = true" [class.copied]="codeContent.dynamic.ComponentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
 			<div highlight="pre code">
 				<pre><code [textContent]="codeContent.dynamic.Component"></code></pre>
+			</div>
+	</div>
+</div>
+
+
+
+		  </div>
+			  <div class="tab-pane" [class.active]="tab_6=='dynamicjson'">
+			<div  >
+	<div class="code">
+<a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamic.Json" (cbOnSuccess)="codeContent.dynamic.JsonCopied = true" [class.copied]="codeContent.dynamic.JsonCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+			<div highlight="pre code">
+				<pre><code [textContent]="codeContent.dynamic.Json"></code></pre>
 			</div>
 	</div>
 </div>

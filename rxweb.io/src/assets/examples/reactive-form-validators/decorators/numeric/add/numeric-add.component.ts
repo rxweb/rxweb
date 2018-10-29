@@ -12,8 +12,7 @@ export class NumericAddComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let userInfo = new UserInfo();

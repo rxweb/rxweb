@@ -13,9 +13,7 @@ export class LatitudeEditComponent implements OnInit {
     numberInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/latitude/edit/number-info-data.json').subscribe(numberInfo => {

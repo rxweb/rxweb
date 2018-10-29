@@ -13,9 +13,7 @@ export class UpperCaseEditComponent implements OnInit {
     locationFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/upperCase/edit/location-data.json').subscribe(location => {

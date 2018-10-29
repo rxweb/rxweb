@@ -10,8 +10,8 @@ export class MinLengthCompleteValidatorComponent implements OnInit {
     contactFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.contactFormGroup = this.formBuilder.group({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
@@ -13,21 +14,14 @@ export class MaxNumberDynamicComponent implements OnInit {
     subjectDetailsFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let subjectDetails = new SubjectDetails();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-	
-	
-			obtainedMarks : {
-				maxNumber : {value:100,conditionalExpression:'x => x.subjectCode == "8CS5A"',} 
-			},	
-			passingMarks : {
-				maxNumber : {value:50,message:'{{0}} exceeds the Maximum marks Limit',} 
-			},		};
-        this.subjectDetailsFormGroup = this.formBuilder.formGroup(subjectDetails,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/maxNumber/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.subjectDetailsFormGroup = this.formBuilder.formGroup(subjectDetails,formBuilderConfiguration);
+        })
     }
 }

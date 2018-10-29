@@ -13,9 +13,7 @@ export class TimeEditComponent implements OnInit {
     attandanceDetailFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/time/edit/attandance-detail-data.json').subscribe(attandanceDetail => {

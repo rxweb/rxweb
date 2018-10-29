@@ -12,8 +12,7 @@ export class DifferentConditionalExpressionComponent implements OnInit {
     accountInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let accountInfo = new AccountInfo();

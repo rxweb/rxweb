@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
         this.codeContent = response;
     this.http.get('assets/json/dynamic-validation.json').subscribe((dynamicValidationConfiguration:any) => {
       
-        this.userModelFormGroup = this.formBuilder.group({
+        this.userModelFormGroup = this.rxFormBuilder.group({
           firstName:['Bharat']
         },
         new FormBuilderConfiguration( { dynamicValidation: dynamicValidationConfiguration }));

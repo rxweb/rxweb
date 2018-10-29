@@ -17,10 +17,9 @@ export class AppComponent implements OnInit {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         if (val.url == "/" || val.url == "/home")
-          {}
-        else {
+            this.isHome = true;
+        else 
           this.isHome = false;
-        }
       }
     });
   }
@@ -32,6 +31,9 @@ export class AppComponent implements OnInit {
       },
       "validationMessage": {
         "allOf": "Please select all options",
+        "onlyAlpha": "Only alphabets are allowed.",
+        "zipCode": "Please enter zipcode.",
+        "onlyDigit": "Only digit are allowed.",
         "alpha": "Only alphabets are allowed.",
         "alphaNumeric": "Only Alpha Numerics are allowed.",
         "ascii": "Please enter an ascii code",

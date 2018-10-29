@@ -10,8 +10,8 @@ export class AlphaAllowWhiteSpaceValidatorComponent implements OnInit {
     addressInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.addressInfoFormGroup = this.formBuilder.group({

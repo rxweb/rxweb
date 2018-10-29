@@ -13,9 +13,7 @@ export class LatLongEditComponent implements OnInit {
     countryFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/latLong/edit/country-data.json').subscribe(country => {

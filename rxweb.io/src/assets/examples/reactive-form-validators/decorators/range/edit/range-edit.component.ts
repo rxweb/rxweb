@@ -13,9 +13,7 @@ export class RangeEditComponent implements OnInit {
     employeeInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/range/edit/employee-info-data.json').subscribe(employeeInfo => {

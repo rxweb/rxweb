@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,	NumericValueType} from '@rxweb/reactive-form-validators';
 
@@ -13,21 +14,14 @@ export class NumericDynamicComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let userInfo = new UserInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-	
-	
-			realNumber : {
-				numeric : {acceptValue:NumericValueType.Both,allowDecimal:false,conditionalExpression:'x => x.dataType == "Number"',} 
-			},	
-			negativeNumber : {
-				numeric : {acceptValue:NumericValueType.NegativeNumber,allowDecimal:true,message:'{{0}} is not a negative number',} 
-			},		};
-        this.userInfoFormGroup = this.formBuilder.formGroup(userInfo,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/numeric/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.userInfoFormGroup = this.formBuilder.formGroup(userInfo,formBuilderConfiguration);
+        })
     }
 }

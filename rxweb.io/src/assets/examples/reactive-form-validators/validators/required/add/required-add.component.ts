@@ -10,8 +10,8 @@ export class RequiredAddValidatorComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({

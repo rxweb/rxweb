@@ -12,8 +12,7 @@ export class PrimeNumberCompleteComponent implements OnInit {
     numberInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let numberInfo = new NumberInfo();

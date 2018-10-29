@@ -13,9 +13,7 @@ export class MaxNumberEditComponent implements OnInit {
     subjectDetailsFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/maxNumber/edit/subject-details-data.json').subscribe(subjectDetails => {

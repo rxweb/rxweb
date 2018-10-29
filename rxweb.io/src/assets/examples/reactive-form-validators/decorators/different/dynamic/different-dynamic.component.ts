@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
@@ -13,21 +14,14 @@ export class DifferentDynamicComponent implements OnInit {
     accountInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let accountInfo = new AccountInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-	
-			password : {
-				different : {fieldName:"firstName",message:'{{0}} is same as firstName',} 
-			},	
-	
-			userName : {
-				different : {fieldName:"firstName",conditionalExpression:'x => x.firstName == "Bharat"',} 
-			},		};
-        this.accountInfoFormGroup = this.formBuilder.formGroup(accountInfo,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/different/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.accountInfoFormGroup = this.formBuilder.formGroup(accountInfo,formBuilderConfiguration);
+        })
     }
 }

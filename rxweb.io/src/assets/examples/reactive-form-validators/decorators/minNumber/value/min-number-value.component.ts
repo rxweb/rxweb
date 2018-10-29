@@ -12,8 +12,7 @@ export class MinNumberValueComponent implements OnInit {
     resultInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let resultInfo = new ResultInfo();

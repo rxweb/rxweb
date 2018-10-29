@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,21 +12,15 @@ export class EndsWithDynamicValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			name : {
-				endsWith : {value:'m',message:'{{0}} does not ends with `m`',} 
-			},			
-			taskId : {
-				endsWith : {value:'#',conditionalExpression:'x => x.name =="Adam"',} 
-			},
-		};
-		var user = { name:'', profession:'', taskId:'',  }
-		this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/endsWith/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var user = { name:'', profession:'', taskId:'',  }
+			this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
+		})
     }
 }

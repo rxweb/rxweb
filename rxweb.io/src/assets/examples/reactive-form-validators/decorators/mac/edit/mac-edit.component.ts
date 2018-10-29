@@ -13,9 +13,7 @@ export class MacEditComponent implements OnInit {
     macAddressInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/mac/edit/mac-address-info-data.json').subscribe(macAddressInfo => {

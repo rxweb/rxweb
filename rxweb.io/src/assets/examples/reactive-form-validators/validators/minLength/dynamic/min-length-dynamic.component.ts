@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
 
 @Component({
@@ -11,24 +12,15 @@ export class MinLengthDynamicValidatorComponent implements OnInit {
     contactFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder , private http: HttpClient )
+	{ }
 
     ngOnInit() {
-        let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-			
-			mobileNo : {
-				minLength : {value:10,} 
-			},			
-			landLineNo : {
-				minLength : {value:8,message:'Minimum 8 characters are allowed',} 
-			},			
-			stateCode : {
-				minLength : {value:3,conditionalExpression:'x => x.countryName == "India"',} 
-			},
-		};
-		var contact = { countryName:'', mobileNo:'', landLineNo:'', countryCode:'', stateCode:'',  }
-		this.contactFormGroup = this.formBuilder.group(contact,formBuilderConfiguration);
+		let formBuilderConfiguration = new FormBuilderConfiguration();
+		this.http.get('assets/examples/reactive-form-validators/validators/minLength/dynamic/dynamic.json').subscribe(dynamic => {
+			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			var contact = { countryName:'', mobileNo:'', landLineNo:'', countryCode:'', stateCode:'',  }
+			this.contactFormGroup = this.formBuilder.group(contact,formBuilderConfiguration);
+		})
     }
 }

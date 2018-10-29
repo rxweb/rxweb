@@ -12,8 +12,7 @@ export class LatitudeConditionalExpressionComponent implements OnInit {
     countryFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let country = new Country();

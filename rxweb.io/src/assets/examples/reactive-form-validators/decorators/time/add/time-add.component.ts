@@ -12,8 +12,7 @@ export class TimeAddComponent implements OnInit {
     attandanceDetailFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let attandanceDetail = new AttandanceDetail();

@@ -12,8 +12,7 @@ export class AlphaAllowWhiteSpaceComponent implements OnInit {
     addressInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let addressInfo = new AddressInfo();

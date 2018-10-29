@@ -10,8 +10,8 @@ export class MaxNumberCompleteValidatorComponent implements OnInit {
     subjectDetailsFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder
-    ) { }
+        private formBuilder: FormBuilder)
+	{ }
 
     ngOnInit() {
         this.subjectDetailsFormGroup = this.formBuilder.group({

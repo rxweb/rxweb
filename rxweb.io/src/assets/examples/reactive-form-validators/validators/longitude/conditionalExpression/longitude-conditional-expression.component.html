@@ -4,21 +4,21 @@
       <label> Continent</label>
       <input type="text" formControlName="continent" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Second Country Longitude' or 'Third Country Longitude', then you need to add 'Continent' input as 'Asia'.<br/></small>
-      <small class="form-text text-danger" *ngIf="countryFormGroup.controls.continent.errors">{{countryFormGroup.controls.continent.errors.longitude.message}}<br/></small>
+	 <small class="form-text text-danger" *ngIf="countryFormGroup.controls.continent.errors">{{countryFormGroup.controls.continent.errors.longitude.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Third Country Longitude</label>
       <input type="text" formControlName="thirdCountryLongitude" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Third Country Longitude' then you need to add 'Continent' input as 'Asia'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-      <small class="form-text text-danger" *ngIf="countryFormGroup.controls.thirdCountryLongitude.errors">{{countryFormGroup.controls.thirdCountryLongitude.errors.longitude.message}}<br/></small>
+	 <small class="form-text text-danger" *ngIf="countryFormGroup.controls.thirdCountryLongitude.errors">{{countryFormGroup.controls.thirdCountryLongitude.errors.longitude.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Second Country Longitude</label>
       <input type="text" formControlName="secondCountryLongitude" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Second Country Longitude' then you need to add 'Continent' input as 'Asia'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-      <small class="form-text text-danger" *ngIf="countryFormGroup.controls.secondCountryLongitude.errors">{{countryFormGroup.controls.secondCountryLongitude.errors.longitude.message}}<br/></small>
+	 <small class="form-text text-danger" *ngIf="countryFormGroup.controls.secondCountryLongitude.errors">{{countryFormGroup.controls.secondCountryLongitude.errors.longitude.message}}<br/></small>	
     </div>
     <button [disabled]="!countryFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

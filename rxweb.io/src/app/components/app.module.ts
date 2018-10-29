@@ -11,7 +11,6 @@ import { TopBarComponent } from './shared/top-bar/top-bar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
-import { NgSlimScrollModule, SLIMSCROLL_DEFAULTS } from 'ngx-slimscroll';
 import { FooterComponent } from "src/app/components/shared/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FilterPipe } from "src/app/pipes/filter.pipe";
@@ -31,27 +30,9 @@ import { HomeComponent } from "src/app/components/home/home.component";
   ],
   imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,
     HighlightModule.forRoot({ theme: 'default' }), ClipboardModule ,
-    NgSlimScrollModule,
     
   ],
-  providers: [ApplicationBroadcaster, {
-    provide: SLIMSCROLL_DEFAULTS,
-    useValue: {
-      position: "right",
-      barBackground: "gray",
-      barOpacity: "0.8",
-      barWidth: "2",
-      barBorderRadius: "20",
-      barMargin: "0",
-      gridBackground: "none",
-      gridOpacity: "1",
-      gridWidth: "2",
-      gridBorderRadius: "20",
-      gridMargin: "0",
-      alwaysVisible: true,
-      visibleTimeout: 1000,
-    }
-  }],
+  providers: [ApplicationBroadcaster],
 exports:[RouterModule],
   bootstrap: [AppComponent],
   schemas: [

@@ -12,8 +12,7 @@ export class FileSizeMaxSizeComponent implements OnInit {
     storageCapacityFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let storageCapacity = new StorageCapacity();

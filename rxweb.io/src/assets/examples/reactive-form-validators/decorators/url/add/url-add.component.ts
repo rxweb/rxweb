@@ -12,8 +12,7 @@ export class UrlAddComponent implements OnInit {
     webSiteInfoModelFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let webSiteInfoModel = new WebSiteInfoModel();

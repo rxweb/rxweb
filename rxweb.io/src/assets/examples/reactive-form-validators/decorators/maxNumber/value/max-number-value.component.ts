@@ -12,8 +12,7 @@ export class MaxNumberValueComponent implements OnInit {
     subjectDetailsFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let subjectDetails = new SubjectDetails();

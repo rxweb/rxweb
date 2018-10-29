@@ -1,5 +1,5 @@
 <div>
-  <form  [formGroup]="numberInfoFormGroup">
+  <form  *ngIf="numberInfoFormGroup"  [formGroup]="numberInfoFormGroup">
     <div class="form-group">
       <label>Number Type</label>
       <input type="text" formControlName="numberType" class="form-control"  />

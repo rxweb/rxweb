@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
+import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
@@ -13,21 +14,14 @@ export class PrimeNumberDynamicComponent implements OnInit {
     numberInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         let numberInfo = new NumberInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-        formBuilderConfiguration.dynamicValidation = {
-	
-	
-			thirdNumber : {
-				primeNumber : {conditionalExpression:'x => x.numberType =="Prime"',} 
-			},	
-			firstNumber : {
-				primeNumber : {message:'{{0}} is not a prime number',} 
-			},		};
-        this.numberInfoFormGroup = this.formBuilder.formGroup(numberInfo,formBuilderConfiguration);
+		this.http.get('assets/examples/reactive-form-validators/decorators/primeNumber/dynamic/dynamic.json').subscribe(dynamic => {
+            formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
+			this.numberInfoFormGroup = this.formBuilder.formGroup(numberInfo,formBuilderConfiguration);
+        })
     }
 }

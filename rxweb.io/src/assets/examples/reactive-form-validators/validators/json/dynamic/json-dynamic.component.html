@@ -1,5 +1,5 @@
 <div>
-  <form  [formGroup]="jsonInfoFormGroup">
+  <form  *ngIf="jsonInfoFormGroup"  [formGroup]="jsonInfoFormGroup">
     <div class="form-group">
       <label>Location</label>
       <input type="text" formControlName="location" class="form-control"  />

@@ -13,9 +13,7 @@ export class MinNumberEditComponent implements OnInit {
     resultInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder,        private http: HttpClient
-
-    ) { }
+        private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
         this.http.get('assets/examples/reactive-form-validators/decorators/minNumber/edit/result-info-data.json').subscribe(resultInfo => {

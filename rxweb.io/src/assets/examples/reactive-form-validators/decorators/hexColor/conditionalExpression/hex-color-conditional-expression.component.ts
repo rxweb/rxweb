@@ -12,8 +12,7 @@ export class HexColorConditionalExpressionComponent implements OnInit {
     hexcolorInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
-    ) { }
+        private formBuilder: RxFormBuilder    ) { }
 
     ngOnInit() {
         let hexcolorInfo = new HexcolorInfo();
