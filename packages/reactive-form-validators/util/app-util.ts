@@ -47,6 +47,15 @@ export class ApplicationUtil{
         }
       return regex;
     }
-  
 
+    static configureControl(control:any,config:any,type:string){
+      if(config){
+          if(!control.validatorConfig){
+            let jObject= {};
+            jObject[type] = config;
+            Object.assign(control,{validatorConfig:jObject})
+          } else
+            control.validatorConfig[type] = config;
+      }
+    }
 }

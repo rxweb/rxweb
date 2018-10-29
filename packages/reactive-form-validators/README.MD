@@ -2,7 +2,7 @@
 [![Gitter](https://badges.gitter.im/rx-web/Lobby.svg)](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 <h3>rxweb</h3>
-40+ Validation Decorator and 40+ Validators for angular reactive form based validation. All Validators/Decorators provides extensive features like conditional validation, dynamic validation and advanced validation, also it includes dirty check and better way to show error message on FormControl or FormGroup level.
+50+ Validation Decorator and 50+ Validators for angular reactive form based validation. All Validators/Decorators provides extensive features like conditional validation, dynamic validation and advanced validation, also it includes dirty check and better way to show error message on FormControl or FormGroup level. For More Information on ***[rxweb](http://rxweb.io)***
 
 # Prerequisites
 Reactive Form Validators will work in angular projects.
@@ -31,51 +31,48 @@ Reactive Form Validators will work in angular projects.
 $ npm install @rxweb/reactive-form-validators
 ```
 ## Validation Decorators & Validators 
-```Validation can be applied using two options, either by using validation decorators or validations . Here are their names and descriptions``` 
+```Validation can be applied via Validators or Decorators. If you are using validators then you don't need to import any module, you can directly as same as Angular validators in the 'FormControl'. This validators are more advanced than angular validators.``` 
 
-| Name | Description | 
-| ----------- | ----------- |
-| allOf      | allOf validation will check whether the user has entered values which are satisfying matchValues of the  field if not so , the property will become invalid<br/> Example(You can use any of below two based on your need) :  <br/> 1. Validator Based :  ``` RxwebValidators.allOf({matchValues:['angular']}) ``` <br/> 2. Decorator Based : ``` @allOf({matchValues:['angular']}) skills:string[]; ``` |
-| alpha   |   Alpha validation will allow only alphabets to be entered, It will not allow any number or special character.<br/> Example(You can use any of below two based on your need) :  <br/> 1. Validator Based :  ``` RxwebValidators.alpha() ``` <br/> 2. Decorator Based : ``` @alpha() stateName: string; ``` |
-| alphaNumeric   | Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character.<br/> Example(You can use any of below two based on your need) :  <br/> 1. Validator Based :  ``` RxwebValidators.alphaNumeric() ``` <br/> 2. Decorator Based : ```@alphaNumeric() flatAddress: string; ``` |
-| choice   | choice validation will check whether the value entered is matching the properties defined.<br/> Example(You can use any of below two based on your need) :  <br/> 1. Validator Based :  ``` RxwebValidators.choice({minLength:'5'}) ``` <br/> 2. Decorator Based : ```@choice({minLength:'5'}) Hobbies: string; ``` |
-| compare   | Compare validation will compare two inputs, If user enter unmatched value then the property will become invalid.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based :  ```RxwebValidators.compare({fieldName:'password'   })``` <br/> 2. Decorator Based : ```@compare({fieldName:'password'})	confirmPassword: string; ``` |
-| contains   |  Contains validation will check that value is in the input, It will not allow to enter input that not contains value.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based :  ```RxwebValidators.contains({value:'@gmail.com' })``` <br/> 2. Decorator Based : ```@contains({value:'@gmail.com' }) emailAddress: string; ``` |
-| creditCard   | creditCard validation will check property value is creditcardtype or not, It will not allow to enter any value rather than credit card.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based :  ```RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:x => x.cardType == "visa"})``` <br/> 2. Decorator Based : ```@creditCard({creditCardTypes:[CreditCardType.Visa]  ,conditionalExpression:x => x.cardType == "visa"}) 	otherVisaCard: string; ``` |
-| different   | Different validation will check  two values if they are different it will be valid,it is opposite of compare validator. <br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based :  ```RxwebValidators.different({fieldName:"firstName" })``` <br/> 2. Decorator Based : ```@different({fieldName:"firstName" }) lastName: string; ```
-| digit   |  Digit validation will allow only digits to be entered, It will not allow any alphabets or special character.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.digit()``` <br/> 2. Decorator Based : ```@digit() age: number; ```
-| email   | Email validation  will allow only emails to be entered.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.email()``` <br/> 2. Decorator Based : ```@email() email: string; ```
-| even   |  Even validation  will check whether the value entered is a Even or not , if the value is not even the value will become invalid.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.even()``` <br/> 2. Decorator Based : ```@even() evenNumber: number;```
-| factor   | factor validation  will check whether the value entered is factor of the particular value,if user tries to enter value which is not factor of the value  the property will be invalid. .<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.factor({dividend:50 })``` <br/> 2. Decorator Based : ```@factor({dividend:50 }) firstNumber: Number;```
-| greaterThanEqualTo   | Greater than equal to validation will check that input property is greater than equal to value, If user tries to enter less than value then the property will become invalid.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.greaterThanEqualTo({fieldName:'age'})``` <br/> 2. Decorator Based : ```@greaterThanEqualTo({fieldName:'age'}) voterAge: number;```
-| greaterThan   | Greater than validation  will check that input property is greater than related field input, If user tries to enter less than or equal to value then the property will become invalid.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.greaterThan({fieldName:'age'})``` <br/> 2. Decorator Based : ```@greaterThan({fieldName:'age' }) voterAge: number;```
-| hexColor   | HexColor validation  will allow only Hex Color to be entered.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.hexColor()``` <br/> 2. Decorator Based : ```@hexColor() color: string;```
-| json   | json validation  will allow only Json to be entered.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.json()``` <br/> 2. Decorator Based : ```@json() locationJson: string;```
-| leapYear   | LeapYear validation will check whether the value entered is a leap year or not, if user tries to enter value which is not a leap year the property will be invalid.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.leapYear()``` <br/> 2. Decorator Based : ```@leapYear()	birthYear: number;```
-| lessThanEqualTo   |  Less than equal to validation will check that input property is less than equal to value, If user tries to enter greater than value then the property will become invalid. <br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.lessThanEqualTo({fieldName:'totalMarks'})``` <br/> 2. Decorator Based : ```@lessThanEqualTo({fieldName:'totalMarks'}) marks: number;```
-| lessThan   | Less than validation will check that input property is less than value, If user tries to enter greater than equal to value then the property will become invalid. <br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.lessThan({fieldName:'totalMarks'})``` <br/> 2. Decorator Based : ```@lessThan({fieldName:'totalMarks'}) marks: number;```
-| lowerCase   | lowerCase validation will allow only lowercase to be entered, If user tries to enter any case except lower then the property will become invalid. <br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.lowerCase()``` <br/> 2. Decorator Based : ```@lowerCase() username: string;```
-| mac   | mac validation decorator will check whether the value entered is in proper format of mac address.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.mac()``` <br/> 2. Decorator Based : ```@mac()	systemMacAddress: string;```
-| maxDate  |  MaxDate validation will allow only maximum date be entered upto value parameter, If user tries to enter any number that greater then the value then the property will become invalid.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.maxDate({value:new Date(2018,7,30)})``` <br/> 2. Decorator Based : ```@maxDate({value:new Date(2018,7,30) })	registrationDate: Date;```
-| maxLength   | MaxLength validation will allow only maximum length be entered upto value parameter, If user tries to enter any string that length exceed then the value then the property will become invalid.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.maxLength({value:10 })``` <br/> 2. Decorator Based : ```@maxLength({value:10 }) firstName: string;```
-| maxNumber |  MaxNumber validation will allow only maximum number be entered upto value parameter,If user tries to enter any number that greater then the value then the property will become invalid.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.maxNumber({value:50 })``` <br/> 2. Decorator Based : ```@maxNumber({value:50 }) passingMarks: number;```
-| minDate   | Minimum Date validation will allow only minimum date be entered upto value parameter, If user tries to enter any date that less then the value then the property will become invalid. <br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.minDate({value:new Date(2018,7,30) })``` <br/> 2. Decorator Based : ```@minDate({value:new Date(2018,7,30) }) registrationDate: Date;```
-| minLength   |  MinLength validation  will allow only minimum length be entered upto value parameter, If user tries to enter any string having length less then the value then the property will become invalid.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.minLength({value:8 })``` <br/> 2. Decorator Based : ```@minLength({value:8 }) countryName: string;```
-| minNumber   | MinNumber validation will allow only minimum number be entered upto value parameter, If user tries to enter any number that less then the value then the property will become invalid. <br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.minNumber({value:35 })``` <br/> 2. Decorator Based : ```@minNumber({value:35 }) 	maths: number;```
-| noneOf   | noneOf validation will check whether the user has entered none of the value is selected from the given inputs, if user tries to enter any of the values it  will be invalid. <br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.noneOf({matchValues: ["MVC", "AngularJS"]})``` <br/> 2. Decorator Based : ```@noneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
-| numeric   | numeric validation will check whether the value entered is a valid number or not.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber, allowDecimal: false, conditionalExpression: "x => x.dataType == 'Integer'"})``` <br/> 2. Decorator Based : ```@numeric({acceptValue:NumericValueType.PositiveNumber, allowDecimal: false, conditionalExpression: "x => x.dataType == 'Integer'"}) integerNumber: number;```
-| odd   |  Odd validation will check whether the value entered is an odd value or not.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.odd()``` <br/> 2. Decorator Based : ```@odd() oddNumber: number;```
-| oneOf   | oneOf validation will check whether the user has entered any one of the given inputs.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.oneOf({matchValues: ["MVC", "AngularJS"]})``` <br/> 2. Decorator Based : ```@oneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
-| password   | Password validation will allow only password to be entered, If user tries to enter any string rather than password pattern according for PasswordValidation parameters then the property will become invalid. <br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true})``` <br/> 2. Decorator Based : ```@password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true}) 	password: string;```
-| pattern   |  Pattern validation decorator will allow only match input as pattern to be entered. <br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')})``` <br/> 2. Decorator Based : ```@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}) 	userName: string;```
-| prop   | Prop decorator is used to define a property in model class.<br/> Example: ```@prop() oldPassword: string;```
-| propArray   | propArray is used to make array of field when nested model class is used.<br/> Example: ``` @propArray(Course) courses: Array<Course>;```
-| propObject   | propObject is used to make object of field when nested model class is used.<br/> Example: ```  @propObject(UserAddress)  userAddress: UserAddress;```
-| range   | Range validation decorator will allow only in specify range will be entered, If EmployeeInfo tries to enter any value which exceed the range then the property will become invalid.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })``` <br/> 2. Decorator Based : ```@range({minimumNumber:18  ,maximumNumber:60 }) age: number;```
-| required   | Required validation decorator will check that value is entered or not in the property.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.required()``` <br/> 2. Decorator Based : ```@required()	firstName: string;```
-| time   |  time validation decorator will allow only time format to be entered.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.time()``` <br/> 2. Decorator Based : ```@time() entryTime: string;```
-| upperCase   | Upper Case validation decorator will allow only uppercase to be entered.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.upperCase()``` <br/> 2. Decorator Based : ```@upperCase() countryName: string;```
-| url   |  Url validation decorator will check that value is url or not in the property.<br/> Example(You can use any of below two based on your need) : <br/> 1. Validator Based : ```RxwebValidators.url()``` <br/> 2. Decorator Based : ```@url() 	adminWebsiteUrl: string;```
+| Name | Validator | Decorator | 
+| ----------- | ----------- | ----------- |
+| allOf      |  ``` RxwebValidators.allOf({matchValues:['angular']}) ```  | ```@allOf({matchValues:['angular']}) frameworks``` |
+| alpha   |  ``` RxwebValidators.alpha() ``` | ``` @alpha() stateName: string; ``` |
+| alphaNumeric   | ``` RxwebValidators.alphaNumeric() ``` | ```@alphaNumeric() flatAddress: string; ``` |
+| choice   | ``` RxwebValidators.choice({minLength:'5'}) ``` | ```@choice({minLength:'5'}) Hobbies: string; ``` |
+| compare   | ```RxwebValidators.compare({fieldName:'password'   })``` | ```@compare({fieldName:'password'})	confirmPassword: string; ``` |
+| contains   |  ```RxwebValidators.contains({value:'@gmail.com' })``` | ```@contains({value:'@gmail.com' }) emailAddress: string; ``` |
+| creditCard   | ```RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]})``` | ```@creditCard({creditCardTypes:[CreditCardType.Visa]}) 	otherVisaCard: string; ``` |
+| different   | ```RxwebValidators.different({fieldName:"firstName" })``` | ```@different({fieldName:"firstName" }) lastName: string; ```
+| digit   |  ```RxwebValidators.digit()``` | ```@digit() age: number; ```
+| email   |  ```RxwebValidators.email()``` | ```@email() email: string; ```
+| even   | ```RxwebValidators.even()``` | ```@even() evenNumber: number;```
+| factor   | ```RxwebValidators.factor({dividend:50 })``` | ```@factor({dividend:50 }) firstNumber: Number;```
+| greaterThanEqualTo   | ```RxwebValidators.greaterThanEqualTo({fieldName:'age'})``` | ```@greaterThanEqualTo({fieldName:'age'}) voterAge: number;```
+| greaterThan   | ```RxwebValidators.greaterThan({fieldName:'age'})``` | ```@greaterThan({fieldName:'age' }) voterAge: number;```
+| hexColor   | ```RxwebValidators.hexColor()``` | ```@hexColor() color: string;```
+| json   | ```RxwebValidators.json()``` | ```@json() locationJson: string;```
+| leapYear   | ```RxwebValidators.leapYear()``` | ```@leapYear()	birthYear: number;```
+| lessThanEqualTo   | ```RxwebValidators.lessThanEqualTo({fieldName:'totalMarks'})``` | ```@lessThanEqualTo({fieldName:'totalMarks'}) marks: number;```
+| lessThan   | ```RxwebValidators.lessThan({fieldName:'totalMarks'})``` | ```@lessThan({fieldName:'totalMarks'}) marks: number;```
+| lowerCase   | ```RxwebValidators.lowerCase()``` | ```@lowerCase() username: string;```
+| mac   | ```RxwebValidators.mac()``` | ```@mac()	systemMacAddress: string;```
+| maxDate  | ```RxwebValidators.maxDate({value:new Date(2018,7,30)})``` | ```@maxDate({value:new Date(2018,7,30) })	registrationDate: Date;```
+| maxLength   | ```RxwebValidators.maxLength({value:10 })``` | ```@maxLength({value:10 }) firstName: string;```
+| maxNumber |  ```RxwebValidators.maxNumber({value:50 })``` | ```@maxNumber({value:50 }) passingMarks: number;```
+| minDate   | ```RxwebValidators.minDate({value:new Date(2018,7,30) })``` | ```@minDate({value:new Date(2018,7,30) }) registrationDate: Date;```
+| minLength   |  ```RxwebValidators.minLength({value:8 })``` | ```@minLength({value:8 }) countryName: string;```
+| minNumber   | ```RxwebValidators.minNumber({value:35 })``` | ```@minNumber({value:35 }) 	maths: number;```
+| noneOf   |  ```RxwebValidators.noneOf({matchValues: ["MVC", "AngularJS"]})``` | ```@noneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
+| numeric   | ```RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber, allowDecimal: false})``` | ```@numeric({acceptValue:NumericValueType.PositiveNumber, allowDecimal: false}) integerNumber: number;```
+| odd   |  ```RxwebValidators.odd()``` | ```@odd() oddNumber: number;```
+| oneOf   | ```RxwebValidators.oneOf({matchValues: ["MVC", "AngularJS"]})``` | ```@oneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
+| password   | ```RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true})``` | ```@password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true}) 	password: string;```
+| pattern   |  ```RxwebValidators.pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')})``` | ```@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}) 	userName: string;```
+| range   | ```RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })``` | ```@range({minimumNumber:18  ,maximumNumber:60 }) age: number;```
+| required   | ```RxwebValidators.required()``` | ```@required()	firstName: string;```
+| time   | ```RxwebValidators.time()``` | ```@time() entryTime: string;```
+| upperCase   | ```RxwebValidators.upperCase()``` | ```@upperCase() countryName: string;```
+| url   | ```RxwebValidators.url()``` | ```@url() 	adminWebsiteUrl: string;```|
 
 
 ## Validation Quick Start
@@ -136,12 +133,12 @@ export class AppComponent implements OnInit {
 }
 ```
 ## Validator Based Validation
-There are 40+ validators, but the below code example is for alpha validation. The field will only valid, if the entered value is in alphabets. see the complete code example on **[stackblitz](https://stackblitz.com/edit/rxweb-alpha-validator-angular-reactive-form?file=src%2Fapp%2Fuser-info%2Fadd%2Fuser-info-add.component.ts)**.
+There are 50+ validators, but the below code example is for alpha validation. The field will only valid, if the entered value is in alphabets. see the complete code example on **[stackblitz](https://stackblitz.com/edit/rxweb-alpha-validator-angular-reactive-form?file=src%2Fapp%2Fuser-info%2Fadd%2Fuser-info-add.component.ts)**.
 ```js
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
+import { FormGroup,FormBuilder } from "@angular/forms"
 
-import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 
 @Component({
@@ -153,7 +150,7 @@ export class UserInfoAddComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
     constructor(
-        private formBuilder: RxFormBuilder
+        private formBuilder: FormBuilder
     ) { }
 
     ngOnInit() {
@@ -164,7 +161,7 @@ export class UserInfoAddComponent implements OnInit {
 }
 ```
 ## Decorator Based Validation
-There are 40+ Decorator based model validation. The below code covers required field validation via decorator. You have set decorator on top of property, other things automatically managed by `RxFormBuilder`. see the complete working example on ***[stackblitz](https://stackblitz.com/edit/rxweb-required-validation-add-angular-reactive-form)***
+There are 50+ Decorator based model validation. The below code covers required field validation via decorator. You have set decorator on top of property, other things automatically managed by `RxFormBuilder`. see the complete working example on ***[stackblitz](https://stackblitz.com/edit/rxweb-required-validation-add-angular-reactive-form)***
 > user-info.model.ts
 ```js
 import {  required, } from "@rxweb/reactive-form-validators"

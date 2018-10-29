@@ -14,7 +14,8 @@ endsWithValidatorExtension,
 startsWithValidatorExtension,
 primeNumberValidatorExtension,
 latitudeValidatorExtension,
-longitudeValidatorExtension
+longitudeValidatorExtension,
+composeValidatorExtension
  } from './index'
 
 export class RxwebValidators  {
@@ -68,4 +69,5 @@ static readonly startsWith =startsWithValidatorExtension;
 static readonly primeNumber=primeNumberValidatorExtension;
 static readonly latitude   =latitudeValidatorExtension;
 static readonly longitude  =longitudeValidatorExtension;
+static readonly compose  = composeValidatorExtension;
 }

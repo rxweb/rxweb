@@ -33,7 +33,7 @@ export function factorValidator(config:FactorConfig): ValidatorFn {
 
     return (control: FormGroup): { [key: string]: any } => {
         config = ApplicationUtil.getConfigObject(config);
-      const dividendField = control.root.get([config.fieldName]);
+      const dividendField:any = (control.parent) ?  control.parent.get([config.fieldName]) : undefined
       const dividend = (config.fieldName && dividendField) ? dividendField.value : config.dividend;
        if (FormProvider.ProcessRule(control,config)) {
         if (RegexValidator.isNotBlank(control.value) && dividend > 0) {

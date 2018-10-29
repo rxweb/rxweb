@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl,FormCo
 import {
   choice,
     contains,
-    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, CreditCardType, minLength
+    digit, email, hexColor, lowerCase, maxDate, maxLength, maxNumber, minDate, minNumber, password, pattern, range, upperCase, propObject, propArray, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, prop, required, alpha, alphaNumeric, compare, url, json, greaterThan, greaterThanEqualTo, lessThan, lessThanEqualTo, creditCard, minLength
   , FormGroupExtension, different, numeric, NumericValueType, even, odd, factor, leapYear, time, RxwebValidators,
 ascii,
 dataUri,
@@ -15,12 +15,23 @@ endsWith,
 startsWith,
 primeNumber,
 latitude,
-longitude
+longitude,rule
 } from "@rxweb/reactive-form-validators";
+
+export class Address {
+    zipCode:number;
+    city:string;
+    country:string;
+
+    @rule({customRules:[(entity)=> {
+       let jObject = {};
+       return entity.zipCode == null ? {'zipcode':'should select zipcode'} : null;  } ]})
+    address:string;
+}
 
 import { CLIENT_SETTINGS } from './client-setting'
 export class Attendance {
-    @prop() @required({ conditionalExpression: "x => x.firstName == 'john' && x.employeeDetail.areaName == 'ahmedabad'" }) startTime: number;
+    @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
 }
 export class EmployeeDetail {
     @prop() @required() areaName: string;
@@ -74,7 +85,7 @@ export class Employee {
     @odd() odd:number;
     @even() even:number;
     @numeric({acceptValue:NumericValueType.NegativeNumber}) numeric:number;
-    @different({ fieldName:'firstName' }) different: string;
+    @different({ fieldName:'firstName', conditionalExpression: (x) => x.lastName == "ojha"  }) different: string;
     @choice({ minLength: 1, maxLength:2 }) skills: number[];
     @prop() firstName: string;
     @alphaNumeric({ allowWhiteSpace: false, message: "test message" }) lastName: string;
@@ -83,7 +94,7 @@ export class Employee {
     @prop()
     digit: string;
     @email({ message: "email", conditionalExpression: "(x,y) => x.firstName == 'john' && y.firstName == 'john'" }) email: string;
-    @hexColor({ message: "hex", conditionalExpression: "x => x.firstName == 'john'" }) hexColor: string;
+    @hexColor({ message: "hex"}) hexColor: string;
     @lowerCase({ message: "lowercase", conditionalExpression: "x => x.firstName == 'john'" }) lowerCase: string;
     @maxDate({ value: new Date(2018,7-1,30) }) maxDate: string; // do some work
     @minDate({ value: new Date(2000, 0, 1) }) minDates: string; // do some work
@@ -107,7 +118,7 @@ export class Employee {
     @greaterThanEqualTo({ fieldName: 'minNumber' }) greaterThanEqualTo: string;
     @lessThan({ fieldName: 'minNumber' }) lessThan: string;
     @lessThanEqualTo({ fieldName: 'minNumber' }) lessThanEqualTo: string;
-    @creditCard({ creditCardTypes: [CreditCardType.AmericanExpress,] }) creditCard: string;
+    @creditCard({ creditCardTypes: ["AmericanExpress",] }) creditCard: string;
     @ascii()                          ascii:string;
     @dataUri()                        dataUri:string;
     @port()                           port:number;
@@ -149,6 +160,7 @@ this.classProperty = value;
 })
 export class AppComponent implements OnInit {
     title = 'app';
+    hero = {name:''};
     sampleFormGroup: FormGroup;
     angularFormGroup:FormGroup;
     constructor(private formBuilder: FormBuilder, private validation: RxFormBuilder) {
@@ -156,18 +168,46 @@ export class AppComponent implements OnInit {
     }
 
     secondEmployee:any = {};
-
+validatorUserFormGroup:FormGroup;
   userInfoFormGroup: FormGroup
 clientFormGroup:FormGroup
+userFormGroup:FormGroup;
+   
+testFormGroup:FormGroup;
+testForm:FormGroup;
+userForm:FormGroup;
+modelRuleGroup:FormGroup;
   ngOnInit() {
-let client = new Client();
-    client.clientName = "ABC Corp";
-    client.countryName = "India";
-    client.countryCode = "IN";
-    this.clientFormGroup = this.validation.formGroup(client);
-    this.largeFormGroup();
+let address = new Address();
+this.modelRuleGroup = this.validation.formGroup(address);
+this.userForm = this.formBuilder.group({
+  nationality:[''],
+  intlNumber:['',[ RxwebValidators.compose({
+validators:[
+RxwebValidators.required(),
+RxwebValidators.maxLength({value:14}),
+RxwebValidators.minLength({value:11})
+],
+conditionalExpression:(x) => x.nationality == 'Abroad' })
+    ]]
+});
+this.testForm = this.formBuilder.group({
+  password:['',[RxwebValidators.password ({
+        validation:{
+          upperCase:true,
+          lowerCase:true,
+        }
+      }),RxwebValidators.minLength({value:8}),
+      RxwebValidators.maxLength({value:10})]],
+  confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
+  age:['',RxwebValidators.startsWith({value:"n"})],
+  cardType:[''],
+  creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
+  amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]]
+  
+});
         this.angularFormGroup = this.validation.group({
-          firstName:['',Validators.min(10)],
+          firstName:['',RxwebValidators.required()],
           lastName:[''],
           address:this.validation.group({
             city:[''],
@@ -209,7 +249,8 @@ let client = new Client();
                 "contains": "you should contains ",
                 "onlyDigit": "abc",
                 "required":"this field is required",
-                "min":"minimum number are allowed {{0}}"
+                "min":"minimum number are allowed {{0}}",
+                "minLength":"minimum length is {{0}}"
 
             }
         });
@@ -261,101 +302,6 @@ index = 0;
     this.sampleFormGroup.controls.skills.setValue(value)
   }
   largeForm: FormGroup
-  largeFormGroup() {
-    this.largeForm= this.validation.group({
-      //Provider
-      name: new FormGroup({
-        prefix: new FormControl(undefined, { validators: [Validators.maxLength(10)] }),
-        firstName: new FormControl(undefined, { validators: [Validators.maxLength(35), Validators.required] }),
-        middleName: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-        lastName: new FormControl(undefined, { validators: [Validators.maxLength(35), Validators.required] }),
-        suffix: new FormControl(undefined, { validators: [Validators.maxLength(10)] }),
-      }),
-      formerName: new FormGroup({
-        prefix: new FormControl(undefined, { validators: [Validators.maxLength(10)] }),
-        firstName: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-        middleName: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-        lastName: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-        suffix: new FormControl(undefined, { validators: [Validators.maxLength(10)] }),
-      }),
-      specialty: new FormControl(),
-
-      //Clinic Info
-      spi: new FormControl(undefined, { validators: [Validators.maxLength(13), Validators.required] }),
-      npi: new FormControl(undefined, { validators: [Validators.maxLength(10), Validators.required] }),
-      accountId: new FormControl([], { validators: [Validators.required] }),
-      portalId: new FormControl([], { validators: [Validators.required] }),
-      location: new FormGroup({
-        name: new FormControl(undefined, { validators: [Validators.maxLength(70)] }),
-        address: new FormGroup({
-          addressLine1: new FormControl(undefined, { validators: [Validators.maxLength(40), Validators.required] }),
-          addressLine2: new FormControl(undefined, { validators: [Validators.maxLength(40)] }),
-          city: new FormControl(undefined, { validators: [Validators.maxLength(35), Validators.required] }),
-          state: new FormControl(undefined, { validators: [Validators.required] }),
-          zipCombined: new FormControl(undefined, { validators: [Validators.required, Validators.pattern(/^\d{5}(?:[-]\d{4})?$/)] }),
-          zip: new FormControl(),
-          zip4: new FormControl(),
-          countryCode: new FormControl(undefined, { validators: [Validators.required, Validators.maxLength(2)] })
-        }),
-        standardizedAddress: new FormGroup({
-          addressLine1: new FormControl(),
-          addressLine2: new FormControl(),
-          city: new FormControl(),
-          state: new FormControl(),
-          zip: new FormControl(),
-          zip4: new FormControl(),
-          zipCombined: new FormControl(),
-          countryCode: new FormControl()
-        }),
-        email: new FormControl(undefined, { validators: [Validators.maxLength(80)] }),
-        directAddress: new FormControl(undefined, { validators: [Validators.maxLength(254)] }), //TODO: add custom validator for required if CIMessage or CIEvent service levels are enabled.
-        primaryPhone: new FormGroup({
-          number: new FormControl(undefined, { validators: [Validators.maxLength(10)] }),
-          extension: new FormControl(undefined, { validators: [Validators.maxLength(8)] }),
-          supportsSms: new FormControl(),
-        }),
-        fax: new FormGroup({
-          number: new FormControl(undefined, { validators: [Validators.maxLength(10)] }),
-          extension: new FormControl(undefined, { validators: [Validators.maxLength(8)] }),
-          supportsSms: new FormControl(),
-        }),
-      }),
-      deaNumber: new FormControl(undefined, { validators: [Validators.maxLength(25) ] }), //TODO: Add conditional required validator based on controlled substance service level
-      stateLicense: [undefined, [Validators.maxLength(35), RxwebValidators.required({ conditionalExpression: (x) => { return x.veterinarian == true }})]],
-      organizationId: new FormControl(undefined, { validators: [Validators.maxLength(100)] }),
-
-      //Clinic Info - Other Ids
-      medicaidNumber: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-      medicareNumber: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-      socialSecurity: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-      upin: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-      certificateToPrescribe: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-      data2000WaiverId: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-      remsHealthcareProviderEnrollmentId: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-      stateControlSubstanceNumber: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-      mutuallyDefined: new FormControl(undefined, { validators: [Validators.maxLength(35)] }),
-      veterinarian: [''],
-
-      //Contact Info
-
-      //Configuration
-      activeEndDate: new FormControl(undefined, { validators: [Validators.required] }),
-      activeStartDate: new FormControl(undefined, { validators: [Validators.required] }),
-      activelyPrescribingDate: new FormControl(),
-      optOutFlags: new FormGroup({
-        renewalFaxOptOut: new FormControl(),
-        ciMailOptOut: new FormControl(),
-        ciFaxOptOut: new FormControl()
-      }),
-      directorySpecialties: new FormControl([]),
-      useCases: new FormControl([]),
-      isFaxBackup: new FormControl(),
-      backupPortalId: new FormControl(),
-      test: new FormControl(),
-      serviceLevels: new FormControl([])
-    });
-  }
-  
 }
 
 

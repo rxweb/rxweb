@@ -52,4 +52,6 @@ export const AnnotationTypes: { [key: string]: any } = {
     primeNumber:"primeNumber",
     latitude:"latitude",
     longitude:"longitude",
+    compose:"compose",
+    rule:"rule"
 }

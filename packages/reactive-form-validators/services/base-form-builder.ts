@@ -8,7 +8,7 @@ export class BaseFormBuilder{
     let instance = {};
     defaultContainer.modelIncrementCount = defaultContainer.modelIncrementCount+ 1;
     let modelName = `RxWebModel${defaultContainer.modelIncrementCount}`
-    instance.constructor = eval(`function ClassGenerator(){ return (function () {     return  function ${modelName}() {        }}())} ClassGenerator()`)
+    instance.constructor = Function(`"use strict";return(function ${modelName}(){ })`)()
     return instance;
   }
 }

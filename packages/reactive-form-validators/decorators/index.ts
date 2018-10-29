@@ -51,4 +51,5 @@ export * from './startsWith.decorator';
 export * from './primeNumber.decorator';
 export * from './latitude.decorator';
 export * from './longitude.decorator';
+export * from './rule.decorator';
 

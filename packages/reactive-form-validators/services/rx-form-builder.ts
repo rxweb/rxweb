@@ -64,7 +64,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         return null;
     }
 
-    private addFormControl(property: PropertyInfo, propertyValidators: DecoratorConfiguration[], propValidationConfig: PropValidationConfig, instance: InstanceContainer) {
+    private addFormControl(property: PropertyInfo, propertyValidators: DecoratorConfiguration[], propValidationConfig: PropValidationConfig, instance: InstanceContainer,entity:any) {
         let validators = [];
         let columns = [];
         if ((instance.conditionalValidationProps && instance.conditionalValidationProps[property.name]) || (this.conditionalValidationInstance.conditionalValidationProps && this.conditionalValidationInstance.conditionalValidationProps[property.name])) {
@@ -89,7 +89,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                 validators.push(conditionalChangeValidator(columns));
         }
         for (let propertyValidator of propertyValidators) {
-            validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config, ))
+            propertyValidator.annotationType == AnnotationTypes.rule ? validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config, entity)) : validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config))
         }
         if (propValidationConfig)
             this.additionalValidation(validators, propValidationConfig);
@@ -114,11 +114,10 @@ export class RxFormBuilder extends BaseFormBuilder {
             let instance = this.getInstanceContainer(t.entity);
             if (instance.conditionalValidationProps) {
                 for (var key in instance.conditionalValidationProps) {
-                    var prop = instance.properties.filter(t => t.name == key)[0];
-                    if (!prop)
-                        prop = instanceContainer.properties.filter(t => t.name == key)[0];
+                    var prop = instanceContainer.properties.filter(t => t.name == key)[0];
                     if (prop) {
                         if (!instanceContainer.conditionalValidationProps)
+                            instanceContainer.conditionalValidationProps = {};
                             if (!instanceContainer.conditionalValidationProps[key])
                                 instanceContainer.conditionalValidationProps[key] = [];
                         instance.conditionalValidationProps[key].forEach(x => {
@@ -220,14 +219,17 @@ export class RxFormBuilder extends BaseFormBuilder {
                 let propModelInstance = super.createInstance();
                 defaultContainer.initPropertyObject(propName,ARRAY_PROPERTY,propModelInstance.constructor,modelInstance);
                 entityObject[propName] = [];
+                for(let row of prop){
                 let jObject = {};
                 entityObject[propName].push(jObject)
-                this.createValidatorFormGroup(prop[0],jObject,propModelInstance.constructor,validatorConfig);
+                this.createValidatorFormGroup(row,jObject,propModelInstance.constructor,validatorConfig);
+                }
+
                 }
 
             }else if (typeof prop == "object" && !(prop instanceof FormControl)){
               let formGroup: any = (prop instanceof FormArray) ? prop.controls[0] : prop
-              if (!formGroup.model) {
+              if (!formGroup.model && (prop instanceof FormGroup)) {
                 formGroup = this.group(formGroup.controls);
               }
                 if(prop instanceof FormGroup){
@@ -243,7 +245,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                 entityObject[propName] = {};
                 entityObject[propName].constructor= propModelInstance.constructor;
                 defaultContainer.initPropertyObject(propName,OBJECT_PROPERTY,entityObject[propName].constructor,modelInstance);
-                this.createValidatorFormGroup(groupObject[propName],entityObject[propName],entityObject[propName].constructor,validatorConfig);
+                let objectValidationConfig = this.getValidatorConfig(validatorConfig, propName+".")
+                this.createValidatorFormGroup(groupObject[propName],entityObject[propName],entityObject[propName].constructor,objectValidationConfig);
                 }
             }
           if (typeof prop == "string" || typeof prop == "number" || typeof prop == "boolean") {
@@ -259,6 +262,34 @@ export class RxFormBuilder extends BaseFormBuilder {
         }
       }        
    }
+
+    getValidatorConfig(validatorConfig:FormBuilderConfiguration,rootPropertyName:string) : any {
+      let validationProps = {};
+      let excludeProps = [];
+      if(validatorConfig){
+      for(var propName in validatorConfig.dynamicValidation) {
+          if(propName.indexOf(rootPropertyName) != -1) {
+              let splitProp = propName.split(".")[1];
+              if(splitProp )
+              validationProps[splitProp] = validatorConfig.dynamicValidation[propName]
+          }
+      }
+      if(validatorConfig.excludeProps){
+      for(let excludeProp of validatorConfig.excludeProps){
+          if(excludeProp.indexOf(rootPropertyName) != -1) {
+              let splitProp = excludeProp.split(".")[1];
+              if(splitProp )
+                excludeProps.push(splitProp);
+          } 
+      }
+    }
+
+
+      return {dynamicValidation:validationProps,excludeProps:excludeProps}
+    }
+    return {}
+      
+    }
 
     formGroup<T>(model: Type<T> | { [key: string]: any }, entityObject?: { [key: string]: any } | FormBuilderConfiguration, formBuilderConfiguration?: FormBuilderConfiguration): FormGroup {
         let json = this.getObject(model, entityObject, formBuilderConfiguration);
@@ -284,7 +315,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                     case PROPERTY:
                         if(!(entityObject[property.name] instanceof FormControl)){
                         var propertyValidators = instanceContainer.propertyAnnotations.filter(t => t.propertyName == property.name);
-                        formGroupObject[property.name] = [entityObject[property.name], this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer)];
+                        formGroupObject[property.name] = [entityObject[property.name], this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer,entityObject)];
                         this.isNested = false;
                        }else
                         formGroupObject[property.name] = entityObject[property.name]
@@ -298,7 +329,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 this.builderConfigurationConditionalObjectProps = this.conditionalValidationInstance.conditionalObjectProps.filter(t => t.objectPropName == property.name);
                             if(this.formGroupPropOtherValidator[property.name])
                               this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator[property.name];
-                            formGroupObject[property.name] = this.formGroup(property.entity, entityObject[property.name], formBuilderConfiguration);
+                            let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, `${property.name}.`)
+                            formGroupObject[property.name] = this.formGroup(property.entity, entityObject[property.name], objectValidationConfig);
                             this.conditionalObjectProps = [];
                             this.builderConfigurationConditionalObjectProps = [];
                             this.isNested = false;
@@ -317,7 +349,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                                     this.builderConfigurationConditionalObjectProps = this.conditionalValidationInstance.conditionalObjectProps.filter(t => t.objectPropName == property.name && t.arrayIndex == index);
                                   if(this.formGroupPropOtherValidator[property.name])
                                     this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator[property.name];
-                                formArrayGroup.push(this.formGroup(property.entity, subObject, formBuilderConfiguration));
+                                let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, `${property.name}.`)
+                                formArrayGroup.push(this.formGroup(property.entity, subObject, objectValidationConfig));
                                 index++;
                                 this.conditionalObjectProps = [];
                                 this.builderConfigurationConditionalObjectProps = [];
