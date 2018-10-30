@@ -4,23 +4,25 @@ import { formatNumber } from "@angular/common"
 import { APP_VALIDATORS} from '../../const/app-validators.const';
 import { BaseValidator } from './base-validator.directive';
 import {INPUT,SELECT,CHECKBOX,TEXTAREA,KEYPRESS, ONCHANGE,ONKEYUP,ONCLICK,
-RADIO,FILE, ONBLUR,ONFOCUS,ELEMENT_VALUE
+RADIO,FILE, ELEMENT_VALUE,BLUR,FOCUS,CHANGE,BLANK
   } from "../../const";
 import { DecimalProvider } from "../../domain/element-processor/decimal.provider"
 import {AlphaConfig,ArrayConfig,BaseConfig,ChoiceConfig,CompareConfig,ComposeConfig,ContainsConfig,CreditCardConfig,DateConfig,DefaultConfig,DigitConfig,EmailConfig,ExtensionConfig,FactorConfig,FieldConfig,HexColorConfig,MessageConfig,NumberConfig,NumericConfig,PasswordConfig,PatternConfig,RangeConfig,RequiredConfig,RuleConfig,SizeConfig,TimeConfig ,DifferentConfig,RelationalOperatorConfig } from '../../models/config'
 const COMPOSE:string = 'compose';
 const NGMODEL_BINDING: any = {
   provide: NG_VALIDATORS,
-  useExisting: forwardRef(() => NgModelDirective),
+  useExisting: forwardRef(() => FormControlDirective),
   multi: true
 };
+
+const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','aphaNumeric','ascii','dataUri','digit','email','even','hexColor','json','latitude','latLong','leapYear','longitude','lowerCase','mac','odd','port','primeNumber','time','upperCase','url'];
 
 @Directive({
   selector: '[ngModel],[formControlName],[formControl]',
   providers: [NGMODEL_BINDING],
  
 })
-export class NgModelDirective extends BaseValidator implements OnInit,OnDestroy {
+export class FormControlDirective extends BaseValidator implements OnInit,OnDestroy {
   private controls:{[key:string]:FormControl};
   set validationControls(value:{[key:string]:FormControl}){
     this.controls = value;
@@ -31,7 +33,7 @@ export class NgModelDirective extends BaseValidator implements OnInit,OnDestroy 
     return this.controls;
   }
 
-  element: any;
+  
   @Input() allOf:ArrayConfig;
   @Input() alpha:AlphaConfig;
   @Input() alphaNumeric:AlphaConfig;
@@ -99,7 +101,7 @@ export class NgModelDirective extends BaseValidator implements OnInit,OnDestroy 
   ngOnInit() {
       let validators = [];
       Object.keys(APP_VALIDATORS).forEach(validatorName=>{
-        if((validatorName != COMPOSE && this[validatorName]) || (['required','alpha','aphaNumeric','ascii','dataUri','digit','email','even','hexColor','json','latitude','latLong','leapYear','longitude','lowerCase','mac','odd','port','primeNumber','time','upperCase','url'].indexOf(validatorName) != -1 && this[validatorName] == ''))
+        if((validatorName != COMPOSE && this[validatorName]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[validatorName] == BLANK))
           validators.push(APP_VALIDATORS[validatorName](this[validatorName]));
       })
       if(validators.length > 0)
@@ -108,17 +110,17 @@ export class NgModelDirective extends BaseValidator implements OnInit,OnDestroy 
           this.bindNumericElementEvent();
   }
 
-  bindNumericElementEvent(){
-    this.renderer.listen(this.element,"blur",(event)=> {
-        debugger;
+  bindNumericElementEvent(config:NumericConfig){
+    if(config)
+      this.numeric = config;
+    this.renderer.listen(this.element,BLUR,(event)=> {
         if(!(this.formControl && this.formControl.errors && this.formControl.errors.numeric)) {
           let value = this.decimalProvider.transFormDecimal(this.formControl.value,this.numeric.digitsInfo);
           this.setValueOnElement(value);
         }
     });
 
-    this.renderer.listen(this.element,"focus",(event)=> {
-        debugger;
+    this.renderer.listen(this.element,FOCUS,(event)=> {
         if(!(this.formControl && this.formControl.errors && this.formControl.errors.numeric) && this.formControl.value != null) {
         let value = this.decimalProvider.replacer(this.formControl.value);
         this.setValueOnElement(value);
@@ -139,10 +141,10 @@ export class NgModelDirective extends BaseValidator implements OnInit,OnDestroy 
       switch(this.element.tagName) {
         case INPUT:
         case TEXTAREA:
-         eventName = (this.element.type == CHECKBOX || this.element.type == RADIO || this.element.type == FILE) ?  "change" : "input";
+         eventName = (this.element.type == CHECKBOX || this.element.type == RADIO || this.element.type == FILE) ?  CHANGE : INPUT;
         break;
         case SELECT:
-         eventName = ONCHANGE;
+         eventName = CHANGE;
         break;
       }
       return eventName;

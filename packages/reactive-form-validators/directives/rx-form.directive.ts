@@ -16,12 +16,7 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
     private clearTimeout:number = 0;
     @Input('rxwebForm') ngForm;
 
-    constructor(elementRef: ElementRef,decimalProvider:DecimalProvider,renderer: Renderer,) {
-      super(elementRef,decimalProvider,renderer);
-    }
-
     ngAfterContentInit(): void {
-      
       if(this.formGroup && !this.formGroup["model"]){
         this.expressionProcessor(this.formGroup.controls);
         super.bindEvents();
@@ -45,7 +40,7 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
                       })
                 });
                 this.expressionProcessor(controls);
-                this.bindEvents();
+                this.bindEvents(false);
         },500)
     }
 

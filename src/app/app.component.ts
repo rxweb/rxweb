@@ -199,11 +199,11 @@ this.testForm = this.formBuilder.group({
         }
       }),RxwebValidators.minLength({value:8}),
       RxwebValidators.maxLength({value:10})]],
-  confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
-  age:['',RxwebValidators.startsWith({value:"n"})],
-  cardType:[''],
-  creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
-  amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]]
+      confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
+      age:['',RxwebValidators.startsWith({value:"n"})],
+      cardType:[''],
+      creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
+      amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]]
   
 });
         this.angularFormGroup = this.validation.group({

@@ -23,6 +23,12 @@
          [(ngModel)]="hero.amount" #amount="ngModel">
   {{amount.errors | json}}
   {{hero.amount}}
+  <input type="checkbox" value="male" name="gender" [ngModel]="hero.gender" required #gender="ngModel"> Male
+  <input type="checkbox" value="female" name="gender" [ngModel]="hero.gender" required #gender="ngModel"> Female
+  {{hero | json}}
+  <div *ngIf="gender.invalid">
+    Gender required.
+  </div>
 </form>
 
   <form [formGroup]="modelRuleGroup">
