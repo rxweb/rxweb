@@ -45,3 +45,5 @@ Thumbs.db
 /package-lock.json
 /rxweb.io
 
+/packages/reactive-form-validators/const/locale/alphabets-locale.regex.ts
+/packages/reactive-form-validators/const/locale

@@ -8,6 +8,7 @@ import {
 } from "@angular/forms";
 
 import { RegexValidator } from "../util/regex-validator";
+import { RegExRule } from "../util/regex-rules";
 import { ObjectMaker } from "../util/object-maker";
 import { FactorConfig } from "../models/config/factor-config";
 import { AnnotationTypes } from "../core/validator.static";
@@ -33,11 +34,11 @@ export function factorValidator(config:FactorConfig): ValidatorFn {
 
     return (control: FormGroup): { [key: string]: any } => {
         config = ApplicationUtil.getConfigObject(config);
-      const dividendField:any = (control.parent) ?  control.parent.get([config.fieldName]) : undefined
+      const dividendField:any = (control.parent && config.fieldName) ?  control.parent.get([config.fieldName]) : undefined
       const dividend = (config.fieldName && dividendField) ? dividendField.value : config.dividend;
        if (FormProvider.ProcessRule(control,config)) {
         if (RegexValidator.isNotBlank(control.value) && dividend > 0) {
-          if (positiveFactors(dividend).indexOf(parseInt(control.value)) == -1)
+          if (!RegexValidator.isValid(control.value, RegExRule.onlyDigit) || positiveFactors(dividend).indexOf(parseInt(control.value)) == -1)
             return ObjectMaker.toJson(AnnotationTypes.factor, config.message || null, [control.value]);
         }
       }

@@ -110,7 +110,7 @@ export class FormControlDirective extends BaseValidator implements OnInit,OnDest
           this.bindNumericElementEvent();
   }
 
-  bindNumericElementEvent(config:NumericConfig){
+  bindNumericElementEvent(config?:NumericConfig){
     if(config)
       this.numeric = config;
     this.renderer.listen(this.element,BLUR,(event)=> {
@@ -147,7 +147,7 @@ export class FormControlDirective extends BaseValidator implements OnInit,OnDest
          eventName = CHANGE;
         break;
       }
-      return eventName;
+      return eventName.toLowerCase();
     }
 
   private setValueOnElement(value: any) {

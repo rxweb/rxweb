@@ -81,7 +81,7 @@ export class Client{
 
 export class Employee {
     @leapYear() leapYear:number;
-    @factor({fieldName:'odd'}) factor:number;
+    @factor({dividend:5}) factor:number;
     @odd() odd:number;
     @even() even:number;
     @numeric({acceptValue:NumericValueType.NegativeNumber}) numeric:number;
