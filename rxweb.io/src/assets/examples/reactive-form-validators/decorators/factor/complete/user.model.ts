@@ -5,6 +5,9 @@ export class User {
 	@prop()
 	firstNumber: number;
 
+	@factor({fieldName:"firstNumber" }) 
+	fifthNumber: number;
+
 	//If you want to apply conditional expression of type 'function'
 	@factor({fieldName:"firstNumber"  ,conditionalExpression:(x,y) =>x.firstNumber == 25  }) 
 	secondNumber: number;

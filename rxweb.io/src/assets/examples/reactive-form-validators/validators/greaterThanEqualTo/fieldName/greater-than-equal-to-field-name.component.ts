@@ -17,7 +17,7 @@ export class GreaterThanEqualToFieldNameValidatorComponent implements OnInit {
         this.userFormGroup = this.formBuilder.group({
             age:['',], 
             memberAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:'x => x.age >= 18 ' })], 
-            otherAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,message:'Please enter number greater than or equal to 1.' })], 
+            voterAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:(x,y) => x.age >= 18  })], 
         });
     }
 }

@@ -5,15 +5,18 @@ export class UserInfo {
 	@prop()
 	dataType: string;
 
+	@numeric({acceptValue:NumericValueType.NegativeNumber  ,message:'{{0}} is not a negative number' }) 
+	negativeNumber: number;
+
+	@numeric({allowDecimal:true  ,message:'{{0}} is not a decimal number' }) 
+	decimalNumber: number;
+
 	//If you want to apply conditional expression of type 'function'
-	@numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false  ,conditionalExpression:(x,y) => x.dataType == "Number"  }) 
+	@numeric({acceptValue:NumericValueType.PositiveNumber  ,conditionalExpression:(x,y) => x.dataType == "Positive"  }) 
 	integerNumber: number;
 
 	//If you want to apply conditional expression of type 'string'
-	@numeric({acceptValue:NumericValueType.Both  ,allowDecimal:false  ,conditionalExpression:'x => x.dataType == "Number"' }) 
+	@numeric({acceptValue:NumericValueType.Both  ,conditionalExpression:'x => x.dataType == "Real"' }) 
 	realNumber: number;
-
-	@numeric({acceptValue:NumericValueType.NegativeNumber  ,allowDecimal:true  ,message:'{{0}} is not a negative number' }) 
-	negativeNumber: number;
 
 }

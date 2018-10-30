@@ -34,7 +34,7 @@ export class PortComponent implements OnInit {
 	  if(splitedArray[2] != undefined)
 		document.title = splitedArray[2] + " : " + this.mergeDashPipe.transform(splitedArray[1])
 	  else
-		document.title = splitedArray[1] ? this.mergeDashPipe.transform(splitedArray[1]) : "RxApp"
+		document.title = splitedArray[1] ? this.mergeDashPipe.transform(splitedArray[1]) : "rxweb:reactive form validators"
 	  this.showComponent = true;
     })
   }

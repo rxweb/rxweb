@@ -9,8 +9,7 @@ export class AccountInfo {
 	@different({fieldName:"firstName"  ,conditionalExpression:'x => x.firstName == "Bharat"' }) 
 	userName: string;
 
-	//If you want to apply conditional expression of type 'function'
-	@different({fieldName:"firstName"  ,conditionalExpression:(x,y) => x.firstName == "Bharat"  }) 
-	lastName: string;
+	@different({fieldName:"firstName"  ,message:'{{0}} is same as firstName' }) 
+	password: string;
 
 }

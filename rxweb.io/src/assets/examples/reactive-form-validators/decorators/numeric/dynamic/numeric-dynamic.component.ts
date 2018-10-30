@@ -12,6 +12,7 @@ import { UserInfo } from './user-info.model';
 })
 export class NumericDynamicComponent implements OnInit {
     userInfoFormGroup: FormGroup
+				dataTypes = [ "Real", "Positive",];
 
     constructor(
         private formBuilder: RxFormBuilder,private http: HttpClient    ) { }

@@ -7,9 +7,9 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { NumericCompleteComponent } from './complete/numeric-complete.component';
 import { NumericAcceptValueComponent } from './acceptValue/numeric-accept-value.component';
+import { NumericMessageComponent } from './message/numeric-message.component';
 import { NumericAllowDecimalComponent } from './allowDecimal/numeric-allow-decimal.component';
 import { NumericConditionalExpressionComponent } from './conditionalExpression/numeric-conditional-expression.component';
-import { NumericMessageComponent } from './message/numeric-message.component';
 import { NumericDynamicComponent } from './dynamic/numeric-dynamic.component';
 import { NumericAddComponent } from './add/numeric-add.component';
 import { NumericEditComponent } from './edit/numeric-edit.component';
@@ -18,9 +18,9 @@ import { NumericEditComponent } from './edit/numeric-edit.component';
   declarations: [
 	NumericCompleteComponent,
 	NumericAcceptValueComponent,
+	NumericMessageComponent,
 	NumericAllowDecimalComponent,
 	NumericConditionalExpressionComponent,
-	NumericMessageComponent,
 	NumericDynamicComponent,
 	NumericAddComponent,
 	NumericEditComponent,
@@ -28,9 +28,9 @@ import { NumericEditComponent } from './edit/numeric-edit.component';
 entryComponents: [
 	NumericCompleteComponent,
 	NumericAcceptValueComponent,
+	NumericMessageComponent,
 	NumericAllowDecimalComponent,
 	NumericConditionalExpressionComponent,
-	NumericMessageComponent,
 	NumericDynamicComponent,
 	NumericAddComponent,
 	NumericEditComponent,
@@ -44,9 +44,9 @@ entryComponents: [
   exports: [
 	NumericCompleteComponent,
 	NumericAcceptValueComponent,
+	NumericMessageComponent,
 	NumericAllowDecimalComponent,
 	NumericConditionalExpressionComponent,
-	NumericMessageComponent,
 	NumericDynamicComponent,
 	NumericAddComponent,
 	NumericEditComponent,

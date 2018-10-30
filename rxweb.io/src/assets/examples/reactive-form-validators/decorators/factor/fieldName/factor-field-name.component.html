@@ -14,11 +14,10 @@
 	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.thirdNumber.errors">{{userFormGroup.controls.thirdNumber.errors.factor.message}}<br/></small>	
     </div>
     <div class="form-group">
-      <label>Second Number</label>
-      <input type="text" formControlName="secondNumber" class="form-control"  />
-      <small class="form-text text-muted">To apply the validation of factor on 'Fourth Number' field, then enter the value '25' in 'First Number' textbox<br/></small>
-      <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.secondNumber.errors">{{userFormGroup.controls.secondNumber.errors.factor.message}}<br/></small>	
+      <label>Fifth Number</label>
+      <input type="text" formControlName="fifthNumber" class="form-control"  />
+      <small class="form-text text-muted">To apply the validation of factor on 'Fifth Number' field<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.fifthNumber.errors">{{userFormGroup.controls.fifthNumber.errors.factor.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>
