@@ -35,7 +35,7 @@ Below options are not mandatory to use in the `RxwebValidators.numeric()` valida
 |--- | ---- |
 |[acceptValue](#acceptValue) | To apply validation based on checking positive or negative value or both. |
 |[allowDecimal](#allowDecimal) | This will allow decimal in particular control property.The default value is `false`. |
-|[conditionalExpression](#conditionalexpression) | Numeric validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalExpression) | Numeric validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
 ## acceptValue 
@@ -47,12 +47,12 @@ To apply validation based on checking positive or negative value or both.
 
 [!TabGroup(?showHideCondition="acceptValue")]
 # [Component](#tab\acceptValueComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\validators\numeric\acceptValue\numeric-acceptValue.component.ts)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\numeric\acceptValue\numeric-accept-value.component.ts)]
 # [Html](#tab\acceptValueHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\validators\numeric\acceptValue\numeric-acceptValue.component.html)]
+[!code-typescript[](\assets\examples\reactive-form-validators\validators\numeric\acceptValue\numeric-accept-value.component.html)]
 ***
 
-[!example(?type=section&clickEventCode="acceptValue=!acceptValue"&title="numeric validator depending upon acceptValue")]
+[!example(?type=section&clickEventCode="acceptValue=!acceptValue"&title=numeric validator depending upon acceptValue)]
 <app-numeric-acceptValue-validator></app-numeric-acceptValue-validator>
 
 ## allowDecimal 

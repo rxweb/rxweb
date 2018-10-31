@@ -1,7 +1,7 @@
 <div>
   <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
-      <label>Special Charscter Ascii Code</label>
+      <label>Special Character Ascii Code</label>
       <input type="text" formControlName="specialCharAsciiCode" class="form-control"  />
       <small class="form-text text-muted">You must enter an Ascii Code only<br/></small>
 	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.specialCharAsciiCode.errors">{{userFormGroup.controls.specialCharAsciiCode.errors.ascii.message}}<br/></small>	

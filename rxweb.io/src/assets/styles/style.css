@@ -4248,6 +4248,7 @@ body.modal-open {
     background: #ffffff;
     min-height: 100%;
     padding-top: 15px;
+    padding-bottom: 70px;
 }
 
 #side-menu li a {
@@ -5403,13 +5404,12 @@ pre {
   height: 100%;
 }
 
-.nav-link.active
-{
+.nav-link.active, .nav-link.active:hover{
     /* color: #e74c3c; */
     background-color: white;
     font-weight: 600;
     font-size: 14px;
-    color: #333 !important;
+    color: #333;
 }
 input.ng-invalid{
     background-color:#DA5235;
@@ -5437,9 +5437,9 @@ input.ng-invalid{
     line-height: 21px;
     padding-top: 0px;
     padding-bottom: 8px;
-    padding-left: 20px;
     color: #666666;
 }
+#rightsidebar ul:first-child > li{padding-left: 20px;}
 .nav-item {
     padding-bottom: 8px;
 }
@@ -5604,7 +5604,7 @@ a.edit {
 a.edit:hover, a.edit:focus {
     color: rgba(0, 125, 197, 1);
 }
-.sidebar-link:hover {
+.sidebar-link:hover, #rightsidebar ul:first-child > li:first-child a.active:hover{
     color: #007dc5;
 }
 #rightsidebar ul:first-child > li:first-child a {

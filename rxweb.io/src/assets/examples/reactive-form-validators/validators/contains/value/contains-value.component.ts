@@ -15,7 +15,7 @@ export class ContainsValueValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            otherEmailAddress:['', RxwebValidators.contains({value:'@gmail.com'  ,message:'Please enter valid gmailId' })], 
+            emailAddress:['', RxwebValidators.contains({value:'@gmail.com' })], 
         });
     }
 }
