@@ -4248,6 +4248,7 @@ body.modal-open {
     background: #ffffff;
     min-height: 100%;
     padding-top: 15px;
+    padding-bottom: 70px;
 }
 
 #side-menu li a {

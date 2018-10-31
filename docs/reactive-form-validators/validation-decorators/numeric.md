@@ -15,7 +15,11 @@ Suppose you want to create a user form, which contains fields like DataType, int
 
 Let’s see how Numeric validator fulfil the need.
 
-# Basic numeric Validation
+# Basic Numeric Validation
+First we need to create a User class and define a property of Integer Number in the model to achieve the functional need of point 1.
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
+[!code-typescript[](\assets\examples\reactive-form-validators\decorators\numeric\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
+
 Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
