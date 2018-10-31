@@ -263,16 +263,16 @@ export class RxFormBuilder extends BaseFormBuilder {
       }        
    }
 
-    getValidatorConfig(validatorConfig:FormBuilderConfiguration,rootPropertyName:string) : any {
+    getValidatorConfig(validatorConfig:FormBuilderConfiguration,rootPropertyName:string,arrayPropertyName?:string) : any {
       let validationProps = {};
       let excludeProps = [];
       if(validatorConfig){
-      for(var propName in validatorConfig.dynamicValidation) {
-          if(propName.indexOf(rootPropertyName) != -1) {
+        for (var propName in validatorConfig.dynamicValidation) {
+          if (propName.indexOf(rootPropertyName) != -1 || (arrayPropertyName && propName.indexOf(arrayPropertyName) != -1)) {
               let splitProp = propName.split(".")[1];
               if(splitProp )
               validationProps[splitProp] = validatorConfig.dynamicValidation[propName]
-          }
+        }
       }
       if(validatorConfig.excludeProps){
       for(let excludeProp of validatorConfig.excludeProps){
@@ -349,7 +349,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                                     this.builderConfigurationConditionalObjectProps = this.conditionalValidationInstance.conditionalObjectProps.filter(t => t.objectPropName == property.name && t.arrayIndex == index);
                                   if(this.formGroupPropOtherValidator[property.name])
                                     this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator[property.name];
-                                let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, `${property.name}.`)
+                                let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, `${property.name}.`,`${property.name}[${index}].`)
                                 formArrayGroup.push(this.formGroup(property.entity, subObject, objectValidationConfig));
                                 index++;
                                 this.conditionalObjectProps = [];
