@@ -35,11 +35,12 @@ $ npm install @rxweb/reactive-form-validators
 
 | Name | Validator | Decorator | 
 | ----------- | ----------- | ----------- |
-| allOf      |  ``` RxwebValidators.allOf({matchValues:['angular']}) ```  | ```@allOf({matchValues:['angular']}) frameworks``` |
-| [alpha](#alpha)   |  ``` RxwebValidators.alpha() ``` | ``` @alpha() stateName: string; ``` |
-| [alphaNumeric](#alphaNumeric)   | ``` RxwebValidators.alphaNumeric() ``` | ```@alphaNumeric() flatAddress: string; ``` |
-| choice   | ``` RxwebValidators.choice({minLength:'5'}) ``` | ```@choice({minLength:'5'}) Hobbies: string; ``` |
-| compare   | ```RxwebValidators.compare({fieldName:'password'   })``` | ```@compare({fieldName:'password'})	confirmPassword: string; ``` |
+| [allOf](#allOf)     |  
+| [alpha](#alpha)   | 
+| [alphaNumeric](#alphaNumeric)   |
+| [ascii(#ascii)] |
+| [choice](#choice)   | 
+| [compare](#compare)   | ```RxwebValidators.compare({fieldName:'password'   })``` | ```@compare({fieldName:'password'})	confirmPassword: string; ``` |
 | contains   |  ```RxwebValidators.contains({value:'@gmail.com' })``` | ```@contains({value:'@gmail.com' }) emailAddress: string; ``` |
 | creditCard   | ```RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]})``` | ```@creditCard({creditCardTypes:[CreditCardType.Visa]}) 	otherVisaCard: string; ``` |
 | different   | ```RxwebValidators.different({fieldName:"firstName" })``` | ```@different({fieldName:"firstName" }) lastName: string; ```
@@ -106,7 +107,57 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
 @alphaNumeric() areaName: string;
 ```
+### allOf
+##### Reactive Form Validation
+```js
+  this.employeeInfoFormGroup = this.formBuilder.group({
+           skills:[RxwebValidators.allOf({matchValues:["MVC", "AngularJS","Angular 5","C#"]})], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
+        [(ngModel)]="employee.skills" allOf/>{{tag.name}}
+```
+##### Decorator Based Validation
+```js
+  @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"], 
+  skills: string[];
+```
+### choice
+##### Reactive Form Validation
+```js
+  this.employeeInfoFormGroup = this.formBuilder.group({
+           skills:[RxwebValidators.choice({minLength:'5'})], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}"
+        [(ngModel)]="employee.skills" choice/>{{tag.name}}
+```
+##### Decorator Based Validation
+```js
+ @choice({minLength:'5'}) skills: string[]; 
+```
+### ascii
+##### Reactive Form Validation
+```js
+   this.userFormGroup = this.formBuilder.group({
+            specialCharAsciiCode:['', RxwebValidators.ascii()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="specialCharAsciiCode" name="specialCharAsciiCode" class="form-control"
+         [(ngModel)]="user.specialCharAsciiCode" ascii >
+```
+##### Decorator Based Validation
+```js
+@ascii() 
+	specialCharAsciiCode: string;
 
+```
 
 ## Validation Quick Start
 To learn more about `rxweb` powerful validation features, let us look at a complete example of validating a form and displaying the error messages back to the user. 
