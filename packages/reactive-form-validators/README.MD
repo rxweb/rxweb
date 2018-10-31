@@ -805,7 +805,7 @@ this.userInfoFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="name" name="name" class="form-control"
-         [(ngModel)]="user.name" [startsWith]='["value"="n"]'>
+         [(ngModel)]="user.name" [startsWith]='["value":"n"]'>
 ```
 ##### Decorator Based Validation
 ```js		
