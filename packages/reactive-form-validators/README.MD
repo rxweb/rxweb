@@ -55,8 +55,8 @@ $ npm install @rxweb/reactive-form-validators
 | [greaterThan](#greaterThan)   | ```RxwebValidators.greaterThan({fieldName:'age'})``` | ```@greaterThan({fieldName:'age' }) voterAge: number;```
 | [hexColor](#hexColor)   | ```RxwebValidators.hexColor()``` | ```@hexColor() color: string;```
 | [json](#json)   | ```RxwebValidators.json()``` | ```@json() locationJson: string;```
-| [latitude(#laititude)] |
-| [latLong(#latLong)] |
+| [latitude](#laititude) |
+| [latLong](#latLong) |
 | [leapYear](#leapYear)   | ```RxwebValidators.leapYear()``` | ```@leapYear()	birthYear: number;```
 | [lessThanEqualTo](#lessThanEqualTo)   | ```RxwebValidators.lessThanEqualTo({fieldName:'totalMarks'})``` | ```@lessThanEqualTo({fieldName:'totalMarks'}) marks: number;```
 | [lessThan](#lessThan)   | ```RxwebValidators.lessThan({fieldName:'totalMarks'})``` | ```@lessThan({fieldName:'totalMarks'}) marks: number;```
@@ -74,7 +74,7 @@ $ npm install @rxweb/reactive-form-validators
 | [odd](#odd)   |  ```RxwebValidators.odd()``` | ```@odd() oddNumber: number;```
 | [oneOf](#oneOf)   | ```RxwebValidators.oneOf({matchValues: ["MVC", "AngularJS"]})``` | ```@oneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
 | [password](#password)   | ```RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true})``` | ```@password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true}) 	password: string;```
-| pattern   |  ```RxwebValidators.pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')})``` | ```@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}) 	userName: string;```
+| [pattern](#pattern)   |  ```RxwebValidators.pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')})``` | ```@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}) 	userName: string;```
 | [port](#port) |
 | [primeNumber](#primeNumber) |
 | [range](#range)   | ```RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })``` | ```@range({minimumNumber:18  ,maximumNumber:60 }) age: number;```
