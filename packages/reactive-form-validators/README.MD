@@ -33,56 +33,56 @@ $ npm install @rxweb/reactive-form-validators
 ## Validation Decorators & Validators 
 ```Validation can be applied via Validators or Decorators. If you are using validators then you don't need to import any module, you can directly as same as Angular validators in the 'FormControl'. This validators are more advanced than angular validators.``` 
 
-| Name | 
-| ----------- |
-| [allOf](#allOf)     |  
-| [alpha](#alpha)   | 
-| [alphaNumeric](#alphaNumeric)   |
-| [ascii](#ascii) |
-| [choice](#choice)   | 
-| [compare](#compare)   | ```RxwebValidators.compare({fieldName:'password'   })``` | ```@compare({fieldName:'password'})	confirmPassword: string; ``` |
-| [contains](#contains)   |  ```RxwebValidators.contains({value:'@gmail.com' })``` | ```@contains({value:'@gmail.com' }) emailAddress: string; ``` |
-| [creditCard](#creditCard)   | ```RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]})``` | ```@creditCard({creditCardTypes:[CreditCardType.Visa]}) 	otherVisaCard: string; ``` |
-| [dataUri](#dataUri) |
-| [different](#different)   | ```RxwebValidators.different({fieldName:"firstName" })``` | ```@different({fieldName:"firstName" }) lastName: string; ```
-| [digit](#digit)   |  ```RxwebValidators.digit()``` | ```@digit() age: number; ```
-| [email](#email)   |  ```RxwebValidators.email()``` | ```@email() email: string; ```
-| [endsWith](#endsWith) |
-| [even](#even)   | ```RxwebValidators.even()``` | ```@even() evenNumber: number;```
-| [factor](#factor)   | ```RxwebValidators.factor({dividend:50 })``` | ```@factor({dividend:50 }) firstNumber: Number;```
-| [fileSize](#fileSize) |
-| [greaterThanEqualTo](#greaterThanEqualTo)   | ```RxwebValidators.greaterThanEqualTo({fieldName:'age'})``` | ```@greaterThanEqualTo({fieldName:'age'}) voterAge: number;```
-| [greaterThan](#greaterThan)   | ```RxwebValidators.greaterThan({fieldName:'age'})``` | ```@greaterThan({fieldName:'age' }) voterAge: number;```
-| [hexColor](#hexColor)   | ```RxwebValidators.hexColor()``` | ```@hexColor() color: string;```
-| [json](#json)   | ```RxwebValidators.json()``` | ```@json() locationJson: string;```
-| [latitude](#laititude) |
-| [latLong](#latLong) |
-| [leapYear](#leapYear)   | ```RxwebValidators.leapYear()``` | ```@leapYear()	birthYear: number;```
-| [lessThanEqualTo](#lessThanEqualTo)   | ```RxwebValidators.lessThanEqualTo({fieldName:'totalMarks'})``` | ```@lessThanEqualTo({fieldName:'totalMarks'}) marks: number;```
-| [lessThan](#lessThan)   | ```RxwebValidators.lessThan({fieldName:'totalMarks'})``` | ```@lessThan({fieldName:'totalMarks'}) marks: number;```
-| [longitude](#longitude) |
-| [lowerCase](#lowerCase)   | ```RxwebValidators.lowerCase()``` | ```@lowerCase() username: string;```
-| [mac](#mac)  | ```RxwebValidators.mac()``` | ```@mac()	systemMacAddress: string;```
-| [maxDate](#maxDate)  | ```RxwebValidators.maxDate({value:new Date(2018,7,30)})``` | ```@maxDate({value:new Date(2018,7,30) })	registrationDate: Date;```
-| [maxLength](#maxLength)   | ```RxwebValidators.maxLength({value:10 })``` | ```@maxLength({value:10 }) firstName: string;```
-| [maxNumber](#maxNumber) |  ```RxwebValidators.maxNumber({value:50 })``` | ```@maxNumber({value:50 }) passingMarks: number;```
-| [minDate](#minDate)   | ```RxwebValidators.minDate({value:new Date(2018,7,30) })``` | ```@minDate({value:new Date(2018,7,30) }) registrationDate: Date;```
-| [minLength](#minLength)   |  ```RxwebValidators.minLength({value:8 })``` | ```@minLength({value:8 }) countryName: string;```
-| [minNumber](#minNumber)   | ```RxwebValidators.minNumber({value:35 })``` | ```@minNumber({value:35 }) 	maths: number;```
-| [noneOf](#noneOf)   |  ```RxwebValidators.noneOf({matchValues: ["MVC", "AngularJS"]})``` | ```@noneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
-| [numeric](#numeric)   | ```RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber, allowDecimal: false})``` | ```@numeric({acceptValue:NumericValueType.PositiveNumber, allowDecimal: false}) integerNumber: number;```
-| [odd](#odd)   |  ```RxwebValidators.odd()``` | ```@odd() oddNumber: number;```
-| [oneOf](#oneOf)   | ```RxwebValidators.oneOf({matchValues: ["MVC", "AngularJS"]})``` | ```@oneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
-| [password](#password)   | ```RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true})``` | ```@password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true}) 	password: string;```
-| [pattern](#pattern)   |  ```RxwebValidators.pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')})``` | ```@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}) 	userName: string;```
-| [port](#port) |
-| [primeNumber](#primeNumber) |
-| [range](#range)   | ```RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })``` | ```@range({minimumNumber:18  ,maximumNumber:60 }) age: number;```
-| [required](#required)   | ```RxwebValidators.required()``` | ```@required()	firstName: string;```
-| [startsWith](#startsWith) |
-| [time](#time)   | ```RxwebValidators.time()``` | ```@time() entryTime: string;```
-| [upperCase](#upperCase)   | ```RxwebValidators.upperCase()``` | ```@upperCase() countryName: string;```
-| [url](#url)   | ```RxwebValidators.url()``` | ```@url() 	adminWebsiteUrl: string;```|
+| Name | Description |
+| ----------- | ------------- |
+| [allOf](#allOf)     | allOf validation will check whether the user has entered all of the values of given field or not. | 
+| [alpha](#alpha)   | Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character. |
+| [alphaNumeric](#alphaNumeric)   |  Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. |
+| [ascii](#ascii) | ascii validation allows user to enter the input which is in the proper ascii format. |
+| [choice](#choice)   | choice validation will check whether the value entered is matching the properties defined. |
+| [compare](#compare)   |  Compare validation will compare two inputs whether they are same or not.|
+| [contains](#contains)   |  Contains validation will check that value is in the input, It will not allow to enter input that not contains the predefined value. |
+| [creditCard](#creditCard)   | creditCard validation will check property value is creditcardtype or not, It will not allow to enter any value other than credit card format.|
+| [dataUri](#dataUri) | dataUri validation  allows user to enter the input which is a valid data Uri. |
+| [different](#different)   |  Different validation  will check two inputs whether they are different or not. It is just opposite of compare decorator. |
+| [digit](#digit)   |  Digit validation  will allow only digits to be entered, It will not allow any alphabets or special character. |
+| [email](#email)   |  Email validation  will only allow user to enter input which is in the correct email format. |
+| [endsWith](#endsWith) | endsWith validation  allows user to enter the input which ends with particular value. |
+| [even](#even)   | Even validation  will check whether the value entered by user is an even number or not. |
+| [factor](#factor)   | factor validation  will allow user to enter factor of a number which is called dividend.  |
+| [fileSize](#fileSize) | fileSize validation  allows user to enter the input which is in the proper file size format. |
+| [greaterThanEqualTo](#greaterThanEqualTo)   | Greater than equal to validation decorator will check that input property is greater than or equal to the related field input. |
+| [greaterThan](#greaterThan)   | Greater than validation will check that input property is greater than related field input.|
+| [hexColor](#hexColor)   | HexColor validation will allow user to enter only the input in proper Hex Color format. |
+| [json](#json)   | json validation will allow user to enter the input only in proper Json format. |
+| [latitude](#laititude) |  latitude validation allows user to enter value which is valid latitude. |
+| [latLong](#latLong) | latLong validation allows user to enter the input which is valid Latitude or longitude. |
+| [leapYear](#leapYear)   | LeapYear validation will check whether the value entered is a leap year or not. |
+| [lessThanEqualTo](#lessThanEqualTo)   | Less than equal to validation will allow the user to enter only that value which is less than oe equal to the value in the pre defined field. |
+| [lessThan](#lessThan)   | Less than validation will allow the user to enter only that value which is less than the value in the pre defined field. |
+| [longitude](#longitude) | longitude validation allows user to enter the input which is in the proper longitude format. |
+| [lowerCase](#lowerCase)   | lowerCase validation will allow user to enter only the lowercase alphabets. |
+| [mac](#mac)  | mac validation will check whether the value entered is a valid mac address. |
+| [maxDate](#maxDate)  |  MaxDate validation will allow user to enter the date less than the maxDate value parameter. |
+| [maxLength](#maxLength)   |  MaxLength validation will allow user to enter the input upto the maximum length value parameter.|
+| [maxNumber](#maxNumber) | MaxNumber validation will allow user to enter the input upto the maximum number value parameter.|
+| [minDate](#minDate)   |  Minimum Date validation will allow user to enter date greater the minimum date value parameter. |
+| [minLength](#minLength)   | MinLength validation will allow user to enter the input length matching the minimum length value parameter.|
+| [minNumber](#minNumber)   |  MinNumber validation will allow user to enter the input greater than the minimum number value parameter.|
+| [noneOf](#noneOf)  |  noneOf validation will check whether the user has entered none of the value is selected from the given inputs.|
+| [numeric](#numeric)  | numeric validation will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.|
+| [odd](#odd)   | Odd validation will check whether the value entered is an odd number or not. |
+| [oneOf](#oneOf)  | oneOf validation will check whether the user has entered any one of the given inputs or not.|
+| [password](#password)  | Password validation will allow user to enter only the input according to correct password validation format.|
+| [pattern](#pattern)   | Pattern validation will allow user to enter the input which match the predefined pattern value parameter.|
+| [port](#port) | port validation allows user to enter the input which is a valid port number. |
+| [primeNumber](#primeNumber) |  primeNumber validation allows user to enter only prime number. |
+| [range](#range)   | Range validation will check that the entered value is in the specified range. |
+| [required](#required)   |  Required validation will check that the user has entered the value in the property or not. |
+| [startsWith](#startsWith) | startsWith validation allows user to enter the input which starts with particular value. |
+| [time](#time)   | time validation will allow user to enter the input only in the correct time format. |
+| [upperCase](#upperCase)   | UpperCase validation will allow user to enter the alphabets only in the upperCase format. |
+| [url](#url)   | Url validation will check that value entered in the property is in the correct url format or not. |
 
 ### alpha
 ##### Reactive Form Validation
@@ -120,13 +120,13 @@ this.countryFormGroup = this.formBuilder.group({
 ##### Reactive Form Validation
 ```js
   this.employeeInfoFormGroup = this.formBuilder.group({
-           skills:[RxwebValidators.allOf({matchValues:["MVC", "AngularJS","Angular 5","C#"]})], 
+           skills:[RxwebValidators.allOf({matchValues:["MVC", "AngularJS","AngularJS 5","C#"]})], 
         });
 ```       
 ##### Template Form Validation
 ```html
  <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
-        [(ngModel)]="employee.skills" allOf/>{{tag.name}}
+        [(ngModel)]="employee.skills" [allOf]='["matchValues":"MVC","AngularJS","AngularJS","C#"]'/>{{tag.name}}
 ```
 ##### Decorator Based Validation
 ```js
@@ -142,7 +142,7 @@ this.countryFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}"
-        [(ngModel)]="employee.skills" choice/>{{tag.name}}
+        [(ngModel)]="employee.skills" [choice]='["minLength":"5"]'/>{{tag.name}}
 ```
 ##### Decorator Based Validation
 ```js
@@ -175,7 +175,7 @@ this.countryFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="confirmPassword" name="confirmPassword" class="form-control"
-         [(ngModel)]="user.confirmPassword" compare >
+         [(ngModel)]="user.confirmPassword" [compare]='["fieldName":"password"]'] >
 ```
 ##### Decorator Based Validation
 ```js
@@ -191,7 +191,7 @@ this.countryFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="emailAddress" name="emailAddress" class="form-control"
-         [(ngModel)]="user.emailAddress" contains >
+         [(ngModel)]="user.emailAddress" [contains]='["fieldName":"@gmail.com"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -208,7 +208,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="creditCardNumber" name="creditCardNumber" class="form-control"
-         [(ngModel)]="user.creditCardNumber" creditCard >
+         [(ngModel)]="user.creditCardNumber" [creditCard]='["fieldName":"cardType"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -241,7 +241,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="lastName" name="lastName" class="form-control"
-         [(ngModel)]="account.lastName" different >
+         [(ngModel)]="account.lastName" [different]='["fieldName":"firstName"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -289,7 +289,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="name" name="name" class="form-control"
-         [(ngModel)]="user.name" endsWith >
+         [(ngModel)]="user.name" [endsWith]='["value":"m"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -321,7 +321,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="firstNumber" name="firstNumber" class="form-control"
-         [(ngModel)]="user.firstNumber" factor >
+         [(ngModel)]="user.firstNumber" [factor]='["dividend":"50"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -337,7 +337,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="videoStorageSize" name="videoStorageSize" class="form-control"
-         [(ngModel)]="storage.videoStorageSize" fileSize >
+         [(ngModel)]="storage.videoStorageSize" [fileSize]='["maxSize":"50"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -354,7 +354,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="voterAge" name="voterAge" class="form-control"
-         [(ngModel)]="user.voterAge" greaterThanEqualTo >
+         [(ngModel)]="user.voterAge" [greaterThanEqualTo]='["fieldName":"age"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -371,7 +371,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="voterAge" name="voterAge" class="form-control"
-         [(ngModel)]="user.voterAge" greaterThan >
+         [(ngModel)]="user.voterAge" [greaterThan]='["fieldName":"age"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -468,7 +468,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="marks" name="marks" class="form-control"
-         [(ngModel)]="user.marks" lessThanEqualTo >
+         [(ngModel)]="user.marks" [lessThanEqualTo]='["fieldName":"totalMarks"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -485,7 +485,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="passingMarks" name="passingMarks" class="form-control"
-         [(ngModel)]="user.passingMarks" lessThan >
+         [(ngModel)]="user.passingMarks" [lessThan]='["fieldName":"marks"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -549,7 +549,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="registrationDate" name="registrationDate" class="form-control"
-         [(ngModel)]="user.registrationDate" maxDate >
+         [(ngModel)]="user.registrationDate" [maxDate]='["value":"2018-07-30"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -565,7 +565,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="firstName" name="firstName" class="form-control"
-         [(ngModel)]="location.firstName" maxLength >
+         [(ngModel)]="location.firstName" [maxLength]='["value":"10"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -581,7 +581,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="passingMarks" name="passingMarks" class="form-control"
-         [(ngModel)]="subject.passingMarks" maxNumber >
+         [(ngModel)]="subject.passingMarks" [maxNumber]='["value":"50"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -597,7 +597,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="registrationDate" name="registrationDate" class="form-control"
-         [(ngModel)]="user.registrationDate" minDate >
+         [(ngModel)]="user.registrationDate"  [minDate]='["value":"2018-07-30"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -613,7 +613,7 @@ this.contactFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="countryName" name="countryName" class="form-control"
-         [(ngModel)]="country.countryName" minLength >
+         [(ngModel)]="country.countryName" [minLength]='["value":"8"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -629,7 +629,7 @@ this.contactFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="maths" name="maths" class="form-control"
-         [(ngModel)]="result.maths" minNumber >
+         [(ngModel)]="result.maths" [minNumber]='["value":"35"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -645,7 +645,7 @@ this.contactFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
-        [(ngModel)]="employee.skills" noneOf/>{{tag.name}}
+        [(ngModel)]="employee.skills" [noneOf]='["matchvalues":"MVC","AngularJS","Angular 5","C#"]'/>{{tag.name}}
 ```
 ##### Decorator Based Validation
 ```js
@@ -661,7 +661,7 @@ this.contactFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="integerNumber" name="integerNumber" class="form-control"
-         [(ngModel)]="user.integerNumber" numeric >
+         [(ngModel)]="user.integerNumber" [numeric]='["acceptValue":"NumericValueType.PositiveNumber","allowDecimal":"false"]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -693,7 +693,7 @@ this.contactFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
-        [(ngModel)]="employee.skills" oneOf/>{{tag.name}}
+        [(ngModel)]="employee.skills" [oneOf]='["matchvalues":"MVC","AngularJS","Angular 5","C#"]'/>{{tag.name}}
 ```
 ##### Decorator Based Validation
 ```js
@@ -709,7 +709,7 @@ this.contactFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="password" name="password" class="form-control"
-         [(ngModel)]="login.password" password >
+         [(ngModel)]="login.password" [password]='["validation":{maxLength: 10,minLength: 5,digit: true,specialCharacter: true}]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -725,7 +725,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="userName" name="userName" class="form-control"
-         [(ngModel)]="user.userName" pattern >
+         [(ngModel)]="user.userName" [pattern]='["pattern":{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}]' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -773,7 +773,7 @@ this.employeeInfoFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="age" name="age" class="form-control"
-         [(ngModel)]="employee.age" range >
+         [(ngModel)]="employee.age" [range]='["minimumNumber":"18","maximumNumber":"60"]' >
 ```
 ##### Decorator Based Validation
 ```js		
@@ -805,7 +805,7 @@ this.userInfoFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="name" name="name" class="form-control"
-         [(ngModel)]="user.name" startsWith >
+         [(ngModel)]="user.name" [startsWith]='["value"="n"]'>
 ```
 ##### Decorator Based Validation
 ```js		
