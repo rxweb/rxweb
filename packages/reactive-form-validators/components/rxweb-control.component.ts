@@ -15,7 +15,7 @@ export class RxwebControlComponent implements AfterContentInit {
 
     @Input() data:any;
 
-    private control:any
+    control:any
 
     
 

@@ -11,7 +11,7 @@ import {AlphaConfig,ArrayConfig,BaseConfig,ChoiceConfig,CompareConfig,ComposeCon
 const COMPOSE:string = 'compose';
 const NGMODEL_BINDING: any = {
   provide: NG_VALIDATORS,
-  useExisting: forwardRef(() => FormControlDirective),
+  useExisting: forwardRef(() => RxFormControlDirective),
   multi: true
 };
 
@@ -22,7 +22,7 @@ const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','aphaNumeric','ascii'
   providers: [NGMODEL_BINDING],
  
 })
-export class FormControlDirective extends BaseValidator implements OnInit,OnDestroy {
+export class RxFormControlDirective extends BaseValidator implements OnInit,OnDestroy {
   private controls:{[key:string]:FormControl};
   set validationControls(value:{[key:string]:FormControl}){
     this.controls = value;

@@ -2,12 +2,12 @@ import {Input, ContentChildren,QueryList } from "@angular/core"
 import { FormGroup , AbstractControl} from "@angular/forms"
 
 import { AnnotationTypes } from "../core/validator.static";
-import { FormControlDirective } from './template-validations/ngmodel.directive'
+import { RxFormControlDirective } from './template-validations/rxformcontrol.directive'
 
 export abstract class BaseDirective {
     validationRule:any = {};
     @Input() formGroup: FormGroup;
-    @ContentChildren(FormControlDirective) ngModelElements: QueryList<FormControlDirective>;
+    @ContentChildren(RxFormControlDirective) ngModelElements: QueryList<RxFormControlDirective>;
     
     bindEvents(isReactiveForm:boolean = true):void {
       this.setControl();
