@@ -33,47 +33,56 @@ $ npm install @rxweb/reactive-form-validators
 ## Validation Decorators & Validators 
 ```Validation can be applied via Validators or Decorators. If you are using validators then you don't need to import any module, you can directly as same as Angular validators in the 'FormControl'. This validators are more advanced than angular validators.``` 
 
-| Name | Validator | Decorator | 
-| ----------- | ----------- | ----------- |
+| Name | 
+| ----------- |
 | [allOf](#allOf)     |  
 | [alpha](#alpha)   | 
 | [alphaNumeric](#alphaNumeric)   |
-| [ascii(#ascii)] |
+| [ascii](#ascii) |
 | [choice](#choice)   | 
 | [compare](#compare)   | ```RxwebValidators.compare({fieldName:'password'   })``` | ```@compare({fieldName:'password'})	confirmPassword: string; ``` |
-| contains   |  ```RxwebValidators.contains({value:'@gmail.com' })``` | ```@contains({value:'@gmail.com' }) emailAddress: string; ``` |
-| creditCard   | ```RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]})``` | ```@creditCard({creditCardTypes:[CreditCardType.Visa]}) 	otherVisaCard: string; ``` |
-| different   | ```RxwebValidators.different({fieldName:"firstName" })``` | ```@different({fieldName:"firstName" }) lastName: string; ```
-| digit   |  ```RxwebValidators.digit()``` | ```@digit() age: number; ```
-| email   |  ```RxwebValidators.email()``` | ```@email() email: string; ```
-| even   | ```RxwebValidators.even()``` | ```@even() evenNumber: number;```
-| factor   | ```RxwebValidators.factor({dividend:50 })``` | ```@factor({dividend:50 }) firstNumber: Number;```
-| greaterThanEqualTo   | ```RxwebValidators.greaterThanEqualTo({fieldName:'age'})``` | ```@greaterThanEqualTo({fieldName:'age'}) voterAge: number;```
-| greaterThan   | ```RxwebValidators.greaterThan({fieldName:'age'})``` | ```@greaterThan({fieldName:'age' }) voterAge: number;```
-| hexColor   | ```RxwebValidators.hexColor()``` | ```@hexColor() color: string;```
-| json   | ```RxwebValidators.json()``` | ```@json() locationJson: string;```
-| leapYear   | ```RxwebValidators.leapYear()``` | ```@leapYear()	birthYear: number;```
-| lessThanEqualTo   | ```RxwebValidators.lessThanEqualTo({fieldName:'totalMarks'})``` | ```@lessThanEqualTo({fieldName:'totalMarks'}) marks: number;```
-| lessThan   | ```RxwebValidators.lessThan({fieldName:'totalMarks'})``` | ```@lessThan({fieldName:'totalMarks'}) marks: number;```
-| lowerCase   | ```RxwebValidators.lowerCase()``` | ```@lowerCase() username: string;```
-| mac   | ```RxwebValidators.mac()``` | ```@mac()	systemMacAddress: string;```
-| maxDate  | ```RxwebValidators.maxDate({value:new Date(2018,7,30)})``` | ```@maxDate({value:new Date(2018,7,30) })	registrationDate: Date;```
-| maxLength   | ```RxwebValidators.maxLength({value:10 })``` | ```@maxLength({value:10 }) firstName: string;```
-| maxNumber |  ```RxwebValidators.maxNumber({value:50 })``` | ```@maxNumber({value:50 }) passingMarks: number;```
-| minDate   | ```RxwebValidators.minDate({value:new Date(2018,7,30) })``` | ```@minDate({value:new Date(2018,7,30) }) registrationDate: Date;```
-| minLength   |  ```RxwebValidators.minLength({value:8 })``` | ```@minLength({value:8 }) countryName: string;```
-| minNumber   | ```RxwebValidators.minNumber({value:35 })``` | ```@minNumber({value:35 }) 	maths: number;```
-| noneOf   |  ```RxwebValidators.noneOf({matchValues: ["MVC", "AngularJS"]})``` | ```@noneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
-| numeric   | ```RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber, allowDecimal: false})``` | ```@numeric({acceptValue:NumericValueType.PositiveNumber, allowDecimal: false}) integerNumber: number;```
-| odd   |  ```RxwebValidators.odd()``` | ```@odd() oddNumber: number;```
-| oneOf   | ```RxwebValidators.oneOf({matchValues: ["MVC", "AngularJS"]})``` | ```@oneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
-| password   | ```RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true})``` | ```@password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true}) 	password: string;```
+| [contains](#contains)   |  ```RxwebValidators.contains({value:'@gmail.com' })``` | ```@contains({value:'@gmail.com' }) emailAddress: string; ``` |
+| [creditCard](#creditCard)   | ```RxwebValidators.creditCard({creditCardTypes:[CreditCardType.Visa]})``` | ```@creditCard({creditCardTypes:[CreditCardType.Visa]}) 	otherVisaCard: string; ``` |
+| [dataUri](#dataUri) |
+| [different](#different)   | ```RxwebValidators.different({fieldName:"firstName" })``` | ```@different({fieldName:"firstName" }) lastName: string; ```
+| [digit](#digit)   |  ```RxwebValidators.digit()``` | ```@digit() age: number; ```
+| [email](#email)   |  ```RxwebValidators.email()``` | ```@email() email: string; ```
+| [endsWith](#endsWith) |
+| [even](#even)   | ```RxwebValidators.even()``` | ```@even() evenNumber: number;```
+| [factor](#factor)   | ```RxwebValidators.factor({dividend:50 })``` | ```@factor({dividend:50 }) firstNumber: Number;```
+| [fileSize](#fileSize) |
+| [greaterThanEqualTo](#greaterThanEqualTo)   | ```RxwebValidators.greaterThanEqualTo({fieldName:'age'})``` | ```@greaterThanEqualTo({fieldName:'age'}) voterAge: number;```
+| [greaterThan](#greaterThan)   | ```RxwebValidators.greaterThan({fieldName:'age'})``` | ```@greaterThan({fieldName:'age' }) voterAge: number;```
+| [hexColor](#hexColor)   | ```RxwebValidators.hexColor()``` | ```@hexColor() color: string;```
+| [json](#json)   | ```RxwebValidators.json()``` | ```@json() locationJson: string;```
+| [latitude(#laititude)] |
+| [latLong(#latLong)] |
+| [leapYear](#leapYear)   | ```RxwebValidators.leapYear()``` | ```@leapYear()	birthYear: number;```
+| [lessThanEqualTo](#lessThanEqualTo)   | ```RxwebValidators.lessThanEqualTo({fieldName:'totalMarks'})``` | ```@lessThanEqualTo({fieldName:'totalMarks'}) marks: number;```
+| [lessThan](#lessThan)   | ```RxwebValidators.lessThan({fieldName:'totalMarks'})``` | ```@lessThan({fieldName:'totalMarks'}) marks: number;```
+| [longitude](#longitude) |
+| [lowerCase](#lowerCase)   | ```RxwebValidators.lowerCase()``` | ```@lowerCase() username: string;```
+| [mac](#mac)  | ```RxwebValidators.mac()``` | ```@mac()	systemMacAddress: string;```
+| [maxDate](#maxDate)  | ```RxwebValidators.maxDate({value:new Date(2018,7,30)})``` | ```@maxDate({value:new Date(2018,7,30) })	registrationDate: Date;```
+| [maxLength](#maxLength)   | ```RxwebValidators.maxLength({value:10 })``` | ```@maxLength({value:10 }) firstName: string;```
+| [maxNumber](#maxNumber) |  ```RxwebValidators.maxNumber({value:50 })``` | ```@maxNumber({value:50 }) passingMarks: number;```
+| [minDate](#minDate)   | ```RxwebValidators.minDate({value:new Date(2018,7,30) })``` | ```@minDate({value:new Date(2018,7,30) }) registrationDate: Date;```
+| [minLength](#minLength)   |  ```RxwebValidators.minLength({value:8 })``` | ```@minLength({value:8 }) countryName: string;```
+| [minNumber](#minNumber)   | ```RxwebValidators.minNumber({value:35 })``` | ```@minNumber({value:35 }) 	maths: number;```
+| [noneOf](#noneOf)   |  ```RxwebValidators.noneOf({matchValues: ["MVC", "AngularJS"]})``` | ```@noneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
+| [numeric](#numeric)   | ```RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber, allowDecimal: false})``` | ```@numeric({acceptValue:NumericValueType.PositiveNumber, allowDecimal: false}) integerNumber: number;```
+| [odd](#odd)   |  ```RxwebValidators.odd()``` | ```@odd() oddNumber: number;```
+| [oneOf](#oneOf)   | ```RxwebValidators.oneOf({matchValues: ["MVC", "AngularJS"]})``` | ```@oneOf({matchValues: ["MVC", "AngularJS"]}) skills: string;```
+| [password](#password)   | ```RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true})``` | ```@password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true}) 	password: string;```
 | pattern   |  ```RxwebValidators.pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')})``` | ```@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}) 	userName: string;```
-| range   | ```RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })``` | ```@range({minimumNumber:18  ,maximumNumber:60 }) age: number;```
-| required   | ```RxwebValidators.required()``` | ```@required()	firstName: string;```
-| time   | ```RxwebValidators.time()``` | ```@time() entryTime: string;```
-| upperCase   | ```RxwebValidators.upperCase()``` | ```@upperCase() countryName: string;```
-| url   | ```RxwebValidators.url()``` | ```@url() 	adminWebsiteUrl: string;```|
+| [port](#port) |
+| [primeNumber](#primeNumber) |
+| [range](#range)   | ```RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })``` | ```@range({minimumNumber:18  ,maximumNumber:60 }) age: number;```
+| [required](#required)   | ```RxwebValidators.required()``` | ```@required()	firstName: string;```
+| [startsWith](#startsWith) |
+| [time](#time)   | ```RxwebValidators.time()``` | ```@time() entryTime: string;```
+| [upperCase](#upperCase)   | ```RxwebValidators.upperCase()``` | ```@upperCase() countryName: string;```
+| [url](#url)   | ```RxwebValidators.url()``` | ```@url() 	adminWebsiteUrl: string;```|
 
 ### alpha
 ##### Reactive Form Validation
@@ -121,8 +130,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```
 ##### Decorator Based Validation
 ```js
-  @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"], 
-  skills: string[];
+  @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
 ```
 ### choice
 ##### Reactive Form Validation
@@ -154,11 +162,703 @@ this.countryFormGroup = this.formBuilder.group({
 ```
 ##### Decorator Based Validation
 ```js
-@ascii() 
-	specialCharAsciiCode: string;
-
+@ascii() specialCharAsciiCode: string;
 ```
-
+### compare
+##### Reactive Form Validation
+```js
+ this.userFormGroup = this.formBuilder.group({
+            password:['',], 
+            confirmPassword:['', RxwebValidators.compare({fieldName:'password' })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="confirmPassword" name="confirmPassword" class="form-control"
+         [(ngModel)]="user.confirmPassword" compare >
+```
+##### Decorator Based Validation
+```js
+@compare({fieldName:'password'}) confirmPassword: string;
+```
+### contains
+##### Reactive Form Validation
+```js
+ this.userFormGroup = this.formBuilder.group({
+            emailAddress:['', RxwebValidators.contains({value:'@gmail.com' })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="emailAddress" name="emailAddress" class="form-control"
+         [(ngModel)]="user.emailAddress" contains >
+```
+##### Decorator Based Validation
+```js
+@contains({value:'@gmail.com'}) emailAddress: string;
+```
+### creditCard
+##### Reactive Form Validation
+```js
+this.userFormGroup = this.formBuilder.group({
+            cardType:['',], 
+            creditCardNumber:['', RxwebValidators.creditCard({fieldName:'cardType' })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="creditCardNumber" name="creditCardNumber" class="form-control"
+         [(ngModel)]="user.creditCardNumber" creditCard >
+```
+##### Decorator Based Validation
+```js
+@creditCard({fieldName:'cardType' }) creditCardNumber: string;
+```
+### dataUri
+##### Reactive Form Validation
+```js
+ this.userFormGroup = this.formBuilder.group({
+            htmlDataUri:['', RxwebValidators.dataUri()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="htmlDataUri" name="htmlDataUri" class="form-control"
+         [(ngModel)]="user.htmlDataUri" dataUri >
+```
+##### Decorator Based Validation
+```js
+@dataUri() htmlDataUri: string;
+```
+### different
+##### Reactive Form Validation
+```js
+ this.accountInfoFormGroup = this.formBuilder.group({
+            firstName:['',], 
+            lastName:['', RxwebValidators.different({fieldName:"firstName" })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="lastName" name="lastName" class="form-control"
+         [(ngModel)]="account.lastName" different >
+```
+##### Decorator Based Validation
+```js
+@different({fieldName:"firstName" }) lastName: string;
+```
+### digit
+##### Reactive Form Validation
+```js
+   this.userFormGroup = this.formBuilder.group({
+            age:['', RxwebValidators.digit()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="age" name="age" class="form-control"
+         [(ngModel)]="user.age" digit >
+```
+##### Decorator Based Validation
+```js
+@digit() age: number;
+```
+### email
+##### Reactive Form Validation
+```js
+   this.userFormGroup = this.formBuilder.group({
+            email:['', RxwebValidators.email()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="email" name="email" class="form-control"
+         [(ngModel)]="user.email" email >
+```
+##### Decorator Based Validation
+```js
+@email() email: string;
+```
+### endsWith
+##### Reactive Form Validation
+```js
+  this.userFormGroup = this.formBuilder.group({
+            name:['', RxwebValidators.endsWith({value:'m' })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="name" name="name" class="form-control"
+         [(ngModel)]="user.name" endsWith >
+```
+##### Decorator Based Validation
+```js
+@endsWith({value:'m' }) name: string;
+```
+### even
+##### Reactive Form Validation
+```js
+  this.userFormGroup = this.formBuilder.group({
+            evenNumber:['', RxwebValidators.even()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="evenNumber" name="evenNumber" class="form-control"
+         [(ngModel)]="user.evenNumber" even >
+```
+##### Decorator Based Validation
+```js
+@even() evenNumber: number;
+```
+### factor
+##### Reactive Form Validation
+```js
+this.userFormGroup = this.formBuilder.group({
+            firstNumber:['', RxwebValidators.factor({dividend:50 })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="firstNumber" name="firstNumber" class="form-control"
+         [(ngModel)]="user.firstNumber" factor >
+```
+##### Decorator Based Validation
+```js
+@factor({dividend:50 })	firstNumber: Number;
+```
+### fileSize
+##### Reactive Form Validation
+```js
+   this.storageCapacityFormGroup = this.formBuilder.group({
+            videoStorageSize:['', RxwebValidators.fileSize({maxSize:50 })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="videoStorageSize" name="videoStorageSize" class="form-control"
+         [(ngModel)]="storage.videoStorageSize" fileSize >
+```
+##### Decorator Based Validation
+```js
+@fileSize({maxSize:50 }) videoStorageSize: string;
+```
+### greaterThanEqualTo
+##### Reactive Form Validation
+```js
+ this.userFormGroup = this.formBuilder.group({
+            age:['',], 
+            voterAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age' })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="voterAge" name="voterAge" class="form-control"
+         [(ngModel)]="user.voterAge" greaterThanEqualTo >
+```
+##### Decorator Based Validation
+```js
+@greaterThanEqualTo({fieldName:'age' }) voterAge: number;
+```
+### greaterThan
+##### Reactive Form Validation
+```js
+this.userFormGroup = this.formBuilder.group({
+            age:['',], 
+            voterAge:['', RxwebValidators.greaterThan({fieldName:'age' })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="voterAge" name="voterAge" class="form-control"
+         [(ngModel)]="user.voterAge" greaterThan >
+```
+##### Decorator Based Validation
+```js
+@greaterThan({fieldName:'age' }) voterAge: number;
+```
+### hexColor
+##### Reactive Form Validation
+```js
+this.userFormGroup = this.formBuilder.group({
+            color:['', RxwebValidators.hexColor()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="color" name="color" class="form-control"
+         [(ngModel)]="user.color" hexColor >
+```
+##### Decorator Based Validation
+```js
+@hexColor() color: string;
+```
+### json
+##### Reactive Form Validation
+```js
+ this.jsonInfoFormGroup = this.formBuilder.group({
+            locationJson:['', RxwebValidators.json()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="locationJson" name="locationJson" class="form-control"
+         [(ngModel)]="json.locationJson" json >
+```
+##### Decorator Based Validation
+```js
+@json() locationJson: string;
+```
+### latitude
+##### Reactive Form Validation
+```js
+this.numberInfoFormGroup = this.formBuilder.group({
+            firstCountryLatitude:['', RxwebValidators.latitude()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="firstCountryLatitude" name="firstCountryLatitude" class="form-control"
+         [(ngModel)]="number.firstCountryLatitude" latitude >
+```
+##### Decorator Based Validation
+```js
+@latitude() firstCountryLatitude: string;
+```
+### leapYear
+##### Reactive Form Validation
+```js
+this.userFormGroup = this.formBuilder.group({
+            birthYear:['', RxwebValidators.leapYear()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="birthYear" name="birthYear" class="form-control"
+         [(ngModel)]="user.birthYear" leapYear >
+```
+##### Decorator Based Validation
+```js
+@leapYear() birthYear: number;
+```
+### latLong
+##### Reactive Form Validation
+```js
+ this.countryFormGroup = this.formBuilder.group({
+            firstCountry:['', RxwebValidators.latLong()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="firstCountry" name="firstCountry" class="form-control"
+         [(ngModel)]="country.firstCountry" latLong >
+```
+##### Decorator Based Validation
+```js
+@latLong() firstCountry: string;
+```
+### lessThanEqualTo
+##### Reactive Form Validation
+```js
+  this.userFormGroup = this.formBuilder.group({
+            totalMarks:['',], 
+            marks:['', RxwebValidators.lessThanEqualTo({fieldName:'totalMarks' })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="marks" name="marks" class="form-control"
+         [(ngModel)]="user.marks" lessThanEqualTo >
+```
+##### Decorator Based Validation
+```js
+@lessThanEqualTo({fieldName:'totalMarks' }) marks: number;
+```
+### lessThan
+##### Reactive Form Validation
+```js
+  this.userFormGroup = this.formBuilder.group({
+            marks:['',], 
+            passingMarks:['', RxwebValidators.lessThan({fieldName:'marks' })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="passingMarks" name="passingMarks" class="form-control"
+         [(ngModel)]="user.passingMarks" lessThan >
+```
+##### Decorator Based Validation
+```js
+@lessThan({fieldName:'marks' }) passingMarks: number;
+```
+### longitude
+##### Reactive Form Validation
+```js
+   this.numberInfoFormGroup = this.formBuilder.group({
+            firstCountryLongitude:['', RxwebValidators.longitude()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="firstCountryLongitude" name="firstCountryLongitude" class="form-control"
+         [(ngModel)]="number.firstCountryLongitude" longitude >
+```
+##### Decorator Based Validation
+```js
+@longitude() firstCountryLongitude: string;
+```
+### lowercase
+##### Reactive Form Validation
+```js
+     this.userInfoFormGroup = this.formBuilder.group({
+            username:['', RxwebValidators.lowerCase()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="username" name="username" class="form-control"
+         [(ngModel)]="user.username" lowercase >
+```
+##### Decorator Based Validation
+```js
+@lowerCase() username: string;
+```
+### mac
+##### Reactive Form Validation
+```js
+     this.macAddressInfoFormGroup = this.formBuilder.group({
+            systemMacAddress:['', RxwebValidators.mac()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="systemMacAddress" name="systemMacAddress" class="form-control"
+         [(ngModel)]="macAddress.systemMacAddress" mac >
+```
+##### Decorator Based Validation
+```js
+@mac() systemMacAddress: string;
+```
+### maxDate
+##### Reactive Form Validation
+```js
+this.userFormGroup = this.formBuilder.group({
+            registrationDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30) })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="registrationDate" name="registrationDate" class="form-control"
+         [(ngModel)]="user.registrationDate" maxDate >
+```
+##### Decorator Based Validation
+```js
+@maxDate({value:new Date(2018,7,30) }) registrationDate: Date;
+```
+### maxLength
+##### Reactive Form Validation
+```js
+  this.locationFormGroup = this.formBuilder.group({
+            firstName:['', RxwebValidators.maxLength({value:10 })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="firstName" name="firstName" class="form-control"
+         [(ngModel)]="location.firstName" maxLength >
+```
+##### Decorator Based Validation
+```js
+@maxLength({value:10 })	firstName: string;
+```
+### maxNumber
+##### Reactive Form Validation
+```js
+ this.subjectDetailsFormGroup = this.formBuilder.group({
+            passingMarks:['', RxwebValidators.maxNumber({value:50 })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="passingMarks" name="passingMarks" class="form-control"
+         [(ngModel)]="subject.passingMarks" maxNumber >
+```
+##### Decorator Based Validation
+```js
+@maxNumber({value:50 }) passingMarks: number;
+```
+### minDate
+##### Reactive Form Validation
+```js
+this.userFormGroup = this.formBuilder.group({
+            registrationDate:['', RxwebValidators.minDate({value:new Date(2018,7,30) })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="registrationDate" name="registrationDate" class="form-control"
+         [(ngModel)]="user.registrationDate" minDate >
+```
+##### Decorator Based Validation
+```js
+@minDate({value:new Date(2018,7,30) }) registrationDate: Date;
+```
+### minLength
+##### Reactive Form Validation
+```js
+this.contactFormGroup = this.formBuilder.group({
+            countryName:['', RxwebValidators.minLength({value:8 })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="countryName" name="countryName" class="form-control"
+         [(ngModel)]="country.countryName" minLength >
+```
+##### Decorator Based Validation
+```js
+@minLength({value:8 }) countryName: string;
+```
+### minNumber
+##### Reactive Form Validation
+```js
+  this.resultInfoFormGroup = this.formBuilder.group({
+            maths:['', RxwebValidators.minNumber({value:35 })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="maths" name="maths" class="form-control"
+         [(ngModel)]="result.maths" minNumber >
+```
+##### Decorator Based Validation
+```js
+	@minNumber({value:35 }) maths: number;
+```
+### noneOf
+##### Reactive Form Validation
+```js
+  this.employeeInfoFormGroup = this.formBuilder.group({
+           skills:[RxwebValidators.noneOf({matchValues:["MVC", "AngularJS","Angular 5","C#"]})], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
+        [(ngModel)]="employee.skills" noneOf/>{{tag.name}}
+```
+##### Decorator Based Validation
+```js
+  @noneOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]})  skills: string[];
+```
+### numeric
+##### Reactive Form Validation
+```js
+ this.userInfoFormGroup = this.formBuilder.group({
+            integerNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false })], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="integerNumber" name="integerNumber" class="form-control"
+         [(ngModel)]="user.integerNumber" numeric >
+```
+##### Decorator Based Validation
+```js
+	@numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false }) integerNumber: number;
+```
+### odd
+##### Reactive Form Validation
+```js
+  this.userFormGroup = this.formBuilder.group({
+            oddNumber:['', RxwebValidators.odd()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="oddNumber" name="oddNumber" class="form-control"
+         [(ngModel)]="user.oddNumber" odd >
+```
+##### Decorator Based Validation
+```js
+	@odd() oddNumber: number;
+```
+### oneOf
+##### Reactive Form Validation
+```js
+    this.employeeInfoFormGroup = this.formBuilder.group({
+           skills:[RxwebValidators.oneOf({matchValues:["MVC", "AngularJS","Angular 5","C#"]})], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
+        [(ngModel)]="employee.skills" oneOf/>{{tag.name}}
+```
+##### Decorator Based Validation
+```js
+ @oneOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
+```
+### password
+##### Reactive Form Validation
+```js
+  this.loginInfoFormGroup = this.formBuilder.group({
+            password:['', RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true} })], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="password" name="password" class="form-control"
+         [(ngModel)]="login.password" password >
+```
+##### Decorator Based Validation
+```js
+@password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true} })	password: string;
+```
+### pattern
+##### Reactive Form Validation
+```js
+this.userFormGroup = this.formBuilder.group({
+            userName:['', RxwebValidators.pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} })], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="userName" name="userName" class="form-control"
+         [(ngModel)]="user.userName" pattern >
+```
+##### Decorator Based Validation
+```js
+	@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} }) userName: string;
+```
+### port
+##### Reactive Form Validation
+```js
+ this.userFormGroup = this.formBuilder.group({
+            educationalWebsitePort:['', RxwebValidators.port()], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="educationalWebsitePort" name="educationalWebsitePort" class="form-control"
+         [(ngModel)]="user.educationalWebsitePort" port >
+```
+##### Decorator Based Validation
+```js
+		@port()	educationalWebsitePort: string;
+```
+### primeNumber
+##### Reactive Form Validation
+```js
+ this.numberInfoFormGroup = this.formBuilder.group({
+            firstNumber:['', RxwebValidators.primeNumber()], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="firstNumber" name="firstNumber" class="form-control"
+         [(ngModel)]="user.firstNumber" primeNumber >
+```
+##### Decorator Based Validation
+```js		
+	@primeNumber() firstNumber: string;
+```
+### range
+##### Reactive Form Validation
+```js
+this.employeeInfoFormGroup = this.formBuilder.group({
+            age:['', RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="age" name="age" class="form-control"
+         [(ngModel)]="employee.age" range >
+```
+##### Decorator Based Validation
+```js		
+  @range({minimumNumber:18  ,maximumNumber:60 }) age: number;
+```
+### required
+##### Reactive Form Validation
+```js
+this.userInfoFormGroup = this.formBuilder.group({
+            firstName:['', RxwebValidators.required()], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="firstName" name="firstName" class="form-control"
+         [(ngModel)]="user.firstName" required >
+```
+##### Decorator Based Validation
+```js		
+ @required() firstName: string;
+```
+### startsWith
+##### Reactive Form Validation
+```js
+ this.userFormGroup = this.formBuilder.group({
+            name:['', RxwebValidators.startsWith({value:'n' })], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="name" name="name" class="form-control"
+         [(ngModel)]="user.name" startsWith >
+```
+##### Decorator Based Validation
+```js		
+ @startsWith({value:'n' }) name: string;
+```
+### time
+##### Reactive Form Validation
+```js
+  this.attandanceDetailFormGroup = this.formBuilder.group({
+            entryTime:['', RxwebValidators.time()], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="entryTime" name="entryTime" class="form-control"
+         [(ngModel)]="attandance.entryTime" time >
+```
+##### Decorator Based Validation
+```js		 
+	@time() entryTime: string;
+```
+### upperCase
+##### Reactive Form Validation
+```js
+        this.locationFormGroup = this.formBuilder.group({
+            countryName:['', RxwebValidators.upperCase()], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="countryName" name="countryName" class="form-control"
+         [(ngModel)]="location.countryName" upperCase >
+```
+##### Decorator Based Validation
+```js		 
+@upperCase() countryName: string;
+```
+### url
+##### Reactive Form Validation
+```js
+      this.webSiteInfoModelFormGroup = this.formBuilder.group({
+            adminWebsiteUrl:['', RxwebValidators.url()], 
+        });
+```       
+##### Template Form Validation
+```html
+ <input id="adminWebsiteUrl" name="adminWebsiteUrl" class="form-control"
+         [(ngModel)]="website.adminWebsiteUrl" url >
+```
+##### Decorator Based Validation
+```js		 
+@url() adminWebsiteUrl: string;
+```
 ## Validation Quick Start
 To learn more about `rxweb` powerful validation features, let us look at a complete example of validating a form and displaying the error messages back to the user. 
 
