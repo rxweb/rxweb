@@ -10,7 +10,7 @@ Reactive Form Validators will work in angular projects.
 ## Table of Contents
 
 * [Installation](#installation)
-* [Validation Decorators](#validation-decorators)
+* [Validators](#validation-decorators)
 * [Important Features](#important-features)
     * [Import Modules](#import-modules)
     * [Configure Global Validation Messages](#configure-global-validation-messages)
@@ -19,7 +19,6 @@ Reactive Form Validators will work in angular projects.
     * [Dynamic Validation](#dynamic-validation)
     * [Conditional Validation](#conditional-validation)
     * [Single Validation Configuration for All Properties](#single-validation-configuration-for-all-properties)
-    * [Better Way To Show Error Message](#better-way-to-show-error-message)
     * [Dirty Check](#dirty-check)
     * [Complete Example of Model Based Decorator Validation](#complete-example-of-model-based-decorator-validation)
     * [More Information about validators and validation decorators](#more-information-about-validators-and-validation-decorators)
@@ -30,7 +29,7 @@ Reactive Form Validators will work in angular projects.
 ```bash
 $ npm install @rxweb/reactive-form-validators
 ```
-## Validation Decorators & Validators 
+## Validators
 ```Validation can be applied via Validators or Decorators. If you are using validators then you don't need to import any module, you can directly as same as Angular validators in the 'FormControl'. This validators are more advanced than angular validators.``` 
 
 | Name | Description |
@@ -1092,15 +1091,6 @@ export class UserInfoAddComponent implements OnInit {
 }
 ```
 
-## Better Way To Show Error Message
-If you are generating a `FormGroup` via `RxFormBuilder` then you will get one extra property of `errorMessage` in every `FormControl`. This will show the current error message of the control. like `firstName` field is `required` and should accepts alphabets. In this case you don't need to write different code for showing different validator message. see the below code example :
-```html
-<div class="form-group">
-    <label>First Name</label>
-    <input type="text" formControlName="firstName" class="form-control"  />
-    <small class="form-text text-danger" >{{userInfoFormGroup.controls.firstName.errorMessage}}<br/></small>
-</div>
-```
 ## Dirty Check
 Check the form is dirty or not. On component side you have to create a FormGroup object via `RxFormBuilder`, afterthat you can use `isDirty` method from FormGroup object. See the dirty code example on ***[stackblitz](https://stackblitz.com/edit/rxweb-dirty-check-angular-reactive-form?file=src%2Fapp%2Fuser-info%2Fadd%2Fuser-info-add.component.html)***
 ```html
