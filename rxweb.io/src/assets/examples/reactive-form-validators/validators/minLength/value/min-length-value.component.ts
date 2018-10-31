@@ -15,9 +15,7 @@ export class MinLengthValueValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.contactFormGroup = this.formBuilder.group({
-            countryName:['',], 
-            stateCode:['', RxwebValidators.minLength({value:3  ,conditionalExpression:'x => x.countryName == "India"' })], 
-            countryCode:['', RxwebValidators.minLength({value:3  ,conditionalExpression:(x,y)=> x.countryName == "India" })], 
+            mobileNo:['', RxwebValidators.minLength({value:10 })], 
         });
     }
 }

@@ -9,7 +9,7 @@ Suppose you want to create a Subject-detail form, which contains fields like sub
 1.	Adding field of PassingMarks without any conditional expression.
 2.	Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .
 3.	Adding Custom Message on PassingMarks Field.
-4.	Adding value which you want to restrict number in the property. The maximum number is '100s'. 
+4.	Adding value which you want to restrict number in the property. The maximum number is '100'. 
 5.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
 Let’s see how maxNumber validator fulfil the need.
@@ -32,7 +32,7 @@ message and conditional expression options are not mandatory to use in the `Rxwe
 
 |Option | Description |
 |--- | ---- |
-|[conditionalExpression](#conditionalexpression) | Max Number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
+|[conditionalExpression](#conditionalExpression) | Max Number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
 |[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 |[value](#value) | enter value which you want to restrict number in the property |
 

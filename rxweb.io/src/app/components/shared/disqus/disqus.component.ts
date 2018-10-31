@@ -21,10 +21,23 @@ export class DisqusComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        let documentObj = document, scriptSection = documentObj.createElement('script'), newDateObj: any = new Date();
-        scriptSection.src = 'https://rxweb.disqus.com/embed.js';
-        scriptSection.setAttribute('data-timestamp', newDateObj);
-        (documentObj.head || documentObj.body).appendChild(scriptSection);
+        // let documentObj = document, scriptSection = documentObj.createElement('script'), newDateObj: any = new Date();
+        // scriptSection.src = 'https://rxweb.disqus.com/embed.js';
+        // scriptSection.setAttribute('data-timestamp', newDateObj);
+        // (documentObj.head || documentObj.body).appendChild(scriptSection);
+        var dsq = document.createElement('script');
+        var head = document.getElementsByTagName('head')[0];
+        var body = document.getElementsByTagName('body')[0];
+
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//rxweb.disqus.com/embed.js';
+
+        console.log('head', head);
+        console.log('body', body);
+        var t = setTimeout(function () {
+            (head || body).appendChild(dsq);
+        }, 500)
         this.openIssues(true);
     }
 
@@ -89,28 +102,28 @@ export class DisqusComponent implements OnInit {
 
     showOpenComments(url, index) {
         if (this.openIssuesList[index]['isOpen']) {
-            this.viewComments(url,index,true);
+            this.viewComments(url, index, true);
         }
         this.openIssuesList[index]['isOpen'] = !this.openIssuesList[index]['isOpen'];
     }
 
     showCloseComments(url, index) {
         if (this.closedIssuesList[index]['isOpen']) {
-            this.viewComments(url,index,false);
+            this.viewComments(url, index, false);
         }
         this.closedIssuesList[index]['isOpen'] = !this.closedIssuesList[index]['isOpen'];
     }
 
-    viewComments(url,index,isOpen) {
+    viewComments(url, index, isOpen) {
         this.http.get(url + "?client_id=a385a7486c35aa963216&client_secret=31e3c13354c3658471123d49181041eda80ece61").subscribe((response: any[]) => {
             let comments = [];
             for (let i = 0; i < response.length; i++) {
                 comments.push(this.setCommentList(response[i]));
             }
-            if(isOpen){
+            if (isOpen) {
                 this.openIssuesList[index]['comments'] = comments;
             }
-            else{
+            else {
                 this.closedIssuesList[index]['comments'] = comments;
             }
         });

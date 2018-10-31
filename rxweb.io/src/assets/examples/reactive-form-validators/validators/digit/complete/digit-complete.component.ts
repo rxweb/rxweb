@@ -17,7 +17,7 @@ export class DigitCompleteValidatorComponent implements OnInit {
         this.userFormGroup = this.formBuilder.group({
             age:['', RxwebValidators.digit()], 
             phoneNumber:['', RxwebValidators.digit({conditionalExpression:(x,y) => x.age >= 25  })], 
-            faxNumber:['', RxwebValidators.digit({conditionalExpression:'x => x.age ==25' })], 
+            faxNumber:['', RxwebValidators.digit({conditionalExpression:'x => x.age >=25' })], 
             mobileNumber:['', RxwebValidators.digit({message:'Please enter only digit.' })], 
         });
     }

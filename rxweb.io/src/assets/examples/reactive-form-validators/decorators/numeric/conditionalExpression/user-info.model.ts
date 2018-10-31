@@ -6,11 +6,11 @@ export class UserInfo {
 	dataType: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@numeric({acceptValue:NumericValueType.Both  ,allowDecimal:false  ,conditionalExpression:'x => x.dataType == "Number"' }) 
+	@numeric({acceptValue:NumericValueType.Both  ,conditionalExpression:'x => x.dataType == "Real"' }) 
 	realNumber: number;
 
 	//If you want to apply conditional expression of type 'function'
-	@numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false  ,conditionalExpression:(x,y) => x.dataType == "Number"  }) 
+	@numeric({acceptValue:NumericValueType.PositiveNumber  ,conditionalExpression:(x,y) => x.dataType == "Positive"  }) 
 	integerNumber: number;
 
 }

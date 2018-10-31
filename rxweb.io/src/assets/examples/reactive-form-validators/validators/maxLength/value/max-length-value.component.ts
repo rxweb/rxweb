@@ -15,7 +15,7 @@ export class MaxLengthValueValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            userName:['', RxwebValidators.maxLength({value:10  ,message:'Maximum 10 characters are allowed' })], 
+            firstName:['', RxwebValidators.maxLength({value:16 })], 
         });
     }
 }

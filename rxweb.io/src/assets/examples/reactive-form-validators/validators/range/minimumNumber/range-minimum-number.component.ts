@@ -15,7 +15,7 @@ export class RangeMinimumNumberValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.employeeInfoFormGroup = this.formBuilder.group({
-            salary:['', RxwebValidators.range({minimumNumber:1000  ,maximumNumber:200000  ,message:'Your Salary should be between 10000 to 200000.' })], 
+            age:['', RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })], 
         });
     }
 }

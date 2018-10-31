@@ -10,6 +10,7 @@ import { UserInfo } from './user-info.model';
 })
 export class NumericCompleteComponent implements OnInit {
     userInfoFormGroup: FormGroup
+				dataTypes = [ "Real", "Positive",];
 
     constructor(
         private formBuilder: RxFormBuilder    ) { }
