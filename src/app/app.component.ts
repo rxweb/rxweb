@@ -160,7 +160,7 @@ this.classProperty = value;
 })
 export class AppComponent implements OnInit {
     title = 'app';
-    hero = {name:''};
+    hero = {name:'',password:'',confirmPassword:'',amount:''};
     sampleFormGroup: FormGroup;
     angularFormGroup:FormGroup;
     constructor(private formBuilder: FormBuilder, private validation: RxFormBuilder) {

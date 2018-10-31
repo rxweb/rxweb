@@ -20,7 +20,7 @@
   <input id="confirmPassword" [compare]="{fieldName:'password'}" name="confirmPassword" class="form-control"
          [(ngModel)]="hero.confirmPassword" #confirmPassword="ngModel">
   {{confirmPassword.errors | json}}
-  <input id="amount" [numeric]="{allowDecimal:true,digitsInfo:'1.0',isFormat:true}" name="amount" class="form-control"
+  <input id="amount" [numeric]="{allowDecimal:true}" name="amount" class="form-control"
          [(ngModel)]="hero.amount" #amount="ngModel">
   {{amount.errors | json}}
   {{hero.amount}}
