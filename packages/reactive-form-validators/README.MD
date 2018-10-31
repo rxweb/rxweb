@@ -36,8 +36,8 @@ $ npm install @rxweb/reactive-form-validators
 | Name | Validator | Decorator | 
 | ----------- | ----------- | ----------- |
 | allOf      |  ``` RxwebValidators.allOf({matchValues:['angular']}) ```  | ```@allOf({matchValues:['angular']}) frameworks``` |
-| alpha   |  ``` RxwebValidators.alpha() ``` | ``` @alpha() stateName: string; ``` |
-| alphaNumeric   | ``` RxwebValidators.alphaNumeric() ``` | ```@alphaNumeric() flatAddress: string; ``` |
+| [alpha](#alpha)   |  ``` RxwebValidators.alpha() ``` | ``` @alpha() stateName: string; ``` |
+| [alphaNumeric](#alphaNumeric)   | ``` RxwebValidators.alphaNumeric() ``` | ```@alphaNumeric() flatAddress: string; ``` |
 | choice   | ``` RxwebValidators.choice({minLength:'5'}) ``` | ```@choice({minLength:'5'}) Hobbies: string; ``` |
 | compare   | ```RxwebValidators.compare({fieldName:'password'   })``` | ```@compare({fieldName:'password'})	confirmPassword: string; ``` |
 | contains   |  ```RxwebValidators.contains({value:'@gmail.com' })``` | ```@contains({value:'@gmail.com' }) emailAddress: string; ``` |
@@ -73,6 +73,39 @@ $ npm install @rxweb/reactive-form-validators
 | time   | ```RxwebValidators.time()``` | ```@time() entryTime: string;```
 | upperCase   | ```RxwebValidators.upperCase()``` | ```@upperCase() countryName: string;```
 | url   | ```RxwebValidators.url()``` | ```@url() 	adminWebsiteUrl: string;```|
+
+### alpha
+##### Reactive Form Validation
+```js
+this.countryFormGroup = this.formBuilder.group({
+            countryName:['', RxwebValidators.alpha()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="countryName" name="countryName" class="form-control"
+         [(ngModel)]="country.countryName" alpha >
+```
+##### Decorator Based Validation
+```js
+@alpha() countryName: string;
+```
+### alphaNumeric
+##### Reactive Form Validation
+```js
+  this.locationFormGroup = this.formBuilder.group({
+            areaName:['', RxwebValidators.alphaNumeric()], 
+        });
+```       
+##### Template Form Validation
+```html
+<input id="areaName" name="areaName" class="form-control"
+         [(ngModel)]="location.areaName" alphaNumeric >
+```
+##### Decorator Based Validation
+```js
+@alphaNumeric() areaName: string;
+```
 
 
 ## Validation Quick Start
