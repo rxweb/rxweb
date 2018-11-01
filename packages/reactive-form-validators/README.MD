@@ -36,54 +36,54 @@ $ npm install @rxweb/reactive-form-validators
 | ----------- | ------------- |
 | [allOf](#allOf)     | allOf validation will check whether the user has entered all of the values of given field or not. | 
 | [alpha](#alpha)   | Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character. |
-| [alphaNumeric](#alphaNumeric)   |  Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. |
+| [alphaNumeric](#alphanumeric)   |  Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. |
 | [ascii](#ascii) | ascii validation allows user to enter the input which is in the proper ascii format. |
 | [choice](#choice)   | choice validation will check whether the value entered is matching the properties defined. |
 | [compare](#compare)   |  Compare validation will compare two inputs whether they are same or not.|
 | [contains](#contains)   |  Contains validation will check that value is in the input, It will not allow to enter input that not contains the predefined value. |
-| [creditCard](#creditCard)   | creditCard validation will check property value is creditcardtype or not, It will not allow to enter any value other than credit card format.|
-| [dataUri](#dataUri) | dataUri validation  allows user to enter the input which is a valid data Uri. |
+| [creditCard](#creditcard)   | creditCard validation will check property value is creditcardtype or not, It will not allow to enter any value other than credit card format.|
+| [dataUri](#datauri) | dataUri validation  allows user to enter the input which is a valid data Uri. |
 | [different](#different)   |  Different validation  will check two inputs whether they are different or not. It is just opposite of compare decorator. |
 | [digit](#digit)   |  Digit validation  will allow only digits to be entered, It will not allow any alphabets or special character. |
 | [email](#email)   |  Email validation  will only allow user to enter input which is in the correct email format. |
-| [endsWith](#endsWith) | endsWith validation  allows user to enter the input which ends with particular value. |
+| [endsWith](#endswith) | endsWith validation  allows user to enter the input which ends with particular value. |
 | [even](#even)   | Even validation  will check whether the value entered by user is an even number or not. |
 | [factor](#factor)   | factor validation  will allow user to enter factor of a number which is called dividend.  |
-| [fileSize](#fileSize) | fileSize validation  allows user to enter the input which is in the proper file size format. |
-| [greaterThanEqualTo](#greaterThanEqualTo)   | Greater than equal to validation decorator will check that input property is greater than or equal to the related field input. |
-| [greaterThan](#greaterThan)   | Greater than validation will check that input property is greater than related field input.|
-| [hexColor](#hexColor)   | HexColor validation will allow user to enter only the input in proper Hex Color format. |
+| [fileSize](#filesize) | fileSize validation  allows user to enter the input which is in the proper file size format. |
+| [greaterThanEqualTo](#greaterthanequalto)   | Greater than equal to validation decorator will check that input property is greater than or equal to the related field input. |
+| [greaterThan](#greaterthan)   | Greater than validation will check that input property is greater than related field input.|
+| [hexColor](#hexcolor)   | HexColor validation will allow user to enter only the input in proper Hex Color format. |
 | [json](#json)   | json validation will allow user to enter the input only in proper Json format. |
 | [latitude](#laititude) |  latitude validation allows user to enter value which is valid latitude. |
-| [latLong](#latLong) | latLong validation allows user to enter the input which is valid Latitude or longitude. |
-| [leapYear](#leapYear)   | LeapYear validation will check whether the value entered is a leap year or not. |
-| [lessThanEqualTo](#lessThanEqualTo)   | Less than equal to validation will allow the user to enter only that value which is less than oe equal to the value in the pre defined field. |
-| [lessThan](#lessThan)   | Less than validation will allow the user to enter only that value which is less than the value in the pre defined field. |
+| [latLong](#latlong) | latLong validation allows user to enter the input which is valid Latitude or longitude. |
+| [leapYear](#leapyear)   | LeapYear validation will check whether the value entered is a leap year or not. |
+| [lessThanEqualTo](#lessthanequalto)   | Less than equal to validation will allow the user to enter only that value which is less than oe equal to the value in the pre defined field. |
+| [lessThan](#lessthan)   | Less than validation will allow the user to enter only that value which is less than the value in the pre defined field. |
 | [longitude](#longitude) | longitude validation allows user to enter the input which is in the proper longitude format. |
-| [lowerCase](#lowerCase)   | lowerCase validation will allow user to enter only the lowercase alphabets. |
+| [lowerCase](#lowercase)   | lowerCase validation will allow user to enter only the lowercase alphabets. |
 | [mac](#mac)  | mac validation will check whether the value entered is a valid mac address. |
-| [maxDate](#maxDate)  |  MaxDate validation will allow user to enter the date less than the maxDate value parameter. |
-| [maxLength](#maxLength)   |  MaxLength validation will allow user to enter the input upto the maximum length value parameter.|
-| [maxNumber](#maxNumber) | MaxNumber validation will allow user to enter the input upto the maximum number value parameter.|
-| [minDate](#minDate)   |  Minimum Date validation will allow user to enter date greater the minimum date value parameter. |
-| [minLength](#minLength)   | MinLength validation will allow user to enter the input length matching the minimum length value parameter.|
-| [minNumber](#minNumber)   |  MinNumber validation will allow user to enter the input greater than the minimum number value parameter.|
-| [noneOf](#noneOf)  |  noneOf validation will check whether the user has entered none of the value is selected from the given inputs.|
+| [maxDate](#maxdate)  |  MaxDate validation will allow user to enter the date less than the maxDate value parameter. |
+| [maxLength](#maxlength)   |  MaxLength validation will allow user to enter the input upto the maximum length value parameter.|
+| [maxNumber](#maxnumber) | MaxNumber validation will allow user to enter the input upto the maximum number value parameter.|
+| [minDate](#mindate)   |  Minimum Date validation will allow user to enter date greater the minimum date value parameter. |
+| [minLength](#minlength)   | MinLength validation will allow user to enter the input length matching the minimum length value parameter.|
+| [minNumber](#minnumber)   |  MinNumber validation will allow user to enter the input greater than the minimum number value parameter.|
+| [noneOf](#noneof)  |  noneOf validation will check whether the user has entered none of the value is selected from the given inputs.|
 | [numeric](#numeric)  | numeric validation will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.|
 | [odd](#odd)   | Odd validation will check whether the value entered is an odd number or not. |
-| [oneOf](#oneOf)  | oneOf validation will check whether the user has entered any one of the given inputs or not.|
+| [oneOf](#oneof)  | oneOf validation will check whether the user has entered any one of the given inputs or not.|
 | [password](#password)  | Password validation will allow user to enter only the input according to correct password validation format.|
 | [pattern](#pattern)   | Pattern validation will allow user to enter the input which match the predefined pattern value parameter.|
 | [port](#port) | port validation allows user to enter the input which is a valid port number. |
-| [primeNumber](#primeNumber) |  primeNumber validation allows user to enter only prime number. |
+| [primeNumber](#primenumber) |  primeNumber validation allows user to enter only prime number. |
 | [range](#range)   | Range validation will check that the entered value is in the specified range. |
 | [required](#required)   |  Required validation will check that the user has entered the value in the property or not. |
-| [startsWith](#startsWith) | startsWith validation allows user to enter the input which starts with particular value. |
+| [startsWith](#startswith) | startsWith validation allows user to enter the input which starts with particular value. |
 | [time](#time)   | time validation will allow user to enter the input only in the correct time format. |
-| [upperCase](#upperCase)   | UpperCase validation will allow user to enter the alphabets only in the upperCase format. |
+| [upperCase](#uppercase)   | UpperCase validation will allow user to enter the alphabets only in the upperCase format. |
 | [url](#url)   | Url validation will check that value entered in the property is in the correct url format or not. |
 
-### alpha
+## alpha
 ##### Reactive Form Validation
 ```js
 this.countryFormGroup = this.formBuilder.group({
@@ -99,7 +99,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
 @alpha() countryName: string;
 ```
-### alphaNumeric
+## alphaNumeric
 ##### Reactive Form Validation
 ```js
   this.locationFormGroup = this.formBuilder.group({
@@ -115,7 +115,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
 @alphaNumeric() areaName: string;
 ```
-### allOf
+## allOf
 ##### Reactive Form Validation
 ```js
   this.employeeInfoFormGroup = this.formBuilder.group({
@@ -131,11 +131,11 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
   @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
 ```
-### choice
+## choice
 ##### Reactive Form Validation
 ```js
   this.employeeInfoFormGroup = this.formBuilder.group({
-           skills:[RxwebValidators.choice({minLength:'5'})], 
+           skills:[RxwebValidators.choice({minLength:5})], 
         });
 ```       
 ##### Template Form Validation
@@ -147,7 +147,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
  @choice({minLength:'5'}) skills: string[]; 
 ```
-### ascii
+## ascii
 ##### Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
@@ -163,7 +163,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
 @ascii() specialCharAsciiCode: string;
 ```
-### compare
+## compare
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -180,7 +180,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
 @compare({fieldName:'password'}) confirmPassword: string;
 ```
-### contains
+## contains
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -196,7 +196,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
 @contains({value:'@gmail.com'}) emailAddress: string;
 ```
-### creditCard
+## creditCard
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -213,7 +213,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @creditCard({fieldName:'cardType' }) creditCardNumber: string;
 ```
-### dataUri
+## dataUri
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -229,7 +229,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @dataUri() htmlDataUri: string;
 ```
-### different
+## different
 ##### Reactive Form Validation
 ```js
  this.accountInfoFormGroup = this.formBuilder.group({
@@ -246,7 +246,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @different({fieldName:"firstName" }) lastName: string;
 ```
-### digit
+## digit
 ##### Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
@@ -262,7 +262,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @digit() age: number;
 ```
-### email
+## email
 ##### Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
@@ -278,7 +278,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @email() email: string;
 ```
-### endsWith
+## endsWith
 ##### Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -294,7 +294,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @endsWith({value:'m' }) name: string;
 ```
-### even
+## even
 ##### Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -310,7 +310,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @even() evenNumber: number;
 ```
-### factor
+## factor
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -326,7 +326,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @factor({dividend:50 })	firstNumber: Number;
 ```
-### fileSize
+## fileSize
 ##### Reactive Form Validation
 ```js
    this.storageCapacityFormGroup = this.formBuilder.group({
@@ -342,7 +342,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @fileSize({maxSize:50 }) videoStorageSize: string;
 ```
-### greaterThanEqualTo
+## greaterThanEqualTo
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -359,7 +359,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @greaterThanEqualTo({fieldName:'age' }) voterAge: number;
 ```
-### greaterThan
+## greaterThan
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -376,7 +376,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @greaterThan({fieldName:'age' }) voterAge: number;
 ```
-### hexColor
+## hexColor
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -392,7 +392,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @hexColor() color: string;
 ```
-### json
+## json
 ##### Reactive Form Validation
 ```js
  this.jsonInfoFormGroup = this.formBuilder.group({
@@ -408,7 +408,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @json() locationJson: string;
 ```
-### latitude
+## latitude
 ##### Reactive Form Validation
 ```js
 this.numberInfoFormGroup = this.formBuilder.group({
@@ -424,7 +424,7 @@ this.numberInfoFormGroup = this.formBuilder.group({
 ```js
 @latitude() firstCountryLatitude: string;
 ```
-### leapYear
+## leapYear
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -440,7 +440,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @leapYear() birthYear: number;
 ```
-### latLong
+## latLong
 ##### Reactive Form Validation
 ```js
  this.countryFormGroup = this.formBuilder.group({
@@ -456,7 +456,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @latLong() firstCountry: string;
 ```
-### lessThanEqualTo
+## lessThanEqualTo
 ##### Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -473,7 +473,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @lessThanEqualTo({fieldName:'totalMarks' }) marks: number;
 ```
-### lessThan
+## lessThan
 ##### Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -490,7 +490,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @lessThan({fieldName:'marks' }) passingMarks: number;
 ```
-### longitude
+## longitude
 ##### Reactive Form Validation
 ```js
    this.numberInfoFormGroup = this.formBuilder.group({
@@ -506,7 +506,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @longitude() firstCountryLongitude: string;
 ```
-### lowercase
+## lowercase
 ##### Reactive Form Validation
 ```js
      this.userInfoFormGroup = this.formBuilder.group({
@@ -522,7 +522,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @lowerCase() username: string;
 ```
-### mac
+## mac
 ##### Reactive Form Validation
 ```js
      this.macAddressInfoFormGroup = this.formBuilder.group({
@@ -538,7 +538,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @mac() systemMacAddress: string;
 ```
-### maxDate
+## maxDate
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -549,12 +549,12 @@ this.userFormGroup = this.formBuilder.group({
 ```html
 <input id="registrationDate" name="registrationDate" class="form-control"
          [(ngModel)]="user.registrationDate" [maxDate]='{"value":"2018-07-30"}' >
-```
+```                                       
 ##### Decorator Based Validation
 ```js
 @maxDate({value:new Date(2018,7,30) }) registrationDate: Date;
 ```
-### maxLength
+## maxLength
 ##### Reactive Form Validation
 ```js
   this.locationFormGroup = this.formBuilder.group({
@@ -570,7 +570,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @maxLength({value:10 })	firstName: string;
 ```
-### maxNumber
+## maxNumber
 ##### Reactive Form Validation
 ```js
  this.subjectDetailsFormGroup = this.formBuilder.group({
@@ -586,7 +586,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @maxNumber({value:50 }) passingMarks: number;
 ```
-### minDate
+## minDate
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -602,7 +602,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @minDate({value:new Date(2018,7,30) }) registrationDate: Date;
 ```
-### minLength
+## minLength
 ##### Reactive Form Validation
 ```js
 this.contactFormGroup = this.formBuilder.group({
@@ -618,7 +618,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
 @minLength({value:8 }) countryName: string;
 ```
-### minNumber
+## minNumber
 ##### Reactive Form Validation
 ```js
   this.resultInfoFormGroup = this.formBuilder.group({
@@ -634,7 +634,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
 	@minNumber({value:35 }) maths: number;
 ```
-### noneOf
+## noneOf
 ##### Reactive Form Validation
 ```js
   this.employeeInfoFormGroup = this.formBuilder.group({
@@ -650,7 +650,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
   @noneOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]})  skills: string[];
 ```
-### numeric
+## numeric
 ##### Reactive Form Validation
 ```js
  this.userInfoFormGroup = this.formBuilder.group({
@@ -666,7 +666,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
 	@numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false }) integerNumber: number;
 ```
-### odd
+## odd
 ##### Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -682,7 +682,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
 	@odd() oddNumber: number;
 ```
-### oneOf
+## oneOf
 ##### Reactive Form Validation
 ```js
     this.employeeInfoFormGroup = this.formBuilder.group({
@@ -698,7 +698,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
  @oneOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
 ```
-### password
+## password
 ##### Reactive Form Validation
 ```js
   this.loginInfoFormGroup = this.formBuilder.group({
@@ -714,7 +714,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
 @password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true} })	password: string;
 ```
-### pattern
+## pattern
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -724,13 +724,13 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="userName" name="userName" class="form-control"
-         [(ngModel)]="user.userName" [pattern]='{"pattern":{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}]' >
+         [(ngModel)]="user.userName" [pattern]='{"pattern":{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}' >
 ```
 ##### Decorator Based Validation
 ```js
 	@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} }) userName: string;
 ```
-### port
+## port
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -746,7 +746,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 		@port()	educationalWebsitePort: string;
 ```
-### primeNumber
+## primeNumber
 ##### Reactive Form Validation
 ```js
  this.numberInfoFormGroup = this.formBuilder.group({
@@ -762,7 +762,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js		
 	@primeNumber() firstNumber: string;
 ```
-### range
+## range
 ##### Reactive Form Validation
 ```js
 this.employeeInfoFormGroup = this.formBuilder.group({
@@ -778,7 +778,7 @@ this.employeeInfoFormGroup = this.formBuilder.group({
 ```js		
   @range({minimumNumber:18  ,maximumNumber:60 }) age: number;
 ```
-### required
+## required
 ##### Reactive Form Validation
 ```js
 this.userInfoFormGroup = this.formBuilder.group({
@@ -794,7 +794,7 @@ this.userInfoFormGroup = this.formBuilder.group({
 ```js		
  @required() firstName: string;
 ```
-### startsWith
+## startsWith
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -810,7 +810,7 @@ this.userInfoFormGroup = this.formBuilder.group({
 ```js		
  @startsWith({value:'n' }) name: string;
 ```
-### time
+## time
 ##### Reactive Form Validation
 ```js
   this.attandanceDetailFormGroup = this.formBuilder.group({
@@ -826,7 +826,7 @@ this.userInfoFormGroup = this.formBuilder.group({
 ```js		 
 	@time() entryTime: string;
 ```
-### upperCase
+## upperCase
 ##### Reactive Form Validation
 ```js
         this.locationFormGroup = this.formBuilder.group({
@@ -842,7 +842,7 @@ this.userInfoFormGroup = this.formBuilder.group({
 ```js		 
 @upperCase() countryName: string;
 ```
-### url
+## url
 ##### Reactive Form Validation
 ```js
       this.webSiteInfoModelFormGroup = this.formBuilder.group({
