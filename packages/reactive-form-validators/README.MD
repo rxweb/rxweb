@@ -55,7 +55,7 @@ $ npm install @rxweb/reactive-form-validators
 | [greaterThan](#greaterthan)   | Greater than validation will check that input property is greater than related field input.|
 | [hexColor](#hexcolor)   | HexColor validation will allow user to enter only the input in proper Hex Color format. |
 | [json](#json)   | json validation will allow user to enter the input only in proper Json format. |
-| [latitude](#laititude) |  latitude validation allows user to enter value which is valid latitude. |
+| [latitude](#latitude) |  latitude validation allows user to enter value which is valid latitude. |
 | [latLong](#latlong) | latLong validation allows user to enter the input which is valid Latitude or longitude. |
 | [leapYear](#leapyear)   | LeapYear validation will check whether the value entered is a leap year or not. |
 | [lessThanEqualTo](#lessthanequalto)   | Less than equal to validation will allow the user to enter only that value which is less than oe equal to the value in the pre defined field. |
@@ -84,7 +84,7 @@ $ npm install @rxweb/reactive-form-validators
 | [upperCase](#uppercase)   | UpperCase validation will allow user to enter the alphabets only in the upperCase format. |
 | [url](#url)   | Url validation will check that value entered in the property is in the correct url format or not. |
 
-### alpha
+## alpha
 ##### Reactive Form Validation
 ```js
 this.countryFormGroup = this.formBuilder.group({
@@ -96,11 +96,11 @@ this.countryFormGroup = this.formBuilder.group({
 <input id="countryName" name="countryName" class="form-control"
          [(ngModel)]="country.countryName" alpha >
 ```
-##### Decorator Based Validation
+###### Decorator Based Validation
 ```js
 @alpha() countryName: string;
 ```
-### alphaNumeric
+## alphaNumeric
 ##### Reactive Form Validation
 ```js
   this.locationFormGroup = this.formBuilder.group({
@@ -116,7 +116,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
 @alphaNumeric() areaName: string;
 ```
-### allOf
+## allOf
 ##### Reactive Form Validation
 ```js
   this.employeeInfoFormGroup = this.formBuilder.group({
@@ -132,11 +132,11 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
   @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
 ```
-### choice
+## choice
 ##### Reactive Form Validation
 ```js
   this.employeeInfoFormGroup = this.formBuilder.group({
-           skills:[RxwebValidators.choice({minLength:'5'})], 
+           skills:[RxwebValidators.choice({minLength:5})], 
         });
 ```       
 ##### Template Form Validation
@@ -148,7 +148,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
  @choice({minLength:'5'}) skills: string[]; 
 ```
-### ascii
+## ascii
 ##### Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
@@ -164,7 +164,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
 @ascii() specialCharAsciiCode: string;
 ```
-### compare
+## compare
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -181,7 +181,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
 @compare({fieldName:'password'}) confirmPassword: string;
 ```
-### contains
+## contains
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -197,7 +197,7 @@ this.countryFormGroup = this.formBuilder.group({
 ```js
 @contains({value:'@gmail.com'}) emailAddress: string;
 ```
-### creditCard
+## creditCard
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -214,7 +214,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @creditCard({fieldName:'cardType' }) creditCardNumber: string;
 ```
-### dataUri
+## dataUri
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -230,7 +230,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @dataUri() htmlDataUri: string;
 ```
-### different
+## different
 ##### Reactive Form Validation
 ```js
  this.accountInfoFormGroup = this.formBuilder.group({
@@ -247,7 +247,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @different({fieldName:"firstName" }) lastName: string;
 ```
-### digit
+## digit
 ##### Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
@@ -263,7 +263,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @digit() age: number;
 ```
-### email
+## email
 ##### Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
@@ -279,7 +279,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @email() email: string;
 ```
-### endsWith
+## endsWith
 ##### Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -295,7 +295,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @endsWith({value:'m' }) name: string;
 ```
-### even
+## even
 ##### Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -311,7 +311,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @even() evenNumber: number;
 ```
-### factor
+## factor
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -327,7 +327,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @factor({dividend:50 })	firstNumber: Number;
 ```
-### fileSize
+## fileSize
 ##### Reactive Form Validation
 ```js
    this.storageCapacityFormGroup = this.formBuilder.group({
@@ -343,7 +343,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @fileSize({maxSize:50 }) videoStorageSize: string;
 ```
-### greaterThanEqualTo
+## greaterThanEqualTo
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -360,7 +360,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @greaterThanEqualTo({fieldName:'age' }) voterAge: number;
 ```
-### greaterThan
+## greaterThan
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -377,7 +377,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @greaterThan({fieldName:'age' }) voterAge: number;
 ```
-### hexColor
+## hexColor
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -393,7 +393,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @hexColor() color: string;
 ```
-### json
+## json
 ##### Reactive Form Validation
 ```js
  this.jsonInfoFormGroup = this.formBuilder.group({
@@ -409,7 +409,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @json() locationJson: string;
 ```
-### latitude
+## latitude
 ##### Reactive Form Validation
 ```js
 this.numberInfoFormGroup = this.formBuilder.group({
@@ -425,7 +425,7 @@ this.numberInfoFormGroup = this.formBuilder.group({
 ```js
 @latitude() firstCountryLatitude: string;
 ```
-### leapYear
+## leapYear
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -441,7 +441,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @leapYear() birthYear: number;
 ```
-### latLong
+## latLong
 ##### Reactive Form Validation
 ```js
  this.countryFormGroup = this.formBuilder.group({
@@ -457,7 +457,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @latLong() firstCountry: string;
 ```
-### lessThanEqualTo
+## lessThanEqualTo
 ##### Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -474,7 +474,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @lessThanEqualTo({fieldName:'totalMarks' }) marks: number;
 ```
-### lessThan
+## lessThan
 ##### Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -491,7 +491,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @lessThan({fieldName:'marks' }) passingMarks: number;
 ```
-### longitude
+## longitude
 ##### Reactive Form Validation
 ```js
    this.numberInfoFormGroup = this.formBuilder.group({
@@ -507,7 +507,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @longitude() firstCountryLongitude: string;
 ```
-### lowercase
+## lowercase
 ##### Reactive Form Validation
 ```js
      this.userInfoFormGroup = this.formBuilder.group({
@@ -523,7 +523,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @lowerCase() username: string;
 ```
-### mac
+## mac
 ##### Reactive Form Validation
 ```js
      this.macAddressInfoFormGroup = this.formBuilder.group({
@@ -539,7 +539,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @mac() systemMacAddress: string;
 ```
-### maxDate
+## maxDate
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -555,7 +555,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @maxDate({value:new Date(2018,7,30) }) registrationDate: Date;
 ```
-### maxLength
+## maxLength
 ##### Reactive Form Validation
 ```js
   this.locationFormGroup = this.formBuilder.group({
@@ -571,7 +571,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @maxLength({value:10 })	firstName: string;
 ```
-### maxNumber
+## maxNumber
 ##### Reactive Form Validation
 ```js
  this.subjectDetailsFormGroup = this.formBuilder.group({
@@ -587,7 +587,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @maxNumber({value:50 }) passingMarks: number;
 ```
-### minDate
+## minDate
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -603,7 +603,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @minDate({value:new Date(2018,7,30) }) registrationDate: Date;
 ```
-### minLength
+## minLength
 ##### Reactive Form Validation
 ```js
 this.contactFormGroup = this.formBuilder.group({
@@ -619,7 +619,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
 @minLength({value:8 }) countryName: string;
 ```
-### minNumber
+## minNumber
 ##### Reactive Form Validation
 ```js
   this.resultInfoFormGroup = this.formBuilder.group({
@@ -635,7 +635,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
 	@minNumber({value:35 }) maths: number;
 ```
-### noneOf
+## noneOf
 ##### Reactive Form Validation
 ```js
   this.employeeInfoFormGroup = this.formBuilder.group({
@@ -651,7 +651,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
   @noneOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]})  skills: string[];
 ```
-### numeric
+## numeric
 ##### Reactive Form Validation
 ```js
  this.userInfoFormGroup = this.formBuilder.group({
@@ -667,7 +667,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
 	@numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false }) integerNumber: number;
 ```
-### odd
+## odd
 ##### Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -683,7 +683,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
 	@odd() oddNumber: number;
 ```
-### oneOf
+## oneOf
 ##### Reactive Form Validation
 ```js
     this.employeeInfoFormGroup = this.formBuilder.group({
@@ -699,7 +699,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
  @oneOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
 ```
-### password
+## password
 ##### Reactive Form Validation
 ```js
   this.loginInfoFormGroup = this.formBuilder.group({
@@ -715,7 +715,7 @@ this.contactFormGroup = this.formBuilder.group({
 ```js
 @password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true} })	password: string;
 ```
-### pattern
+## pattern
 ##### Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -731,7 +731,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 	@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} }) userName: string;
 ```
-### port
+## port
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -747,7 +747,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 		@port()	educationalWebsitePort: string;
 ```
-### primeNumber
+## primeNumber
 ##### Reactive Form Validation
 ```js
  this.numberInfoFormGroup = this.formBuilder.group({
@@ -763,7 +763,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js		
 	@primeNumber() firstNumber: string;
 ```
-### range
+## range
 ##### Reactive Form Validation
 ```js
 this.employeeInfoFormGroup = this.formBuilder.group({
@@ -779,7 +779,7 @@ this.employeeInfoFormGroup = this.formBuilder.group({
 ```js		
   @range({minimumNumber:18  ,maximumNumber:60 }) age: number;
 ```
-### required
+## required
 ##### Reactive Form Validation
 ```js
 this.userInfoFormGroup = this.formBuilder.group({
@@ -795,7 +795,7 @@ this.userInfoFormGroup = this.formBuilder.group({
 ```js		
  @required() firstName: string;
 ```
-### startsWith
+## startsWith
 ##### Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -811,7 +811,7 @@ this.userInfoFormGroup = this.formBuilder.group({
 ```js		
  @startsWith({value:'n' }) name: string;
 ```
-### time
+## time
 ##### Reactive Form Validation
 ```js
   this.attandanceDetailFormGroup = this.formBuilder.group({
@@ -827,7 +827,7 @@ this.userInfoFormGroup = this.formBuilder.group({
 ```js		 
 	@time() entryTime: string;
 ```
-### upperCase
+## upperCase
 ##### Reactive Form Validation
 ```js
         this.locationFormGroup = this.formBuilder.group({
@@ -843,7 +843,7 @@ this.userInfoFormGroup = this.formBuilder.group({
 ```js		 
 @upperCase() countryName: string;
 ```
-### url
+## url
 ##### Reactive Form Validation
 ```js
       this.webSiteInfoModelFormGroup = this.formBuilder.group({
