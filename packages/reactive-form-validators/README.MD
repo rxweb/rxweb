@@ -37,7 +37,7 @@ $ npm install @rxweb/reactive-form-validators
 | ----------- | ------------- |
 | [allOf](#allOf)     | allOf validation will check whether the user has entered all of the values of given field or not. | 
 | [alpha](#alpha)   | Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character. |
-| [alphaNumeric](#alphaNumeric)   |  Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. |
+| [alphaNumeric](#alphanumeric)   |  Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. |
 | [ascii](#ascii) | ascii validation allows user to enter the input which is in the proper ascii format. |
 | [choice](#choice)   | choice validation will check whether the value entered is matching the properties defined. |
 | [compare](#compare)   |  Compare validation will compare two inputs whether they are same or not.|
