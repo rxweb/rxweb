@@ -10,7 +10,7 @@ Reactive Form Validators will work in angular projects.
 ## Table of Contents
 
 * [Installation](#installation)
-* [Validators](#validation-decorators)
+* [Validators](#Validators)
 * [Important Features](#important-features)
     * [Import Modules](#import-modules)
     * [Configure Global Validation Messages](#configure-global-validation-messages)
