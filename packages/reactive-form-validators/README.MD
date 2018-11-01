@@ -141,7 +141,7 @@ this.countryFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}"
-        [(ngModel)]="employee.skills" [choice]='{"minLength":"5"}'/>{{tag.name}}
+        [(ngModel)]="employee.skills" [choice]='{"minLength":5}'/>{{tag.name}}
 ```
 ##### Decorator Based Validation
 ```js
@@ -320,7 +320,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="firstNumber" name="firstNumber" class="form-control"
-         [(ngModel)]="user.firstNumber" [factor]='{"dividend":"50"}' >
+         [(ngModel)]="user.firstNumber" [factor]='{"dividend":50}' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -336,7 +336,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="videoStorageSize" name="videoStorageSize" class="form-control"
-         [(ngModel)]="storage.videoStorageSize" [fileSize]='{"maxSize":"50"}' >
+         [(ngModel)]="storage.videoStorageSize" [fileSize]='{"maxSize":50}' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -564,7 +564,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="firstName" name="firstName" class="form-control"
-         [(ngModel)]="location.firstName" [maxLength]='{"value":"10"}' >
+         [(ngModel)]="location.firstName" [maxLength]='{"value":10}' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -580,7 +580,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="passingMarks" name="passingMarks" class="form-control"
-         [(ngModel)]="subject.passingMarks" [maxNumber]='{"value":"50"}' >
+         [(ngModel)]="subject.passingMarks" [maxNumber]='{"value":50}' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -612,7 +612,7 @@ this.contactFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="countryName" name="countryName" class="form-control"
-         [(ngModel)]="country.countryName" [minLength]='{"value":"8"}' >
+         [(ngModel)]="country.countryName" [minLength]='{"value":8}' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -628,7 +628,7 @@ this.contactFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="maths" name="maths" class="form-control"
-         [(ngModel)]="result.maths" [minNumber]='{"value":"35"}' >
+         [(ngModel)]="result.maths" [minNumber]='{"value":35}' >
 ```
 ##### Decorator Based Validation
 ```js
@@ -772,7 +772,7 @@ this.employeeInfoFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
  <input id="age" name="age" class="form-control"
-         [(ngModel)]="employee.age" [range]='{"minimumNumber":"18","maximumNumber":"60"}' >
+         [(ngModel)]="employee.age" [range]='{"minimumNumber":18,"maximumNumber":60}' >
 ```
 ##### Decorator Based Validation
 ```js		
