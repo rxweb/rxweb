@@ -506,7 +506,7 @@ this.userFormGroup = this.formBuilder.group({
 ```js
 @longitude() firstCountryLongitude: string;
 ```
-## lowercase
+## lowerCase
 ##### Reactive Form Validation
 ```js
      this.userInfoFormGroup = this.formBuilder.group({
@@ -516,7 +516,7 @@ this.userFormGroup = this.formBuilder.group({
 ##### Template Form Validation
 ```html
 <input id="username" name="username" class="form-control"
-         [(ngModel)]="user.username" lowercase >
+         [(ngModel)]="user.username" lowerCase >
 ```
 ##### Decorator Based Validation
 ```js
