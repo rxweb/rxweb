@@ -50,7 +50,7 @@ It is an array of rxwebValidators. Validators are set according to the relative 
 ***
 
 [!example(?type=section&clickEventCode="validators=!validators"&title=compose decorator with validators)]
-<app-compose-validators></app-compose-validators>
+<app-compose-validators-validator></app-compose-validators-validator>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -70,7 +70,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ***
 
 [!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=compose decorator with conditionalExpression)]
-<app-compose-conditionalExpression></app-compose-conditionalExpression>
+<app-compose-conditionalExpression-validator></app-compose-conditionalExpression-validator>
 
 # Complete Compose Example
 
@@ -78,7 +78,7 @@ This Complete Compose example which includes all the ComposeConfig properties wi
 
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-compose-complete></app-compose-complete>
+<app-compose-complete-validator></app-compose-complete-validator>
 # [Component](#tab\completecomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\compose\complete\compose-complete.component.ts)]
 # [Html](#tab\completehtml)
@@ -88,7 +88,7 @@ This Complete Compose example which includes all the ComposeConfig properties wi
 # Dynamic Compose Example
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-compose-dynamic></app-compose-dynamic>
+<app-compose-dynamic-validator></app-compose-dynamic-validator>
 # [Component](#tab\dynamiccomponent)
 [!code-typescript[](\assets\examples\reactive-form-validators\validators\compose\dynamic\compose-dynamic.component.ts)]
 # [Json](#tab\dynamicjson)
