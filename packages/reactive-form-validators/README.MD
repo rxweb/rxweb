@@ -888,9 +888,6 @@ this.userInfoFormGroup = this.formBuilder.group({
 ```js		 
 @url() adminWebsiteUrl: string;
 ```
-## Validation Quick Start
-To learn more about `rxweb` powerful validation features, let us look at a complete example of validating a form and displaying the error messages back to the user. 
-
 ## Dynamic Validation
 Dynamic validation is used, when the validation rules will come from server side, means there is no static code on client side to manage the validation on reactive form. 
 Scenario : First Name field should accepts alphabets and that is configured on server side.
