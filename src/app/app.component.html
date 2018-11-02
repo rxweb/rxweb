@@ -1,3 +1,4 @@
+
 <rxweb-dynamic-form #df="rxwebForm">
   <ng-template htmlControlTemplate="text" let-control>
    fancontrol <input type="text" [formControl]="control" />
@@ -11,17 +12,25 @@
   </ng-template>
 </rxweb-dynamic-form>
 
-<form #heroForm="ngForm" rxwebForm>
+<form #heroForm="ngForm" [rxwebForm]="heroForm">
   name
   <input id="password" name="password" class="form-control"
-         
          [(ngModel)]="hero.password" #password="ngModel">
   {{password.errors | json}}
   <input id="confirmPassword" [compare]="{fieldName:'password'}" name="confirmPassword" class="form-control"
-         
          [(ngModel)]="hero.confirmPassword" #confirmPassword="ngModel">
   {{confirmPassword.errors | json}}
-  </form>
+  <input id="amount" [numeric]="{allowDecimal:true}" name="amount" class="form-control"
+         [(ngModel)]="hero.amount" #amount="ngModel">
+  {{amount.errors | json}}
+  {{hero.amount}}
+  <input type="checkbox" value="male" name="gender" [ngModel]="hero.gender" required #gender="ngModel"> Male
+  <input type="checkbox" value="female" name="gender" [ngModel]="hero.gender" required #gender="ngModel"> Female
+  {{hero | json}}
+  <div *ngIf="gender.invalid">
+    Gender required.
+  </div>
+</form>
 
   <form [formGroup]="modelRuleGroup">
     <div class="form-group">
@@ -36,7 +45,7 @@
   <form [formGroup]="userForm">
     <div class="form-group">
       <input type="text" formControlName="nationality" placeholder="Nationality" class="form-control" />
-
+      {{userForm.controls.nationality.errors  | json}}
     </div>
     <div class="form-group">
       <input type="text" formControlName="intlNumber" placeholder="International Number" class="form-control" />

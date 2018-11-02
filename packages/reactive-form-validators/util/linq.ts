@@ -6,13 +6,13 @@ export class Linq {
         for (var i = 0; i < splitSelect.length; i++) {
             var equalToOperator = splitSelect[i].match(/^\s*\(?\s*([^)]*)\s*\)?\s*==(.*)/);
             if (equalToOperator !== null) {
-                functionSetter = new Function(match[1], "return " + equalToOperator[0]);
+                functionSetter = new Function(match[1], "return " + equalToOperator.input);
             } else {
                 equalToOperator = splitSelect[i].match(/^\s*\(?\s*([^)]*)\s*\)?\s*=(.*)/);
                 if (equalToOperator === null) {
-                    functionSetter = new Function(match[1], "return " + splitSelect[i]);
+                    functionSetter = new Function(match[1], "return " + splitSelect.input);
                 } else {
-                    functionSetter = new Function(match[1], "return " + equalToOperator[2]);
+                    functionSetter = new Function(match[1], "return " + equalToOperator.input);
                 }
             }
         }

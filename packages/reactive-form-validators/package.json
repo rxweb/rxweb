@@ -1,6 +1,6 @@
 {
   "name": "@rxweb/reactive-form-validators",
-  "version": "1.2.6",
+  "version": "1.2.8",
   "ngPackage": {
     "lib": {
       "entryFile": "index.ts"
@@ -22,6 +22,8 @@
     "validators",
     "conditional form validation",
     "dynamic form validation",
+    "dynamic reactive form validation",
+    "dynamic template driven form validation",
     "formcontrol",
     "dirty check",
     "reset form",
