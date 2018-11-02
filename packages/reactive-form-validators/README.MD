@@ -1137,7 +1137,7 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 
 ## Help
 We are happy to help you with any kind of validation related problem in angular based application. If you face any issue with the validation framework, you can follow one of the approach below :
-1. You can join our gitter chat room and solve your queries.
+1. You can join our [gitter](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) chat room and solve your queries.
 2. You can log the issue on our github repository.
 3. Ask question on stackoverflow, we are active on stackoverflow.
 
