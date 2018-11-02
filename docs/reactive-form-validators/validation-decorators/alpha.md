@@ -5,10 +5,10 @@ author: rxcontributorone
 
 ---
 # When to use
-Suppose you want to create a Country form, which contains fields like CountryName, CountryCode, StateName, StateCode and you want the user to enter only alphabets Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a Country form, which contains fields like CountryName, CountryCode, StateName, StateCode and you want the user to enter only alphabets. Here depending upon the requirement these scenarios may arise.
 1.	Allow only alphabets in CountryName without space.
 2.	Allowing WhiteSpace in StateName
-3.	Apply alpha validation based on matched condition in the form, like if the CountryName  is ‘Australia’ then the StateCode value should be in alphabets.
+3.	Apply alpha validation based on matched condition in the form, like if the CountryName is 'India' then the StateCode value should be in alphabets.
 4.	Adding Custom Message on StateCode Field.
 5.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
@@ -16,6 +16,7 @@ Let’s see how alpha decorator fulfil the need.
  
 # Basic Alpha Validation
 First we need to create a Country class and define a property of CountryName in the model to achieve the functional need of point 1.
+
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\add\country.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\edit\country.model.ts?condition="tab_1=='basicedit'"&type=section)]
 

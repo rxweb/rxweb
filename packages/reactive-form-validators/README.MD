@@ -75,6 +75,7 @@ Three ways to apply validation on the form via Validators, Validation Decorators
 | [email](#email)   |  Email validation  will only allow user to enter input which is in the correct email format. |
 | [endsWith](#endswith) | endsWith validation  allows user to enter the input which ends with particular value. |
 | [even](#even)   | Even validation  will check whether the value entered by user is an even number or not. |
+| [extension](#extension)  |
 | [factor](#factor)   | factor validation  will allow user to enter factor of a number which is called dividend.  |
 | [fileSize](#filesize) | fileSize validation  allows user to enter the input which is in the proper file size format. |
 | [greaterThanEqualTo](#greaterthanequalto)   | Greater than equal to validation decorator will check that input property is greater than or equal to the related field input. |
@@ -183,6 +184,7 @@ ascii validation decorator allows user to enter the input which is in the proper
 ```
 ___
 ## choice
+choice validation will check whether the value entered is matching the properties defined. 
 > Reactive Form Validation
 ```js
   this.employeeInfoFormGroup = this.formBuilder.group({
@@ -200,6 +202,7 @@ ___
 ```
 ___
 ## compare
+Compare validation will compare two inputs whether they are same or not.
 > Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -217,7 +220,30 @@ ___
 @compare({fieldName:'password'}) confirmPassword: string;
 ```
 ___
+## compose
+Compose validation decorator is used to apply multiple validations on a particular field.
+> Reactive Form Validation
+```js
+this.userForm = this.formBuilder.group({
+  Username:['',[ RxwebValidators.compose({
+validators:[
+RxwebValidators.required(),
+RxwebValidators.alpha()
+],]]
+});
+```       
+> Template Form Validation
+```html
+<input id="Username" name="Username" class="form-control"
+         [(ngModel)]="user.Username" [compose]='{"validators":["alpha","required"]}' >
+```
+> Decorator Based Validation
+```js
+@compose({validators:["alpha","required"]}) Username: string;
+```
+___
 ## contains
+Contains validation will check that value is in the input, It will not allow to enter input that not contains the predefined value.
 > Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -235,6 +261,7 @@ ___
 ```
 ___
 ## creditCard
+creditCard validation will check property value is creditcardtype or not, It will not allow to enter any value other than credit card format.
 > Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -253,6 +280,7 @@ this.userFormGroup = this.formBuilder.group({
 ```
 ___
 ## dataUri
+dataUri validation  allows user to enter the input which is a valid data Uri.
 > Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -271,6 +299,7 @@ ___
 ```
 ___
 ## different
+Different validation  will check two inputs whether they are different or not. It is just opposite of compare decorator.
 > Reactive Form Validation
 ```js
  this.accountInfoFormGroup = this.formBuilder.group({
@@ -289,6 +318,7 @@ ___
 ```
 ___
 ## digit
+Digit validation  will allow only digits to be entered, It will not allow any alphabets or special character.
 > Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
@@ -306,6 +336,7 @@ ___
 ```
 ___
 ## email
+Email validation  will only allow user to enter input which is in the correct email format. 
 > Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
@@ -323,6 +354,7 @@ ___
 ```
 ___
 ## endsWith
+endsWith validation  allows user to enter the input which ends with particular value. 
 > Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -340,6 +372,7 @@ ___
 ```
 ___
 ## even
+Even validation  will check whether the value entered by user is an even number or not.
 > Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
@@ -356,7 +389,26 @@ ___
 @even() evenNumber: number;
 ```
 ___
+## extension
+extension validation allows user to enter the input which is in the proper extension format.
+> Reactive Form Validation
+```js
+  this.userFormGroup = this.formBuilder.group({
+            Image :['', RxwebValidators.extension({extensions:'png','jpg'})], 
+        });
+```       
+> Template Form Validation
+```html
+<input id="Image" name="Image" class="form-control"
+         [(ngModel)]="user.Image" [extension]='{"extensions":"png":"jpg"}' >
+```
+> Decorator Based Validation
+```js
+@extension({extensions:'png','jpg'}) Image: string;
+```
+___
 ## factor
+factor validation  will allow user to enter factor of a number which is called dividend.
 > Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -374,6 +426,7 @@ this.userFormGroup = this.formBuilder.group({
 ```
 ___
 ## fileSize
+fileSize validation  allows user to enter the input which is in the proper file size format.
 > Reactive Form Validation
 ```js
    this.storageCapacityFormGroup = this.formBuilder.group({
@@ -391,6 +444,7 @@ ___
 ```
 ___
 ## greaterThanEqualTo
+Greater than equal to validation decorator will check that input property is greater than or equal to the related field input.
 > Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -409,6 +463,7 @@ ___
 ```
 ___
 ## greaterThan
+Greater than validation will check that input property is greater than related field input.
 > Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -427,6 +482,7 @@ this.userFormGroup = this.formBuilder.group({
 ```
 ___
 ## hexColor
+HexColor validation will allow user to enter only the input in proper Hex Color format. 
 > Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
@@ -444,6 +500,7 @@ this.userFormGroup = this.formBuilder.group({
 ```
 ___
 ## json
+json validation will allow user to enter the input only in proper Json format. 
 > Reactive Form Validation
 ```js
  this.jsonInfoFormGroup = this.formBuilder.group({
@@ -459,457 +516,515 @@ ___
 ```js
 @json() locationJson: string;
 ```
+___
 ## latitude
-##### Reactive Form Validation
+latitude validation allows user to enter value which is valid latitude.
+> Reactive Form Validation
 ```js
 this.numberInfoFormGroup = this.formBuilder.group({
             firstCountryLatitude:['', RxwebValidators.latitude()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="firstCountryLatitude" name="firstCountryLatitude" class="form-control"
          [(ngModel)]="number.firstCountryLatitude" latitude >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @latitude() firstCountryLatitude: string;
 ```
+___
 ## leapYear
-##### Reactive Form Validation
+LeapYear validation will check whether the value entered is a leap year or not.
+> Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
             birthYear:['', RxwebValidators.leapYear()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="birthYear" name="birthYear" class="form-control"
          [(ngModel)]="user.birthYear" leapYear >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @leapYear() birthYear: number;
 ```
+___
 ## latLong
-##### Reactive Form Validation
+latLong validation allows user to enter the input which is valid Latitude or longitude.
+> Reactive Form Validation
 ```js
  this.countryFormGroup = this.formBuilder.group({
             firstCountry:['', RxwebValidators.latLong()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="firstCountry" name="firstCountry" class="form-control"
          [(ngModel)]="country.firstCountry" latLong >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @latLong() firstCountry: string;
 ```
+___
 ## lessThanEqualTo
-##### Reactive Form Validation
+Less than equal to validation will allow the user to enter only that value which is less than oe equal to the value in the pre defined field. 
+> Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
             totalMarks:['',], 
             marks:['', RxwebValidators.lessThanEqualTo({fieldName:'totalMarks' })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="marks" name="marks" class="form-control"
          [(ngModel)]="user.marks" [lessThanEqualTo]='{"fieldName":"totalMarks"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @lessThanEqualTo({fieldName:'totalMarks' }) marks: number;
 ```
+___
 ## lessThan
-##### Reactive Form Validation
+Less than validation will allow the user to enter only that value which is less than the value in the pre defined field.
+> Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
             marks:['',], 
             passingMarks:['', RxwebValidators.lessThan({fieldName:'marks' })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="passingMarks" name="passingMarks" class="form-control"
          [(ngModel)]="user.passingMarks" [lessThan]='{"fieldName":"marks"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @lessThan({fieldName:'marks' }) passingMarks: number;
 ```
+___
 ## longitude
-##### Reactive Form Validation
+longitude validation allows user to enter the input which is in the proper longitude format.
+> Reactive Form Validation
 ```js
    this.numberInfoFormGroup = this.formBuilder.group({
             firstCountryLongitude:['', RxwebValidators.longitude()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="firstCountryLongitude" name="firstCountryLongitude" class="form-control"
          [(ngModel)]="number.firstCountryLongitude" longitude >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @longitude() firstCountryLongitude: string;
 ```
+___
 ## lowercase
-##### Reactive Form Validation
+lowerCase validation will allow user to enter only the lowercase alphabets.
+> Reactive Form Validation
 ```js
      this.userInfoFormGroup = this.formBuilder.group({
             username:['', RxwebValidators.lowerCase()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="username" name="username" class="form-control"
          [(ngModel)]="user.username" lowercase >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @lowerCase() username: string;
 ```
+___
 ## mac
-##### Reactive Form Validation
+mac validation will check whether the value entered is a valid mac address.
+> Reactive Form Validation
 ```js
      this.macAddressInfoFormGroup = this.formBuilder.group({
             systemMacAddress:['', RxwebValidators.mac()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="systemMacAddress" name="systemMacAddress" class="form-control"
          [(ngModel)]="macAddress.systemMacAddress" mac >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @mac() systemMacAddress: string;
 ```
+___
 ## maxDate
-##### Reactive Form Validation
+MaxDate validation will allow user to enter the date less than the maxDate value parameter.
+> Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
             registrationDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30) })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="registrationDate" name="registrationDate" class="form-control"
          [(ngModel)]="user.registrationDate" [maxDate]='{"value":"2018-07-30"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @maxDate({value:new Date(2018,7,30) }) registrationDate: Date;
 ```
+___
 ## maxLength
-##### Reactive Form Validation
+MaxLength validation will allow user to enter the input upto the maximum length value parameter.
+> Reactive Form Validation
 ```js
   this.locationFormGroup = this.formBuilder.group({
             firstName:['', RxwebValidators.maxLength({value:10 })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="firstName" name="firstName" class="form-control"
          [(ngModel)]="location.firstName" [maxLength]='{"value":"10"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @maxLength({value:10 })	firstName: string;
 ```
+___
 ## maxNumber
-##### Reactive Form Validation
+MaxNumber validation will allow user to enter the input upto the maximum number value parameter.
+> Reactive Form Validation
 ```js
  this.subjectDetailsFormGroup = this.formBuilder.group({
             passingMarks:['', RxwebValidators.maxNumber({value:50 })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="passingMarks" name="passingMarks" class="form-control"
          [(ngModel)]="subject.passingMarks" [maxNumber]='{"value":"50"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @maxNumber({value:50 }) passingMarks: number;
 ```
+___
 ## minDate
-##### Reactive Form Validation
+Minimum Date validation will allow user to enter date greater the minimum date value parameter.
+> Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
             registrationDate:['', RxwebValidators.minDate({value:new Date(2018,7,30) })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="registrationDate" name="registrationDate" class="form-control"
          [(ngModel)]="user.registrationDate"  [minDate]='{"value":"2018-07-30"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @minDate({value:new Date(2018,7,30) }) registrationDate: Date;
 ```
+___
 ## minLength
-##### Reactive Form Validation
+MinLength validation will allow user to enter the input length matching the minimum length value parameter.
+> Reactive Form Validation
 ```js
 this.contactFormGroup = this.formBuilder.group({
             countryName:['', RxwebValidators.minLength({value:8 })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="countryName" name="countryName" class="form-control"
          [(ngModel)]="country.countryName" [minLength]='{"value":"8"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @minLength({value:8 }) countryName: string;
 ```
+___
 ## minNumber
-##### Reactive Form Validation
+MinNumber validation will allow user to enter the input greater than the minimum number value parameter.
+> Reactive Form Validation
 ```js
   this.resultInfoFormGroup = this.formBuilder.group({
             maths:['', RxwebValidators.minNumber({value:35 })], 
         });
-```       
-##### Template Form Validation
+``` 
+___
+> Template Form Validation
 ```html
 <input id="maths" name="maths" class="form-control"
          [(ngModel)]="result.maths" [minNumber]='{"value":"35"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 	@minNumber({value:35 }) maths: number;
 ```
+___
 ## noneOf
-##### Reactive Form Validation
+noneOf validation will check whether the user has entered none of the value is selected from the given inputs.
+> Reactive Form Validation
 ```js
   this.employeeInfoFormGroup = this.formBuilder.group({
            skills:[RxwebValidators.noneOf({matchValues:["MVC", "AngularJS","Angular 5","C#"]})], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
         [(ngModel)]="employee.skills" [noneOf]='{"matchvalues":"MVC","AngularJS","Angular 5","C#"}'/>{{tag.name}}
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
   @noneOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]})  skills: string[];
 ```
+___
 ## numeric
-##### Reactive Form Validation
+numeric validation will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.
+> Reactive Form Validation
 ```js
  this.userInfoFormGroup = this.formBuilder.group({
             integerNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="integerNumber" name="integerNumber" class="form-control"
          [(ngModel)]="user.integerNumber" [numeric]='{"acceptValue":"NumericValueType.PositiveNumber","allowDecimal":"false"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 	@numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false }) integerNumber: number;
 ```
+___
 ## odd
-##### Reactive Form Validation
+Odd validation will check whether the value entered is an odd number or not.
+> Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
             oddNumber:['', RxwebValidators.odd()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="oddNumber" name="oddNumber" class="form-control"
          [(ngModel)]="user.oddNumber" odd >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 	@odd() oddNumber: number;
 ```
+___
 ## oneOf
-##### Reactive Form Validation
+oneOf validation will check whether the user has entered any one of the given inputs or not.
+> Reactive Form Validation
 ```js
     this.employeeInfoFormGroup = this.formBuilder.group({
            skills:[RxwebValidators.oneOf({matchValues:["MVC", "AngularJS","Angular 5","C#"]})], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
         [(ngModel)]="employee.skills" [oneOf]='{"matchvalues":"MVC","AngularJS","Angular 5","C#"}'/>{{tag.name}}
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
  @oneOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
 ```
+___
 ## password
-##### Reactive Form Validation
+Password validation will allow user to enter only the input according to correct password validation format.
+> Reactive Form Validation
 ```js
   this.loginInfoFormGroup = this.formBuilder.group({
             password:['', RxwebValidators.password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true} })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="password" name="password" class="form-control"
          [(ngModel)]="login.password" [password]='{"validation":{maxLength: 10,minLength: 5,digit: true,specialCharacter: true}}' >
  >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @password({validation:{maxLength: 10,minLength: 5,digit: true,specialCharacter: true} })	password: string;
 ```
+___
 ## pattern
-##### Reactive Form Validation
+Pattern validation will allow user to enter the input which match the predefined pattern value parameter.
+> Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
             userName:['', RxwebValidators.pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="userName" name="userName" class="form-control"
          [(ngModel)]="user.userName" [pattern]='{"pattern":{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 	@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} }) userName: string;
 ```
+___
 ## port
-##### Reactive Form Validation
+port validation allows user to enter the input which is a valid port number.
+> Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
             educationalWebsitePort:['', RxwebValidators.port()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="educationalWebsitePort" name="educationalWebsitePort" class="form-control"
          [(ngModel)]="user.educationalWebsitePort" port >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 		@port()	educationalWebsitePort: string;
 ```
+___
 ## primeNumber
-##### Reactive Form Validation
+primeNumber validation allows user to enter only prime number.
+> Reactive Form Validation
 ```js
  this.numberInfoFormGroup = this.formBuilder.group({
             firstNumber:['', RxwebValidators.primeNumber()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="firstNumber" name="firstNumber" class="form-control"
          [(ngModel)]="user.firstNumber" primeNumber >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js		
 	@primeNumber() firstNumber: string;
 ```
+___
 ## range
-##### Reactive Form Validation
+Range validation will check that the entered value is in the specified range
+> Reactive Form Validation
 ```js
 this.employeeInfoFormGroup = this.formBuilder.group({
             age:['', RxwebValidators.range({minimumNumber:18  ,maximumNumber:60 })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="age" name="age" class="form-control"
          [(ngModel)]="employee.age" [range]='{"minimumNumber":"18","maximumNumber":"60"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js		
   @range({minimumNumber:18  ,maximumNumber:60 }) age: number;
 ```
+___
 ## required
-##### Reactive Form Validation
+Required validation will check that the user has entered the value in the property or not.
+> Reactive Form Validation
 ```js
 this.userInfoFormGroup = this.formBuilder.group({
             firstName:['', RxwebValidators.required()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="firstName" name="firstName" class="form-control"
          [(ngModel)]="user.firstName" required >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js		
  @required() firstName: string;
 ```
+___
 ## startsWith
-##### Reactive Form Validation
+startsWith validation allows user to enter the input which starts with particular value.
+> Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
             name:['', RxwebValidators.startsWith({value:'n' })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="name" name="name" class="form-control"
          [(ngModel)]="user.name" [startsWith]='{"value":"n"}'>
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js		
  @startsWith({value:'n' }) name: string;
 ```
+___
 ## time
-##### Reactive Form Validation
+time validation will allow user to enter the input only in the correct time format.
+> Reactive Form Validation
 ```js
   this.attandanceDetailFormGroup = this.formBuilder.group({
             entryTime:['', RxwebValidators.time()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="entryTime" name="entryTime" class="form-control"
          [(ngModel)]="attandance.entryTime" time >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js		 
 	@time() entryTime: string;
 ```
+___
 ## upperCase
-##### Reactive Form Validation
+UpperCase validation will allow user to enter the alphabets only in the upperCase format. 
+> Reactive Form Validation
 ```js
         this.locationFormGroup = this.formBuilder.group({
             countryName:['', RxwebValidators.upperCase()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="countryName" name="countryName" class="form-control"
          [(ngModel)]="location.countryName" upperCase >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js		 
 @upperCase() countryName: string;
 ```
+___
 ## url
-##### Reactive Form Validation
+Url validation will check that value entered in the property is in the correct url format or not.
+> Reactive Form Validation
 ```js
       this.webSiteInfoModelFormGroup = this.formBuilder.group({
             adminWebsiteUrl:['', RxwebValidators.url()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
  <input id="adminWebsiteUrl" name="adminWebsiteUrl" class="form-control"
          [(ngModel)]="website.adminWebsiteUrl" url >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js		 
 @url() adminWebsiteUrl: string;
 ```
+___
 ## Dynamic Validation
 Dynamic validation is used, when the validation rules will come from server side, means there is no static code on client side to manage the validation on reactive form. 
 Scenario : First Name field should accepts alphabets and that is configured on server side.

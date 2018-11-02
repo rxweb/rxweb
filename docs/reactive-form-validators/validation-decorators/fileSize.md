@@ -16,6 +16,7 @@ Let's see how fileSize decorator fulfil the need.
  
 # Basic fileSize Validation
 First we need to create a storageCapacity model and define a property of videoStorageSize in the model to achieve the functional need of point 1.
+
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\add\storage-capacity.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\edit\storage-capacity.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
