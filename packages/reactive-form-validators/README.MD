@@ -5,7 +5,7 @@
 The most powerful validation framework for angular based enterprise application. This provides all type of complex validation and dynamic validation on Reactive Form, Template Driven Form and Model Based Form.
 
 
-> Angular forms provides good feature, but at some level code become messy to fulfil the complex validation scenarios, so the core objective is to provide optimum solution for basic, complex and dynamic validation for angular based enterprise applications. 
+> Angular forms provides good feature, but at some level code become messy to fulfil the complex validation scenarios, so the core objective is to provide optimum solution for basic, complex, conditional and dynamic validation for angular based enterprise applications. 
 This validation framework is an extension of angular forms library, which will help to fulfil the need with less lines of code. 
 
 
@@ -59,57 +59,55 @@ export class AppModule { }
 ## Form Validation 
 Three ways to apply validation on the form via Validators, Validation Decorators or Template Form.  
 
-| Name | 
-| ----------- | 
-| [allOf](#allof)     | allOf validation will check whether the user has entered all of the values of given field or not. | 
-| [alpha](#alpha)   | Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character. |
-| [alphaNumeric](#alphanumeric)   |  Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. |
-| [ascii](#ascii) | ascii validation allows user to enter the input which is in the proper ascii format. |
-| [choice](#choice)   | choice validation will check whether the value entered is matching the properties defined. |
-| [compare](#compare)   |  Compare validation will compare two inputs whether they are same or not.|
-| [contains](#contains)   |  Contains validation will check that value is in the input, It will not allow to enter input that not contains the predefined value. |
-| [creditCard](#creditcard)   | creditCard validation will check property value is creditcardtype or not, It will not allow to enter any value other than credit card format.|
-| [dataUri](#datauri) | dataUri validation  allows user to enter the input which is a valid data Uri. |
-| [different](#different)   |  Different validation  will check two inputs whether they are different or not. It is just opposite of compare decorator. |
-| [digit](#digit)   |  Digit validation  will allow only digits to be entered, It will not allow any alphabets or special character. |
-| [email](#email)   |  Email validation  will only allow user to enter input which is in the correct email format. |
-| [endsWith](#endswith) | endsWith validation  allows user to enter the input which ends with particular value. |
-| [even](#even)   | Even validation  will check whether the value entered by user is an even number or not. |
-| [extension](#extension)  |
-| [factor](#factor)   | factor validation  will allow user to enter factor of a number which is called dividend.  |
-| [fileSize](#filesize) | fileSize validation  allows user to enter the input which is in the proper file size format. |
-| [greaterThanEqualTo](#greaterthanequalto)   | Greater than equal to validation decorator will check that input property is greater than or equal to the related field input. |
-| [greaterThan](#greaterthan)   | Greater than validation will check that input property is greater than related field input.|
-| [hexColor](#hexcolor)   | HexColor validation will allow user to enter only the input in proper Hex Color format. |
-| [json](#json)   | json validation will allow user to enter the input only in proper Json format. |
-| [latitude](#latitude) |  latitude validation allows user to enter value which is valid latitude. |
-| [latLong](#latlong) | latLong validation allows user to enter the input which is valid Latitude or longitude. |
-| [leapYear](#leapyear)   | LeapYear validation will check whether the value entered is a leap year or not. |
-| [lessThanEqualTo](#lessthanequalto)   | Less than equal to validation will allow the user to enter only that value which is less than oe equal to the value in the pre defined field. |
-| [lessThan](#lessthan)   | Less than validation will allow the user to enter only that value which is less than the value in the pre defined field. |
-| [longitude](#longitude) | longitude validation allows user to enter the input which is in the proper longitude format. |
-| [lowerCase](#lowercase)   | lowerCase validation will allow user to enter only the lowercase alphabets. |
-| [mac](#mac)  | mac validation will check whether the value entered is a valid mac address. |
-| [maxDate](#maxdate)  |  MaxDate validation will allow user to enter the date less than the maxDate value parameter. |
-| [maxLength](#maxlength)   |  MaxLength validation will allow user to enter the input upto the maximum length value parameter.|
-| [maxNumber](#maxnumber) | MaxNumber validation will allow user to enter the input upto the maximum number value parameter.|
-| [minDate](#mindate)   |  Minimum Date validation will allow user to enter date greater the minimum date value parameter. |
-| [minLength](#minlength)   | MinLength validation will allow user to enter the input length matching the minimum length value parameter.|
-| [minNumber](#minnumber)   |  MinNumber validation will allow user to enter the input greater than the minimum number value parameter.|
-| [noneOf](#noneof)  |  noneOf validation will check whether the user has entered none of the value is selected from the given inputs.|
-| [numeric](#numeric)  | numeric validation will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.|
-| [odd](#odd)   | Odd validation will check whether the value entered is an odd number or not. |
-| [oneOf](#oneof)  | oneOf validation will check whether the user has entered any one of the given inputs or not.|
-| [password](#password)  | Password validation will allow user to enter only the input according to correct password validation format.|
-| [pattern](#pattern)   | Pattern validation will allow user to enter the input which match the predefined pattern value parameter.|
-| [port](#port) | port validation allows user to enter the input which is a valid port number. |
-| [primeNumber](#primenumber) |  primeNumber validation allows user to enter only prime number. |
-| [range](#range)   | Range validation will check that the entered value is in the specified range. |
-| [required](#required)   |  Required validation will check that the user has entered the value in the property or not. |
-| [startsWith](#startswith) | startsWith validation allows user to enter the input which starts with particular value. |
-| [time](#time)   | time validation will allow user to enter the input only in the correct time format. |
-| [upperCase](#uppercase)   | UpperCase validation will allow user to enter the alphabets only in the upperCase format. |
-| [url](#url)   | Url validation will check that value entered in the property is in the correct url format or not. |
+1. [allOf](#allof)    
+2. [alpha](#alpha)   
+3. [alphaNumeric](#alphanumeric)   
+4. [ascii](#ascii) 
+5. [choice](#choice) 
+6. [compare](#compare)   
+7. [contains](#contains)   
+8. [creditCard](#creditcard)  
+9. [dataUri](#datauri) 
+10. [different](#different) 
+11. [digit](#digit)  
+12. [email](#email)  
+13. [endsWith](#endswith) 
+14. [even](#even)   
+15. [extension](#extension)  
+16. [factor](#factor)   
+17. [fileSize](#filesize) 
+18. [greaterThanEqualTo](#greaterthanequalto)   
+19. [greaterThan](#greaterthan)   
+20. [hexColor](#hexcolor)   
+21. [json](#json)  
+22. [latitude](#latitude) 
+23. [latLong](#latlong) 
+24. [leapYear](#leapyear)  
+25. [lessThanEqualTo](#lessthanequalto)   
+26. [lessThan](#lessthan)   
+27. [longitude](#longitude)
+28. [lowerCase](#lowercase) 
+29. [mac](#mac) 
+30. [maxDate](#maxdate) 
+31. [maxLength](#maxlength)  
+32. [maxNumber](#maxnumber)
+33. [minDate](#mindate) 
+34. [minLength](#minlength) 
+35. [minNumber](#minnumber)   
+36. [noneOf](#noneof)  
+37. [numeric](#numeric) 
+38. [odd](#odd)  
+39. [oneOf](#oneof)  
+40. [password](#password)
+41. [pattern](#pattern)   
+42. [port](#port) 
+43. [primeNumber](#primenumber)
+44. [range](#range)   
+45. [required](#required)  
+46. [startsWith](#startswith)
+47. [time](#time)   
+48. [upperCase](#uppercase)   
+49. [url](#url)   
 
 ## allOf
 allOf validation will check whether the user has entered all of the values of given field or not.
