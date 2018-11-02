@@ -404,7 +404,7 @@ extension validation allows user to enter the input which is in the proper exten
 ```
 > Decorator Based Validation
 ```js
-@extension({extensions:'png','jpg'}) Image: number;
+@extension({extensions:'png','jpg'}) Image: string;
 ```
 ___
 ## factor
