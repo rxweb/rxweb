@@ -2,7 +2,14 @@
 [![Gitter](https://badges.gitter.im/rx-web/Lobby.svg)](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 <h3>rxweb</h3>
-50+ Validation Decorator and 50+ Validators for angular reactive form based validation. All Validators/Decorators provides extensive features like conditional validation, dynamic validation and advanced validation, also it includes dirty check and better way to show error message on FormControl or FormGroup level. For More Information on ***[rxweb](http://rxweb.io)***
+The most powerful validation framework for angular based enterprise application. This provides all type of complex validation and dynamic validation on Reactive Form, Template Driven Form and Model Based Form.
+
+
+> Angular forms provides good feature, but at some level code become messy to fulfil the complex scenarios, so the core objective is to provide optimum solution for basic, complex and dynamic validation for angular based enterprise applications. 
+This validation framework is an extension of angular forms library, which will help to fulfil the need with less lines of code. 
+
+
+For More Information on ***[rxweb](http://rxweb.io)***
 
 # Prerequisites
 Reactive Form Validators will work in angular projects.
@@ -10,28 +17,22 @@ Reactive Form Validators will work in angular projects.
 ## Table of Contents
 
 * [Installation](#installation)
-* [Validation Decorators](#validation-decorators)
+* [Import Modules](#import-modules)
+* [Validation Decorators](#form-validation)
 * [Important Features](#important-features)
-    * [Import Modules](#import-modules)
-    * [Configure Global Validation Messages](#configure-global-validation-messages)
-    * [Validator Based Validation](#validator-based-validation)
-    * [Decorator Based Validation](#decorator-based-validation)
     * [Dynamic Validation](#dynamic-validation)
     * [Conditional Validation](#conditional-validation)
-    * [Single Validation Configuration for All Properties](#single-validation-configuration-for-all-properties)
-    * [Better Way To Show Error Message](#better-way-to-show-error-message)
     * [Dirty Check](#dirty-check)
-    * [Complete Example of Model Based Decorator Validation](#complete-example-of-model-based-decorator-validation)
-    * [More Information about validators and validation decorators](#more-information-about-validators-and-validation-decorators)
-    
+* [Goal](#goal)
+* [Help](#help)
 * [License](#license)
 
 ## Installation
 ```bash
 $ npm install @rxweb/reactive-form-validators
 ```
-## Validation Decorators & Validators 
-```Validation can be applied via Validators or Decorators. If you are using validators then you don't need to import any module, you can directly as same as Angular validators in the 'FormControl'. This validators are more advanced than angular validators.``` 
+## Form Validation 
+Three ways to apply validation on the form via Validators, Validation Decorators or Template Form.  
 
 | Name | Description |
 | ----------- | ------------- |
@@ -85,7 +86,8 @@ $ npm install @rxweb/reactive-form-validators
 | [url](#url)   | Url validation will check that value entered in the property is in the correct url format or not. |
 
 ## alpha
-##### Reactive Form Validation
+allOf validation will check whether the user has entered all of the values of given field or not.
+> Reactive Form Validation
 ```js
 this.countryFormGroup = this.formBuilder.group({
             countryName:['', RxwebValidators.alpha()], 
