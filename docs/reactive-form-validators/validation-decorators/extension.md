@@ -39,7 +39,7 @@ Next, we need to write html code.
 [!example(?condition="tab_1=='basicedit'"&type=tab&title=extension Decorator for edit Example)]
 <app-extension-edit></app-extension-edit>
 
-# SizeConfig
+# ExtensionConfig
 message and conditionalExpression are not mandatory to use in the `@extension()` decorator. If needed then use the below options.
 
 |Option | Description |

@@ -14,6 +14,7 @@ Let’s see how compare validator fulfil the need.
 
 # Basic Compare Validation
 First we need to create a User Model class and define property of Password and Confirm Password in the model to achieve the functional need of point 1.
+
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
