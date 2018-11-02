@@ -23,9 +23,9 @@ Reactive Form Validators will work in angular projects.
     * [Dynamic Validation](#dynamic-validation)
     * [Conditional Validation](#conditional-validation)
     * [Dirty Check](#dirty-check)
+* [Upcoming Form Validations](#upcoming-form-validations)
 * [Goal](#goal)
 * [Help](#help)
-* [Upcoming Form Validations](#upcoming-form-validations)
 * [Your Feedback](#your-feedback)
 * [License](#license)
 
@@ -1122,6 +1122,13 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 <button [disabled]="!userInfoFormGroup.isDirty()" class="btn btn-primary">Submit</button>
 </form>
 ```
+## Upcoming Form Validations
+1. Masking.
+2. Phone/Mobile Number Masking.
+3. Countrywise Masking.
+4. Alphabet validation in other languages.
+5. AlphaNumeric validation in other languages.
+6. File Validation(size, extension, width and height validation).
 
 ## Goal
 1. Provides all type of client side validations.
@@ -1132,17 +1139,9 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 We are happy to help you with any kind of validation related problem in angular based application. If you face any issue with the validation framework, you can follow one of the approach below :
 1. You can join our gitter chat room and solve your queries.
 2. You can log the issue on our github repository.
-3. We are active on stackoverflow, Ask question on that.
+3. Ask question on stackoverflow, we are active on stackoverflow.
 
 >If you need something different then the existing feature in the validation framework. Then you can create a feature request on our github repository.
-
-## Upcoming Form Validations
-1. Masking.
-2. Phone/Mobile Number Masking.
-3. Countrywise Masking.
-4. Alphabet validation in other languages.
-5. AlphaNumeric validation in other languages.
-6. File Validation(size, extension, width and height validation).
 
 ## Your Feedback
 Your feedback is important for us, If you have any question or suggestion then please drop an email to ajay@rxweb.io.
