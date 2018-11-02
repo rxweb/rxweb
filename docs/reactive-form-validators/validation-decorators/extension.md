@@ -8,8 +8,8 @@ author: rxcontributortwo
 Suppose you want to create a storageCapacity form, which contains fields like device, videoFileExtension, documentFileExtension and photographFileExtension and you want the user to enter input which is a proper extension format. Here depending upon the requirement, these scenarios may arise..
 
 1. Allow videoFileExtension which have proper extension format and adding Custom Message on videoFileExtension.
-2. Apply documentFileExtension validation based on matched condition in the form, like if the device is 'SmartPhone', then the documentFileExtension must be a extension format (Used as a function).
-3. Apply photographFileExtension validation based on matched condition in the form, like if the device is 'SmartPhone', then the photographFileExtension must be a extension format (Used as a string datatype).
+2. Apply  extension validation on  documentFileExtension field based on matched condition in the form, like if the device is 'SmartPhone', then the documentFileExtension must be a extension format (Used as a function).
+3. Apply extension validation on photographFileExtension field based on matched condition in the form, like if the device is 'SmartPhone', then the photographFileExtension must be a extension format (Used as a string datatype).
 4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
 
 Let's see how extension decorator fulfil the need.
