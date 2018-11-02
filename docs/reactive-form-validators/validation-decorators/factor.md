@@ -16,6 +16,7 @@ Let’s see how factor validator fulfil the need.
 
 # Basic Factor Validation
 First we need to create a User Model class and define property of firstNumber and secondNumber in the model to achieve the functional need of point 1.
+
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\factor\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 

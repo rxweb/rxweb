@@ -15,6 +15,7 @@ Let’s see how greaterThan validator fulfil the need.
 
 # Basic GreaterThan Validation
 First we need to create a User class and define a property of Age and VoterAge with the requirement of VoterAge must be greater than Age field in the model to achieve the functional need of point 1.
+
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThan\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\greaterThan\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 

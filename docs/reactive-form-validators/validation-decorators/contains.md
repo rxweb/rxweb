@@ -15,6 +15,7 @@ Let’s see how contains validator fulfil the need.
 
 # Basic Contains Validation
 First we need to create a User class and define a property of EmailAddress in the model to achieve the functional need of point 1.
+
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 
