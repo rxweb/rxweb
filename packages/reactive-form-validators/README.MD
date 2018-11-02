@@ -86,22 +86,23 @@ Three ways to apply validation on the form via Validators, Validation Decorators
 | [url](#url)   | Url validation will check that value entered in the property is in the correct url format or not. |
 
 ## alpha
-allOf validation will check whether the user has entered all of the values of given field or not.
+Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character.
 > Reactive Form Validation
 ```js
 this.countryFormGroup = this.formBuilder.group({
             countryName:['', RxwebValidators.alpha()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="countryName" name="countryName" class="form-control"
          [(ngModel)]="country.countryName" alpha >
 ```
-###### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @alpha() countryName: string;
 ```
+___
 ## alphaNumeric
 ##### Reactive Form Validation
 ```js
