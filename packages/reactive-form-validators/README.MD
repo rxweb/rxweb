@@ -59,8 +59,8 @@ export class AppModule { }
 ## Form Validation 
 Three ways to apply validation on the form via Validators, Validation Decorators or Template Form.  
 
-| Name | Description |
-| ----------- | ------------- |
+| Name | 
+| ----------- | 
 | [allOf](#allof)     | allOf validation will check whether the user has entered all of the values of given field or not. | 
 | [alpha](#alpha)   | Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character. |
 | [alphaNumeric](#alphanumeric)   |  Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. |
@@ -110,6 +110,24 @@ Three ways to apply validation on the form via Validators, Validation Decorators
 | [upperCase](#uppercase)   | UpperCase validation will allow user to enter the alphabets only in the upperCase format. |
 | [url](#url)   | Url validation will check that value entered in the property is in the correct url format or not. |
 
+## allOf
+allOf validation will check whether the user has entered all of the values of given field or not.
+> Reactive Form Validation
+```js
+  this.employeeInfoFormGroup = this.formBuilder.group({
+           skills:[RxwebValidators.allOf({matchValues:["MVC", "AngularJS","AngularJS 5","C#"]})], 
+        });
+```       
+> Template Form Validation
+```html
+ <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
+        [(ngModel)]="employee.skills" [allOf]='{"matchValues":"MVC","AngularJS","AngularJS","C#"}'/>{{tag.name}}
+```
+> Decorator Based Validation
+```js
+  @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
+```
+___
 ## alpha
 Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character.
 > Reactive Form Validation
@@ -129,311 +147,315 @@ this.countryFormGroup = this.formBuilder.group({
 ```
 ___
 ## alphaNumeric
-##### Reactive Form Validation
+Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. 
+> Reactive Form Validation
 ```js
   this.locationFormGroup = this.formBuilder.group({
             areaName:['', RxwebValidators.alphaNumeric()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="areaName" name="areaName" class="form-control"
          [(ngModel)]="location.areaName" alphaNumeric >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @alphaNumeric() areaName: string;
 ```
-## allOf
-##### Reactive Form Validation
-```js
-  this.employeeInfoFormGroup = this.formBuilder.group({
-           skills:[RxwebValidators.allOf({matchValues:["MVC", "AngularJS","AngularJS 5","C#"]})], 
-        });
-```       
-##### Template Form Validation
-```html
- <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
-        [(ngModel)]="employee.skills" [allOf]='{"matchValues":"MVC","AngularJS","AngularJS","C#"}'/>{{tag.name}}
-```
-##### Decorator Based Validation
-```js
-  @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
-```
-## choice
-##### Reactive Form Validation
-```js
-  this.employeeInfoFormGroup = this.formBuilder.group({
-           skills:[RxwebValidators.choice({minLength:5})], 
-        });
-```       
-##### Template Form Validation
-```html
- <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}"
-        [(ngModel)]="employee.skills" [choice]='{"minLength":"5"}'/>{{tag.name}}
-```
-##### Decorator Based Validation
-```js
- @choice({minLength:'5'}) skills: string[]; 
-```
+___
 ## ascii
-##### Reactive Form Validation
+ascii validation decorator allows user to enter the input which is in the proper ascii format.
+> Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
             specialCharAsciiCode:['', RxwebValidators.ascii()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="specialCharAsciiCode" name="specialCharAsciiCode" class="form-control"
          [(ngModel)]="user.specialCharAsciiCode" ascii >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @ascii() specialCharAsciiCode: string;
 ```
+___
+## choice
+> Reactive Form Validation
+```js
+  this.employeeInfoFormGroup = this.formBuilder.group({
+           skills:[RxwebValidators.choice({minLength:5})], 
+        });
+```       
+> Template Form Validation
+```html
+ <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}"
+        [(ngModel)]="employee.skills" [choice]='{"minLength":"5"}'/>{{tag.name}}
+```
+> Decorator Based Validation
+```js
+ @choice({minLength:'5'}) skills: string[]; 
+```
+___
 ## compare
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
             password:['',], 
             confirmPassword:['', RxwebValidators.compare({fieldName:'password' })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="confirmPassword" name="confirmPassword" class="form-control"
          [(ngModel)]="user.confirmPassword" [compare]='{"fieldName":"password"}'] >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @compare({fieldName:'password'}) confirmPassword: string;
 ```
+___
 ## contains
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
             emailAddress:['', RxwebValidators.contains({value:'@gmail.com' })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="emailAddress" name="emailAddress" class="form-control"
          [(ngModel)]="user.emailAddress" [contains]='{"fieldName":"@gmail.com"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @contains({value:'@gmail.com'}) emailAddress: string;
 ```
+___
 ## creditCard
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
             cardType:['',], 
             creditCardNumber:['', RxwebValidators.creditCard({fieldName:'cardType' })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="creditCardNumber" name="creditCardNumber" class="form-control"
          [(ngModel)]="user.creditCardNumber" [creditCard]='{"fieldName":"cardType"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @creditCard({fieldName:'cardType' }) creditCardNumber: string;
 ```
+___
 ## dataUri
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
             htmlDataUri:['', RxwebValidators.dataUri()], 
         });
-```       
-##### Template Form Validation
+```
+___
+> Template Form Validation
 ```html
 <input id="htmlDataUri" name="htmlDataUri" class="form-control"
          [(ngModel)]="user.htmlDataUri" dataUri >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @dataUri() htmlDataUri: string;
 ```
+___
 ## different
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
  this.accountInfoFormGroup = this.formBuilder.group({
             firstName:['',], 
             lastName:['', RxwebValidators.different({fieldName:"firstName" })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="lastName" name="lastName" class="form-control"
          [(ngModel)]="account.lastName" [different]='{"fieldName":"firstName"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @different({fieldName:"firstName" }) lastName: string;
 ```
+___
 ## digit
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
             age:['', RxwebValidators.digit()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="age" name="age" class="form-control"
          [(ngModel)]="user.age" digit >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @digit() age: number;
 ```
+___
 ## email
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
             email:['', RxwebValidators.email()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="email" name="email" class="form-control"
          [(ngModel)]="user.email" email >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @email() email: string;
 ```
+___
 ## endsWith
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
             name:['', RxwebValidators.endsWith({value:'m' })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="name" name="name" class="form-control"
          [(ngModel)]="user.name" [endsWith]='{"value":"m"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @endsWith({value:'m' }) name: string;
 ```
+___
 ## even
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
   this.userFormGroup = this.formBuilder.group({
             evenNumber:['', RxwebValidators.even()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="evenNumber" name="evenNumber" class="form-control"
          [(ngModel)]="user.evenNumber" even >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @even() evenNumber: number;
 ```
+___
 ## factor
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
             firstNumber:['', RxwebValidators.factor({dividend:50 })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="firstNumber" name="firstNumber" class="form-control"
          [(ngModel)]="user.firstNumber" [factor]='{"dividend":"50"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @factor({dividend:50 })	firstNumber: Number;
 ```
+___
 ## fileSize
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
    this.storageCapacityFormGroup = this.formBuilder.group({
             videoStorageSize:['', RxwebValidators.fileSize({maxSize:50 })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="videoStorageSize" name="videoStorageSize" class="form-control"
          [(ngModel)]="storage.videoStorageSize" [fileSize]='{"maxSize":"50"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @fileSize({maxSize:50 }) videoStorageSize: string;
 ```
+___
 ## greaterThanEqualTo
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
             age:['',], 
             voterAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age' })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="voterAge" name="voterAge" class="form-control"
          [(ngModel)]="user.voterAge" [greaterThanEqualTo]='{"fieldName":"age"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @greaterThanEqualTo({fieldName:'age' }) voterAge: number;
 ```
+___
 ## greaterThan
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
             age:['',], 
             voterAge:['', RxwebValidators.greaterThan({fieldName:'age' })], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="voterAge" name="voterAge" class="form-control"
          [(ngModel)]="user.voterAge" [greaterThan]='{"fieldName":"age"}' >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @greaterThan({fieldName:'age' }) voterAge: number;
 ```
+___
 ## hexColor
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
             color:['', RxwebValidators.hexColor()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="color" name="color" class="form-control"
          [(ngModel)]="user.color" hexColor >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @hexColor() color: string;
 ```
+___
 ## json
-##### Reactive Form Validation
+> Reactive Form Validation
 ```js
  this.jsonInfoFormGroup = this.formBuilder.group({
             locationJson:['', RxwebValidators.json()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="locationJson" name="locationJson" class="form-control"
          [(ngModel)]="json.locationJson" json >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @json() locationJson: string;
 ```
