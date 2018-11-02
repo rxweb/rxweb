@@ -25,6 +25,8 @@ Reactive Form Validators will work in angular projects.
     * [Dirty Check](#dirty-check)
 * [Goal](#goal)
 * [Help](#help)
+* [Upcoming Form Validations](#upcoming-form-validations)
+* [Your Feedback](#your-feedback)
 * [License](#license)
 
 ## Installation
@@ -233,11 +235,11 @@ RxwebValidators.alpha()
 > Template Form Validation
 ```html
 <input id="Username" name="Username" class="form-control"
-         [(ngModel)]="user.Username" [compose]='{"validators":["alpha","required"]}' >
+         [(ngModel)]="user.Username" [compose]='{"validators":[alpha,required]}' >
 ```
 > Decorator Based Validation
 ```js
-@compose({validators:["alpha","required"]}) Username: string;
+@compose({validators:[alpha,required]}) Username: string;
 ```
 ___
 ## contains
@@ -1123,9 +1125,27 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 
 ## Goal
 1. Provides all type of client side validations.
-2. Easy way to create Angular Reactive Form & Template Driven Form Validation with less lines of code.
-3. Easy to create Dynamic Reactive Form / Template Driven Form.
-4. Validation approach should be easy and easy to implement.
+2. Easy implementation of complex and dynamic validation with less lines of code.
+3. Faster development for Advanced/Complex validation Forms.
+
+## Help
+We are happy to help you with any kind of validation related problem in angular based application. If you face any issue with the validation framework, you can follow one of the approach below :
+1. You can join our gitter chat room and solve your queries.
+2. You can log the issue on our github repository.
+3. We are active on stackoverflow, Ask question on that.
+
+>If you need something different then the existing feature in the validation framework. Then you can create a feature request on our github repository.
+
+## Upcoming Form Validations
+1. Masking.
+2. Phone/Mobile Number Masking.
+3. Countrywise Masking.
+4. Alphabet validation in other languages.
+5. AlphaNumeric validation in other languages.
+6. File Validation(size, extension, width and height validation).
+
+## Your Feedback
+Your feedback is important for us, If you have any question or suggestion then please drop an email to ajay@rxweb.io.
 
 # License
 MIT

@@ -23,6 +23,7 @@ const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','aphaNumeric','ascii'
  
 })
 export class RxFormControlDirective extends BaseValidator implements OnInit,OnDestroy {
+  private eventListeners:any[] = [];
   private controls:{[key:string]:FormControl};
   set validationControls(value:{[key:string]:FormControl}){
     this.controls = value;
@@ -101,7 +102,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
   ngOnInit() {
       let validators = [];
       Object.keys(APP_VALIDATORS).forEach(validatorName=>{
-        if((validatorName != COMPOSE && this[validatorName]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[validatorName] == BLANK))
+        if((this[validatorName]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[validatorName] == BLANK))
           validators.push(APP_VALIDATORS[validatorName](this[validatorName]));
       })
       if(validators.length > 0)
@@ -113,27 +114,29 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
   bindNumericElementEvent(config?:NumericConfig){
     if(config)
       this.numeric = config;
-    this.renderer.listen(this.element,BLUR,(event)=> {
+    let listener = this.renderer.listen(this.element,BLUR,(event)=> {
         if(!(this.formControl && this.formControl.errors && this.formControl.errors.numeric)) {
           let value = this.decimalProvider.transFormDecimal(this.formControl.value,this.numeric.digitsInfo);
           this.setValueOnElement(value);
         }
     });
-
-    this.renderer.listen(this.element,FOCUS,(event)=> {
+    this.eventListeners.push(listener)
+    listener = this.renderer.listen(this.element,FOCUS,(event)=> {
         if(!(this.formControl && this.formControl.errors && this.formControl.errors.numeric) && this.formControl.value != null) {
         let value = this.decimalProvider.replacer(this.formControl.value);
         this.setValueOnElement(value);
         }
     });
+    this.eventListeners.push(listener)
   }
 
   bindValueChangeEvent(){
-   this.renderer.listen(this.element,this.getEventName(),()=> {
+  let listener =  this.renderer.listen(this.element,this.getEventName(),()=> {
           Object.keys(this.validationControls).forEach(fieldName => {
               this.validationControls[fieldName].updateValueAndValidity();
           })
     });
+   this.eventListeners.push(listener);
   }
 
   getEventName() {
@@ -156,5 +159,11 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
 
   ngOnDestroy(){
     this.controls = undefined;
+    let eventCount = this.eventListeners.length;
+    for(var i=0;i<eventCount;i++){
+      this.eventListeners[0]();
+      this.eventListeners.splice(0,1);
+    }
+    this.eventListeners = [];
   }
 }

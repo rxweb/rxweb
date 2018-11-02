@@ -81,7 +81,7 @@ export class Client{
 
 export class Employee {
     @leapYear() leapYear:number;
-    @factor({dividend:5}) factor:number;
+    @factor({fieldName:'odd'}) factor:number;
     @odd() odd:number;
     @even() even:number;
     @numeric({acceptValue:NumericValueType.NegativeNumber}) numeric:number;
@@ -160,7 +160,7 @@ this.classProperty = value;
 })
 export class AppComponent implements OnInit {
     title = 'app';
-    hero = {name:'',password:'',confirmPassword:'',amount:''};
+    hero = {name:''};
     sampleFormGroup: FormGroup;
     angularFormGroup:FormGroup;
     constructor(private formBuilder: FormBuilder, private validation: RxFormBuilder) {
@@ -199,11 +199,11 @@ this.testForm = this.formBuilder.group({
         }
       }),RxwebValidators.minLength({value:8}),
       RxwebValidators.maxLength({value:10})]],
-      confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
-      age:['',RxwebValidators.startsWith({value:"n"})],
-      cardType:[''],
-      creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
-      amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]]
+  confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
+  age:['',RxwebValidators.startsWith({value:"n"})],
+  cardType:[''],
+  creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
+  amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]]
   
 });
         this.angularFormGroup = this.validation.group({
