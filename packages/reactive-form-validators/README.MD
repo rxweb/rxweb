@@ -34,12 +34,12 @@ $ npm install @rxweb/reactive-form-validators
 ## Form Validation 
 Three ways to apply validation on the form via Validators, Validation Decorators or Template Form.  
 
-| Name | Description |
-| ----------- | ------------- |
-| [allOf](#allof)     | allOf validation will check whether the user has entered all of the values of given field or not. | 
-| [alpha](#alpha)   | Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character. |
-| [alphaNumeric](#alphanumeric)   |  Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. |
-| [ascii](#ascii) | ascii validation allows user to enter the input which is in the proper ascii format. |
+| Name | 
+| ----------- |
+| [allOf](#allof)     |  
+| [alpha](#alpha)   | 
+| [alphaNumeric](#alphanumeric)   |  
+| [ascii](#ascii) | 
 | [choice](#choice)   | choice validation will check whether the value entered is matching the properties defined. |
 | [compare](#compare)   |  Compare validation will compare two inputs whether they are same or not.|
 | [contains](#contains)   |  Contains validation will check that value is in the input, It will not allow to enter input that not contains the predefined value. |
@@ -85,6 +85,24 @@ Three ways to apply validation on the form via Validators, Validation Decorators
 | [upperCase](#uppercase)   | UpperCase validation will allow user to enter the alphabets only in the upperCase format. |
 | [url](#url)   | Url validation will check that value entered in the property is in the correct url format or not. |
 
+## allOf
+allOf validation will check whether the user has entered all of the values of given field or not.
+> Reactive Form Validation
+```js
+  this.employeeInfoFormGroup = this.formBuilder.group({
+           skills:[RxwebValidators.allOf({matchValues:["MVC", "AngularJS","AngularJS 5","C#"]})], 
+        });
+```       
+> Template Form Validation
+```html
+ <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
+        [(ngModel)]="employee.skills" [allOf]='{"matchValues":"MVC","AngularJS","AngularJS","C#"}'/>{{tag.name}}
+```
+> Decorator Based Validation
+```js
+  @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
+```
+___
 ## alpha
 Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character.
 > Reactive Form Validation
@@ -104,69 +122,58 @@ this.countryFormGroup = this.formBuilder.group({
 ```
 ___
 ## alphaNumeric
-##### Reactive Form Validation
+Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. 
+> Reactive Form Validation
 ```js
   this.locationFormGroup = this.formBuilder.group({
             areaName:['', RxwebValidators.alphaNumeric()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="areaName" name="areaName" class="form-control"
          [(ngModel)]="location.areaName" alphaNumeric >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @alphaNumeric() areaName: string;
 ```
-## allOf
-##### Reactive Form Validation
-```js
-  this.employeeInfoFormGroup = this.formBuilder.group({
-           skills:[RxwebValidators.allOf({matchValues:["MVC", "AngularJS","AngularJS 5","C#"]})], 
-        });
-```       
-##### Template Form Validation
-```html
- <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}" 
-        [(ngModel)]="employee.skills" [allOf]='{"matchValues":"MVC","AngularJS","AngularJS","C#"}'/>{{tag.name}}
-```
-##### Decorator Based Validation
-```js
-  @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
-```
-## choice
-##### Reactive Form Validation
-```js
-  this.employeeInfoFormGroup = this.formBuilder.group({
-           skills:[RxwebValidators.choice({minLength:5})], 
-        });
-```       
-##### Template Form Validation
-```html
- <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}"
-        [(ngModel)]="employee.skills" [choice]='{"minLength":"5"}'/>{{tag.name}}
-```
-##### Decorator Based Validation
-```js
- @choice({minLength:'5'}) skills: string[]; 
-```
+___
 ## ascii
-##### Reactive Form Validation
+ascii validation decorator allows user to enter the input which is in the proper ascii format.
+> Reactive Form Validation
 ```js
    this.userFormGroup = this.formBuilder.group({
             specialCharAsciiCode:['', RxwebValidators.ascii()], 
         });
 ```       
-##### Template Form Validation
+> Template Form Validation
 ```html
 <input id="specialCharAsciiCode" name="specialCharAsciiCode" class="form-control"
          [(ngModel)]="user.specialCharAsciiCode" ascii >
 ```
-##### Decorator Based Validation
+> Decorator Based Validation
 ```js
 @ascii() specialCharAsciiCode: string;
 ```
+___
+## choice
+> Reactive Form Validation
+```js
+  this.employeeInfoFormGroup = this.formBuilder.group({
+           skills:[RxwebValidators.choice({minLength:5})], 
+        });
+```       
+> Template Form Validation
+```html
+ <input id="skills"  name="skills" type="checkbox" value="{{tag.name}}"
+        [(ngModel)]="employee.skills" [choice]='{"minLength":"5"}'/>{{tag.name}}
+```
+> Decorator Based Validation
+```js
+ @choice({minLength:'5'}) skills: string[]; 
+```
+___
 ## compare
 ##### Reactive Form Validation
 ```js
