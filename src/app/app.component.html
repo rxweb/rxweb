@@ -1,6 +1,6 @@
 <rxweb-dynamic-form #df="rxwebForm">
   <ng-template htmlControlTemplate="text" let-control>
-   fancontrol <input type="text" [formControl]="control" />
+   fancontrol <input type="text" [formControl]="control.control" />
   </ng-template>
   <ng-template htmlControlTemplate="number" let-control>
    number <input type="number" [formControl]="control" />
@@ -10,6 +10,12 @@
    url <input type="url" [formControl]="control" />
   </ng-template>
 </rxweb-dynamic-form>
+
+<div [formGroup]="dynamicFormGroup.controls.questions.controls[index]" *ngFor="let row of validatorJson;let index = index" class="form-group">
+  <label>{{row.label}}</label>
+  <input type="text" formControlName="value" class="form-control" />
+</div>
+
 
 <form #heroForm="ngForm" rxwebForm>
   name
@@ -21,6 +27,8 @@
          
          [(ngModel)]="hero.confirmPassword" #confirmPassword="ngModel">
   {{confirmPassword.errors | json}}
+  <input id="fileSize" [fileSize]="{maxSize:2000}" type="file" name="fileSize" class="form-control"
+         [(ngModel)]="hero.fileSize" #fileSize="ngModel">
   </form>
 
   <form [formGroup]="modelRuleGroup">
@@ -50,7 +58,9 @@
     <input type="text" formControlName="cardType" />{{testForm.controls.cardType.errors | json}}
     <input type="text" formControlName="creditCard" />{{testForm.controls.creditCard.errors | json}}
     <input type="text" formControlName="amount" />{{testForm.controls.amount.errors | json}}
+    <input type="file" formControlName="fileData" />{{testForm.controls.amount.errors | json}}
     {{testForm.controls.amount.value}}
+
   </form>
   <form [formGroup]="userInfoFormGroup">
     <div class="form-group">
