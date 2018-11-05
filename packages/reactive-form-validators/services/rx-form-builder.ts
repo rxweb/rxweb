@@ -189,8 +189,13 @@ export class RxFormBuilder extends BaseFormBuilder {
         }
     }
 
+    private dynamicValidationPropCheck(propName:string, validatorConfig:FormBuilderConfiguration){
+        return (validatorConfig == undefined) ? true : (!validatorConfig.dynamicValidationConfigurationPropertyName) ? true : validatorConfig.dynamicValidationConfigurationPropertyName == propName ? false : true; 
+    }
+
     private createValidatorFormGroup(groupObject:{[key:string]:any},entityObject:{[key:string]:any},modelInstance:any,validatorConfig:FormBuilderConfiguration){
           for(var propName in groupObject){
+        
             var prop = groupObject[propName];
             if (prop instanceof Array && prop.length > 0 && typeof prop[0] != "object") {
               let propValidators = (prop.length > 1 && prop[1] instanceof Array) ? prop[1] : (prop.length == 2) ? [prop[1]] : [];
@@ -228,6 +233,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                 }
 
             }else if (typeof prop == "object" && !(prop instanceof FormControl)){
+ 
               let formGroup: any = (prop instanceof FormArray) ? prop.controls[0] : prop
               if (!formGroup.model && (prop instanceof FormGroup)) {
                 formGroup = this.group(formGroup.controls);
@@ -239,15 +245,18 @@ export class RxFormBuilder extends BaseFormBuilder {
                   entityObject[propName] = prop;
                   defaultContainer.initPropertyObject(propName,ARRAY_PROPERTY,formGroup.model,modelInstance);
                 }else{
+                if(this.dynamicValidationPropCheck(propName,validatorConfig)){
                 this.formGroupPropOtherValidator[propName] = {};
                 this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator[propName];
                 let propModelInstance = super.createInstance();
                 entityObject[propName] = {};
                 entityObject[propName].constructor= propModelInstance.constructor;
                 defaultContainer.initPropertyObject(propName,OBJECT_PROPERTY,entityObject[propName].constructor,modelInstance);
-                let objectValidationConfig = this.getValidatorConfig(validatorConfig, propName+".")
+                let objectValidationConfig = this.getValidatorConfig(validatorConfig,groupObject, propName+".")
                 this.createValidatorFormGroup(groupObject[propName],entityObject[propName],entityObject[propName].constructor,objectValidationConfig);
+                }else entityObject[propName] = groupObject[propName];
                 }
+
             }
           if (typeof prop == "string" || typeof prop == "number" || typeof prop == "boolean") {
               entityObject[propName] = prop
@@ -260,12 +269,13 @@ export class RxFormBuilder extends BaseFormBuilder {
             entityObject[propName] = prop
               defaultContainer.initPropertyObject(propName,PROPERTY,undefined, modelInstance.constructor ? modelInstance : {constructor:modelInstance});
         }
-      }        
+     }        
    }
 
-    getValidatorConfig(validatorConfig:FormBuilderConfiguration,rootPropertyName:string,arrayPropertyName?:string) : any {
+   private getValidatorConfig(validatorConfig:FormBuilderConfiguration,entityObject:any,rootPropertyName:string,arrayPropertyName?:string) : any {
       let validationProps = {};
       let excludeProps = [];
+      let includeProps = [];
       if(validatorConfig){
         for (var propName in validatorConfig.dynamicValidation) {
           if (propName.indexOf(rootPropertyName) != -1 || (arrayPropertyName && propName.indexOf(arrayPropertyName) != -1)) {
@@ -274,21 +284,29 @@ export class RxFormBuilder extends BaseFormBuilder {
               validationProps[splitProp] = validatorConfig.dynamicValidation[propName]
         }
       }
-      if(validatorConfig.excludeProps){
-      for(let excludeProp of validatorConfig.excludeProps){
-          if(excludeProp.indexOf(rootPropertyName) != -1) {
-              let splitProp = excludeProp.split(".")[1];
-              if(splitProp )
-                excludeProps.push(splitProp);
-          } 
-      }
-    }
+      if(validatorConfig.excludeProps)
+        excludeProps = this.getProps(validatorConfig.excludeProps,rootPropertyName);
+
+      if(validatorConfig.includeProps)
+        includeProps = this.getProps(validatorConfig.includeProps,rootPropertyName);
 
 
-      return {dynamicValidation:validationProps,excludeProps:excludeProps}
+      return {includeProps:includeProps,dynamicValidation: (validatorConfig.dynamicValidationConfigurationPropertyName && entityObject[validatorConfig.dynamicValidationConfigurationPropertyName]) ? entityObject[validatorConfig.dynamicValidationConfigurationPropertyName] : validationProps,excludeProps:excludeProps}
     }
     return {}
       
+    }
+
+    private getProps(properties:string[],rootPropertyName:string){
+      let props:string[] = [];
+        for(let prop of properties){
+              if(prop.indexOf(rootPropertyName) != -1) {
+                  let splitProp = prop.split(".")[1];
+                  if(splitProp)
+                    props.push(splitProp);
+              } 
+          }
+      return props;
     }
 
     formGroup<T>(model: Type<T> | { [key: string]: any }, entityObject?: { [key: string]: any } | FormBuilderConfiguration, formBuilderConfiguration?: FormBuilderConfiguration): FormGroup {
@@ -310,6 +328,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                 isIncludeProp = formBuilderConfiguration.excludeProps.indexOf(property.name) == -1
             if (formBuilderConfiguration && formBuilderConfiguration.dynamicValidation)
                 additionalValidations = formBuilderConfiguration.dynamicValidation;
+            if (formBuilderConfiguration && formBuilderConfiguration.includeProps && formBuilderConfiguration.includeProps.length > 0)
+                isIncludeProp = formBuilderConfiguration.includeProps.indexOf(property.name) != -1
             if (isIncludeProp) {
                 switch (property.propertyType) {
                     case PROPERTY:
@@ -329,7 +349,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 this.builderConfigurationConditionalObjectProps = this.conditionalValidationInstance.conditionalObjectProps.filter(t => t.objectPropName == property.name);
                             if(this.formGroupPropOtherValidator[property.name])
                               this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator[property.name];
-                            let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, `${property.name}.`)
+                            let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration,entityObject[property.name], `${property.name}.`)
                             formGroupObject[property.name] = this.formGroup(property.entity, entityObject[property.name], objectValidationConfig);
                             this.conditionalObjectProps = [];
                             this.builderConfigurationConditionalObjectProps = [];
@@ -349,7 +369,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                                     this.builderConfigurationConditionalObjectProps = this.conditionalValidationInstance.conditionalObjectProps.filter(t => t.objectPropName == property.name && t.arrayIndex == index);
                                   if(this.formGroupPropOtherValidator[property.name])
                                     this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator[property.name];
-                                let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, `${property.name}.`,`${property.name}[${index}].`)
+                                let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration,subObject, `${property.name}.`,`${property.name}[${index}].`)
                                 formArrayGroup.push(this.formGroup(property.entity, subObject, objectValidationConfig));
                                 index++;
                                 this.conditionalObjectProps = [];

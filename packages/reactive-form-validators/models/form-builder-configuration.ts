@@ -12,5 +12,9 @@ export class FormBuilderConfiguration{
 
     excludeProps?: string[];
 
+    includeProps?: string[];
+
     dynamicValidation?: { [key: string]: PropValidationConfig }
+
+    dynamicValidationConfigurationPropertyName?:string;
 }

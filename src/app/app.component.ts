@@ -81,7 +81,7 @@ export class Client{
 
 export class Employee {
     @leapYear() leapYear:number;
-    @factor({dividend:5}) factor:number;
+    @factor({fieldName:'odd'}) factor:number;
     @odd() odd:number;
     @even() even:number;
     @numeric({acceptValue:NumericValueType.NegativeNumber}) numeric:number;
@@ -160,7 +160,7 @@ this.classProperty = value;
 })
 export class AppComponent implements OnInit {
     title = 'app';
-    hero = {name:'',password:'',confirmPassword:'',amount:''};
+    hero = {name:''};
     sampleFormGroup: FormGroup;
     angularFormGroup:FormGroup;
     constructor(private formBuilder: FormBuilder, private validation: RxFormBuilder) {
@@ -177,8 +177,42 @@ testFormGroup:FormGroup;
 testForm:FormGroup;
 userForm:FormGroup;
 modelRuleGroup:FormGroup;
+validatorJson = [{
+  "fieldId":1,
+  "type":'text',
+  "label":"Username",
+  "placeHolder":"Enter your username",
+  "value":"",
+  "sortId":1,
+  "validation":{
+    "value":{
+      "alpha":true, 
+      "required":true,
+      "maxLength":{"value":14}
+    }
+  }
+},{
+  "fieldId":1,
+  "label":"password",
+  "placeHolder":"Password",
+  "value":"",
+  "sortId":1,
+  "validation":{
+    "value":{
+      "alpha":true, 
+      "required":true,
+      "maxLength":10
+    }
+  }
+}]
+dynamicFormGroup :FormGroup;
   ngOnInit() {
 let address = new Address();
+this.dynamicFormGroup  = this.validation.group({questions:this.validatorJson},{
+//excludeProps:['questions.fieldId','questions.label','questions.placeHolder','questions.sortId','questions.validation'],
+includeProps:['questions','questions.value'],
+dynamicValidationConfigurationPropertyName:'validation'});
+console.log(this.dynamicFormGroup);
 this.modelRuleGroup = this.validation.formGroup(address);
 this.userForm = this.formBuilder.group({
   nationality:[''],
@@ -191,6 +225,7 @@ RxwebValidators.minLength({value:11})
 conditionalExpression:(x) => x.nationality == 'Abroad' })
     ]]
 });
+
 this.testForm = this.formBuilder.group({
   password:['',[RxwebValidators.password ({
         validation:{
@@ -199,11 +234,12 @@ this.testForm = this.formBuilder.group({
         }
       }),RxwebValidators.minLength({value:8}),
       RxwebValidators.maxLength({value:10})]],
-      confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
-      age:['',RxwebValidators.startsWith({value:"n"})],
-      cardType:[''],
-      creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
-      amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]]
+  confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
+  age:['',RxwebValidators.startsWith({value:"n"})],
+  cardType:[''],
+  creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
+  amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]],
+fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
   
 });
         this.angularFormGroup = this.validation.group({

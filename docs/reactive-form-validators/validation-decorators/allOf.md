@@ -16,6 +16,7 @@ Let’s see how allOf decorator fulfil the need.
 
 # Basic allOf Validation
 First we need to create a employee Model class and define property of hobbies in the model to achieve the functional need of point 1.
+
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\allOf\add\employee-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\allOf\edit\employee-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
 

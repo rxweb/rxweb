@@ -15,6 +15,7 @@ Let's see how dataUri decorator fulfil the need.
 
 # Basic dataUri Validation
 First we need to create a user model and define a property of htmlDataUri in the model to achieve the functional need of point 1.
+
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\dataUri\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\dataUri\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
 

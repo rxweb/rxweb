@@ -16,6 +16,7 @@ Let’s see how alphaNumeric validator fulfil the need.
 
 # Basic AlphaNumeric Validation
 First we need to create a Location class and define a property of AreaName in the model to achieve the functional need of point 1.
+
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\add\location.model.ts?condition="tab_1=='basicadd'"&type=section)]
 [!code-typescript[](\assets\examples\reactive-form-validators\decorators\alphaNumeric\edit\location.model.ts?condition="tab_1=='basicedit'"&type=section)]
 

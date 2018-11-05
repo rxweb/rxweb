@@ -1,7 +1,6 @@
-
 <rxweb-dynamic-form #df="rxwebForm">
   <ng-template htmlControlTemplate="text" let-control>
-   fancontrol <input type="text" [formControl]="control" />
+   fancontrol <input type="text" [formControl]="control.control" />
   </ng-template>
   <ng-template htmlControlTemplate="number" let-control>
    number <input type="number" [formControl]="control" />
@@ -12,25 +11,25 @@
   </ng-template>
 </rxweb-dynamic-form>
 
-<form #heroForm="ngForm" [rxwebForm]="heroForm">
+<div [formGroup]="dynamicFormGroup.controls.questions.controls[index]" *ngFor="let row of validatorJson;let index = index" class="form-group">
+  <label>{{row.label}}</label>
+  <input type="text" formControlName="value" class="form-control" />
+</div>
+
+
+<form #heroForm="ngForm" rxwebForm>
   name
   <input id="password" name="password" class="form-control"
+         
          [(ngModel)]="hero.password" #password="ngModel">
   {{password.errors | json}}
   <input id="confirmPassword" [compare]="{fieldName:'password'}" name="confirmPassword" class="form-control"
+         
          [(ngModel)]="hero.confirmPassword" #confirmPassword="ngModel">
   {{confirmPassword.errors | json}}
-  <input id="amount" [numeric]="{allowDecimal:true}" name="amount" class="form-control"
-         [(ngModel)]="hero.amount" #amount="ngModel">
-  {{amount.errors | json}}
-  {{hero.amount}}
-  <input type="checkbox" value="male" name="gender" [ngModel]="hero.gender" required #gender="ngModel"> Male
-  <input type="checkbox" value="female" name="gender" [ngModel]="hero.gender" required #gender="ngModel"> Female
-  {{hero | json}}
-  <div *ngIf="gender.invalid">
-    Gender required.
-  </div>
-</form>
+  <input id="fileSize" [fileSize]="{maxSize:2000}" type="file" name="fileSize" class="form-control"
+         [(ngModel)]="hero.fileSize" #fileSize="ngModel">
+  </form>
 
   <form [formGroup]="modelRuleGroup">
     <div class="form-group">
@@ -45,7 +44,7 @@
   <form [formGroup]="userForm">
     <div class="form-group">
       <input type="text" formControlName="nationality" placeholder="Nationality" class="form-control" />
-      {{userForm.controls.nationality.errors  | json}}
+
     </div>
     <div class="form-group">
       <input type="text" formControlName="intlNumber" placeholder="International Number" class="form-control" />
@@ -59,7 +58,9 @@
     <input type="text" formControlName="cardType" />{{testForm.controls.cardType.errors | json}}
     <input type="text" formControlName="creditCard" />{{testForm.controls.creditCard.errors | json}}
     <input type="text" formControlName="amount" />{{testForm.controls.amount.errors | json}}
+    <input type="file" formControlName="fileData" />{{testForm.controls.amount.errors | json}}
     {{testForm.controls.amount.value}}
+
   </form>
   <form [formGroup]="userInfoFormGroup">
     <div class="form-group">
