@@ -1,6 +1,6 @@
 <h1 align="center">rxweb</h1>
 <h3 align="center">Clean Code. Built with Purpose</h3>
-Bring in versatile clean code with rxweb open source framework for rapid application development. Presented by a leading and experienced community at Radixweb, our first open source framework rxweb helps to build robust large enterprise web applications in a simpler, faster and hassle-free manner. We have delivered very niche projects with this framework last many year. 
+Bring in versatile clean code with rxweb open source framework for rapid application development. Presented by a leading and experienced community at [Radixweb](https://radixweb.com), our first open source framework rxweb helps to build robust large enterprise web applications in a simpler, faster and hassle-free manner. We have delivered very niche projects with this framework last many year. 
 
 This is just our beginning with validation framework, few other most powerful apis are coming in near future.
 
