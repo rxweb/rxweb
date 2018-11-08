@@ -9,7 +9,7 @@ The most powerful validation framework for angular based enterprise application 
 
 Decorator based Reactive form validation is the unique feature of the validation framework, which none of the other framework provides this kind of feature including angular. This helps alot for reactive form validation in Angular based enterprise application. Decorator based reactive form validation is much more simpler than the other approaches in angular based application, we know this is the new concept for the users. But this is more efficent way to deal the form in multiple components. For More information about our [validation decorators](https://rxweb.io/validation-decorators/alpha).
 
-Please refer readme doc of [validation framework](https://github.com/rxweb/rxweb/edit/master/packages/reactive-form-validators/README.MD). 
+Please refer readme doc of [validation framework](https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators#rxweb). 
 
 ### installation
 ```js
