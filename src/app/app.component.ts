@@ -241,15 +241,13 @@ form: RxFormGroup;
 person: Person;
 persons:Person[];
 save() {
-debugger;
     this.persons.push(this.form.modelInstanceValue);
     // this.person = new Person();
-    this.form.reset();debugger;
+    this.form.reset();
   }
   ngOnInit() {
     this.person = new Person();
     this.persons = new Array<Person>();
-debugger;
 var fc= new FormBuilderConfiguration();
     fc.autoInstanceConfig = {
       objectPropInstanceConfig:[{
@@ -360,7 +358,6 @@ fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
                 }
             }
     };
-    debugger;
         this.sampleFormGroup = this.validation.formGroup<Employee>(employee,formBuilderConfiguration);
         console.log(this.sampleFormGroup);
     }
