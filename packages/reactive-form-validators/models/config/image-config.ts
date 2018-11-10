@@ -1,7 +1,7 @@
-import { FileConfig } from './base-config'
-export interface ImageConfig extends FileConfig {
-  maxWidth?:number;
-  maxHeight?:number;
-  width?:number;
-  height?:number;
+import { BaseConfig } from './base-config'
+export interface ImageConfig extends BaseConfig {
+  maxWidth:number;
+  maxHeight:number;
+  minWidth?:number;
+  minHeight?:number;
 }

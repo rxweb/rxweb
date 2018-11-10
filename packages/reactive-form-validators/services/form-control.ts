@@ -1,6 +1,6 @@
 import {FormControl,ValidatorFn ,AsyncValidatorFn} from "@angular/forms";
 import { ObjectMaker } from "../util/object-maker";
-import  {MESSAGE } from '../const'
+import  {MESSAGE,CONTROLS_ERROR,VALUE_CHANGED_SYNC } from '../const'
 export class RxFormControl extends FormControl {
     private keyName:string;
     errorMessage:string;
@@ -21,16 +21,20 @@ export class RxFormControl extends FormControl {
       super.setValue(value,options);
       if(this.errors) {
         Object.keys(this.errors).forEach(t=>{
-            this.errorMessage = this.getErrorMessage(this.errors,t);
+            this.parent[CONTROLS_ERROR][this.keyName] = this.errorMessage = this.getErrorMessage(this.errors,t);
             if(!this.errorMessage){
               let errorObject = ObjectMaker.toJson(t,undefined,[this.errors[t][t]]);
-              this.errorMessage = this.getErrorMessage(errorObject,t) ;
+              this.parent[CONTROLS_ERROR][this.keyName] = this.errorMessage = this.getErrorMessage(errorObject,t) ;
             }
         })
-      } else
-        this.errorMessage = undefined;
-      if(!options.updateChanged && this.root["valueChangedSync"]  ){
-        this.root["valueChangedSync"]();
+      } else{
+            this.errorMessage = undefined;
+            this.parent[CONTROLS_ERROR][this.keyName] = undefined
+            delete this.parent[CONTROLS_ERROR][this.keyName];
+      }
+      
+      if(!options.updateChanged && this.root[VALUE_CHANGED_SYNC]  ){
+        this.root[VALUE_CHANGED_SYNC]();
       }
     }
 

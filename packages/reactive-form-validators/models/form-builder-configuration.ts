@@ -1,5 +1,6 @@
 import { PropValidationConfig } from "./prop-validation-config";
 import {ValidatorFn } from '@angular/forms'
+import { AutoInstanceConfig } from './interface/auto-instance-config.interface'
 
 export class FormBuilderConfiguration{
     constructor(formBuilderConfiguration?: FormBuilderConfiguration) {
@@ -17,4 +18,7 @@ export class FormBuilderConfiguration{
     dynamicValidation?: { [key: string]: PropValidationConfig }
 
     dynamicValidationConfigurationPropertyName?:string;
+
+    autoInstanceConfig?:AutoInstanceConfig
 }
+

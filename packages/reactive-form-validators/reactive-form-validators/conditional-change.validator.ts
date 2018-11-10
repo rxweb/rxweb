@@ -24,7 +24,8 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
                 if (t.indexOf("[]") != -1) {
                     var splitText = t.split("[]");
                     var formArray = <FormArray>parentFormGroup.get([splitText[0]]);
-                    formArray.controls.forEach(formGroup => {
+                    if(formArray)
+                      formArray.controls.forEach(formGroup => {
                         var abstractControl = formGroup.get(splitText[1]);
                         if (abstractControl) {
                             setTimeOut(abstractControl);

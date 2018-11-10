@@ -1,3 +1,14 @@
+<form [formGroup]="form">
+  <label>Name</label>
+  <input type="text" formControlName="name" />
+  {{form.controlsError.name}}
+  <button [disabled]="!form.valid" (click)="save()">Add</button>
+</form>
+{{this.form.modelInstanceValue | json}}
+<ul>
+  <li *ngFor="let person of persons">{{ person | json}}</li>
+</ul>
+
 <rxweb-dynamic-form #df="rxwebForm">
   <ng-template htmlControlTemplate="text" let-control>
    fancontrol <input type="text" [formControl]="control.control" />
@@ -16,7 +27,13 @@
   <input type="text" formControlName="value" class="form-control" />
 </div>
 
+<form #heroFormas="ngForm" [rxwebForm]="heroFormas">
+  <div class="form-group">
+    <input type="text" [numeric]="{'isFormat':true}" [(ngModel)]="after" name="afters" placeholder="After" class="form-control" />
 
+    <input type="text" [numeric]="{'isFormat':true}" [(ngModel)]="before" name="befores" placeholder="Before" class="form-control" />
+  </div>
+</form>
 <form #heroForm="ngForm" rxwebForm>
   name
   <input id="password" name="password" class="form-control"
@@ -158,6 +175,7 @@ sampleFormGroup.controls.lastName.errors | json
     {{sampleFormGroup.dirty}}
     {{sampleFormGroup.isDirty()}}
     {{sampleFormGroup.error}}
+    {{sampleFormGroup.modelInstanceValue | json}}
 
     <button (click)="resetData()">Submit</button>
     <button (click)="setDefault()">Change</button>

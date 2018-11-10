@@ -15,9 +15,22 @@ endsWith,
 startsWith,
 primeNumber,
 latitude,
-longitude,rule
+longitude,rule,RxFormGroup
 } from "@rxweb/reactive-form-validators";
+export class Skill{
+  @prop()
+  name:string;
+}
+export class Person {
+  @propObject(Skill)
+  skill:Skill;
 
+  @propArray(Skill)
+  skills:Skill[];
+@required()
+  
+  name:string;
+}
 export class Address {
     zipCode:number;
     city:string;
@@ -34,6 +47,7 @@ export class Attendance {
     @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
 }
 export class EmployeeDetail {
+   
     @prop() @required() areaName: string;
 }
 export class ExternalClass{
@@ -80,6 +94,7 @@ export class Client{
 }
 
 export class Employee {
+    
     @leapYear() leapYear:number;
     @factor({fieldName:'odd'}) factor:number;
     @odd() odd:number;
@@ -143,7 +158,7 @@ export class Employee {
     private _updateChange:string;
     set updateChange(value:string){
       this._updateChange = value;
-this.classProperty = value;
+      this.classProperty = value;
     }
 
     @prop() get updateChange(){
@@ -177,9 +192,8 @@ testFormGroup:FormGroup;
 testForm:FormGroup;
 userForm:FormGroup;
 modelRuleGroup:FormGroup;
-validatorJson = [{
+validatorJson =[{
   "fieldId":1,
-  "type":'text',
   "label":"Username",
   "placeHolder":"Enter your username",
   "value":"",
@@ -188,25 +202,66 @@ validatorJson = [{
     "value":{
       "alpha":true, 
       "required":true,
-      "maxLength":{"value":14}
+      "minLength":{"value":5},
+      "maxLength":{"value":10}
     }
   }
 },{
-  "fieldId":1,
-  "label":"password",
-  "placeHolder":"Password",
+  "fieldId":2,
+  "label":"Password",
+  "placeHolder":"Enter your password",
   "value":"",
-  "sortId":1,
+  "sortId":2,
   "validation":{
     "value":{
-      "alpha":true, 
-      "required":true,
-      "maxLength":10
+      "password":{
+validation:{
+        "maxLength": 10,"minLength": 5,"digit": true,"specialCharacter": true
+}
+}
     }
   }
-}]
+},{
+  "fieldId":3,
+  "label":"Compare Password",
+  "placeHolder":"Re enter password",
+  "value":"",
+  "sortId":3,
+  "validation":{
+    "value":{
+      "compare":{"fieldName":"'password'","message":"'Password value is not matched'"}
+    }
+  }
+}
+
+
+]
 dynamicFormGroup :FormGroup;
+form: RxFormGroup;
+person: Person;
+persons:Person[];
+save() {
+debugger;
+    this.persons.push(this.form.modelInstanceValue);
+    // this.person = new Person();
+    this.form.reset();debugger;
+  }
   ngOnInit() {
+    this.person = new Person();
+    this.persons = new Array<Person>();
+debugger;
+var fc= new FormBuilderConfiguration();
+    fc.autoInstanceConfig = {
+      objectPropInstanceConfig:[{
+        propertyName:'skill'
+      }],
+      arrayPropInstanceConfig:[{
+        propertyName:'skills',
+        rowItems:10
+      }]
+    }
+    this.form = <RxFormGroup>this.validation.formGroup(Person,this.person,fc);
+console.log(this.form);
 let address = new Address();
 this.dynamicFormGroup  = this.validation.group({questions:this.validatorJson},{
 //excludeProps:['questions.fieldId','questions.label','questions.placeHolder','questions.sortId','questions.validation'],
@@ -266,14 +321,14 @@ fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
         var employeeDetail = new Attendance()
         employeeDetail.startTime = 1
         employee.attendances.push(employeeDetail)
-        this.secondEmployee = new Employee();
-        this.secondEmployee.employeeDetail = new EmployeeDetail();
+        //this.secondEmployee = new Employee();
+        //this.secondEmployee.employeeDetail = new EmployeeDetail();
         //employee.employeeDetail.areaName = "";
-        this.secondEmployee.attendances = new Array<Attendance>();
-        var employeeDetails = new Attendance()
-        employeeDetails.startTime = 12;
+        //this.secondEmployee.attendances = new Array<Attendance>();
+        //var employeeDetails = new Attendance()
+        //employeeDetails.startTime = 12;
         //employeeDetail.startTime = undefined
-        this.secondEmployee.attendances.push(employeeDetails)
+        //this.secondEmployee.attendances.push(employeeDetails)
         ReactiveFormConfig.set({
             "internationalization": {
                 "dateFormat": "dmy",
@@ -293,7 +348,9 @@ fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
         employee.lastName = "john";
         console.log(employee)
         var formBuilderConfiguration = new FormBuilderConfiguration();
+          
         formBuilderConfiguration.dynamicValidation = {
+            
             'firstName': {
                 alpha: true
             },
@@ -303,8 +360,8 @@ fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
                 }
             }
     };
-    
-        this.sampleFormGroup = this.validation.formGroup<Employee>(Employee, employee, formBuilderConfiguration);
+    debugger;
+        this.sampleFormGroup = this.validation.formGroup<Employee>(employee,formBuilderConfiguration);
         console.log(this.sampleFormGroup);
     }
 
