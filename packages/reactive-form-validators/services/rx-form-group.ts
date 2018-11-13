@@ -4,6 +4,8 @@ import { EntityService } from './entity.service';
 import { FormGroupExtension } from './form-group';
 import { RegexValidator } from '../util/regex-validator'
 import { ApplicationUtil } from '../util/app-util'
+import { RxFormArray } from './rx-form-array'
+
 
 export class RxFormGroup extends FormGroup  {
     private baseObject:{ [key:string] : any}
@@ -91,9 +93,9 @@ export class RxFormGroup extends FormGroup  {
         return jObject;
     }
 
-    private valueChangedSync(){
+    valueChangedSync(){
         Object.keys(this.controls).forEach(columnName=>{
-            if(!(this.controls[columnName] instanceof FormArray) && !(this.controls[columnName] instanceof FormGroup || this.controls[columnName] instanceof RxFormGroup) && this.controls[columnName].value != this.entityObject[columnName]) {
+            if(!(this.controls[columnName] instanceof FormArray || this.controls[columnName] instanceof RxFormArray) && !(this.controls[columnName] instanceof FormGroup || this.controls[columnName] instanceof RxFormGroup) && this.controls[columnName].value != this.entityObject[columnName]) {
                   this.controls[columnName].setValue(this.entityObject[columnName],{updateChanged:true});
             } else if((this.controls[columnName] instanceof FormArray)){
                 for(let formGroup of (<FormArray>this.controls[columnName]).controls){

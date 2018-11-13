@@ -43,6 +43,34 @@ export class BaseFormBuilder{
           }
     }
 
+    protected updateObject(model:any,entityObject:any){
+        let instanceContainer = defaultContainer.get(model);
+        let classInstance = this.getInstance(model,[]);
+        if(instanceContainer){
+          instanceContainer.properties.forEach(t=>{
+              switch(t.propertyType){
+                case PROPERTY:
+                  classInstance[t.name] = entityObject[t.name]
+                break;
+                case OBJECT_PROPERTY:
+                  if(entityObject[t.name])
+                      classInstance[t.name] = this.updateObject(t.entity,entityObject[t.name])
+                break;
+                case ARRAY_PROPERTY:
+                if(entityObject[t.name] && Array.isArray(entityObject[t.name])){
+                 classInstance[t.name] = [];
+                 for(let row of entityObject[t.name]){
+                      let instanceObject = this.updateObject(t.entity,row)
+                      classInstance[t.name].push(instanceObject);
+                  }
+                }
+                break;
+              }
+          })
+        }
+      return classInstance;
+    }
+
     private getInstance(model:any,objectArguments:any[]){
       let classInstance =Object.create(model.prototype)
          model.apply(classInstance,objectArguments);

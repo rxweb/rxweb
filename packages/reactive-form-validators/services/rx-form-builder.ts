@@ -17,7 +17,7 @@ import { Linq } from '../util/linq'
 import { APP_VALIDATORS } from '../const/app-validators.const'
 import {RxFormControl } from './form-control';
 import { RxFormGroup } from './rx-form-group'
-
+import { RxFormArray } from './rx-form-array';
 
 
 @Injectable()
@@ -29,6 +29,7 @@ export class RxFormBuilder extends BaseFormBuilder {
     private formGroupPropOtherValidator :{[key:string]:any} = {};
     private currentFormGroupPropOtherValidator :{[key:string]:any} = {};
     private isNested: boolean = false;
+    private isGroupCalled:boolean = false;
     constructor() {
       super()
     }
@@ -170,7 +171,9 @@ export class RxFormBuilder extends BaseFormBuilder {
         this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator;
         this.createValidatorFormGroup(groupObject,entityObject,modelInstance,validatorConfig);
         this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator;
+        this.isGroupCalled = true;
         let formGroup = this.formGroup(modelInstance.constructor,entityObject,validatorConfig);
+        this.isGroupCalled = false  ;
         this.formGroupPropOtherValidator = {};
         this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator;
         this.formGroupPropOtherValidator = {};
@@ -318,6 +321,9 @@ export class RxFormBuilder extends BaseFormBuilder {
         let json = this.getObject(model, entityObject, formBuilderConfiguration);
         model = json.model;
         entityObject = json.entityObject;
+        if(entityObject.constructor != model && !this.isGroupCalled){
+        entityObject = json.entityObject = this.updateObject(model,json.entityObject);
+        }
         formBuilderConfiguration = json.formBuilderConfiguration;
         if (formBuilderConfiguration)
             this.extractExpressions(formBuilderConfiguration);
@@ -381,7 +387,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 this.builderConfigurationConditionalObjectProps = [];
                             }
                             let formBuilder = new FormBuilder();
-                            formGroupObject[property.name] = formBuilder.array(formArrayGroup);
+                            
+                            formGroupObject[property.name] = new RxFormArray(entityObject[property.name],formArrayGroup);
                             this.isNested = false;
                         }else if (entityObject[property.name] instanceof FormArray)
                             formGroupObject[property.name] = entityObject[property.name];
