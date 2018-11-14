@@ -394,7 +394,6 @@ save() {
   ngOnInit() {
 
     
-
     this.person = new Person();
     this.persons = new Array<Person>();
 var fc= new FormBuilderConfiguration();
