@@ -227,6 +227,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                   entityObject[propName] = prop;
                 } else {
                 let propModelInstance = super.createInstance();
+                if(typeof modelInstance == "function")
+                    modelInstance.constructor = modelInstance;
                 defaultContainer.initPropertyObject(propName,ARRAY_PROPERTY,propModelInstance.constructor,modelInstance);
                 entityObject[propName] = [];
                 for(let row of prop){

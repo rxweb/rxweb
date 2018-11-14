@@ -17,6 +17,152 @@ primeNumber,
 latitude,
 longitude,rule,RxFormGroup
 } from "@rxweb/reactive-form-validators";
+
+export class Consultant {
+    @required()
+    name: string;
+    _purchPrice: any;
+    _salesPrice: any;
+    _workingDays: any;
+    _chargeAbility: string;
+    _turnover: any;
+    _margin: any;
+    _cost: any;
+  
+    @prop() // set method will be called when user enters/change the value in the textbox
+    set purchPrice(value:any){
+      this._purchPrice = value;
+      this.calculateCost();
+    }
+
+    get purchPrice(){
+      return this._purchPrice;
+    }
+  
+    @prop()
+    set salesPrice(value:any){
+        this._salesPrice = value;
+        this.calculateCost();
+        this.calculateTurnOver();
+    }
+  
+    get salesPrice(){
+      return this._salesPrice;
+    }
+    
+    @prop() // if there is no validation then use prop decorator, if you want to bind property as FormControl.
+    set workingDays(value:any) {
+      this._workingDays = value
+      this.calculateCost();
+      this.calculateTurnOver();
+    }
+    get workingDays() {
+        return this._workingDays;
+    }
+    
+    @prop()
+    set chargeAbility(value) {
+      this._chargeAbility = value;
+    }
+
+    get chargeAbility() {
+      return this._chargeAbility;
+    }
+
+    @prop()
+    set turnover(value) {
+      this._turnover = value;
+      this.calculateMargin();
+    }
+
+    get turnover() {
+      return this._turnover;
+    }
+    
+    @prop()
+    set margin(value) {
+      this._margin = value;
+    }
+
+    get margin() {
+      return this._margin;
+    }
+  
+    @prop()// if there is no validation then use prop decorator, if you want to bind property as FormControl.
+    set cost(value) {
+      this._cost = value;
+      this.calculateMargin();
+    }
+
+    get cost() {
+      return this._cost;
+    }
+  
+    calculateCost(){
+      if(this.purchPrice && this.workingDays)
+        this.cost = this.purchPrice * this.workingDays;
+    }
+
+    calculateTurnOver() {
+      if (this.salesPrice && this.workingDays) {
+        this.turnover = this.salesPrice * this.workingDays;
+      }
+    }
+
+    calculateMargin() {
+      if (this.cost && this.turnover) {
+        this.margin = this.turnover - this.cost;
+      }
+    }
+    constructor(consultant?) {
+      this.name = consultant ? consultant.name : '';
+      this.purchPrice = consultant ? consultant.purchPrice : '';
+      this.salesPrice = consultant ? consultant.salesPrice : '';
+      this.workingDays = consultant ? consultant.workingDays : '';
+      this.chargeAbility = consultant ? consultant.chargeAbility : '';
+      this.turnover = consultant ? consultant.turnover : '';
+      this.cost = consultant ? consultant.cost : '';
+      this.margin = consultant ? consultant.margin : '';
+    }
+}
+
+
+export class Sheet {
+    @prop()
+    title: string;
+    @propArray(Consultant)
+    consultants: Consultant[];
+
+    @prop()
+    _totalConsultantCost;
+
+    @prop()
+    _totalConsultantTurnover;
+
+    _totalConsultantMargin = 0;
+    
+    set totalConsultantMargin(value) {
+        this._totalConsultantMargin = value;
+    }
+    @prop()
+    get totalConsultantMargin() {
+        this.calculateTotalConsultantMargin();
+        return this._totalConsultantMargin;
+    }
+
+    calculateTotalConsultantMargin() {
+        this._totalConsultantMargin = 0;
+                for (let consultant of this.consultants) {
+            this._totalConsultantMargin += consultant.margin;
+        }
+    }
+
+    recalculateSheetTotals() {
+        this.calculateTotalConsultantMargin();
+    }
+}
+
+
 export class Skill{
   @prop()
   name:string;
@@ -246,6 +392,14 @@ save() {
     this.form.reset();
   }
   ngOnInit() {
+let jamesData = {"_id":"5beb38763bc22e3f685dd616","name":"Jersey Lamar Jackson 18/19 Home","variants":[{"_id":"5beb3c501dfae84c10d07b24","type":"Cor","options":[{"_id":"5beb3c501dfae84c10d07b26","option":"Preto","photos":"https://localhost:4000/images/product/var_1542143056216_crow.jpg,https://localhost:4000/images/product/var_1542143056216_flacco.jpg"},{"_id":"5beb3c501dfae84c10d07b25","option":"Roxo","photos":"https://localhost:4000/images/product/var_1542143056216_jimmy.jpg"}]},{"_id":"5beb3c501dfae84c10d07b21","type":"Tamanho","options":[{"_id":"5beb3c501dfae84c10d07b23","option":"G"},{"_id":"5beb3c501dfae84c10d07b22","option":"GG"}]}]}
+debugger;
+let jamesFormGroup = this.validation.group(jamesData);
+debugger;
+    let data: any = { "title": "Mathias Simulation", "consultants": [{ "name": "Alexei", "purchPrice": "250", "salesPrice": "450", "workingDays": "22", "chargeAbility": "90%", "turnover": 9900, "margin": 4400, "cost": 5500 }, { "name": "Roberto", "purchPrice": "250", "salesPrice": "490", "workingDays": "22", "chargeAbility": "90%", "turnover": 10780, "margin": 5280, "cost": 5500 }, { "name": "Mathias", "purchPrice": "500", "salesPrice": "550", "workingDays": "22", "chargeAbility": "100", "turnover": 12100, "margin": 1100, "cost": 11000 }], "_totalConsultantCost": null, "_totalConsultantTurnover": null, "totalConsultantMargin": 10780 };
+    debugger;
+    let formGroup   = this.validation.formGroup(Sheet,data);
+
     this.person = new Person();
     this.persons = new Array<Person>();
 var fc= new FormBuilderConfiguration();
