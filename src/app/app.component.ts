@@ -392,13 +392,8 @@ save() {
     this.form.reset();
   }
   ngOnInit() {
-let jamesData = {"_id":"5beb38763bc22e3f685dd616","name":"Jersey Lamar Jackson 18/19 Home","variants":[{"_id":"5beb3c501dfae84c10d07b24","type":"Cor","options":[{"_id":"5beb3c501dfae84c10d07b26","option":"Preto","photos":"https://localhost:4000/images/product/var_1542143056216_crow.jpg,https://localhost:4000/images/product/var_1542143056216_flacco.jpg"},{"_id":"5beb3c501dfae84c10d07b25","option":"Roxo","photos":"https://localhost:4000/images/product/var_1542143056216_jimmy.jpg"}]},{"_id":"5beb3c501dfae84c10d07b21","type":"Tamanho","options":[{"_id":"5beb3c501dfae84c10d07b23","option":"G"},{"_id":"5beb3c501dfae84c10d07b22","option":"GG"}]}]}
-debugger;
-let jamesFormGroup = this.validation.group(jamesData);
-debugger;
-    let data: any = { "title": "Mathias Simulation", "consultants": [{ "name": "Alexei", "purchPrice": "250", "salesPrice": "450", "workingDays": "22", "chargeAbility": "90%", "turnover": 9900, "margin": 4400, "cost": 5500 }, { "name": "Roberto", "purchPrice": "250", "salesPrice": "490", "workingDays": "22", "chargeAbility": "90%", "turnover": 10780, "margin": 5280, "cost": 5500 }, { "name": "Mathias", "purchPrice": "500", "salesPrice": "550", "workingDays": "22", "chargeAbility": "100", "turnover": 12100, "margin": 1100, "cost": 11000 }], "_totalConsultantCost": null, "_totalConsultantTurnover": null, "totalConsultantMargin": 10780 };
-    debugger;
-    let formGroup   = this.validation.formGroup(Sheet,data);
+
+    
 
     this.person = new Person();
     this.persons = new Array<Person>();
