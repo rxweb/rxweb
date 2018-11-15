@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl,FormControl } from "@angular/forms";
+import { Component, OnInit, forwardRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR, NG_VALIDATORS, FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl,FormControl } from "@angular/forms";
 import {
   choice,
     contains,
@@ -312,6 +312,29 @@ export class Employee {
     }
 }
 
+@Component({
+  selector: "rx-date",
+  template: `<button (click)="clickMe()">Click me</button>`,
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => RxDateComponent), multi: true },
+  ],
+})
+export class RxDateComponent {
+  propagateChange:any
+  private registerOnChange(fn) {
+    this.propagateChange = fn;
+  }
+
+  private registerOnTouched() { }
+
+  private writeValue(value: any) { }
+
+  clickMe() {
+    this.propagateChange('text');
+  }
+}
+
+
 
 
 @Component({
@@ -391,9 +414,28 @@ save() {
     // this.person = new Person();
     this.form.reset();
   }
+  unformGroup: FormGroup;
   ngOnInit() {
 
-    
+    this.unformGroup = this.formBuilder.group({
+      'hh_lmms_id': new FormControl(''),
+      'last_name_ar': new FormControl('', [Validators.required, Validators.pattern('[\u0600-\u06FF ]*')]),
+      'last_name_en': new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+      'num_ind_of_hh': new FormControl({ value: '0', disabled: true }, [Validators.required,]),
+      'address_in_origin_country': new FormControl('', [Validators.required]),
+      'hh_status': new FormControl('Active', [Validators.required]),
+      'hh_phone_number': new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern(/^-?([0-9]\d*)?$/)]),
+      'date_added': new FormControl('', [Validators.required]),
+      'u_id': ['', [RxwebValidators.required({ conditionalExpression: (x) => x.gov_id_type === '' && x.gov_id_number === '' }),
+      RxwebValidators.pattern({ pattern: { 'unid': RegExp('^[0-9A-Z]{3}(-)[0-9]{2}(C)[0-9]{5}$') }, conditionalExpression: (x) => x.u_id !== '' })]],
+      'gov_id_type': ['', RxwebValidators.required({ conditionalExpression: (x) => x.u_id === '' })],
+      'gov_id_number': ['', RxwebValidators.required({ conditionalExpression: (x) => x.gov_id_type !== '' })],
+      'legal_id': new FormControl(''),
+      'protection_id': new FormControl(''),
+      'situation_id': new FormControl(''),
+      'willing_to_go_back': new FormControl('')
+    })
+
     this.person = new Person();
     this.persons = new Array<Person>();
 var fc= new FormBuilderConfiguration();

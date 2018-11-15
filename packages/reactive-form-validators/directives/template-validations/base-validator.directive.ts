@@ -25,12 +25,15 @@ export abstract class BaseValidator implements Validator{
       this.eventName = eventName.toLowerCase();
     }
 
-    validate(control: AbstractControl): {[key: string]: any} {
-      if(this.oldValue != control.value && this.controls)
-          Object.keys(this.controls).forEach(fieldName => {
-              this.controls[fieldName].updateValueAndValidity();
-          })
+  validate(control: AbstractControl): { [key: string]: any } {
+    if (this.oldValue != control.value && this.controls) {
       this.oldValue = control.value;
+      Object.keys(this.controls).forEach(fieldName => {
+        if (this.controls[fieldName] != control)
+          this.controls[fieldName].updateValueAndValidity();
+      })
+      
+    }
       return  this.validator ? this.validator(control) : null;
     }
 }

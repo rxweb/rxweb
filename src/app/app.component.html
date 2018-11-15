@@ -1,5 +1,26 @@
+<form [formGroup]="unformGroup">
+
+
+  <input id="u_id" formControlName="u_id" placeholder="U ID">
+  {{unformGroup.controls.u_id.errors | json}}
+
+  <div></div>
+  <h5>Mat Select</h5>
+  <rx-date formControlName="gov_id_type"></rx-date>
+  {{unformGroup.controls.gov_id_type.errors | json}}
+  <div></div>
+
+
+  <input id="gov_id_number" formControlName="gov_id_number" placeholder="Gov. ID Number">
+
+  {{unformGroup.controls.gov_id_number.errors | json}}
+
+</form>
+
+
 <form [formGroup]="form">
   <label>Name</label>
+  <rx-date type="text" formControlName="name" ></rx-date>
   <input type="text" formControlName="name" />
   {{form.controlsError.name}}
   <button [disabled]="!form.valid" (click)="save()">Add</button>

@@ -21,6 +21,7 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
         let value = control.value;
         if (parentFormGroup && oldValue != value)
         {
+            oldValue = value;
             timeOuts = [];
             conditionalValidationProps.forEach(t => {
                 if (t.indexOf("[]") != -1) {
@@ -41,7 +42,6 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
                     }
                 }
             })
-           oldValue = value;
         }
         return ObjectMaker.null();
     }
