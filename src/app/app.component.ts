@@ -391,9 +391,12 @@ save() {
     // this.person = new Person();
     this.form.reset();
   }
+
+  
+
   ngOnInit() {
 
-    
+   
 
     this.person = new Person();
     this.persons = new Array<Person>();

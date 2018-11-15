@@ -34,8 +34,8 @@
     <input type="text" [numeric]="{'isFormat':true}" [(ngModel)]="before" name="befores" placeholder="Before" class="form-control" />
   </div>
 </form>
-<form #heroForm="ngForm" rxwebForm>
-  name
+<form #heroForm="ngForm" [rxwebForm]="heroForm">
+  name as
   <input id="password" name="password" class="form-control"
          
          [(ngModel)]="hero.password" #password="ngModel">

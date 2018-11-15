@@ -1,5 +1,5 @@
 import { Directive, Input,ElementRef,Renderer, forwardRef, OnInit,OnDestroy } from '@angular/core';
-import { NG_VALIDATORS, AbstractControl,FormControl } from '@angular/forms';
+import { NG_VALIDATORS, AbstractControl,FormControl} from '@angular/forms';
 import { formatNumber } from "@angular/common"
 import { APP_VALIDATORS} from '../../const/app-validators.const';
 import { BaseValidator } from './base-validator.directive';
@@ -20,21 +20,18 @@ const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','aphaNumeric','ascii'
 @Directive({
   selector: '[ngModel],[formControlName],[formControl]',
   providers: [NGMODEL_BINDING],
- 
 })
-export class RxFormControlDirective extends BaseValidator implements OnInit,OnDestroy {
+export class RxFormControlDirective extends BaseValidator implements OnInit,OnDestroy{
   private eventListeners:any[] = [];
-  private controls:{[key:string]:FormControl};
   set validationControls(value:{[key:string]:FormControl}){
-    this.controls = value;
-    this.bindValueChangeEvent();
+      this.controls = value;
+      this.bindValueChangeEvent();
   }
 
   get validationControls(){
-    return this.controls;
+      return this.controls;
   }
 
-  
   @Input() allOf:ArrayConfig;
   @Input() alpha:AlphaConfig;
   @Input() alphaNumeric:AlphaConfig;
@@ -97,6 +94,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
         private renderer: Renderer,private decimalProvider:DecimalProvider){
         super();
         this.element = elementRef.nativeElement as Node;
+        this.setEventName();
     }
 
   ngOnInit() {
@@ -131,27 +129,17 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
   }
 
   bindValueChangeEvent(){
-  let listener =  this.renderer.listen(this.element,this.getEventName(),()=> {
-          Object.keys(this.validationControls).forEach(fieldName => {
-              this.validationControls[fieldName].updateValueAndValidity();
-          })
-    });
-   this.eventListeners.push(listener);
+    if(this.eventName != BLANK){
+      let listener =  this.renderer.listen(this.element,this.eventName,()=> {
+              Object.keys(this.validationControls).forEach(fieldName => {
+                  this.validationControls[fieldName].updateValueAndValidity();
+              })
+        });
+       this.eventListeners.push(listener);
+    }
   }
 
-  getEventName() {
-      var eventName:string = '';
-      switch(this.element.tagName) {
-        case INPUT:
-        case TEXTAREA:
-         eventName = (this.element.type == CHECKBOX || this.element.type == RADIO || this.element.type == FILE) ?  CHANGE : INPUT;
-        break;
-        case SELECT:
-         eventName = CHANGE;
-        break;
-      }
-      return eventName.toLowerCase();
-    }
+  
 
   private setValueOnElement(value: any) {
         this.renderer.setElementProperty(this.element, ELEMENT_VALUE, value);

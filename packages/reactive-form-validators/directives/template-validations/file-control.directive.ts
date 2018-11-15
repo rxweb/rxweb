@@ -7,9 +7,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
         "(change)" : "onChangeEvent($event.target.files)",
         "(blur)": "onBlurEvent()"
     },
-    providers: [{provide: NG_VALUE_ACCESSOR,
-                 useExisting: FileControlDirective,
-                 multi: true}]
+    providers: []
 })
 export class FileControlDirective implements ControlValueAccessor {
     writeValue(value) {}
