@@ -28,14 +28,14 @@ export abstract class BaseValidator implements Validator{
   validate(control: AbstractControl): { [key: string]: any } {
     this.timeOut = window.setTimeout(() => {
         window.clearTimeout(this.timeOut);
-      if (this.oldValue != control.value && this.controls && this.eventName == BLANK) {
+      if (this.oldValue != control.value && this.controls) {
           this.oldValue = control.value;
           Object.keys(this.controls).forEach(fieldName => {
             if (this.controls[fieldName] != control)
               this.controls[fieldName].updateValueAndValidity();
           })
           }
-        }, 50)
+        }, 100)
       return  this.validator ? this.validator(control) : null;
     }
 }

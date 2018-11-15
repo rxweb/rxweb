@@ -25,7 +25,6 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
   private eventListeners:any[] = [];
   set validationControls(value:{[key:string]:FormControl}){
       this.controls = value;
-      this.bindValueChangeEvent();
   }
 
   get validationControls(){
