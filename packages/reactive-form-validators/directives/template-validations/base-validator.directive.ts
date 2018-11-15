@@ -10,7 +10,7 @@ export abstract class BaseValidator implements Validator{
     protected eventName:string;
     private oldValue:string = undefined;
     protected controls:{[key:string]:FormControl};
-
+    private timeOut: number;
     protected setEventName() {
       var eventName:string = '';
       switch(this.element.tagName) {
@@ -26,14 +26,16 @@ export abstract class BaseValidator implements Validator{
     }
 
   validate(control: AbstractControl): { [key: string]: any } {
-    if (this.oldValue != control.value && this.controls) {
-      this.oldValue = control.value;
-      Object.keys(this.controls).forEach(fieldName => {
-        if (this.controls[fieldName] != control)
-          this.controls[fieldName].updateValueAndValidity();
-      })
-      
-    }
+    this.timeOut = window.setTimeout(() => {
+        window.clearTimeout(this.timeOut);
+      if (this.oldValue != control.value && this.controls && this.eventName == BLANK) {
+          this.oldValue = control.value;
+          Object.keys(this.controls).forEach(fieldName => {
+            if (this.controls[fieldName] != control)
+              this.controls[fieldName].updateValueAndValidity();
+          })
+          }
+        }, 50)
       return  this.validator ? this.validator(control) : null;
     }
 }
