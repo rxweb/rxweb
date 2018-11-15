@@ -33,7 +33,7 @@ export class RxFormControl extends FormControl {
             delete this.parent[CONTROLS_ERROR][this.keyName];
       }
       
-      if(!options.updateChanged && this.root[VALUE_CHANGED_SYNC]  ){
+      if(options && !options.updateChanged && this.root[VALUE_CHANGED_SYNC]  ){
         this.root[VALUE_CHANGED_SYNC]();
       }
     }
