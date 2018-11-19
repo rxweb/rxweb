@@ -1,5 +1,6 @@
 <form [formGroup]="unformGroup">
-
+  <input formControlName="last_name_ar" placeholder="U ID">
+  {{unformGroup.controls.last_name_ar.errors | json}}
 
   <input id="u_id" formControlName="u_id" placeholder="U ID">
   {{unformGroup.controls.u_id.errors | json}}
