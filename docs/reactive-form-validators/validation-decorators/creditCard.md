@@ -1,129 +1,125 @@
 ---
 title: creditCard 
 description: creditCard validation decorator will check property value is creditcardtype or not, It will not allow to enter any value other than credit card format.
-author:  rxcontributorone
+author:  rxcontributortwo
 
 ---
 # When to use
-Supppose you want to create a user form and you want details like CreditCard and you have fields like CardType, VisaCard, AmericanExpress,MaestroCard, JCBcard, DiscoverCard, MasterCard  Here depending upon the requirement these scenarios may arise.  
-1.  CreditCard Type has different Card Types like Visa,AmericanExpress,Maestro,JCB,Discover,DinersClub,MasterCard.
-2. 	Apply CreditCard validation based on matched condition in the form, like if the CardType  is ‘visa’ then the VisaCard value should be in VisaCard format.
-3.  The Custom Message on VisaCard field.  
-4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
+Supppose you want to create a user form and you want details like CreditCard and you have fields like CardType, VisaCard, AmericanExpress,MaestroCard, JCBcard, DiscoverCard, MasterCard  Here depending upon the requirement these scenarios may arise.
+<ol>  
+    <li>CreditCard Type has different Card Types like Visa,AmericanExpress,Maestro,JCB,Discover,DinersClub,MasterCard.</li>
+    <li>Apply CreditCard validation based on matched condition in the form, like if the CardType  is ‘visa’ then the VisaCard value should be in VisaCard format.</li>
+    <li>The Custom Message on VisaCard field.  </li>
+    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+</ol>
 
-Let’s see how credit card validator fulfil the need.
+Let’s see how credit card decorator fulfil the need.
 
 # Basic CreditCard Validation
+<data-scope scope="['decorator']">
 First we need to create User model class define a property of CreditCardNo in the model to achieve the functional need of point 1.
-
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="creditCard-add-model"></div> 
+</data-scope>
 Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 Here we have covered Add and Edit form operations. 
 
-
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\add\credit-card-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\edit\credit-card-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\creditCard\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="creditCard-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\add\credit-card-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\edit\credit-card-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="creditCard-add-html"></div> 
+<div component="app-creditCard-add" title="creditCard Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="creditCard-edit-component"></div> 
+The below code is `user-data.json` for getting data from the server
+<div component="app-code" key="data-json"></div> 
+Next, we need to write html code.
+<div component="app-code" key="creditCard-edit-html"></div> 
+<div component="app-creditCard-add" title="creditCard Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=creditCard Decorator for add Example)]
-<app-creditCard-add></app-creditCard-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=creditCard Decorator for edit Example)]
-<app-creditCard-edit></app-creditCard-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="creditCard-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="creditCard-add-html"></div> 
+<div component="app-creditCard-add" title="creditCard Decorator for add Example"></div>
+</data-scope>
 
 # CreditCardConfig
 Below options are not mandatory to use in the `@CreditCard()` decorator. If needed then use the below options.
-|Option | Description |
-|--- | ---- |
-|[conditionalExpression](#conditionalExpression) | Credit Card validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
 
-[!TabGroup(?showHideCondition="creditCardTypesShow")]
-# [Model](#tab\creditCardTypesmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\creditCardTypes\user.model.ts)]
-# [Component](#tab\creditCardTypesComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\creditCardTypes\credit-card-credit-card-types.component.ts)]
-# [Html](#tab\creditCardTypesHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\creditCardTypes\credit-card-credit-card-types.component.html)]
-***
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#creditCardTypes" (click)='scrollTo("#creditCardTypes")' title="creditCardTypes">creditCardTypes</a></td><td>CreditCardTypes is used to define the type of CreditCard enterred by user.</td></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>CreditCard validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+</table>
+
+## creditCardTypes 
+Type :  `creditCardType[]` 
+
+CreditCardTypes is used to define the type of CreditCard enterred by user.
+
+<div component="app-code" key="creditCard-creditCardTypesExample-model"></div> 
+<div component="app-example-runner" ref-component="app-creditCard-creditCardTypes" title="creditCard decorators with creditCardTypes" key="creditCardTypes"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string`
 Credit Card validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!codeExample(?title=conditionalExpressionExampleFunction)]
+<div component="app-note" key="creditCard-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="creditCard-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="creditCard-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="creditCard-conditionalExpressionExampleString-model"></div> 
 
-[!codeExample(?title=conditionalExpressionExampleString)]
-
-[!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\conditionalExpression\user.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\conditionalExpression\credit-card-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\conditionalExpression\credit-card-conditional-expressions.component.html)]
-***
-
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=creditCard decorator with conditionalExpression)]
-<app-creditCard-conditionalExpression></app-creditCard-conditionalExpression>
+<div component="app-example-runner" ref-component="app-creditCard-conditionalExpression" title="creditCard decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property. 
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\message\user.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\message\credit-card-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\message\credit-card-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=creditCard decorator with custom message)]
-<app-creditCard-message></app-creditCard-message>
+<div component="app-code" key="creditCard-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-creditCard-message" title="creditCard decorators with message" key="message"></div>
 
 # Complete CreditCard Example
 
 This Complete CreditCard example which includes all the CreditCardConfig properties will fulfil the requirement of scenarios 1, 2 and 3 
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-creditCard-complete></app-creditCard-complete>
+<div component="app-creditCard-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\complete\user.model.ts)]
+<div component="app-code" key="creditCard-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\complete\credit-card-complete.component.ts)]
+<div component="app-code" key="creditCard-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\complete\credit-card-complete.component.html)]
+<div component="app-code" key="creditCard-complete-html"></div> 
 ***
 
 # Dynamic CreditCard Example
+
+This Dynamic CreditCard example which execute based on json passed. conditional expression with function would be not apply in dynamic creditCard example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-creditCard-dynamic></app-creditCard-dynamic>
+<div component="app-creditCard-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\dynamic\user.model.ts)]
+<div component="app-code" key="creditCard-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\dynamic\credit-card-dynamic.component.ts)]
+<div component="app-code" key="creditCard-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\dynamic\dynamic.json)]
+<div component="app-code" key="creditCard-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\creditCard\dynamic\credit-card-dynamic.component.html)]
+<div component="app-code" key="creditCard-dynamic-html"></div> 
 ***

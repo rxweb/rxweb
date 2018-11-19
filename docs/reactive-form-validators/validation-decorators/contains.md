@@ -6,69 +6,62 @@ author: rxcontributortwo
 ---
 # When to use
 Suppose you want to create a User form, which contains fields like EmailAddress, RecoveryEmailAddress, OtherEmailAddress and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.
-1.	Allow input which contains the predefined value in EmailAddress.
-2.	Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the the contains validation must be applied to RecoveryEmailAddress value.
-3.	Adding Custom Message on OtherEmailAddress Field.
-4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
-
+<ol>
+	<li>Allow input which contains the predefined value in EmailAddress.</li>
+	<li>Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the the       contains validation must be applied to RecoveryEmailAddress value.</li>
+	<li>Adding Custom Message on OtherEmailAddress Field.</li>
+	<li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+</ol>
 Let’s see how contains validator fulfil the need.
 
 # Basic Contains Validation
+<data-scope scope="['decorator']">
 First we need to create a User class and define a property of EmailAddress in the model to achieve the functional need of point 1.
-
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="contains-add-model"></div> 
+</data-scope>
 Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
 
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\add\contains-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\edit\contains-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\contains\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="contains-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\add\contains-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\edit\contains-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="contains-add-html"></div> 
+<div component="app-contains-add" title="contains Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="contains-edit-component"></div>
+The below code is `user-data.json` for getting data from the server 
+<div component="app-code" key="data-json"></div> 
+Next, we need to write html code.
+<div component="app-code" key="contains-edit-html"></div> 
+<div component="app-contains-add" title="contains Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=contains Decorator for add Example)]
-<app-contains-add></app-contains-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=contains Decorator for edit Example)]
-<app-contains-edit></app-contains-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="contains-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="contains-add-html"></div> 
+<div component="app-contains-add" title="contains Decorator for add Example"></div>
+</data-scope>
 
 # ContainsConfig 
 conditionalExpression and message options are not mandatory but value is mandatory to use in the `@contains()` decorator. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[value](#value) | This is substring value. |
-|[conditionalExpression](#conditionalExpression) | Contains validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#value" (click)='scrollTo("#value")' title="value">value</a></td><td>This is substring value.</td></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Contains validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message"  (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 
 ## value 
 Type :  `string` 
 
 This is substring value.
 
-[!codeExample(?title=valueExample)]
-
-[!TabGroup(?showHideCondition="valueShow")]
-# [Model](#tab\valuemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\value\user.model.ts)]
-# [Component](#tab\valueComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\value\contains-value.component.ts)]
-# [Html](#tab\valueHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\value\contains-value.component.html)]
-***
-
-[!example(?type=section&clickEventCode="valueShow=!valueShow"&title=contains decorator with value)]
-<app-contains-value></app-contains-value>
+<div component="app-code" key="contains-valueExample-model"></div> 
+<div component="app-example-runner" ref-component="app-contains-value" title="contains decorators with value" key="value"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -76,66 +69,56 @@ Type :  `Function`  |  `string`
 Contains validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!codeExample(?title=conditionalExpressionExampleFunction)]
+<div component="app-note" key="contains-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="contains-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="contains-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="contains-conditionalExpressionExampleString-model"></div> 
 
-[!codeExample(?title=conditionalExpressionExampleString)]
-
-[!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\conditionalExpression\user.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\conditionalExpression\contains-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\conditionalExpression\contains-conditional-expressions.component.html)]
-***
-
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=contains decorator with conditionalExpression)]
-<app-contains-conditionalExpression></app-contains-conditionalExpression>
+<div component="app-example-runner" ref-component="app-contains-conditionalExpression" title="contains decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 
 To override the global configuration message and show the custom message on particular control property.
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\message\user.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\message\contains-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\message\contains-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=contains decorator with custom message)]
-<app-contains-message></app-contains-message>
+<div component="app-code" key="contains-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-contains-message" title="contains decorators with message" key="message"></div>
 
 # Complete Contains Example
 
 This Complete Contains example which includes all the ContainsConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-contains-complete></app-contains-complete>
+<div component="app-contains-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\complete\user.model.ts)]
+<div component="app-code" key="contains-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\complete\contains-complete.component.ts)]
+<div component="app-code" key="contains-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\complete\contains-complete.component.html)]
+<div component="app-code" key="contains-complete-html"></div> 
 ***
 
 # Dynamic Contains Example
+
+This Dynamic Contains example which execute based on json passed. conditional expression with function would be not apply in dynamic Contains example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-contains-dynamic></app-contains-dynamic>
+<div component="app-contains-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\user.model.ts)]
+<div component="app-code" key="contains-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\contains-dynamic.component.ts)]
+<div component="app-code" key="contains-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\dynamic.json)]
+<div component="app-code" key="contains-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\contains\dynamic\contains-dynamic.component.html)]
+<div component="app-code" key="contains-dynamic-html"></div> 
 ***

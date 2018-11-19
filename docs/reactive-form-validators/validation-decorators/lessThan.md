@@ -6,68 +6,65 @@ author: rxcontributortwo
 ---
 # When to use
 Suppose you want to create a User form, which contains fields like ObtainedMarks, PassingMarks, OtherMarks and you want the user to enter the numbers which are less than a related field. Here depending upon the requirement these scenarios may arise.
-1.	Allow numbers which are less than a perticular field like in PassingMarks.
-2.	Apply lessThan validation based on matched condition in the form, like if the ObtainedMarks is less than 35, then only the greater than validation will be applied to PassingMarks field.
-3.	Adding Custom Message on OtherMarks Field.
-4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
-
-Let’s see how lessThan validator fulfil the need.
+<ol>
+    <li>Allow numbers which are less than a perticular field like in PassingMarks.</li>
+    <li>Apply lessThan validation based on matched condition in the form, like if the ObtainedMarks is less than 35, then only the greater than validation will be applied to PassingMarks field.</li>
+    <li>Adding Custom Message on OtherMarks Field.</li>
+    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+</ol>
+Let’s see how lessThan decorator fulfil the need.
 
 # Basic LessThan Validation
+
+<data-scope scope="['decorator']">
 First we need to create a User class and define a property of Marks and PassingMarks with the requirement of PassingMarks must be less than Marks field in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="alpha-add-model"></div> 
+</data-scope>
+Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Here we have covered Add and Edit form operations. 
 
-Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
-
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\add\less-than-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\edit\less-than-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\lessThan\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="alpha-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\add\less-than-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\edit\less-than-add.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="alpha-add-html"></div> 
+<div component="app-alpha-add" title="alpha Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="alpha-edit-component"></div> 
+The below code is `user-data.json` for getting data from the server
+<div component="app-code" key="data-json"></div> 
+Next, we need to write html code.
+<div component="app-code" key="alpha-edit-html"></div> 
+<div component="app-alpha-add" title="alpha Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=lessThan Decorator for add Example)]
-<app-lessThan-add></app-lessThan-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=lessThan Decorator for edit Example)]
-<app-lessThan-edit></app-lessThan-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="alpha-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="alpha-add-html"></div> 
+<div component="app-alpha-add" title="alpha Decorator for add Example"></div>
+</data-scope>
 
 # RelationalOperatorConfig 
 message and conditionalExpression options are not mandatory but fieldName is mandatory to use in the `@lessThan()` decorator. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[fieldName](#fieldname) | Less than validation should be applied based on the `fieldName` for compare other field value |
-|[conditionalExpression](#conditionalExpression) | Less than validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#fieldName" title="fieldName">fieldName</a></td><td>Less than validation should be applied based on the `fieldName` for compare other field value</td></tr>
+<tr><td><a href="#conditionalExpression" title="conditionalExpression">conditionalExpression</a></td><td>Less than validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message" title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+</table>
 
 ## fieldName 
 Type :  `string` 
 
 Less than validation should be applied based on the `fieldName` for compare other field value
 
-[!codeExample(?title=fieldNameExample)]
-
-[!TabGroup(?showHideCondition="fieldNameShow")]
-# [Model](#tab\fieldNamemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\fieldName\user.model.ts)]
-# [Component](#tab\fieldNameComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\fieldName\less-than-field-name.component.ts)]
-# [Html](#tab\fieldNameHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\fieldName\less-than-field-name.component.html)]
-***
-
-[!example(?type=section&clickEventCode="fieldNameShow=!fieldNameShow"&title=lessThan decorator with fieldName)]
-<app-lessThan-fieldName></app-lessThan-fieldName>
+<div component="app-code" key="lessThan-fieldNameExample-model"></div> 
+<div component="app-example-runner" ref-component="app-lessThan-fieldName" title="lessThan decorators with fieldName" key="fieldName"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -75,66 +72,56 @@ Type :  `Function`  |  `string`
 Less than validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!codeExample(?title=conditionalExpressionExampleFunction)]
+<div component="app-note" key="lessThan-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="lessThan-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="lessThan-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="lessThan-conditionalExpressionExampleString-model"></div> 
 
-[!codeExample(?title=conditionalExpressionExampleString)]
+<div component="app-example-runner" ref-component="app-lessThan-conditionalExpression" title="alpha decorators with conditionalExpression" key="conditionalExpression"></div>
 
-[!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\conditionalExpression\user.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\conditionalExpression\less-than-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\conditionalExpression\less-than-conditional-expressions.component.html)]
-***
-
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=lessThan decorator with conditionalExpression)]
-<app-lessThan-conditionalExpression></app-lessThan-conditionalExpression>
- 
 ## message 
 Type :  `string` 
 
 To override the global configuration message and show the custom message on particular control property.
  
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\message\user.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\message\less-than-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\message\less-than-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=lessThan decorator with custom message)]
-<app-lessThan-message></app-lessThan-message>
+<div component="app-code" key="lessThan-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-lessThan-message" title="alpha decorators with message" key="message"></div>
 
 # Complete lessThan Example
 
 This Complete lessThan example which includes all the RelationalOperatorConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-lessThan-complete></app-lessThan-complete>
+<div component="app-lessThan-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\complete\user.model.ts)]
+<div component="app-code" key="lessThan-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\complete\less-than-complete.component.ts)]
+<div component="app-code" key="lessThan-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\complete\less-than-complete.component.html)]
+<div component="app-code" key="lessThan-complete-html"></div> 
 ***
 
 # Dynamic lessThan Example
+
+This Dynamic lessThan example which execute based on json passed. conditional expression with function would be not apply in dynamic lessThan example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-lessThan-dynamic></app-lessThan-dynamic>
+<div component="app-lessThan-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\user.model.ts)]
+<div component="app-code" key="lessThan-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\less-than-dynamic.component.ts)]
+<div component="app-code" key="lessThan-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\dynamic.json)]
+<div component="app-code" key="lessThan-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\lessThan\dynamic\less-than-dynamic.component.html)]
+<div component="app-code" key="lessThan-dynamic-html"></div> 
 ***
