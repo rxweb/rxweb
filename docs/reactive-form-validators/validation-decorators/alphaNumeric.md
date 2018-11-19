@@ -12,7 +12,7 @@ Suppose you want to create a Location form, which contains fields like AreaName,
     <li>Allowing WhiteSpace in FlatAddress.</li>
     <li>Apply alphaNumeric validation based on matched condition in the form, like if the AreaName is `Boston` then the CityCode value should be in alphabets and numbers.</li>
     <li>Adding Custom Message on PostalAddress Field.</li>
-    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application. </li>
+    <li>Apply alphaNumeric validation dynamically based on server rules.</li>
 </ol>
 
 Let’s see how alphaNumeric decorator fulfil the need.
@@ -22,7 +22,7 @@ Let’s see how alphaNumeric decorator fulfil the need.
 First we need to create a Location class and define a property of AreaName in the model to achieve the functional need of point 1.
 <div component="app-code" key="alphaNumeric-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">
@@ -63,7 +63,7 @@ Below options are not mandatory to use in the `@alphaNumeric()` decorator. If ne
 ## allowWhiteSpace 
 Type :  `boolean` 
 
-This will allow whitespace in particular control property.The default value is `false`.
+This will allow whitespace in particular FormControl value.The default value is `false`.
 
 <div component="app-code" key="alphaNumeric-allowWhiteSpaceExample-model"></div> 
 <div component="app-example-runner" ref-component="app-alphaNumeric-allowWhiteSpace" title="AlphaNumeric decorators with allowWhiteSpace" key="allowWhiteSpace"></div>

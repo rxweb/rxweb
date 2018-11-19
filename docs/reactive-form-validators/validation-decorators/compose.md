@@ -11,7 +11,7 @@ Suppose you want to create UserInfo form, which contains fields like firstName, 
     <li>Apply required, alpha and different validation on lastName field.</li>
     <li>Apply digit, maxNumber and minNumber validation on age field based on matched condition in the form, like if the firstName is 'Bharat', then only the age must be validated.</li>
     <li>Apply required, email and maxLength validation based on matched condition in the form, like if the firstName is 'Bharat', then only the emailId must be validated.</li>
-    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+    <li>Apply compose validation dynamically based on server rules.</li>
 </ol>
 
 Let’s see how compose decorator fulfil the need.
@@ -21,7 +21,7 @@ Let’s see how compose decorator fulfil the need.
 First we need to create a UserInfo class and define a property of firstName in the model to achieve the functional need of point 1.
 <div component="app-code" key="compose-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

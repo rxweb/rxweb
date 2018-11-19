@@ -12,7 +12,7 @@ Suppose you want to create a employee form in which you want employee to enter v
     <li>The skills field in which you want the user to enter maximum three skills and minimum of one skill.</li>
     <li>Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be maximum three and minimum one.</li>
     <li>The Custom Message on Hobbies field.</li>
-    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+    <li>>Apply choice validation dynamically based on server rules.</li>
 </ol>
 
 Let’s see how choice decorator fulfil the need.
@@ -22,7 +22,7 @@ Let’s see how choice decorator fulfil the need.
 First we need to create a Employee Model and define a property of hobbies in the model to achieve the functional need of point 1.
 <div component="app-code" key="choice-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

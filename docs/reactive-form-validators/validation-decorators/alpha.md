@@ -11,7 +11,7 @@ Suppose you want to create a Country form, which contains fields like CountryNam
 	<li>Allowing WhiteSpace in StateName.</li>
 	<li>Apply alpha validation based on matched condition in the form, like if the CountryName is 'India' then the StateCode value should be in alphabets.</li>
 	<li>Adding Custom Message on StateCode Field.</li>
-	<li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+	<li>Apply alpha validation dynamically based on server rules.</li>
 </ol>
 Let's see how alpha decorator fulfil the need.
  
@@ -20,7 +20,7 @@ Let's see how alpha decorator fulfil the need.
 First we need to create a Country class and define a property of CountryName in the model to achieve the functional need of point 1.
 <div component="app-code" key="alpha-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">
@@ -61,7 +61,7 @@ Below options are not mandatory to use in the `@alpha()` decorator. If needed th
 ## allowWhiteSpace 
 Type :  `boolean` 
 
-This will allow whitespace in particular control property.The default value is `false`.
+This will allow whitespace in particular FormControl value.The default value is `false`.
 
 <div component="app-code" key="alpha-allowWhiteSpaceExample-model"></div> 
 <div component="app-example-runner" ref-component="app-alpha-allowWhiteSpace" title="alpha decorators with allowWhiteSpace" key="allowWhiteSpace"></div>

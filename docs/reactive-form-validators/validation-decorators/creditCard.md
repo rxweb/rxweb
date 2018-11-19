@@ -10,7 +10,7 @@ Supppose you want to create a user form and you want details like CreditCard and
     <li>CreditCard Type has different Card Types like Visa,AmericanExpress,Maestro,JCB,Discover,DinersClub,MasterCard.</li>
     <li>Apply CreditCard validation based on matched condition in the form, like if the CardType  is ‘visa’ then the VisaCard value should be in VisaCard format.</li>
     <li>The Custom Message on VisaCard field.  </li>
-    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+    <li>Apply creditCard validation dynamically based on server rules.</li>
 </ol>
 
 Let’s see how credit card decorator fulfil the need.
@@ -20,8 +20,8 @@ Let’s see how credit card decorator fulfil the need.
 First we need to create User model class define a property of CreditCardNo in the model to achieve the functional need of point 1.
 <div component="app-code" key="creditCard-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
-Here we have covered Add and Edit form operations. 
+Through Angular FormBuilder service we create FormGroup in the component.
+Here we have covered Add and Edit form operations.  
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>

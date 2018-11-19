@@ -10,7 +10,7 @@ Suppose you want to create a country form, which contains fields like continent,
   <li>Allow firstCountry which have proper Latitude or longitude format and adding Custom Message on firstCountry.</li>
   <li>Apply latLong validation on secondCountry field based on matched condition in the form, like if the continent is 'Asia', then the secondCountry must be a Latitude or longitude format (Used as a function).</li>
   <li>Apply latLong validation on thirdCountry field based on matched condition in the form, like if the continent is 'Asia', then the thirdCountry must be a Latitude or longitude format (Used as a string datatype).</li>
-  <li>Apply dynamic validation, If the validation is changed based on some criteria in the application.</li>
+  <li>Apply latLong validation dynamically based on server rules.</li>
 </ol>
 Let's see how latLong decorator fulfil the need.
 
@@ -19,7 +19,7 @@ Let's see how latLong decorator fulfil the need.
 First we need to create a model and define a property of firstCountry in the model to achieve the functional need of point 1.
 <div component="app-code" key="latLong-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

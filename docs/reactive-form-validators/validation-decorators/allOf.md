@@ -11,7 +11,7 @@ Suppose you want to create a employee form in  which contains fields like depart
     <li>The skills field in which you want the user to enter skills based upon matchvalues.</li>
     <li>Apply allOf validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be based upon matchvalues.</li>
     <li>The Custom Message on Hobbies field.</li>
-    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+    <li>Apply allOf validation dynamically based on server rules.</li>
 </ol>
 Let’s see how allOf decorator fulfil the need.
 
@@ -21,7 +21,7 @@ First we need to create a Employee Model and define a property of hobbies in the
 <div component="app-code" key="allOf-add-model"></div> 
 </data-scope>
 
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations.
 
 <data-scope scope="['decorator']">

@@ -10,7 +10,7 @@ Suppose you want to create a user form and you have fields like TotalMarks, Obta
    <li>Specify TotalMarks as fieldName such that LessThanEqualTo validation should be applied to the fieldname for comparing other fields.</li>
    <li>Apply LessThanEqualTo validation based on matched condition in the form, like if the TotalMarks is ‘100’ then the ObtainedMarks,OtherMarks value  should be less than or equal to 100.</li>
    <li>Adding Custom Message on OtherMarks Field.</li>
-   <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+   <li>Apply lessThanEqualTo validation dynamically based on server rules.</li>
 </ol>
 Let’s see how lessThanEqualTo validator fulfil the need.
 
@@ -19,7 +19,7 @@ Let’s see how lessThanEqualTo validator fulfil the need.
 First we need to create User model class define a property of Marks and TotalMarks model to achieve the functional need of point 1. 
 <div component="app-code" key="lessThanEqualTo-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

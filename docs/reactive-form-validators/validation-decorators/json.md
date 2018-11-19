@@ -10,7 +10,7 @@ Suppose you want to create a location based jsonInfo form and you have fields li
   <li>Apply json validation on LocationJson field  without any conditional expression.</li>
   <li>Apply json validation based on matched condition in the form, like if the location is ‘India’ then the AddressJson value should be valid Json value.</li>
   <li>Adding Custom Message on ContactJson Field.</li>
-  <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+  <li>Apply json validation dynamically based on server rules.</li>
 </ol>
 Let’s see how json validator fulfil the need.
 
@@ -19,7 +19,7 @@ Let’s see how json validator fulfil the need.
 First we need to create location model class define a property of LocationJson in the model to achieve the functional need of point 1
 <div component="app-code" key="json-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

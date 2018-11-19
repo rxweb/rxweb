@@ -10,7 +10,7 @@ Suppose you want to create a numberInfo form, which contains fields like numberT
 <li>Allow firstNumber which have proper primeNumber format and adding Custom Message on firstNumber.</li>
 <li>Apply validation on secondNumber field based on matched condition in the form, like if the numberType is 'Prime', then the secondNumber must be a primeNumber (Used as a function).</li>
 <li>Apply validation on thirdNumber field based on matched condition in the form, like if the numberType is 'Prime', then the thirdNumber must be a primeNumber (Used as a string datatype).</li>
-<li>Apply dynamic validation, If the validation is changed based on some criteria in the application.</li>
+<li>Apply primeNumber validation dynamically based on server rules.</li>
 </ol>
 Let's see how primeNumber decorator fulfil the need.
 
@@ -20,7 +20,7 @@ Let's see how primeNumber decorator fulfil the need.
 First we need to create a numberInfo model and define a property of firstNumber in the model to achieve the functional need of point 1.
 <div component="app-code" key="primeNumber-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

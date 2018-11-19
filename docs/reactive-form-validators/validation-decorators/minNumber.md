@@ -8,9 +8,9 @@ author: rxcontributortwo
 Suppose you want to create a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.
 <ol>
 	<li>Allow number greater than 35 in Maths field.</li>
-	<li>Apply minNumber validation based on matched condition in the form, like if the input of Maths is 50, then only the minNumber validation        will be applied to Statistics field.</li>
+	<li>Apply minNumber validation based on matched condition in the form, like if the input of Maths is 50, then only the minNumber validation will be applied to Statistics field.</li>
 	<li>Adding Custom Message on Science Field.</li>
-	<li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+	<li>Apply minNumber validation dynamically based on server rules.</li>
 </ol>
 Let’s see how minNumber validator fulfil the need.
 
@@ -19,7 +19,8 @@ Let’s see how minNumber validator fulfil the need.
 First we need to create a ResultInfo class and define a property of Maths in the model to achieve the functional need of point 1.
 <div component="app-code" key="minNumber-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
+Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
