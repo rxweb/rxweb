@@ -10,7 +10,7 @@ Suppose you want to create a User form, which contains fields like Username, Bir
 	<li>Allow date greater than `30/07/2018 ` in RegistrationDate.</li>
 	<li>Apply minDate validation based on matched condition in the form, like if the UserName is `john`, then only the minDate validation will be  applied to BirthDate field (i.e., BirthDate must be greater than `30/07/2018 `).</li>
 	<li>Adding Custom Message on RegistrationDate Field.</li>
-	<li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+	<li>Apply minDate validation dynamically based on server rules.</li>
 </ol>
 Let’s see how minDate validator fulfil the need.
 
@@ -19,7 +19,8 @@ Let’s see how minDate validator fulfil the need.
 First we need to create a User class and define a property of RegistrationDate in the model to achieve the functional need of point 1.
 <div component="app-code" key="minDate-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
+Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>

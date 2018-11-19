@@ -12,7 +12,7 @@ Suppose you want to create a User form, which contains fields like userName, bir
 <li>Apply MaxDate validation based on matched condition in the form, like if the userName is ‘John’ then the birthDate value should be valid date does not exceed the maximum date.</li>
 <li>Adding Custom Message on registrationDate Field.</li>
 <li>Adding value which you want to restrict number in the property. The maximum date is '2018,7,30'. </li>
-<li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+<li>Apply maxDate validation dynamically based on server rules.</li>
 </ol>
 Let’s see how MaxDate validator fulfil the need.
 
@@ -22,7 +22,7 @@ Let’s see how MaxDate validator fulfil the need.
 First we need to create a User class and define a property of registrationDate in the model to achieve the functional need of point 1.
 <div component="app-code" key="alpha-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

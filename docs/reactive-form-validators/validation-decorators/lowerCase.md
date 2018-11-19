@@ -10,7 +10,7 @@ Suppose you want to create a User form, which contains fields like Username, Fir
     <li>Allow only lowercase alphabets in Username.</li>
     <li>Apply lowerCase validation based on matched condition in the form, like if the Username is `jonathan.feldman`, then only the lowerCase validation will be applied to FirstName field.</li>
     <li>Adding Custom Message on LastName Field.</li>
-    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+    <li>Apply lowercase validation dynamically based on server rules.</li>
 </ol>
 Let’s see how lowerCase decorator fulfil the need.
 
@@ -20,7 +20,7 @@ Let’s see how lowerCase decorator fulfil the need.
 First we need to create a User class and define a property of Username in the model to achieve the functional need of point 1.
 <div component="app-code" key="lowerCase-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

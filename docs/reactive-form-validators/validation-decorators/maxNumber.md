@@ -11,7 +11,7 @@ Suppose you want to create a Subject-detail form, which contains fields like sub
 <li>Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .</li>
 <li>Adding Custom Message on PassingMarks Field.</li>
 <li>Adding value which you want to restrict number in the property. The maximum number is '100s'. </li>
-<li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+<li>Apply maxNumber validation dynamically based on server rules.</li>
 </ol>
 Let’s see how maxNumber validator fulfil the need.
 
@@ -21,7 +21,7 @@ Let’s see how maxNumber validator fulfil the need.
 First we need to create subject-detail model class define a property of PassingMarks in the model to achieve the functional need of point 1.
 <div component="app-code" key="maxNumber-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

@@ -10,7 +10,7 @@ Suppose you want to create a User form, which contains fields like FirstName, La
 	<li>Allow string less than 16 characters in FirstName.</li>
 	<li>Apply maxLength validation based on matched condition in the form, like if the FirstName is `john`, then only the maxLength validation will be  applied to LastName field.</li> 
 	<li>Adding Custom Message on Username Field.</li>
- 	<li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+ 	<li>Apply maxLength validation dynamically based on server rules.</li>
 </ol>
 Let’s see how maxLength validator fulfil the need.
 
@@ -19,7 +19,8 @@ Let’s see how maxLength validator fulfil the need.
 First we need to create a User class and define a property of FirstName in the model to achieve the functional need of point 1.
 <div component="app-code" key="maxLength-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
+Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>

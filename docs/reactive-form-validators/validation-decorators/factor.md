@@ -5,13 +5,14 @@ author: rxcontributorone
 
 ---
 # When to use
-Suppose you want to create a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise.
-1.  Apply factor validation on firstNumber field by setting  dividend property as 50 so the validation will allow only factors of 50
-2.  Apply factor validation based on matched condition in the form, like if the firstNumber  is ‘25’ then the Fourthyear value should be factor.
-3.  The Custom Message on ThirdNumber field.
-4.  Apply factor validation based of dividend, dividend is the value for which factors are calculated.
-5.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
-
+Suppose you want to create a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise..
+<ol>
+ <li>Apply factor validation on firstNumber field by setting  dividend property as 50 so the validation will allow only factors of 50</li>
+ <li>Apply factor validation based on matched condition in the form, like if the firstNumber  is ‘25’ then the Fourthyear value should be factor.</li>
+ <li>The Custom Message on ThirdNumber field.</li>
+ <li>Apply factor validation based of dividend, dividend is the value for which factors are calculated.</li>
+ <li>Apply factor validation dynamically based on server rules.</li>
+</ol>
 Let’s see how factor decorator fulfil the need.
 
 # Basic Factor Validation
@@ -20,7 +21,7 @@ Let’s see how factor decorator fulfil the need.
 First we need to create a User Model class and define property of firstNumber and secondNumber in the model to achieve the functional need of point 1.
 <div component="app-code" key="factor-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

@@ -7,10 +7,10 @@ author: rxcontributortwo
 # When to use
 Suppose you want to create a UserInfo form, which contains fields like FirstName, LastName, Username and you want the user to must enter anything in that field. That field can not be empty. Here depending upon the requirement these scenarios may arise.
 <ol>
-<li>Make the FirstName a required field without any condition.</li>
-<li>Apply required validation based on matched condition in the form, like if the FirstName is `John`, then only the required validation will be applied to LastName field.</li>
-<li>Adding Custom Message on Username Field.</li>
-<li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+   <li>Make the FirstName a required field without any condition.</li>
+   <li>Apply required validation based on matched condition in the form, like if the FirstName is `John`, then only the required validation will be applied to LastName field.</li>
+   <li>Adding Custom Message on Username Field.</li>
+   <li>Apply required validation dynamically based on server rules.</li>
 </ol>
 Let’s see how required validator fulfil the need.
 
@@ -20,7 +20,7 @@ Let’s see how required validator fulfil the need.
 First we need to create a User class and define a property of FirstName in the model to achieve the functional need of point 1.
 <div component="app-code" key="required-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

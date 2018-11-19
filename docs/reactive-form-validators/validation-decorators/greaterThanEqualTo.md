@@ -11,7 +11,7 @@ Suppose you want to create a user form and you have fields like Age, VoterAge, O
 <li>Specify Age as fieldName such that greaterThanEqualTo validation should be applied to the fieldname for comparing other fields.</li>
 <li>Apply greaterThanEqualTo validation based on matched condition in the form, like if the Age is ‘18’ then the </li>VoterAge,OtherAge value should be Greater than or equal to 18.
 <li>Adding Custom Message on OtherAge Field.</li>
-<li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+<li>Apply greaterThanEqualTo validation dynamically based on server rules.</li>
 
 Let’s see how greaterThanEqualTo decorator fulfil the need.
 
@@ -21,7 +21,7 @@ Let’s see how greaterThanEqualTo decorator fulfil the need.
 First we need to create User model class define a property of Age and VoterAge  in the model to achieve the functional need of point 1. 
 <div component="app-code" key="greaterThanEqualTo-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

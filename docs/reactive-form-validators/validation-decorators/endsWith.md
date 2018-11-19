@@ -10,7 +10,7 @@ Suppose you want to create a user form, which endsWith fields like name, profess
   <li>Apply validation on name field in which you want the user to enter value which ends with ‘m’.</li>
   <li>Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the profession must ends with 'R' (Used as a string datatype).</li>
   <li>Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the taskId must ends with '1' (Used as a function).</li>
-  <li>Apply dynamic validation, If the validation is changed based on some criteria in the application.</li>
+  <li>Apply endsWith validation dynamically based on server rules.</li>
 </ol>
 Let's see how endsWith decorator fulfil the need.
 
@@ -19,7 +19,7 @@ Let's see how endsWith decorator fulfil the need.
 First we need to create a User model and define a property of name in the model to achieve the functional need of point 1.
 <div component="app-code" key="endsWith-add-model"></div> 
 </data-scope>
-Now, we need to create a FormGroup in the component. To achieve this we need to add RxFormBuilder. The RxFormBuilder is an injectable service that is provided with the RxReactiveFormsModule. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

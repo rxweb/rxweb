@@ -8,8 +8,8 @@ author: rxcontributortwo
 Suppose you want to create a user form, which contains fields like userId, name, profession and taskId and you want the user to enter input which starts with a particular value. Here depending upon the requirement, these scenarios may arise..
 <ol>
    <li>Apply validation on name field in which you want the user to enter value which starts with ‘j’.</li>
-   <li>Apply startsWith validation based on matched condition in the form, like if the name is 'John', then the profession must starts with     'Senior ' (Used as a function).</li>
-   <li>Apply startsWith validation based on matched condition in the form, like if the name is 'John', then the taskId must starts with '#'     (Used as a string datatype).</li>
+   <li>Apply startsWith validation based on matched condition in the form, like if the name is 'John', then the profession must starts with 'Senior ' (Used as a function).</li>
+   <li>Apply startsWith validation based on matched condition in the form, like if the name is 'John', then the taskId must starts with '#'(Used as a string datatype).</li>
    <li>Apply dynamic validation, If the validation is changed based on some criteria in the application.</li>
 </ol>
 Let's see how StartsWith decorator fulfil the need.
@@ -19,7 +19,7 @@ Let's see how StartsWith decorator fulfil the need.
 First we need to create a User model and define a property of name in the model to achieve the functional need of point 1.
 <div component="app-code" key="startsWith-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">

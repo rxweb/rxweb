@@ -11,7 +11,7 @@ Suppose you want to create a AttendanceDetail form, which contains field of Entr
 <li>Allowing seconds in TotalTimeOut.</li>
 <li>Apply time validation based on matched condition in the form, like if the EntryPlace is ‘Lunch room’ then the EntryTime value should be in proper format of time .</li>
 <li>Adding Custom Message on exitTime Field.</li>
-<li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+<li>Apply time validation dynamically based on server rules.</li>
 </ol>
 Let’s see how time validator fulfil the need.
 
@@ -21,7 +21,7 @@ Let’s see how time validator fulfil the need.
 First we need to create a AttendanceDetail class and define a property of EntryTime in the model to achieve the functional need of point 1.
 <div component="app-code" key="time-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">
