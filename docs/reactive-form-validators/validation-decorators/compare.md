@@ -33,7 +33,7 @@ Below options are not mandatory to use in the `@compare()` decorator. If needed 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a href="#fieldName"  (click)='scrollTo("#fieldName")'  title="fieldName">FieldName</a></td><td>Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
-<tr><td><a href="#message"  (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a href="#message"  (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
  
 ## fieldName 
 Type :  `string` 
@@ -46,7 +46,7 @@ Current property is matched with the particular property. so we need to pass par
 ## message
 Type :  `string` 
 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="compare-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-compare-message" title="compare decorators with message" key="message"></div>

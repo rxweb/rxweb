@@ -51,12 +51,12 @@ message options are not mandatory to use in the `@password()` decorator but vali
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
 <tr><td><a href="#validation" (click)='scrollTo("#validation")'  title="validation"> Validation is used for setting the parameters for password validation, In Password validation there is validations on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</td></tr>
 
 ## message 
 Type :  `string` 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="password-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-password-message" title="password decorators with message" key="message"></div>
