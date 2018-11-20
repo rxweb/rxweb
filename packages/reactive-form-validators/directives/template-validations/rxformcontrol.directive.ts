@@ -6,6 +6,7 @@ import { BaseValidator } from './base-validator.directive';
 import {INPUT,SELECT,CHECKBOX,TEXTAREA,KEYPRESS, ONCHANGE,ONKEYUP,ONCLICK,
 RADIO,FILE, ELEMENT_VALUE,BLUR,FOCUS,CHANGE,BLANK
   } from "../../const";
+import { ApplicationUtil } from '../../util/app-util';
 import { DecimalProvider } from "../../domain/element-processor/decimal.provider"
 import {AlphaConfig,ArrayConfig,BaseConfig,ChoiceConfig,CompareConfig,ComposeConfig,ContainsConfig,CreditCardConfig,DateConfig,DefaultConfig,DigitConfig,EmailConfig,ExtensionConfig,FactorConfig,FieldConfig,HexColorConfig,MessageConfig,NumberConfig,NumericConfig,PasswordConfig,PatternConfig,RangeConfig,RequiredConfig,RuleConfig,SizeConfig,TimeConfig ,DifferentConfig,RelationalOperatorConfig } from '../../models/config'
 const COMPOSE:string = 'compose';
@@ -83,10 +84,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
   @Input() upperCase:MessageConfig;
   @Input() url:DefaultConfig;
 
-  @Input() name:string;
-
-  @Input() formControlName:string;
-
+  
   @Input() formControl:FormControl | AbstractControl;
 
   constructor(private elementRef: ElementRef,
@@ -99,8 +97,11 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
   ngOnInit() {
       let validators = [];
       Object.keys(APP_VALIDATORS).forEach(validatorName=>{
-        if((this[validatorName]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[validatorName] == BLANK))
+        if((this[validatorName]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[validatorName] == BLANK)){
           validators.push(APP_VALIDATORS[validatorName](this[validatorName]));
+          if(this.name && !(this.formControlName && this.formControl))
+            ApplicationUtil.configureControl(this.controlConfig,this[validatorName],validatorName);
+        }
       })
       if(validators.length > 0)
         this.validator = APP_VALIDATORS[COMPOSE]({validators:validators})

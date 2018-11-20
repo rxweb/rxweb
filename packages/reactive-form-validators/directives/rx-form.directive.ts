@@ -17,48 +17,20 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
     @Input('rxwebForm') ngForm;
 
     ngAfterContentInit(): void {
-      if(this.formGroup && !this.formGroup["model"]){
-        this.expressionProcessor(this.formGroup.controls);
-        super.bindEvents();
-      } else if(this.ngModelElements && this.ngModelElements.length > 0){
        if(this.ngForm){
         this.configureModelValidations();
-      }
       }
     }
 
     private configureModelValidations(){
         this.clearTimeout = window.setTimeout(()=>{
           window.clearTimeout(this.clearTimeout);
-          this.formGroup = this.ngForm.form;
-          let controls = {}
-                this.ngModelElements.forEach(t=>{
-                      controls[t.name] = {};
-                      Object.keys(AnnotationTypes).forEach(validatorName=>{
-                        if(t[validatorName])
-                          ApplicationUtil.configureControl(controls[t.name],t[validatorName],validatorName);
-                      })
-                });
-                this.expressionProcessor(controls);
-                this.bindEvents(false);
-        },500)
-    }
-
-    private expressionProcessor(controls:{[key:string]:any}){
-      Object.keys(controls).forEach(fieldName => {
-                let formControl:any = controls[fieldName];
-                if(formControl.validatorConfig){
-                  Object.keys(AnnotationTypes).forEach(validatorName=>{
-                    if (formControl.validatorConfig[validatorName] && formControl.validatorConfig[validatorName].conditionalExpression) {
-                       let columns = Linq.expressionColumns(formControl.validatorConfig[validatorName].conditionalExpression);
-                        defaultContainer.addChangeValidation(this.validationRule, fieldName, columns);
-                      }
-                    if (formControl.validatorConfig[validatorName] && ((validatorName == AnnotationTypes.compare || validatorName == AnnotationTypes.greaterThan || validatorName == AnnotationTypes.greaterThanEqualTo || validatorName == AnnotationTypes.lessThan || validatorName == AnnotationTypes.lessThanEqualTo  || validatorName == AnnotationTypes.different  || validatorName == AnnotationTypes.factor) || (validatorName == AnnotationTypes.creditCard && formControl.validatorConfig[validatorName].fieldName))) {
-                        defaultContainer.setConditionalValueProp(this.validationRule, formControl.validatorConfig[validatorName].fieldName, fieldName)
-                    }
-                  })
-              }
+          this.ngForm.form["marked"] = true;
+          Object.keys(this.ngForm.form.controls).forEach(key=>{
+              this.ngForm.form.controls[key].updateValueAndValidity();
           })
+          delete this.ngForm.form["marked"];
+        },500)
     }
 
     ngOnDestroy() {

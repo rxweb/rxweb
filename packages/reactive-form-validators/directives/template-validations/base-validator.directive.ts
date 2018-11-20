@@ -3,14 +3,15 @@ import {INPUT,SELECT,CHECKBOX,TEXTAREA,KEYPRESS, ONCHANGE,ONKEYUP,ONCLICK,
 RADIO,FILE, ELEMENT_VALUE,BLUR,FOCUS,CHANGE,BLANK
   } from "../../const";
 
-export abstract class BaseValidator implements Validator{
-    protected validator: ValidatorFn;
+import { ControlExpressionProcess } from './control-expression-process'
+
+
+export class BaseValidator extends ControlExpressionProcess implements Validator{
+
     protected validators:ValidatorFn[];
     protected element: any;
     protected eventName:string;
-    private oldValue:string = undefined;
-    protected controls:{[key:string]:FormControl};
-    private timeOut: number;
+
     protected setEventName() {
       var eventName:string = '';
       switch(this.element.tagName) {
@@ -26,16 +27,10 @@ export abstract class BaseValidator implements Validator{
     }
 
   validate(control: AbstractControl): { [key: string]: any } {
-    this.timeOut = window.setTimeout(() => {
-        window.clearTimeout(this.timeOut);
-      if (this.oldValue != control.value && this.controls) {
-          this.oldValue = control.value;
-          Object.keys(this.controls).forEach(fieldName => {
-            if (this.controls[fieldName] != control)
-              this.controls[fieldName].updateValueAndValidity();
-          })
-          }
-        }, 100)
-      return  this.validator ? this.validator(control) : null;
+    if(this.conditionalValidator)
+        this.conditionalValidator(control);
+    else if(!this.isProcessed && control.parent && !control.parent["model"])
+      this.expressionProcessor(control);
+    return  this.validator ? this.validator(control) : null;
     }
 }
