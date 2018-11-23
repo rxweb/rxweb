@@ -20,7 +20,7 @@ export class ApplicationUtil{
     static getFormControl(fieldName:string,control:AbstractControl){
         let splitText = fieldName.split('.');
           if(splitText.length > 1 && control.parent){
-          var formControl = this.getParentControl(control);
+          var formControl:any = this.getParentControl(control);
           splitText.forEach((name,index)=>{ formControl = formControl.controls[name]})
           return formControl;
           }
