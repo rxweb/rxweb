@@ -556,6 +556,92 @@
     margin-top: -11px
 }
 
+/*divya.shah css starts*/
+body .code-example-title { 
+    background: #e2e2e2;
+}
+body .showHideExample { padding: 0; }
+body .nav-tabs>li>a {
+    border: 0;
+    border-bottom: 2px solid transparent;
+}
+body div:not(.comment-section) .nav-tabs:not(.page-tabs)>li.active>a,
+body div:not(.comment-section) .nav-tabs:not(.page-tabs)>li.active>a:focus,
+body div:not(.comment-section) .nav-tabs:not(.page-tabs)>li.active>a:hover {
+    border: 0;
+    border-bottom: 2px solid #2e2e2e;
+}
+
+body div:not(.comment-section) [key="dynamic"] .nav-tabs>li.active>a,
+body div:not(.comment-section) [key="dynamic"] .nav-tabs>li.active>a:focus,
+body div:not(.comment-section) [key="dynamic"] .nav-tabs>li.active>a:hover,
+body div:not(.comment-section) [key="complete"] .nav-tabs>li.active>a,
+body div:not(.comment-section) [key="complete"] .nav-tabs>li.active>a:focus,
+body div:not(.comment-section) [key="complete"] .nav-tabs>li.active>a:hover {
+    border: 1px solid #eaeaea;
+    border-bottom-color: transparent;
+}
+
+.model-ts.combined .code-example {
+    padding: 20px;
+}
+.showHideExample .model-ts { margin-top: 0; margin-bottom: 0; }
+.showHideExample .hpanel .tab-content {
+    padding: 20px;
+    margin-top: 0;
+}
+body .model-ts.combined {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px 1px rgba(212, 212, 212, 0.709);
+    width: 100%;
+    max-width: 100%;
+}
+.model-ts.combined .showHideExample .tab-pane .code {
+    position: relative;
+}
+.model-ts.combined .showHideExample .tab-pane .code > a, body .model-ts.combined .file-icon {
+    position: absolute;
+    right: 5px;
+}
+a.copy-icon:not(.copied), .copy-icon:not(.copied), a.file-icon, .file-icon { color: #2e2e2e; }
+a.copy-icon:not(.copied):hover, .copy-icon:not(.copied):hover, a.copy-icon:not(.copied):focus, .copy-icon:not(.copied):focus, a.file-icon:not(.copied):hover, .file-icon:not(.copied):hover, a.file-icon:not(.copied):focus, .file-icon:not(.copied):focus { color: #000000; }
+
+.showHideExample .tab-content + hr { display: none; }
+.hpanel .tab-content {
+    box-shadow: 0px 0px 1px 0px #dedede;
+    margin-bottom: 0;
+}
+body div code {
+    background: #f3f3f3 !important;
+}
+
+div[key=complete] .model-ts,div[key=dynamic] .model-ts{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: none;
+    box-shadow: none;
+    background: #ffffff;
+}
+.nav-tabs.page-tabs {
+    border-bottom: 2px solid;
+}
+.nav-tabs.page-tabs > li {
+    margin: 0;
+}
+body .page-tabs li a, body .page-tabs li a:hover, body .page-tabs li a:focus {
+    background: #f1f1f1;
+    border-radius: 0;
+    margin: 0;
+}
+body .page-tabs>li.active>a, body .page-tabs li.active a:hover, body .page-tabs li.active a:focus {
+    background: #7d7d7d;
+    color: #ffffff;
+}
+
+/*divya.shah css ends*/
+
 @media only screen and (min-width:768px) {
     .vertical-timeline-content h2 {
         font-size: 18px
@@ -2212,7 +2298,7 @@ h1, .h1 {
 .title {
    background-color: #ffffff;
  padding:10px 0px 0px 0px;
-  border-bottom: 1px solid #eaeaea;
+  /*border-bottom: 1px solid #eaeaea;*/
   
 } 
 .hpanel .tab-content {
@@ -2244,7 +2330,7 @@ h1, .h1 {
 .validation-tab .description {
     margin: 30px 10px 10px 10px;
 }
-.copy-icon {
+.copy-icon, .file-icon {
     font-size: 15px;
     line-height: 31px;
     color: #c0c0c0;
@@ -6001,3 +6087,9 @@ ul.menu li {
 }
 
 /*-------- do not add any css here ---------- */
+.showHideExample{
+    padding:  10px 10px 0px 10px;
+}
+/*.tab-pane .model-ts{
+    background-color: #ffffff;
+}*/

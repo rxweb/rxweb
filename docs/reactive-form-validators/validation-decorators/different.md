@@ -10,7 +10,7 @@ Suppose you want to create a user form in which you want to compare firstname an
 <ol>
     <li>The Name of firstName field on which comparison is done.</li>
     <li>The Custom Message on password field.</li>
-    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+    <li>Apply different validation dynamically based on server rules.</li>
 </ol>
 
 Let’s see how different decorator fulfil the need.
@@ -20,13 +20,13 @@ Let’s see how different decorator fulfil the need.
 First we need to create a User Model class and define property of Password and Confirm Password in the model to achieve the functional need of point 1.
 <div component="app-code" key="different-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add form operations. 
 
 <div component="app-code" key="different-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="different-add-html"></div> 
-<div component="app-different-add" title="different Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-different-add"></div>
 ***
 
 # DifferentConfig
@@ -45,9 +45,9 @@ Type :  `Function`  |  `string`
 Different validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-<div component="app-note" key="different-conditionalExpressionExampleFunction-model"></div>
+> Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="different-conditionalExpressionExampleFunction-model"></div> 
-<div component="app-note" key="different-conditionalExpressionExampleString-model"></div> 
+> Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="different-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-different-conditionalExpression" title="different decorators with conditionalExpression" key="conditionalExpression"></div>
@@ -73,15 +73,19 @@ This Complete Different example which includes all the DifferentConfig propertie
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-different-complete"></div>
+<div component="app-example-runner" ref-component="app-different-complete"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="different-complete-model"></div> 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="different-complete-component"></div> 
+# [/Component]
 # [Html](#tab\completehtml)
 <div component="app-code" key="different-complete-html"></div> 
+# [/Html]
 ***
 
 # Dynamic Different Example
@@ -92,15 +96,20 @@ This Dynamic Different example which execute based on json passed. conditional e
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-different-dynamic"></div>
+<div component="app-example-runner" ref-component="app-different-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="different-dynamic-model"></div>
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="different-dynamic-component"></div>
+# [/Component]
 # [Json](#tab\dynamicjson)
 <div component="app-code" key="different-dynamic-json"></div>
+# [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="different-dynamic-html"></div> 
+# [/Html] 
 ***

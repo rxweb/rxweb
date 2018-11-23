@@ -10,7 +10,7 @@ import { HttpClient } from "@angular/common/http";
 export class SideBarComponent implements OnInit {
   links: any;
   isSecondLevelCollapse : boolean = false;
-  isthirdLevelCollapse : boolean = false;
+  isthirdLevelCollapse : boolean = true;
   showComponent: boolean;
   constructor(
     private http: HttpClient,private router: Router

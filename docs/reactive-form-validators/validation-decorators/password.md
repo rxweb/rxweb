@@ -9,7 +9,7 @@ Suppose you want to create a login form, which contains fields like newPassword 
 <ol>
    <li>Adding validation on oldPassword Field and adding  Custom Message on it.</li>
    <li>Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter,        minLength, maxLength.</li>
-   <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+   <li>Apply password validation dynamically based on server rules.</li>
 </ol>
 Let’s see how password validator fulfil the need.
 
@@ -18,7 +18,7 @@ Let’s see how password validator fulfil the need.
 First we need to create LoginInfo model class define a property of password in the model to achieve the functional need of point 1.
 <div component="app-code" key="password-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations.
 
 <data-scope scope="['decorator']">
@@ -28,22 +28,24 @@ Here we have covered Add and Edit form operations.
 <div component="app-code" key="password-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="password-add-html"></div> 
-<div component="app-password-add" title="password Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-password-add"></div>
+# [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="password-edit-component"></div>
 The below code is `login-info-data.json` for getting data from the server 
 <div component="app-code" key="data-password"></div> 
 Next, we need to write html code.
 <div component="app-code" key="password-edit-html"></div> 
-<div component="app-password-add" title="password Decorator for edit Example"></div>
+<div component="app-example-runner" ref-component="app-password-edit"></div>
+# [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','templateDriven']">
+<data-scope scope="['validator','template-driven']">
 <div component="app-code" key="password-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="password-add-html"></div> 
-<div component="app-password-add" title="password Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-password-add"></div>
 </data-scope>
 
 # PasswordConfig 
@@ -76,15 +78,19 @@ This Complete password example which includes all the PasswordConfig properties 
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-password-complete"></div>
+<div component="app-example-runner" ref-component="app-password-complete"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="password-complete-model"></div> 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="password-complete-component"></div> 
+# [/Component]
 # [Html](#tab\completehtml)
 <div component="app-code" key="password-complete-html"></div> 
+# [/Html]
 ***
 
 # Dynamic password Example
@@ -95,15 +101,20 @@ This Dynamic password example which execute based on json passed. conditional ex
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-password-dynamic"></div>
+<div component="app-example-runner" ref-component="app-password-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="password-dynamic-model"></div>
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="password-dynamic-component"></div>
+# [/Component]
 # [Json](#tab\dynamicjson)
 <div component="app-code" key="password-dynamic-json"></div>
+# [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="password-dynamic-html"></div> 
+# [/Html]
 ***

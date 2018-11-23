@@ -10,7 +10,7 @@ Suppose you want to create a user form in which you want the user to enter an  i
      <li>Allow valid ascii code input in field of specialCharAsciiCode and add custom error message to it.</li>
      <li>Apply validation on numberAsciiCode field based on matched condition in the form, like if the language is 'Java', then the numberAsciiCode must be an ascii code (Used as a function).</li>
      <li>Apply validation on specialCharAsciiCode field validation based on matched condition in the form, like if the language is 'Java', then the alphabetAsciiCode must be an ascii code (Used as a string datatype).</li>
-     <li>Apply dynamic validation, If the validation is changed based on some criteria in the application.</li>
+     <li>Apply ascii validation dynamically based on server rules.</li>
 </ol>
 Let's see how ascii decorator fulfil the need.
 
@@ -19,7 +19,7 @@ Let's see how ascii decorator fulfil the need.
 First we need to create a model and define a property of specialCharAsciiCode in the model to achieve the functional need of point 1.
 <div component="app-code" key="ascii-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">
@@ -29,22 +29,24 @@ Here we have covered Add and Edit form operations.
 <div component="app-code" key="ascii-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="ascii-add-html"></div> 
-<div component="app-ascii-add" title="ascii Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-ascii-add"></div>
+# [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="ascii-edit-component"></div>
 The below code is `user-data.json` for getting data from the server 
 <div component="app-code" key="data-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="ascii-edit-html"></div> 
-<div component="app-ascii-add" title="ascii Decorator for edit Example"></div>
+<div component="app-example-runner" ref-component="app-ascii-edit"></div>
+# [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','templateDriven']">
+<data-scope scope="['validator','template-driven']">
 <div component="app-code" key="ascii-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="ascii-add-html"></div> 
-<div component="app-ascii-add" title="ascii Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-ascii-add"></div>
 </data-scope>
 
 # DefaultConfig
@@ -62,9 +64,9 @@ Type :  `Function`  |  `string`
 Ascii validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-<div component="app-note" key="ascii-conditionalExpressionExampleFunction-model"></div>
+> Binding `conditionalExpression` with `Function` object. 
 <div component="app-code" key="ascii-conditionalExpressionExampleFunction-model"></div> 
-<div component="app-note" key="ascii-conditionalExpressionExampleString-model"></div> 
+> Binding `conditionalExpression` with `string` object. 
 <div component="app-code" key="ascii-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-ascii-conditionalExpression" title="ascii decorators with conditionalExpression" key="conditionalExpression"></div>
@@ -84,15 +86,19 @@ This Complete Ascii example which includes all the DefaultConfig properties will
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-ascii-complete"></div>
+<div component="app-example-runner" ref-component="app-ascii-complete"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="ascii-complete-model"></div> 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="ascii-complete-component"></div> 
+# [/Component]
 # [Html](#tab\completehtml)
 <div component="app-code" key="ascii-complete-html"></div> 
+# [/Html]
 ***
 
 # Dynamic Ascii Example
@@ -103,15 +109,20 @@ This Dynamic Ascii example which execute based on json passed. conditional expre
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-ascii-dynamic"></div>
+<div component="app-example-runner" ref-component="app-ascii-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="ascii-dynamic-model"></div>
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="ascii-dynamic-component"></div>
+# [/Component]
 # [Json](#tab\dynamicjson)
 <div component="app-code" key="ascii-dynamic-json"></div>
+# [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="ascii-dynamic-html"></div> 
+# [/Html]
 ***

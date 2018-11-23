@@ -10,7 +10,7 @@ Suppose you want to create a user value form, which contains fields like name, b
     <li>Allow only leap year in the field of birthyear.</li>
     <li>Apply leapyear validation based on matched condition in the form, like if the name  is ‘John’ then the birthYear value should be leapyear.</li>
     <li>Adding Custom Message on joining Field.</li>
-    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+    <li>Apply leapyear validation dynamically based on server rules.</li>
 </ol>
 Let’s see how LeapYear decorator fulfil the need.
 
@@ -20,7 +20,7 @@ Let’s see how LeapYear decorator fulfil the need.
 First we need to create ea User class and define a property of leapyear in the model to achieve the functional need of point 1.
 <div component="app-code" key="leapYear-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">
@@ -30,22 +30,24 @@ Here we have covered Add and Edit form operations.
 <div component="app-code" key="leapYear-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="leapYear-add-html"></div> 
-<div component="app-leapYear-add" title="leapYear Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-leapYear-add"></div>
+# [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="leapYear-edit-component"></div> 
 The below code is `user-data.json` for getting data from the server
 <div component="app-code" key="data-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="leapYear-edit-html"></div> 
-<div component="app-leapYear-add" title="leapYear Decorator for edit Example"></div>
+<div component="app-example-runner" ref-component="app-leapYear-edit"></div>
+# [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','templateDriven']">
+<data-scope scope="['validator','template-driven']">
 <div component="app-code" key="leapYear-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="leapYear-add-html"></div> 
-<div component="app-leapYear-add" title="leapYear Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-leapYear-add"></div>
 </data-scope>
 
 # BaseConfig
@@ -63,9 +65,9 @@ Type :  `Function`  |  `string`
 LeapYear validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-<div component="app-note" key="leapYear-conditionalExpressionExampleFunction-model"></div>
+> Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="leapYear-conditionalExpressionExampleFunction-model"></div> 
-<div component="app-note" key="leapYear-conditionalExpressionExampleString-model"></div> 
+> Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="leapYear-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-leapYear-conditionalExpression" title="leapYear decorators with conditionalExpression" key="conditionalExpression"></div>
@@ -85,15 +87,19 @@ This Complete LeapYear example which includes all the BaseConfig properties will
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-leapYear-complete"></div>
+<div component="app-example-runner" ref-component="app-leapYear-complete"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="leapYear-complete-model"></div> 
+# [/Model] 
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="leapYear-complete-component"></div> 
+# [/Component] 
 # [Html](#tab\completehtml)
-<div component="app-code" key="leapYear-complete-html"></div> 
+<div component="app-code" key="leapYear-complete-html"></div>
+# [/Html]   
 ***
 
 # Dynamic LeapYear Example
@@ -104,15 +110,20 @@ This Dynamic LeapYear example which execute based on json passed. conditional ex
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-leapYear-dynamic"></div>
+<div component="app-example-runner" ref-component="app-leapYear-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="leapYear-dynamic-model"></div>
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="leapYear-dynamic-component"></div>
+# [/Component]
 # [Json](#tab\dynamicjson)
 <div component="app-code" key="leapYear-dynamic-json"></div>
+# [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="leapYear-dynamic-html"></div> 
+# [/Html]
 ***

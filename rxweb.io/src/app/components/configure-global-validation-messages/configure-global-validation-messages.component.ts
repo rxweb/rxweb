@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { DisqusComponent } from "src/app/components/shared/disqus/disqus.component";
+import { DisqusComponent } from "src/app/components/shared/disqus/disqus/disqus.component";
 
 
 @Component({

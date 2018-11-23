@@ -24,13 +24,10 @@ const APP_LAZY_ROUTES: Routes = [
     path: 'configure-global-validation-messages', component: ConfigureGlobalValidationMessagesComponent
   },
   {
-    path: 'validation-decorators',
-    loadChildren: 'src/app/components/validation-decorators/validation-decorators.module#ValidationDecoratorsModule',
+    path: 'form-validation',
+    loadChildren: 'src/app/components/form-validation/form-validation.module#FormValidationModule',
   },
-  {
-    path: 'validation-validators',
-    loadChildren: 'src/app/components/validation-validators/validation-validators.module#ValidationValidatorsModule',
-  },
+ 
  
 ];
 

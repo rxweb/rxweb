@@ -13,24 +13,9 @@ export class RightSideBarComponent implements OnInit {
     ) {
     }
     @Input('sidebarLinks') sidebarLinks: any={};
-    sidebarItem: any = [];
     showComponent: boolean = false;
     contributorList:any=[];
     ngOnInit(): void {
-        for (var key in this.sidebarLinks) {
-            if (this.sidebarLinks.hasOwnProperty(key)) {
-                var currentObject = {};
-                currentObject['parentLink'] = key;
-                currentObject['parentLinkId'] = key.toLowerCase().split(" ").join('');
-                currentObject['childLink'] = [];
-                if (this.sidebarLinks[key] != null) {
-                    for (let i = 0; i < this.sidebarLinks[key].length; i++) {
-                        currentObject['childLink'].push({ value: this.sidebarLinks[key][i], id: this.sidebarLinks[key][i].toLowerCase().split(" ").join('') })
-                    }
-                }
-                this.sidebarItem.push(currentObject);
-            }
-        }
         //let url = 'https://api.github.com/repos/rxweb/rxweb/';
 		//if (location.pathname.split('/')[1] && !location.pathname.split('/')[2])
         //    url += 'commits?path=docs/reactive-form-validators/'+location.pathname.split('/')[1]+".md"

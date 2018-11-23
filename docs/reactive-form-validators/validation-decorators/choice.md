@@ -1,9 +1,9 @@
--
+--s
 title: choice 
 description: choice validation decorator will check whether the value entered is matching the properties defined.
 author: rxcontributortwo
 
--
+--
 
 # When to use
 Suppose you want to create a employee form in which you want employee to enter value of a particular choice which contains fields like department, hobbies and skills.Here the field is taken in the form of array and according to that the choice is applied on the property by applying minlength and maxLength. Here depending upon the requirement these scenarios may arise.
@@ -12,7 +12,7 @@ Suppose you want to create a employee form in which you want employee to enter v
     <li>The skills field in which you want the user to enter maximum three skills and minimum of one skill.</li>
     <li>Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be maximum three and minimum one.</li>
     <li>The Custom Message on Hobbies field.</li>
-    <li>Apply dynamic validation, If the validation will be changed based on some criteria in the application.</li>
+    <li>Apply choice validation dynamically based on server rules.</li>
 </ol>
 
 Let’s see how choice decorator fulfil the need.
@@ -22,7 +22,7 @@ Let’s see how choice decorator fulfil the need.
 First we need to create a Employee Model and define a property of hobbies in the model to achieve the functional need of point 1.
 <div component="app-code" key="choice-add-model"></div> 
 </data-scope>
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">
@@ -32,22 +32,24 @@ Here we have covered Add and Edit form operations.
 <div component="app-code" key="choice-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="choice-add-html"></div> 
-<div component="app-choice-add" title="choice Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-choice-add"></div>
+# [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="choice-edit-component"></div> 
 The below code is `employee-data.json` for getting data from the server
 <div component="app-code" key="data-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="choice-edit-html"></div> 
-<div component="app-choice-add" title="choice Decorator for edit Example"></div>
+<div component="app-example-runner" ref-component="app-choice-edit"></div>
+# [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','templateDriven']">
+<data-scope scope="['validator','template-driven']">
 <div component="app-code" key="choice-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="choice-add-html"></div> 
-<div component="app-choice-add" title="choice Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-choice-add"></div>
 </data-scope>
 
 # ChoiceConfig
@@ -82,9 +84,9 @@ Type :  `Function`  |  `string`
 choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-<div component="app-note" key="choice-conditionalExpressionExampleFunction-model"></div>
+> Binding `conditionalExpression` with `Function` object. 
 <div component="app-code" key="choice-conditionalExpressionExampleFunction-model"></div> 
-<div component="app-note" key="choice-conditionalExpressionExampleString-model"></div> 
+> Binding `conditionalExpression` with `string` object. 
 <div component="app-code" key="choice-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-choice-conditionalExpression" title="choice decorators with conditionalExpression" key="conditionalExpression"></div>
@@ -103,15 +105,19 @@ This Complete choice example which includes all the ChoiceConfig properties will
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-choice-complete"></div>
+<div component="app-example-runner" ref-component="app-choice-complete"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="choice-complete-model"></div> 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="choice-complete-component"></div> 
+# [/Component]
 # [Html](#tab\completehtml)
 <div component="app-code" key="choice-complete-html"></div> 
+# [/Html]
 ***
 
 # Dynamic choice Example
@@ -122,15 +128,20 @@ This Dynamic Choice example which execute based on json passed. conditional expr
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-choice-dynamic"></div>
+<div component="app-example-runner" ref-component="app-choice-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="choice-dynamic-model"></div>
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="choice-dynamic-component"></div>
+# [/Component]
 # [Json](#tab\dynamicjson)
 <div component="app-code" key="choice-dynamic-json"></div>
+# [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="choice-dynamic-html"></div> 
+# [/Html]
 ***
