@@ -24,9 +24,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/example-ng6-lib/src/test.ts",
-            "tsConfig": "projects/example-ng6-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/example-ng6-lib/karma.conf.js"
+            "main": "./test.ts",
+            "polyfills": "./polyfills.ts",
+            "tsConfig": "./tsconfig.spec.json",
+            "karmaConfig": "./karma.conf.js"
           }
         },
         "lint": {
