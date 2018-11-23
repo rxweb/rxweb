@@ -20,7 +20,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
   - npm install -g @angular/cli@7.0.6
 install:
-  - npm ci
+  - npm install
 script:
   - ng test --watch=false
   - codecov -f coverage/*.json
