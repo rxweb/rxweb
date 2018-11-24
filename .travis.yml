@@ -18,7 +18,7 @@ before_script:
    - "sudo chown root /opt/google/chrome/chrome-sandbox"
    - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
 script:
-  - node_modules/.bin/ng test --watch=false
+  - ng test --watch=false
 notifications:
   webhooks:
     on_success: change
