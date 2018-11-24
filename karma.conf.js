@@ -15,9 +15,16 @@ module.exports = function (config) {
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
-  mime: {
+    files: [
+      { pattern: './test.ts', watched: false }
+    ],
+    preprocessors: {
+      './test.ts': ['angular-cli']
+    },
+  mime:
+    {
       'text/x-typescript': ['ts','tsx']
-    }
+    },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage'),
       reports: ['html', 'lcovonly'],
