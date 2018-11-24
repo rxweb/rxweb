@@ -1,6 +1,6 @@
 import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
 
-import { RxwebValidators,ReactiveFormConfig } from '../../../packages/reactive-form-validators';
+import { RxwebValidators,ReactiveFormConfig } from '../../packages/reactive-form-validators';
 
 (function() {
   describe('RxwebValidators', () => {
