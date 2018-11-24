@@ -6,101 +6,86 @@ author: rxcontributorone
 ---
 # When to use
 Suppose you want to create a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.
-1.	The Name of Password field on which comparison is done.
-2.  The Custom Message on ConfirmPassword field.  
-3.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
-
+<ol>
+	<li>The Name of Password field on which comparison is done.</li>
+    <li>The Custom Message on ConfirmPassword field.</li>  
+    <li>Apply compare validation dynamically based on server rules.</li>
+</ol>
 Let’s see how compare validator fulfil the need.
 
 # Basic Compare Validation
+<data-scope scope="['decorator']">
 First we need to create a User Model class and define property of Password and Confirm Password in the model to achieve the functional need of point 1.
-
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+<div component="app-code" key="compare-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add form operation.
 
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\compare-add.component.ts?type=section)]
-
-***
-
+<div component="app-code" key="compare-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\add\compare-add.component.html?type=section)]
-
-[!example(?title=compare Decorator for add Example&title=numeric Decorator for add Example)]
-<app-compare-add></app-compare-add>
+<div component="app-code" key="compare-add-html"></div> 
+<div component="app-compare-add" title="compare Decorator for add Example"></div>
+***
 
 # CompareConfig
 Below options are not mandatory to use in the `@compare()` decorator. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[fieldName](#fieldName) | Current property is matched with the particular property. so we need to pass particular property name. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
-
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#fieldName"  (click)='scrollTo("#fieldName")'  title="fieldName">FieldName</a></td><td>Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
+<tr><td><a href="#message"  (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
  
 ## fieldName 
 Type :  `string` 
+
 Current property is matched with the particular property. so we need to pass particular property name.
 
-[!codeExample(?title=fieldNameExample)]
-
-[!TabGroup(?showHideCondition="fieldName")]
-# [Model](#tab\fieldNamemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\fieldName\user.model.ts)]
-# [Component](#tab\fieldNameComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\fieldName\compare-field-name.component.ts)]
-# [Html](#tab\fieldNameHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\fieldName\compare-field-name.component.html)]
-***
-
-[!example(?type=section&clickEventCode="fieldName=!fieldName"&title=compare decorator with fieldName)]
-<app-compare-fieldName></app-compare-fieldName>
+<div component="app-code" key="compare-fieldNameExample-model"></div> 
+<div component="app-example-runner" ref-component="app-compare-fieldName" title="fieldName decorators with fieldName" key="fieldName"></div>
 
 ## message
 Type :  `string` 
-To override the global configuration message and show the custom message on particular control property.
 
-[!codeExample(?title=messageExample)]
+To override the global configuration message and set the custom message on respective FormControl.
 
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\message\user.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\message\compare-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\message\compare-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=compare decorator with custom message)]
-<app-compare-message></app-compare-message>
+<div component="app-code" key="compare-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-compare-message" title="compare decorators with message" key="message"></div>
 
 # Complete Compare Example
 
 This Complete Compare example which includes all the CompareConfig properties will fulfil the requirement of scenarios 1 and 2.
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-compare-complete></app-compare-complete>
+<div component="app-compare-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\complete\user.model.ts)]
+<div component="app-code" key="compare-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\complete\compare-complete.component.ts)]
+<div component="app-code" key="compare-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\complete\compare-complete.component.html)]
+<div component="app-code" key="compare-complete-html"></div> 
 ***
 
 # Dynamic Compare Example
+
+This Dynamic Compare example which execute based on json passed. conditional expression with function would be not apply in dynamic Compare example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-compare-dynamic></app-compare-dynamic>
+<div component="app-compare-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\user.model.ts)]
+<div component="app-code" key="compare-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\compare-dynamic.component.ts)]
+<div component="app-code" key="compare-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\dynamic.json)]
+<div component="app-code" key="compare-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\compare\dynamic\compare-dynamic.component.html)]
+<div component="app-code" key="compare-dynamic-html"></div> 
 ***

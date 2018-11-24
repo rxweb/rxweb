@@ -6,49 +6,54 @@ author: rxcontributorone
 ---
 # When to use
 Suppose you want to create a user form, which contains fields like Number, Type, OddNumber and you want the user to enter only odd numbers Here depending upon the requirement these scenarios may arise.
-1.	Allow only odd numbers in oddNumber’s field.
-2.	Apply Odd validation based on matched condition in the form, like if the type  is ‘Odd’ then the number value should be odd number.
-3.	Adding Custom Message on OddNumber Field.
-4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
-
+<ol>
+	<li>Allow only odd numbers in oddNumber’s field.</li>
+	<li>Apply Odd validation based on matched condition in the form, like if the type  is ‘Odd’ then the number value should be odd number.</li>
+	<li>Adding Custom Message on OddNumber Field.</li>
+	<li>Apply odd validation dynamically based on server rules.</li>
+</ol>
 Let’s see how Odd validator fulfil the need.
 
 # Basic Odd Validation
+<data-scope scope="['decorator']">
 First we need to create a User class and define a property of odd in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\add\user.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\edit\user.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+<div component="app-code" key="odd-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\add\odd-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\edit\odd-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\odd\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="odd-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\add\odd-add.component.html?condition="tab_1=='basicadd'"&type=section&title=odd Decorator for add Example)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\edit\odd-edit.component.html?condition="tab_1=='basicedit'"&type=section&title=odd Decorator for edit Example)]
+<div component="app-code" key="odd-add-html"></div> 
+<div component="app-odd-add" title="odd Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="odd-edit-component"></div>
+The below code is `user-data.json` for getting data from the server 
+<div component="app-code" key="data-odd"></div> 
+Next, we need to write html code.
+<div component="app-code" key="odd-edit-html"></div> 
+<div component="app-odd-add" title="odd Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=odd Decorator for add Example)]
-<app-odd-add></app-odd-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=odd Decorator for edit Example)]
-<app-odd-edit></app-odd-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="odd-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="odd-add-html"></div> 
+<div component="app-odd-add" title="odd Decorator for add Example"></div>
+</data-scope>
 
 # BaseConfig
 Below options are not mandatory to use in the `@odd()` decorator. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[conditionalExpression](#conditionalexpressions) | Odd  validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>odd validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -56,66 +61,56 @@ Type :  `Function`  |  `string`
 Odd validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!codeExample(?title=conditionalExpressionExampleFunction)]
+<div component="app-note" key="odd-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="odd-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="odd-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="odd-conditionalExpressionExampleString-model"></div> 
 
-[!codeExample(?title=conditionalExpressionExampleString)]
-
-[!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\conditionalExpression\user.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\conditionalExpression\odd-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\conditionalExpression\odd-conditional-expressions.component.html)]
-***
-
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=odd decorator with conditionalExpression)]
-<app-odd-conditionalExpression></app-odd-conditionalExpression>
+<div component="app-example-runner" ref-component="app-odd-conditionalExpression" title="odd decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\message\user.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\message\odd-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\message\odd-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=odd decorator with custom message)]
-<app-odd-message></app-odd-message>
+<div component="app-code" key="odd-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-odd-message" title="odd decorators with message" key="message"></div>
 
 # Complete Odd Example
 
 This Complete Odd example which includes all the BaseConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-odd-complete></app-odd-complete>
+<div component="app-odd-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\complete\user.model.ts)]
+<div component="app-code" key="odd-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\complete\odd-complete.component.ts)]
+<div component="app-code" key="odd-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\complete\odd-complete.component.html)]
+<div component="app-code" key="odd-complete-html"></div> 
 ***
 
 # Dynamic Odd Example
+
+This Dynamic odd example which execute based on json passed. conditional expression with function would be not apply in dynamic odd example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-odd-dynamic></app-odd-dynamic>
+<div component="app-odd-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\user.model.ts)]
+<div component="app-code" key="odd-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\odd-dynamic.component.ts)]
+<div component="app-code" key="odd-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\dynamic.json)]
+<div component="app-code" key="odd-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\odd\dynamic\odd-dynamic.component.html)]
+<div component="app-code" key="odd-dynamic-html"></div> 
 ***

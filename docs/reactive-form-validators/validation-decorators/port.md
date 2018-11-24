@@ -6,49 +6,54 @@ author: rxcontributortwo
 ---
 # When to use
 Suppose you want to create a websiteInfo form, which contains fields like browser, educationalWebsitePort, entertainmentWebsitePort and shoppingWebsitePort and you want the user to enter input which is a proper port number. Here depending upon the requirement, these scenarios may arise..
-1. Allow educationalWebsitePort which have proper port format and adding Custom Message on educationalWebsitePort.
-2. Apply port validation on entertainmentWebsitePort field based on matched condition in the form, like if the browser is 'Chrome', then the      entertainmentWebsitePort must be a port number (Used as a function).
-3. Apply port validation on shoppingWebsitePort field based on matched condition in the form, like if the browser is 'Chrome', then the shoppingWebsitePort must be a port number (Used as a string datatype).
-4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
-
+<ol>
+ <li>Allow educationalWebsitePort which have proper port format and adding Custom Message on educationalWebsitePort.</li>
+ <li>Apply port validation on entertainmentWebsitePort field based on matched condition in the form, like if the browser is 'Chrome', then the entertainmentWebsitePort must be a port number (Used as a function).</li>
+ <li>Apply port validation on shoppingWebsitePort field based on matched condition in the form, like if the browser is 'Chrome', then the    shoppingWebsitePort must be a port number (Used as a string datatype).</li>
+ <li>Apply port validation dynamically based on server rules.</li>
+</ol>
 Let's see how port decorator fulfil the need.
 
 # Basic port Validation
+<data-scope scope="['decorator']">
 First we need to create a model and define a property of educationalWebsitePort in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\add\website-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\edit\website-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+<div component="app-code" key="port-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\add\port-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\edit\port-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\port\edit\user-data.json?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="port-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\add\port-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\edit\port-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="port-add-html"></div> 
+<div component="app-port-add" title="port Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="port-edit-component"></div>
+The below code is `user-data.json` for getting data from the server 
+<div component="app-code" key="data-port"></div> 
+Next, we need to write html code.
+<div component="app-code" key="port-edit-html"></div> 
+<div component="app-port-add" title="port Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=port Decorator for add Example)]
-<app-port-add></app-port-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=port Decorator for edit Example)]
-<app-port-edit></app-port-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="port-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="port-add-html"></div> 
+<div component="app-port-add" title="port Decorator for add Example"></div>
+</data-scope>
 
 # BaseConfig
 message and conditionalExpression are not mandatory to use in the `@port()` decorator. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[conditionalExpression](#conditionalExpression) | port validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>port validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -56,63 +61,56 @@ Type :  `Function`  |  `string`
 port validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!codeExample(?title=conditionalExpressionExampleFunction)]
+<div component="app-note" key="port-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="port-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="port-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="port-conditionalExpressionExampleString-model"></div> 
 
-[!codeExample(?title=conditionalExpressionExampleString)]
-
-[!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\conditionalExpression\website-info.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\conditionalExpression\port-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\conditionalExpression\port-conditional-expressions.component.html)]
-***
-
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=port decorator with conditionalExpression)]
-<app-port-conditionalExpression></app-port-conditionalExpression>
+<div component="app-example-runner" ref-component="app-port-conditionalExpression" title="port decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\message\website-info.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\message\port-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\message\port-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=port decorator with custom message)]
-<app-port-message></app-port-message>
+<div component="app-code" key="port-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-port-message" title="port decorators with message" key="message"></div>
 
 # Complete Port Example
+
+This Complete Port example which includes all the BaseConfig properties will fulfil the requirement of scenarios 1 ,2 and 3.
+
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-port-complete></app-port-complete>
+<div component="app-port-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\complete\website-info.model.ts)]
+<div component="app-code" key="port-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\complete\port-complete.component.ts)]
+<div component="app-code" key="port-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\complete\port-complete.component.html)]
+<div component="app-code" key="port-complete-html"></div> 
 ***
 
 # Dynamic Port Example
+
+This Dynamic port example which execute based on json passed. conditional expression with function would be not apply in dynamic port example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-port-dynamic></app-port-dynamic>
+<div component="app-port-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\dynamic\website-info.model.ts)]
+<div component="app-code" key="port-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\dynamic\port-dynamic.component.ts)]
+<div component="app-code" key="port-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\dynamic\dynamic.json)]
+<div component="app-code" key="port-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\port\dynamic\port-dynamic.component.html)]
+<div component="app-code" key="port-dynamic-html"></div> 
 ***

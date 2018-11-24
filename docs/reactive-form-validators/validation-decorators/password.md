@@ -6,110 +6,104 @@ author: rxcontributorone
 ---
 # When to use
 Suppose you want to create a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
-1. Adding validation on oldPassword Field and adding  Custom Message on it.
-2. Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
-3. Apply dynamic validation, If the validation will be changed based on some criteria in the application.
-
+<ol>
+   <li>Adding validation on oldPassword Field and adding  Custom Message on it.</li>
+   <li>Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter,  minLength, maxLength.</li>
+   <li>Apply password validation dynamically based on server rules.</li>
+</ol>
 Let’s see how password validator fulfil the need.
 
 # Basic password Validation
+<data-scope scope="['decorator']">
 First we need to create LoginInfo model class define a property of password in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\add\login-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\edit\login-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+<div component="app-code" key="password-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations.
 
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\add\password-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\edit\password-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `login-info-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\password\edit\login-info-data.json?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="password-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\add\password-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\edit\password-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="password-add-html"></div> 
+<div component="app-password-add" title="password Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="password-edit-component"></div>
+The below code is `login-info-data.json` for getting data from the server 
+<div component="app-code" key="data-password"></div> 
+Next, we need to write html code.
+<div component="app-code" key="password-edit-html"></div> 
+<div component="app-password-add" title="password Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=password Decorator for add Example)]
-<app-password-add></app-password-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=password Decorator for edit Example)]
-<app-password-edit></app-password-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="password-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="password-add-html"></div> 
+<div component="app-password-add" title="password Decorator for add Example"></div>
+</data-scope>
 
 # PasswordConfig 
 message options are not mandatory to use in the `@password()` decorator but validation is mandatory. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
-|[validation](#validation) | Validation is used for setting the parameters for password validation, In Password validation there is validations on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength. |
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a href="#validation" (click)='scrollTo("#validation")'  title="validation"> Validation is used for setting the parameters for password validation, In Password validation there is validations on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</td></tr>
 
 ## message 
 Type :  `string` 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\message\login-info.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\message\password-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\message\password-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=password decorator with custom message)]
-<app-password-message></app-password-message>
+<div component="app-code" key="password-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-password-message" title="password decorators with message" key="message"></div>
 
 ## validation 
 Type :  `PasswordValidation`
+
 Password Validation is used for setting the parameters for password validation, In Password validation there is validation on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
 
-[!codeExample(?title=validationExample)]
-
-[!TabGroup(?showHideCondition="validation")]
-# [Model](#tab\validationModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\validation\login-info.model.ts)]
-# [Component](#tab\validationComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\validation\password-validation.component.ts)]
-# [Html](#tab\validationHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\validation\password-validation.component.html)]
-***
-
-[!example(?type=section&clickEventCode="validation=!validation"&title=password decorator with validation)]
-<app-password-validation></app-password-validation>
+<div component="app-code" key="password-validationExample-model"></div> 
+<div component="app-example-runner" ref-component="app-password-validation" title="password decorators with validation" key="validation"></div>
 
 # Complete password Example
 
 This Complete password example which includes all the PasswordConfig properties will fulfil the requirement of scenarios 1 and 2.
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
-# [Example](#tab\completeExample)
-<app-password-complete></app-password-complete>
-# [Model](#tab\completeModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\complete\login-info.model.ts)]
-# [Component](#tab\completeComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\complete\password-complete.component.ts)]
-# [Html](#tab\completeHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\complete\password-complete.component.html)]
+# [Example](#tab\completeexample)
+<div component="app-password-complete"></div>
+<data-scope scope="['decorator']">
+# [Model](#tab\completemodel)
+<div component="app-code" key="password-complete-model"></div> 
+</data-scope>
+# [Component](#tab\completecomponent)
+<div component="app-code" key="password-complete-component"></div> 
+# [Html](#tab\completehtml)
+<div component="app-code" key="password-complete-html"></div> 
 ***
 
 # Dynamic password Example
+
+This Dynamic password example which execute based on json passed. conditional expression with function would be not apply in dynamic password example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
-# [Example](#tab\dynamicExample)
-<app-password-dynamic></app-password-dynamic>
-# [Model](#tab\dynamicModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\login-info.model.ts)]
-# [Component](#tab\dynamicComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\password-dynamic.component.ts)]
+# [Example](#tab\dynamicexample)
+<div component="app-password-dynamic"></div>
+<data-scope scope="['decorator']">
+# [Model](#tab\dynamicmodel)
+<div component="app-code" key="password-dynamic-model"></div>
+</data-scope>
+# [Component](#tab\dynamiccomponent)
+<div component="app-code" key="password-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\dynamic.json)]
-# [Html](#tab\dynamicHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\password\dynamic\password-dynamic.component.html)]
+<div component="app-code" key="password-dynamic-json"></div>
+# [Html](#tab\dynamichtml)
+<div component="app-code" key="password-dynamic-html"></div> 
 ***

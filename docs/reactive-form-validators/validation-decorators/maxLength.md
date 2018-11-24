@@ -6,49 +6,55 @@ author: rxcontributortwo
 ---
 # When to use
 Suppose you want to create a User form, which contains fields like FirstName, LastName, Username and you want the user to enter any string which should not exceed maximum length. Here depending upon the requirement these scenarios may arise.
-1.	Allow string less than 16 characters in FirstName.
-2.	Apply maxLength validation based on matched condition in the form, like if the FirstName is `john`, then only the maxLength validation will be applied to LastName field.
-3.	Adding Custom Message on Username Field.
-4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
-
+<ol>
+	<li>Allow string less than 16 characters in FirstName.</li>
+	<li>Apply maxLength validation based on matched condition in the form, like if the FirstName is `john`, then only the maxLength validation will be  applied to LastName field.</li> 
+	<li>Adding Custom Message on Username Field.</li>
+ 	<li>Apply maxLength validation dynamically based on server rules.</li>
+</ol>
 Let’s see how maxLength validator fulfil the need.
 
 # Basic MaxLength Validation
+<data-scope scope="['decorator']">
 First we need to create a User class and define a property of FirstName in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\add\location.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\edit\location.model.ts?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="maxLength-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
+Here we have covered Add and Edit form operations. 
 
-Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
-
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\add\max-length-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\edit\max-length-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `location-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\maxLength\edit\location-data.json?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="maxLength-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\add\max-length-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\edit\max-length-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="maxLength-add-html"></div> 
+<div component="app-maxLength-add" title="maxLength Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="maxLength-edit-component"></div>
+The below code is `location-data.json` for getting data from the server 
+<div component="app-code" key="data-maxLength"></div> 
+Next, we need to write html code.
+<div component="app-code" key="maxLength-edit-html"></div> 
+<div component="app-maxLength-add" title="maxLength Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=maxLength Decorator for add Example)]
-<app-maxLength-add></app-maxLength-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=maxLength Decorator for edit Example)]
-<app-maxLength-edit></app-maxLength-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="maxLength-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="maxLength-add-html"></div> 
+<div component="app-maxLength-add" title="maxLength Decorator for add Example"></div>
+</data-scope>
 
 # NumberConfig 
 message and conditional expression options are not mandatory to use in the `@maxLength()` decorator but value is mandatory. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[conditionalExpression](#conditionalExpression) | MaxLength validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
-|[value](#value) | enter value which you want to restrict string length in the property |
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#conditionalExpression"  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>longitude validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message"  (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a href="#value"  (click)='scrollTo("#value")' title="value">value</a></td> enter value which you want to restrict string length in the property.</td></tr>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -56,86 +62,64 @@ Type :  `Function`  |  `string`
 MaxLength validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!codeExample(?title=conditionalExpressionExampleFunction)]
+<div component="app-note" key="maxLength-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="maxLength-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="maxLength-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="maxLength-conditionalExpressionExampleString-model"></div> 
 
-[!codeExample(?title=conditionalExpressionExampleString)]
-
-[!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\conditionalExpression\user.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\conditionalExpression\max-length-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\conditionalExpression\max-length-conditional-expressions.component.html)]
-***
-
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=maxLength decorator with conditionalExpression)]
-<app-maxLength-conditionalExpression></app-maxLength-conditionalExpression>
+<div component="app-example-runner" ref-component="app-maxLength-conditionalExpression" title="maxLength decorators with conditionalExpression" key="conditionalExpression"></div>
  
  ## message 
 Type :  `string` 
 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\message\user.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\message\max-length-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\message\max-length-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=maxLength decorator with custom message)]
-<app-maxLength-message></app-maxLength-message>
+<div component="app-code" key="maxLength-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-maxLength-message" title="maxLength decorators with message" key="message"></div>
 
 ## value 
 Type :  `number` 
 
 enter value which you want to restrict string length in the property
  
-[!codeExample(?title=valueExample)]
- 
-[!TabGroup(?showHideCondition="valueShow")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\value\user.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\value\max-length-value.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\value\max-length-value.component.html)]
-***
-
-[!example(?type=section&clickEventCode="valueShow=!valueShow"&title=maxLength decorator with value)]
-<app-maxLength-value></app-maxLength-value>
-
+<div component="app-code" key="maxLength-valueExample-model"></div> 
+<div component="app-example-runner" ref-component="maxLength-value-value" title="maxLength decorators with value" key="value"></div>
 
 # Complete maxLength Example
 
 This Complete maxLength example which includes all the NumberConfig properties will fulfil the requirement of scenarios 1, 2, 3.
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-maxLength-complete></app-maxLength-complete>
+<div component="app-maxLength-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\complete\user.model.ts)]
+<div component="app-code" key="maxLength-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\complete\max-length-complete.component.ts)]
+<div component="app-code" key="maxLength-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\complete\max-length-complete.component.html)]
+<div component="app-code" key="maxLength-complete-html"></div> 
 ***
 
 # Dynamic maxLength Example
+
+This Dynamic maxLength example which execute based on json passed. conditional expression with function would be not apply in dynamic maxLength example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-maxLength-dynamic></app-maxLength-dynamic>
+<div component="app-maxLength-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\dynamic\user.model.ts)]
+<div component="app-code" key="maxLength-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\dynamic\max-length-dynamic.component.ts)]
+<div component="app-code" key="maxLength-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\dynamic\dynamic.json)]
+<div component="app-code" key="maxLength-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\maxLength\dynamic\max-length-dynamic.component.html)]
+<div component="app-code" key="maxLength-dynamic-html"></div> 
 ***

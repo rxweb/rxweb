@@ -1,156 +1,136 @@
----
+-
 title: choice 
 description: choice validation decorator will check whether the value entered is matching the properties defined.
-author: rxcontributorone
+author: rxcontributortwo
 
----
+-
 
 # When to use
 Suppose you want to create a employee form in which you want employee to enter value of a particular choice which contains fields like department, hobbies and skills.Here the field is taken in the form of array and according to that the choice is applied on the property by applying minlength and maxLength. Here depending upon the requirement these scenarios may arise.
-1.	The skills field in which you want the user to enter maximum three skills and minimum of one skill.
-2.  Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be maximum three and minimum one.
-3.  The Custom Message on Hobbies field.
-4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
 
-Let’s see how choice validator fulfil the need.
+<ol>
+    <li>The skills field in which you want the user to enter maximum three skills and minimum of one skill.</li>
+    <li>Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be maximum three and minimum one.</li>
+    <li>The Custom Message on Hobbies field.</li>
+    <li>>Apply choice validation dynamically based on server rules.</li>
+</ol>
+
+Let’s see how choice decorator fulfil the need.
 
 # Basic choice Validation
-First we need to create a employee Model class and define property of hobbies in the model to achieve the functional need of point 1.
-
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\add\employee-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\edit\employee-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+<data-scope scope="['decorator']">
+First we need to create a Employee Model and define a property of hobbies in the model to achieve the functional need of point 1.
+<div component="app-code" key="choice-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\add\choice-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\edit\choice-edit.component.ts)]
-***
-
+<div component="app-code" key="choice-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\add\choice-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\edit\choice-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="choice-add-html"></div> 
+<div component="app-choice-add" title="choice Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="choice-edit-component"></div> 
+The below code is `employee-data.json` for getting data from the server
+<div component="app-code" key="data-json"></div> 
+Next, we need to write html code.
+<div component="app-code" key="choice-edit-html"></div> 
+<div component="app-choice-add" title="choice Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=choice Decorator for add Example)]
-<app-choice-add></app-choice-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=choice Decorator for edit Example)]
-<app-choice-edit></app-choice-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="choice-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="choice-add-html"></div> 
+<div component="app-choice-add" title="choice Decorator for add Example"></div>
+</data-scope>
 
 # ChoiceConfig
 Below options are not mandatory to use in the `@choice()` decorator. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[minLength](#minLength) | minLength  is to define a minLength of field which is in form of array |
-|[maxLength](#maxLength) | maxLength is to define a maxLength of field which is in form of array |
-|[conditionalExpression](#conditionalExpression) | choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
+
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#minLength" (click)='scrollTo("#minLength")' title="#minLength">minLength</a></td><td>minLength  is to define a minLength of field which is in form of array</td></tr>
+<tr><td><a href="#maxLength" (click)='scrollTo("#maxLength")' title="#maxLength">maxLength</a></td><td>maxLength  is to define a maxLength of field which is in form of array</td></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+</table>
 
 ## minLength 
 Type :  `number` 
 minLength  is to define a minLength of field which is in form of array
 
-[!codeExample(?title=minLengthExample)]
-
-[!TabGroup(?showHideCondition="minLength")]
-# [Model](#tab\minLengthModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\minLength\employee-info.model.ts)]
-# [Component](#tab\minLengthComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\minLength\choice-min-length.component.ts)]
-# [Html](#tab\minLengthHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\minLength\choice-min-length.component.html)]
-***
-
-[!example(?type=section&clickEventCode="minLength=!minLength"&title=choice decorator with minLength)]
-<app-choice-minLength></app-choice-minLength>
+<div component="app-code" key="choice-minLengthExample-model"></div> 
+<div component="app-example-runner" ref-component="app-choice-minLength" title="choice decorators with minLength" key="minLength"></div>
 
 ## maxLength 
 Type :  `number` 
 maxLength number is for define a maxLength number of range
 
-[!codeExample(?title=maxLengthExample)]
-
-[!TabGroup(?showHideCondition="maxLength")]
-# [Model](#tab\maxLengthModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\maxLength\employee-info.model.ts)]
-# [Component](#tab\maxLengthComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\maxLength\choice-max-number.component.ts)]
-# [Html](#tab\maxLengthHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\maxLength\choice-max-number.component.html)]
-***
-
-[!example(?type=section&clickEventCode="maxLength=!maxLength"&title=choice decorator with maxLength)]
-<app-choice-maxLength></app-choice-maxLength>
+<div component="app-code" key="choice-maxLengthExample-model"></div> 
+<div component="app-example-runner" ref-component="app-choice-maxLength" title="choice decorators with maxLength" key="maxLength"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
 
 choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
- 
- [!codeExample(?title=conditionalExpressionExampleFunction)]
 
-[!codeExample(?title=conditionalExpressionExampleString)]
+<div component="app-note" key="choice-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="choice-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="choice-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="choice-conditionalExpressionExampleString-model"></div> 
 
- [!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\conditionalExpression\user.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\conditionalExpression\choice-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\conditionalExpression\choice-conditional-expressions.component.html)]
-***
-
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=choice decorator with conditionalExpression)]
-<app-choice-conditionalExpression></app-choice-conditionalExpression>
+<div component="app-example-runner" ref-component="app-choice-conditionalExpression" title="choice decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\message\user.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\message\choice-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\message\choice-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=choice decorator with custom message)]
-<app-choice-message></app-choice-message>
+<div component="app-code" key="choice-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-choice-message" title="choice decorators with message" key="message"></div>
 
 # Complete choice Example
 
 This Complete choice example which includes all the ChoiceConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-choice-complete></app-choice-complete>
+<div component="app-choice-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\complete\user.model.ts)]
+<div component="app-code" key="choice-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\complete\choice-complete.component.ts)]
+<div component="app-code" key="choice-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\complete\choice-complete.component.html)]
+<div component="app-code" key="choice-complete-html"></div> 
 ***
 
 # Dynamic choice Example
+
+This Dynamic Choice example which execute based on json passed. conditional expression with function would be not apply in dynamic choice example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-choice-dynamic></app-choice-dynamic>
+<div component="app-choice-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\dynamic\user.model.ts)]
+<div component="app-code" key="choice-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\dynamic\choice-dynamic.component.ts)]
+<div component="app-code" key="choice-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\dynamic\dynamic.json)]
+<div component="app-code" key="choice-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\choice\dynamic\choice-dynamic.component.html)]
+<div component="app-code" key="choice-dynamic-html"></div> 
 ***

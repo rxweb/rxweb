@@ -6,48 +6,56 @@ author: rxcontributortwo
 ---
 # When to use
 Suppose you want to create a UserInfo form, which contains fields like FirstName, LastName, Username and you want the user to must enter anything in that field. That field can not be empty. Here depending upon the requirement these scenarios may arise.
-1. Make the FirstName a required field without any condition.
-2.	Apply required validation based on matched condition in the form, like if the FirstName is `John`, then only the required validation will be applied to LastName field.
-3.	Adding Custom Message on Username Field.
-4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
-
+<ol>
+   <li>Make the FirstName a required field without any condition.</li>
+   <li>Apply required validation based on matched condition in the form, like if the FirstName is `John`, then only the required validation will be applied to LastName field.</li>
+   <li>Adding Custom Message on Username Field.</li>
+   <li>Apply required validation dynamically based on server rules.</li>
+</ol>
 Let’s see how required validator fulfil the need.
 
 # Basic Required Validation
+
+<data-scope scope="['decorator']">
 First we need to create a User class and define a property of FirstName in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\add\user-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\edit\user-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="required-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
+Here we have covered Add and Edit form operations. 
 
-Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
-
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\add\required-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\edit\required-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `user-info-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\required\edit\user-info-data.json?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="required-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\add\required-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\edit\required-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="required-add-html"></div> 
+<div component="app-required-add" title="required Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="required-edit-component"></div> 
+The below code is `user-data.json` for getting data from the server
+<div component="app-code" key="data-json"></div> 
+Next, we need to write html code.
+<div component="app-code" key="required-edit-html"></div> 
+<div component="app-required-add" title="required Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=required Decorator for add Example)]
-<app-required-add></app-required-add>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="required-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="required-add-html"></div> 
+<div component="app-required-add" title="required Decorator for add Example"></div>
+</data-scope>
 
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=required Decorator for edit Example)]
-<app-required-edit></app-required-edit>
- 
 # RequiredConfig 
 Below options are not mandatory to use in the `@required()` decorator. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[conditionalExpression](#conditionalExpression) | Required validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Required validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+</table>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -55,66 +63,56 @@ Type :  `Function`  |  `string`
 Required validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!codeExample(?title=conditionalExpressionExampleFunction)]
+<div component="app-note" key="required-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="required-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="required-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="required-conditionalExpressionExampleString-model"></div> 
 
-[!codeExample(?title=conditionalExpressionExampleString)]
+<div component="app-example-runner" ref-component="app-required-conditionalExpression" title="required decorators with conditionalExpression" key="conditionalExpression"></div>
 
-[!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\conditionalExpression\user.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\conditionalExpression\required-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\conditionalExpression\required-conditional-expressions.component.html)]
-***
-
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=required decorator with conditionalExpression)]
-<app-required-conditionalExpression></app-required-conditionalExpression>
- 
 ## message 
 Type :  `string` 
 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\message\user.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\message\required-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\message\required-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=required decorator with custom message)]
-<app-required-message></app-required-message>
+<div component="app-code" key="required-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-required-message" title="required decorators with message" key="message"></div>
 
 # Complete required Example
 
 This Complete required example which includes all the RequiredConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
-# [Example](#tab\completeExample)
-<app-required-complete></app-required-complete>
-# [Model](#tab\completeModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\complete\user.model.ts)]
-# [Component](#tab\completeComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\complete\required-complete.component.ts)]
-# [Html](#tab\completeHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\complete\required-complete.component.html)]
+# [Example](#tab\completeexample)
+<div component="app-required-complete"></div>
+<data-scope scope="['decorator']">
+# [Model](#tab\completemodel)
+<div component="app-code" key="required-complete-model"></div> 
+</data-scope>
+# [Component](#tab\completecomponent)
+<div component="app-code" key="required-complete-component"></div> 
+# [Html](#tab\completehtml)
+<div component="app-code" key="required-complete-html"></div> 
 ***
 
 # Dynamic required Example
+
+This Dynamic required example which execute based on json passed. conditional expression with function would be not apply in dynamic required example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
-# [Example](#tab\dynamicExample)
-<app-required-dynamic></app-required-dynamic>
-# [Model](#tab\dynamicModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\user.model.ts)]
-# [Component](#tab\dynamicComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\required-dynamic.component.ts)]
+# [Example](#tab\dynamicexample)
+<div component="app-required-dynamic"></div>
+<data-scope scope="['decorator']">
+# [Model](#tab\dynamicmodel)
+<div component="app-code" key="required-dynamic-model"></div>
+</data-scope>
+# [Component](#tab\dynamiccomponent)
+<div component="app-code" key="required-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\dynamic.json)]
-# [Html](#tab\dynamicHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\required\dynamic\required-dynamic.component.html)]
+<div component="app-code" key="required-dynamic-json"></div>
+# [Html](#tab\dynamichtml)
+<div component="app-code" key="required-dynamic-html"></div> 
 ***

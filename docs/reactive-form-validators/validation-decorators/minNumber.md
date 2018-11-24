@@ -6,49 +6,55 @@ author: rxcontributortwo
 ---
 # When to use
 Suppose you want to create a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.
-1.	Allow number greater than 35 in Maths field.
-2.	Apply minNumber validation based on matched condition in the form, like if the input of Maths is 50, then only the minNumber validation will be applied to Statistics field.
-3.	Adding Custom Message on Science Field.
-4.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
-
+<ol>
+	<li>Allow number greater than 35 in Maths field.</li>
+	<li>Apply minNumber validation based on matched condition in the form, like if the input of Maths is 50, then only the minNumber validation will be applied to Statistics field.</li>
+	<li>Adding Custom Message on Science Field.</li>
+	<li>Apply minNumber validation dynamically based on server rules.</li>
+</ol>
 Let’s see how minNumber validator fulfil the need.
 
 # Basic MinNumber Validation
+<data-scope scope="['decorator']">
 First we need to create a ResultInfo class and define a property of Maths in the model to achieve the functional need of point 1.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\add\result-info.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\edit\result-info.model.ts?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="minNumber-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
+Here we have covered Add and Edit form operations. 
 
-Now, we need to create a `FormGroup` in the component. To achieve this, we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
-
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\add\min-number-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\edit\min-number-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `result-info-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\minNumber\edit\result-info-data.json?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="minNumber-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\add\min-number-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\edit\min-number-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="minNumber-add-html"></div> 
+<div component="app-minNumber-add" title="minNumber Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="minNumber-edit-component"></div>
+The below code is `result-info-data.json` for getting data from the server 
+<div component="app-code" key="data-minNumber"></div> 
+Next, we need to write html code.
+<div component="app-code" key="minNumber-edit-html"></div> 
+<div component="app-minNumber-add" title="minNumber Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=minNumber Decorator for add Example)]
-<app-minNumber-add></app-minNumber-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=minNumber Decorator for edit Example)]
-<app-minNumber-edit></app-minNumber-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="minNumber-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="minNumber-add-html"></div> 
+<div component="app-minNumber-add" title="minNumber Decorator for add Example"></div>
+</data-scope>
 
 # NumberConfig 
 message and conditional expression options are not mandatory to use in the `@minNumber()` decorator but value is mandatory. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[conditionalExpression](#conditionalExpression) | Min Number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
-|[value](#value) | enter value which you want to restrict number in the property |
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>minNumber validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a href="#value" (click)='scrollTo("#value")' title="value">value</a></td> enter value which you want to restrict number in the property.</td></tr>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -56,85 +62,64 @@ Type :  `Function`  |  `string`
 Min Number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
  
-[!codeExample(?title=conditionalExpressionExampleFunction)]
+<div component="app-note" key="minNumber-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="minNumber-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="minNumber-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="minNumber-conditionalExpressionExampleString-model"></div> 
 
-[!codeExample(?title=conditionalExpressionExampleString)]
-
-[!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\conditionalExpression\result-info.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\conditionalExpression\min-number-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\conditionalExpression\min-number-conditional-expressions.component.html)]
-***
-
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=minNumber decorator with conditionalExpression)]
-<app-minNumber-conditionalExpression></app-minNumber-conditionalExpression>
+<div component="app-example-runner" ref-component="app-minNumber-conditionalExpression" title="minNumber decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\message\result-info.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\message\min-number-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\message\min-number-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=minNumber decorator with custom message)]
-<app-minNumber-message></app-minNumber-message>
+<div component="app-code" key="minNumber-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-minNumber-message" title="minNumber decorators with message" key="message"></div>
 
 ## value 
 Type :  `number` 
 
 enter value which you want to restrict number in the property
 
-[!codeExample(?title=valueExample)]
-
-[!TabGroup(?showHideCondition="valueShow")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\value\result-info.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\value\min-number-value.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\value\min-number-value.component.html)]
-***
-
-[!example(?type=section&clickEventCode="valueShow=!valueShow"&title=minNumber decorator with value)]
-<app-minNumber-value></app-minNumber-value>
+<div component="app-code" key="minNumber-valueExample-model"></div> 
+<div component="app-example-runner" ref-component="minNumber-value-value" title="minNumber decorators with value" key="value"></div>
 
 # Complete minNumber Example
 
 This Complete minNumber example which includes all the NumberConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-minNumber-complete></app-minNumber-complete>
+<div component="app-minNumber-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\complete\result-info.model.ts)]
+<div component="app-code" key="minNumber-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\complete\min-number-complete.component.ts)]
+<div component="app-code" key="minNumber-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\complete\min-number-complete.component.html)]
+<div component="app-code" key="minNumber-complete-html"></div> 
 ***
 
 # Dynamic minNumber Example
+
+This Dynamic minNumber example which execute based on json passed. conditional expression with function would be not apply in dynamic minNumber example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-minNumber-dynamic></app-minNumber-dynamic>
+<div component="app-minNumber-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\result-info.model.ts)]
+<div component="app-code" key="minNumber-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\min-number-dynamic.component.ts)]
+<div component="app-code" key="minNumber-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\dynamic.json)]
+<div component="app-code" key="minNumber-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\minNumber\dynamic\min-number-dynamic.component.html)]
+<div component="app-code" key="minNumber-dynamic-html"></div> 
 ***

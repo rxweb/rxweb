@@ -2,76 +2,69 @@
 title: alpha
 description: Alpha validation decorator will allow only alphabets to be entered. It will not allow any digit or special character.
 author: rxcontributorone
-
 ---
+
 # When to use
 Suppose you want to create a Country form, which contains fields like CountryName, CountryCode, StateName, StateCode and you want the user to enter only alphabets. Here depending upon the requirement these scenarios may arise.
-1.	Allow only alphabets in CountryName without space.
-2.	Allowing WhiteSpace in StateName
-3.	Apply alpha validation based on matched condition in the form, like if the CountryName is 'India' then the StateCode value should be in alphabets.
-4.	Adding Custom Message on StateCode Field.
-5.	Apply dynamic validation, If the validation will be changed based on some criteria in the application.
-
-Let’s see how alpha decorator fulfil the need.
+<ol>
+	<li>Allow only alphabets in CountryName without space.</li>
+	<li>Allowing WhiteSpace in StateName.</li>
+	<li>Apply alpha validation based on matched condition in the form, like if the CountryName is 'India' then the StateCode value should be in alphabets.</li>
+	<li>Adding Custom Message on StateCode Field.</li>
+	<li>Apply alpha validation dynamically based on server rules.</li>
+</ol>
+Let's see how alpha decorator fulfil the need.
  
 # Basic Alpha Validation
+<data-scope scope="['decorator']">
 First we need to create a Country class and define a property of CountryName in the model to achieve the functional need of point 1.
-
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\add\country.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\edit\country.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+<div component="app-code" key="alpha-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\add\alpha-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\edit\alpha-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `country-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\alpha\edit\country-data.json?condition="tab_1=='basicedit'"&type=section)]
-
-
+<div component="app-code" key="alpha-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\add\alpha-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\edit\alpha-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="alpha-add-html"></div> 
+<div component="app-alpha-add" title="alpha Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="alpha-edit-component"></div> 
+The below code is `country-data.json` for getting data from the server
+<div component="app-code" key="data-json"></div> 
+Next, we need to write html code.
+<div component="app-code" key="alpha-edit-html"></div> 
+<div component="app-alpha-add" title="alpha Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=alpha Decorator for add Example)]
-<app-alpha-add></app-alpha-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=alpha Decorator for edit Example)]
-<app-alpha-edit></app-alpha-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="alpha-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="alpha-add-html"></div> 
+<div component="app-alpha-add" title="alpha Decorator for add Example"></div>
+</data-scope>
 
 # AlphaConfig
 Below options are not mandatory to use in the `@alpha()` decorator. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[allowWhiteSpace](#allowwhitespace) | This will allow whitespace in particular control property. The default value is `false`. |
-|[conditionalExpression](#conditionalExpression) | Alpha validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#allowwhitespace" (click)='scrollTo("#allowwhitespace")' title="allowWhiteSpace">allowWhiteSpace</a></td><td>This will allow whitespace in particular control property. The default value is `false`.</td></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Alpha validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+</table>
 
 ## allowWhiteSpace 
 Type :  `boolean` 
 
-This will allow whitespace in particular control property.The default value is `false`.
+This will allow whitespace in particular FormControl value.The default value is `false`.
 
-[!codeExample(?title=allowWhiteSpaceExample)]
-
-[!TabGroup(?showHideCondition="allowWhiteSpaceShow")]
-# [Model](#tab\allowWhiteSpacemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\allowWhiteSpace\address-info.model.ts)]
-# [Component](#tab\allowWhiteSpaceComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\allowWhiteSpace\alpha-allow-white-space.component.ts)]
-# [Html](#tab\allowWhiteSpaceHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\allowWhiteSpace\alpha-allow-white-space.component.html)]
-***
-
-[!example(?type=section&clickEventCode="allowWhiteSpaceShow=!allowWhiteSpaceShow"&title=alpha decorator with allowWhiteSpace)]
-<app-alpha-allowWhiteSpace></app-alpha-allowWhiteSpace>
+<div component="app-code" key="alpha-allowWhiteSpaceExample-model"></div> 
+<div component="app-example-runner" ref-component="app-alpha-allowWhiteSpace" title="alpha decorators with allowWhiteSpace" key="allowWhiteSpace"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -79,66 +72,56 @@ Type :  `Function`  |  `string`
 Alpha validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!codeExample(?title=conditionalExpressionExampleFunction)]
+<div component="app-note" key="alpha-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="alpha-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="alpha-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="alpha-conditionalExpressionExampleString-model"></div> 
 
-[!codeExample(?title=conditionalExpressionExampleString)]
-
-[!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\conditionalExpression\address-info.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\conditionalExpression\alpha-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\conditionalExpression\alpha-conditional-expressions.component.html)]
-***
-
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=alpha decorator with conditionalExpression)]
-<app-alpha-conditionalExpression></app-alpha-conditionalExpression>
+<div component="app-example-runner" ref-component="app-alpha-conditionalExpression" title="alpha decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\message\address-info.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\message\alpha-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\message\alpha-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=alpha decorator with custom message)]
-<app-alpha-message></app-alpha-message>
+<div component="app-code" key="alpha-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-alpha-message" title="alpha decorators with message" key="message"></div>
 
 # Complete Alpha Example
 
 This Complete Alpha example which includes all the AlphaConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4.
 
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-alpha-complete></app-alpha-complete>
+<div component="app-alpha-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\complete\address-info.model.ts)]
+<div component="app-code" key="alpha-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\complete\alpha-complete.component.ts)]
+<div component="app-code" key="alpha-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\complete\alpha-complete.component.html)]
+<div component="app-code" key="alpha-complete-html"></div> 
 ***
 
 # Dynamic Alpha Example
+
+This Dynamic Alpha example which execute based on json passed. conditional expression with function would be not apply in dynamic alpha example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-alpha-dynamic></app-alpha-dynamic>
+<div component="app-alpha-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\dynamic\address-info.model.ts)]
+<div component="app-code" key="alpha-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\dynamic\alpha-dynamic.component.ts)]
+<div component="app-code" key="alpha-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\dynamic\dynamic.json)]
+<div component="app-code" key="alpha-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\alpha\dynamic\alpha-dynamic.component.html)]
+<div component="app-code" key="alpha-dynamic-html"></div> 
 ***

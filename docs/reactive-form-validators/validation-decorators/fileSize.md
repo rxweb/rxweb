@@ -6,69 +6,63 @@ author: rxcontributortwo
 ---
 # When to use
 Suppose you want to create a storageCapacity form, which contains fields like device, videoStorageSize, documentStorageSize and photographStorageSize and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..
-
-1. Allow videoStorageSize which have proper size format and adding Custom Message on videoStorageSize.
-2. Apply validation on documentStorageSize field based on matched condition in the form, like if the device is 'SmartPhone', then the documentStorageSize must be a size format (Used as a function).
-3. Apply validation on photographStorageSize field based on matched condition in the form, like if the device is 'SmartPhone', then the photographStorageSize must be a size format (Used as a string datatype).
-4. Apply dynamic validation, If the validation is changed based on some criteria in the application.
-
+<ol>
+   <li>Allow videoStorageSize which have proper size format and adding Custom Message on videoStorageSize.</li>
+   <li>Apply validation on documentStorageSize field based on matched condition in the form, like if the device is 'SmartPhone', then the documentStorageSize must be a size format (Used as a function).</li>
+   <li>Apply validation on photographStorageSize field based on matched condition in the form, like if the device is 'SmartPhone', then the photographStorageSize must be a size format (Used as a string datatype).</li>
+   <li>Apply fileSize validation dynamically based on server rules.</li>
+</ol>
 Let's see how fileSize decorator fulfil the need.
  
 # Basic fileSize Validation
+<data-scope scope="['decorator']">
 First we need to create a storageCapacity model and define a property of videoStorageSize in the model to achieve the functional need of point 1.
-
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\add\storage-capacity.model.ts?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\edit\storage-capacity.model.ts?condition="tab_1=='basicedit'"&type=section)]
-
-Now, we need to create a `FormGroup` in the component. To achieve this we need to add `RxFormBuilder`. The `RxFormBuilder` is an injectable service that is provided with the `RxReactiveFormsModule`. Inject this dependency by adding it to the component constructor.
+<div component="app-code" key="fileSize-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\add\file-size-add.component.ts)]
-# [Edit](#tab\basicedit)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\edit\file-size-edit.component.ts)]
-***
-
-[conditional-paragraph?condition="tab_1=='basicedit'"]The below code is `storage-capacity-data.json` for getting data from the server
-
-[!code-typescript[](\assets\examples\fileSize\edit\storage-capacity-data.json?condition="tab_1=='basicedit'"&type=section)]
-
+<div component="app-code" key="fileSize-add-component"></div> 
 Next, we need to write html code.
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\add\file-size-add.component.html?condition="tab_1=='basicadd'"&type=section)]
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\edit\file-size-edit.component.html?condition="tab_1=='basicedit'"&type=section)]
+<div component="app-code" key="fileSize-add-html"></div> 
+<div component="app-fileSize-add" title="fileSize Decorator for add Example"></div>
+# [Edit](#tab\basicedit)
+<div component="app-code" key="fileSize-edit-component"></div>
+The below code is `storage-capacity-data.json` for getting data from the server 
+<div component="app-code" key="data-json"></div> 
+Next, we need to write html code.
+<div component="app-code" key="fileSize-edit-html"></div> 
+<div component="app-fileSize-add" title="fileSize Decorator for edit Example"></div>
+***
+</data-scope>
 
-[!example(?condition="tab_1=='basicadd'"&type=tab&title=fileSize Decorator for add Example)]
-<app-fileSize-add></app-fileSize-add>
-
-[!example(?condition="tab_1=='basicedit'"&type=tab&title=fileSize Decorator for edit Example)]
-<app-fileSize-edit></app-fileSize-edit>
+<data-scope scope="['validator','templateDriven']">
+<div component="app-code" key="fileSize-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="fileSize-add-html"></div> 
+<div component="app-fileSize-add" title="fileSize Decorator for add Example"></div>
+</data-scope>
 
 # SizeConfig
 message and conditionalExpression are not mandatory to use in the `@fileSize()` decorator. If needed then use the below options.
 
-|Option | Description |
-|--- | ---- |
-|[maxSize](#maxSize) | Maximum file size allowed to be entered. |
-|[conditionalExpression](#conditionalExpression) | fileSize validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two p\arameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. |
-|[message](#message) | To override the global configuration message and show the custom message on particular control property. |
+<table class="table table-bordered table-striped">
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><a href="#maxSize" (click)='scrollTo("#maxSize")' title="maxSize">maxSize</a></td><td> Maximum file size allowed to be entered.</td></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>fileSize validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
 
 ## maxSize
 Type :  `number` 
 
 maxSize parameter is the maximum file size allowed to be entered by the user.
 
-[!TabGroup(?showHideCondition="maxSize")]
-# [Model](#tab\maxSizeModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\maxSize\storage-capacity.model.ts)]
-# [Component](#tab\maxSizeComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\maxSize\file-size-max-size.component.ts)]
-# [Html](#tab\maxSizeHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\maxSize\file-size-max-size.component.html)]
-***
-
-[!example(?type=section&clickEventCode="maxSize=!maxSize"&title=fileSize decorator with maxSize)]
-<app-fileSize-maxSize></app-fileSize-maxSize>
+<div component="app-code" key="fileSize-maxSizeExample-model"></div> 
+<div component="app-example-runner" ref-component="app-fileSize-maxSize" title="fileSize decorators with maxSize" key="maxSize"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -76,59 +70,56 @@ Type :  `Function`  |  `string`
 fileSize validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-[!TabGroup(?showHideCondition="conditionalExpression")]
-# [Model](#tab\conditionalExpressionmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\conditionalExpression\storage-capacity.model.ts)]
-# [Component](#tab\conditionalExpressionComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\conditionalExpression\file-size-conditional-expressions.component.ts)]
-# [Html](#tab\conditionalExpressionHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\conditionalExpression\file-size-conditional-expressions.component.html)]
-***
+<div component="app-note" key="fileSize-conditionalExpressionExampleFunction-model"></div>
+<div component="app-code" key="fileSize-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-note" key="fileSize-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="fileSize-conditionalExpressionExampleString-model"></div> 
 
-[!example(?type=section&clickEventCode="conditionalExpression=!conditionalExpression"&title=fileSize decorator with conditionalExpression)]
-<app-fileSize-conditionalExpression></app-fileSize-conditionalExpression>
+<div component="app-example-runner" ref-component="app-fileSize-conditionalExpression" title="fileSize decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom message on respective FormControl.
 
-[!codeExample(?title=messageExample)]
-
-[!TabGroup(?showHideCondition="message")]
-# [Model](#tab\messageModel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\message\storage-capacity.model.ts)]
-# [Component](#tab\messageComponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\message\file-size-message.component.ts)]
-# [Html](#tab\messageHtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\message\file-size-message.component.html)]
-***
-
-[!example(?type=section&clickEventCode="message=!message"&title=fileSize decorator with custom message)]
-<app-fileSize-message></app-fileSize-message>
+<div component="app-code" key="fileSize-messageExample-model"></div> 
+<div component="app-example-runner" ref-component="app-fileSize-message" title="fileSize decorators with message" key="message"></div>
 
 # Complete fileSize Example
+
+This Complete fileSize example which includes all the SizeConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+
+<div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<app-fileSize-complete></app-fileSize-complete>
+<div component="app-fileSize-complete"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\complete\storage-capacity.model.ts)]
+<div component="app-code" key="fileSize-complete-model"></div> 
+</data-scope>
 # [Component](#tab\completecomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\complete\file-size-complete.component.ts)]
+<div component="app-code" key="fileSize-complete-component"></div> 
 # [Html](#tab\completehtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\complete\file-size-complete.component.html)]
+<div component="app-code" key="fileSize-complete-html"></div> 
 ***
 
 # Dynamic fileSize Example
+
+This Dynamic fileSize example which execute based on json passed. conditional expression with function would be not apply in dynamic fileSize example. 
+
+<div component="app-tabs" key="dynamic"></div>
+
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<app-fileSize-dynamic></app-fileSize-dynamic>
+<div component="app-fileSize-dynamic"></div>
+<data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\dynamic\storage-capacity.model.ts)]
+<div component="app-code" key="fileSize-dynamic-model"></div>
+</data-scope>
 # [Component](#tab\dynamiccomponent)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\dynamic\file-size-dynamic.component.ts)]
+<div component="app-code" key="fileSize-dynamic-component"></div>
 # [Json](#tab\dynamicjson)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\dynamic\dynamic.json)]
+<div component="app-code" key="fileSize-dynamic-json"></div>
 # [Html](#tab\dynamichtml)
-[!code-typescript[](\assets\examples\reactive-form-validators\decorators\fileSize\dynamic\file-size-dynamic.component.html)]
+<div component="app-code" key="fileSize-dynamic-html"></div> 
 ***
