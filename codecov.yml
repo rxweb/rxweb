@@ -6,6 +6,5 @@ coverage:
      - "rxweb.io"
      - "docs"
      - "src"
-  github:
-    global_upload_token:"306dc8cd-c39d-4a55-aae4-278038aa7798"
+  token: 306dc8cd-c39d-4a55-aae4-278038aa7798
      
