@@ -29,9 +29,11 @@ groups:
     reviewers:
       users:
       - rxcontributorone
+      - ajayojha
   docs/reactive_form_validators:
     conditions:
     - "'rxweb.io/*' in files"
     reviewers:
       users:
       - rxwebteam
+      - ajayojha
