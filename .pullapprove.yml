@@ -13,21 +13,21 @@ groups:
       request_order: random  # "random" or "given"
   reactive_form_validators:
     conditions:
-    - "packages/reactive-form-validators/*"
+    "packages/reactive-form-validators/*"
     users:
-    - ajayojha
+    ajayojha
   reactive_form_validators_testing:
       conditions:
-        - "test/reactive-form-validators/*"
+      "test/reactive-form-validators/*"
       users:
-        - ajayojha
+      ajayojha
   docs/reactive_form_validators:
       conditions:
-        - "docs/reactive_form_validators/*"
+      "docs/reactive_form_validators/*"
       users:
-        - rxcontributorone
+      rxcontributorone
   docs/reactive_form_validators:
       conditions:
-        - "rxweb.io/*"
+      "rxweb.io/*"
       users:
-        - rxwebteam
+      rxwebteam
