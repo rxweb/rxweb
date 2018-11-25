@@ -8,11 +8,11 @@ export class AddressInfo {
 	@alpha() 
 	countryName: string;
 
-	//apply conditional validation based on function as parameter.
+	
 	@alpha({conditionalExpression:(x,y) => x.countryName == "India" }) 
 	countryCode: string;
 
-	//apply conditional expression of type 'string'. this will be used when server sends validation rules.
+	
 	@alpha({conditionalExpression:'x => x.countryName =="India"' }) 
 	cityName: string;
 
