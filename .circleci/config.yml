@@ -26,14 +26,13 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: cd rxweb.io
-      - run: yarn install
+      - run: cd rxweb.io && yarn install
 
       - save_cache:
           paths:
-            - node_modules
+            - rxweb.io/node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
       
-      - run: yarn prod
+      - run: cd rxweb.io && yarn prod
