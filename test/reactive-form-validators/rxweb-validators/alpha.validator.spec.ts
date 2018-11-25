@@ -14,7 +14,8 @@ import { RxwebValidators,ReactiveFormConfig } from '../../../packages/reactive-f
 
     describe('alpha', () => {
       it('should not error on an empty string.',
-         () => { expect(RxwebValidators.alpha()(new FormControl(''))).toBeNull(); });
+         () => { expect(RxwebValidators.alpha()(new FormControl(''))).toBeNull();
+     });
 
       it('should not error on any value in alphabets.',
          () => { expect(RxwebValidators.alpha()(new FormControl('India'))).toBeNull(); });
