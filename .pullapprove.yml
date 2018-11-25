@@ -13,9 +13,9 @@ groups:
       request_order: random  # "random" or "given"
   reactive_form_validators:
     conditions:
-        - "packages/reactive-form-validators/*"
-      users:
-        - ajayojha
+    - "packages/reactive-form-validators/*"
+    users:
+    - ajayojha
   reactive_form_validators_testing:
       conditions:
         - "test/reactive-form-validators/*"
