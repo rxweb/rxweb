@@ -1,20 +1,20 @@
 version: 3
 
 groups:
-  all:
-    users: all
-    required: 1
-    rejection_value: -999
-    author_approval:
-      auto: false
-      ignored: true
-    files:
-      include:
-        - "*"
+  code:
+    reviewers:
+      users:
+      - ajayojha
+      - rxwebteam
+      - rxcontributorone
+    reviews:
+      required: 1  # number of approvals required from this group
+      request: 1  # number of review requests sent at a time
+      request_order: random  # "random" or "given"
   reactive_form_validators:
-      conditions:
-        files:
-          - "packages/reactive-form-validators/*"
+    conditions:
+      files:
+        - "packages/reactive-form-validators/*"
       users:
         - ajayojha
   reactive_form_validators_testing:
@@ -27,6 +27,13 @@ groups:
       conditions:
         files:
           include:
-            - "docs/reactive_form_validators"
+            - "docs/reactive_form_validators/*"
       users:
-        - ajayojha
+        - rxcontributorone
+  docs/reactive_form_validators:
+      conditions:
+        files:
+          include:
+            - "rxweb.io/*"
+      users:
+        - rxwebteam
