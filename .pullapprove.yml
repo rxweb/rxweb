@@ -8,21 +8,29 @@ groups:
       - rxwebteam
       - rxcontributorone
     reviews:
-      required: 1  # number of approvals required from this group
-      request: 1  # number of review requests sent at a time
-      request_order: random  # "random" or "given"
+      required: 1
+      request: 1
+      request_order: random
   reactive_form_validators:
     conditions:
     - "'packages/reactive-form-validators/*' in files"
     reviewers:
       users:
       - ajayojha
+    reviews:
+      required: 1
+      request: 1
+      request_order: random
   reactive_form_validators_testing:
     conditions:
     - "'test/reactive-form-validators/*' in files"
     reviewers:
       users:
       - ajayojha
+    reviews:
+      required: 1
+      request: 1
+      request_order: random
   docs/reactive_form_validators:
     conditions:
     - "'docs/reactive_form_validators/*' in files"
@@ -30,6 +38,10 @@ groups:
       users:
       - rxcontributorone
       - ajayojha
+    reviews:
+      required: 1
+      request: 1
+      request_order: random
   docs/reactive_form_validators:
     conditions:
     - "'rxweb.io/*' in files"
@@ -37,3 +49,7 @@ groups:
       users:
       - rxwebteam
       - ajayojha
+    reviews:
+      required: 1
+      request: 1
+      request_order: random
