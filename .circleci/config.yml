@@ -35,5 +35,5 @@ jobs:
         
       # run tests!
       - run: 
-      cd rxweb.io
+      cd "/rxweb.io"
       yarn build
