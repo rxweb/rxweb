@@ -19,6 +19,7 @@ before_script:
    - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
 script:
   - ng test --watch=false
+  - codecov -f coverage/*.json
 notifications:
   webhooks:
     on_success: change
