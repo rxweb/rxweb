@@ -7,6 +7,7 @@
 
 # dependencies
 /node_modules
+/rxweb.io/node_modules
 
 # IDEs and editors
 /.idea
