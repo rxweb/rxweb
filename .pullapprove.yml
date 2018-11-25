@@ -1,5 +1,12 @@
 version: 3
 
+notifications:
+- when: pull_request.opened
+  comment: |
+    Hey @{{ author }}, thanks for the PR!
+    The review will start once the tests and CI checks have passed.
+pullapprove_conditions:
+- "'*travis*' in statuses.succeeded"
 groups:
   reactive_form_validators:
     conditions:
