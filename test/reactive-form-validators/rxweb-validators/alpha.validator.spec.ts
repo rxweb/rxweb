@@ -33,7 +33,7 @@ import { RxwebValidators,ReactiveFormConfig } from '../../../packages/reactive-f
          () => { expect(RxwebValidators.alpha({allowWhiteSpace:true})(new FormControl("New Delhi"))).toBeNull(); });
       
       it('should not allow whitespace with "allowWhiteSpace" parameter value is false.',
-         () => { expect(RxwebValidators.alpha({allowWhiteSpace:false})(new FormControl("New Delhi"))).toBeNull(); });
+         () => { expect(RxwebValidators.alpha({allowWhiteSpace:false})(new FormControl("New Delhi"))).toEqual({'alpha':{ message: 'only accepts alphabets.', refValues: [ 'New Delhi' ] } })});
 
       it('should not allowWhitespace.',
          () => { expect(RxwebValidators.alpha()(new FormControl("New Delhi"))).toEqual({'alpha':{ message: 'only accepts alphabets.', refValues: [ 'New Delhi' ] } })});
