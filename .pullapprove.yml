@@ -19,19 +19,22 @@ groups:
       - ajayojha
   reactive_form_validators_testing:
     conditions:
-    - "test/reactive-form-validators/*"
+      files:
+        - "test/reactive-form-validators/*"
     reviewers:
       users:
       - ajayojha
   docs/reactive_form_validators:
     conditions:
-    - "docs/reactive_form_validators/*"
+      files:
+        - "docs/reactive_form_validators/*"
     reviewers:
       users:
       - rxcontributorone
   docs/reactive_form_validators:
     conditions:
-    - "rxweb.io/*"
+      files:
+        - "rxweb.io/*"
     reviewers:
       users:
       - rxwebteam
