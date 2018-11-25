@@ -34,4 +34,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn test
+      - run: 
+      cd rxweb.io
+      yarn build
