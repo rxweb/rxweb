@@ -18,9 +18,9 @@ before_script:
    - "sudo chown root /opt/google/chrome/chrome-sandbox"
    - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
 script:
-  - ng test --watch=false
+  - ng test  --code-coverage --watch=false 
 after_success:
-  - npm run report-coverage
+  - bash <(curl -s https://codecov.io/bash)
 notifications:
   webhooks:
     on_success: change
