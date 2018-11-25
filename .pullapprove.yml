@@ -13,28 +13,27 @@ groups:
       request_order: random  # "random" or "given"
   reactive_form_validators:
     conditions:
-    - "packages/reactive-form-validators/*"
+    - "packages/reactive-form-validators/* in files"
     reviewers:
       users:
       - ajayojha
   reactive_form_validators_testing:
     conditions:
-      files:
-        - "test/reactive-form-validators/*"
+      "test/reactive-form-validators/* in files"
     reviewers:
       users:
       - ajayojha
   docs/reactive_form_validators:
     conditions:
       files:
-        - "docs/reactive_form_validators/*"
+        - "docs/reactive_form_validators/* in files"
     reviewers:
       users:
       - rxcontributorone
   docs/reactive_form_validators:
     conditions:
       files:
-        - "rxweb.io/*"
+        - "rxweb.io/* in files"
     reviewers:
       users:
       - rxwebteam
