@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "report-coverage": "codecov -f coverage/coverage-final.json",
+    "report-coverage": "codecov",
     "build:validators": "ng-packagr -p ./packages/reactive-form-validators/package.json"
   },
   "dependencies": {
