@@ -12,7 +12,6 @@ export class SideBarComponent implements OnInit {
   isSecondLevelCollapse : boolean = false;
   isthirdLevelCollapse : boolean = true;
   showComponent: boolean;
-
   constructor(
     private http: HttpClient,private router: Router
   ) {
@@ -30,10 +29,8 @@ export class SideBarComponent implements OnInit {
     }
   }
 
-
   hideSideBar(): void {
     const body = document.getElementsByTagName('body')[0];
-    
     if (window.innerWidth < 769) {
       body.classList.toggle('show-sidebar');
     } else {
@@ -41,3 +38,4 @@ export class SideBarComponent implements OnInit {
     }
   }
 }
+

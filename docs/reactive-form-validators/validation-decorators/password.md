@@ -33,7 +33,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="password-edit-component"></div>
 The below code is `login-info-data.json` for getting data from the server 
-<div component="app-code" key="data-password"></div> 
+<div component="app-code" key="password-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="password-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-password-edit"></div>

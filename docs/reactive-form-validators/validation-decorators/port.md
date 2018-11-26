@@ -34,7 +34,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="port-edit-component"></div>
 The below code is `user-data.json` for getting data from the server 
-<div component="app-code" key="data-port"></div> 
+<div component="app-code" key="port-edit-json"></div>  
 Next, we need to write html code.
 <div component="app-code" key="port-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-port-edit"></div>

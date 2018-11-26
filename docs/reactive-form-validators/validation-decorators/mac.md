@@ -34,7 +34,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="mac-edit-component"></div>
 The below code is `mac-address-info-data.json` for getting data from the server 
-<div component="app-code" key="data-mac"></div> 
+<div component="app-code" key="mac-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="mac-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-mac-edit"></div>

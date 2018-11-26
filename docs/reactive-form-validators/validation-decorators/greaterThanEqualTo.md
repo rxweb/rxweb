@@ -36,7 +36,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="greaterThanEqualTo-edit-component"></div> 
 The below code is `user-data.json` for getting data from the server
-<div component="app-code" key="data-json"></div> 
+<div component="app-code" key="greaterThanEqualTo-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="greaterThanEqualTo-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-greaterThanEqualTo-edit"></div>
@@ -79,7 +79,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="greaterThanEqualTo-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-greaterThanEqualTo-conditionalExpression" title="alpha decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-greaterThanEqualTo-conditionalExpression" title="greaterThanEqualTo decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string`
