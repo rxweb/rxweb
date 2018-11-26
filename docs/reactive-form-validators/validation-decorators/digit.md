@@ -100,6 +100,7 @@ This Complete digit example which includes all the DigitConfig properties will f
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Digit Example
 
 This Dynamic Alpha example which execute based on json passed. conditional expression with function would be not apply in dynamic Digit example. 
@@ -125,3 +126,4 @@ This Dynamic Alpha example which execute based on json passed. conditional expre
 <div component="app-code" key="digit-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>

@@ -100,6 +100,7 @@ This Complete latLong example which includes all the BaseConfig properties will 
 # [/Html]   
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic latLong Example
 
 This Dynamic latLong example which execute based on json passed. conditional expression with function would be not apply in dynamic latLong example. 
@@ -125,3 +126,4 @@ This Dynamic latLong example which execute based on json passed. conditional exp
 <div component="app-code" key="latLong-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

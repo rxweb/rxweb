@@ -109,6 +109,7 @@ This Complete CreditCard example which includes all the CreditCardConfig propert
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic CreditCard Example
 
 This Dynamic CreditCard example which execute based on json passed. conditional expression with function would be not apply in dynamic creditCard example. 
@@ -134,3 +135,4 @@ This Dynamic CreditCard example which execute based on json passed. conditional 
 <div component="app-code" key="creditCard-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>

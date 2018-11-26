@@ -55,7 +55,6 @@ Next, we need to write html code.
 # ChoiceConfig
 Below options are not mandatory to use in the `@choice()` decorator. If needed then use the below options.
 
-
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a href="#minLength" (click)='scrollTo("#minLength")' title="#minLength">minLength</a></td><td>minLength  is to define a minLength of field which is in form of array</td></tr>
@@ -120,6 +119,7 @@ This Complete choice example which includes all the ChoiceConfig properties will
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic choice Example
 
 This Dynamic Choice example which execute based on json passed. conditional expression with function would be not apply in dynamic choice example. 
@@ -145,3 +145,4 @@ This Dynamic Choice example which execute based on json passed. conditional expr
 <div component="app-code" key="choice-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

@@ -102,6 +102,7 @@ This Complete primeNumber example which includes all the PatternConfig propertie
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic primeNumber Example
 
 This Dynamic primeNumber example which execute based on json passed. conditional expression with function would be not apply in dynamic primeNumber example. 
@@ -127,3 +128,4 @@ This Dynamic primeNumber example which execute based on json passed. conditional
 <div component="app-code" key="primeNumber-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

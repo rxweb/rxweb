@@ -100,6 +100,7 @@ This Complete Odd example which includes all the BaseConfig properties will fulf
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Odd Example
 
 This Dynamic odd example which execute based on json passed. conditional expression with function would be not apply in dynamic odd example. 
@@ -125,3 +126,4 @@ This Dynamic odd example which execute based on json passed. conditional express
 <div component="app-code" key="odd-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

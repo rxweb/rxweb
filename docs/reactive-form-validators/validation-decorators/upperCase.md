@@ -100,6 +100,7 @@ This Complete upperCase example which includes all the MessageConfig properties 
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic upperCase Example
 
 This Dynamic upperCase example which execute based on json passed. conditional expression with function would be not apply in dynamic upperCase example. 
@@ -122,3 +123,4 @@ This Dynamic upperCase example which execute based on json passed. conditional e
 <div component="app-code" key="upperCase-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

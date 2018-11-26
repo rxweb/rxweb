@@ -109,6 +109,7 @@ This Complete MaxNumber example which includes all the NumberConfig properties w
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic MaxNumber Example
 
 This Dynamic MaxDate example which execute based on json passed. conditional expression with function would be not apply in dynamic maxNumber example. 
@@ -134,3 +135,4 @@ This Dynamic MaxDate example which execute based on json passed. conditional exp
 <div component="app-code" key="maxNumber-dynamic-html"></div>
 # [/Html]  
 ***
+</data-scope>

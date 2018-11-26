@@ -100,6 +100,7 @@ This Complete dataUri example which includes all the BaseConfig properties will 
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic dataUri Example
 
 This Dynamic dataUri example which execute based on json passed. conditional expression with function would be not apply in dynamic dataUri example. 
@@ -125,3 +126,4 @@ This Dynamic dataUri example which execute based on json passed. conditional exp
 <div component="app-code" key="dataUri-dynamic-html"></div>
 # [/Html]  
 ***
+</data-scope>

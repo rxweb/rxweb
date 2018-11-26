@@ -110,6 +110,7 @@ This Complete greaterThanEqualTo example which includes all the RelationalOperat
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic greaterThanEqualTo Example
 
 This Dynamic greaterThanEqualTo example which execute based on json passed. conditional expression with function would be not apply in dynamic greaterThanEqualTo example. 
@@ -135,3 +136,4 @@ This Dynamic greaterThanEqualTo example which execute based on json passed. cond
 <div component="app-code" key="greaterThanEqualTo-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

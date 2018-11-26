@@ -109,6 +109,7 @@ This Complete startsWith example which includes all the DefaultConfig properties
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic StartsWith Example
 
 This Dynamic startsWith example which execute based on json passed. conditional expression with function would be not apply in dynamic startsWith example. 
@@ -134,3 +135,4 @@ This Dynamic startsWith example which execute based on json passed. conditional 
 <div component="app-code" key="startsWith-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

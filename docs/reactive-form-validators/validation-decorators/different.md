@@ -88,6 +88,7 @@ This Complete Different example which includes all the DifferentConfig propertie
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Different Example
 
 This Dynamic Different example which execute based on json passed. conditional expression with function would be not apply in dynamic different example. 
@@ -113,3 +114,4 @@ This Dynamic Different example which execute based on json passed. conditional e
 <div component="app-code" key="different-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>

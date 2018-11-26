@@ -109,6 +109,7 @@ This Complete endsWith example which includes all the DefaultConfig properties w
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic endsWith Example
 
 This Dynamic endsWith example which execute based on json passed. conditional expression with function would be not apply in dynamic endsWith example. 
@@ -134,3 +135,4 @@ This Dynamic endsWith example which execute based on json passed. conditional ex
 <div component="app-code" key="endsWith-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>

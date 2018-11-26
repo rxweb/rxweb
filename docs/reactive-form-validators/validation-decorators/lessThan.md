@@ -111,6 +111,7 @@ This Complete lessThan example which includes all the RelationalOperatorConfig p
 # [/Html]   
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic lessThan Example
 
 This Dynamic lessThan example which execute based on json passed. conditional expression with function would be not apply in dynamic lessThan example. 
@@ -136,3 +137,4 @@ This Dynamic lessThan example which execute based on json passed. conditional ex
 <div component="app-code" key="lessThan-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

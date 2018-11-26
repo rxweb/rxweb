@@ -101,6 +101,7 @@ This Complete Ascii example which includes all the DefaultConfig properties will
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Ascii Example
 
 This Dynamic Ascii example which execute based on json passed. conditional expression with function would be not apply in dynamic Ascii example. 
@@ -126,3 +127,4 @@ This Dynamic Ascii example which execute based on json passed. conditional expre
 <div component="app-code" key="ascii-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

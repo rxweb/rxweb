@@ -102,6 +102,7 @@ This Complete required example which includes all the RequiredConfig properties 
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic required Example
 
 This Dynamic required example which execute based on json passed. conditional expression with function would be not apply in dynamic required example. 
@@ -127,3 +128,4 @@ This Dynamic required example which execute based on json passed. conditional ex
 <div component="app-code" key="required-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

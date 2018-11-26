@@ -109,6 +109,7 @@ This Complete minDate example which includes all the DateConfig properties will 
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic minDate Example
 
 This Dynamic minDate example which execute based on json passed. conditional expression with function would be not apply in dynamic minDate example. 
@@ -134,3 +135,4 @@ This Dynamic minDate example which execute based on json passed. conditional exp
 <div component="app-code" key="minDate-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>

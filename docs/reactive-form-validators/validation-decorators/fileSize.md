@@ -109,6 +109,7 @@ This Complete fileSize example which includes all the SizeConfig properties will
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic fileSize Example
 
 This Dynamic fileSize example which execute based on json passed. conditional expression with function would be not apply in dynamic fileSize example. 
@@ -134,3 +135,4 @@ This Dynamic fileSize example which execute based on json passed. conditional ex
 <div component="app-code" key="fileSize-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>
