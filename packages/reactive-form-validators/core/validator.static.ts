@@ -53,5 +53,7 @@ export const AnnotationTypes: { [key: string]: any } = {
     latitude:"latitude",
     longitude:"longitude",
     compose:"compose",
-    rule:"rule"
+    rule:"rule",
+    file:"file",
+    image:"image"
 }

@@ -49,3 +49,5 @@ export * from './latitude.validator';
 export * from './longitude.validator';
 export * from './compose.validator';
 export * from './rule.validator';
+export * from './file.validator';
+export * from './custom.validator';

@@ -15,13 +15,15 @@ startsWithValidatorExtension,
 primeNumberValidatorExtension,
 latitudeValidatorExtension,
 longitudeValidatorExtension,
-composeValidatorExtension
+composeValidatorExtension,
+fileValidatorExtension,
+customValidatorExtension
  } from './index'
 
 export class RxwebValidators  {
 
-    static readonly alpha = alphaValidatorExtension;
-    static readonly allOf = allOfValidatorExtension;
+static readonly alpha = alphaValidatorExtension;
+static readonly allOf = allOfValidatorExtension;
 static readonly alphaNumeric = alphaNumericValidatorExtension;
 static readonly choice = choiceValidatorExtension;
 static readonly compare = compareValidatorExtension;
@@ -70,4 +72,6 @@ static readonly primeNumber=primeNumberValidatorExtension;
 static readonly latitude   =latitudeValidatorExtension;
 static readonly longitude  =longitudeValidatorExtension;
 static readonly compose  = composeValidatorExtension;
+static readonly file  = fileValidatorExtension;
+static readonly custom  = customValidatorExtension;
 }

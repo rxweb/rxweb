@@ -1,6 +1,6 @@
 {
   "name": "@rxweb/reactive-form-validators",
-  "version": "1.2.9",
+  "version": "1.3.9",
   "ngPackage": {
     "lib": {
       "entryFile": "index.ts"
@@ -38,8 +38,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rxweb/rxweb.git"
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators#readme"
   },
-  "homepage": "https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators#readme",
+  "homepage": "https://rxweb.io",
   "license": "MIT"
 }

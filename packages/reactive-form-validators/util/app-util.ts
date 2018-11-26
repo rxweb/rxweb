@@ -9,6 +9,24 @@ export class ApplicationUtil{
         return {};
     }
 
+    private static getParentControl(control:AbstractControl){
+        if (control.parent) {
+            let parent = this.parentObjectValue(control.parent)
+            return parent;
+        }
+        return control;
+    }
+
+    static getFormControl(fieldName:string,control:AbstractControl){
+        let splitText = fieldName.split('.');
+          if(splitText.length > 1 && control.parent){
+          var formControl:any = this.getParentControl(control);
+          splitText.forEach((name,index)=>{ formControl = formControl.controls[name]})
+          return formControl;
+          }
+        return (control.parent) ? control.parent.get([fieldName]) : {};
+    }
+
     private static parentObjectValue(control: FormGroup | FormArray): FormGroup | FormArray {
         if (!control.parent)
             return control;

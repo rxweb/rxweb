@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl,FormControl } from "@angular/forms";
+import { Component, OnInit, forwardRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR, NG_VALIDATORS, FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl,FormControl } from "@angular/forms";
 import {
   choice,
     contains,
@@ -15,9 +15,168 @@ endsWith,
 startsWith,
 primeNumber,
 latitude,
-longitude,rule
+longitude,rule,RxFormGroup
 } from "@rxweb/reactive-form-validators";
 
+export class Consultant {
+    @required()
+    name: string;
+    _purchPrice: any;
+    _salesPrice: any;
+    _workingDays: any;
+    _chargeAbility: string;
+    _turnover: any;
+    _margin: any;
+    _cost: any;
+  
+    @prop() // set method will be called when user enters/change the value in the textbox
+    set purchPrice(value:any){
+      this._purchPrice = value;
+      this.calculateCost();
+    }
+
+    get purchPrice(){
+      return this._purchPrice;
+    }
+  
+    @prop()
+    set salesPrice(value:any){
+        this._salesPrice = value;
+        this.calculateCost();
+        this.calculateTurnOver();
+    }
+  
+    get salesPrice(){
+      return this._salesPrice;
+    }
+    
+    @prop() // if there is no validation then use prop decorator, if you want to bind property as FormControl.
+    set workingDays(value:any) {
+      this._workingDays = value
+      this.calculateCost();
+      this.calculateTurnOver();
+    }
+    get workingDays() {
+        return this._workingDays;
+    }
+    
+    @prop()
+    set chargeAbility(value) {
+      this._chargeAbility = value;
+    }
+
+    get chargeAbility() {
+      return this._chargeAbility;
+    }
+
+    @prop()
+    set turnover(value) {
+      this._turnover = value;
+      this.calculateMargin();
+    }
+
+    get turnover() {
+      return this._turnover;
+    }
+    
+    @prop()
+    set margin(value) {
+      this._margin = value;
+    }
+
+    get margin() {
+      return this._margin;
+    }
+  
+    @prop()// if there is no validation then use prop decorator, if you want to bind property as FormControl.
+    set cost(value) {
+      this._cost = value;
+      this.calculateMargin();
+    }
+
+    get cost() {
+      return this._cost;
+    }
+  
+    calculateCost(){
+      if(this.purchPrice && this.workingDays)
+        this.cost = this.purchPrice * this.workingDays;
+    }
+
+    calculateTurnOver() {
+      if (this.salesPrice && this.workingDays) {
+        this.turnover = this.salesPrice * this.workingDays;
+      }
+    }
+
+    calculateMargin() {
+      if (this.cost && this.turnover) {
+        this.margin = this.turnover - this.cost;
+      }
+    }
+    constructor(consultant?) {
+      this.name = consultant ? consultant.name : '';
+      this.purchPrice = consultant ? consultant.purchPrice : '';
+      this.salesPrice = consultant ? consultant.salesPrice : '';
+      this.workingDays = consultant ? consultant.workingDays : '';
+      this.chargeAbility = consultant ? consultant.chargeAbility : '';
+      this.turnover = consultant ? consultant.turnover : '';
+      this.cost = consultant ? consultant.cost : '';
+      this.margin = consultant ? consultant.margin : '';
+    }
+}
+
+
+export class Sheet {
+    @prop()
+    title: string;
+    @propArray(Consultant)
+    consultants: Consultant[];
+
+    @prop()
+    _totalConsultantCost;
+
+    @prop()
+    _totalConsultantTurnover;
+
+    _totalConsultantMargin = 0;
+    
+    set totalConsultantMargin(value) {
+        this._totalConsultantMargin = value;
+    }
+    @prop()
+    get totalConsultantMargin() {
+        this.calculateTotalConsultantMargin();
+        return this._totalConsultantMargin;
+    }
+
+    calculateTotalConsultantMargin() {
+        this._totalConsultantMargin = 0;
+                for (let consultant of this.consultants) {
+            this._totalConsultantMargin += consultant.margin;
+        }
+    }
+
+    recalculateSheetTotals() {
+        this.calculateTotalConsultantMargin();
+    }
+}
+
+
+export class Skill{
+  @prop()
+  name:string;
+}
+export class Person {
+  @propObject(Skill)
+  skill:Skill;
+
+  @propArray(Skill)
+  skills:Skill[];
+@required()
+  
+  name:string;
+}
 export class Address {
     zipCode:number;
     city:string;
@@ -34,6 +193,7 @@ export class Attendance {
     @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
 }
 export class EmployeeDetail {
+   
     @prop() @required() areaName: string;
 }
 export class ExternalClass{
@@ -80,8 +240,9 @@ export class Client{
 }
 
 export class Employee {
+    
     @leapYear() leapYear:number;
-    @factor({dividend:5}) factor:number;
+    @factor({fieldName:'odd'}) factor:number;
     @odd() odd:number;
     @even() even:number;
     @numeric({acceptValue:NumericValueType.NegativeNumber}) numeric:number;
@@ -143,13 +304,36 @@ export class Employee {
     private _updateChange:string;
     set updateChange(value:string){
       this._updateChange = value;
-this.classProperty = value;
+      this.classProperty = value;
     }
 
     @prop() get updateChange(){
     return this._updateChange;
     }
 }
+
+@Component({
+  selector: "rx-date",
+  template: `<button (click)="clickMe()">Click me</button>`,
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => RxDateComponent), multi: true },
+  ],
+})
+export class RxDateComponent {
+  propagateChange:any
+  private registerOnChange(fn) {
+    this.propagateChange = fn;
+  }
+
+  private registerOnTouched() { }
+
+  private writeValue(value: any) { }
+
+  clickMe() {
+    this.propagateChange('text');
+  }
+}
+
 
 
 
@@ -160,7 +344,7 @@ this.classProperty = value;
 })
 export class AppComponent implements OnInit {
     title = 'app';
-    hero = {name:'',password:'',confirmPassword:'',amount:''};
+    hero = {name:''};
     sampleFormGroup: FormGroup;
     angularFormGroup:FormGroup;
     constructor(private formBuilder: FormBuilder, private validation: RxFormBuilder) {
@@ -177,8 +361,101 @@ testFormGroup:FormGroup;
 testForm:FormGroup;
 userForm:FormGroup;
 modelRuleGroup:FormGroup;
+validatorJson =[{
+  "fieldId":1,
+  "label":"Username",
+  "placeHolder":"Enter your username",
+  "value":"",
+  "sortId":1,
+  "validation":{
+    "value":{
+      "alpha":true, 
+      "required":true,
+      "minLength":{"value":5},
+      "maxLength":{"value":10}
+    }
+  }
+},{
+  "fieldId":2,
+  "label":"Password",
+  "placeHolder":"Enter your password",
+  "value":"",
+  "sortId":2,
+  "validation":{
+    "value":{
+      "password":{
+validation:{
+        "maxLength": 10,"minLength": 5,"digit": true,"specialCharacter": true
+}
+}
+    }
+  }
+},{
+  "fieldId":3,
+  "label":"Compare Password",
+  "placeHolder":"Re enter password",
+  "value":"",
+  "sortId":3,
+  "validation":{
+    "value":{
+      "compare":{"fieldName":"'password'","message":"'Password value is not matched'"}
+    }
+  }
+}
+
+
+]
+dynamicFormGroup :FormGroup;
+form: RxFormGroup;
+person: Person;
+persons:Person[];
+save() {
+    this.persons.push(this.form.modelInstanceValue);
+    // this.person = new Person();
+    this.form.reset();
+  }
+  unformGroup: FormGroup;
   ngOnInit() {
+
+    this.unformGroup = this.formBuilder.group({
+      'hh_lmms_id': new FormControl(''),
+      'last_name_ar': new FormControl('', [Validators.required, Validators.pattern('[\u0600-\u06FF ]*')]),
+      'last_name_en': new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+      'num_ind_of_hh': new FormControl({ value: '0', disabled: true }, [Validators.required,]),
+      'address_in_origin_country': new FormControl('', [Validators.required]),
+      'hh_status': new FormControl('Active', [Validators.required]),
+      'hh_phone_number': new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern(/^-?([0-9]\d*)?$/)]),
+      'date_added': new FormControl('', [Validators.required]),
+      'u_id': ['', [RxwebValidators.required({ conditionalExpression: (x) => x.gov_id_type === '' && x.gov_id_number === '' }),
+      RxwebValidators.pattern({ pattern: { 'unid': RegExp('^[0-9A-Z]{3}(-)[0-9]{2}(C)[0-9]{5}$') }, conditionalExpression: (x) => x.u_id !== '' })]],
+      'gov_id_type': ['', RxwebValidators.required({ conditionalExpression: (x) => x.u_id === '' })],
+      'gov_id_number': ['', RxwebValidators.required({ conditionalExpression: (x) => x.gov_id_type !== '' })],
+      'legal_id': new FormControl(''),
+      'protection_id': new FormControl(''),
+      'situation_id': new FormControl(''),
+      'willing_to_go_back': new FormControl('')
+    })
+
+    this.person = new Person();
+    this.persons = new Array<Person>();
+var fc= new FormBuilderConfiguration();
+    fc.autoInstanceConfig = {
+      objectPropInstanceConfig:[{
+        propertyName:'skill'
+      }],
+      arrayPropInstanceConfig:[{
+        propertyName:'skills',
+        rowItems:10
+      }]
+    }
+    this.form = <RxFormGroup>this.validation.formGroup(Person,this.person,fc);
+console.log(this.form);
 let address = new Address();
+this.dynamicFormGroup  = this.validation.group({questions:this.validatorJson},{
+//excludeProps:['questions.fieldId','questions.label','questions.placeHolder','questions.sortId','questions.validation'],
+includeProps:['questions','questions.value'],
+dynamicValidationConfigurationPropertyName:'validation'});
+console.log(this.dynamicFormGroup);
 this.modelRuleGroup = this.validation.formGroup(address);
 this.userForm = this.formBuilder.group({
   nationality:[''],
@@ -191,6 +468,7 @@ RxwebValidators.minLength({value:11})
 conditionalExpression:(x) => x.nationality == 'Abroad' })
     ]]
 });
+
 this.testForm = this.formBuilder.group({
   password:['',[RxwebValidators.password ({
         validation:{
@@ -199,11 +477,12 @@ this.testForm = this.formBuilder.group({
         }
       }),RxwebValidators.minLength({value:8}),
       RxwebValidators.maxLength({value:10})]],
-      confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
-      age:['',RxwebValidators.startsWith({value:"n"})],
-      cardType:[''],
-      creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
-      amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]]
+  confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
+  age:['',RxwebValidators.startsWith({value:"n"})],
+  cardType:[''],
+  creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
+  amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]],
+fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
   
 });
         this.angularFormGroup = this.validation.group({
@@ -230,14 +509,14 @@ this.testForm = this.formBuilder.group({
         var employeeDetail = new Attendance()
         employeeDetail.startTime = 1
         employee.attendances.push(employeeDetail)
-        this.secondEmployee = new Employee();
-        this.secondEmployee.employeeDetail = new EmployeeDetail();
+        //this.secondEmployee = new Employee();
+        //this.secondEmployee.employeeDetail = new EmployeeDetail();
         //employee.employeeDetail.areaName = "";
-        this.secondEmployee.attendances = new Array<Attendance>();
-        var employeeDetails = new Attendance()
-        employeeDetails.startTime = 12;
+        //this.secondEmployee.attendances = new Array<Attendance>();
+        //var employeeDetails = new Attendance()
+        //employeeDetails.startTime = 12;
         //employeeDetail.startTime = undefined
-        this.secondEmployee.attendances.push(employeeDetails)
+        //this.secondEmployee.attendances.push(employeeDetails)
         ReactiveFormConfig.set({
             "internationalization": {
                 "dateFormat": "dmy",
@@ -257,7 +536,9 @@ this.testForm = this.formBuilder.group({
         employee.lastName = "john";
         console.log(employee)
         var formBuilderConfiguration = new FormBuilderConfiguration();
+          
         formBuilderConfiguration.dynamicValidation = {
+            
             'firstName': {
                 alpha: true
             },
@@ -267,8 +548,7 @@ this.testForm = this.formBuilder.group({
                 }
             }
     };
-    
-        this.sampleFormGroup = this.validation.formGroup<Employee>(Employee, employee, formBuilderConfiguration);
+        this.sampleFormGroup = this.validation.formGroup<Employee>(employee,formBuilderConfiguration);
         console.log(this.sampleFormGroup);
     }
 

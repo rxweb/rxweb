@@ -1,5 +1,8 @@
-[![npm version](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators.svg)](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators)
+
+[![Build Status](https://travis-ci.org/travis-ci/docs-travis-ci-com.svg?branch=master)](https://travis-ci.org/travis-ci/docs-travis-ci-com)
 [![Gitter](https://badges.gitter.im/rx-web/Lobby.svg)](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
+[![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
+[![npm version](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators.svg)](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators)
 
 <h3>rxweb</h3>
 The most powerful validation framework for angular based enterprise application. This provides all type of complex validation and dynamic validation on Reactive Form, Template Driven Form and Model Based Form.
@@ -23,8 +26,10 @@ Reactive Form Validators will work in angular projects.
     * [Dynamic Validation](#dynamic-validation)
     * [Conditional Validation](#conditional-validation)
     * [Dirty Check](#dirty-check)
+* [Upcoming Form Validations](#upcoming-form-validations)
 * [Goal](#goal)
 * [Help](#help)
+* [Your Feedback](#your-feedback)
 * [License](#license)
 
 ## Installation
@@ -64,50 +69,51 @@ Three ways to apply validation on the form via Validators, Validation Decorators
 3. [alphaNumeric](#alphanumeric)   
 4. [ascii](#ascii) 
 5. [choice](#choice) 
-6. [compare](#compare)   
-7. [contains](#contains)   
-8. [creditCard](#creditcard)  
-9. [dataUri](#datauri) 
-10. [different](#different) 
-11. [digit](#digit)  
-12. [email](#email)  
-13. [endsWith](#endswith) 
-14. [even](#even)   
-15. [extension](#extension)  
-16. [factor](#factor)   
-17. [fileSize](#filesize) 
-18. [greaterThanEqualTo](#greaterthanequalto)   
-19. [greaterThan](#greaterthan)   
-20. [hexColor](#hexcolor)   
-21. [json](#json)  
-22. [latitude](#latitude) 
-23. [latLong](#latlong) 
-24. [leapYear](#leapyear)  
-25. [lessThanEqualTo](#lessthanequalto)   
-26. [lessThan](#lessthan)   
-27. [longitude](#longitude)
-28. [lowerCase](#lowercase) 
-29. [mac](#mac) 
-30. [maxDate](#maxdate) 
-31. [maxLength](#maxlength)  
-32. [maxNumber](#maxnumber)
-33. [minDate](#mindate) 
-34. [minLength](#minlength) 
-35. [minNumber](#minnumber)   
-36. [noneOf](#noneof)  
-37. [numeric](#numeric) 
-38. [odd](#odd)  
-39. [oneOf](#oneof)  
-40. [password](#password)
-41. [pattern](#pattern)   
-42. [port](#port) 
-43. [primeNumber](#primenumber)
-44. [range](#range)   
-45. [required](#required)  
-46. [startsWith](#startswith)
-47. [time](#time)   
-48. [upperCase](#uppercase)   
-49. [url](#url)   
+6. [compare](#compare)
+7. [compose](#compose)
+8. [contains](#contains)   
+9. [creditCard](#creditcard)  
+10. [dataUri](#datauri) 
+11. [different](#different) 
+12. [digit](#digit)  
+13. [email](#email)  
+14. [endsWith](#endswith) 
+15. [even](#even)   
+16. [extension](#extension)  
+17. [factor](#factor)   
+18. [fileSize](#filesize) 
+19. [greaterThanEqualTo](#greaterthanequalto)   
+20. [greaterThan](#greaterthan)   
+21. [hexColor](#hexcolor)   
+22. [json](#json)  
+23. [latitude](#latitude) 
+24. [latLong](#latlong) 
+25. [leapYear](#leapyear)  
+26. [lessThanEqualTo](#lessthanequalto)   
+27. [lessThan](#lessthan)   
+28. [longitude](#longitude)
+29. [lowerCase](#lowercase) 
+30. [mac](#mac) 
+31. [maxDate](#maxdate) 
+32. [maxLength](#maxlength)  
+33. [maxNumber](#maxnumber)
+34. [minDate](#mindate) 
+35. [minLength](#minlength) 
+36. [minNumber](#minnumber)   
+37. [noneOf](#noneof)  
+38. [numeric](#numeric) 
+39. [odd](#odd)  
+40. [oneOf](#oneof)  
+41. [password](#password)
+42. [pattern](#pattern)   
+43. [port](#port) 
+44. [primeNumber](#primenumber)
+45. [range](#range)   
+46. [required](#required)  
+47. [startsWith](#startswith)
+48. [time](#time)   
+49. [upperCase](#uppercase)   
+50. [url](#url)   
 
 ## allOf
 allOf validation will check whether the user has entered all of the values of given field or not.
@@ -233,11 +239,11 @@ RxwebValidators.alpha()
 > Template Form Validation
 ```html
 <input id="Username" name="Username" class="form-control"
-         [(ngModel)]="user.Username" [compose]='{"validators":["alpha","required"]}' >
+         [(ngModel)]="user.Username" [compose]='{"validators":[alpha,required]}' >
 ```
 > Decorator Based Validation
 ```js
-@compose({validators:["alpha","required"]}) Username: string;
+@compose({validators:[alpha,required]}) Username: string;
 ```
 ___
 ## contains
@@ -1120,12 +1126,29 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 <button [disabled]="!userInfoFormGroup.isDirty()" class="btn btn-primary">Submit</button>
 </form>
 ```
+## Upcoming Form Validations
+1. Masking.
+2. Phone/Mobile Number Masking.
+3. Countrywise Masking.
+4. Alphabet validation in other languages.
+5. AlphaNumeric validation in other languages.
+6. File Validation(size, extension, width and height validation).
 
 ## Goal
 1. Provides all type of client side validations.
-2. Easy way to create Angular Reactive Form & Template Driven Form Validation with less lines of code.
-3. Easy to create Dynamic Reactive Form / Template Driven Form.
-4. Validation approach should be easy and easy to implement.
+2. Easy implementation of complex and dynamic validation with less lines of code.
+3. Faster development for Advanced/Complex validation Forms.
+
+## Help
+We are happy to help you with any kind of validation related problem in angular based application. If you face any issue with the validation framework, you can follow one of the approach below :
+1. You can join our [gitter](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) chat room and solve your queries.
+2. You can log the issue on our github repository.
+3. Ask question on stackoverflow, we are active on stackoverflow.
+
+>If you need something different then the existing feature in the validation framework. Then you can create a feature request on our github repository.
+
+## Your Feedback
+Your feedback is important for us, If you have any question or suggestion then please drop an email to ajay@rxweb.io.
 
 # License
 MIT

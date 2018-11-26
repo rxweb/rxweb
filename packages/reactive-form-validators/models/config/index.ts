@@ -25,3 +25,5 @@ export * from './required-config'
 export * from './rule-config'
 export * from './size-config'
 export * from './time-config'
+export * from './file-config'
+export * from './image-config';
