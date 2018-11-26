@@ -34,7 +34,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="latLong-edit-component"></div>
 The below code is `country-data.json` for getting data from the server 
-<div component="app-code" key="data-latLong"></div> 
+<div component="app-code" key="latLong-edit-json"></div>  
 Next, we need to write html code.
 <div component="app-code" key="latLong-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-latLong-edit"></div>

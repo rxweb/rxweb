@@ -35,7 +35,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="required-edit-component"></div> 
 The below code is `user-data.json` for getting data from the server
-<div component="app-code" key="data-json"></div> 
+<div component="app-code" key="required-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="required-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-required-edit"></div>

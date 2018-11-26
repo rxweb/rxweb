@@ -34,7 +34,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="maxLength-edit-component"></div>
 The below code is `location-data.json` for getting data from the server 
-<div component="app-code" key="data-maxLength"></div> 
+<div component="app-code" key="maxLength-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="maxLength-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-maxLength-edit"></div>

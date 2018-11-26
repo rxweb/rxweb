@@ -36,7 +36,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="oneOf-edit-component"></div> 
 The below code is `employee-data.json` for getting data from the server
-<div component="app-code" key="data-json"></div> 
+<div component="app-code" key="oneOf-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="oneOf-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-oneOf-edit"></div>

@@ -36,7 +36,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="maxNumber-edit-component"></div> 
 The below code is `subject-detail-data.json` for getting data from the server
-<div component="app-code" key="data-json"></div> 
+<div component="app-code" key="maxNumber-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="maxNumber-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-MaxNumber-edit"></div>

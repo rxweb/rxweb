@@ -34,7 +34,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="minNumber-edit-component"></div>
 The below code is `result-info-data.json` for getting data from the server 
-<div component="app-code" key="data-minNumber"></div> 
+<div component="app-code" key="minNumber-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="minNumber-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-minNumber-edit"></div>

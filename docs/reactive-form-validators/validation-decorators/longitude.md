@@ -34,7 +34,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="longitude-edit-component"></div>
 The below code is `number-info-data.json` for getting data from the server 
-<div component="app-code" key="data-longitude"></div> 
+<div component="app-code" key="longitude-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="longitude-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-longitude-edit"></div>
