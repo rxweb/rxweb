@@ -1,0 +1,43 @@
+<div id="wrapper" *ngIf="showComponent">
+    <div class="content">
+        <app-title [title]="codeContent.title" [description]="codeContent.description" [validatorType]="codeContent.validatorType"></app-title>
+        <div class="bg-white py-3 border-radius">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="hpanel">
+                        <ul class="nav nav-tabs page-tabs">
+                           
+                            <li [class.active]="activeTab == 'validators'">
+                                <a (click)="route('validators')">Validators</a>
+                            </li>
+                            <li [class.active]="activeTab == 'template-driven'">
+                                <a (click)="route('template-driven')">TemplateDriven</a>
+                            </li>
+                             <li [class.active]="activeTab == 'decorators'">
+                                <a (click)="route('decorators')">Decorators</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active panel-body validation-tab">
+                                <page-viewer *ngIf="showViewer" [content]="codeContent.htmlContent" [tabArray]="codeContent.tabArray" [data]="jsonContent"
+                                    [typeName]="typeName"></page-viewer>
+                                <div class="row" id="githubissues">
+                                    <div class="col-lg-12">
+                                        <app-github-issue></app-github-issue>
+                                    </div>
+                                </div>
+                                <div class="row" id="discussion">
+                                    <div class="col-lg-12">
+                                        <app-disqus></app-disqus>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-right-sidebar [sidebarLinks]="codeContent.rightSidebarLinks"></app-right-sidebar>
+</div>

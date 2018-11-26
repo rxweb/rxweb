@@ -21,7 +21,7 @@ First we need to create User model class define a property of CreditCardNo in th
 <div component="app-code" key="creditCard-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
-Here we have covered Add and Edit form operations.  
+Here we have covered Add and Edit form operations. 
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -30,22 +30,24 @@ Here we have covered Add and Edit form operations.
 <div component="app-code" key="creditCard-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="creditCard-add-html"></div> 
-<div component="app-creditCard-add" title="creditCard Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-creditCard-add"></div>
+# [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="creditCard-edit-component"></div> 
 The below code is `user-data.json` for getting data from the server
 <div component="app-code" key="data-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="creditCard-edit-html"></div> 
-<div component="app-creditCard-add" title="creditCard Decorator for edit Example"></div>
+<div component="app-example-runner" ref-component="app-creditCard-edit"></div>
+# [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','templateDriven']">
+<data-scope scope="['validator','template-driven']">
 <div component="app-code" key="creditCard-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="creditCard-add-html"></div> 
-<div component="app-creditCard-add" title="creditCard Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-creditCard-add"></div>
 </data-scope>
 
 # CreditCardConfig
@@ -55,7 +57,7 @@ Below options are not mandatory to use in the `@CreditCard()` decorator. If need
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a href="#creditCardTypes" (click)='scrollTo("#creditCardTypes")' title="creditCardTypes">creditCardTypes</a></td><td>CreditCardTypes is used to define the type of CreditCard enterred by user.</td></tr>
 <tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>CreditCard validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## creditCardTypes 
@@ -71,16 +73,16 @@ Type :  `Function`  |  `string`
 Credit Card validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-<div component="app-note" key="creditCard-conditionalExpressionExampleFunction-model"></div>
+> Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="creditCard-conditionalExpressionExampleFunction-model"></div> 
-<div component="app-note" key="creditCard-conditionalExpressionExampleString-model"></div> 
+> Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="creditCard-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-creditCard-conditionalExpression" title="creditCard decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
-To override the global configuration message and set the custom message on respective FormControl.
+To override the global configuration message and show the custom message on particular control property. 
 
 <div component="app-code" key="creditCard-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-creditCard-message" title="creditCard decorators with message" key="message"></div>
@@ -92,15 +94,19 @@ This Complete CreditCard example which includes all the CreditCardConfig propert
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-creditCard-complete"></div>
+<div component="app-example-runner" ref-component="app-creditCard-complete"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="creditCard-complete-model"></div> 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="creditCard-complete-component"></div> 
+# [/Component]
 # [Html](#tab\completehtml)
 <div component="app-code" key="creditCard-complete-html"></div> 
+# [/Html]
 ***
 
 # Dynamic CreditCard Example
@@ -111,15 +117,20 @@ This Dynamic CreditCard example which execute based on json passed. conditional 
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-creditCard-dynamic"></div>
+<div component="app-example-runner" ref-component="app-creditCard-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="creditCard-dynamic-model"></div>
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="creditCard-dynamic-component"></div>
+# [/Component]
 # [Json](#tab\dynamicjson)
 <div component="app-code" key="creditCard-dynamic-json"></div>
+# [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="creditCard-dynamic-html"></div> 
+# [/Html] 
 ***

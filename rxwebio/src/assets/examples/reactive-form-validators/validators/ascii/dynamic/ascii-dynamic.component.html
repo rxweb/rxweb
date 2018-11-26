@@ -1,0 +1,25 @@
+<div>
+  <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Language</label>
+      <input type="text" formControlName="language" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Number Ascii Code' or 'Alphabet Ascii Code', then you need to add 'Language' input as 'Java'<br/></small>
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.language.errors">{{userFormGroup.controls.language.errors.ascii.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Alphabet Ascii Code</label>
+      <input type="text" formControlName="alphabetAsciiCode" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Alphabet Ascii Code' then you need to add 'Language' input as 'Java'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.alphabetAsciiCode.errors">{{userFormGroup.controls.alphabetAsciiCode.errors.ascii.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Special Character Ascii Code</label>
+      <input type="text" formControlName="specialCharAsciiCode" class="form-control"  />
+      <small class="form-text text-muted">enter Ascii Code only<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.specialCharAsciiCode.errors">{{userFormGroup.controls.specialCharAsciiCode.errors.ascii.message}}<br/></small>
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

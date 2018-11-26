@@ -5,13 +5,13 @@ author: rxcontributorone
 
 ---
 # When to use
-Suppose you want to create a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise..
+Suppose you want to create a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise.
 <ol>
- <li>Apply factor validation on firstNumber field by setting  dividend property as 50 so the validation will allow only factors of 50</li>
- <li>Apply factor validation based on matched condition in the form, like if the firstNumber  is ‘25’ then the Fourthyear value should be factor.</li>
- <li>The Custom Message on ThirdNumber field.</li>
- <li>Apply factor validation based of dividend, dividend is the value for which factors are calculated.</li>
- <li>Apply factor validation dynamically based on server rules.</li>
+   <li>Apply factor validation on firstNumber field by setting  dividend property as 50 so the validation will allow only factors of 50</li>
+   <li>Apply factor validation based on matched condition in the form, like if the firstNumber  is ‘25’ then the Fourthyear value       should be factor.</li>
+   <li>The Custom Message on ThirdNumber field.</li>
+   <li>Apply factor validation based of dividend, dividend is the value for which factors are calculated.</li>
+   <li>Apply factor validation dynamically based on server rules.</li>
 </ol>
 Let’s see how factor decorator fulfil the need.
 
@@ -31,22 +31,24 @@ Here we have covered Add and Edit form operations.
 <div component="app-code" key="factor-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="factor-add-html"></div> 
-<div component="app-factor-add" title="factor Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-factor-add"></div>
+# [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="factor-edit-component"></div> 
 The below code is `user-data.json` for getting data from the server
 <div component="app-code" key="data-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="factor-edit-html"></div> 
-<div component="app-factor-add" title="factor Decorator for edit Example"></div>
+<div component="app-example-runner" ref-component="app-factor-edit"></div>
+# [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','templateDriven']">
+<data-scope scope="['validator','template-driven']">
 <div component="app-code" key="factor-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="factor-add-html"></div> 
-<div component="app-factor-add" title="factor Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-factor-add"></div>
 </data-scope>
 
 # FactorConfig
@@ -57,7 +59,7 @@ Below options are not mandatory to use in the `@factor()` decorator. If needed t
 <tr><td><a href="#dividend" (click)='scrollTo("#dividend")' title="dividend">dividend</a></td><td>Dividend is the value for which factors are calculated.</td></tr>
 <tr><td><a href="#fieldName" (click)='scrollTo("#fieldName")' title="fieldName">Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
 <tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>factor validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## dividend 
@@ -80,16 +82,16 @@ Type :  `Function`  |  `string`
 factor validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
  
-<div component="app-note" key="factor-conditionalExpressionExampleFunction-model"></div>
+> Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="factor-conditionalExpressionExampleFunction-model"></div> 
-<div component="app-note" key="factor-conditionalExpressionExampleString-model"></div> 
+> Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="factor-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-factor-conditionalExpression" title="factor decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
-To override the global configuration message and set the custom message on respective FormControl.
+To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="factor-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-factor-message" title="factor decorators with message" key="message"></div>
@@ -101,15 +103,19 @@ This Complete Factor example which includes all the FactorConfig properties will
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-factor-complete"></div>
+<div component="app-example-runner" ref-component="app-factor-complete"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="factor-complete-model"></div> 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
-<div component="app-code" key="factor-complete-component"></div> 
+<div component="app-code" key="factor-complete-component"></div>
+# [/Component] 
 # [Html](#tab\completehtml)
 <div component="app-code" key="factor-complete-html"></div> 
+# [/Html] 
 ***
 
 # Dynamic Factor Example
@@ -120,15 +126,20 @@ This Dynamic Factor example which execute based on json passed. conditional expr
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-factor-dynamic"></div>
+<div component="app-example-runner" ref-component="app-factor-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="factor-dynamic-model"></div>
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="factor-dynamic-component"></div>
+# [/Component]
 # [Json](#tab\dynamicjson)
 <div component="app-code" key="factor-dynamic-json"></div>
+# [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="factor-dynamic-html"></div> 
+# [/Html] 
 ***

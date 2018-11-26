@@ -20,7 +20,6 @@ Let’s see how allOf decorator fulfil the need.
 First we need to create a Employee Model and define a property of hobbies in the model to achieve the functional need of point 1.
 <div component="app-code" key="allOf-add-model"></div> 
 </data-scope>
-
 Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations.
 
@@ -31,22 +30,24 @@ Here we have covered Add and Edit form operations.
 <div component="app-code" key="allOf-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="allOf-add-html"></div> 
-<div component="app-allOf-add" title="allOf Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-allOf-add"></div>
+# [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="allOf-edit-component"></div> 
 The below code is `employee-data.json` for getting data from the server
 <div component="app-code" key="data-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="allOf-edit-html"></div> 
-<div component="app-allOf-add" title="allOf Decorator for edit Example"></div>
+<div component="app-example-runner" ref-component="app-allOf-edit"></div>
+# [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','templateDriven']">
+<data-scope scope="['validator','template-driven']">
 <div component="app-code" key="allOf-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="allOf-add-html"></div> 
-<div component="app-allOf-add" title="allOf Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-allOf-add"></div>
 </data-scope>
 
 # ArrayConfig
@@ -56,7 +57,7 @@ Below options are not mandatory to use in the `@allOf()` decorator. If needed th
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a href="#matchValue" (click)='scrollTo("#matchValue")' title="#matchValue">matchValue</a></td><td>matchValue is the array based on which the value is matched for validation. According to it all the values in the array should be matched</td></tr>
 <tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>AllOf validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## matchValue 
@@ -68,21 +69,21 @@ matchValue is the array based on which the value is matched for validation. Acco
 <div component="app-example-runner" ref-component="app-allOf-matchValue" title="allOf decorators with matchValue" key="matchValue"></div>
 
 ## conditionalExpression 
-Type :  `Function`  |  `string` 
+Type :  `Function`  |  `string`  
 
 AllOf validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-<div component="app-note" key="allOf-conditionalExpressionExampleFunction-model"></div>
+> Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="allOf-conditionalExpressionExampleFunction-model"></div> 
-<div component="app-note" key="allOf-conditionalExpressionExampleString-model"></div> 
+> Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="allOf-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-allOf-conditionalExpression" title="allOf decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
-To override the global configuration message and set the custom message on respective FormControl.
+To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="allOf-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-allOf-message" title="allOf decorators with message" key="message"></div>
@@ -94,17 +95,20 @@ This Complete allOf example which includes all the ArrayConfig properties will f
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-allOf-complete"></div>
+<div component="app-example-runner" ref-component="app-allOf-complete"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="allOf-complete-model"></div> 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="allOf-complete-component"></div> 
+# [/Component]
 # [Html](#tab\completehtml)
 <div component="app-code" key="allOf-complete-html"></div> 
+# [/Html]
 ***
-
 
 # Dynamic allOf Example
 
@@ -114,15 +118,20 @@ This Dynamic AllOf example which execute based on json passed. conditional expre
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-allOf-dynamic"></div>
+<div component="app-example-runner" ref-component="app-allOf-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="allOf-dynamic-model"></div>
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="allOf-dynamic-component"></div>
+# [/Component]
 # [Json](#tab\dynamicjson)
 <div component="app-code" key="allOf-dynamic-json"></div>
+# [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="allOf-dynamic-html"></div> 
+# [/Html]
 ***

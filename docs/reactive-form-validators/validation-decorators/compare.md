@@ -24,7 +24,7 @@ Here we have covered Add form operation.
 <div component="app-code" key="compare-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="compare-add-html"></div> 
-<div component="app-compare-add" title="compare Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-compare-add"></div>
 ***
 
 # CompareConfig
@@ -33,7 +33,8 @@ Below options are not mandatory to use in the `@compare()` decorator. If needed 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a href="#fieldName"  (click)='scrollTo("#fieldName")'  title="fieldName">FieldName</a></td><td>Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
-<tr><td><a href="#message"  (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a href="#message"  (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+</table>
  
 ## fieldName 
 Type :  `string` 
@@ -46,7 +47,7 @@ Current property is matched with the particular property. so we need to pass par
 ## message
 Type :  `string` 
 
-To override the global configuration message and set the custom message on respective FormControl.
+To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="compare-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-compare-message" title="compare decorators with message" key="message"></div>
@@ -58,15 +59,19 @@ This Complete Compare example which includes all the CompareConfig properties wi
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-compare-complete"></div>
+<div component="app-example-runner" ref-component="app-compare-complete"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="compare-complete-model"></div> 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="compare-complete-component"></div> 
+# [/Component]
 # [Html](#tab\completehtml)
 <div component="app-code" key="compare-complete-html"></div> 
+# [/Html]
 ***
 
 # Dynamic Compare Example
@@ -77,15 +82,20 @@ This Dynamic Compare example which execute based on json passed. conditional exp
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-compare-dynamic"></div>
+<div component="app-example-runner" ref-component="app-compare-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="compare-dynamic-model"></div>
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="compare-dynamic-component"></div>
+# [/Component]
 # [Json](#tab\dynamicjson)
 <div component="app-code" key="compare-dynamic-json"></div>
+# [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="compare-dynamic-html"></div> 
+# [/Html]
 ***

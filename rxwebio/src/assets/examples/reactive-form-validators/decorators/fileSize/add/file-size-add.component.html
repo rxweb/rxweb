@@ -1,0 +1,11 @@
+<div>
+  <form  [formGroup]="storageCapacityFormGroup">
+    <div class="form-group">
+      <label>Video Storage Size</label>
+      <input type="text" formControlName="videoStorageSize" class="form-control"  />
+      <small class="form-text text-muted">You must enter a valid size<br/></small>
+	 <small class="form-text text-danger" *ngIf="storageCapacityFormGroup.controls.videoStorageSize.errors">{{storageCapacityFormGroup.controls.videoStorageSize.errors.fileSize.message}}<br/></small>	
+    </div>
+    <button [disabled]="!storageCapacityFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

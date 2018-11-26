@@ -1,0 +1,10 @@
+<div>
+  <form #userinfoForm = "ngForm">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" name="firstName" [(ngModel)]="userinfo.firstName"  class="form-control"  required />
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.firstName?.errors">{{userinfoForm.controls.firstName?.errors.required.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

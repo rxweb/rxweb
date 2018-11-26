@@ -29,22 +29,24 @@ Here we have covered Add and Edit form operations.
 <div component="app-code" key="url-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="url-add-html"></div> 
-<div component="app-url-add" title="url Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-url-add"></div>
+# [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="url-edit-component"></div>
 The below code is `web-site-info-model-data.json` for getting data from the server 
 <div component="app-code" key="data-url"></div> 
 Next, we need to write html code.
 <div component="app-code" key="url-edit-html"></div> 
-<div component="app-url-add" title="url Decorator for edit Example"></div>
+<div component="app-example-runner" ref-component="app-url-edit"></div>
+# [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','templateDriven']">
+<data-scope scope="['validator','template-driven']">
 <div component="app-code" key="url-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="url-add-html"></div> 
-<div component="app-url-add" title="url Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-url-add"></div>
 </data-scope>
 
 # DefaultConfig
@@ -61,9 +63,9 @@ Type :  `Function`  |  `string`
 Url validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
-<div component="app-note" key="url-conditionalExpressionExampleFunction-model"></div>
+> Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="url-conditionalExpressionExampleFunction-model"></div> 
-<div component="app-note" key="url-conditionalExpressionExampleString-model"></div> 
+> Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="url-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-url-conditionalExpression" title="url decorators with conditionalExpression" key="conditionalExpression"></div>
@@ -82,15 +84,19 @@ This Complete url example which includes all the DefaultConfig properties will f
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-url-complete"></div>
+<div component="app-example-runner" ref-component="app-url-complete"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="url-complete-model"></div> 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="url-complete-component"></div> 
+# [/Component]
 # [Html](#tab\completehtml)
 <div component="app-code" key="url-complete-html"></div> 
+# [/Html]
 ***
 
 # Dynamic url Example
@@ -101,15 +107,20 @@ This Dynamic url example which execute based on json passed. conditional express
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-url-dynamic"></div>
+<div component="app-example-runner" ref-component="app-url-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="url-dynamic-model"></div>
+# [/Component]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="url-dynamic-component"></div>
+# [/Component]
 # [Json](#tab\dynamicjson)
 <div component="app-code" key="url-dynamic-json"></div>
+# [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="url-dynamic-html"></div> 
+# [/Html]
 ***
