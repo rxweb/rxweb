@@ -9,6 +9,7 @@ import { ObjectMaker } from "../util/object-maker";
 
 export function conditionalChangeValidator(conditionalValidationProps: string[]): ValidatorFn {
     var timeOuts: number[] = [];
+    var oldValue:string = undefined;
     var setTimeOut = (control: AbstractControl) => {
         var timeOut = window.setTimeout(t => {
             window.clearTimeout(timeOut);
@@ -17,14 +18,17 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
     }
     return (control: AbstractControl): { [key: string]: any } => {
         const parentFormGroup = control.parent;
-        if (parentFormGroup)
+        let value = control.value;
+        if (parentFormGroup && oldValue != value)
         {
+            oldValue = value;
             timeOuts = [];
             conditionalValidationProps.forEach(t => {
                 if (t.indexOf("[]") != -1) {
                     var splitText = t.split("[]");
                     var formArray = <FormArray>parentFormGroup.get([splitText[0]]);
-                    formArray.controls.forEach(formGroup => {
+                    if(formArray)
+                      formArray.controls.forEach(formGroup => {
                         var abstractControl = formGroup.get(splitText[1]);
                         if (abstractControl) {
                             setTimeOut(abstractControl);
@@ -37,7 +41,6 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
                         setTimeOut(control);
                     }
                 }
-                
             })
         }
         return ObjectMaker.null();

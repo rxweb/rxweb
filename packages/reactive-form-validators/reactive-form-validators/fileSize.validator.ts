@@ -14,7 +14,16 @@ export function fileSizeValidator(config: SizeConfig): ValidatorFn {
         config = ApplicationUtil.getConfigObject(config);
        if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
-                if (!(control.value.size <= config.maxSize))
+                let files = control.value as File[]
+                let minFileSize = config.minSize ? config.minSize : 0;
+                let testResult = false;
+                for(let file of files){
+                    let fileSize = file.size;
+                    testResult = (!(fileSize >= minFileSize && fileSize <= config.maxSize));
+                    if(testResult)
+                      break;
+                }
+                if (testResult)
                     return ObjectMaker.toJson(AnnotationTypes.fileSize, config.message || null, [control.value]);
             }
         } return ObjectMaker.null();

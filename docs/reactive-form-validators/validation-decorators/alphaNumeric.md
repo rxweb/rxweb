@@ -113,6 +113,7 @@ This Complete AlphaNumeric example which includes all the AlphaConfig properties
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic AlphaNumeric Example
 
 This Dynamic AlphaNumeric example which execute based on json passed. conditional expression with function would be not apply in dynamic AlphaNumeric example. 
@@ -138,3 +139,4 @@ This Dynamic AlphaNumeric example which execute based on json passed. conditiona
 <div component="app-code" key="alphaNumeric-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

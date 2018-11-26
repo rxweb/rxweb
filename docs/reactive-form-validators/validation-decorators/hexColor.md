@@ -105,6 +105,7 @@ This Complete hexColor example which includes all the HexColorConfig properties 
 # [/Html]  
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic hexColor Example
 
 This Dynamic hexColor example which execute based on json passed. conditional expression with function would be not apply in dynamic hexColor example. 
@@ -130,3 +131,4 @@ This Dynamic hexColor example which execute based on json passed. conditional ex
 <div component="app-code" key="hexColor-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

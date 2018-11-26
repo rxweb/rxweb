@@ -1,11 +1,12 @@
 import { Directive, Input,ElementRef,Renderer, forwardRef, OnInit,OnDestroy } from '@angular/core';
-import { NG_VALIDATORS, AbstractControl,FormControl } from '@angular/forms';
+import { NG_VALIDATORS, AbstractControl,FormControl} from '@angular/forms';
 import { formatNumber } from "@angular/common"
 import { APP_VALIDATORS} from '../../const/app-validators.const';
 import { BaseValidator } from './base-validator.directive';
 import {INPUT,SELECT,CHECKBOX,TEXTAREA,KEYPRESS, ONCHANGE,ONKEYUP,ONCLICK,
 RADIO,FILE, ELEMENT_VALUE,BLUR,FOCUS,CHANGE,BLANK
   } from "../../const";
+import { ApplicationUtil } from '../../util/app-util';
 import { DecimalProvider } from "../../domain/element-processor/decimal.provider"
 import {AlphaConfig,ArrayConfig,BaseConfig,ChoiceConfig,CompareConfig,ComposeConfig,ContainsConfig,CreditCardConfig,DateConfig,DefaultConfig,DigitConfig,EmailConfig,ExtensionConfig,FactorConfig,FieldConfig,HexColorConfig,MessageConfig,NumberConfig,NumericConfig,PasswordConfig,PatternConfig,RangeConfig,RequiredConfig,RuleConfig,SizeConfig,TimeConfig ,DifferentConfig,RelationalOperatorConfig } from '../../models/config'
 const COMPOSE:string = 'compose';
@@ -20,20 +21,17 @@ const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','aphaNumeric','ascii'
 @Directive({
   selector: '[ngModel],[formControlName],[formControl]',
   providers: [NGMODEL_BINDING],
- 
 })
-export class RxFormControlDirective extends BaseValidator implements OnInit,OnDestroy {
-  private controls:{[key:string]:FormControl};
+export class RxFormControlDirective extends BaseValidator implements OnInit,OnDestroy{
+  private eventListeners:any[] = [];
   set validationControls(value:{[key:string]:FormControl}){
-    this.controls = value;
-    this.bindValueChangeEvent();
+      this.controls = value;
   }
 
   get validationControls(){
-    return this.controls;
+      return this.controls;
   }
 
-  
   @Input() allOf:ArrayConfig;
   @Input() alpha:AlphaConfig;
   @Input() alphaNumeric:AlphaConfig;
@@ -86,23 +84,24 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
   @Input() upperCase:MessageConfig;
   @Input() url:DefaultConfig;
 
-  @Input() name:string;
-
-  @Input() formControlName:string;
-
+  
   @Input() formControl:FormControl | AbstractControl;
 
   constructor(private elementRef: ElementRef,
         private renderer: Renderer,private decimalProvider:DecimalProvider){
         super();
         this.element = elementRef.nativeElement as Node;
+        this.setEventName();
     }
 
   ngOnInit() {
       let validators = [];
       Object.keys(APP_VALIDATORS).forEach(validatorName=>{
-        if((validatorName != COMPOSE && this[validatorName]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[validatorName] == BLANK))
+        if((this[validatorName]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[validatorName] == BLANK)){
           validators.push(APP_VALIDATORS[validatorName](this[validatorName]));
+          if(this.name && !(this.formControlName && this.formControl))
+            ApplicationUtil.configureControl(this.controlConfig,this[validatorName],validatorName);
+        }
       })
       if(validators.length > 0)
         this.validator = APP_VALIDATORS[COMPOSE]({validators:validators})
@@ -113,42 +112,34 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
   bindNumericElementEvent(config?:NumericConfig){
     if(config)
       this.numeric = config;
-    this.renderer.listen(this.element,BLUR,(event)=> {
+    let listener = this.renderer.listen(this.element,BLUR,(event)=> {
         if(!(this.formControl && this.formControl.errors && this.formControl.errors.numeric)) {
           let value = this.decimalProvider.transFormDecimal(this.formControl.value,this.numeric.digitsInfo);
           this.setValueOnElement(value);
         }
     });
-
-    this.renderer.listen(this.element,FOCUS,(event)=> {
+    this.eventListeners.push(listener)
+    listener = this.renderer.listen(this.element,FOCUS,(event)=> {
         if(!(this.formControl && this.formControl.errors && this.formControl.errors.numeric) && this.formControl.value != null) {
         let value = this.decimalProvider.replacer(this.formControl.value);
         this.setValueOnElement(value);
         }
     });
+    this.eventListeners.push(listener)
   }
 
   bindValueChangeEvent(){
-   this.renderer.listen(this.element,this.getEventName(),()=> {
-          Object.keys(this.validationControls).forEach(fieldName => {
-              this.validationControls[fieldName].updateValueAndValidity();
-          })
-    });
+    if(this.eventName != BLANK){
+      let listener =  this.renderer.listen(this.element,this.eventName,()=> {
+              Object.keys(this.validationControls).forEach(fieldName => {
+                  this.validationControls[fieldName].updateValueAndValidity();
+              })
+        });
+       this.eventListeners.push(listener);
+    }
   }
 
-  getEventName() {
-      var eventName:string = '';
-      switch(this.element.tagName) {
-        case INPUT:
-        case TEXTAREA:
-         eventName = (this.element.type == CHECKBOX || this.element.type == RADIO || this.element.type == FILE) ?  CHANGE : INPUT;
-        break;
-        case SELECT:
-         eventName = CHANGE;
-        break;
-      }
-      return eventName.toLowerCase();
-    }
+  
 
   private setValueOnElement(value: any) {
         this.renderer.setElementProperty(this.element, ELEMENT_VALUE, value);
@@ -156,5 +147,11 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
 
   ngOnDestroy(){
     this.controls = undefined;
+    let eventCount = this.eventListeners.length;
+    for(var i=0;i<eventCount;i++){
+      this.eventListeners[0]();
+      this.eventListeners.splice(0,1);
+    }
+    this.eventListeners = [];
   }
 }

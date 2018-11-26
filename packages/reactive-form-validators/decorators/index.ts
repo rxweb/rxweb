@@ -52,4 +52,6 @@ export * from './primeNumber.decorator';
 export * from './latitude.decorator';
 export * from './longitude.decorator';
 export * from './rule.decorator';
+export * from './file.decorator';
+export * from './custom.decorator';
 

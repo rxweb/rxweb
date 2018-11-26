@@ -104,6 +104,7 @@ This Complete Latitude example which includes all the BaseConfig properties will
 # [/Html]   
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic latitude Example
 
 This Dynamic Latitude example which execute based on json passed. conditional expression with function would be not apply in dynamic latitude example. 
@@ -129,3 +130,4 @@ This Dynamic Latitude example which execute based on json passed. conditional ex
 <div component="app-code" key="latitude-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

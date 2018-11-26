@@ -110,6 +110,7 @@ This Complete oneOf example which includes all the ArrayConfig properties will f
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic oneOf Example
 
 This Dynamic oneOf example which execute based on json passed. conditional expression with function would be not apply in dynamic oneOf example. 
@@ -135,3 +136,4 @@ This Dynamic oneOf example which execute based on json passed. conditional expre
 <div component="app-code" key="oneOf-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

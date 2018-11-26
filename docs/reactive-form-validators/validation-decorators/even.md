@@ -104,6 +104,7 @@ This Complete even example which includes all the BaseConfig properties will ful
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic even Example
 
 This Dynamic Even example which execute based on json passed. conditional expression with function would be not apply in dynamic even example. 
@@ -129,3 +130,4 @@ This Dynamic Even example which execute based on json passed. conditional expres
 <div component="app-code" key="even-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>

@@ -109,6 +109,7 @@ This Complete extension example which includes all the ExtensionConfig propertie
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic extension Example
 
 This Dynamic extension example which execute based on json passed. conditional expression with function would be not apply in dynamic extension example. 
@@ -134,3 +135,4 @@ This Dynamic extension example which execute based on json passed. conditional e
 <div component="app-code" key="extension-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>

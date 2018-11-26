@@ -100,6 +100,7 @@ This Complete mac example which includes all the BaseConfig properties will fulf
 # [/Html]   
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic mac Example
 
 This Dynamic mac example which execute based on json passed. conditional expression with function would be not apply in dynamic mac example. 
@@ -125,3 +126,4 @@ This Dynamic mac example which execute based on json passed. conditional express
 <div component="app-code" key="mac-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

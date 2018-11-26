@@ -93,6 +93,7 @@ This Complete password example which includes all the PasswordConfig properties 
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic password Example
 
 This Dynamic password example which execute based on json passed. conditional expression with function would be not apply in dynamic password example. 
@@ -118,3 +119,4 @@ This Dynamic password example which execute based on json passed. conditional ex
 <div component="app-code" key="password-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

@@ -103,6 +103,7 @@ This Complete Compose example which includes all the ComposeConfig properties wi
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Compose Example
 
 This Dynamic Compose example which execute based on json passed. conditional expression with function would be not apply in dynamic compose example. 
@@ -128,3 +129,4 @@ This Dynamic Compose example which execute based on json passed. conditional exp
 <div component="app-code" key="compose-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

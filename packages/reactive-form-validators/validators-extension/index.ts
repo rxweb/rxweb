@@ -48,3 +48,5 @@ export * from './primeNumber-validator.extension';
 export * from './latitude-validator.extension';
 export * from './longitude-validator.extension';
 export * from './compose-validator.extension';
+export * from './file-validator.extension';
+export * from './custom-validator.extension';

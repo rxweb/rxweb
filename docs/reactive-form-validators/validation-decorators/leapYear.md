@@ -102,6 +102,7 @@ This Complete LeapYear example which includes all the BaseConfig properties will
 # [/Html]   
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic LeapYear Example
 
 This Dynamic LeapYear example which execute based on json passed. conditional expression with function would be not apply in dynamic leapYear example. 
@@ -127,3 +128,4 @@ This Dynamic LeapYear example which execute based on json passed. conditional ex
 <div component="app-code" key="leapYear-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

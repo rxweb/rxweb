@@ -111,6 +111,7 @@ This Complete MaxDate example which includes all the DateConfig properties will 
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic MaxDate Example
 
 This Dynamic MaxDate example which execute based on json passed. conditional expression with function would be not apply in dynamic maxDate example. 
@@ -136,3 +137,4 @@ This Dynamic MaxDate example which execute based on json passed. conditional exp
 <div component="app-code" key="maxDate-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>

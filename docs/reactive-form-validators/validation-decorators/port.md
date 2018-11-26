@@ -100,6 +100,7 @@ This Complete Port example which includes all the BaseConfig properties will ful
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Port Example
 
 This Dynamic port example which execute based on json passed. conditional expression with function would be not apply in dynamic port example. 
@@ -125,3 +126,4 @@ This Dynamic port example which execute based on json passed. conditional expres
 <div component="app-code" key="port-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

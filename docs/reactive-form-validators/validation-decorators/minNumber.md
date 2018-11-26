@@ -109,6 +109,7 @@ This Complete minNumber example which includes all the NumberConfig properties w
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic minNumber Example
 
 This Dynamic minNumber example which execute based on json passed. conditional expression with function would be not apply in dynamic minNumber example. 
@@ -133,3 +134,4 @@ This Dynamic minNumber example which execute based on json passed. conditional e
 <div component="app-code" key="minNumber-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

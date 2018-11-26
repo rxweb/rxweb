@@ -99,6 +99,7 @@ This Complete url example which includes all the DefaultConfig properties will f
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic url Example
 
 This Dynamic url example which execute based on json passed. conditional expression with function would be not apply in dynamic url example. 
@@ -124,3 +125,4 @@ This Dynamic url example which execute based on json passed. conditional express
 <div component="app-code" key="url-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

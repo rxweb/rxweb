@@ -17,7 +17,7 @@ import { ApplicationUtil } from '../util/app-util';
 export function compareValidator(config:CompareConfig): ValidatorFn {
     return (control: FormGroup): { [key: string]: any } => {
         config = ApplicationUtil.getConfigObject(config);
-        const compareControl : any = (control.parent) ? control.parent.get([config.fieldName]) : {};
+        const compareControl : any = ApplicationUtil.getFormControl(config.fieldName,control);
         const controlValue = control.value;
         const compareControlValue = (compareControl) ? compareControl.value : '';
         if (RegexValidator.isNotBlank(controlValue) || RegexValidator.isNotBlank(compareControlValue)) {

@@ -15,7 +15,18 @@ export function extensionValidator(config: ExtensionConfig): ValidatorFn {
         config = ApplicationUtil.getConfigObject(config);
        if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
-                var testResult = config.extensions.filter(t=>{ return control.value.indexOf(t) != -1 })[0] ;
+                let files = control.value as File[];
+                let testResult = true;
+                for(let file of files){
+                    let splitText = file.name.split(".");
+                    let extension:string = splitText[splitText.length - 1];
+                    let result = config.extensions.filter(t=>{ return extension.toLowerCase() == t.toLowerCase() })[0] ;
+                    if(!result){
+                            testResult = false;
+                            break;
+                    }
+                      
+                }
                 if (!testResult)
                     return ObjectMaker.toJson(AnnotationTypes.extension, config.message || null, [control.value]);
             }
