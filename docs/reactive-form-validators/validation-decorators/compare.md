@@ -74,6 +74,7 @@ This Complete Compare example which includes all the CompareConfig properties wi
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Compare Example
 
 This Dynamic Compare example which execute based on json passed. conditional expression with function would be not apply in dynamic Compare example. 
@@ -99,3 +100,4 @@ This Dynamic Compare example which execute based on json passed. conditional exp
 <div component="app-code" key="compare-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

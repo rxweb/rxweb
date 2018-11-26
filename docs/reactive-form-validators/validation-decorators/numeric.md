@@ -121,6 +121,7 @@ This Complete numeric example which includes all the NumericConfig properties wi
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic numeric Example
 
 This Dynamic numeric example which execute based on json passed. conditional expression with function would be not apply in dynamic numeric example. 
@@ -146,3 +147,4 @@ This Dynamic numeric example which execute based on json passed. conditional exp
 <div component="app-code" key="numeric-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

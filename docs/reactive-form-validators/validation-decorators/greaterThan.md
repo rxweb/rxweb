@@ -111,6 +111,7 @@ This Complete greaterThan example which includes all the RelationalOperatorConfi
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic greaterThan Example
 
 This Dynamic GreaterThan example which execute based on json passed. conditional expression with function would be not apply in dynamic greaterThan example. 
@@ -136,3 +137,4 @@ This Dynamic GreaterThan example which execute based on json passed. conditional
 <div component="app-code" key="greaterThan-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

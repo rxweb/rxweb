@@ -114,6 +114,7 @@ This Complete range example which includes all the RangeConfig properties will f
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic range Example
 
 This Dynamic range example which execute based on json passed. conditional expression with function would be not apply in dynamic range example. 
@@ -134,3 +135,4 @@ This Dynamic range example which execute based on json passed. conditional expre
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="range-dynamic-html"></div> 
 ***
+</data-scope>

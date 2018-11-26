@@ -108,6 +108,7 @@ This Complete noneOf example which includes all the ArrayConfig properties will 
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic noneOf Example
 
 This Dynamic noneOf example which execute based on json passed. conditional expression with function would be not apply in dynamic noneOf example. 
@@ -133,3 +134,4 @@ This Dynamic noneOf example which execute based on json passed. conditional expr
 <div component="app-code" key="noneOf-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

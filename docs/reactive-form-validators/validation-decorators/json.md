@@ -101,6 +101,7 @@ This Complete Json example which includes all the DefaultConfig properties will 
 # [/Html]  
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Json Example
 
 This Dynamic json example which execute based on json passed. conditional expression with function would be not apply in dynamic json example. 
@@ -126,3 +127,4 @@ This Dynamic json example which execute based on json passed. conditional expres
 <div component="app-code" key="json-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

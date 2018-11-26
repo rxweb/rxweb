@@ -118,6 +118,7 @@ This Complete Factor example which includes all the FactorConfig properties will
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Factor Example
 
 This Dynamic Factor example which execute based on json passed. conditional expression with function would be not apply in dynamic factor example. 
@@ -143,3 +144,4 @@ This Dynamic Factor example which execute based on json passed. conditional expr
 <div component="app-code" key="factor-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>

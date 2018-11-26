@@ -110,6 +110,7 @@ This Complete allOf example which includes all the ArrayConfig properties will f
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic allOf Example
 
 This Dynamic AllOf example which execute based on json passed. conditional expression with function would be not apply in dynamic allOf example. 
@@ -135,3 +136,4 @@ This Dynamic AllOf example which execute based on json passed. conditional expre
 <div component="app-code" key="allOf-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

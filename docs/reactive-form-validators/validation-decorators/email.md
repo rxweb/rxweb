@@ -106,6 +106,7 @@ This Complete Email example which includes all the EmailConfig properties will f
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Email Example
 
 This Dynamic Email example which execute based on json passed. conditional expression with function would be not apply in dynamic email example. 
@@ -131,3 +132,4 @@ This Dynamic Email example which execute based on json passed. conditional expre
 <div component="app-code" key="email-dynamic-html"></div> 
 # [/Html] 
 ***
+</data-scope>

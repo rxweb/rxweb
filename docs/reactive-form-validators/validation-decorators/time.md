@@ -108,6 +108,7 @@ This Complete time example which includes all the TimeConfig properties will ful
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic time Example
 
 This Dynamic time example which execute based on json passed. conditional expression with function would be not apply in dynamic time example. 
@@ -133,3 +134,4 @@ This Dynamic time example which execute based on json passed. conditional expres
 <div component="app-code" key="time-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

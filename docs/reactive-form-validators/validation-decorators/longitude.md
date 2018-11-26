@@ -102,6 +102,7 @@ This Complete longitude example which includes all the RelationalOperatorConfig 
 # [/Html]    
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic longitude Example
 
 This Dynamic longitude example which execute based on json passed. conditional expression with function would be not apply in dynamic longitude example. 
@@ -127,3 +128,4 @@ This Dynamic longitude example which execute based on json passed. conditional e
 <div component="app-code" key="longitude-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

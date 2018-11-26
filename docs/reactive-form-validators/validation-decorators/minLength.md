@@ -109,6 +109,7 @@ This Complete MinLength example which includes all the NumberConfig properties w
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic MinLength Example
 
 This Dynamic Alpha example which execute based on json passed. conditional expression with function would be not apply in dynamic minLength example. 
@@ -134,3 +135,4 @@ This Dynamic Alpha example which execute based on json passed. conditional expre
 <div component="app-code" key="minLength-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

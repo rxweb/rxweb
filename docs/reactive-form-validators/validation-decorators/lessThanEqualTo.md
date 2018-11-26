@@ -107,6 +107,7 @@ This Complete lessThanEqualTo example which includes all the RelationalOperatorC
 # [/Html]   
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic lessThanEqualTo Example
 
 This Dynamic lessThanEqualTo example which execute based on json passed. conditional expression with function would be not apply in dynamic lessThanEqualTo example. 
@@ -132,3 +133,4 @@ This Dynamic lessThanEqualTo example which execute based on json passed. conditi
 <div component="app-code" key="lessThanEqualTo-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>

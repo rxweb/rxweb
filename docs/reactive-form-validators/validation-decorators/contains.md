@@ -109,6 +109,7 @@ This Complete Contains example which includes all the ContainsConfig properties 
 # [/Html] 
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic Contains Example
 
 This Dynamic Contains example which execute based on json passed. conditional expression with function would be not apply in dynamic Contains example. 
@@ -134,3 +135,4 @@ This Dynamic Contains example which execute based on json passed. conditional ex
 <div component="app-code" key="contains-dynamic-html"></div>
 # [/Html] 
 ***
+</data-scope>

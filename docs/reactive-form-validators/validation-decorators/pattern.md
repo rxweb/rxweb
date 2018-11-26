@@ -111,6 +111,7 @@ This Complete pattern example which includes all the PatternConfig properties wi
 # [/Html]
 ***
 
+<data-scope scope="['decorator','validator']">
 # Dynamic pattern Example
 
 This Dynamic pattern example which execute based on json passed. conditional expression with function would be not apply in dynamic pattern example. 
@@ -136,3 +137,4 @@ This Dynamic pattern example which execute based on json passed. conditional exp
 <div component="app-code" key="pattern-dynamic-html"></div> 
 # [/Html]
 ***
+</data-scope>
