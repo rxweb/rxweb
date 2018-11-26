@@ -1,0 +1,25 @@
+<div>
+  <form  *ngIf="storageCapacityFormGroup"  [formGroup]="storageCapacityFormGroup">
+    <div class="form-group">
+      <label>Device</label>
+      <input type="text" formControlName="device" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Document Storage Size' or 'Photograph Storage Size', then you need to add 'Device' input as 'SmartPhone'<br/></small>
+      <small class="form-text text-danger" *ngIf="storageCapacityFormGroup.controls.device.errors">{{storageCapacityFormGroup.controls.device.errors.fileSize.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Photograph Storage Size</label>
+      <input type="text" formControlName="photographStorageSize" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Photograph Storage Size' then you need to add 'Device' input as 'SmartPhone'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+      <small class="form-text text-danger" *ngIf="storageCapacityFormGroup.controls.photographStorageSize.errors">{{storageCapacityFormGroup.controls.photographStorageSize.errors.fileSize.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Video Storage Size</label>
+      <input type="text" formControlName="videoStorageSize" class="form-control"  />
+      <small class="form-text text-muted">you can enter upto 50<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+      <small class="form-text text-danger" *ngIf="storageCapacityFormGroup.controls.videoStorageSize.errors">{{storageCapacityFormGroup.controls.videoStorageSize.errors.fileSize.message}}<br/></small>
+    </div>
+    <button [disabled]="!storageCapacityFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

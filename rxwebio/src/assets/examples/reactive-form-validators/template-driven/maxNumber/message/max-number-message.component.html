@@ -1,0 +1,11 @@
+<div>
+  <form #subjectdetailsForm = "ngForm">
+    <div class="form-group">
+      <label>Passing Marks</label>
+      <input type="text" name="passingMarks" [(ngModel)]="subjectdetails.passingMarks"  class="form-control"  [maxNumber]="{'value':50,'message':'Passing Marks exceeds the Maximum marks Limit'}" />
+      <small class="form-text text-muted">you can enter MaxNumber upto 50<br/></small>
+	   <small class="form-text text-danger" *ngIf="subjectdetailsForm.controls.passingMarks?.errors">{{subjectdetailsForm.controls.passingMarks?.errors.maxNumber.message}}<br/></small>	
+    </div>
+    <button [disabled]="!subjectdetailsForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

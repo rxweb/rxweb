@@ -1,0 +1,367 @@
+<div class="home-page" *ngIf="showComponent">
+    <header class="banner">
+        <div class="container-fluid">
+            <div class="top-bar">
+                <a routerLink="/home">
+            <img src="/assets/images/rxweb-logo.png" width="111" height="31"/>
+            </a>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav no-borders">
+                        <li>
+                            <a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators" title="GitHub" target="_blank"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://gitter.im/rx-web/Lobby" title="Comment" target="_blank"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="banner-text">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <h1>Clean Code. <br/>Built with Purpose</h1>
+                        <p>The most powerful form validation framework with tons of validation scenarios, which fulfil every
+                            large scale enterprise application’s need. The most easiest way to implement complex form validation
+                            solution with less line of code and quick to develop.</p>
+                        <a routerLink="/import-modules" class="doc-btn">Documentation <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="downloads-counter">
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                            <span class="number h2">3,500+</span>
+                            <p>It's just a beginning, <br>Many more to come</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="why-rxweb">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <h2>Why rxweb framework</h2>
+                    <p>Bring in versatile clean code with rxweb open source framework for rapid application development. Presented
+                        by a leading and experienced community at Radixweb, our first open source framework rxweb helps to
+                        build robust large enterprise web applications in a simpler, faster and hassle-free manner. We have
+                        delivered very niche projects with this framework last many year. Validation framework is just our
+                        beginning, few other most powerful apis are coming in near future.</p>
+                </div>
+                <!--<div class="col-sm-12 col-md-6 text-center">
+                    <img src="/assets/images/commit-activity-chart.jpg" width="246" height="230" />
+                    <p>Commit Activity</p>
+                </div>-->
+            </div>
+        </div>
+    </section>
+    <section class="features">
+        <div class="container">
+            <h2>Core features of reactive form validators</h2>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 pull-right">
+                    <div class="code-content left-space">
+                        <h3>Compare Password Cross Field Validation</h3>
+                        <p>Angular provides good validators but doesn’t fulfil enterprise application’s need with minimal line
+                            of code. Easily this can be achieved with rxweb validation framework.</p>
+                        <div class="box-shadow output height-300">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form [formGroup]="userFormGroup">
+                                        <div class="form-group">
+                                            <label>New Password</label>
+                                            <input type="text" formControlName="password" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm Password</label>
+                                            <input type="text" formControlName="confirmPassword" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply compare validation on 'Confirm Password' field matched value with 'Password' field.<br/></small>
+                                        </div>
+                                        <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <ul class="nav nav-tabs">
+                        <li [class.active]="comparePasswordTab=='component'" (click)="comparePasswordTab='component'"><a>Component</a></li>
+                        <li [class.active]="comparePasswordTab=='html'" (click)="comparePasswordTab='html'"><a>Html</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane" [class.active]="comparePasswordTab=='component'">
+                            <div>
+                                <div class="code">
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.crossFieldValidationJson.component" (cbOnSuccess)="codeContent.crossFieldValidationJson.componentCopied = true"
+                                        [class.copied]="codeContent.crossFieldValidationJson.componentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                                    <div highlight="pre code">
+                                        <pre><code [textContent]="codeContent.crossFieldValidationJson.component"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" [class.active]="comparePasswordTab=='html'">
+                            <div>
+                                <div class="code">
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.crossFieldValidationJson.html" (cbOnSuccess)="codeContent.crossFieldValidationJson.htmlCopied = true"
+                                        [class.copied]="codeContent.crossFieldValidationJson.htmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                                    <div highlight="pre code">
+                                        <pre><code [textContent]="codeContent.crossFieldValidationJson.html"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="/assets/images/border-gradient.png" class="align-center separator" />
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="code-content right-space">
+                        <h3>Conditional Validation</h3>
+                        <p>There is no need to create custom validators to manage the conditional validation and putting more
+                            if/else clause in the code to become messy code. Conditional Validation can be achieved with
+                            one line of code.</p>
+                        <div class="box-shadow output height-300">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form [formGroup]="userForm">
+                                        <div class="form-group">
+                                            <label>Country Name</label>
+                                            <input type="text" formControlName="country" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply conditional required validation on 'Identity Number' then you need to add this input as 'India'.</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Identity Number</label>
+                                            <input type="text" formControlName="identityNumber" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply conditional required validation on 'Identity Number' then you need to add 'Country Name' input as 'India'.</small>
+                                        </div>
+                                        <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+
+                    <ul class="nav nav-tabs">
+                        <li [class.active]="conditionalValidationRequiredTab=='component'" (click)="conditionalValidationRequiredTab='component'"><a>Component</a></li>
+                        <li [class.active]="conditionalValidationRequiredTab=='html'" (click)="conditionalValidationRequiredTab='html'"><a>Html</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane" [class.active]="conditionalValidationRequiredTab=='component'">
+                            <div>
+                                <div class="code">
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalValidationRequiredJson.component" (cbOnSuccess)="codeContent.conditionalValidationRequiredJson.componentCopied = true"
+                                        [class.copied]="codeContent.conditionalValidationRequiredJson.componentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                                    <div highlight="pre code">
+                                        <pre><code [textContent]="codeContent.conditionalValidationRequiredJson.component"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" [class.active]="conditionalValidationRequiredTab=='html'">
+                            <div>
+                                <div class="code">
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.conditionalValidationRequiredJson.html" (cbOnSuccess)="codeContent.conditionalValidationRequiredJson.htmlCopied = true"
+                                        [class.copied]="codeContent.conditionalValidationRequiredJson.htmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                                    <div highlight="pre code">
+                                        <pre><code [textContent]="codeContent.conditionalValidationRequiredJson.html"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <img src="/assets/images/border-gradient.png" class="align-center separator" />
+            <div class="row">
+                <div class="col-sm-12 col-md-6 pull-right">
+                    <div class="code-content right-space">
+                        <h3>Dynamic Validation</h3>
+                        <p>Most of large scale enterprise application requires to apply form validation based on server rules.
+                            The most efficient way of rxweb to provide the dynamic form validation on FormControl without
+                            writing much lines of code.</p>
+                        <div class="box-shadow output height-300">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form *ngIf="userModelFormGroup" [formGroup]="userModelFormGroup">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input type="text" formControlName="firstName" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply dynamic validation on 'First Name'. This validate alphabets, required and max length upto 10 digit as per dynamic json configuration<br/></small>
+                                            <small class="form-text text-danger" *ngIf="userModelFormGroup.controls.firstName.errorMessage">{{userModelFormGroup.controls.firstName.errorMessage}}<br/></small>
+                                        </div>
+                                        <button [disabled]="!userModelFormGroup.valid" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <ul class="nav nav-tabs">
+                        <li [class.active]="dynamicValidationTab=='component'" (click)="dynamicValidationTab='component'"><a>Component</a></li>
+                        <li [class.active]="dynamicValidationTab=='html'" (click)="dynamicValidationTab='html'"><a>Html</a></li>
+                        <li [class.active]="dynamicValidationTab=='json'" (click)="dynamicValidationTab='json'"><a>Json</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane" [class.active]="dynamicValidationTab=='component'">
+                            <div>
+                                <div class="code">
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamicValidationJson.component" (cbOnSuccess)="codeContent.dynamicValidationJson.componentCopied = true"
+                                        [class.copied]="codeContent.dynamicValidationJson.componentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                                    <div highlight="pre code">
+                                        <pre><code [textContent]="codeContent.dynamicValidationJson.component"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" [class.active]="dynamicValidationTab=='html'">
+                            <div>
+                                <div class="code">
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamicValidationJson.html" (cbOnSuccess)="codeContent.dynamicValidationJson.htmlCopied = true"
+                                        [class.copied]="codeContent.dynamicValidationJson.htmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                                    <div highlight="pre code">
+                                        <pre><code [textContent]="codeContent.dynamicValidationJson.html"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" [class.active]="dynamicValidationTab=='json'">
+                            <div>
+                                <div class="code">
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.dynamicValidationJson.json" (cbOnSuccess)="codeContent.dynamicValidationJson.jsonCopied = true"
+                                        [class.copied]="codeContent.dynamicValidationJson.jsonCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                                    <div highlight="pre code">
+                                        <pre><code [textContent]="codeContent.dynamicValidationJson.json"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <img src="/assets/images/border-gradient.png" class="align-center separator" />
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="code-content right-space">
+                        <h3>Decorator based model based validation</h3>
+                        <p>Angular doesn’t provide model based FormGroup property binding. The major disadvantage of having
+                            more duplicate code in respective components. The rxweb provides validation decorators on property
+                            for managing code consistency and reusability purpose. Benefit of using this approach is code
+                            will be much cleaner and easy to use same class in other components. </p>
+                        <div class="box-shadow output height-500">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form [formGroup]="userInfoFormGroup">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input type="text" formControlName="firstName" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply validation as required and maxlength upto 20 characters</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>User Name</label>
+                                            <input type="text" formControlName="userName" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply validation as required and not match with first name as different validation.</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="text" formControlName="password" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply password validation. which contains alphabet, numeric, minlength upto 6 character and maxlength upto 10 charcter and contains lower and uppercase letters</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm Password</label>
+                                            <input type="text" formControlName="confirmPassword" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply compare validation. you need to compare with field 'Password'</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="text" formControlName="email" class="form-control" />
+                                            <small class="form-text text-muted">If you want to apply email validation on this input.</small>
+                                        </div>
+                                        <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <ul class="nav nav-tabs">
+                        <li [class.active]="decoratorbasedModelValidationTab=='component'" (click)="decoratorbasedModelValidationTab='component'"><a>Component</a></li>
+                        <li [class.active]="decoratorbasedModelValidationTab=='html'" (click)="decoratorbasedModelValidationTab='html'"><a>Html</a></li>
+                        <li [class.active]="decoratorbasedModelValidationTab=='model'" (click)="decoratorbasedModelValidationTab='model'"><a>Model</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane" [class.active]="decoratorbasedModelValidationTab=='component'">
+                            <div>
+                                <div class="code">
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.decoratorbasedModelValidationJson.component" (cbOnSuccess)="codeContent.decoratorbasedModelValidationJson.componentCopied = true"
+                                        [class.copied]="codeContent.decoratorbasedModelValidationJson.componentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                                    <div highlight="pre code">
+                                        <pre><code [textContent]="codeContent.decoratorbasedModelValidationJson.component"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" [class.active]="decoratorbasedModelValidationTab=='html'">
+                            <div>
+                                <div class="code">
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.decoratorbasedModelValidationJson.html" (cbOnSuccess)="codeContent.decoratorbasedModelValidationJson.htmlCopied = true"
+                                        [class.copied]="codeContent.decoratorbasedModelValidationJson.htmlCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                                    <div highlight="pre code">
+                                        <pre><code [textContent]="codeContent.decoratorbasedModelValidationJson.html"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" [class.active]="decoratorbasedModelValidationTab=='model'">
+                            <div>
+                                <div class="code">
+                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.decoratorbasedModelValidationJson.model" (cbOnSuccess)="codeContent.decoratorbasedModelValidationJson.modelCopied = true"
+                                        [class.copied]="codeContent.decoratorbasedModelValidationJson.modelCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                                    <div highlight="pre code">
+                                        <pre><code [textContent]="codeContent.decoratorbasedModelValidationJson.model"></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="page-footer bg-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="footer-links">
+                        <ul class="menu">
+                            <li><a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators">Github</a></li>
+                        </ul>
+                        <p class="text-white version-note">Currently v1.2.5. Code licensed MIT</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="foot-brand">
+                        <img src="/assets/images/rxweb-logo.png" width="111" height="31" />
+                        <p class="text-white">Powered by : <a href="https://radixweb.com"><strong>RADIXWEB</strong></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

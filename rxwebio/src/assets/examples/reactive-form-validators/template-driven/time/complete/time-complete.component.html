@@ -1,0 +1,30 @@
+<div>
+  <form #attandancedetailForm = "ngForm">
+    <div class="form-group">
+      <label>Entry Place</label>
+      <input type="text" name="entryPlace" [(ngModel)]="attandancedetail.entryPlace"  class="form-control"  time />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Total In' or 'Entry Time', then you need to add 'Entry Place' input as 'Lunch Room'<br/></small>
+	   <small class="form-text text-danger" *ngIf="attandancedetailForm.controls.entryPlace?.errors">{{attandancedetailForm.controls.entryPlace?.errors.time.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Entry Time</label>
+      <input type="text" name="entryTime" [(ngModel)]="attandancedetail.entryTime"  class="form-control"  [time]="{'conditionalExpression':'x => x.entryPlace == \'Lunch Room\''}" />
+      <small class="form-text text-muted">To apply the validation of time on 'Entry Time' field, then enter the value of 'Lunch Room' in Entry Place textbox.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+	   <small class="form-text text-danger" *ngIf="attandancedetailForm.controls.entryTime?.errors">{{attandancedetailForm.controls.entryTime?.errors.time.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Total Time Out</label>
+      <input type="text" name="totalOutTime" [(ngModel)]="attandancedetail.totalOutTime"  class="form-control"  [time]="{'allowSeconds':true}" />
+      <small class="form-text text-muted">Allow seconds.<br/></small>
+	   <small class="form-text text-danger" *ngIf="attandancedetailForm.controls.totalOutTime?.errors">{{attandancedetailForm.controls.totalOutTime?.errors.time.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Exit Time</label>
+      <input type="text" name="exitTime" [(ngModel)]="attandancedetail.exitTime"  class="form-control"  [time]="{'message':'You can enter only time format data'}" />
+      <small class="form-text text-muted">Shows Custom Validation Message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="attandancedetailForm.controls.exitTime?.errors">{{attandancedetailForm.controls.exitTime?.errors.time.message}}<br/></small>	
+    </div>
+    <button [disabled]="!attandancedetailForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<div>
+  <form  [formGroup]="jsonInfoFormGroup">
+    <div class="form-group">
+      <label>Location Json</label>
+      <input type="text" formControlName="locationJson" class="form-control"  />
+	 <small class="form-text text-danger" *ngIf="jsonInfoFormGroup.controls.locationJson.errors">{{jsonInfoFormGroup.controls.locationJson.errors.json.message}}<br/></small>	
+    </div>
+    <button [disabled]="!jsonInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

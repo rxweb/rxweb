@@ -1,0 +1,16 @@
+<div>
+  <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Age</label>
+      <input type="text" formControlName="age" class="form-control"  />
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.age.errors">{{userFormGroup.controls.age.errors.greaterThanEqualTo.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Voter Age</label>
+      <input type="text" formControlName="voterAge" class="form-control"  />
+      <small class="form-text text-muted">This is checking greater than equal to validation for Voter Age must be greater than equal to age.<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.voterAge.errors">{{userFormGroup.controls.voterAge.errors.greaterThanEqualTo.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+<div>
+  <form #employeeinfoForm = "ngForm">
+    <div class="form-group">
+      <label>Salary</label>
+      <input type="text" name="salary" [(ngModel)]="employeeinfo.salary"  class="form-control"  [range]="{'minimumNumber':1000,'maximumNumber':200000,'message':'Your Salary should be between 10000 to 200000.'}" />
+      <small class="form-text text-muted">Shows Custom Validation Message<br/></small>
+      <small class="form-text text-muted">Please enter salary between 1000 to 200000<br/></small>
+	   <small class="form-text text-danger" *ngIf="employeeinfoForm.controls.salary?.errors">{{employeeinfoForm.controls.salary?.errors.range.message}}<br/></small>	
+    </div>
+    <button [disabled]="!employeeinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

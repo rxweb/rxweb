@@ -1,0 +1,272 @@
+{
+  "routes": [
+    {
+      "title": "@alpha",
+      "description": "Alpha validation decorator will allow only alphabets to be entered. ",
+      "path": "alpha",
+      "loadChildren": "./alpha/alpha.module#AlphaModule"
+    },
+    {
+      "title": "@alphaNumeric",
+      "description": "Alpha Numeric validation decorator will allow only alphabets and numbers to be entered. ",
+      "path": "alphaNumeric",
+      "loadChildren": "./alphaNumeric/alphaNumeric.module#AlphaNumericModule"
+    },
+    {
+      "title": "@ascii",
+      "description": "Ascii validation decorator allows user to enter the input which is in the proper ascii format ",
+      "path": "ascii",
+      "loadChildren": "./ascii/ascii.module#AsciiModule"
+    },
+    {
+      "title": "@compare",
+      "description": "Compare validation decorator will compare two inputs. ",
+      "path": "compare",
+      "loadChildren": "./compare/compare.module#CompareModule"
+    },
+    {
+      "title": "@contains",
+      "description": "Contains validation decorator will check that value is in the input. ",
+      "path": "contains",
+      "loadChildren": "./contains/contains.module#ContainsModule"
+    },
+    {
+      "title": "@creditCard",
+      "description": "CreditCard validation decorator will check property value is creditcardtype or not. ",
+      "path": "creditCard",
+      "loadChildren": "./creditCard/creditCard.module#CreditCardModule"
+    },
+    {
+      "title": "@dataUri",
+      "description": "DataUri validation decorator allows user to enter the input which is in the proper data URI format. ",
+      "path": "dataUri",
+      "loadChildren": "./dataUri/dataUri.module#DataUriModule"
+    },
+    {
+      "title": "@different",
+      "description": "different validation decorator will check whether two value if they are different it will be valid",
+      "path": "different",
+      "loadChildren": "./different/different.module#DifferentModule"
+    }, 
+    {
+      "title": "@digit",
+      "description": "Digit validation decorator will allow only digits to be entered. ",
+      "path": "digit",
+      "loadChildren": "./digit/digit.module#DigitModule"
+    },
+    {
+      "title": "@email",
+      "description": "Email validation decorator will allow only emails to be entered. ",
+      "path": "email",
+      "loadChildren": "./email/email.module#EmailModule"
+    },
+    {
+      "title": "@endsWith",
+      "description": "EndsWith validation decorator allows user to enter the input which ends with perticular value ",
+      "path": "endsWith",
+      "loadChildren": "./endsWith/endsWith.module#EndsWithModule"
+    },
+    {
+      "title": "@even",
+      "description": "Even validation decorator will check whether the value entered is a Even or not.",
+      "path": "even",
+      "loadChildren": "./even/even.module#EvenModule"
+    },
+    {
+      "title": "@factor",
+      "description": "factor validation decorator will check whether the value entered is factor of the particular value. ",
+      "path": "factor",
+      "loadChildren": "./factor/factor.module#FactorModule"
+    },
+    {
+      "title": "@fileSize",
+      "description": "FileSize validation decorator allows user to enter the input which is in the proper fileSize format.",
+      "path": "fileSize",
+      "loadChildren": "./fileSize/fileSize.module#FileSizeModule"
+    },
+    {
+      "title": "@greaterThanEqualTo",
+      "description": "Greater than equal to validation decorator will check that input property is greater than equal to value. ",
+      "path": "greaterThanEqualTo",
+      "loadChildren": "./greaterThanEqualTo/greaterThanEqualTo.module#GreaterThanEqualToModule"
+    },
+    {
+      "title": "@greaterThan",
+      "description": "Greater than validation decorator will check that input property is greater than related field input.",
+      "path": "greaterThan",
+      "loadChildren": "./greaterThan/greaterThan.module#GreaterThanModule"
+    },
+ 
+    {
+      "title": "@hexColor",
+      "description": "HexColor validation decorator will allow only Hex Color to be entered.",
+      "path": "hexColor",
+      "loadChildren": "./hexColor/hexColor.module#HexColorModule"
+    },
+    {
+      "title": "@json",
+      "description": "json validation decorator will allow only Json to be entered.",
+      "path": "json",
+      "loadChildren": "./json/json.module#JsonModule"
+    },
+    {
+      "title": "@latitude",
+      "description": "Latitude validation decorator allows user to enter the input which is in the proper latitude format.",
+      "path": "latitude",
+      "loadChildren": "./latitude/latitude.module#LatitudeModule"
+    },
+    {
+      "title": "@latLong",
+      "description": "LatLong validation decorator allows user to enter the input which is in the proper Latitude or longitude "      ,
+      "path": "latLong",
+      "loadChildren": "./latLong/latLong.module#LatLongModule"
+    },
+    {
+      "title": "@leapYear",
+      "description": "LeapYear validation decorator will check whether the value entered is a leap year or not."      ,
+      "path": "leapYear",
+      "loadChildren": "./leapYear/leapYear.module#LeapYearModule"
+    },
+    {
+      "title": "@lessThanEqualTo",
+      "description": "Less than equal to validation decorator will check that input property is less than equal to value. ",
+      "path": "lessThanEqualTo",
+      "loadChildren": "./lessThanEqualTo/lessThanEqualTo.module#LessThanEqualToModule"
+    },
+    {
+      "title": "@lessThan",
+      "description": "Less than validation decorator will check that input property is less than value. ",
+      "path": "lessThan",
+      "loadChildren": "./lessThan/lessThan.module#LessThanModule"
+    }, 
+    {
+      "title": "@longitude",
+      "description": "Longitude validation decorator allows user to enter the input which is in the proper longitude format. ",
+      "path": "longitude",
+      "loadChildren": "./longitude/longitude.module#LongitudeModule"
+    }, 
+    {
+      "title": "@lowerCase",
+      "description": "lowerCase validation decorator will allow only lowercase to be entered. ",
+      "path": "lowerCase",
+      "loadChildren": "./lowerCase/lowerCase.module#LowerCaseModule"
+    },
+    {
+      "title": "@mac",
+      "description": "mac validation decorator will check whether the value entered is in proper format of mac address.",
+      "path": "mac",
+      "loadChildren": "./mac/leapYmacear.module#MacModule"
+    },
+    {
+      "title": "@maxDate",
+      "description": "MaxDate validation decorator will allow only maximum date be entered upto value parameter. ",
+      "path": "maxDate",
+      "loadChildren": "./maxDate/maxDate.module#MaxDateModule"
+    },
+    {
+      "title": "@maxLength",
+      "description": "MaxLength validation decorator will allow only maximum length be entered upto value parameter.",
+      "path": "maxLength",
+      "loadChildren": "./maxLength/maxLength.module#MaxLengthModule"
+    },
+    {
+      "title": "@maxNumber",
+      "description": "MaxNumber validation decorator will allow only maximum number be entered upto value parameter.",
+      "path": "maxNumber",
+      "loadChildren": "./maxNumber/maxNumber.module#MaxNumberModule"
+    },
+ 
+    {
+      "title": "@minDate",
+      "description": "Minimum Date validation decorator will allow only minimum date be entered upto value parameter.",
+      "path": "minDate",
+      "loadChildren": "./minDate/minDate.module#MinDateModule"
+    },
+    {
+      "title": "@minLength",
+      "description": "MinLength validation decorator will allow only minimum length be entered upto value parameter. ",
+      "path": "minLength",
+      "loadChildren": "./minLength/minLength.module#MinLengthModule"
+    },
+    {
+      "title": "@minNumber",
+      "description": "MinNumber validation decorator will allow only minimum number be entered upto value parameter. ",
+      "path": "minNumber",
+      "loadChildren": "./minNumber/minNumber.module#MinNumberModule"
+    },
+    {
+      "title": "@numeric",
+      "description": "numeric validation decorator will check whether the value entered is a valid number or not.",
+      "path": "numeric",
+      "loadChildren": "./numeric/numeric.module#NumericModule"
+    },
+    
+    {
+      "title": "@odd",
+      "description": "Odd validation decorator will check whether the value entered is a odd or not.",
+      "path": "odd",
+      "loadChildren": "./odd/odd.module#OddModule"
+    },
+    {
+      "title": "@password",
+      "description": "Password validation decorator will allow only password pattern according for PasswordValidation parameters to be entered. ",
+      "path": "password",
+      "loadChildren": "./password/password.module#PasswordModule"
+    },
+    {
+      "title": "@pattern",
+      "description": "Pattern validation decorator will allow only match input as pattern to be entered.",
+      "path": "pattern",
+      "loadChildren": "./pattern/pattern.module#PatternModule"
+    },
+    {
+      "title": "@port",
+      "description": "Port validation decorator allows user to enter the input which is in the proper port format.",
+      "path": "port",
+      "loadChildren": "./port/port.module#PortModule"
+    },
+    {
+      "title": "@primeNumber",
+      "description": "PrimeNumber validation decorator allows user to enter only the prime number. ",
+      "path": "primeNumber",
+      "loadChildren": "./primeNumber/primeNumber.module#PrimeNumberModule"
+    },
+    {
+      "title": "@range",
+      "description": "Range validation decorator will allow only in specify range will be entered. ",
+      "path": "range",
+      "loadChildren": "./range/range.module#RangeModule"
+    },
+    {
+      "title": "@required",
+      "description": "Required validation decorator will check that value is entered or not in the property.",
+      "path": "required",
+      "loadChildren": "./required/required.module#RequiredModule"
+    },
+    {
+      "title": "@startsWith",
+      "description": "StartsWith validation decorator allows user to enter the input which starts with perticular value",
+      "path": "startsWith",
+      "loadChildren": "./startsWith/startsWith.module#StartsWithModule"
+    },
+    {
+      "title": "@time",
+      "description": "Time validation decorator will allow only time format to be entered.",
+      "path": "time",
+      "loadChildren": "./time/time.module#TimeModule"
+    },
+    {
+      "title": "@upperCase",
+      "description": "Upper Case validation decorator will allow only uppercase to be entered.",
+      "path": "upperCase",
+      "loadChildren": "./upperCase/upperCase.module#UpperCaseModule"
+    },
+    {
+      "title": "@url",
+      "description": "Url validation decorator will check that value is url or not in the property.",
+      "path": "url",
+      "loadChildren": "./url/url.module#UrlModule"
+    }
+
+  ]
+}

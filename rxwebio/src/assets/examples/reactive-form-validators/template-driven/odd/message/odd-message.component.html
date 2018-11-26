@@ -1,0 +1,12 @@
+<div>
+  <form #userForm = "ngForm">
+    <div class="form-group">
+      <label>Multiples of Odd Number</label>
+      <input type="text" name="multiplesOfOddNumber" [(ngModel)]="user.multiplesOfOddNumber"  class="form-control"  [odd]="{'message':'Multiples of Odd Number is not an odd number'}" />
+      <small class="form-text text-muted">you can enter only an odd number<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.multiplesOfOddNumber?.errors">{{userForm.controls.multiplesOfOddNumber?.errors.odd.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

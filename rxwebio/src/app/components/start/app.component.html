@@ -1,0 +1,7 @@
+<div>
+  <app-top-bar *ngIf="!isHome"></app-top-bar>
+  <aside id="menu" *ngIf="!isHome">
+    <app-side-bar></app-side-bar>
+  </aside>
+  <router-outlet></router-outlet>
+</div>

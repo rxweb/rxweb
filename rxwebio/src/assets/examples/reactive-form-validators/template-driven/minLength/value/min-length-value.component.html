@@ -1,0 +1,12 @@
+<div>
+  <form #contactForm = "ngForm">
+    <div class="form-group">
+      <label>Mobile No.</label>
+      <input type="text" name="mobileNo" [(ngModel)]="contact.mobileNo"  class="form-control"  [minLength]="{'value':10}" />
+      <small class="form-text text-muted">Minimum length upto 10 characters.<br/></small>
+      <small class="form-text text-muted">Shows message from ReactiveFormConfig.<br/></small>
+	   <small class="form-text text-danger" *ngIf="contactForm.controls.mobileNo?.errors">{{contactForm.controls.mobileNo?.errors.minLength.message}}<br/></small>	
+    </div>
+    <button [disabled]="!contactForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

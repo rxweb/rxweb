@@ -1,0 +1,11 @@
+<div>
+  <form #numberinfoForm = "ngForm">
+    <div class="form-group">
+      <label>First Country Longitude</label>
+      <input type="text" name="firstCountryLongitude" [(ngModel)]="numberinfo.firstCountryLongitude"  class="form-control"  longitude />
+      <small class="form-text text-muted">You must enter a valid longitude<br/></small>
+	   <small class="form-text text-danger" *ngIf="numberinfoForm.controls.firstCountryLongitude?.errors">{{numberinfoForm.controls.firstCountryLongitude?.errors.longitude.message}}<br/></small>	
+    </div>
+    <button [disabled]="!numberinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

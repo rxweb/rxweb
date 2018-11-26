@@ -1,0 +1,22 @@
+<div >
+    <div class="model-ts combined">
+        <a class="float-right file-icon" *ngIf="tabArray.length > 0" (click)="showElement = !showElement"><i aria-hidden="true" class="fa fa-code"></i></a>
+        <div class="code-example-title" *ngIf='title'>
+            {{title}}
+        </div>
+        <div *ngIf="showElement" class="showHideExample">
+            <ul class="nav nav-tabs">
+                <li *ngFor="let tab of tabArray" [class.active]="activeTab == tab.tabName" (click)="activeTab  = tab.tabName"><a>{{tab.tabName}}</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" *ngFor="let tab of tabArray" [class.active]="activeTab == tab.tabName">
+                    <app-code [content]="tab.content"></app-code>
+                </div>
+            </div>
+            <hr/>
+        </div>
+        <div class="code-example">
+            <code-example [Component]="refComponent"></code-example>
+        </div>
+    </div>
+</div>
