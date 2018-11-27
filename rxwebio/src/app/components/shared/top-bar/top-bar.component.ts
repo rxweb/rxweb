@@ -10,12 +10,15 @@ import { Router } from "@angular/router";
 })
 
 export class TopBarComponent{
+
   hideSideBar(): void {
     const body = document.getElementsByTagName('body')[0];
+    
     if (window.innerWidth < 769) {
       body.classList.toggle('show-sidebar');
     } else {
       body.classList.toggle('hide-sidebar');
     }
   }
+
 }
