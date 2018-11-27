@@ -15,7 +15,17 @@ export class RightSideBarComponent implements OnInit {
     @Input('sidebarLinks') sidebarLinks: any={};
     showComponent: boolean = false;
     contributorList:any=[];
+    gitEditUrl:string="https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/";
     ngOnInit(): void {
+
+        if(location.pathname.includes("form-validation"))
+        {
+            this.gitEditUrl+="/validation-decorators/" + location.pathname.split('/')[2] +".md"
+        }
+        else
+        {
+            this.gitEditUrl+= location.pathname.split('/')[1] +".md"
+        }
         //let url = 'https://api.github.com/repos/rxweb/rxweb/';
 		//if (location.pathname.split('/')[1] && !location.pathname.split('/')[2])
         //    url += 'commits?path=docs/reactive-form-validators/'+location.pathname.split('/')[1]+".md"
