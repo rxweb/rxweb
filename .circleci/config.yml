@@ -14,7 +14,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: ~/rxweb.io
+    working_directory: ~/rxwebio
 
     steps:
       - checkout
@@ -26,7 +26,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: cd rxweb.io && yarn install
+      - run: cd rxwebio && yarn install
 
       - save_cache:
           paths:
@@ -35,4 +35,4 @@ jobs:
         
       # run tests!
       
-      - run: cd rxweb.io && yarn prod
+      - run: cd rxwebio && yarn prod
