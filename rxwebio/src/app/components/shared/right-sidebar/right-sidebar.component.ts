@@ -49,7 +49,7 @@ export class RightSideBarComponent implements OnInit {
         node.scrollIntoView(true);
         var scrolledY = window.scrollY;
         if (scrolledY) {
-            window.scroll(0, scrolledY - 62);
+            window.scroll(0, scrolledY - 15);
         }
         return false;
     }
