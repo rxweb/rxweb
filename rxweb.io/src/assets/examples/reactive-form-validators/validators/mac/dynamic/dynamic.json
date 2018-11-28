@@ -1,1 +1,0 @@
-{"device":{"mac":true},"localMacAddress":{"conditionalExpression":"'x => x.device ==\"Laptop\"'"},"systemMacAddress":{"message":"'{{0}} is not a MAC address'"}}

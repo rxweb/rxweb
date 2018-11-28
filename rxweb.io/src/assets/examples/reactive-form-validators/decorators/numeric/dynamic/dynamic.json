@@ -1,1 +1,0 @@
-{"dataType":{"numeric":true},"negativeNumber":{"acceptValue":"NumericValueType.NegativeNumber","message":"'{{0}} is not a negative number'"},"decimalNumber":{"allowDecimal":"true","message":"'{{0}} is not a decimal number'"},"realNumber":{"acceptValue":"NumericValueType.Both","conditionalExpression":"'x => x.dataType == \"Real\"'"}}

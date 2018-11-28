@@ -1,1 +1,0 @@
-{"name":{"leapYear":true},"admissionYear":{"conditionalExpression":"'x => x.name == \"Bharat\"'"},"joiningYear":{"message":"'{{0}} is not a leap year'"}}
