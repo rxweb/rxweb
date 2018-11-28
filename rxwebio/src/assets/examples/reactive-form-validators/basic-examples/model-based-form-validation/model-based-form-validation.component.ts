@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,Validators } from "@angular/forms"
 import { RxFormBuilder,FormBuilderConfiguration,RxwebValidators } from '@rxweb/reactive-form-validators';
-import { Country } from "src/assets/examples/reactive-form-validators/basic-examples/model-based-from-validation/model-based-from-validation.model";
+import { Country } from "src/assets/examples/reactive-form-validators/basic-examples/model-based-form-validation/model-based-form-validation.model";
 
 
 @Component({
-    selector: 'app-model-based-from-validation',
-    templateUrl: './model-based-from-validation.component.html'
+    selector: 'app-model-based-form-validation',
+    templateUrl: './model-based-form-validation.component.html'
 })
-export class ModelBasedFromValidationComponent implements OnInit {
+export class ModelBasedFormValidationComponent implements OnInit {
 
     countryFormGroup: FormGroup
 

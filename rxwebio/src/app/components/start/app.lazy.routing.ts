@@ -20,7 +20,7 @@ const APP_LAZY_ROUTES: Routes = [
     path: 'getting-started', component: GettingStartedComponent
   },
   {
-    path: 'form-validation',
+    path: 'form-validations',
     loadChildren: 'src/app/components/form-validation/form-validation.module#FormValidationModule',
   },
  

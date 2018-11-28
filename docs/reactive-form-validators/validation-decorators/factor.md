@@ -1,6 +1,6 @@
 ---
 title: factor 
-description: factor validation decorator will allow user to enter factor of a number which is called dividend.
+description: factor validation  {{validatorType}}  will allow user to enter factor of a number which is called dividend.
 author: rxcontributorone
 
 ---
@@ -13,7 +13,7 @@ Suppose you want to create a user form in which you want user to enter factor of
    <li>Apply factor validation based of dividend, dividend is the value for which factors are calculated.</li>
    <li>Apply factor validation dynamically based on server rules.</li>
 </ol>
-Let’s see how factor decorator fulfil the need.
+Let’s see how factor  {{validatorType}}  fulfil the need.
 
 # Basic Factor Validation
 
@@ -56,10 +56,10 @@ Below options are not mandatory to use in the `@factor()` decorator. If needed t
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a href="#dividend" (click)='scrollTo("#dividend")' title="dividend">dividend</a></td><td>Dividend is the value for which factors are calculated.</td></tr>
-<tr><td><a href="#fieldName" (click)='scrollTo("#fieldName")' title="fieldName">Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
-<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>factor validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a (click)='scrollTo("#dividend")' title="dividend">dividend</a></td><td>Dividend is the value for which factors are calculated.</td></tr>
+<tr><td><a (click)='scrollTo("#fieldName")' title="fieldName">Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
+<tr><td><a (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>factor validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## dividend 

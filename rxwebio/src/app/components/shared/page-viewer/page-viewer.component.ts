@@ -32,7 +32,7 @@ export class PageViewerComponent extends BaseComponentProvider implements OnInit
         let elements = this.element.querySelectorAll("[component]");
         Array.prototype.slice.call(elements).forEach((element: HTMLDivElement) => {
             let componentName = element.getAttribute("component");
-            var params = this.getPramas(element,componentName);            
+            var params = this.getPramas(element,componentName);      
             switch (componentName) {
                 case "app-code":
                     element.appendChild(this.create(AppCodeComponent,params).rootNode());
@@ -49,6 +49,15 @@ export class PageViewerComponent extends BaseComponentProvider implements OnInit
 
             }
         })
+    }
+     scrollTo(section) {
+        var node = document.querySelector('#' + section);
+        node.scrollIntoView(true);
+        var scrolledY = window.scrollY;
+        if (scrolledY) {
+            window.scroll(0, scrolledY - 62);
+        }
+        return false;
     }
 }
 

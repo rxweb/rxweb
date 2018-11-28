@@ -5,10 +5,25 @@ import { PageViewerComponent } from "src/app/components/shared/page-viewer/page-
 import { ActivatedRoute } from "@angular/router";
 import { Inject } from "@angular/core";
 import { COMPONENT_EXAMPLE } from "src/app/domain/application.const";
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   templateUrl: './page.component.html',
-  entryComponents:[PageViewerComponent]
+  entryComponents:[PageViewerComponent],
+  // animations: [
+  //   trigger(
+  //     'enterAnimation', [
+  //       transition(':enter', [
+  //         style({transform: 'translateX(100%)', opacity: 0}),
+  //         animate('2000ms', style({transform: 'translateX(0)', opacity: 1}))
+  //       ]),
+  //       transition(':leave', [
+  //         style({transform: 'translateX(0)', opacity: 1}),
+  //         animate('2000ms', style({transform: 'translateX(100%)', opacity: 0}))
+  //       ])
+  //     ]
+  //   )
+  // ],
 })
 export class PageComponent implements OnInit {
   showComponent: boolean = false;
@@ -55,6 +70,16 @@ export class PageComponent implements OnInit {
   }
 
   route(typeName:string){
-    this.router.navigate(['form-validation',this.validationName,typeName])
+    this.router.navigate(['form-validations',this.validationName,typeName])
   }
+
+  scrollTo(section) {
+        var node = document.querySelector('#' + section);
+        node.scrollIntoView(true);
+        var scrolledY = window.scrollY;
+        if (scrolledY) {
+            window.scroll(0, scrolledY - 62);
+        }
+        return false;
+    }
 }

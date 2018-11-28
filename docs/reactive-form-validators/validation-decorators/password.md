@@ -1,6 +1,6 @@
 ---
 title: password  
-description: Password validation decorator will allow user to enter only the input according to correct password validation format.
+description: Password validation  {{validatorType}}  will allow user to enter only the input according to correct password validation format.
 author: rxcontributorone
 
 ---
@@ -49,11 +49,11 @@ Next, we need to write html code.
 </data-scope>
 
 # PasswordConfig 
-message options are not mandatory to use in the `@password()` decorator but validation is mandatory. If needed then use the below options.
+message options are not mandatory to use in the `@password()`  {{validatorType}}  but validation is mandatory. If needed then use the below options.
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 <tr><td><a href="#validation" (click)='scrollTo("#validation")'  title="validation">Validation</a></td><td> Validation is used for setting the parameters for password validation, In Password validation there is validations on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</td></tr>
 </table>
 

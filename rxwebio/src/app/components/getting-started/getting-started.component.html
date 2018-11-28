@@ -88,7 +88,30 @@
                             </div>
                             <div class="row" id="examples" key="dynamic">
                                 <div class='col-lg-12'>
-                                      <h4>Examples</h4>
+                                    <h2>Examples</h2>
+                                    <div class="row">
+                                        <div class='col-lg-12'>
+                                            <h4>Reactive Form Based Validation</h4>
+                                            <p>Quick, to give you highlevel understanding about how rxweb validation apply on
+                                                reactive forms.</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class='col-lg-12'>
+                                            <h4>Template Form Based Validation</h4>
+                                            <p>Quick, to give you highlevel understanding about how rxweb validation apply on
+                                                template driven forms.</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class='col-lg-12'>
+                                            <h4>Model Based Form Validation</h4>
+                                            <p>This is the new way to validate the form based on your configured validation
+                                                on model properties. To give you quick highlight about how validation will
+                                                work based on configured validation on model properties. You can use model
+                                                based validation on reactive form and template driven form.</p>
+                                        </div>
+                                    </div>
                                     <p>For basic example, I am covering only required validation with respective form based
                                         validation approaches.</p>
                                     <ul class="nav nav-tabs">
@@ -158,7 +181,7 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane" [class.active]="mainTab=='model-based-form-validation'">
-                                           <ul class="nav nav-tabs">
+                                            <ul class="nav nav-tabs">
                                                 <li [class.active]="modelBasedFormValidation=='Example'" (click)="modelBasedFormValidation='Example'"><a>Example</a></li>
                                                 <li [class.active]="modelBasedFormValidation=='Component'" (click)="modelBasedFormValidation='Component'"><a>Component</a></li>
                                                 <li [class.active]="modelBasedFormValidation=='Model'" (click)="modelBasedFormValidation='Model'"><a>Model</a></li>

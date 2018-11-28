@@ -1,6 +1,6 @@
 ---
 title: leapYear
-description: LeapYear validation decorator will check whether the value entered is a leap year or not.
+description: LeapYear validation  {{validatorType}}  will check whether the value entered is a leap year or not.
 author: rxcontributortwo
 
 ---
@@ -12,7 +12,7 @@ Suppose you want to create a user value form, which contains fields like name, b
     <li>Adding Custom Message on joining Field.</li>
     <li>Apply leapyear validation dynamically based on server rules.</li>
 </ol>
-Let’s see how LeapYear decorator fulfil the need.
+Let’s see how LeapYear  {{validatorType}}  fulfil the need.
 
 # Basic LeapYear Validation
 
@@ -55,8 +55,8 @@ Below options are not mandatory to use in the `@leapYear()` decorator. If needed
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a href="#conditionalExpression" title="conditionalExpression">conditionalExpression</a></td><td>LeapYear validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a href="#message" title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a  title="conditionalExpression">conditionalExpression</a></td><td>LeapYear validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## conditionalExpression 

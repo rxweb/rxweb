@@ -8,20 +8,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130013927-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-130013927-1');
+</script>
+
+
   <script src="assets/scripts/jquery.min.js"></script>
   <script src="assets/scripts/metisMenu.min.js"></script>
   <script src="assets/scripts/bootstrap.min.js"></script>
+  <script src="assets/scripts/custom.js"></script>
   <link rel="text/stylesheet" href="assets/styles/bootstrap.min.css" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body class="fixed-navbar sidebar-scroll" data-spy="scroll" data-target="#rightsidebar" data-offset="184">
   <app-root></app-root>
-  <!--<script>
-    $(document).ready(function () {
-      $("#side-menu").metisMenu();
-    })
-  </script>-->
+  <script>
+    //  $(document).ready(function () {
+    //    $("#side-menu").metisMenu();
+    //  })
+  </script>
 </body>
 
 </html>
