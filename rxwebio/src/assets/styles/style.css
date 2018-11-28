@@ -4392,7 +4392,7 @@ body.modal-open {
     background: #ffffff;
     min-height: 100%;
     padding-top: 20px;
-    padding-bottom: 70px;
+    padding-bottom: 0px;
 }
 
 #side-menu li a {
@@ -5523,8 +5523,8 @@ pre {
 }
 .hljs {
   background-color:transparent !important;
-  font-size: 17spx !important;
-    line-height: 27px !important;
+  font-size: 17px !important;
+    line-height: 17px !important;
 }
 
 .padding-zero-tab {
@@ -5559,7 +5559,7 @@ pre {
   text-decoration: none;
 }
 #navigation {
-  height: 100%;
+  min-height: 100%;
   margin-top: 62px;
   display: inline-block;
   overflow: hidden; 

@@ -33,7 +33,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="password-edit-component"></div>
 The below code is `login-info-data.json` for getting data from the server 
-<div component="app-code" key="data-password"></div> 
+<div component="app-code" key="password-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="password-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-password-edit"></div>
@@ -53,8 +53,8 @@ message options are not mandatory to use in the `@password()` decorator but vali
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a href="#message" (click)='scrollTo("#message")' title="message">Message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
-<tr><td><a href="#validation" (click)='scrollTo("#validation")'  title="validation"> Validation is used for setting the parameters for password validation, In Password validation there is validations on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</td></tr>
+<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a title="validation">[validation](#validation)</a>Validation is used for setting the parameters for password validation, In Password validation there is validations on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</td></tr>
 
 ## message 
 Type :  `string` 

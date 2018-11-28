@@ -34,7 +34,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="minDate-edit-component"></div>
 The below code is `user-data.json` for getting data from the server 
-<div component="app-code" key="data-minDate"></div> 
+<div component="app-code" key="minDate-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="minDate-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-minDate-edit"></div>
@@ -54,9 +54,10 @@ message and conditional expression options are not mandatory to use in the `@min
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")'   title="conditionalExpression">conditionalExpression</a></td><td>minDate validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a href="#message" (click)='scrollTo("#message")'  title="message">Message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
-<tr><td><a href="#value" (click)='scrollTo("#value")'  title="value">value</a></td>enter value which you want to restrict date in the property.</td></tr>
+<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>minDate validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a title="value">[value](#value)</a></td><td>enter value which you want to restrict date in the property.</td></tr>
+</table>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -99,7 +100,7 @@ This Complete minDate example which includes all the DateConfig properties will 
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="minDate-complete-model"></div> 
-# [/Model] 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="minDate-complete-component"></div> 
@@ -133,6 +134,6 @@ This Dynamic minDate example which execute based on json passed. conditional exp
 # [/Json]
 # [Html](#tab\dynamichtml)
 <div component="app-code" key="minDate-dynamic-html"></div> 
-# [/Html] 
+# [/Html]
 ***
 </data-scope>

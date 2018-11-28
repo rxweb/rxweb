@@ -14,23 +14,22 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { FooterComponent } from "src/app/components/shared/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FilterPipe } from "src/app/pipes/filter.pipe";
-import { ImportModulesComponent } from "src/app/components/import-modules/import.modules.component";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
-import { ConfigureGlobalValidationMessagesComponent } from "src/app/components/configure-global-validation-messages/configure-global-validation-messages.component";
 import { DisqusSharedModule } from "src/app/components/shared/disqus/disqus-shared.module";
 import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
 import { HomeComponent } from "src/app/components/home/home.component";
+import { GettingStartedComponent } from "src/app/components/getting-started/getting-started.component";
+import { BasicExamplesExtendedModule } from "src/assets/examples/reactive-form-validators/basic-examples/basic-examples-extended.module";
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe,ImportModulesComponent,ConfigureGlobalValidationMessagesComponent,HomeComponent
+    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe,GettingStartedComponent,HomeComponent
   ],
-  imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,
+  imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,
     HighlightModule.forRoot({ theme: 'default' }), ClipboardModule ,
-    
   ],
   providers: [ApplicationBroadcaster],
 exports:[RouterModule],

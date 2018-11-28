@@ -32,8 +32,10 @@
         <ul class="list-unstyled" >
             <li class="nav-item" *ngFor="let item of sidebarLinks;let i = index" [class.d-flex]="i == 0" [class.border-none]="i == 0"  [class.sidebar-list]="item.subLink?.length > 0">
                 <a class="nav-link sidebar-link" [class.child-item-list]="item.subLink?.length > 0" href="#{{item.id}}" [class.active]="i == 0" (click)="scrollTo(item.id)">{{item.title}}</a>
+                    <a *ngIf="i == 0" target="_blank" href="{{gitEditUrl}}" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <ul class="list-unstyled" [class.child-list]="item.subLink?.length > 0">
                     <li *ngFor="let obj of item.subLink" class="nav-item px-1"><a class="nav-link" href="#{{obj.id}}" (click)="scrollTo(obj.id)">{{obj.title}}</a></li>
+                    
                 </ul>
             </li>
         </ul>

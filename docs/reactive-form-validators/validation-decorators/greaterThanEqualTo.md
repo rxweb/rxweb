@@ -36,7 +36,7 @@ Next, we need to write html code.
 # [Edit](#tab\basicedit)
 <div component="app-code" key="greaterThanEqualTo-edit-component"></div> 
 The below code is `user-data.json` for getting data from the server
-<div component="app-code" key="data-json"></div> 
+<div component="app-code" key="greaterThanEqualTo-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="greaterThanEqualTo-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-greaterThanEqualTo-edit"></div>
@@ -57,9 +57,9 @@ Below options are not mandatory to use in the `@greaterThanEqualTo()` decorator.
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a href="#fieldName" title="fieldName">fieldName</a></td><td>Greater than Equal to validation should be applied based on the `fieldName` for compare other field value</td></tr>
-<tr><td><a href="#conditionalExpression" title="conditionalExpression">conditionalExpression</a></td><td>GreaterThanEqualTo validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a href="#message" title="message">message</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a title="fieldName">[fieldName](#fieldName)</a></td><td>Greater than Equal to validation should be applied based on the `fieldName` for compare other field value</td></tr>
+<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>GreaterThanEqualTo validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
 </table>
 
 ## fieldName 
@@ -79,7 +79,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="greaterThanEqualTo-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-greaterThanEqualTo-conditionalExpression" title="alpha decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-greaterThanEqualTo-conditionalExpression" title="greaterThanEqualTo decorators with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string`
@@ -100,14 +100,14 @@ This Complete greaterThanEqualTo example which includes all the RelationalOperat
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="greaterThanEqualTo-complete-model"></div> 
-# [/Model] 
+# [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
 <div component="app-code" key="greaterThanEqualTo-complete-component"></div>
-# [/Component]  
+# [/Component]
 # [Html](#tab\completehtml)
 <div component="app-code" key="greaterThanEqualTo-complete-html"></div> 
-# [/Html] 
+# [/Html]
 ***
 
 <data-scope scope="['decorator','validator']">
