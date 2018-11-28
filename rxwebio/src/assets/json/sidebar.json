@@ -12,182 +12,182 @@
           "childrens": [
             {
               "title": "alpha",
-              "uri": "/form-validation/alpha/decorators"
+              "uri": "/form-validation/alpha/validators"
             },
             {
               "title": "alphaNumeric",
-              "uri": "/form-validation/alphaNumeric/decorators"
+              "uri": "/form-validation/alphaNumeric/validators"
             },
             {
               "title": "ascii",
-              "uri": "/form-validation/ascii/decorators"
+              "uri": "/form-validation/ascii/validators"
             },
             {
               "title": "compare",
-              "uri": "/form-validation/compare/decorators"
+              "uri": "/form-validation/compare/validators"
             },
             {
               "title": "contains",
-              "uri": "/form-validation/contains/decorators"
+              "uri": "/form-validation/contains/validators"
             },
            
             {
               "title": "creditCard",
-              "uri": "/form-validation/creditCard/decorators"
+              "uri": "/form-validation/creditCard/validators"
             },
             {
               "title": "dataUri",
-              "uri": "/form-validation/dataUri/decorators"
+              "uri": "/form-validation/dataUri/validators"
             },
             {
               "title": "different",
-              "uri": "/form-validation/different/decorators"
+              "uri": "/form-validation/different/validators"
             },
             {
               "title": "digit",
-              "uri": "/form-validation/digit/decorators"
+              "uri": "/form-validation/digit/validators"
             },
             {
               "title": "email",
-              "uri": "/form-validation/email/decorators"
+              "uri": "/form-validation/email/validators"
             },
             {
               "title": "endsWith",
-              "uri": "/form-validation/endsWith/decorators"
+              "uri": "/form-validation/endsWith/validators"
             },
             {
               "title": "even",
-              "uri": "/form-validation/even/decorators"
+              "uri": "/form-validation/even/validators"
             },
             {
               "title": "factor",
-              "uri": "/form-validation/factor/decorators"
+              "uri": "/form-validation/factor/validators"
             },
             {
               "title": "fileSize",
-              "uri": "/form-validation/fileSize/decorators"
+              "uri": "/form-validation/fileSize/validators"
             },
             {
               "title": "greaterThanEqualTo",
-              "uri": "/form-validation/greaterThanEqualTo/decorators"
+              "uri": "/form-validation/greaterThanEqualTo/validators"
             },
             {
               "title": "greaterThan",
-              "uri": "/form-validation/greaterThan/decorators"
+              "uri": "/form-validation/greaterThan/validators"
             },
            
             {
               "title": "hexColor",
-              "uri": "/form-validation/hexColor/decorators"
+              "uri": "/form-validation/hexColor/validators"
             },
             {
               "title": "json",
-              "uri": "/form-validation/json/decorators"
+              "uri": "/form-validation/json/validators"
             },
             {
               "title": "latitude",
-              "uri": "/form-validation/latitude/decorators"
+              "uri": "/form-validation/latitude/validators"
             },
             {
               "title": "latLong",
-              "uri": "/form-validation/latLong/decorators"
+              "uri": "/form-validation/latLong/validators"
             },
             {
               "title": "leapYear",
-              "uri": "/form-validation/leapYear/decorators"
+              "uri": "/form-validation/leapYear/validators"
             },   
             {
               "title": "lessThanEqualTo",
-              "uri": "/form-validation/lessThanEqualTo/decorators"
+              "uri": "/form-validation/lessThanEqualTo/validators"
             },     
             {
               "title": "lessThan",
-              "uri": "/form-validation/lessThan/decorators"
+              "uri": "/form-validation/lessThan/validators"
             },     
             {
               "title": "longitude",
-              "uri": "/form-validation/longitude/decorators"
+              "uri": "/form-validation/longitude/validators"
             },      
             {
               "title": "lowerCase",
-              "uri": "/form-validation/lowerCase/decorators"
+              "uri": "/form-validation/lowerCase/validators"
             },
             {
               "title": "mac",
-              "uri": "/form-validation/mac/decorators"
+              "uri": "/form-validation/mac/validators"
             },
             {
               "title": "maxDate",
-              "uri": "/form-validation/maxDate/decorators"
+              "uri": "/form-validation/maxDate/validators"
             },
             {
               "title": "maxLength",
-              "uri": "/form-validation/maxLength/decorators"
+              "uri": "/form-validation/maxLength/validators"
             },
             {
               "title": "maxNumber",
-              "uri": "/form-validation/maxNumber/decorators"
+              "uri": "/form-validation/maxNumber/validators"
             },
             {
               "title": "minDate",
-              "uri": "/form-validation/minDate/decorators"
+              "uri": "/form-validation/minDate/validators"
             },
             {
               "title": "minLength",
-              "uri": "/form-validation/minLength/decorators"
+              "uri": "/form-validation/minLength/validators"
             },
             {
               "title": "minNumber",
-              "uri": "/form-validation/minNumber/decorators"
+              "uri": "/form-validation/minNumber/validators"
             },
             {
               "title": "numeric",
-              "uri": "/form-validation/numeric/decorators"
+              "uri": "/form-validation/numeric/validators"
             },
             {
               "title": "odd",
-              "uri": "/form-validation/odd/decorators"
+              "uri": "/form-validation/odd/validators"
             },
             {
               "title": "password",
-              "uri": "/form-validation/password/decorators"
+              "uri": "/form-validation/password/validators"
             },
             {
               "title": "pattern",
-              "uri": "/form-validation/pattern/decorators"
+              "uri": "/form-validation/pattern/validators"
             },
             {
               "title": "port",
-              "uri": "/form-validation/port/decorators"
+              "uri": "/form-validation/port/validators"
             },
             {
               "title": "primeNumber",
-              "uri": "/form-validation/primeNumber/decorators"
+              "uri": "/form-validation/primeNumber/validators"
             },
             {
               "title": "range",
-              "uri": "/form-validation/range/decorators"
+              "uri": "/form-validation/range/validators"
             },
             {
               "title": "required",
-              "uri": "/form-validation/required/decorators"
+              "uri": "/form-validation/required/validators"
             },
             
             {
               "title": "startsWith",
-              "uri": "/form-validation/startsWith/decorators"
+              "uri": "/form-validation/startsWith/validators"
             },
             {
               "title": "time",
-              "uri": "/form-validation/time/decorators"
+              "uri": "/form-validation/time/validators"
             },
             {
               "title": "upperCase",
-              "uri": "/form-validation/upperCase/decorators"
+              "uri": "/form-validation/upperCase/validators"
             },
             {
               "title": "url",
-              "uri": "/form-validation/url/decorators"
+              "uri": "/form-validation/url/validators"
             }   
           ]
         }

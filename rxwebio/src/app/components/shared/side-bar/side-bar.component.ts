@@ -23,6 +23,7 @@ export class SideBarComponent implements OnInit {
     });
   }
   navigateTo(urlObj:string):void{
+    debugger
     if(urlObj!=null)
     {
       this.router.navigateByUrl(urlObj);
