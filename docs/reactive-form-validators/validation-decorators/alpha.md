@@ -43,7 +43,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','templateDriven']">
+<data-scope scope="['validator','template-driven']">
 <div component="app-code" key="alpha-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="alpha-add-html"></div> 
