@@ -4558,13 +4558,26 @@ body.modal-open {
 }
 
 body.hide-sidebar #menu {
-    margin-left: -230px
+    margin-left: -300px
 }
 
 body.hide-sidebar #wrapper, body.hide-sidebar #full-wrapper {
-    margin-left: 60px;
+    margin-left: 0;
 }
-
+.menu-open {
+    color: #0f96e4;
+    position: fixed;
+    left: 0;
+    top:37px;
+    opacity: 0;
+    visibility: hidden;
+   
+}
+.hide-sidebar .menu-open {
+opacity: 1;
+visibility: visible;
+transition: all .4s ease 0s;
+}
 body.page-small #menu {
     margin-left: -250px
 
@@ -6202,7 +6215,4 @@ body.hide-sidebar #menu #navigation {
 body.hide-sidebar #menu .header-link {
     border-bottom-color: transparent;
 }
-.hide-sidebar .header-link.hide-menu svg {
-    position: fixed;
-    left: 5px;
-}
+
