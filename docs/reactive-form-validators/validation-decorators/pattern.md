@@ -60,6 +60,14 @@ message,conditionalExpression options are not mandatory to use in the `@pattern(
 <tr><td><a (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
+## pattern 
+Type :  `string` 
+
+enter specific regex pattern
+
+<div component="app-code" key="pattern-patternExample-model"></div> 
+<div component="app-example-runner" ref-component="app-pattern-pattern" title="pattern decorators with pattern" key="pattern"></div>
+
 ## message 
 Type :  `string` 
 
@@ -80,14 +88,6 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 <div component="app-code" key="pattern-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-pattern-conditionalExpression" title="pattern decorators with conditionalExpression" key="conditionalExpression"></div>
-
-## pattern 
-Type :  `string` 
-
-enter specific regex pattern
-
-<div component="app-code" key="pattern-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-pattern-message" title="pattern decorators with message" key="message"></div>
 
 # Complete pattern Example
 

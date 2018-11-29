@@ -42,10 +42,11 @@ export abstract class BaseComponentProvider implements OnDestroy {
     }
 
     getPramas(element:any,type?:string){
-        if(type == "app-tabs"){
-        debugger;
-        }
         let keyName = element.getAttribute("key");
+        
+          if(keyName=="pattern-complete-model"){
+            debugger
+        }
         let jObject = this.getKeyData(keyName);
         let params = {};
         params["content"] = jObject;
@@ -64,12 +65,10 @@ export abstract class BaseComponentProvider implements OnDestroy {
     }
 
     private getKeyData(keyName:string){
+      
     let jObject = undefined;
             if (keyName != undefined) {
                 var splitedArray = keyName.split('-');
-                
-//                splitedArray  =splitedArray.splice(1,splitedArray.length)
-                //splitedArray  =splitedArray;
                 splitedArray.forEach(t => {
                     if (this.data) {
                         if (jObject)
