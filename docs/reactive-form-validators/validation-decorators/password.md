@@ -19,7 +19,13 @@ First we need to create LoginInfo model class define a property of password in t
 <div component="app-code" key="password-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
-Here we have covered Add and Edit form operations.
+<data-scope scope="['decorator']">
+Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope>
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
