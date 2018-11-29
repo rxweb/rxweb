@@ -67,7 +67,7 @@ Below options are not mandatory to use in the `@CreditCard()` decorator. If need
 </table>
 
 ## creditCardTypes 
-Type :  `creditCardType[]` 
+Type :  `string[]` 
 
 CreditCardTypes is used to define the type of CreditCard enterred by user.
 
