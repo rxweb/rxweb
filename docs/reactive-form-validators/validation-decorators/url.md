@@ -120,8 +120,7 @@ This Dynamic url example which execute based on json passed. conditional express
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="url-dynamic-model"></div>
-# [#Model]
-# [/Component]
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="url-dynamic-component"></div>
