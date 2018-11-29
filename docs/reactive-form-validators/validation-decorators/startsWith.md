@@ -7,9 +7,9 @@ author: rxcontributortwo
 # When to use
 Suppose you want to create a user form, which contains fields like userId, name, profession and taskId and you want the user to enter input which starts with a particular value. Here depending upon the requirement, these scenarios may arise..
 <ol>
-   <li>Apply validation on name field in which you want the user to enter value which starts with ‘j’.</li>
-   <li>Apply startsWith validation based on matched condition in the form, like if the name is 'John', then the profession must starts with     'Senior ' (Used as a function).</li>
-   <li>Apply startsWith validation based on matched condition in the form, like if the name is 'John', then the taskId must starts with '#'     (Used as a string datatype).</li>
+   <li>Apply validation on name field in which you want the user to enter value which starts with ‘n’.</li>
+   <li>Apply startsWith validation based on matched condition in the form, like if the name is 'Bharat', then the profession must starts with     'Senior ' (Used as a function).</li>
+   <li>Apply startsWith validation based on matched condition in the form, like if the name is 'Bharat', then the taskId must starts with '#'     (Used as a string datatype).</li>
    <li>Apply StartsWith validation dynamically based on server rules.</li>
 </ol>
 Let's see how StartsWith  {{validatorType}}  fulfil the need.
