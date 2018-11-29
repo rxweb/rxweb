@@ -126,6 +126,7 @@ This Dynamic minNumber example which execute based on json passed. conditional e
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <div component="app-example-runner" ref-component="app-minNumber-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="minNumber-dynamic-model"></div>
