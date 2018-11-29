@@ -10,7 +10,7 @@ export class MinNumberAddValidatorComponent implements OnInit {
     resultInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

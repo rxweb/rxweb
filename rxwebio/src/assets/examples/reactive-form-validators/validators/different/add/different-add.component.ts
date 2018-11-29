@@ -10,7 +10,7 @@ export class DifferentAddValidatorComponent implements OnInit {
     accountInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

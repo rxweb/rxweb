@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
       <label>Age</label>
-      <input type="text" name="age" [(ngModel)]="user.age"  class="form-control"  [pattern]="{'pattern':{'onlyDigit': RegExp('/^[0-9]*$/')},'conditionalExpression':'x => x.userName==\'Bharat\''}" />
+      <input type="text" name="age" [(ngModel)]="user.age"  class="form-control"  [pattern]="{'pattern':{'onlyDigit': RegExp('/^[0-9]*$new /')},'conditionalExpression':'x => x.userName==\'Bharat\''}" />
       <small class="form-text text-muted">It checked that age match with digit regex or not and it conditionaly applied when userName is Bharat<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.age?.errors">{{userForm.controls.age?.errors.onlyDigit.message}}<br/></small>	

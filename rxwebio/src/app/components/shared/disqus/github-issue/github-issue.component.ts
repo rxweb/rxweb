@@ -28,8 +28,8 @@ export class GitHubIssueComponent implements OnInit {
         this.openIssuesList = [];
         this.closedIssuesList = [];
         var url = 'https://api.github.com/repos/rxweb/rxweb/issues?state=open';
-        if (location.pathname.split('/')[3] && location.pathname.split('/')[2])
-            url += '&labels='+ location.pathname.split('/')[3]+':' + location.pathname.split('/')[2];
+        if (location.pathname.split('/')[2])
+            url += '&labels=' + location.pathname.split('/')[2];
         this.http.get(url).subscribe((response: any[]) => {
             for (var i = 0; i < response.length; i++) {
                 this.setIssueList(response[i], 'open');
@@ -43,8 +43,9 @@ export class GitHubIssueComponent implements OnInit {
         this.openIssuesList = [];
         this.closedIssuesList = [];
         var url = 'https://api.github.com/repos/rxweb/rxweb/issues?state=closed';
-        if (location.pathname.split('/')[3] && location.pathname.split('/')[2])
-            url += '&labels='+ location.pathname.split('/')[3]+':' + location.pathname.split('/')[2];
+        if (location.pathname.split('/')[2])
+            url += '&labels=' + location.pathname.split('/')[2];
+
         this.http.get(url).subscribe((response: any[]) => {
             for (var i = 0; i < response.length; i++) {
                 this.setIssueList(response[i], 'close');

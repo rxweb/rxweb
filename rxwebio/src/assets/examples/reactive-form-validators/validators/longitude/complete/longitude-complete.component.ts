@@ -10,7 +10,7 @@ export class LongitudeCompleteValidatorComponent implements OnInit {
     countryFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

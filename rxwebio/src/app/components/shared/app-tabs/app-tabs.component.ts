@@ -15,6 +15,7 @@ export class AppTabsComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
+      debugger;
       this.activeTab = this.tabArray[0].tabName;
   }
 }

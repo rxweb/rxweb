@@ -4,7 +4,6 @@
       <label>Area Name</label>
       <input type="text" name="areaName" [(ngModel)]="location.areaName"  class="form-control"  alphaNumeric />
 	   <small class="form-text text-danger" *ngIf="locationForm.controls.areaName?.errors">{{locationForm.controls.areaName?.errors.alphaNumeric.message}}<br/></small>	
-     {{locationForm | json}}
     </div>
     <button [disabled]="!locationForm.valid" class="btn btn-primary">Submit</button>
   </form>

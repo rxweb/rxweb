@@ -14,7 +14,7 @@ export class NumericConditionalExpressionValidatorComponent implements OnInit {
 	
 	
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

@@ -10,7 +10,7 @@ export class RangeMessageValidatorComponent implements OnInit {
     employeeInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
