@@ -10,7 +10,7 @@ export class ContainsValueValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

@@ -10,7 +10,7 @@ export class HexColorConditionalExpressionValidatorComponent implements OnInit {
     hexcolorInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

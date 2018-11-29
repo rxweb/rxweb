@@ -10,7 +10,7 @@ export class AlphaNumericConditionalExpressionValidatorComponent implements OnIn
     locationFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

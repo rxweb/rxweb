@@ -92,7 +92,7 @@ This Complete Odd example which includes all the BaseConfig properties will fulf
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
 # [Example](#tab\completeexample)
-<div component="app-odd-complete"></div>
+<div component="app-example-runner" ref-component="app-odd-complete"></div>
 # [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\completemodel)
@@ -116,7 +116,7 @@ This Dynamic odd example which execute based on json passed. conditional express
 
 [!TabGroup]
 # [Example](#tab\dynamicexample)
-<div component="app-odd-dynamic"></div>
+<div component="app-example-runner" ref-component="app-odd-dynamic"></div>
 # [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)

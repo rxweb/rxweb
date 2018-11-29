@@ -10,7 +10,7 @@ export class NumericAllowDecimalValidatorComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

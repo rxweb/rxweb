@@ -13,7 +13,7 @@ export class User {
 	contactNumber: number;
 
 	//If you want to apply conditional expression of type 'string'
-	@pattern({pattern:{'onlyDigit': RegExp('/^[0-9]*$/')}  ,conditionalExpression:'x => x.userName=="Bharat"' }) 
+	@pattern({pattern:{'onlyDigit': RegExp('/^[0-9]*$new /')}  ,conditionalExpression:'x => x.userName=="Bharat"' }) 
 	age: string;
 
 }

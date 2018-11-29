@@ -13,7 +13,7 @@ export class CreditCardAddValidatorComponent implements OnInit {
 	
 	
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

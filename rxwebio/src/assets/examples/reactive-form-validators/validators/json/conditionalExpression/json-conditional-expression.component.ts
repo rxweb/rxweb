@@ -10,7 +10,7 @@ export class JsonConditionalExpressionValidatorComponent implements OnInit {
     jsonInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

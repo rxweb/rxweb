@@ -10,7 +10,7 @@ export class PrimeNumberCompleteValidatorComponent implements OnInit {
     numberInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

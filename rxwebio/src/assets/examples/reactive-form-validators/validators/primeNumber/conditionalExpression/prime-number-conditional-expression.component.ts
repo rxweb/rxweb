@@ -10,7 +10,7 @@ export class PrimeNumberConditionalExpressionValidatorComponent implements OnIni
     numberInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

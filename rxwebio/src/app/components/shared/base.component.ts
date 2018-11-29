@@ -42,7 +42,9 @@ export abstract class BaseComponentProvider implements OnDestroy {
     }
 
     getPramas(element:any,type?:string){
-        debugger
+        if(type == "app-tabs"){
+        debugger;
+        }
         let keyName = element.getAttribute("key");
         let jObject = this.getKeyData(keyName);
         let params = {};
@@ -51,7 +53,6 @@ export abstract class BaseComponentProvider implements OnDestroy {
         if(refComponentString){
             let refComponent = refComponentString.split('-');
             params["title"] = element.getAttribute('title');
-            debugger
             params["refComponent"] =this.exampleComponents[this.typeName][refComponent[refComponent.length - 1]];
         }
         if(type == "app-tabs"){
@@ -66,7 +67,9 @@ export abstract class BaseComponentProvider implements OnDestroy {
     let jObject = undefined;
             if (keyName != undefined) {
                 var splitedArray = keyName.split('-');
-                splitedArray  =splitedArray.splice(1,splitedArray.length)
+                
+//                splitedArray  =splitedArray.splice(1,splitedArray.length)
+                //splitedArray  =splitedArray;
                 splitedArray.forEach(t => {
                     if (this.data) {
                         if (jObject)

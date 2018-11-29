@@ -6187,6 +6187,6 @@ ul.menu li {
     
 }
 #side-menu li .nav-second-level li a.active,#side-menu li a.active{
-    font-weight: bolder;
+    font-weight: 550;
     background-color: #dfeff8;
 }

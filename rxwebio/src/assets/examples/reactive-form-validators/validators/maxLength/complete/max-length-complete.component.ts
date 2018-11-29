@@ -10,7 +10,7 @@ export class MaxLengthCompleteValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
