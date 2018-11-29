@@ -655,7 +655,7 @@ body .page-tabs>li.active>a, body .page-tabs li.active a:hover, body .page-tabs 
 .hpanel p, .hpanel  .p { margin: 15px 0; }
 .d-flex {display: -ms-flexbox; display: flex; }
 .align-items-center  {  -ms-flex-align: center;  align-items: center;}    
-.rxlogo {  color: #000000;  padding-left:15px;    }
+.rxlogo {  color: #000000;  margin-left:15px;    }
 table td {   font-size: 15px; }
 .hpanel blockquote p, .hpanel blockquote .p { margin: 0; }
  .model-ts.combined .file-icon { color: #000000; }
@@ -4558,7 +4558,7 @@ body.modal-open {
 }
 
 body.hide-sidebar #menu {
-    margin-left: -300px
+    margin-left: -310px;
 }
 
 body.hide-sidebar #wrapper, body.hide-sidebar #full-wrapper {
@@ -6028,6 +6028,31 @@ ul.menu li {
     padding: 12px;
     background: #fff;
 }
+.showHideExample{
+    padding:  10px 10px 0px 10px;
+}
+/*.tab-pane .model-ts{
+    background-color: #ffffff;
+}*/
+.page-tabs+.tab-content{
+    border:none !important;
+    
+}
+#side-menu li .nav-second-level li a.active,#side-menu li a.active{
+    font-weight: 550;
+    background-color: #dfeff8;
+}
+#navigation, .header-link{ transition: all .4s ease 0s;}
+body.hide-sidebar #menu #navigation {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    min-height: 0;
+}
+body.hide-sidebar #menu .header-link {
+    border-bottom-color: transparent;
+}
+
 /*=============== media query ================*/
 @media only screen and (max-width:1199px) {
     header.banner{
@@ -6118,6 +6143,14 @@ ul.menu li {
     body.fixed-navbar #wrapper { top: 62px; margin: 0 ;  }
     app-right-sidebar {  display: none;  }     
     .navbar-nav>li:last-child>a { padding-right: 0; }
+    .header-link.hide-menu svg{margin-left:0;}
+    body.hide-sidebar #menu #navigation {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+        min-height: 100%;
+    }
+    .menu-open{display: none !important; }
 }
 @media only screen and (max-width:767px){
     .home-page .banner-text{
@@ -6191,28 +6224,4 @@ ul.menu li {
 }
 
 /*-------- do not add any css here ---------- */
-.showHideExample{
-    padding:  10px 10px 0px 10px;
-}
-/*.tab-pane .model-ts{
-    background-color: #ffffff;
-}*/
-.page-tabs+.tab-content{
-    border:none !important;
-    
-}
-#side-menu li .nav-second-level li a.active,#side-menu li a.active{
-    font-weight: 550;
-    background-color: #dfeff8;
-}
-#navigation, .header-link{ transition: all .4s ease 0s;}
-body.hide-sidebar #menu #navigation {
-    opacity: 0;
-    visibility: hidden;
-    height: 0;
-    min-height: 0;
-}
-body.hide-sidebar #menu .header-link {
-    border-bottom-color: transparent;
-}
 
