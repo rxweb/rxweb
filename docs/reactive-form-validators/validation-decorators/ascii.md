@@ -1,6 +1,6 @@
 ---
 title: ascii
-description: ascii validation decorator allows user to enter the input which is in the proper ascii format.
+description: ascii validation  {{validatorType}}  allows user to enter the input which is in the proper ascii format.
 author: rxcontributortwo
 
 ---
@@ -12,7 +12,7 @@ Suppose you want to create a user form in which you want the user to enter an  i
      <li>Apply validation on specialCharAsciiCode field validation based on matched condition in the form, like if the language is 'Java', then the alphabetAsciiCode must be an ascii code (Used as a string datatype).</li>
      <li>Apply ascii validation dynamically based on server rules.</li>
 </ol>
-Let's see how ascii decorator fulfil the need.
+Let's see how ascii  {{validatorType}}  fulfil the need.
 
 # Basic Ascii Validation
 <data-scope scope="['decorator']">
@@ -60,8 +60,8 @@ message and conditionalExpression are not mandatory to use in the `@ascii()` dec
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a href="#conditionalExpression"  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Ascii validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a href="#message" (click)='scrollTo("#message")'  title="message">Message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a   (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Ascii validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")'  title="message">Message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## conditionalExpression 

@@ -18,9 +18,11 @@
                                 <a (click)="route('decorators')">Decorator</a>
                             </li>
                         </ul>
-                        <div class="tab-content">
+                        <div class="tab-content" *ngIf="showViewer" >
                             <div class="tab-pane active panel-body validation-tab">
-                                <page-viewer *ngIf="showViewer" [content]="codeContent.htmlContent" [tabArray]="codeContent.tabArray" [data]="jsonContent"
+                                <!--<page-viewer *ngIf="showViewer"  [@enterAnimation] [content]="codeContent.htmlContent" [tabArray]="codeContent.tabArray" [data]="jsonContent"
+                                    [typeName]="typeName"></page-viewer>-->
+                                <page-viewer   [content]="codeContent.htmlContent" [tabArray]="codeContent.tabArray" [data]="jsonContent"
                                     [typeName]="typeName"></page-viewer>
                                 <div class="row" id="githubissues">
                                     <div class="col-lg-12">
@@ -39,6 +41,5 @@
             </div>
         </div>
     </div>
-    {{codeContent.rightSidebarLinks | json}}
     <app-right-sidebar [sidebarLinks]="codeContent.rightSidebarLinks"></app-right-sidebar>
 </div>
