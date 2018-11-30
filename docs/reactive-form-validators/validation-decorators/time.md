@@ -15,7 +15,7 @@ Suppose you want to create a AttendanceDetail form, which contains field of Entr
 </ol>
 Let’s see how time validator fulfil the need.
 
-# Basic time 
+# Basic time Validation
 
 <data-scope scope="['decorator']">
 First we need to create a AttendanceDetail class and define a property of EntryTime in the model to achieve the functional need of point 1.
