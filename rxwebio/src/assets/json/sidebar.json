@@ -79,11 +79,6 @@
               "isActive":false
             },
             {
-              "title": "fileSize",
-              "uri": "/form-validations/fileSize/validators",
-              "isActive":false
-            },
-            {
               "title": "greaterThanEqualTo",
               "uri": "/form-validations/greaterThanEqualTo/validators",
               "isActive":false
