@@ -25,7 +25,16 @@ export class SideBarComponent implements OnInit {
   navigateTo(link:any):void{
     if(link!=null && link.uri != null)
     {
-      link.active = true;
+      this.links.forEach(element => {
+        element.isActive = false;
+        element.childrens.forEach(subElement => {
+           subElement.isActive = false;
+            subElement.childrens.forEach(thirdLevel => {
+              thirdLevel.isActive = false;
+            });
+        })
+      });
+      link.isActive = true;
       this.router.navigateByUrl(link.uri);
     }
   }

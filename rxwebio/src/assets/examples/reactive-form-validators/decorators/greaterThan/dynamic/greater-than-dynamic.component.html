@@ -7,6 +7,12 @@
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.age.errors">{{userFormGroup.controls.age.errors.greaterThan.message}}<br/></small>
     </div>
     <div class="form-group">
+      <label>Retirement Age</label>
+      <input type="text" formControlName="retiermentAge" class="form-control"  />
+      <small class="form-text text-muted">Retirement Age should be greater than age<br/></small>
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.retiermentAge.errors">{{userFormGroup.controls.retiermentAge.errors.greaterThan.message}}<br/></small>
+    </div>
+    <div class="form-group">
       <label>Voter Age</label>
       <input type="text" formControlName="voterAge" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Voter Age' then need to add 'Age' field greater than '17'.<br/></small>

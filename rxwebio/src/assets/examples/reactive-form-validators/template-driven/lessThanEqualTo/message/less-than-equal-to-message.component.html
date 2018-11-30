@@ -7,13 +7,6 @@
 	   <small class="form-text text-danger" *ngIf="userForm.controls.totalMarks?.errors">{{userForm.controls.totalMarks?.errors.lessThanEqualTo.message}}<br/></small>	
     </div>
     <div class="form-group">
-      <label>Practical Exam Marks</label>
-      <input type="text" name="practicalExamMarks" [(ngModel)]="user.practicalExamMarks"  class="form-control"  [lessThanEqualTo]="{'fieldName':'totalMarks','conditionalExpression':'x => x.totalMarks == 100'}" />
-      <small class="form-text text-muted">If you want to apply conditional validation of less than equal to validation on 'Obtained Marks' then then Total Marks must be 100.<br/></small>
-      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.practicalExamMarks?.errors">{{userForm.controls.practicalExamMarks?.errors.lessThanEqualTo.message}}<br/></small>	
-    </div>
-    <div class="form-group">
       <label>Other Marks</label>
       <input type="text" name="otherMarks" [(ngModel)]="user.otherMarks"  class="form-control"  [lessThanEqualTo]="{'fieldName':'totalMarks','message':'Please enter number less than 100.'}" />
       <small class="form-text text-muted">Shows custom message<br/></small>

@@ -8,7 +8,7 @@ import { ResultInfo } from './result-info.model';
 })
 export class MinNumberCompleteTemplateDrivenComponent implements OnInit {
     resultinfo: ResultInfo
-
+	
     constructor(
     ) { }
 

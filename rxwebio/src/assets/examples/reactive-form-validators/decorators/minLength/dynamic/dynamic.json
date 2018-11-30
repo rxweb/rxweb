@@ -1,1 +1,1 @@
-{"countryName":{"minLength":true},"mobileNo":{"value":"10"},"landLineNo":{"value":"8","message":"'Minimum 8 characters are allowed'"},"stateCode":{"value":"3","conditionalExpression":"'x => x.countryName == \"India\"'"}}
+{"countryName":{},"mobileNo":{"minLength":{"value":"10"}},"landLineNo":{"minLength":{"value":"8","message":"Minimum 8 characters are allowed"}},"stateCode":{"minLength":{"value":"3","conditionalExpression":"x => x.countryName == \"India\""}}}

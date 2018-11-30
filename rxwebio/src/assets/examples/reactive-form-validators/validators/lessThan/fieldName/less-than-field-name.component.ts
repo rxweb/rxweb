@@ -16,8 +16,7 @@ export class LessThanFieldNameValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
             obtainedMarks:['',], 
-            passingMarks:['', RxwebValidators.lessThan({fieldName:'obtainedMarks'  ,conditionalExpression:'x => x.obtainedMarks < 35' })], 
-            practicalExamMarks:['', RxwebValidators.lessThan({fieldName:'obtainedMarks'  ,conditionalExpression:(x,y) =>  x.obtainedMarks < 35 })], 
+            otherActivityMarks:['', RxwebValidators.lessThan({fieldName:'obtainedMarks' })], 
         });
     }
 }

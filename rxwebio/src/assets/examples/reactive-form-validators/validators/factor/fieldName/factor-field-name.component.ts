@@ -16,7 +16,6 @@ export class FactorFieldNameValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
             firstNumber:['',], 
-            thirdNumber:['', RxwebValidators.factor({fieldName:'firstNumber'  ,conditionalExpression:'x => x.firstNumber == 25' })], 
             fifthNumber:['', RxwebValidators.factor({fieldName:'firstNumber' })], 
         });
     }

@@ -5,6 +5,9 @@ export class User {
 	@prop()
 	obtainedMarks: number;
 
+	@lessThan({fieldName:'obtainedMarks' }) 
+	otherActivityMarks: number;
+
 	//If you want to apply conditional expression of type 'function'
 	@lessThan({fieldName:'obtainedMarks'  ,conditionalExpression:(x,y) =>  x.obtainedMarks < 35 }) 
 	practicalExamMarks: number;

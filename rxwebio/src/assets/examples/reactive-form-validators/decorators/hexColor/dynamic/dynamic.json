@@ -1,1 +1,1 @@
-{"color":{"hexColor":true},"headerHexcolorCode":{"conditionalExpression":"'x => x.color == \"#AFAFAF\"'"},"bodyHexcolorCode":{"message":"'Please enter the right format of hexcode for body like \"#AFAFAF\"'"}}
+{"color":{"hexColor":true},"headerHexcolorCode":{"hexColor":{"conditionalExpression":"x => x.color == \"#AFAFAF\""}},"bodyHexcolorCode":{"hexColor":{"message":"Please enter the right format of hexcode for body like \"#AFAFAF\""}}}

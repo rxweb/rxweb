@@ -8,7 +8,7 @@ author:  rxcontributortwo
 Supppose you want to create a user form and you want details like CreditCard and you have fields like CardType, VisaCard, AmericanExpress,MaestroCard, JCBcard, DiscoverCard, MasterCard  Here depending upon the requirement these scenarios may arise.
 <ol>  
     <li>CreditCard Type has different Card Types like Visa, AmericanExpress, Maestro, JCB, Discover, DinersClub, MasterCard.</li>
-    <li>Apply CreditCard validation based on matched condition in the form, like if the CardType  is ‘visa’ then the VisaCard value should be in VisaCard format.</li>
+    <li>Apply CreditCard validation based on matched condition in the form, like if the CardType  is ‘visa` then the VisaCard value should be in VisaCard format.</li>
     <li>The Custom Message on VisaCard field.  </li>
     <li>Apply creditCard validation dynamically based on server rules.</li>
 </ol>

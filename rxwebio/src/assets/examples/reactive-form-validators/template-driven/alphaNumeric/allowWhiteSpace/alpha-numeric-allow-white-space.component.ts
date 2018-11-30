@@ -8,7 +8,7 @@ import { Location } from './location.model';
 })
 export class AlphaNumericAllowWhiteSpaceTemplateDrivenComponent implements OnInit {
     location: Location
-
+	
     constructor(
     ) { }
 

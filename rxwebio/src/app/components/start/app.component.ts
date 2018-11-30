@@ -11,11 +11,13 @@ import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  
   title = 'rx.web.io';
   isHome = true;
-  constructor(private router: Router) {
+  constructor(private router: Router,private applicationBroadcaster:ApplicationBroadcaster) {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
+        debugger
         if (val.url == "/" || val.url == "/home")
             this.isHome = true;
         else 

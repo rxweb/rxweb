@@ -1,1 +1,1 @@
-{"userName":{"minDate":true},"admissionDate":{"value":"new Date(2018,7,30)","conditionalExpression":"'x => x.userName == \"Bharat\"'"},"registrationDate":{"value":"new Date(2018,7,30)","message":"'{{0}} exceeds the Minimum Date Limit'"}}
+{"userName":{},"admissionDate":{"minDate":{"value":"new Date(2018,7,30)","conditionalExpression":"x => x.userName == \"Bharat\""}},"registrationDate":{"minDate":{"value":"new Date(2018,7,30)","message":"{{0}} exceeds the Minimum Date Limit"}}}

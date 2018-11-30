@@ -19,7 +19,7 @@ export class LessThanEqualToDynamicValidatorComponent implements OnInit {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/validators/lessThanEqualTo/dynamic/dynamic.json').subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			var user = { totalMarks:'', obtainedMarks:'', practicalExamMarks:'', otherMarks:'',  }
+			var user = { totalMarks:'', passingMarks:'', obtainedMarks:'', practicalExamMarks:'', otherMarks:'',  }
 			this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
 		})
     }

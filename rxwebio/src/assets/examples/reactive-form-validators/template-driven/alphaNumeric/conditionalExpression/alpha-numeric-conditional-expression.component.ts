@@ -8,7 +8,7 @@ import { Location } from './location.model';
 })
 export class AlphaNumericConditionalExpressionTemplateDrivenComponent implements OnInit {
     location: Location
-
+	
     constructor(
     ) { }
 

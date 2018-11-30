@@ -8,7 +8,7 @@ import { User } from './user.model';
 })
 export class UrlConditionalExpressionTemplateDrivenComponent implements OnInit {
     user: User
-
+	
     constructor(
     ) { }
 

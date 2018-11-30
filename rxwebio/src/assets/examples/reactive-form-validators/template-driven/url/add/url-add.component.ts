@@ -8,7 +8,7 @@ import { WebSiteInfoModel } from './web-site-info-model.model';
 })
 export class UrlAddTemplateDrivenComponent implements OnInit {
     websiteinfomodel: WebSiteInfoModel
-
+	
     constructor(
     ) { }
 
