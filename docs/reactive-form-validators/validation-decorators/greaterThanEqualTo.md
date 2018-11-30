@@ -92,7 +92,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="greaterThanEqualTo-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-greaterThanEqualTo-message" title="alpha decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-greaterThanEqualTo-message" title="greaterThanEqualTo decorators with message" key="message"></div>
 
 # Complete greaterThanEqualTo Example
 

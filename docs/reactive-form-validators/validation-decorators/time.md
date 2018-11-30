@@ -83,8 +83,8 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `boolean` 
 If you are allowed seconds in time format then you need to put this as true.
 
-<div component="app-code" key="time-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-time-message" title="time decorators with message" key="message"></div>
+<div component="app-code" key="time-allowSecondsExample-model"></div> 
+<div component="app-example-runner" ref-component="app-time-allowSeconds" title="time decorators with allowSeconds" key="allowSeconds"></div>
 
 ## message 
 Type :  `string` 
