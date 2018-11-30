@@ -24,7 +24,7 @@ export class ApplicationUtil{
           splitText.forEach((name,index)=>{ formControl = formControl.controls[name]})
           return formControl;
           }
-        return (control.parent) ? control.parent.get([fieldName]) : {};
+        return (control.parent) ? control.parent.get([fieldName]) : undefined;
     }
 
     private static parentObjectValue(control: FormGroup | FormArray): FormGroup | FormArray {

@@ -13,8 +13,8 @@ export function patternValidator(config: PatternConfig): ValidatorFn {
         config = ApplicationUtil.getConfigObject(config);
           if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
-                for (var pattern in config.pattern)
-                    if (!(RegexValidator.isValid(control.value, config.pattern[pattern])))
+                for (var pattern in config.expression)
+                    if (!(RegexValidator.isValid(control.value, config.expression[pattern])))
                     return ObjectMaker.toJson(pattern, config.message || null, [control.value])
             }
         }

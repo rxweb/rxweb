@@ -16,10 +16,7 @@ export function timeValidator(config: TimeConfig): ValidatorFn {
           if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
                 var testResult = false;
-                let valueLength = 5;
-                if (config.allowSeconds)
-                    valueLength = 8;
-                testResult = RegexValidator.isValid(control.value, RegExRule.time) && control.value.length == valueLength;
+                testResult = config.allowSeconds ? RegexValidator.isValid(control.value, RegExRule.timeWithSeconds) :  RegexValidator.isValid(control.value, RegExRule.time);
                 if (!testResult)
                     return ObjectMaker.toJson(AnnotationTypes.time, config.message || null, [control.value]);
             }

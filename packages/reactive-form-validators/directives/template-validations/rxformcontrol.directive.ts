@@ -16,7 +16,7 @@ const NGMODEL_BINDING: any = {
   multi: true
 };
 
-const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','aphaNumeric','ascii','dataUri','digit','email','even','hexColor','json','latitude','latLong','leapYear','longitude','lowerCase','mac','odd','port','primeNumber','time','upperCase','url'];
+const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','alphaNumeric','ascii','dataUri','digit','email','even','hexColor','json','latitude','latLong','leapYear','longitude','lowerCase','mac','odd','port','primeNumber','time','upperCase','url'];
 
 @Directive({
   selector: '[ngModel],[formControlName],[formControl]',
