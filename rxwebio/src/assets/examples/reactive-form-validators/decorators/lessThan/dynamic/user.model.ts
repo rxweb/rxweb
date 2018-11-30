@@ -6,6 +6,9 @@ export class User {
 	obtainedMarks: number;
 
 	@prop()
+	otherActivityMarks: number;
+
+	@prop()
 	passingMarks: number;
 
 	@prop()

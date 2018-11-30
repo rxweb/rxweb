@@ -1,1 +1,1 @@
-{"subjectCode":{"maxNumber":true},"obtainedMarks":{"value":"100","conditionalExpression":"'x => x.subjectCode == \"8CS5A\"'"},"passingMarks":{"value":"50","message":"'{{0}} exceeds the Maximum marks Limit'"}}
+{"subjectCode":{},"obtainedMarks":{"maxNumber":{"value":"100","conditionalExpression":"x => x.subjectCode == \"8CS5A\""}},"passingMarks":{"maxNumber":{"value":"50","message":"{{0}} exceeds the Maximum marks Limit"}}}

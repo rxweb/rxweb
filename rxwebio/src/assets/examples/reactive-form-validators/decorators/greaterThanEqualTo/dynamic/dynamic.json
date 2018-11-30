@@ -1,1 +1,1 @@
-{"age":{"greaterThanEqualTo":true},"memberAge":{"fieldName":"'age'","conditionalExpression":"'x => x.age >= 18 '"},"otherAge":{"fieldName":"'age'","message":"'Please enter number greater than or equal to 1.'"}}
+{"admissionAge":{},"retiermentAge":{"greaterThanEqualTo":{"fieldName":"admissionAge"}},"memberAge":{"greaterThanEqualTo":{"fieldName":"admissionAge","conditionalExpression":"x => x.admissionAge >= 18 "}},"otherAge":{"greaterThanEqualTo":{"fieldName":"admissionAge","message":"Please enter number greater than or equal to 1."}}}

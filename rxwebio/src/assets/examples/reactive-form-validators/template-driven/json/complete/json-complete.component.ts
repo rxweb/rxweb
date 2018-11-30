@@ -8,7 +8,7 @@ import { JsonInfo } from './json-info.model';
 })
 export class JsonCompleteTemplateDrivenComponent implements OnInit {
     jsoninfo: JsonInfo
-
+	
     constructor(
     ) { }
 

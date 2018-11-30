@@ -7,6 +7,12 @@
 	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.totalMarks.errors">{{userFormGroup.controls.totalMarks.errors.lessThanEqualTo.message}}<br/></small>	
     </div>
     <div class="form-group">
+      <label>Passing Marks</label>
+      <input type="text" formControlName="passingMarks" class="form-control"  />
+      <small class="form-text text-muted">Passing Marks less than to Total marks<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.passingMarks.errors">{{userFormGroup.controls.passingMarks.errors.lessThanEqualTo.message}}<br/></small>	
+    </div>
+    <div class="form-group">
       <label>Obtained Marks</label>
       <input type="text" formControlName="obtainedMarks" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation of less than equal to validation on 'Obtained Marks' then then Total Marks must be 100.<br/></small>

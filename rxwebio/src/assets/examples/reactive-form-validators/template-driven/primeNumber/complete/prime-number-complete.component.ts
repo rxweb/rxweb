@@ -8,7 +8,7 @@ import { NumberInfo } from './number-info.model';
 })
 export class PrimeNumberCompleteTemplateDrivenComponent implements OnInit {
     numberinfo: NumberInfo
-
+	
     constructor(
     ) { }
 

@@ -16,8 +16,7 @@ export class GreaterThanFieldNameValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
             age:['',], 
-            voterAge:['', RxwebValidators.greaterThan({fieldName:'age'  ,conditionalExpression:'x => x.age > 17' })], 
-            memberAge:['', RxwebValidators.greaterThan({fieldName:'age'  ,conditionalExpression:(x,y) => x.age > 17  })], 
+            retiermentAge:['', RxwebValidators.greaterThan({fieldName:'age' })], 
         });
     }
 }

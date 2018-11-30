@@ -8,7 +8,7 @@ import { Location } from './location.model';
 })
 export class AlphaNumericCompleteTemplateDrivenComponent implements OnInit {
     location: Location
-
+	
     constructor(
     ) { }
 

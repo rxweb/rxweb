@@ -5,10 +5,6 @@ export class User {
 	@prop()
 	age: number;
 
-	//If you want to apply conditional expression of type 'string'
-	@greaterThan({fieldName:'age'  ,conditionalExpression:'x => x.age > 17' }) 
-	voterAge: number;
-
 	@greaterThan({fieldName:'age'  ,message:'Please enter number greater than 0.' }) 
 	otherAge: number;
 

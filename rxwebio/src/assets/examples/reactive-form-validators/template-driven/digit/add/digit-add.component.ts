@@ -8,7 +8,7 @@ import { User } from './user.model';
 })
 export class DigitAddTemplateDrivenComponent implements OnInit {
     user: User
-
+	
     constructor(
     ) { }
 

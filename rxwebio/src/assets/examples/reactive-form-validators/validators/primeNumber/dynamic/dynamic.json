@@ -1,1 +1,1 @@
-{"numberType":{"primeNumber":true},"thirdNumber":{"conditionalExpression":"'x => x.numberType ==\"Prime\"'"},"firstNumber":{"message":"'{{0}} is not a prime number'"}}
+{"numberType":{},"thirdNumber":{"primeNumber":{"conditionalExpression":"x => x.numberType ==\"Prime\""}},"firstNumber":{"primeNumber":{"message":"{{0}} is not a prime number"}}}

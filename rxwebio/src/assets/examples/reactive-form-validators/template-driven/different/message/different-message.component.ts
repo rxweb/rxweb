@@ -8,7 +8,7 @@ import { AccountInfo } from './account-info.model';
 })
 export class DifferentMessageTemplateDrivenComponent implements OnInit {
     accountinfo: AccountInfo
-
+	
     constructor(
     ) { }
 

@@ -6,6 +6,9 @@ export class User {
 	totalMarks: number;
 
 	@prop()
+	passingMarks: number;
+
+	@prop()
 	practicalExamMarks: number;
 
 	@prop()

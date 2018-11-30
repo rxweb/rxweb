@@ -6,6 +6,9 @@ export class User {
 	age: number;
 
 	@prop()
+	retiermentAge: number;
+
+	@prop()
 	voterAge: number;
 
 	@prop()

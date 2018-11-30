@@ -16,9 +16,9 @@ export class DifferentCompleteValidatorComponent implements OnInit {
     ngOnInit() {
         this.accountInfoFormGroup = this.formBuilder.group({
             firstName:['',], 
-            password:['', RxwebValidators.different({fieldName:"firstName"  ,message:'{{0}} is same as firstName' })], 
-            lastName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:(x,y) => x.firstName == "Bharat"  })], 
-            userName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:'x => x.firstName == "Bharat"' })], 
+            password:['', RxwebValidators.different({fieldName:'firstName'  ,message:'{{0}} is same as firstName' })], 
+            lastName:['', RxwebValidators.different({fieldName:'firstName'  ,conditionalExpression:(x,y) => x.firstName == "Bharat"  })], 
+            userName:['', RxwebValidators.different({fieldName:'firstName'  ,conditionalExpression:'x => x.firstName == "Bharat"' })], 
         });
     }
 }

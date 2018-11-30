@@ -5,6 +5,9 @@ export class User {
 	@prop()
 	totalMarks: number;
 
+	@lessThanEqualTo({fieldName:'totalMarks' }) 
+	passingMarks: number;
+
 	//If you want to apply conditional expression of type 'function'
 	@lessThanEqualTo({fieldName:'totalMarks'  ,conditionalExpression:(x,y) => x.totalMarks == 100  }) 
 	obtainedMarks: number;
