@@ -1,0 +1,11 @@
+<div>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Even Number</label>
+      <input type="text" formControlName="evenNumber" class="form-control"  />
+      <small class="form-text text-muted">you can enter only an even number<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.evenNumber.errors">{{userFormGroup.controls.evenNumber.errors.even.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

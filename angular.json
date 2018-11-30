@@ -3,9 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rx": {
+    "rxweb": {
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "./",
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rx",
+            "outputPath": "dist/rxweb",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -43,34 +43,41 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rx:build"
+            "browserTarget": "rxweb:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rx:build:production"
+              "browserTarget": "rxweb:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rx:build"
+            "browserTarget": "rxweb:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "test.ts",
+            "polyfills": "polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "styles": [
               "src/styles.css"
             ],
@@ -95,19 +102,20 @@
         }
       }
     },
-    "rx-e2e": {
+    "rxweb-e2e": {
       "root": "e2e/",
       "projectType": "application",
+      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "rx:serve"
+            "devServerTarget": "rxweb:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "rx:serve:production"
+              "devServerTarget": "rxweb:serve:production"
             }
           }
         },
@@ -123,5 +131,5 @@
       }
     }
   },
-  "defaultProject": "rx"
+  "defaultProject": "rxweb"
 }

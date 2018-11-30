@@ -1,23 +1,28 @@
-import {FormArray, FormGroup,
+import {
     ValidatorFn,
-    AbstractControl} from "@angular/forms";
-//import {CustomValidation } from '../validator.model';
-export function customValidator(customValidation:any,propName:string): ValidatorFn {
+    AbstractControl
+} from "@angular/forms";
+
+import { ObjectMaker } from "../util/object-maker";
+import { CustomConfig } from "../models/config/custom-config";
+import { AnnotationTypes } from "../core/validator.static";
+import { FormProvider } from '../util/form-provider';
+import { ApplicationUtil } from '../util/app-util';
+
+export function customValidator(config:CustomConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-        let currentControl: AbstractControl;
-        let currentFormGroup: FormGroup;
-        if (customValidation.nestedProperty) {
-            let formControl = control.root.get([customValidation.nestedProperty]);
-            if (formControl instanceof FormArray) {
-                currentFormGroup = <FormGroup>formControl.controls[0];
-                currentControl = currentFormGroup.get([propName])
-            }
-        }
-        let isSuccess = customValidation.validationFunction(currentFormGroup, propName);
-        if (isSuccess === null ) {
-            return null;
-        }
-        else
-            return { 'custom': isSuccess };
+        config = ApplicationUtil.getConfigObject(config);
+        if (FormProvider.ProcessRule(control,config)) {
+            const formGroupValue = ApplicationUtil.getParentObjectValue(control);
+            const parentObject = (control.parent) ? control.parent.value : undefined;
+                let result = null;
+                for(let rule of config.customRules) {
+                     result = rule(formGroupValue,parentObject,config.additionalValue);
+                     if(result)
+                      break;
+                }
+              if(result)
+                 return result;
+            }return ObjectMaker.null();
     }
 }

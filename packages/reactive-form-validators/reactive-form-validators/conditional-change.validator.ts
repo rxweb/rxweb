@@ -5,17 +5,11 @@ import {
     FormArray
 } from "@angular/forms";
 
-import { RegexValidator } from "../util/regex-validator";
-import { RegExRule } from "../util/regex-rules";
-import { DecoratorName } from "../util/decorator-name"
 import { ObjectMaker } from "../util/object-maker";
-import { AlphaConfig } from "../models/config/alpha-config";
-import { Linq } from "../util/linq";
-import { ApplicationUtil } from "../util/app-util";
-import { AnnotationTypes } from "../core/validator.static";
 
 export function conditionalChangeValidator(conditionalValidationProps: string[]): ValidatorFn {
     var timeOuts: number[] = [];
+    var oldValue:string = undefined;
     var setTimeOut = (control: AbstractControl) => {
         var timeOut = window.setTimeout(t => {
             window.clearTimeout(timeOut);
@@ -24,28 +18,29 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
     }
     return (control: AbstractControl): { [key: string]: any } => {
         const parentFormGroup = control.parent;
-        if (parentFormGroup)
+        let value = control.value;
+        if (parentFormGroup && oldValue != value)
         {
+            oldValue = value;
             timeOuts = [];
             conditionalValidationProps.forEach(t => {
                 if (t.indexOf("[]") != -1) {
                     var splitText = t.split("[]");
                     var formArray = <FormArray>parentFormGroup.get([splitText[0]]);
-                    formArray.controls.forEach(formGroup => {
+                    if(formArray)
+                      formArray.controls.forEach(formGroup => {
                         var abstractControl = formGroup.get(splitText[1]);
                         if (abstractControl) {
                             setTimeOut(abstractControl);
                         }
                     })
                 } else {
-                    var control = parentFormGroup.get([t]);
-                    if (!control)
-                        control = parentFormGroup.root.get([t]);
+                    var control = null;
+                      t.split('.').forEach((name,index)=>{ control = (index == 0) ? parentFormGroup.controls[name] : control.controls[name];})
                     if (control) {
                         setTimeOut(control);
                     }
                 }
-                
             })
         }
         return ObjectMaker.null();

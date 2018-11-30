@@ -1,0 +1,18 @@
+<div>
+  <form #userForm = "ngForm">
+    <div class="form-group">
+      <label>User Name</label>
+      <input type="text" name="userName" [(ngModel)]="user.userName"  class="form-control"  minDate />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Birth Date' or 'Admission Date', then you need to add 'User Name' input as 'Bharat'<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.userName?.errors">{{userForm.controls.userName?.errors.minDate.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Admission Date</label>
+      <input type="text" name="admissionDate" [(ngModel)]="user.admissionDate"  class="form-control"  [minDate]="{'value':'2018,7,30','conditionalExpression':'x => x.userName == \'Bharat\''}" />
+      <small class="form-text text-muted">To apply the validation of Min Date on 'Admission Date' field, then enter the value 'Bharat' in 'User Name' textbox and you can enter maxDate as 30th july 2018<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.admissionDate?.errors">{{userForm.controls.admissionDate?.errors.minDate.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

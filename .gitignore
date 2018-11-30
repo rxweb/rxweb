@@ -7,6 +7,7 @@
 
 # dependencies
 /node_modules
+/rxwebio/node_modules
 
 # IDEs and editors
 /.idea
@@ -37,3 +38,16 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/rxweb.io/.vscode
+*.sqlite
+/packages/reactive-form-validators/.ng_build
+/packages/reactive-form-validators/package-lock.json
+/node_modules.rar
+/package-lock.json
+/rxweb.io
+
+/packages/reactive-form-validators/const/locale/alphabets-locale.regex.ts
+/packages/reactive-form-validators/const/locale
+/rxweb.io.rar
+/rxwebio/.vscode
+/node_modules_old.rar

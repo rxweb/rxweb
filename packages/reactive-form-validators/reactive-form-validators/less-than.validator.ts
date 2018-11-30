@@ -9,25 +9,20 @@ import {
 
 import { RegexValidator } from "../util/regex-validator";
 import { RegExRule } from "../util/regex-rules";
-import { DecoratorName } from "../util/decorator-name"
 import { ObjectMaker } from "../util/object-maker";
-import { INVALID } from "../const/validator.const"
 import { AnnotationTypes } from "../core/validator.static";
 import { RelationalOperatorConfig } from "../models/config/relational-operator-config";
-import { Linq } from "../util/linq";
-import { ApplicationUtil } from "../util/app-util";
-
+import { FormProvider } from '../util/form-provider';
+import { ApplicationUtil } from '../util/app-util';
 export function lessThanValidator(config: RelationalOperatorConfig): ValidatorFn {
     return (control: FormGroup): { [key: string]: any } => {
+        config = ApplicationUtil.getConfigObject(config);
         const matchControl = control.root.get([config.fieldName]);
-        const controlValue = control.value;
         const matchControlValue = (matchControl) ? matchControl.value : '';
-        const formGroupValue = ApplicationUtil.getParentObjectValue(control);
-        const parentObject = (control.parent) ? control.parent.value : undefined;
-        if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
-            if ((RegexValidator.isNotBlank(controlValue) && RegexValidator.isNotBlank(matchControlValue))) {
-                if (!(matchControl && parseFloat(controlValue) < parseFloat(matchControlValue)))
-                    return ObjectMaker.toJson(AnnotationTypes.lessThan, config.message || null, [controlValue, matchControlValue]);        
+          if (FormProvider.ProcessRule(control,config)) {
+            if ((RegexValidator.isNotBlank(control.value) && RegexValidator.isNotBlank(matchControlValue))) {
+                if (!(matchControl && parseFloat(control.value) < parseFloat(matchControlValue)))
+                    return ObjectMaker.toJson(AnnotationTypes.lessThan, config.message || null, [control.value, matchControlValue]);        
             }
         }
         return ObjectMaker.null();

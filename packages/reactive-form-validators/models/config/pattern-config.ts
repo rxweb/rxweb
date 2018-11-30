@@ -1,5 +1,5 @@
-export interface PatternConfig{
-    pattern: { [key: string]:  RegExp }
-    message?: string;
-    conditionalExpressions?: string | Function;
+import { BaseConfig } from './base-config'
+export interface PatternConfig extends BaseConfig{
+    expression: { [key: string]:  RegExp }
+   
 }

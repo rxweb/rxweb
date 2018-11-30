@@ -1,5 +1,5 @@
-export interface NumberConfig{
+import { BaseConfig } from './base-config'
+export interface NumberConfig extends BaseConfig{
     value: number,
-    message?: string;
-    conditionalExpressions?: string | Function;
+    
 }

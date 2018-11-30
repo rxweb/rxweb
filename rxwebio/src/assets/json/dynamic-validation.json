@@ -1,0 +1,7 @@
+{
+"firstName":{
+  "alpha":true,
+  "required":true,
+  "maxLength":{"value":10 }
+}
+}

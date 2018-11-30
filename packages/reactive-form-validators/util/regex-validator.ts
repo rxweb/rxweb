@@ -1,5 +1,6 @@
 import { PasswordValidation } from "../models/password-validation.model";
 import { RegExRule } from "./regex-rules";
+import { ReactiveFormConfig } from "./reactive-form-config";
 
 const ALPHABET: string = "alphabet";
 const DIGIT: string = "digit";
@@ -31,7 +32,7 @@ export class RegexValidator {
         for (let propertyName of objectProperties) {
             switch (propertyName) {
                 case ALPHABET:
-                    isValid = RegexValidator.isExits(value, RegExRule.alpha);
+                    isValid = RegexValidator.isExits(value, RegExRule.alphaExits);
                     keyName = ALPHABET;
                     break;
                 case DIGIT:
@@ -67,5 +68,13 @@ export class RegexValidator {
                 break;
         }
         return { isValid: isValid, keyName: keyName }
+    }
+
+    static isZero(value: any) {
+        return value == 0;
+    }
+
+    static commaRegex(): RegExp {
+        return new RegExp(",", "g");
     }
 }

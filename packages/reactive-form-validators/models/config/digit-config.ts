@@ -1,4 +1,4 @@
-export interface DigitConfig {
-    conditionalExpressions?: string | Function;
-    message?: string;
+import { BaseConfig } from './base-config'
+export interface DigitConfig extends BaseConfig {
+    
 }

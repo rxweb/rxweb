@@ -1,0 +1,1 @@
+{"maths":{"value":"35"},"science":{"value":"35","message":"'Number should not be less than 35'"},"statstics":{"value":"35","conditionalExpression":"'x => x.maths == 50'"}}

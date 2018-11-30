@@ -1,5 +1,4 @@
-export interface HexColorConfig {
+import { BaseConfig } from './base-config'
+export interface HexColorConfig extends BaseConfig {
     isStrict?: boolean;
-    message?: string;
-    conditionalExpressions?: string | Function;
 }

@@ -1,20 +1,47 @@
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from './validator.interface';
 import { Linq } from "../util/linq";
 import { AnnotationTypes } from "./validator.static";
-import { PROPERTY } from "../const";
+import { PROPERTY,OBJECT_PROPERTY } from "../const";
 
 export const defaultContainer:
     {
         get<T>(instanceFunc: any): InstanceContainer,
         addAnnotation(instanceFunc: any, decoratorConfiguration: DecoratorConfiguration): void,
-        addInstanceContainer(instanceFunc: any): void
-        addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void
+        addInstanceContainer(instanceFunc: any): void,
+        addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void,
+        addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]): void,
+        init(target: any,parameterIndex:any,propertyKey:string, annotationType:string, config:any) : void,
+        initPropertyObject(name:string,propertyType:string,entity:any,target) : void,
+        modelIncrementCount:number,
+        clearInstance(instance:any):void,
+        setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string):void
     } = new (class {
         private instances: InstanceContainer[] = [];
-
+        modelIncrementCount:number = 0;
         get<T>(instanceFunc: any): InstanceContainer {
             let instance: InstanceContainer = this.instances.filter(instance => instance.instance === instanceFunc)[0];
             return instance;
+        }
+
+
+        init(target:any,parameterIndex: any, propertyKey: string, annotationType: string, config: any): void {
+          var decoratorConfiguration: DecoratorConfiguration = {
+            propertyIndex: parameterIndex,
+            propertyName: propertyKey,
+            annotationType: annotationType,
+            config: config
+          }
+          let isPropertyKey = (propertyKey != undefined);
+          this.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);  
+        }
+
+        initPropertyObject(name:string,propertyType:string,entity:any,target){
+            var propertyInfo: PropertyInfo = {
+                name: name,
+                propertyType: propertyType,
+                entity: entity
+            }
+            defaultContainer.addProperty(target.constructor, propertyInfo);
         }
 
         addInstanceContainer(instanceFunc: any): InstanceContainer {
@@ -26,6 +53,7 @@ export const defaultContainer:
             this.instances.push(instanceContainer);
             return instanceContainer;
         }
+
 
         addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void {
             let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
@@ -53,16 +81,16 @@ export const defaultContainer:
                 instance = this.addInstanceContainer(instanceFunc);
                 instance.propertyAnnotations.push(decoratorConfiguration);
             }
-            if (decoratorConfiguration.config && decoratorConfiguration.config.conditionalExpressions) {
-                let columns = Linq.expressionColumns(decoratorConfiguration.config.conditionalExpressions);
+            if (decoratorConfiguration.config && decoratorConfiguration.config.conditionalExpression) {
+                let columns = Linq.expressionColumns(decoratorConfiguration.config.conditionalExpression);
                 this.addChangeValidation(instance, decoratorConfiguration.propertyName, columns);
             }
-            if (instance && decoratorConfiguration.config && (decoratorConfiguration.annotationType == AnnotationTypes.compare || decoratorConfiguration.annotationType == AnnotationTypes.greaterThan || decoratorConfiguration.annotationType == AnnotationTypes.greaterThanEqualTo || decoratorConfiguration.annotationType == AnnotationTypes.lessThan || decoratorConfiguration.annotationType == AnnotationTypes.lessThanEqualTo)) {
+            if (instance && decoratorConfiguration.config && ((decoratorConfiguration.annotationType == AnnotationTypes.compare || decoratorConfiguration.annotationType == AnnotationTypes.greaterThan || decoratorConfiguration.annotationType == AnnotationTypes.greaterThanEqualTo || decoratorConfiguration.annotationType == AnnotationTypes.lessThan || decoratorConfiguration.annotationType == AnnotationTypes.lessThanEqualTo  || decoratorConfiguration.annotationType == AnnotationTypes.different  || decoratorConfiguration.annotationType == AnnotationTypes.factor) || (decoratorConfiguration.annotationType == AnnotationTypes.creditCard && decoratorConfiguration.config.fieldName))) {
                 this.setConditionalValueProp(instance, decoratorConfiguration.config.fieldName, decoratorConfiguration.propertyName)
             }
         }
 
-        private setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string) {
+        setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string) {
             if (!instance.conditionalValidationProps)
                 instance.conditionalValidationProps = {};
             if (!instance.conditionalValidationProps[propName])
@@ -70,7 +98,7 @@ export const defaultContainer:
             if (instance.conditionalValidationProps[propName].indexOf(refPropName) == -1)
                 instance.conditionalValidationProps[propName].push(refPropName);
         }
-        addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]) {
+        addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]) :void {
             if (instance) {
                 if (!instance.conditionalValidationProps)
                     instance.conditionalValidationProps = {};
@@ -92,4 +120,12 @@ export const defaultContainer:
                 })
             }
         }
+
+      clearInstance(instanceFunc:any){
+        let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
+        if(instance){
+        let indexOf = this.instances.indexOf(instance);
+        this.instances.splice(indexOf,1);
+        }
+      }
     })();

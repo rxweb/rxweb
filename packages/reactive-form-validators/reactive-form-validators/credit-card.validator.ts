@@ -7,11 +7,12 @@ import { RegexValidator } from "../util/regex-validator";
 import { RegExRule } from "../util/regex-rules";
 import { DecoratorName } from "../util/decorator-name"
 import { ObjectMaker } from "../util/object-maker";
-import { CreditCardType } from "../enums/credit-card-type";
+import { CreditCardTypes } from "../const/credit-card-types";
 import { CreditCardConfig } from "../models/config/credit-card-config";
 import { ApplicationUtil } from "../util/app-util";
 import { Linq } from "../util/linq";
 import { AnnotationTypes } from "../core/validator.static";
+import { FormProvider } from '../util/form-provider';
 
 export function creditCardValidator(config:CreditCardConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
@@ -19,34 +20,37 @@ export function creditCardValidator(config:CreditCardConfig): ValidatorFn {
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);
         const parentObject = (control.parent) ? control.parent.value : undefined;
-        if (Linq.IsPassed(formGroupValue, config.conditionalExpressions, parentObject)) {
+        const refFieldControl = config.fieldName ? ApplicationUtil.getFormControl(config.fieldName,control) : undefined;
+        if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 let isValid = false;
-                for (let creditCardType of config.creditCardTypes) {
+                let cardTypes = config.fieldName && parentObject[config.fieldName] ? [parentObject[config.fieldName]] : config.creditCardTypes
+                for (let creditCardType of cardTypes) {
                     switch (creditCardType) {
-                        case CreditCardType.AmericanExpress:
+                        case "AmericanExpress":
                             isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.AmericanExpress);
                             break;
-                        case CreditCardType.DinersClub:
+                        case "DinersClub":
                             isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.DinersClub);
                             break;
-                        case CreditCardType.Discover:
+                        case "Discover":
                             isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Discover);
                             break;
-                        case CreditCardType.JCB:
+                        case "JCB":
                             isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.JCB);
                             break;
-                        case CreditCardType.Maestro:
+                        case "Maestro":
                             isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Maestro);
                             break;
-                        case CreditCardType.MasterCard:
+                        case "MasterCard":
                             isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.MasterCard);
                             break;
-                        case CreditCardType.Visa:
+                        case "Visa":
                             isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Visa);
                             break;
                     }
                 }
+                isValid = isValid ?  controlValue.length == 16 : isValid;
                 if (!isValid)
                     return ObjectMaker.toJson(AnnotationTypes.creditCard, config.message || null, [controlValue])
             }

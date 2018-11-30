@@ -1,0 +1,11 @@
+<div>
+  <form  [formGroup]="subjectDetailsFormGroup">
+    <div class="form-group">
+      <label>Passing Marks</label>
+      <input type="text" formControlName="passingMarks" class="form-control"  />
+      <small class="form-text text-muted">you can enter MaxNumber upto 50<br/></small>
+	 <small class="form-text text-danger" *ngIf="subjectDetailsFormGroup.controls.passingMarks.errors">{{subjectDetailsFormGroup.controls.passingMarks.errors.maxNumber.message}}<br/></small>	
+    </div>
+    <button [disabled]="!subjectDetailsFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>
