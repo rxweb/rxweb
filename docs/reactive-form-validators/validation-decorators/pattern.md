@@ -51,7 +51,17 @@ Next, we need to write html code.
 </data-scope>
 
 # PatternConfig 
-message,conditionalExpression options are not mandatory to use in the `@pattern()` {{validatorType}} but pattern is mandatory. If required, then user can use these options accordingly:
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@pattern()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.pattern()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `pattern` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

@@ -50,7 +50,17 @@ Next, we need to write html code.
 </data-scope>
  
 # MessageConfig 
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@upperCase()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.upperCase()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `upperCase` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

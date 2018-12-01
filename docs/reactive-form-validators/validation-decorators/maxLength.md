@@ -56,7 +56,17 @@ Next, we need to write html code.
 </data-scope>
 
 # NumberConfig 
-message and conditional expression options are not mandatory to use in the `@maxLength()`  {{validatorType}}  but value is mandatory. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@maxLength()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.maxLength()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `maxLength` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

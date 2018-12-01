@@ -56,7 +56,17 @@ Next, we need to write html code.
 </data-scope>
 
 # RangeConfig 
-conditionalExpression and message options are not mandatory to use in the `@range()`  {{validatorType}}  but the minimum number and maximum number is mandatory parameter. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@range()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.range()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `range` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
