@@ -1,6 +1,6 @@
 ---
 title: factor 
-description: factor validation decorator will allow user to enter factor of a number which is called dividend.
+description: factor validation {{validatorType}} will allow user to enter factor of a number which is called dividend.
 author: rxcontributorone
 
 ---
@@ -8,12 +8,14 @@ author: rxcontributorone
 Suppose you want to create a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise.
 <ol>
    <li>Apply factor validation on firstNumber field by setting  dividend property as 50 so the validation will allow only factors of 50</li>
-   <li>Apply factor validation based on matched condition in the form, like if the firstNumber  is ‘25’ then the Fourthyear value       should be factor.</li>
+   <li>Apply factor validation based on matched condition in the form, like if the firstNumber  is `25` then the Fourthyear value should be factor.</li>
    <li>The Custom Message on ThirdNumber field.</li>
    <li>Apply factor validation based of dividend, dividend is the value for which factors are calculated.</li>
+   <data-scope scope="['decorator','validator']">
    <li>Apply factor validation dynamically based on server rules.</li>
+   </data-scope>
 </ol>
-Let’s see how factor decorator fulfil the need.
+Let’s see how factor {{validatorType}} fulfil the need.
 
 # Basic Factor Validation
 

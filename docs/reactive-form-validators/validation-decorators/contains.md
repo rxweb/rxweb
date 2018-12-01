@@ -8,11 +8,13 @@ author: rxcontributortwo
 Suppose you want to create a User form, which contains fields like EmailAddress, RecoveryEmailAddress, OtherEmailAddress and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.
 <ol>
 	<li>Allow input which contains the predefined value in EmailAddress.</li>
-	<li>Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the the       contains validation must be applied to RecoveryEmailAddress value.</li>
+	<li>Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the contains validation must be applied to RecoveryEmailAddress value.</li>
 	<li>Adding Custom Message on OtherEmailAddress Field.</li>
+	<data-scope scope="['decorator','validator']">
 	<li>Apply contains validation dynamically based on server rules.</li>
+	</data-scope>
 </ol>
-Let’s see how contains validator fulfil the need.
+Let’s see how contains {{validatorType}} fulfil the need.
 
 # Basic Contains Validation
 <data-scope scope="['decorator']">

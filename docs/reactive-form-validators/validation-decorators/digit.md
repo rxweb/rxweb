@@ -10,9 +10,11 @@ Suppose you want to create a User form, which contains fields like Age, PhoneNum
 	<li>Allow only numbers in Age.</li>
 	<li>Apply digit validation based on matched condition in the form, like if the Age is greater than equal to 25 then only the digit validation will be applied to the PhoneNumber value.</li>
 	<li>Adding Custom Message on MobileNumber Field.</li>
+	<data-scope scope="['decorator','validator']">
 	<li>Apply digit validation dynamically based on server rules.</li>
+	</data-scope>
 </ol>
-Let’s see how digit validator fulfil the need.
+Let’s see how digit {{validatorType}} fulfil the need.
 
 # Basic digit Validation
 <data-scope scope="['decorator']">

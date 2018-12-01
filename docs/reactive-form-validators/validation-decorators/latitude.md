@@ -11,7 +11,9 @@ Suppose you want to create a country form, which contains fields like continent,
     <li>Apply validation on firstCountryLatitude field and add Custom Message on it.</li>
     <li>Apply latitude validation on secondCountryLatitude field based on matched condition in the form, like if the continent is 'Asia', then the secondCountryLatitude must be a latitude format (Used as a function).</li>
     <li>Apply latitude validation on thirdCountryLatitude field  based on matched condition in the form, like if the continent is 'Asia', then the thirdCountryLatitude must be a latitude format (Used as a string datatype).</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply latitude validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
 Let's see how latitude  {{validatorType}}  fulfil the need.

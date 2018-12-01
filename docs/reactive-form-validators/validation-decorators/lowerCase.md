@@ -10,7 +10,9 @@ Suppose you want to create a User form, which contains fields like Username, Fir
     <li>Allow only lowercase alphabets in Username.</li>
     <li>Apply lowerCase validation based on matched condition in the form, like if the Username is `jonathan.feldman`, then only the lowerCase validation will be applied to FirstName field.</li>
     <li>Adding Custom Message on LastName Field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply lowerCase validation dynamically based on server rules./li>
+    </data-scope>
 </ol>
 Let’s see how lowerCase  {{validatorType}}  fulfil the need.
 

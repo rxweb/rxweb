@@ -10,9 +10,11 @@ Suppose you want to create a User form, which contains fields like Username, Zip
 <li>Allow input which contains only Alphabet in Username.</li>
 <li>Apply pattern validation based on matched condition in the form, like if the Username is `John`, then only the the pattern validation must be applied to Age value(i.e., Age field must only be a digit).</li>
 <li>Adding Custom Message on Zipcode Field.</li>
+<data-scope scope="['decorator','validator']">
 <li>Apply pattern validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how pattern validator fulfil the need.
+Let’s see how pattern {{validatorType}} fulfil the need.
 
 # Basic Pattern Validation
 

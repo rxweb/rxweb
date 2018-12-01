@@ -11,7 +11,9 @@ Suppose you want to create a employee form in  which contains fields like depart
     <li>The skills field in which you want the user to enter skills based upon matchvalues.</li>
     <li>Apply allOf validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be based upon matchvalues.</li>
     <li>The Custom Message on Hobbies field.</li>
-    <li>Apply allOf validation dynamically based on server rules.</li>
+    <data-scope scope="['decorator','validator']">
+        <li>Apply allOf validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 Let’s see how allOf  {{validatorType}}  fulfil the need.
 

@@ -12,7 +12,9 @@ Suppose you want to create a User form, which contains fields like ColorPicker, 
     <li>Apply hexColor validation based on matched condition in the form, like if the ColorPicker is `#AFAFAF`, then only the HeaderHexColorCode field will be validated to hexColor validator.</li>
     <li>Adding Custom Message on BodyHexColorCode field.</li>
     <li>Applying strict format of hexCode in StrictHexCode field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply HexColor validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
 Let’s see how hexColor  {{validatorType}}  fulfil the need.

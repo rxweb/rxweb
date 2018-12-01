@@ -10,7 +10,9 @@ Suppose you want to create a websiteInfo form, which contains fields like browse
  <li>Allow educationalWebsitePort which have proper port format and adding Custom Message on educationalWebsitePort.</li>
  <li>Apply port validation on entertainmentWebsitePort field based on matched condition in the form, like if the browser is 'Chrome', then the entertainmentWebsitePort must be a port number (Used as a function).</li>
  <li>Apply port validation on shoppingWebsitePort field based on matched condition in the form, like if the browser is 'Chrome', then the    shoppingWebsitePort must be a port number (Used as a string datatype).</li>
+ <data-scope scope="['decorator','validator']">
  <li>Apply port validation dynamically based on server rules.</li>
+ </data-scope>
 </ol>
 Let's see how port  {{validatorType}}  fulfil the need.
 

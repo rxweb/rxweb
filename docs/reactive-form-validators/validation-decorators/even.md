@@ -11,7 +11,9 @@ Suppose you want to create a user form, which contains fields like Number, Type,
     <li>Allow only evennumbers in EvenNumber’s field .</li>
     <li>Apply Even validation based on matched condition in the form, like if the type  is ‘Even’ then the number value should be even number.</li>
     <li>Adding Custom Message on EvenNumber Field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply even validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
 Let’s see how Even  {{validatorType}}  fulfil the need.

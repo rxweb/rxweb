@@ -10,7 +10,9 @@ Suppose you want to create a user form, which endsWith fields like name, profess
   <li>Apply validation on name field in which you want the user to enter value which ends with ‘m’.</li>
   <li>Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the profession must ends with 'R' (Used as a string datatype).</li>
   <li>Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the taskId must ends with '1' (Used as a function).</li>
+  <data-scope scope="['decorator','validator']">
   <li>Apply endsWith validation dynamically based on server rules.</li>
+  </data-scope>
 </ol>
 Let's see how endsWith  {{validatorType}}  fulfil the need.
 

@@ -10,9 +10,11 @@ Suppose you want to create a user form, which contains fields like Number, Type,
 	<li>Allow only odd numbers in oddNumber’s field.</li>
 	<li>Apply Odd validation based on matched condition in the form, like if the type  is ‘Odd’ then the number value should be odd number.</li>
 	<li>Adding Custom Message on OddNumber Field.</li>
+	<data-scope scope="['decorator','validator']">
 	<li>Apply odd validation dynamically based on server rules.</li>
+	</data-scope>
 </ol>
-Let’s see how Odd validator fulfil the need.
+Let’s see how Odd {{validatorType}} fulfil the need.
 
 # Basic Odd Validation
 <data-scope scope="['decorator']">

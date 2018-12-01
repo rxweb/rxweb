@@ -10,9 +10,11 @@ Suppose you want to create a user form and you have fields like TotalMarks, Obta
    <li>Specify TotalMarks as fieldName such that LessThanEqualTo validation should be applied to the fieldname for comparing other fields.</li>
    <li>Apply LessThanEqualTo validation based on matched condition in the form, like if the TotalMarks is ‘100’ then the ObtainedMarks,OtherMarks value  should be less than or equal to 100.</li>
    <li>Adding Custom Message on OtherMarks Field.</li>
+   <data-scope scope="['decorator','validator']">
    <li>Apply lessThanEqualTo validation dynamically based on server rules.</li>
+   </data-scope>
 </ol>
-Let’s see how lessThanEqualTo validator fulfil the need.
+Let’s see how lessThanEqualTo {{validatorType}} fulfil the need.
 
 # Basic LessThanEqualTo Validation
 <data-scope scope="['decorator']">

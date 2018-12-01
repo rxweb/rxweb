@@ -10,9 +10,11 @@ Suppose you want to create a User form, which contains fields like Age, VoterAge
 <li>Allow numbers which are greater than a perticular field like in VoterAge.</li>
 <li>Apply greaterThan validation based on matched condition in the form, like if the Age is greater than    17, then only the greater than validation will be applied to VoterAge field.</li>
 <li>Adding Custom Message on OtherAge Field.</li>
+<data-scope scope="['decorator','validator']">
 <li>Apply greaterThan validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how greaterThan validator fulfil the need.
+Let’s see how greaterThan {{validatorType}} fulfil the need.
 
 # Basic GreaterThan Validation
 

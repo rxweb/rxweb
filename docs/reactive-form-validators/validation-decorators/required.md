@@ -10,9 +10,11 @@ Suppose you want to create a UserInfo form, which contains fields like FirstName
 <li>Make the FirstName a required field without any condition.</li>
 <li>Apply required validation based on matched condition in the form, like if the FirstName is `John`, then only the required validation will be applied to LastName field.</li>
 <li>Adding Custom Message on Username Field.</li>
+<data-scope scope="['decorator','validator']">
 <li>Apply required validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how required validator fulfil the need.
+Let’s see how required {{validatorType}} fulfil the need.
 
 # Basic Required Validation
 

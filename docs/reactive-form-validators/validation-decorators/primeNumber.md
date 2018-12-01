@@ -10,7 +10,9 @@ Suppose you want to create a numberInfo form, which contains fields like numberT
 <li>Allow firstNumber which have proper primeNumber format and adding Custom Message on firstNumber.</li>
 <li>Apply validation on secondNumber field based on matched condition in the form, like if the numberType is 'Prime', then the secondNumber must be a primeNumber (Used as a function).</li>
 <li>Apply validation on thirdNumber field based on matched condition in the form, like if the numberType is 'Prime', then the thirdNumber must be a primeNumber (Used as a string datatype).</li>
+<data-scope scope="['decorator','validator']">
 <li>Apply primeNumber validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
 Let's see how primeNumber  {{validatorType}}  fulfil the need.
 

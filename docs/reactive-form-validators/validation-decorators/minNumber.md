@@ -10,9 +10,11 @@ Suppose you want to create a ResultInfo form, which contains fields like Maths, 
 	<li>Allow number greater than 35 in Maths field.</li>
 	<li>Apply minNumber validation based on matched condition in the form, like if the input of Maths is 50, then only the minNumber validation will be applied to Statistics field.</li>
 	<li>Adding Custom Message on Science Field.</li>
+	<data-scope scope="['decorator','validator']">
 	<li>Apply minNumber validation dynamically based on server rules.</li>
+	</data-scope>
 </ol>
-Let’s see how minNumber validator fulfil the need.
+Let’s see how minNumber {{validatorType}} fulfil the need.
 
 # Basic MinNumber Validation
 <data-scope scope="['decorator']">

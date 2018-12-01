@@ -10,9 +10,11 @@ Suppose you want to create a employeeInfo form, which contains field of employee
  <li>Adding value which you want to restrict number in the property. The minimum number is 18 and maximum number is 60.</li> 
  <li>Apply range validation based on matched condition in the form, like if the age is greater than ‘25’ then the employeeExperience value should be between 2 to 20.</li>
  <li>Adding Custom Message on Salary Field.</li>
+ <data-scope scope="['decorator','validator']">
  <li>Apply range validation dynamically based on server rules.</li>
+ </data-scope>
 </ol>
-Let’s see how range validator fulfil the need.
+Let’s see how range {{validatorType}} fulfil the need.
 
 # Basic range Validation
 <data-scope scope="['decorator']">

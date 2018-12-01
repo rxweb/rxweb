@@ -10,7 +10,9 @@ Suppose you want to create a storageCapacity form, which contains fields like de
    <li>Allow videoStorageSize which have proper size format and adding Custom Message on videoStorageSize.</li>
    <li>Apply validation on documentStorageSize field based on matched condition in the form, like if the device is 'SmartPhone', then the documentStorageSize must be a size format (Used as a function).</li>
    <li>Apply validation on photographStorageSize field based on matched condition in the form, like if the device is 'SmartPhone', then the photographStorageSize must be a size format (Used as a string datatype).</li>
+   <data-scope scope="['decorator','validator']">
    <li>Apply fileSize validation dynamically based on server rules.</li>
+   </data-scope>
 </ol>
 Let's see how fileSize  {{validatorType}}  fulfil the need.
  

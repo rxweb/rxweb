@@ -10,7 +10,9 @@ Suppose you want to create a user form, which dataUri fields like scheme, AudioD
    <li>Allow the user to enter valid dataUri in the field of AudioDataUri with custom error message.</li>
    <li>Apply validation on VideoDataUri  field based on matched condition in the form, like if the scheme is 'DataUri', then the VideoDataUri  must be a data URI format (Used as a function).</li>
    <li>Apply validation on ImageDataUri based on matched condition in the form, like if the scheme is 'DataUri', then the ImageDataUri must be a data URI format (Used as a string datatype).</li>
+   <data-scope scope="['decorator','validator']">
    <li>Apply dataUri validation dynamically based on server rules.</li>
+   </data-scope>
 </ol>
 Let's see how dataUri  {{validatorType}}  fulfil the need.
 

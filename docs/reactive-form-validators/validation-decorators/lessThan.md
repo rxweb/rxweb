@@ -10,7 +10,9 @@ Suppose you want to create a User form, which contains fields like ObtainedMarks
     <li>Allow numbers which are less than a perticular field like in PassingMarks.</li>
     <li>Apply lessThan validation based on matched condition in the form, like if the ObtainedMarks is less than 35, then only the greater than validation will be applied to PassingMarks field.</li>
     <li>Adding Custom Message on OtherMarks Field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply lessThan validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 Let’s see how lessThan  {{validatorType}}  fulfil the need.
 

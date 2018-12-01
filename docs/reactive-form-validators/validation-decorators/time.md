@@ -11,9 +11,11 @@ Suppose you want to create a AttendanceDetail form, which contains field of Entr
 <li>Allowing seconds in TotalTimeOut.</li>
 <li>Apply time validation based on matched condition in the form, like if the EntryPlace is ‘Lunch room’ then the EntryTime value should be in proper format of time .</li>
 <li>Adding Custom Message on exitTime Field.</li>
+<data-scope scope="['decorator','validator']">
 <li>Apply time validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how time validator fulfil the need.
+Let’s see how time {{validatorType}} fulfil the need.
 
 # Basic time Validation
 

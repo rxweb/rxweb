@@ -12,7 +12,9 @@ Suppose you want to create a Location form, which contains fields like AreaName,
     <li>Allowing WhiteSpace in FlatAddress.</li>
     <li>Apply alphaNumeric validation based on matched condition in the form, like if the AreaName is `Boston` then the CityCode value should be in alphabets and numbers.</li>
     <li>Adding Custom Message on PostalAddress Field.</li>
-    <li>Apply alphaNumeric validation dynamically based on server rules. </li>
+    <data-scope scope="['decorator','validator']">
+        <li>Apply alphaNumeric validation dynamically based on server rules. </li>
+    </data-scope>
 </ol>
 
 Let’s see how alphaNumeric  {{validatorType}}  fulfil the need.

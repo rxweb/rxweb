@@ -10,9 +10,11 @@ Suppose you want to create a User form, which contains fields like Username, Bir
 	<li>Allow date greater than `30/07/2018 ` in RegistrationDate.</li>
 	<li>Apply minDate validation based on matched condition in the form, like if the UserName is `john`, then only the minDate validation will be  applied to BirthDate field (i.e., BirthDate must be greater than `30/07/2018 `).</li>
 	<li>Adding Custom Message on RegistrationDate Field.</li>
+	<data-scope scope="['decorator','validator']">
 	<li>Apply minDate validation dynamically based on server rules.</li>
+	</data-scope>
 </ol>
-Let’s see how minDate validator fulfil the need.
+Let’s see how minDate {{validatorType}} fulfil the need.
 
 # Basic MinDate Validation
 <data-scope scope="['decorator']">

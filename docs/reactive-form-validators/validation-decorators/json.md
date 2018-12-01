@@ -10,9 +10,11 @@ Suppose you want to create a location based jsonInfo form and you have fields li
   <li>Apply json validation on LocationJson field  without any conditional expression.</li>
   <li>Apply json validation based on matched condition in the form, like if the location is ‘India’ then the AddressJson value should be valid Json value.</li>
   <li>Adding Custom Message on ContactJson Field.</li>
+  <data-scope scope="['decorator','validator']">
   <li>Apply json validation dynamically based on server rules.</li>
+  </data-scope>
 </ol>
-Let’s see how json validator fulfil the need.
+Let’s see how json {{validatorType}} fulfil the need.
 
 # Basic Json Validation
 <data-scope scope="['decorator']">

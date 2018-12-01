@@ -10,9 +10,11 @@ Suppose you want to create a Contact form, which contains fields like countryNam
 <li>Apply MinLength validation based on matched condition in the form, like if the CountryName is ‘India’ then the countryCode value  should be of the minimum specified length.</li>
 <li>Adding Custom Message on LandlineNo Field.</li>
 <li>Adding value which you want to restrict number in the property. The Minimum length is '10'. </li>
+<data-scope scope="['decorator','validator']">
 <li>Apply MinLength validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how minLength validator fulfil the need.
+Let’s see how minLength {{validatorType}} fulfil the need.
 
 # Basic MinLength Validation
 

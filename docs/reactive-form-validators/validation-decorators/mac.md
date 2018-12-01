@@ -10,9 +10,11 @@ Suppose you want to create a form in which you want user to enter mac address  w
 	<li>The macAddress on which validation is checked.</li>
     <li>Apply mac validation based on matched condition in the form, like if the device  is ‘Laptop’ then the macAddress value should be in proper format.</li>
     <li>The Custom Message on systemMacAddress field.</li>
+    <data-scope scope="['decorator','validator']">
 	<li>Apply mac validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
-Let’s see how mac validator fulfil the need.
+Let’s see how mac {{validatorType}} fulfil the need.
 
 # Basic mac Validation
 <data-scope scope="['decorator']">

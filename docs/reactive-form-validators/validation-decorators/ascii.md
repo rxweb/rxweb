@@ -10,7 +10,9 @@ Suppose you want to create a user form in which you want the user to enter an  i
      <li>Allow valid ascii code input in field of specialCharAsciiCode and add custom error message to it.</li>
      <li>Apply validation on numberAsciiCode field based on matched condition in the form, like if the language is 'Java', then the numberAsciiCode must be an ascii code (Used as a function).</li>
      <li>Apply validation on specialCharAsciiCode field validation based on matched condition in the form, like if the language is 'Java', then the alphabetAsciiCode must be an ascii code (Used as a string datatype).</li>
-     <li>Apply ascii validation dynamically based on server rules.</li>
+     <data-scope scope="['decorator','validator']">
+          <li>Apply ascii validation dynamically based on server rules.</li>
+     </data-scope>
 </ol>
 Let's see how ascii  {{validatorType}}  fulfil the need.
 

@@ -10,7 +10,9 @@ Suppose you want to create a user form in which you want to compare firstname an
 <ol>
     <li>The Name of firstName field on which comparison is done.</li>
     <li>The Custom Message on password field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply different validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
 Let’s see how different  {{validatorType}}  fulfil the need.

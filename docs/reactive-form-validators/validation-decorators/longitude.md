@@ -10,7 +10,9 @@ Suppose you want to create a country form, which contains fields like continent,
   <li>Allow firstCountryLongitude which have proper longitude format and adding Custom Message on firstCountryLongitude.</li>
   <li>Apply longitude validation on secondCountryLongitude field based on matched condition in the form, like if the continent is 'Asia', then the secondCountryLongitude must be a longitude format (Used as a function).</li>
   <li>Apply longitude validation on thirdCountryLongitude field based on matched condition in the form, like if the continent is 'Asia', then the thirdCountryLongitude must be a longitude format (Used as a string datatype).</li>
+  <data-scope scope="['decorator','validator']">
   <li>Apply longitude validation dynamically based on server rules.</li>
+  </data-scope>
 </ol>
 Let's see how longitude  {{validatorType}}  fulfil the need.
 
