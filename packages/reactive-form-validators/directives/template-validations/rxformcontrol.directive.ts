@@ -99,14 +99,16 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
       Object.keys(APP_VALIDATORS).forEach(validatorName=>{
         if((this[validatorName]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[validatorName] == BLANK)){
           validators.push(APP_VALIDATORS[validatorName](this[validatorName]));
-          if(this.name && !(this.formControlName && this.formControl))
-            ApplicationUtil.configureControl(this.controlConfig,this[validatorName],validatorName);
+          if (this.name && !(this.formControlName && this.formControl)) {
+            ApplicationUtil.configureControl(this.controlConfig, this[validatorName], validatorName);
+          }
+          
         }
       })
       if(validators.length > 0)
         this.validator = APP_VALIDATORS[COMPOSE]({validators:validators})
       if(this.numeric && this.numeric.isFormat)
-          this.bindNumericElementEvent();
+      this.bindNumericElementEvent();
   }
 
   bindNumericElementEvent(config?:NumericConfig){

@@ -27,10 +27,14 @@ export class BaseValidator extends ControlExpressionProcess implements Validator
     }
 
   validate(control: AbstractControl): { [key: string]: any } {
-    if(this.conditionalValidator)
-        this.conditionalValidator(control);
-    else if(!this.isProcessed && control.parent && !control.parent["model"])
-      this.expressionProcessor(control);
+    if (control["conditionalValidator"]) {
+      this.conditionalValidator = control["conditionalValidator"];
+      delete control["conditionalValidator"];
+    }
+    if (this.conditionalValidator)
+      this.conditionalValidator(control);
+    if (!this.isProcessed)
+      this.setModelConfig(control);
     return  this.validator ? this.validator(control) : null;
     }
 }
