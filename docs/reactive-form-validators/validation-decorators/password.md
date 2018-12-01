@@ -57,7 +57,7 @@ Next, we need to write html code.
 </data-scope>
 
 # PasswordConfig 
-m<data-scope scope="['decorator']">
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@password()` decorator. If needed then use the below options.
 </data-scope>
 
