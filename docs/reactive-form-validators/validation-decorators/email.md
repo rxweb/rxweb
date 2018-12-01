@@ -62,7 +62,15 @@ Next, we need to write html code.
 
 #EmailConfig
 
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@email()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.email()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `email` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

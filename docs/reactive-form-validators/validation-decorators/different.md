@@ -32,7 +32,15 @@ Next, we need to write html code.
 ***
 
 # DifferentConfig
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@different()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.different()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `different` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

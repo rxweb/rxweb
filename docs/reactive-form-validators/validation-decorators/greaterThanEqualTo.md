@@ -61,7 +61,15 @@ Next, we need to write html code.
 
 # RelationalOperatorConfig
 
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@greaterThanEqualTo()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.greaterThanEqualTo()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `greaterThanEqualTo` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

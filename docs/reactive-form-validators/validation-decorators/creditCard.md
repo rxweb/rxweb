@@ -59,7 +59,15 @@ Next, we need to write html code.
 </data-scope>
 
 # CreditCardConfig
-Below options are not mandatory to use in the `@CreditCard()` decorator. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@creditCard()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.creditCard()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `creditCard` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

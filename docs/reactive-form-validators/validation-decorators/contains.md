@@ -58,7 +58,15 @@ Next, we need to write html code.
 </data-scope>
 
 # ContainsConfig 
-conditionalExpression and message options are not mandatory but value is mandatory to use in the `@contains()` decorator. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@contains()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.contains()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `contains` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
