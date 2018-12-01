@@ -12,7 +12,9 @@ Suppose you want to create a User form, which contains fields like ColorPicker, 
     <li>Apply hexColor validation based on matched condition in the form, like if the ColorPicker is `#AFAFAF`, then only the HeaderHexColorCode field will be validated to hexColor validator.</li>
     <li>Adding Custom Message on BodyHexColorCode field.</li>
     <li>Applying strict format of hexCode in StrictHexCode field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply HexColor validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
 Let’s see how hexColor  {{validatorType}}  fulfil the need.
@@ -60,7 +62,15 @@ Next, we need to write html code.
 </data-scope>
 
 # HexColorConfig 
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@hexColor()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.hexColor()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `hexColor` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

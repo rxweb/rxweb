@@ -11,7 +11,9 @@ Suppose you want to create a user form and you have fields like Age, VoterAge, O
 <li>Specify Age as fieldName such that greaterThanEqualTo validation should be applied to the fieldname for comparing other fields.</li>
 <li>Apply greaterThanEqualTo validation based on matched condition in the form, like if the Age is ‘18’ then the </li>VoterAge,OtherAge value should be Greater than or equal to 18.
 <li>Adding Custom Message on OtherAge Field.</li>
+<data-scope scope="['decorator','validator']">
 <li>Apply greaterThanEqualTo validation dynamically based on server rules.</li>
+</data-scope>
 
 Let’s see how greaterThanEqualTo  {{validatorType}}  fulfil the need.
 
@@ -59,7 +61,15 @@ Next, we need to write html code.
 
 # RelationalOperatorConfig
 
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@greaterThanEqualTo()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.greaterThanEqualTo()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `greaterThanEqualTo` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

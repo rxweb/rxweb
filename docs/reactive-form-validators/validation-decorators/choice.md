@@ -12,7 +12,9 @@ Suppose you want to create a employee form in which you want employee to enter v
     <li>The skills field in which you want the user to enter maximum three skills and minimum of one skill.</li>
     <li>Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be maximum three and minimum one.</li>
     <li>The Custom Message on Hobbies field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply choice validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
 Let’s see how choice  {{validatorType}}  fulfil the need.
@@ -59,7 +61,15 @@ Next, we need to write html code.
 </data-scope>
 
 # ChoiceConfig
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@choice()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.choice()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `choice` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

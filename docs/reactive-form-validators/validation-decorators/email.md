@@ -11,7 +11,9 @@ Suppose you want to create a user form and you have fields like Email, RecoveryE
     <li>Adding email validation on the field named email without any conditional expression.</li>
     <li>Apply email validation based on matched condition in the form, like if the Email is ‘abc@gmail.com’ then the RecoveryEmailAddress value should be valid email address.</li>
     <li>Adding Custom Message on OtherEmailAddress Field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply email validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
 Let’s see how email  {{validatorType}}  fulfil the need.
@@ -60,7 +62,15 @@ Next, we need to write html code.
 
 #EmailConfig
 
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@email()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.email()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `email` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

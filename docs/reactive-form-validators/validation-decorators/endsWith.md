@@ -10,7 +10,9 @@ Suppose you want to create a user form, which endsWith fields like name, profess
   <li>Apply validation on name field in which you want the user to enter value which ends with ‘m’.</li>
   <li>Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the profession must ends with 'R' (Used as a string datatype).</li>
   <li>Apply endsWith validation based on matched condition in the form, like if the name is 'Adam', then the taskId must ends with '1' (Used as a function).</li>
+  <data-scope scope="['decorator','validator']">
   <li>Apply endsWith validation dynamically based on server rules.</li>
+  </data-scope>
 </ol>
 Let's see how endsWith  {{validatorType}}  fulfil the need.
 
@@ -56,7 +58,15 @@ Next, we need to write html code.
 </data-scope>
 
 # DefaultConfig
-message and conditionalExpression are not mandatory to use in the `@endsWith()` decorator. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@endsWith()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.endsWith()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `endsWith` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

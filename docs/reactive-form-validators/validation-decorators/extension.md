@@ -10,7 +10,9 @@ Suppose you want to create a storageCapacity form, which contains fields like de
    <li>Allow videoFileExtension which have proper extension format and adding Custom Message on videoFileExtension.</li>
    <li>Apply  extension validation on  documentFileExtension field based on matched condition in the form, like if the device is 'SmartPhone', then the documentFileExtension must be a extension format (Used as a function).</li>
    <li>Apply extension validation on photographFileExtension field based on matched condition in the form, like if the device is 'SmartPhone', then the photographFileExtension must be a extension format (Used as a string datatype).</li>
+   <data-scope scope="['decorator','validator']">
    <li>Apply extension validation dynamically based on server rules.</li>
+   </data-scope>
 </ol>
 Let's see how extension  {{validatorType}}  fulfil the need.
  
@@ -56,7 +58,15 @@ Next, we need to write html code.
 </data-scope>
 
 # ExtensionConfig
-message and conditionalExpression are not mandatory to use in the `@extension()` decorator. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@extension()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.extension()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `extension` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

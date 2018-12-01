@@ -12,9 +12,11 @@ Suppose you want to create a User form, which contains fields like userName, bir
 <li>Apply MaxDate validation based on matched condition in the form, like if the userName is ‘John’ then the birthDate value should be valid date does not exceed the maximum date.</li>
 <li>Adding Custom Message on registrationDate Field.</li>
 <li>Adding value which you want to restrict number in the property. The maximum date is '2018,7,30'. </li>
+<data-scope scope="['decorator','validator']">
 <li>Apply MaxDate validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how MaxDate validator fulfil the need.
+Let’s see how MaxDate {{validatorType}} fulfil the need.
 
 # Basic MaxDate Validation
 

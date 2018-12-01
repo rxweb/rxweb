@@ -11,7 +11,9 @@ Suppose you want to create a Country form, which contains fields like CountryNam
 	<li>Allowing WhiteSpace in StateName.</li>
 	<li>Apply alpha validation based on matched condition in the form, like if the CountryName is 'India' then the StateCode value should be in alphabets.</li>
 	<li>Adding Custom Message on StateCode Field.</li>
-	<li>Apply alpha validation dynamically based on server rules. </li>
+	<data-scope scope="['decorator','validator']">
+		<li>Apply alpha validation dynamically based on server rules. </li>
+	</data-scope>
 </ol>
 Let's see how alpha  {{validatorType}}  fulfil the need.
  
@@ -57,7 +59,15 @@ Next, we need to write html code.
 </data-scope>
 
 # AlphaConfig
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@alpha()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.alpha()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `alpha` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

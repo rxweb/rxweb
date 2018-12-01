@@ -10,7 +10,9 @@ Suppose you want to create a user value form, which contains fields like name, b
     <li>Allow only leap year in the field of birthyear.</li>
     <li>Apply leapyear validation based on matched condition in the form, like if the name  is ‘John’ then the birthYear value should be leapyear.</li>
     <li>Adding Custom Message on joining Field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply leapyear validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 Let’s see how LeapYear  {{validatorType}}  fulfil the need.
 
@@ -57,7 +59,15 @@ Next, we need to write html code.
 </data-scope>
 
 # BaseConfig
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@leapYear()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.leapYear()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `leapYear` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

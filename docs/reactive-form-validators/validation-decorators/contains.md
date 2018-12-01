@@ -8,11 +8,13 @@ author: rxcontributortwo
 Suppose you want to create a User form, which contains fields like EmailAddress, RecoveryEmailAddress, OtherEmailAddress and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.
 <ol>
 	<li>Allow input which contains the predefined value in EmailAddress.</li>
-	<li>Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the the       contains validation must be applied to RecoveryEmailAddress value.</li>
+	<li>Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the contains validation must be applied to RecoveryEmailAddress value.</li>
 	<li>Adding Custom Message on OtherEmailAddress Field.</li>
+	<data-scope scope="['decorator','validator']">
 	<li>Apply contains validation dynamically based on server rules.</li>
+	</data-scope>
 </ol>
-Let’s see how contains validator fulfil the need.
+Let’s see how contains {{validatorType}} fulfil the need.
 
 # Basic Contains Validation
 <data-scope scope="['decorator']">
@@ -56,7 +58,15 @@ Next, we need to write html code.
 </data-scope>
 
 # ContainsConfig 
-conditionalExpression and message options are not mandatory but value is mandatory to use in the `@contains()` decorator. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@contains()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.contains()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `contains` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

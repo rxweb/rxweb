@@ -8,9 +8,11 @@ author:  rxcontributortwo
 Supppose you want to create a user form and you want details like CreditCard and you have fields like CardType, VisaCard, AmericanExpress,MaestroCard, JCBcard, DiscoverCard, MasterCard  Here depending upon the requirement these scenarios may arise.
 <ol>  
     <li>CreditCard Type has different Card Types like Visa, AmericanExpress, Maestro, JCB, Discover, DinersClub, MasterCard.</li>
-    <li>Apply CreditCard validation based on matched condition in the form, like if the CardType  is ‘visa` then the VisaCard value should be in VisaCard format.</li>
+    <li>Apply CreditCard validation based on matched condition in the form, like if the CardType  is `visa` then the VisaCard value should be in VisaCard format.</li>
     <li>The Custom Message on VisaCard field.  </li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply creditCard validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
 Let’s see how credit card {{validatorType}} fulfil the need.
@@ -57,7 +59,15 @@ Next, we need to write html code.
 </data-scope>
 
 # CreditCardConfig
-Below options are not mandatory to use in the `@CreditCard()` decorator. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@creditCard()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.creditCard()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `creditCard` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

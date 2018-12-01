@@ -8,11 +8,13 @@ author: rxcontributorone
 Suppose you want to create a website-info form, which contains fields like AdminWebsiteUrl, CustomerWebsiteUrl, MaintenanceWebsiteUrl and you want the user to enter valid url. Here depending upon the requirement these scenarios may arise.
 <ol>
    <li>Adding AdminWebsiteUrl without any conditional expression.</li>
-   <li>Apply url validation based on matched condition in the form, like if the adminWebsiteUrl is ‘https://google.co.in’ then the              customerWebsiteUrl value should be in proper format of url.</li>
+   <li>Apply url validation based on matched condition in the form, like if the adminWebsiteUrl is ‘https://google.co.in’ then the customerWebsiteUrl value should be in proper format of url.</li>
    <li>Adding Custom Message on MaintenanceWebsiteUrl Field.</li>
+   <data-scope scope="['decorator','validator']">
    <li>Apply url validation dynamically based on server rules.</li>
+   </data-scope>
 </ol>
-Let’s see how url validator fulfil the need.
+Let’s see how url {{validatorType}} fulfil the need.
 
 # Basic url Validation
 <data-scope scope="['decorator']">

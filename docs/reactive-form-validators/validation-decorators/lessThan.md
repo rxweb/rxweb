@@ -10,7 +10,9 @@ Suppose you want to create a User form, which contains fields like ObtainedMarks
     <li>Allow numbers which are less than a perticular field like in PassingMarks.</li>
     <li>Apply lessThan validation based on matched condition in the form, like if the ObtainedMarks is less than 35, then only the greater than validation will be applied to PassingMarks field.</li>
     <li>Adding Custom Message on OtherMarks Field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply lessThan validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 Let’s see how lessThan  {{validatorType}}  fulfil the need.
 
@@ -57,7 +59,15 @@ Next, we need to write html code.
 </data-scope>
 
 # RelationalOperatorConfig 
-message and conditionalExpression options are not mandatory but fieldName is mandatory to use in the `@lessThan()` decorator. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@lessThan()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.lessThan()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `lessThan` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

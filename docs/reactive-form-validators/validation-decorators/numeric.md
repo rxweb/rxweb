@@ -12,9 +12,11 @@ Suppose you want to create a user form, which contains fields like DataType, int
 <li>Allow decimal value in integerNumber  </li>
 <li>Apply numeric validation based on matched condition in the form, like if the dataType  is ‘Integer’ then the number value should be Integer number.</li>
 <li>Adding Custom Message on Negative value Field.</li>
+<data-scope scope="['decorator','validator']">
 <li>Apply numeric validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how Numeric validator fulfil the need.
+Let’s see how Numeric {{validatorType}} fulfil the need.
 
 # Basic Numeric Validation
 

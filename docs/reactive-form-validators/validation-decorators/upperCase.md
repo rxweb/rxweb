@@ -10,9 +10,11 @@ Suppose you want to create a Location form, which contains fields like CountryNa
     <li>Apply upperCase validation in the CountryName without any condition.</li>
     <li>Apply upperCase validation based on matched condition in the form, like if the CountryName is `INDIA`, then only the upperCase validation will be applied to StateName field.</li>
 	<li>Adding Custom Message on CityName Field.</li>
+    <data-scope scope="['decorator','validator']">
 	<li>Apply upperCase validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
-Let’s see how upperCase validator fulfil the need.
+Let’s see how upperCase {{validatorType}} fulfil the need.
 
 # Basic UpperCase Validation
 <data-scope scope="['decorator']">

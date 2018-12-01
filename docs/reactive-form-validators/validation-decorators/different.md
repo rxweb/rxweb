@@ -10,7 +10,9 @@ Suppose you want to create a user form in which you want to compare firstname an
 <ol>
     <li>The Name of firstName field on which comparison is done.</li>
     <li>The Custom Message on password field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply different validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
 Let’s see how different  {{validatorType}}  fulfil the need.
@@ -30,7 +32,15 @@ Next, we need to write html code.
 ***
 
 # DifferentConfig
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@different()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.different()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `different` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

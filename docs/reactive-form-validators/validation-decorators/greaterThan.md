@@ -10,9 +10,11 @@ Suppose you want to create a User form, which contains fields like Age, VoterAge
 <li>Allow numbers which are greater than a perticular field like in VoterAge.</li>
 <li>Apply greaterThan validation based on matched condition in the form, like if the Age is greater than    17, then only the greater than validation will be applied to VoterAge field.</li>
 <li>Adding Custom Message on OtherAge Field.</li>
+<data-scope scope="['decorator','validator']">
 <li>Apply greaterThan validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how greaterThan validator fulfil the need.
+Let’s see how greaterThan {{validatorType}} fulfil the need.
 
 # Basic GreaterThan Validation
 
@@ -57,7 +59,15 @@ Next, we need to write html code.
 </data-scope>
 
 # RelationalOperatorConfig 
-message and conditionalExpression options are not mandatory but fieldName is mandatory to use in the `@greaterThan()` decorator. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@greaterThan()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.greaterThan()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `greaterThan` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

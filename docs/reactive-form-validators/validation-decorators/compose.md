@@ -11,7 +11,9 @@ Suppose you want to create UserInfo form, which contains fields like firstName, 
     <li>Apply required, alpha and different validation on lastName field.</li>
     <li>Apply digit, maxNumber and minNumber validation on age field based on matched condition in the form, like if the firstName is 'Bharat', then only the age must be validated.</li>
     <li>Apply required, email and maxLength validation based on matched condition in the form, like if the firstName is 'Bharat', then only the emailId must be validated.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply compose validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
 Let’s see how compose  {{validatorType}}  fulfil the need.
@@ -58,7 +60,15 @@ Next, we need to write html code.
 </data-scope>
 
 # ComposeConfig
-conditionalExpression is not mandatory to use in the `@compose()` decorator. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@compose()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.compose()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `compose` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

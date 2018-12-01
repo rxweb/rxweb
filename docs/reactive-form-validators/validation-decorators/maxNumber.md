@@ -11,9 +11,11 @@ Suppose you want to create a Subject-detail form, which contains fields like sub
 <li>Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .</li>
 <li>Adding Custom Message on PassingMarks Field.</li>
 <li>Adding value which you want to restrict number in the property. The maximum number is '100s'. </li>
+<data-scope scope="['decorator','validator']">
 <li>Apply maxNumber validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how maxNumber validator fulfil the need.
+Let’s see how maxNumber {{validatorType}} fulfil the need.
 
 # Basic MaxNumber Validation
 

@@ -8,10 +8,12 @@ author: rxcontributorone
 Suppose you want to create a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.
 <ol>
 	<li>The Name of Password field on which comparison is done.</li>
-    <li>The Custom Message on ConfirmPassword field.</li>  
+    <li>The Custom Message on ConfirmPassword field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply compare validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
-Let’s see how compare validator fulfil the need.
+Let’s see how compare {{validatorType}} fulfil the need.
 
 # Basic Compare Validation
 <data-scope scope="['decorator']">
@@ -28,7 +30,15 @@ Next, we need to write html code.
 ***
 
 # CompareConfig
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@compare()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.compare()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `compare` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>

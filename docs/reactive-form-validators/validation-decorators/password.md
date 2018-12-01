@@ -8,10 +8,12 @@ author: rxcontributorone
 Suppose you want to create a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
 <ol>
    <li>Adding validation on oldPassword Field and adding  Custom Message on it.</li>
-   <li>Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter,        minLength, maxLength.</li>
+   <li>Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</li>
+   <data-scope scope="['decorator','validator']">
    <li>Apply password validation dynamically based on server rules.</li>
+   </data-scope>
 </ol>
-Let’s see how password validator fulfil the need.
+Let’s see how password {{validatorType}} fulfil the need.
 
 # Basic password Validation
 <data-scope scope="['decorator']">
