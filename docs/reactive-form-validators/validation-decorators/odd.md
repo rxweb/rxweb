@@ -37,7 +37,7 @@ Here we have covered Add form operations.
 <div component="app-code" key="odd-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="odd-add-html"></div> 
-<div component="app-odd-add" title="odd Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-odd-add"></div>
 # [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="odd-edit-component"></div>
@@ -45,7 +45,7 @@ The below code is `user-data.json` for getting data from the server
 <div component="app-code" key="odd-edit-json"></div>  
 Next, we need to write html code.
 <div component="app-code" key="odd-edit-html"></div> 
-<div component="app-odd-add" title="odd Decorator for edit Example"></div>
+<div component="app-example-runner" ref-component="app-odd-edit"></div>
 # [/Edit]
 ***
 </data-scope>
@@ -54,7 +54,7 @@ Next, we need to write html code.
 <div component="app-code" key="odd-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="odd-add-html"></div> 
-<div component="app-odd-add" title="odd Decorator for add Example"></div>
+<div component="app-example-runner" ref-component="app-odd-add"></div>
 </data-scope>
 
 # BaseConfig
