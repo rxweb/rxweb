@@ -2,7 +2,7 @@
   <form #userinfoForm = "ngForm">
     <div class="form-group">
       <label>Data Type</label>
-      <select name="dataType" [(ngModel)]="userinfo.dataType"  class="form-control" numeric>
+      <select name="dataType" [(ngModel)]="userinfo.dataType"  class="form-control" >
 		<option [value]="item" *ngFor="let item of dataTypes">{{item}}</option>
       </select>
 

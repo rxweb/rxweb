@@ -44,9 +44,7 @@ export abstract class BaseComponentProvider implements OnDestroy {
     getPramas(element:any,type?:string){
         let keyName = element.getAttribute("key");
         
-          if(keyName=="pattern-complete-model"){
-            debugger
-        }
+      
         let jObject = this.getKeyData(keyName);
         let params = {};
         params["content"] = jObject;

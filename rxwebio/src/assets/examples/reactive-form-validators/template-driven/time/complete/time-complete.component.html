@@ -2,7 +2,7 @@
   <form #attandancedetailForm = "ngForm">
     <div class="form-group">
       <label>Entry Place</label>
-      <input type="text" name="entryPlace" [(ngModel)]="attandancedetail.entryPlace"  class="form-control"  time />
+      <input type="text" name="entryPlace" [(ngModel)]="attandancedetail.entryPlace"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Total In' or 'Entry Time', then you need to add 'Entry Place' input as 'Lunch Room'<br/></small>
 	   <small class="form-text text-danger" *ngIf="attandancedetailForm.controls.entryPlace?.errors">{{attandancedetailForm.controls.entryPlace?.errors.time.message}}<br/></small>	
     </div>

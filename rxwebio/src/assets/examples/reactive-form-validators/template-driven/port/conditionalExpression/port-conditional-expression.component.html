@@ -2,7 +2,7 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>Browser</label>
-      <input type="text" name="browser" [(ngModel)]="user.browser"  class="form-control"  port />
+      <input type="text" name="browser" [(ngModel)]="user.browser"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Entertainment Website Port' or 'Shopping Website Port', then you need to add 'Browser' input as 'Chrome'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.browser?.errors">{{userForm.controls.browser?.errors.port.message}}<br/></small>	
     </div>

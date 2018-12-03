@@ -2,7 +2,7 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>Admission Age</label>
-      <input type="text" name="admissionAge" [(ngModel)]="user.admissionAge"  class="form-control"  greaterThanEqualTo />
+      <input type="text" name="admissionAge" [(ngModel)]="user.admissionAge"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Voter Age' or 'Member Age' then need to add this input greater than or equal to '18'.<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.admissionAge?.errors">{{userForm.controls.admissionAge?.errors.greaterThanEqualTo.message}}<br/></small>	
     </div>

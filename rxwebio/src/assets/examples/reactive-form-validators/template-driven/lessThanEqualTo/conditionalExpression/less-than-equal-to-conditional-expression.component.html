@@ -2,7 +2,7 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>Total Marks</label>
-      <input type="text" name="totalMarks" [(ngModel)]="user.totalMarks"  class="form-control"  lessThanEqualTo />
+      <input type="text" name="totalMarks" [(ngModel)]="user.totalMarks"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation of less than equal to validation on obtained marks or practical exam marks then Total Marks must be 100.<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.totalMarks?.errors">{{userForm.controls.totalMarks?.errors.lessThanEqualTo.message}}<br/></small>	
     </div>

@@ -2,7 +2,7 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>User Name</label>
-      <input type="text" name="userName" [(ngModel)]="user.userName"  class="form-control"  minDate />
+      <input type="text" name="userName" [(ngModel)]="user.userName"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Birth Date' or 'Admission Date', then you need to add 'User Name' input as 'Bharat'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.userName?.errors">{{userForm.controls.userName?.errors.minDate.message}}<br/></small>	
     </div>

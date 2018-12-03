@@ -27,4 +27,6 @@ const APP_LAZY_ROUTES: Routes = [
  
 ];
 
-export const APP_LAZY_ROUTING: ModuleWithProviders = RouterModule.forRoot(APP_LAZY_ROUTES, { preloadingStrategy: NoPreloading });
+export const APP_LAZY_ROUTING: ModuleWithProviders = RouterModule.forRoot(APP_LAZY_ROUTES, { 
+      preloadingStrategy: NoPreloading,
+    });

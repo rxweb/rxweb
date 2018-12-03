@@ -3948,7 +3948,8 @@ body {
 }
 
 #menu {
-    width:299px;
+    /*width:299px;*/
+    width:229px;
     bottom: 0;
     float: left;
     left: 0;
@@ -3981,7 +3982,7 @@ body {
 }
 #wrapper {
     /* margin: 0 353px 0 252px; */
-    margin: 0px 300px 0 299px;
+    margin: 0px 300px 0 225px;
     padding: 0;
     background: #ffffff;
     transition: margin .4s ease 0s;
@@ -4496,7 +4497,8 @@ body.modal-open {
     font-size: 25px;
     float: left;
     width: 100%; 
-    max-width: 299px;
+    /*max-width: 299px;*/
+    max-width: 225px;
     cursor: pointer;
     background-color:  #ffffff;
     color:#ffffff;
@@ -5500,7 +5502,7 @@ float: left;
         margin-left: 10px
     }
     .header-link {
-        max-width: 300px;
+        max-width: 225px;
     }
     /*23-11-2018*/
     #side-menu .input-group { margin-left: 20px; }
@@ -5548,7 +5550,7 @@ pre {
 }
 .hljs {
   background-color:transparent !important;
-  font-size: 17px !important;
+  font-size: 15px !important;
     line-height: 17px !important;
 }
 
@@ -6075,12 +6077,12 @@ body.hide-sidebar #menu .header-link {
     .features h2 {
         margin-bottom: 40px;
     }
-    #menu{ width: 240px; }
-    #wrapper, #full-wrapper{ margin: 0px 240px 0 240px; padding: 0 20px; } 
+    #menu{ width: 229px; }
+    #wrapper, #full-wrapper{ margin: 0px 240px 0 225px; padding: 0 20px; } 
     #full-wrapper{margin-right:0;}
     #rightsidebar{width: 240px!important; padding-left: 20px; }
     /*26-11-2018*/
-    .header-link { max-width: 240px; }
+    .header-link { max-width: 225px; }
     #search-input { width: 100%; max-width: 260px; }
 }
 @media only screen and (max-width:991px){
@@ -6225,3 +6227,12 @@ body.hide-sidebar #menu .header-link {
 
 /*-------- do not add any css here ---------- */
 
+.link-header:hover, .link-header:focus, .link-header:active:hover, .link-header:active:focus {
+    opacity: 1;
+}
+.link-header {
+    font-size: 17px;
+    padding: 10px;
+    opacity: 0;
+    transition: all 0.3s;
+}

@@ -1,0 +1,54 @@
+.fade.in {
+            opacity: 0.9;
+}
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .3s linear;
+}
+.hide {
+    display: none!important;
+}
+
+.loadin {
+    cursor: wait;
+    -webkit-box-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-transition: 200ms opacity;
+    background-color: rgba(255, 255, 255, 0.75);
+    bottom: 0;
+    display: -webkit-box;
+    left: 0;
+    overflow: auto;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    vertical-align: central;
+    font-size: 13px;
+    z-index: 9999;
+
+}
+
+.loadout {
+    display: none;
+}
+
+.spinner-in{
+  z-index: 9999;
+  position: relative;
+      background: #f7f9fa;
+    height: 6px;
+    background-image: linear-gradient(to right, #34495e, #34495e 25%, #9b59b6 25%, #9b59b6 35%, #3498db 35%, #3498db 45%, #62cb31 45%, #62cb31 55%, #ffb606 55%, #ffb606 65%, #e67e22 65%, #e67e22 75%, #e74c3c 85%, #e74c3c 85%, #c0392b 85%, #c0392b 100%);
+    background-size: 100% 6px;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+      animation: loading 3s linear 1s infinite;
+}
+
+
+@keyframes loading {
+    from {left: 50%; width: 0;z-index:100;}
+    33.3333% {left: 0; width: 100%;z-index: 10;}
+    to {left: 0; width: 100%;}
+}

@@ -2,7 +2,7 @@
   <form #storagecapacityForm = "ngForm">
     <div class="form-group">
       <label>Device</label>
-      <input type="text" name="device" [(ngModel)]="storagecapacity.device"  class="form-control"  fileSize />
+      <input type="text" name="device" [(ngModel)]="storagecapacity.device"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Document Storage Size' or 'Photograph Storage Size', then you need to add 'Device' input as 'SmartPhone'<br/></small>
 	   <small class="form-text text-danger" *ngIf="storagecapacityForm.controls.device?.errors">{{storagecapacityForm.controls.device?.errors.fileSize.message}}<br/></small>	
     </div>

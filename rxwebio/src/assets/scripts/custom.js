@@ -1,11 +1,30 @@
+$(document).ready(function() {
+		// $('a[href*=#]').bind('click', function(e) {
+		// 		e.preventDefault(); // prevent hard jump, the default behavior
+		// 		var target = $(this).attr("href"); // Set the target as variable
+		// 		$('html, body').stop().animate({
+		// 				scrollTop: $(target).offset().top
+		// 		}, 600, function() {
+		// 				location.hash = target; //attach the hash (#jumptarget) to the pageurl
+		// 		});
+		// 		return false;
+		// });
+});
+
+$(window).scroll(function() {
+		var scrollDistance = $(window).scrollTop();
+		$('.page-section').each(function(i) {
+				if ($(this).position().top <= scrollDistance) {
+						$('#rightsidebar-items a.active').removeClass('active');
+						//$('#rightsidebar-items a').eq($(this)[0].id).addClass('active');
+                        //$($(this)[0].id).addClass('active')
+                        $("[href='#"+$(this)[0].id +"']").addClass('active')
+				}
+		});
+}).scroll();
+
 function scrollTo(section){
-    var node = document.querySelector('#' + section);
-    node.scrollIntoView(true);
-    var scrolledY = window.scrollY;
-    if (scrolledY) {
-        window.scroll(0, scrolledY - 62);
-    }
-    return false;
+    window.location.hash=section;
 }
 
 // $(".page-tabs a").click(function() {
