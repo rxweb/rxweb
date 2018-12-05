@@ -1,4 +1,4 @@
-import { Input } from "@angular/core")
+import { Input } from "@angular/core"
 import { Validator,ValidatorFn, AbstractControl,FormControl } from '@angular/forms';
 import {INPUT,SELECT,CHECKBOX,TEXTAREA,KEYPRESS, ONCHANGE,ONKEYUP,ONCLICK,
 RADIO,FILE, ELEMENT_VALUE,BLUR,FOCUS,CHANGE,BLANK

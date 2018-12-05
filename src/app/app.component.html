@@ -119,6 +119,8 @@
   <form [formGroup]="angularFormGroup">
     <input type="text" formControlName="firstName" />{{angularFormGroup.controls.firstName.errorMessage}}<br />
     <input type="text" formControlName="lastName" />{{angularFormGroup.controls.lastName.errors | json}}<br />
+    minDate<input type="text" formControlName="minDate" />{{angularFormGroup.controls.minDate.errors | json}}<br />
+    maxDate<input type="text" formControlName="maxDate" />{{angularFormGroup.controls.maxDate.errors | json}}<br />
     <div [formGroup]="angularFormGroup.controls.address">
       <input type="text" formControlName="city" />{{angularFormGroup.controls.address.controls.city.errors | json}}<br />
       <input type="text" formControlName="country" />{{angularFormGroup.controls.address.controls.country.errors | json}}<br />

@@ -488,13 +488,19 @@ fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
         this.angularFormGroup = this.validation.group({
           firstName:['',RxwebValidators.required()],
           lastName:[''],
+          minDate:['',RxwebValidators.minDate({fieldName:'maxDate'})],
+          maxDate:['',RxwebValidators.maxDate({value:"10/11/2018"})]
           address:this.validation.group({
             city:[''],
             country:['']
           }),
           skills:this.formBuilder.array([this.validation.group({
-            skillName:['']
-          })])
+            skillName:['a',RxwebValidators.unique()]
+          }),
+this.validation.group({
+            skillName:['b',RxwebValidators.unique()]
+          })
+])
       })
 
       this.userInfoFormGroup = this.validation.group({
