@@ -1,6 +1,6 @@
 ---
 title: minNumber 
-description: MinNumber validation decorator will allow user to enter the input greater than the minimum number value parameter.
+description: MinNumber validation  {{validatorType}}  will allow user to enter the input greater than the minimum number value parameter.
 author: rxcontributortwo
 
 ---
@@ -10,9 +10,11 @@ Suppose you want to create a ResultInfo form, which contains fields like Maths, 
 	<li>Allow number greater than 35 in Maths field.</li>
 	<li>Apply minNumber validation based on matched condition in the form, like if the input of Maths is 50, then only the minNumber validation will be applied to Statistics field.</li>
 	<li>Adding Custom Message on Science Field.</li>
+	<data-scope scope="['decorator','validator']">
 	<li>Apply minNumber validation dynamically based on server rules.</li>
+	</data-scope>
 </ol>
-Let’s see how minNumber validator fulfil the need.
+Let’s see how minNumber {{validatorType}} fulfil the need.
 
 # Basic MinNumber Validation
 <data-scope scope="['decorator']">
@@ -20,7 +22,13 @@ First we need to create a ResultInfo class and define a property of Maths in the
 <div component="app-code" key="minNumber-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
+<data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope>
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -50,13 +58,24 @@ Next, we need to write html code.
 </data-scope>
 
 # NumberConfig 
-message and conditional expression options are not mandatory to use in the `@minNumber()` decorator but value is mandatory. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@minNumber()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.minNumber()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `minNumber` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>minNumber validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
-<tr><td><a title="value">[value](#value)</a></td> enter value which you want to restrict number in the property.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>minNumber validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a (click)='scrollTo("#value")' title="value">value</a></td></td> enter value which you want to restrict number in the property.</td></tr>
+</table>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -119,6 +138,7 @@ This Dynamic minNumber example which execute based on json passed. conditional e
 [!TabGroup]
 # [Example](#tab\dynamicexample)
 <div component="app-example-runner" ref-component="app-minNumber-dynamic"></div>
+# [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="minNumber-dynamic-model"></div>

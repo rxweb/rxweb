@@ -11,6 +11,7 @@ export class TitleComponent implements OnInit {
   @Input() title:string;
   @Input() description:string;
   @Input() validatorType:string;
+  @Input() validationTypeTitle:string;
   showComponent: boolean = false;
   constructor(
   ) {

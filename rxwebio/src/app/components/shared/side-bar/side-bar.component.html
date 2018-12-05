@@ -1,24 +1,25 @@
 <aside id="menu" *ngIf="showComponent">
 	<div class="header-link hide-menu d-flex align-items-center" >
-		<svg focusable="false"  (click)="hideSideBar()" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
 		<a routerLink="/home" title="rxweb" class="rxlogo">rxweb</a>
+		<svg focusable="false"  (click)="hideSideBar()" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+		<div class="menu-open"  (click)="hideSideBar()"> <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></div>
 	</div>
 	<div id="navigation" >
 		<ul class="nav" id="side-menu">
-			<li>
+			<!--<li>
 				<div class="input-group">
 					<input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Search..." id="search-input">
 				</div>
-			</li>
+			</li>-->
 			<li *ngFor="let link of links">
-				<a  routerLinkActive="active" (click)="navigateTo(link.uri)"><span class="nav-label">{{link.title}}</span></a>
+				<a (click)="navigateTo(link);link.isOpen = !link.isOpen" [class.active]="link.isActive"><span class="nav-label">{{link.title}}</span><span class="fa" [class.arrow]="!link.isOpen" [class.fa-angle-down]="link.isOpen" *ngIf="link.childrens?.length > 0"></span></a>
 				<ul [class.hide]="!link.isOpen" [class.show]="link.isOpen" class="nav nav-second-level collapse" aria-expanded="false" *ngIf="link.childrens?.length > 0">
 					<li *ngFor="let secondLevel of link.childrens;let i = index">
-						<a (click)="secondLevel.isOpen = !secondLevel.isOpen;navigateTo(secondLevel.uri)" routerLinkActive="active"><span class="nav-label">{{secondLevel.title}}</span><span class="fa" [class.arrow]="!secondLevel.isOpen" [class.fa-angle-down]="secondLevel.isOpen" *ngIf="secondLevel.childrens?.length > 0"></span>
+						<a (click)="secondLevel.isOpen = !secondLevel.isOpen;navigateTo(secondLevel)" [class.active]="secondLevel.isActive"><span class="nav-label">{{secondLevel.title}}</span><span class="fa" [class.arrow]="!secondLevel.isOpen" [class.fa-angle-down]="secondLevel.isOpen" *ngIf="secondLevel.childrens?.length > 0"></span>
 						</a>
 						<ul [class.hide]="!secondLevel.isOpen" [class.show]="secondLevel.isOpen" class="nav nav-third-level collapse in" aria-expanded="false" *ngIf="secondLevel.childrens?.length > 0">
 							<li *ngFor="let thirdLevel of secondLevel.childrens;let i = index">
-								<a (click)="navigateTo(thirdLevel.uri)" routerLinkActive="active">
+								<a (click)="navigateTo(thirdLevel)" [class.active]="thirdLevel.isActive">
 										<span class="nav-label">{{thirdLevel.title}}</span>
 									</a>
 							</li>

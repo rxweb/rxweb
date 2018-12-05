@@ -1,6 +1,6 @@
 ---
 title: minLength 
-description: MinLength validation decorator will allow user to enter the input length matching the minimum length value parameter.
+description: MinLength validation  {{validatorType}}  will allow user to enter the input length matching the minimum length value parameter.
 author: rxcontributorone
 
 ---
@@ -10,9 +10,11 @@ Suppose you want to create a Contact form, which contains fields like countryNam
 <li>Apply MinLength validation based on matched condition in the form, like if the CountryName is ‘India’ then the countryCode value  should be of the minimum specified length.</li>
 <li>Adding Custom Message on LandlineNo Field.</li>
 <li>Adding value which you want to restrict number in the property. The Minimum length is '10'. </li>
+<data-scope scope="['decorator','validator']">
 <li>Apply MinLength validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how minLength validator fulfil the need.
+Let’s see how minLength {{validatorType}} fulfil the need.
 
 # Basic MinLength Validation
 
@@ -21,7 +23,13 @@ First we need to create Contact model class define a property of CountryName in 
 <div component="app-code" key="minLength-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
+<data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope> 
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -52,13 +60,23 @@ Next, we need to write html code.
 
 # NumberConfig 
 
-message and conditional expression options are not mandatory to use in the `@minLength()` decorator but value is mandatory. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@minLength()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.minLength()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `minLength` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="value">[value](#value)</a></td><td>enter value which you want to restrict string length in the property</td></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>Alpha validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a (click)='scrollTo("#value")' title="value">value</a></td><td>enter value which you want to restrict string length in the property</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Min Length validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## conditionalExpression 

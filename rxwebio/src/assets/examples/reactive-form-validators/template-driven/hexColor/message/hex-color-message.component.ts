@@ -8,7 +8,7 @@ import { HexcolorInfo } from './hexcolor-info.model';
 })
 export class HexColorMessageTemplateDrivenComponent implements OnInit {
     hexcolorinfo: HexcolorInfo
-
+	
     constructor(
     ) { }
 

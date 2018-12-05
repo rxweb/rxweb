@@ -10,12 +10,12 @@ export class PatternMessageValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            zipCode:['', RxwebValidators.pattern({pattern:{'zipCode':RegExp('^[0-9]{5}(?:-[0-9]{4})?$') }  ,message:'Zip code should match 12345 or 12345-6789' })], 
+            zipCode:['', RxwebValidators.pattern({expression:{'zipCode':RegExp('^[0-9]{5}(?:-[0-9]{4})?$') }  ,message:'Zip code should match 12345 or 12345-6789' })], 
         });
     }
 }

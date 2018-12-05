@@ -2,7 +2,7 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>Registration Date</label>
-      <input type="text" name="registrationDate" [(ngModel)]="user.registrationDate"  class="form-control"  [minDate]="{'value':'2018,7,30'}" />
+      <input type="text" name="registrationDate" [(ngModel)]="user.registrationDate"  class="form-control"  [minDate]="{'value': '2018,7,30'}" />
       <small class="form-text text-muted">you can enter Min Date upto 30th july 2018<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.registrationDate?.errors">{{userForm.controls.registrationDate?.errors.minDate.message}}<br/></small>	
     </div>

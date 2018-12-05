@@ -10,7 +10,7 @@ export class PasswordCompleteValidatorComponent implements OnInit {
     loginInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

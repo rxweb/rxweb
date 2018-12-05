@@ -8,7 +8,7 @@ import { UserInfo } from './user-info.model';
 })
 export class LowerCaseAddTemplateDrivenComponent implements OnInit {
     userinfo: UserInfo
-
+	
     constructor(
     ) { }
 

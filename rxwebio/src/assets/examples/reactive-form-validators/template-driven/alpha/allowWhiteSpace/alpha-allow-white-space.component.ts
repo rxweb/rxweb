@@ -8,7 +8,7 @@ import { AddressInfo } from './address-info.model';
 })
 export class AlphaAllowWhiteSpaceTemplateDrivenComponent implements OnInit {
     addressinfo: AddressInfo
-
+	
     constructor(
     ) { }
 

@@ -10,7 +10,7 @@ export class TimeAddValidatorComponent implements OnInit {
     attandanceDetailFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

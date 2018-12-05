@@ -8,7 +8,7 @@ import { UserInfo } from './user-info.model';
 })
 export class NumericAllowDecimalTemplateDrivenComponent implements OnInit {
     userinfo: UserInfo
-
+	
     constructor(
     ) { }
 

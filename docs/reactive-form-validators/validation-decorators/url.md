@@ -1,6 +1,6 @@
 ---
 title: url 
-description: Url validation decorator will check that value entered in the property is in the correct url format or not.
+description: Url validation  {{validatorType}}  will check that value entered in the property is in the correct url format or not.
 author: rxcontributorone
 
 ---
@@ -8,11 +8,13 @@ author: rxcontributorone
 Suppose you want to create a website-info form, which contains fields like AdminWebsiteUrl, CustomerWebsiteUrl, MaintenanceWebsiteUrl and you want the user to enter valid url. Here depending upon the requirement these scenarios may arise.
 <ol>
    <li>Adding AdminWebsiteUrl without any conditional expression.</li>
-   <li>Apply url validation based on matched condition in the form, like if the adminWebsiteUrl is ‘https://google.co.in’ then the              customerWebsiteUrl value should be in proper format of url.</li>
+   <li>Apply url validation based on matched condition in the form, like if the adminWebsiteUrl is ‘https://google.co.in’ then the customerWebsiteUrl value should be in proper format of url.</li>
    <li>Adding Custom Message on MaintenanceWebsiteUrl Field.</li>
+   <data-scope scope="['decorator','validator']">
    <li>Apply url validation dynamically based on server rules.</li>
+   </data-scope>
 </ol>
-Let’s see how url validator fulfil the need.
+Let’s see how url {{validatorType}} fulfil the need.
 
 # Basic url Validation
 <data-scope scope="['decorator']">
@@ -20,7 +22,13 @@ First we need to create a User class and define a property of AdminWebsiteUrl in
 <div component="app-code" key="url-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
+<data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope> 
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -50,12 +58,23 @@ Next, we need to write html code.
 </data-scope>
 
 # DefaultConfig
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@url()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.url()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `url` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>url validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")'  title="conditionalExpression">conditionalExpression</a></td><td>url validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")'  title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+</table>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -113,8 +132,7 @@ This Dynamic url example which execute based on json passed. conditional express
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
 <div component="app-code" key="url-dynamic-model"></div>
-# [#Model]
-# [/Component]
+# [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
 <div component="app-code" key="url-dynamic-component"></div>

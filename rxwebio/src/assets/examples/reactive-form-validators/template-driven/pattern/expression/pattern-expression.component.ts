@@ -3,12 +3,12 @@ import { FormGroup,Validators } from "@angular/forms"
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-pattern-pattern-template-driven',
-    templateUrl: './pattern-pattern.component.html'
+    selector: 'app-pattern-expression-template-driven',
+    templateUrl: './pattern-expression.component.html'
 })
-export class PatternPatternTemplateDrivenComponent implements OnInit {
+export class PatternExpressionTemplateDrivenComponent implements OnInit {
     user: User
-
+	
     constructor(
     ) { }
 

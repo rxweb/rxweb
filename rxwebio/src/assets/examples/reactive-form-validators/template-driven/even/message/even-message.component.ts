@@ -8,7 +8,7 @@ import { User } from './user.model';
 })
 export class EvenMessageTemplateDrivenComponent implements OnInit {
     user: User
-
+	
     constructor(
     ) { }
 

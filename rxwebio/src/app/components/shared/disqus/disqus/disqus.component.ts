@@ -20,6 +20,6 @@ export class DisqusComponent implements OnInit {
         dsq.src = '//rxweb.disqus.com/embed.js';
         var t = setTimeout(function () {
             (head || body).appendChild(dsq);
-        }, 500)
+        }, 10)
     }   
 }

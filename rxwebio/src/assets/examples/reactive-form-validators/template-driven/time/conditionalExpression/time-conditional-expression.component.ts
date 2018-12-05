@@ -8,7 +8,7 @@ import { AttandanceDetail } from './attandance-detail.model';
 })
 export class TimeConditionalExpressionTemplateDrivenComponent implements OnInit {
     attandancedetail: AttandanceDetail
-
+	
     constructor(
     ) { }
 

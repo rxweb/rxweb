@@ -8,6 +8,7 @@ import { UserInfo } from './user-info.model';
 })
 export class NumericConditionalExpressionTemplateDrivenComponent implements OnInit {
     userinfo: UserInfo
+					dataTypes = [ "Real", "Positive",];
 
     constructor(
     ) { }

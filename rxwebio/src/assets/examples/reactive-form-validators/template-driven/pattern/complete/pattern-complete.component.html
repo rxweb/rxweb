@@ -2,20 +2,20 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>User Name</label>
-      <input type="text" name="userName" [(ngModel)]="user.userName"  class="form-control"  [pattern]="{'pattern':{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}}" />
+      <input type="text" name="userName" [(ngModel)]="user.userName"  class="form-control"  [pattern]="{'expression': '/^[A-Za-z]+$/'}" />
       <small class="form-text text-muted">It checked that username match alpha regex or not<br/></small>
       <small class="form-text text-muted">If you want to apply conditional validation on 'Contact Number' or 'Age', then you need to add 'userName' input as 'Bharat<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.userName?.errors">{{userForm.controls.userName?.errors.onlyAlpha.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Zip Code</label>
-      <input type="text" name="zipCode" [(ngModel)]="user.zipCode"  class="form-control"  [pattern]="{'pattern':{'zipCode':RegExp('^[0-9]{5}(?:-[0-9]{4})?$') },'message':'Zip code should match 12345 or 12345-6789'}" />
+      <input type="text" name="zipCode" [(ngModel)]="user.zipCode"  class="form-control"  [pattern]="{'expression': '^[0-9]{5?:-[0-9]{4?$' ,'message':'Zip code should match 12345 or 12345-6789'}" />
       <small class="form-text text-muted">It checked that zipcode match zipcode regex or not and it shows custom message<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.zipCode?.errors">{{userForm.controls.zipCode?.errors.zipCode.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Age</label>
-      <input type="text" name="age" [(ngModel)]="user.age"  class="form-control"  [pattern]="{'pattern':{'onlyDigit': RegExp('/^[0-9]*$/')},'conditionalExpression':'x => x.userName==\'Bharat\''}" />
+      <input type="text" name="age" [(ngModel)]="user.age"  class="form-control"  [pattern]="{'expression': '/^[0-9]*$new /','conditionalExpression':'x => x.userName==\'Bharat\''}" />
       <small class="form-text text-muted">It checked that age match with digit regex or not and it conditionaly applied when userName is Bharat<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.age?.errors">{{userForm.controls.age?.errors.onlyDigit.message}}<br/></small>	

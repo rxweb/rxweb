@@ -8,7 +8,7 @@ import { StorageCapacity } from './storage-capacity.model';
 })
 export class FileSizeMaxSizeTemplateDrivenComponent implements OnInit {
     storagecapacity: StorageCapacity
-
+	
     constructor(
     ) { }
 

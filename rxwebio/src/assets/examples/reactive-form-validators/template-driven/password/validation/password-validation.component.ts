@@ -8,7 +8,7 @@ import { LoginInfo } from './login-info.model';
 })
 export class PasswordValidationTemplateDrivenComponent implements OnInit {
     logininfo: LoginInfo
-
+	
     constructor(
     ) { }
 

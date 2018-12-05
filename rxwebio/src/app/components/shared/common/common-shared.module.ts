@@ -18,6 +18,7 @@ import { GitHubIssueComponent } from "src/app/components/shared/disqus/github-is
 @NgModule({
  imports:      [CommonModule,ClipboardModule,HighlightModule ,DisqusSharedModule ],
  declarations: [ PageViewerComponent,TitleComponent,AppCodeComponent,AppExampleRunnerComponent,AppNotesComponent,CodeExampleComponent,AppTabsComponent ],
- exports:      [ CommonModule, FormsModule,TitleComponent,AppCodeComponent,AppExampleRunnerComponent,AppNotesComponent,PageViewerComponent,CodeExampleComponent,AppTabsComponent,DisqusSharedModule ]
+ exports:      [ CommonModule, FormsModule,TitleComponent,AppCodeComponent,AppExampleRunnerComponent,AppNotesComponent,PageViewerComponent,CodeExampleComponent,AppTabsComponent,DisqusSharedModule ],
+ entryComponents: [GitHubIssueComponent,DisqusComponent],
 })
 export class CommonSharedModule { }

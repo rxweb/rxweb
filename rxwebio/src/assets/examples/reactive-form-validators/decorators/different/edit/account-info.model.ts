@@ -5,7 +5,7 @@ export class AccountInfo {
 	@prop()
 	firstName: string;
 
-	@different({fieldName:"firstName" }) 
+	@different({fieldName:'firstName' }) 
 	lastName: string;
 
 }

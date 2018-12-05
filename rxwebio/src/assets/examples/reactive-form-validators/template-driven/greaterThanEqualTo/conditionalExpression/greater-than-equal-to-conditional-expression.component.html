@@ -1,15 +1,15 @@
 <div>
   <form #userForm = "ngForm">
     <div class="form-group">
-      <label>Age</label>
-      <input type="text" name="age" [(ngModel)]="user.age"  class="form-control"  greaterThanEqualTo />
+      <label>Admission Age</label>
+      <input type="text" name="admissionAge" [(ngModel)]="user.admissionAge"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Voter Age' or 'Member Age' then need to add this input greater than or equal to '18'.<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.age?.errors">{{userForm.controls.age?.errors.greaterThanEqualTo.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls.admissionAge?.errors">{{userForm.controls.admissionAge?.errors.greaterThanEqualTo.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Member Age</label>
-      <input type="text" name="memberAge" [(ngModel)]="user.memberAge"  class="form-control"  [greaterThanEqualTo]="{'fieldName':'age','conditionalExpression':'x => x.age >= 18 '}" />
-      <small class="form-text text-muted">If you want to apply conditional validation on 'Member Age' then you need to add 'Age' field greater than or equal to '18'.<br/></small>
+      <input type="text" name="memberAge" [(ngModel)]="user.memberAge"  class="form-control"  [greaterThanEqualTo]="{'fieldName':'admissionAge','conditionalExpression':'x => x.admissionAge >= 18 '}" />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Member Age' then you need to add 'Admission Age' field greater than or equal to '18'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.memberAge?.errors">{{userForm.controls.memberAge?.errors.greaterThanEqualTo.message}}<br/></small>	
     </div>

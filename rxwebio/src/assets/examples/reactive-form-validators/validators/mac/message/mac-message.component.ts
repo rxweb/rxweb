@@ -10,7 +10,7 @@ export class MacMessageValidatorComponent implements OnInit {
     macAddressInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

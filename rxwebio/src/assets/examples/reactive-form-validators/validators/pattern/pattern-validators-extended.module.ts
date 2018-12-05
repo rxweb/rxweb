@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { PatternCompleteValidatorComponent } from './complete/pattern-complete.component';
-import { PatternPatternValidatorComponent } from './pattern/pattern-pattern.component';
+import { PatternExpressionValidatorComponent } from './expression/pattern-expression.component';
 import { PatternMessageValidatorComponent } from './message/pattern-message.component';
 import { PatternConditionalExpressionValidatorComponent } from './conditionalExpression/pattern-conditional-expression.component';
 import { PatternDynamicValidatorComponent } from './dynamic/pattern-dynamic.component';
@@ -15,7 +15,7 @@ import { PatternAddValidatorComponent } from './add/pattern-add.component';
 @NgModule({
   declarations: [
 	PatternCompleteValidatorComponent,
-	PatternPatternValidatorComponent,
+	PatternExpressionValidatorComponent,
 	PatternMessageValidatorComponent,
 	PatternConditionalExpressionValidatorComponent,
 	PatternDynamicValidatorComponent,
@@ -23,7 +23,7 @@ import { PatternAddValidatorComponent } from './add/pattern-add.component';
   ],
 entryComponents: [
 	PatternCompleteValidatorComponent,
-	PatternPatternValidatorComponent,
+	PatternExpressionValidatorComponent,
 	PatternMessageValidatorComponent,
 	PatternConditionalExpressionValidatorComponent,
 	PatternDynamicValidatorComponent,
@@ -37,7 +37,7 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	PatternCompleteValidatorComponent,
-	PatternPatternValidatorComponent,
+	PatternExpressionValidatorComponent,
 	PatternMessageValidatorComponent,
 	PatternConditionalExpressionValidatorComponent,
 	PatternDynamicValidatorComponent,

@@ -2,7 +2,7 @@
   <form #contactForm = "ngForm">
     <div class="form-group">
       <label>Country Name</label>
-      <input type="text" name="countryName" [(ngModel)]="contact.countryName"  class="form-control"  minLength />
+      <input type="text" name="countryName" [(ngModel)]="contact.countryName"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Country Code' or 'State Code', then you need to add 'Country Name' input as 'India'<br/></small>
 	   <small class="form-text text-danger" *ngIf="contactForm.controls.countryName?.errors">{{contactForm.controls.countryName?.errors.minLength.message}}<br/></small>	
     </div>

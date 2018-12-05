@@ -10,7 +10,7 @@ export class UpperCaseConditionalExpressionValidatorComponent implements OnInit 
     locationFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

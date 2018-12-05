@@ -10,14 +10,13 @@ export class GreaterThanEqualToMessageValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            age:['',], 
-            memberAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:'x => x.age >= 18 ' })], 
-            otherAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,message:'Please enter number greater than or equal to 1.' })], 
+            admissionAge:['',], 
+            otherAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'admissionAge'  ,message:'Please enter number greater than or equal to 1.' })], 
         });
     }
 }

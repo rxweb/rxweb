@@ -10,7 +10,7 @@ export class JsonMessageValidatorComponent implements OnInit {
     jsonInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

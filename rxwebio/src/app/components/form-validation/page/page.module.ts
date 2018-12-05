@@ -16,7 +16,7 @@ import { AppNotesComponent } from "src/app/components/shared/app-notes/app-notes
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, ReactiveFormsModule, ClipboardModule, RightSideBarSharedModule, ClipboardModule, HighlightModule, CommonSharedModule,
+    RouterModule,CommonModule, FormsModule, ReactiveFormsModule, ClipboardModule, RightSideBarSharedModule, ClipboardModule, HighlightModule, CommonSharedModule,
   ],
   declarations: [PageComponent],
   exports: [RouterModule],

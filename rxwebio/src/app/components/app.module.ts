@@ -20,6 +20,7 @@ import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
 import { HomeComponent } from "src/app/components/home/home.component";
 import { GettingStartedComponent } from "src/app/components/getting-started/getting-started.component";
 import { BasicExamplesExtendedModule } from "src/assets/examples/reactive-form-validators/basic-examples/basic-examples-extended.module";
+import { ControlModule } from "src/app/controls/control.module";
 
 
 
@@ -28,8 +29,8 @@ import { BasicExamplesExtendedModule } from "src/assets/examples/reactive-form-v
   declarations: [
     AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe,GettingStartedComponent,HomeComponent
   ],
-  imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,
-    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule ,
+  imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,ControlModule,
+    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule 
   ],
   providers: [ApplicationBroadcaster],
 exports:[RouterModule],

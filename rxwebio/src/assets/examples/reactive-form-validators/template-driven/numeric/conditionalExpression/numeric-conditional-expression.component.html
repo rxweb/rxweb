@@ -2,7 +2,7 @@
   <form #userinfoForm = "ngForm">
     <div class="form-group">
       <label>Data Type</label>
-      <select name="dataType" [(ngModel)]="userinfo.dataType"  class="form-control" numeric>
+      <select name="dataType" [(ngModel)]="userinfo.dataType"  class="form-control" >
 		<option [value]="item" *ngFor="let item of dataTypes">{{item}}</option>
       </select>
 
@@ -10,7 +10,7 @@
     </div>
     <div class="form-group">
       <label>Real Number</label>
-      <input type="text" name="realNumber" [(ngModel)]="userinfo.realNumber"  class="form-control"  [numeric]="{'acceptValue':NumericValueType.Both,'conditionalExpression':'x => x.dataType == \'Real\''}" />
+      <input type="text" name="realNumber" [(ngModel)]="userinfo.realNumber"  class="form-control"  [numeric]="{'acceptValue':3,'conditionalExpression':'x => x.dataType == \'Real\''}" />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Real Number' then you need to add 'Data Type' input as 'Real'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.realNumber?.errors">{{userinfoForm.controls.realNumber?.errors.numeric.message}}<br/></small>	

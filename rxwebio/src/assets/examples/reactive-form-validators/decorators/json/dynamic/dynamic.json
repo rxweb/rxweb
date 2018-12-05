@@ -1,1 +1,1 @@
-{"location":{"message":"'Enter the text in JSON format --> {key:value}'"},"locationJson":{"conditionalExpression":"'x => x.location == \"{CountryName:India}\"'","message":"'Enter the text in JSON format --> {key:value}'"},"contactJson":{"message":"'Enter only JSON type data'"}}
+{"location":{"json":{"message":"Enter the text in JSON format --> {key:value}"}},"locationJson":{"json":{"conditionalExpression":"x => x.location == \"{CountryName:India}\"","message":"Enter the text in JSON format --> {key:value}"}},"contactJson":{"json":{"message":"Enter only JSON type data"}}}

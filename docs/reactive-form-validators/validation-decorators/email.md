@@ -1,6 +1,6 @@
 ---
 title: email 
-description: Email validation decorator will only allow user to enter input which is in the correct email format.
+description: Email validation  {{validatorType}}  will only allow user to enter input which is in the correct email format.
 author: rxcontributortwo
 
 ---
@@ -11,10 +11,12 @@ Suppose you want to create a user form and you have fields like Email, RecoveryE
     <li>Adding email validation on the field named email without any conditional expression.</li>
     <li>Apply email validation based on matched condition in the form, like if the Email is ‘abc@gmail.com’ then the RecoveryEmailAddress value should be valid email address.</li>
     <li>Adding Custom Message on OtherEmailAddress Field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply email validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
-Let’s see how email decorator fulfil the need.
+Let’s see how email  {{validatorType}}  fulfil the need.
 
 # Basic Email Validation
 
@@ -23,7 +25,13 @@ First we need to create User model class define a property of Email in the model
 <div component="app-code" key="email-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
+<data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope>
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -54,12 +62,20 @@ Next, we need to write html code.
 
 #EmailConfig
 
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@email()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.email()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `email` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## conditionalExpression 

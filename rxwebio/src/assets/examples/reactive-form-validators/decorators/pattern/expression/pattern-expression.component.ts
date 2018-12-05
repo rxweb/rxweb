@@ -5,10 +5,10 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-pattern-pattern',
-    templateUrl: './pattern-pattern.component.html'
+    selector: 'app-pattern-expression',
+    templateUrl: './pattern-expression.component.html'
 })
-export class PatternPatternComponent implements OnInit {
+export class PatternExpressionComponent implements OnInit {
     userFormGroup: FormGroup
 
     constructor(

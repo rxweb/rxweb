@@ -10,12 +10,12 @@ export class NumericAllowDecimalValidatorComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({
-            decimalNumber:['', RxwebValidators.numeric({allowDecimal:true  ,message:'{{0}} is not a decimal number' })], 
+            decimalNumber:['', RxwebValidators.numeric({allowDecimal:true  ,message:'{{0}} is not a positive decimal number' })], 
         });
     }
 }

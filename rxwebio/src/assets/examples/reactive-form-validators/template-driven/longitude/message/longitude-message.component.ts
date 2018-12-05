@@ -8,7 +8,7 @@ import { Country } from './country.model';
 })
 export class LongitudeMessageTemplateDrivenComponent implements OnInit {
     country: Country
-
+	
     constructor(
     ) { }
 

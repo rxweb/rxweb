@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from "@angular/core";
+import { FormGroup } from "@angular/forms";
+import { RxFormBuilder } from "@rxweb/reactive-form-validators";
+import { FeedbackModel } from "src/app/components/shared/right-sidebar/domain/feedback.model";
+import { Http } from "@angular/http";
+import { RequestOptionsArgs } from "@angular/http";
+import { RequestOptions } from "@angular/http";
 import { HttpClient } from "@angular/common/http";
+import { HttpHeaders } from "@angular/common/http";
 
 @Component({
     selector: 'app-right-sidebar',
@@ -8,49 +15,30 @@ import { HttpClient } from "@angular/common/http";
 })
 
 export class RightSideBarComponent implements OnInit {
+    public feedbackForm: FormGroup
+    httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
     constructor(
-        private http: HttpClient
+        private http: HttpClient,private formBuilder: RxFormBuilder
     ) {
     }
-    @Input('sidebarLinks') sidebarLinks: any={};
+    @Input('sidebarLinks') sidebarLinks: any = {};
     showComponent: boolean = false;
-    contributorList:any=[];
-    gitEditUrl:string="https://github.com/rxweb/rxweb/blob/master/docs/reactive-form-validators/";
+    contributorList: any = [];
+    gitEditUrl: string = "https://github.com/rxweb/rxweb/edit/master/docs/reactive-form-validators";
     ngOnInit(): void {
-
-        if(location.pathname.includes("form-validation"))
-        {
-            this.gitEditUrl+="/validation-decorators/" + location.pathname.split('/')[2] +".md"
-        }
+        if (location.pathname.includes("form-validation"))
+            this.gitEditUrl += "/validation-decorators/" + location.pathname.split('/')[2] + ".md"
         else
-        {
-            this.gitEditUrl+= location.pathname.split('/')[1] +".md"
-        }
-        //let url = 'https://api.github.com/repos/rxweb/rxweb/';
-		//if (location.pathname.split('/')[1] && !location.pathname.split('/')[2])
-        //    url += 'commits?path=docs/reactive-form-validators/'+location.pathname.split('/')[1]+".md"
-        //if (location.pathname.split('/')[1] && location.pathname.split('/')[2])
-         //   url += 'commits?path=docs/reactive-form-validators/'+location.pathname.split('/')[1]+'/' + location.pathname.split('/')[2] + ".md"
-        //this.http.get(url).subscribe((response: any[]) => {
-          //  const author = response.map(data => data.author);
-            //author.forEach(element => {
-              //  if(element)                
-                //{
-                   // let indexObj = this.contributorList.find(a=>a.id == element.id);
-                    //if(!indexObj)
-                      //  this.contributorList.push(element);
-                //}
-            //});
-            this.showComponent = true;
-        //})
+            this.gitEditUrl += location.pathname.split('/')[1] + ".md"
+        let feedback = new FeedbackModel();
+        feedback.uri = location.href;
+        this.feedbackForm = this.formBuilder.formGroup<FeedbackModel>(FeedbackModel,feedback);
+        this.feedbackForm.controls.uri.patchValue(location.href);
+        this.showComponent = true;
     }
     scrollTo(section) {
-        var node = document.querySelector('#' + section);
-        node.scrollIntoView(true);
-        var scrolledY = window.scrollY;
-        if (scrolledY) {
-            window.scroll(0, scrolledY - 15);
-        }
+        window.location.hash = section;
         return false;
     }
+   
 }

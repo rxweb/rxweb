@@ -10,7 +10,7 @@ export class PasswordAddValidatorComponent implements OnInit {
     loginInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

@@ -2,7 +2,7 @@
   <form #macaddressinfoForm = "ngForm">
     <div class="form-group">
       <label>Device</label>
-      <input type="text" name="device" [(ngModel)]="macaddressinfo.device"  class="form-control"  mac />
+      <input type="text" name="device" [(ngModel)]="macaddressinfo.device"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'MAC Address' or 'Local MAC Address', then you need to add 'Device' input as 'Laptop'<br/></small>
 	   <small class="form-text text-danger" *ngIf="macaddressinfoForm.controls.device?.errors">{{macaddressinfoForm.controls.device?.errors.mac.message}}<br/></small>	
     </div>

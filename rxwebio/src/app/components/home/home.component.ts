@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from "@rxweb/reactive-form-validators"
 import {User} from "./model/user.model";
 import { FormBuilderConfiguration, RxFormBuilder } from "@rxweb/reactive-form-validators";
+import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
 @Component({
   templateUrl: './home.component.html'
 })
@@ -20,11 +21,12 @@ export class HomeComponent implements OnInit {
   conditionalValidationRequiredTab:string = "component";
   decoratorbasedModelValidationTab:string = "component";
   dynamicValidationTab:string = "component";
-  constructor(private http: HttpClient, private formBuilder: FormBuilder,private rxFormBuilder:RxFormBuilder
+  constructor(private http: HttpClient, private formBuilder: FormBuilder,private rxFormBuilder:RxFormBuilder,private applicationBroadcast:ApplicationBroadcaster
   ) {
   }
 
   ngOnInit(): void {
+    this.applicationBroadcast.urlBroadCast(true);
     this.userFormGroup = this.formBuilder.group({
       password: ['',],
       confirmPassword: ['', RxwebValidators.compare({ fieldName: 'password' })],

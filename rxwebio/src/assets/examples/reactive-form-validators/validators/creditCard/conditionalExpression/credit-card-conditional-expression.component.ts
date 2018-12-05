@@ -14,7 +14,7 @@ export class CreditCardConditionalExpressionValidatorComponent implements OnInit
 	
 	
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

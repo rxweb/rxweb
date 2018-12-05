@@ -29,7 +29,7 @@
 
 <div id="rightsidebar" class="p-1">
     <div>
-        <ul class="list-unstyled" >
+        <ul class="list-unstyled" id="rightsidebar-items">
             <li class="nav-item" *ngFor="let item of sidebarLinks;let i = index" [class.d-flex]="i == 0" [class.border-none]="i == 0"  [class.sidebar-list]="item.subLink?.length > 0">
                 <a class="nav-link sidebar-link" [class.child-item-list]="item.subLink?.length > 0" href="#{{item.id}}" [class.active]="i == 0" (click)="scrollTo(item.id)">{{item.title}}</a>
                     <a *ngIf="i == 0" target="_blank" href="{{gitEditUrl}}" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
@@ -43,17 +43,20 @@
     <div class="rightsidebar btm-link">
         <ul class="nav navbar-nav no-borders">
             <li>
-                <a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators" title="GitHub" target="_blank"><i class="fa fa-github"></i>Report Issues</a>
+                <a href="https://github.com/rxweb/rxweb/issues" title="GitHub" target="_blank"><i class="fa fa-github"></i>Report Issues</a>
             </li>
             <li>
                 <a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i>Stack Overflow</a>
             </li>
             <li>
-                <a href="https://gitter.im/rx-web/Lobby" title="Comment" target="_blank"><i class="fa fa-comment"></i>Chat On Gitter</a>
+                <a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" title="Comment" target="_blank"><i class="fa fa-comment"></i>Chat On Gitter</a>
             </li>
             </ul>
     </div>
-    <div class="feedback">
-        <textarea></textarea>
-    </div>
+    <!--<div class="feedback">
+        <form  [formGroup]="feedbackForm" (keydown)="submitForm()">
+            <textarea placeholder="Submit your feedback" formControlName="feedback"></textarea>
+            <small class="form-text text-danger" *ngIf="feedbackForm.controls.feedback.errors">{{feedbackForm.controls.feedback.errors.required.message}}<br/></small>	
+        </form>
+    </div>-->
 </div>

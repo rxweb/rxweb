@@ -2,7 +2,7 @@
   <form #countryForm = "ngForm">
     <div class="form-group">
       <label> Continent</label>
-      <input type="text" name="continent" [(ngModel)]="country.continent"  class="form-control"  longitude />
+      <input type="text" name="continent" [(ngModel)]="country.continent"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Second Country Longitude' or 'Third Country Longitude', then you need to add 'Continent' input as 'Asia'.<br/></small>
 	   <small class="form-text text-danger" *ngIf="countryForm.controls.continent?.errors">{{countryForm.controls.continent?.errors.longitude.message}}<br/></small>	
     </div>
