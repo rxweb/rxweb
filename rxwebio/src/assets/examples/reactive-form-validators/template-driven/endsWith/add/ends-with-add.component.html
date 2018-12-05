@@ -2,8 +2,8 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>Name</label>
-      <input type="text" name="name" [(ngModel)]="user.name"  class="form-control"  [endsWith]="{'value':'m'}" />
-      <small class="form-text text-muted">You can enter value which ends with 'm'<br/></small>
+      <input type="text" name="name" [(ngModel)]="user.name"  class="form-control"  [endsWith]="{'value':'t'}" />
+      <small class="form-text text-muted">You can enter value which ends with 't'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.name?.errors">{{userForm.controls.name?.errors.endsWith.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>

@@ -3,10 +3,10 @@ import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
-    selector: 'app-pattern-pattern-validator',
-    templateUrl: './pattern-pattern.component.html'
+    selector: 'app-pattern-expression-validator',
+    templateUrl: './pattern-expression.component.html'
 })
-export class PatternPatternValidatorComponent implements OnInit {
+export class PatternExpressionValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(
@@ -15,7 +15,7 @@ export class PatternPatternValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            userName:['', RxwebValidators.pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} })], 
+            userName:['', RxwebValidators.pattern({expression:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} })], 
         });
     }
 }

@@ -11,7 +11,7 @@ export class ApplicationBroadcaster {
         this.urlSubscriber = this.urlSubject.asObservable();
     }
 
-    urlBroadCast(value: string): void {
+    urlBroadCast(value: any): void {
         this.urlSubject.next(value);
     }
 

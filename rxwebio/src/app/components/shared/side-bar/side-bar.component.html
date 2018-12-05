@@ -12,10 +12,10 @@
 				</div>
 			</li>-->
 			<li *ngFor="let link of links">
-				<a (click)="navigateTo(link)" [class.active]="link.isActive"><span class="nav-label">{{link.title}}</span></a>
+				<a (click)="navigateTo(link);link.isOpen = !link.isOpen" [class.active]="link.isActive"><span class="nav-label">{{link.title}}</span><span class="fa" [class.arrow]="!link.isOpen" [class.fa-angle-down]="link.isOpen" *ngIf="link.childrens?.length > 0"></span></a>
 				<ul [class.hide]="!link.isOpen" [class.show]="link.isOpen" class="nav nav-second-level collapse" aria-expanded="false" *ngIf="link.childrens?.length > 0">
 					<li *ngFor="let secondLevel of link.childrens;let i = index">
-						<a (click)="secondLevel.isOpen = !secondLevel.isOpen" [class.active]="secondLevel.isActive" (click)="navigateTo(secondLevel)"><span class="nav-label">{{secondLevel.title}}</span><span class="fa" [class.arrow]="!secondLevel.isOpen" [class.fa-angle-down]="secondLevel.isOpen" *ngIf="secondLevel.childrens?.length > 0"></span>
+						<a (click)="secondLevel.isOpen = !secondLevel.isOpen;navigateTo(secondLevel)" [class.active]="secondLevel.isActive"><span class="nav-label">{{secondLevel.title}}</span><span class="fa" [class.arrow]="!secondLevel.isOpen" [class.fa-angle-down]="secondLevel.isOpen" *ngIf="secondLevel.childrens?.length > 0"></span>
 						</a>
 						<ul [class.hide]="!secondLevel.isOpen" [class.show]="secondLevel.isOpen" class="nav nav-third-level collapse in" aria-expanded="false" *ngIf="secondLevel.childrens?.length > 0">
 							<li *ngFor="let thirdLevel of secondLevel.childrens;let i = index">

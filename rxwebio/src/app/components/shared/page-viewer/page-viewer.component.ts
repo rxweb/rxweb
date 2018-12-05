@@ -1,4 +1,4 @@
-import { ViewContainerRef, Component, OnChanges, SimpleChanges, OnInit, Input, EventEmitter ,OnDestroy} from '@angular/core';
+import { ViewContainerRef, Component, OnChanges, SimpleChanges, OnInit, Input, EventEmitter, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { ElementRef } from "@angular/core";
@@ -12,6 +12,8 @@ import { AppTabsComponent } from "src/app/components/shared/app-tabs/app-tabs.co
 import { Inject } from "@angular/core";
 import { COMPONENT_EXAMPLE } from "src/app/domain/application.const";
 import { BaseComponentProvider } from "src/app/components/shared/base.component";
+import { GitHubIssueComponent } from "src/app/components/shared/disqus/github-issue/github-issue.component";
+import { DisqusComponent } from "src/app/components/shared/disqus/disqus/disqus.component";
 @Component({
     selector: 'page-viewer',
     templateUrl: './page-viewer.component.html',
@@ -19,12 +21,12 @@ import { BaseComponentProvider } from "src/app/components/shared/base.component"
 
 export class PageViewerComponent extends BaseComponentProvider implements OnInit {
     @Input() content: string;
-    
+
     constructor(
-        private elementRef: ElementRef,  componentFactoryResolver: ComponentFactoryResolver, viewContainerRef: ViewContainerRef,
+        private elementRef: ElementRef, componentFactoryResolver: ComponentFactoryResolver, viewContainerRef: ViewContainerRef,
         @Inject(COMPONENT_EXAMPLE) exampleComponents: { [key: string]: any },
     ) {
-        super(viewContainerRef,componentFactoryResolver,exampleComponents);
+        super(viewContainerRef, componentFactoryResolver, exampleComponents);
         this.element = elementRef.nativeElement as HTMLElement;
     }
     ngOnInit(): void {
@@ -32,31 +34,32 @@ export class PageViewerComponent extends BaseComponentProvider implements OnInit
         let elements = this.element.querySelectorAll("[component]");
         Array.prototype.slice.call(elements).forEach((element: HTMLDivElement) => {
             let componentName = element.getAttribute("component");
-            var params = this.getPramas(element,componentName);      
+            var params = this.getPramas(element, componentName);
             switch (componentName) {
                 case "app-code":
-                    element.appendChild(this.create(AppCodeComponent,params).rootNode());
+                    element.appendChild(this.create(AppCodeComponent, params).rootNode());
                     break;
                 case "app-example-runner":
-                    element.appendChild(this.create(AppExampleRunnerComponent,params).rootNode());
+                    element.appendChild(this.create(AppExampleRunnerComponent, params).rootNode());
                     break;
                 case "app-note":
-                    element.appendChild(this.create(AppNotesComponent,params).rootNode());
+                    element.appendChild(this.create(AppNotesComponent, params).rootNode());
                     break;
                 case "app-tabs":
-                    element.appendChild(this.create(AppTabsComponent,params).rootNode());
+                    element.appendChild(this.create(AppTabsComponent, params).rootNode());
+                    break;
+                case "app-github-issue":
+                    element.appendChild(this.create(GitHubIssueComponent, {}).rootNode());
+                    break;
+                case "app-disqus":
+                    element.appendChild(this.create(DisqusComponent, {}).rootNode());
                     break;
 
             }
         })
     }
-     scrollTo(section) {
-        var node = document.querySelector('#' + section);
-        node.scrollIntoView(true);
-        var scrolledY = window.scrollY;
-        if (scrolledY) {
-            window.scroll(0, scrolledY - 62);
-        }
+    scrollTo(section) {
+        location.hash = section;
         return false;
     }
 }

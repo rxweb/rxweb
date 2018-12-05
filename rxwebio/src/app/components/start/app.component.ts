@@ -4,28 +4,50 @@ import { ReactiveFormConfig } from "@rxweb/reactive-form-validators";
 import { Router } from "@angular/router";
 import { NavigationEnd } from "@angular/router";
 import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
+import { HostListener } from "@angular/core";
+import { NavigationStart } from "@angular/router";
+import { RxSpinner } from "src/app/controls/spinner/spinner.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  
   title = 'rx.web.io';
-  isHome = true;
-  constructor(private router: Router,private applicationBroadcaster:ApplicationBroadcaster) {
+  isHome = false;
+  constructor(private router: Router,private spinner:RxSpinner,private applicationBroadCast:ApplicationBroadcaster) {
+    this.applicationBroadCast.urlSubscriber.subscribe(t => {
+      this.homeInit(t)
+    });
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        debugger
+        this.spinner.hide();
+        (<any>window).ga('set', 'page', val.urlAfterRedirects);
+        (<any>window).ga('send', 'pageview');
         if (val.url == "/" || val.url == "/home")
-            this.isHome = true;
-        else 
+          this.isHome = true;
+        else
           this.isHome = false;
+        var t = setTimeout(function () {
+          const tree = router.parseUrl(router.url);
+          if (tree.fragment) {
+            const element = document.querySelector("#" + tree.fragment);
+            if (element) {
+              element.scrollIntoView({behavior: "instant", block: "start", inline: "nearest"});
+            }
+          }
+        }, 500);
+      }
+      if (val instanceof NavigationStart) {
+        this.spinner.show();
       }
     });
   }
+
+
+
   ngOnInit() {
+   
     ReactiveFormConfig.set({
       "internationalization": {
         "dateFormat": "dmy",
@@ -43,7 +65,7 @@ export class AppComponent implements OnInit {
         "contains": "Input does not contain defined string",
         "compare": "Input does not match",
         "creditCard": "Input is not in the credit card format",
-        "dataUri": "Please neter a proper data Uri",
+        "dataUri": "Please enter a proper data Uri",
         "different": "Please enter different values",
         "digit": "Only digits are allowed",
         "email": "Invalid email format",
@@ -85,5 +107,8 @@ export class AppComponent implements OnInit {
         "url": "Input must be an url"
       }
     });
+  }
+  homeInit(isHome){
+    this.isHome = isHome;
   }
 }

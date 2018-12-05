@@ -2,7 +2,7 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>Age</label>
-      <input type="text" name="age" [(ngModel)]="user.age"  class="form-control"  greaterThanEqualTo />
+      <input type="text" name="age" [(ngModel)]="user.age"  class="form-control"   />
 	   <small class="form-text text-danger" *ngIf="userForm.controls.age?.errors">{{userForm.controls.age?.errors.greaterThanEqualTo.message}}<br/></small>	
     </div>
     <div class="form-group">

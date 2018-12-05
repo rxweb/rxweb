@@ -8,7 +8,7 @@ import { Http } from "@angular/http";
 })
 export class GettingStartedComponent implements OnInit {
   showComponent:boolean = false;
-  rightSidebarLinks:any=[{"id":"getting-started","title":"Getting Started","subLink":null},{"id":"quick-start","title":"Quick Start","subLink":[{"title":"Installation","id":"installation"},{"title":"Import Modules","id":"import-modules"},{"title":"Global Validation Messages","id":"global-validation-messages"},{"title":"Examples","id":"examples"}]},{"id":"goal","title":"Goal","subLink":null}];
+  rightSidebarLinks:any=[{"id":"getting-started","title":"Getting Started","subLink":null},{"id":"quick-start","title":"Quick Start","subLink":[{"title":"Installation","id":"installation"},{"title":"Import Modules","id":"import-modules"},{"title":"Global Validation Messages","id":"global-validation-messages"},{"title":"Examples","id":"examples"}]},{"id":"goal","title":"Goal","subLink":null},{"id":"discussion","title":"Discussion","subLink":null}];
   importModuleContent:string;
   options: any = { responseType: 'text' };
   codeContent:any;
@@ -28,12 +28,7 @@ export class GettingStartedComponent implements OnInit {
        });
   }
    scrollTo(section) {
-        var node = document.querySelector('#' + section);
-        node.scrollIntoView(true);
-        var scrolledY = window.scrollY;
-        if (scrolledY) {
-            window.scroll(0, scrolledY - 62);
-        }
+        location.hash = section;
         return false;
     }
 }

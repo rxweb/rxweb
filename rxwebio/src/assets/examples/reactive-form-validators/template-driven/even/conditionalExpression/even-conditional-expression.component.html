@@ -2,7 +2,7 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>Type</label>
-      <input type="text" name="type" [(ngModel)]="user.type"  class="form-control"  even />
+      <input type="text" name="type" [(ngModel)]="user.type"  class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Number' or 'Even Number', then you need to add 'Type' input as 'Even'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.type?.errors">{{userForm.controls.type?.errors.even.message}}<br/></small>	
     </div>
