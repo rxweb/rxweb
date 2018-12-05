@@ -489,7 +489,7 @@ fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
           firstName:['',RxwebValidators.required()],
           lastName:[''],
           minDate:['',RxwebValidators.minDate({fieldName:'maxDate'})],
-          maxDate:['',RxwebValidators.maxDate({value:"10/11/2018"})]
+          maxDate:['',RxwebValidators.maxDate({value:"10/11/2018"})],
           address:this.validation.group({
             city:[''],
             country:['']
