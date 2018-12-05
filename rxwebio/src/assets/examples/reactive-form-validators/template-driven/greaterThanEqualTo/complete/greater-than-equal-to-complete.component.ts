@@ -8,7 +8,7 @@ import { User } from './user.model';
 })
 export class GreaterThanEqualToCompleteTemplateDrivenComponent implements OnInit {
     user: User
-
+	
     constructor(
     ) { }
 

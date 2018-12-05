@@ -1,6 +1,6 @@
 ---
 title: different 
-description: Different validation decorator will check two inputs whether they are different or not. It is just opposite of compare decorator.
+description: Different validation  {{validatorType}}  will check two inputs whether they are different or not. It is just opposite of compare decorator.
 author: rxcontributortwo
 
 ---
@@ -10,10 +10,12 @@ Suppose you want to create a user form in which you want to compare firstname an
 <ol>
     <li>The Name of firstName field on which comparison is done.</li>
     <li>The Custom Message on password field.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply different validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
-Let’s see how different decorator fulfil the need.
+Let’s see how different  {{validatorType}}  fulfil the need.
 
 # Basic Different Validation
 <data-scope scope="['decorator']">
@@ -30,13 +32,21 @@ Next, we need to write html code.
 ***
 
 # DifferentConfig
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@different()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.different()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `different` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="fieldName">[fieldName](#fieldName)</a></td><td>Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>Different validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a (click)='scrollTo("#fieldName")' title="fieldName">fieldName</a></td><td>Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Different validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## conditionalExpression 

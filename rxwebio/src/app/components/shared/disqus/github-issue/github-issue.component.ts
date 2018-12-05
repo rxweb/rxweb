@@ -28,8 +28,8 @@ export class GitHubIssueComponent implements OnInit {
         this.openIssuesList = [];
         this.closedIssuesList = [];
         var url = 'https://api.github.com/repos/rxweb/rxweb/issues?state=open';
-        if (location.pathname.split('/')[3] && location.pathname.split('/')[2])
-            url += '&labels='+ location.pathname.split('/')[3]+':' + location.pathname.split('/')[2];
+        if (location.pathname.split('/')[2])
+            url += '&labels=' + location.pathname.split('/')[2];
         this.http.get(url).subscribe((response: any[]) => {
             for (var i = 0; i < response.length; i++) {
                 this.setIssueList(response[i], 'open');
@@ -43,8 +43,9 @@ export class GitHubIssueComponent implements OnInit {
         this.openIssuesList = [];
         this.closedIssuesList = [];
         var url = 'https://api.github.com/repos/rxweb/rxweb/issues?state=closed';
-        if (location.pathname.split('/')[3] && location.pathname.split('/')[2])
-            url += '&labels='+ location.pathname.split('/')[3]+':' + location.pathname.split('/')[2];
+        if (location.pathname.split('/')[2])
+            url += '&labels=' + location.pathname.split('/')[2];
+
         this.http.get(url).subscribe((response: any[]) => {
             for (var i = 0; i < response.length; i++) {
                 this.setIssueList(response[i], 'close');
@@ -75,7 +76,7 @@ export class GitHubIssueComponent implements OnInit {
         item.user.html_url = objectElement['user']['html_url'];
         item.created_at = objectElement['created_at'];
         item.dayAgo = moment(objectElement['created_at']).fromNow();
-        item.comments = {};
+        item.comments = [];
         item.isOpen = false;
         if (type == 'open')
             this.openIssuesList.push(item);
@@ -84,17 +85,18 @@ export class GitHubIssueComponent implements OnInit {
     }
 
     showOpenComments(url, index) {
+        this.openIssuesList[index]['isOpen'] = !this.openIssuesList[index]['isOpen'];
         if (this.openIssuesList[index]['isOpen']) {
             this.viewComments(url, index, true);
         }
-        this.openIssuesList[index]['isOpen'] = !this.openIssuesList[index]['isOpen'];
+        
     }
 
     showCloseComments(url, index) {
+        this.closedIssuesList[index]['isOpen'] = !this.closedIssuesList[index]['isOpen'];
         if (this.closedIssuesList[index]['isOpen']) {
             this.viewComments(url, index, false);
         }
-        this.closedIssuesList[index]['isOpen'] = !this.closedIssuesList[index]['isOpen'];
     }
 
     viewComments(url, index, isOpen) {
@@ -115,9 +117,9 @@ export class GitHubIssueComponent implements OnInit {
     setCommentList(objectElement: any) {
         let item: any = {}
         item.user = {};
-        item.user.login = objectElement['login'];
-        item.user.html_url = objectElement['html_url'];
-        item.user.avatar_url = objectElement['avatar_url'];
+        item.user.login = objectElement.user['login'];
+        item.user.html_url = objectElement.user['html_url'];
+        item.user.avatar_url = objectElement.user['avatar_url'];
         item.body = this.converter.makeHtml(objectElement['body']);
         item.created_at = objectElement['created_at'];
         item.dayAgo = moment(objectElement['created_at']).fromNow();

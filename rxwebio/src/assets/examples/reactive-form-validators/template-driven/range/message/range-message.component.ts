@@ -8,7 +8,7 @@ import { EmployeeInfo } from './employee-info.model';
 })
 export class RangeMessageTemplateDrivenComponent implements OnInit {
     employeeinfo: EmployeeInfo
-
+	
     constructor(
     ) { }
 

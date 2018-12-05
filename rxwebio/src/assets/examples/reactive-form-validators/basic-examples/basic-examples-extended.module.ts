@@ -6,15 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { ReactiveFormBasedValidationComponent } from "src/assets/examples/reactive-form-validators/basic-examples/reactive-form-based-validation/reactive-form-based-validation.component";
 import { TemplateFormBasedValidationComponent } from "src/assets/examples/reactive-form-validators/basic-examples/template-form-based-validation/template-form-based-validation.component";
-import { ModelBasedFromValidationComponent } from "src/assets/examples/reactive-form-validators/basic-examples/model-based-from-validation/model-based-from-validation.component";
+import { ModelBasedFormValidationComponent } from "src/assets/examples/reactive-form-validators/basic-examples/model-based-form-validation/model-based-form-validation.component";
 
 
 @NgModule({
   declarations: [
-	ReactiveFormBasedValidationComponent,TemplateFormBasedValidationComponent,ModelBasedFromValidationComponent
+	ReactiveFormBasedValidationComponent,TemplateFormBasedValidationComponent,ModelBasedFormValidationComponent
   ],
 entryComponents: [
-	ReactiveFormBasedValidationComponent,TemplateFormBasedValidationComponent,ModelBasedFromValidationComponent
+	ReactiveFormBasedValidationComponent,TemplateFormBasedValidationComponent,ModelBasedFormValidationComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -23,7 +23,7 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-	ReactiveFormBasedValidationComponent,TemplateFormBasedValidationComponent,ModelBasedFromValidationComponent
+	ReactiveFormBasedValidationComponent,TemplateFormBasedValidationComponent,ModelBasedFormValidationComponent
   ],
 
 })

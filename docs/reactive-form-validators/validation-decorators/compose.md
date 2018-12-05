@@ -1,6 +1,6 @@
 ---
 title: compose
-description: Compose validation decorator is used to apply multiple validations on a particular field.
+description: Compose validation  {{validatorType}}  is used to apply multiple validations on a particular field.
 author: rxcontributortwo
 
 ---
@@ -11,10 +11,12 @@ Suppose you want to create UserInfo form, which contains fields like firstName, 
     <li>Apply required, alpha and different validation on lastName field.</li>
     <li>Apply digit, maxNumber and minNumber validation on age field based on matched condition in the form, like if the firstName is 'Bharat', then only the age must be validated.</li>
     <li>Apply required, email and maxLength validation based on matched condition in the form, like if the firstName is 'Bharat', then only the emailId must be validated.</li>
+    <data-scope scope="['decorator','validator']">
     <li>Apply compose validation dynamically based on server rules.</li>
+    </data-scope>
 </ol>
 
-Let’s see how compose decorator fulfil the need.
+Let’s see how compose  {{validatorType}}  fulfil the need.
 
 # Basic Compose Validation
 <data-scope scope="['decorator']">
@@ -22,7 +24,13 @@ First we need to create a UserInfo class and define a property of firstName in t
 <div component="app-code" key="compose-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
+<data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope>
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -52,12 +60,20 @@ Next, we need to write html code.
 </data-scope>
 
 # ComposeConfig
-conditionalExpression is not mandatory to use in the `@compose()` decorator. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@compose()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.compose()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `compose` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="validators">[validators](#validators)</a></td><td>It is an array of rxwebValidators. Validators are set according to the relative requirement based on which validation you want to apply. Here you have to specify the name of validator which you want to use.</td></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>Compose validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a (click)='scrollTo("#validators")' title="validators">validators</a></td><td>It is an array of rxwebValidators. Validators are set according to the relative requirement based on which validation you want to apply. Here you have to specify the name of validator which you want to use.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Compose validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
 </table>
 
 ## validators

@@ -8,7 +8,7 @@ import { EmployeeInfo } from './employee-info.model';
 })
 export class RangeMinimumNumberTemplateDrivenComponent implements OnInit {
     employeeinfo: EmployeeInfo
-
+	
     constructor(
     ) { }
 

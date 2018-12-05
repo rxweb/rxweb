@@ -10,7 +10,7 @@ export class AlphaMessageValidatorComponent implements OnInit {
     addressInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

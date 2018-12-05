@@ -6,11 +6,11 @@ export class AccountInfo {
 	firstName: string;
 
 	//If you want to apply conditional expression of type 'string'
-	@different({fieldName:"firstName"  ,conditionalExpression:'x => x.firstName == "Bharat"' }) 
+	@different({fieldName:'firstName'  ,conditionalExpression:'x => x.firstName == "Bharat"' }) 
 	userName: string;
 
 	//If you want to apply conditional expression of type 'function'
-	@different({fieldName:"firstName"  ,conditionalExpression:(x,y) => x.firstName == "Bharat"  }) 
+	@different({fieldName:'firstName'  ,conditionalExpression:(x,y) => x.firstName == "Bharat"  }) 
 	lastName: string;
 
 }

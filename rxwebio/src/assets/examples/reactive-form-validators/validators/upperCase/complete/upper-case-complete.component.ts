@@ -10,7 +10,7 @@ export class UpperCaseCompleteValidatorComponent implements OnInit {
     locationFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

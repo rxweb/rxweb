@@ -8,7 +8,7 @@ import { StorageCapacity } from './storage-capacity.model';
 })
 export class FileSizeConditionalExpressionTemplateDrivenComponent implements OnInit {
     storagecapacity: StorageCapacity
-
+	
     constructor(
     ) { }
 

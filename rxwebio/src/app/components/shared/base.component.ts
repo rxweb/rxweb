@@ -43,8 +43,8 @@ export abstract class BaseComponentProvider implements OnDestroy {
 
     getPramas(element:any,type?:string){
         let keyName = element.getAttribute("key");
+        
       
-
         let jObject = this.getKeyData(keyName);
         let params = {};
         params["content"] = jObject;
@@ -63,6 +63,7 @@ export abstract class BaseComponentProvider implements OnDestroy {
     }
 
     private getKeyData(keyName:string){
+      
     let jObject = undefined;
             if (keyName != undefined) {
                 var splitedArray = keyName.split('-');

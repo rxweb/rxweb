@@ -1,6 +1,6 @@
 ---
 title: maxDate  
-description: MaxDate validation decorator will allow user to enter the date less than the maxDate value parameter.
+description: MaxDate validation  {{validatorType}}  will allow user to enter the date less than the maxDate value parameter.
 author:  rxcontributorone
 
 ---
@@ -12,9 +12,11 @@ Suppose you want to create a User form, which contains fields like userName, bir
 <li>Apply MaxDate validation based on matched condition in the form, like if the userName is ‘John’ then the birthDate value should be valid date does not exceed the maximum date.</li>
 <li>Adding Custom Message on registrationDate Field.</li>
 <li>Adding value which you want to restrict number in the property. The maximum date is '2018,7,30'. </li>
+<data-scope scope="['decorator','validator']">
 <li>Apply MaxDate validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how MaxDate validator fulfil the need.
+Let’s see how MaxDate {{validatorType}} fulfil the need.
 
 # Basic MaxDate Validation
 
@@ -23,7 +25,13 @@ First we need to create a User class and define a property of registrationDate i
 <div component="app-code" key="maxDate-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
+<data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope>
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -53,13 +61,23 @@ Next, we need to write html code.
 </data-scope>
 
 # DateConfig
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@maxDate()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.maxDate()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `maxDate` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a href="#value" (click)='scrollTo("#value")' title="value">value</a></td><td>enter value which you want to restrict number in the property</td></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>maxDate validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a (click)='scrollTo("#value")' title="value">value</a></td><td>enter value which you want to restrict number in the property</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>maxDate validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## conditionalExpression 

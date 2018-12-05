@@ -1,1 +1,1 @@
-{"emailAddress":{"value":"'@gmail.com'"},"recoveryEmailAddress":{"value":"'@gmail.com'","conditionalExpression":"'x => x.emailAddress == \"abc@gmail.com\"'"},"otherEmailAddress":{"value":"'@gmail.com'","message":"'Please enter valid gmailId'"}}
+{"emailAddress":{"contains":{"value":"@gmail.com"}},"recoveryEmailAddress":{"contains":{"value":"@gmail.com","conditionalExpression":"x => x.emailAddress == \"abc@gmail.com\""}},"otherEmailAddress":{"contains":{"value":"@gmail.com","message":"Please enter valid gmailId"}}}

@@ -1,6 +1,6 @@
 ---
 title: greaterThanEqualTo 
-description: Greater than equal to validation decorator will check that input property is greater than or equal to the related field input.
+description: Greater than equal to validation  {{validatorType}}  will check that input property is greater than or equal to the related field input.
 author: rxcontributortwo
 
 ---
@@ -11,9 +11,11 @@ Suppose you want to create a user form and you have fields like Age, VoterAge, O
 <li>Specify Age as fieldName such that greaterThanEqualTo validation should be applied to the fieldname for comparing other fields.</li>
 <li>Apply greaterThanEqualTo validation based on matched condition in the form, like if the Age is ‘18’ then the </li>VoterAge,OtherAge value should be Greater than or equal to 18.
 <li>Adding Custom Message on OtherAge Field.</li>
+<data-scope scope="['decorator','validator']">
 <li>Apply greaterThanEqualTo validation dynamically based on server rules.</li>
+</data-scope>
 
-Let’s see how greaterThanEqualTo decorator fulfil the need.
+Let’s see how greaterThanEqualTo  {{validatorType}}  fulfil the need.
 
 # Basic GreaterThanEqualTo Validation
 
@@ -22,7 +24,13 @@ First we need to create User model class define a property of Age and VoterAge  
 <div component="app-code" key="greaterThanEqualTo-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
+<data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope>
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -53,13 +61,21 @@ Next, we need to write html code.
 
 # RelationalOperatorConfig
 
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@greaterThanEqualTo()` decorator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.greaterThanEqualTo()` validator. If needed then use the below options.
+</data-scope>
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `greaterThanEqualTo` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="fieldName">[fieldName](#fieldName)</a></td><td>Greater than Equal to validation should be applied based on the `fieldName` for compare other field value</td></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>GreaterThanEqualTo validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a title="fieldName">fieldName</a></td><td>Greater than Equal to validation should be applied based on the `fieldName` for compare other field value</td></tr>
+<tr><td><a  title="conditionalExpression">conditionalExpression</a></td><td>GreaterThanEqualTo validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## fieldName 
@@ -86,7 +102,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="greaterThanEqualTo-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-greaterThanEqualTo-message" title="alpha decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-greaterThanEqualTo-message" title="greaterThanEqualTo decorators with message" key="message"></div>
 
 # Complete greaterThanEqualTo Example
 

@@ -10,7 +10,7 @@ export class FileSizeAddValidatorComponent implements OnInit {
     storageCapacityFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

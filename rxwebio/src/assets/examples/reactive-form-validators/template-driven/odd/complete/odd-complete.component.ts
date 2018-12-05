@@ -8,7 +8,7 @@ import { User } from './user.model';
 })
 export class OddCompleteTemplateDrivenComponent implements OnInit {
     user: User
-
+	
     constructor(
     ) { }
 

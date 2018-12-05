@@ -1,6 +1,6 @@
 ---
 title: time 
-description: time validation decorator will allow user to enter the input only in the correct time format.
+description: time validation  {{validatorType}}  will allow user to enter the input only in the correct time format.
 author: rxcontributorone
 
 ---
@@ -11,18 +11,26 @@ Suppose you want to create a AttendanceDetail form, which contains field of Entr
 <li>Allowing seconds in TotalTimeOut.</li>
 <li>Apply time validation based on matched condition in the form, like if the EntryPlace is ‘Lunch room’ then the EntryTime value should be in proper format of time .</li>
 <li>Adding Custom Message on exitTime Field.</li>
+<data-scope scope="['decorator','validator']">
 <li>Apply time validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how time validator fulfil the need.
+Let’s see how time {{validatorType}} fulfil the need.
 
-# Basic time 
+# Basic time Validation
 
 <data-scope scope="['decorator']">
 First we need to create a AttendanceDetail class and define a property of EntryTime in the model to achieve the functional need of point 1.
 <div component="app-code" key="time-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
+<data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope> 
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -52,13 +60,24 @@ Next, we need to write html code.
 </data-scope>
 
 # TimeConfig 
+<data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@time()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.time()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `time` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>Time validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
-<tr><td><a title="allowseconds">[allowseconds](#allowseconds)</a></td><td>If you are allowed seconds in time format then you need to put this as true.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Time validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a (click)='scrollTo("#allowseconds")' title="allowseconds">allowseconds</a></td><td>If you are allowed seconds in time format then you need to put this as true.</td></tr>
+</table >
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -76,8 +95,8 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `boolean` 
 If you are allowed seconds in time format then you need to put this as true.
 
-<div component="app-code" key="time-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-time-message" title="time decorators with message" key="message"></div>
+<div component="app-code" key="time-allowSecondsExample-model"></div> 
+<div component="app-example-runner" ref-component="app-time-allowSeconds" title="time decorators with allowSeconds" key="allowSeconds"></div>
 
 ## message 
 Type :  `string` 

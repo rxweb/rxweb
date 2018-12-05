@@ -1,1 +1,1 @@
-{"continent":{"longitude":true},"thirdCountryLongitude":{"conditionalExpression":"'x => x.continent ==\"Asia\"'"},"firstCountryLongitude":{"message":"'{{0}} is not a longitude'"}}
+{"continent":{},"thirdCountryLongitude":{"longitude":{"conditionalExpression":"x => x.continent ==\"Asia\""}},"firstCountryLongitude":{"longitude":{"message":"{{0}} is not a longitude"}}}

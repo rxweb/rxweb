@@ -8,7 +8,7 @@ import { Contact } from './contact.model';
 })
 export class MinLengthMessageTemplateDrivenComponent implements OnInit {
     contact: Contact
-
+	
     constructor(
     ) { }
 

@@ -2,7 +2,7 @@
   <form #userinfoForm = "ngForm">
     <div class="form-group">
       <label>Data Type</label>
-      <select name="dataType" [(ngModel)]="userinfo.dataType"  class="form-control" numeric>
+      <select name="dataType" [(ngModel)]="userinfo.dataType"  class="form-control" >
 		<option [value]="item" *ngFor="let item of dataTypes">{{item}}</option>
       </select>
 
@@ -10,21 +10,21 @@
     </div>
     <div class="form-group">
       <label>Negative Number</label>
-      <input type="text" name="negativeNumber" [(ngModel)]="userinfo.negativeNumber"  class="form-control"  [numeric]="{'acceptValue':NumericValueType.NegativeNumber,'message':'Negative Number is not a negative number'}" />
+      <input type="text" name="negativeNumber" [(ngModel)]="userinfo.negativeNumber"  class="form-control"  [numeric]="{'acceptValue':2,'message':'Negative Number is not a negative number'}" />
       <small class="form-text text-muted">you can enter only a negative number<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
 	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.negativeNumber?.errors">{{userinfoForm.controls.negativeNumber?.errors.numeric.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Decimal Number</label>
-      <input type="text" name="decimalNumber" [(ngModel)]="userinfo.decimalNumber"  class="form-control"  [numeric]="{'allowDecimal':true,'message':'Decimal Number is not a decimal number'}" />
+      <input type="text" name="decimalNumber" [(ngModel)]="userinfo.decimalNumber"  class="form-control"  [numeric]="{'allowDecimal':true,'message':'Decimal Number is not a positive decimal number'}" />
       <small class="form-text text-muted">you can enter only a decimal number<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
 	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.decimalNumber?.errors">{{userinfoForm.controls.decimalNumber?.errors.numeric.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Real Number</label>
-      <input type="text" name="realNumber" [(ngModel)]="userinfo.realNumber"  class="form-control"  [numeric]="{'acceptValue':NumericValueType.Both,'conditionalExpression':'x => x.dataType == \'Real\''}" />
+      <input type="text" name="realNumber" [(ngModel)]="userinfo.realNumber"  class="form-control"  [numeric]="{'acceptValue':3,'conditionalExpression':'x => x.dataType == \'Real\''}" />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Real Number' then you need to add 'Data Type' input as 'Real'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.realNumber?.errors">{{userinfoForm.controls.realNumber?.errors.numeric.message}}<br/></small>	

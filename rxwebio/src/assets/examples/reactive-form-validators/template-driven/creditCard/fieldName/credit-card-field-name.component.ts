@@ -8,6 +8,7 @@ import { User } from './user.model';
 })
 export class CreditCardFieldNameTemplateDrivenComponent implements OnInit {
     user: User
+					creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
 
     constructor(
     ) { }

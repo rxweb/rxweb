@@ -16,14 +16,14 @@ export class NumericCompleteValidatorComponent implements OnInit {
 	
 	
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({
             dataType:['',], 
             negativeNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.NegativeNumber  ,message:'{{0}} is not a negative number' })], 
-            decimalNumber:['', RxwebValidators.numeric({allowDecimal:true  ,message:'{{0}} is not a decimal number' })], 
+            decimalNumber:['', RxwebValidators.numeric({allowDecimal:true  ,message:'{{0}} is not a positive decimal number' })], 
             integerNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,conditionalExpression:(x,y) => x.dataType == "Positive"  })], 
             realNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.Both  ,conditionalExpression:'x => x.dataType == "Real"' })], 
         });

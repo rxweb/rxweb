@@ -8,7 +8,7 @@ import { User } from './user.model';
 })
 export class ContainsValueTemplateDrivenComponent implements OnInit {
     user: User
-
+	
     constructor(
     ) { }
 

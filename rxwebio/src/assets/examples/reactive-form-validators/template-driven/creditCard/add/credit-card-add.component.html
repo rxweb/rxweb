@@ -2,7 +2,7 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>Card Type</label>
-      <select name="cardType" [(ngModel)]="user.cardType"  class="form-control" creditCard>
+      <select name="cardType" [(ngModel)]="user.cardType"  class="form-control" >
 		<option [value]="item" *ngFor="let item of creditCardTypes">{{item}}</option>
       </select>
 

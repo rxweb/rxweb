@@ -1,6 +1,6 @@
 ---
 title: maxNumber
-description: MaxNumber validation decorator will allow user to enter the input upto the maximum number value parameter.
+description: MaxNumber validation  {{validatorType}}  will allow user to enter the input upto the maximum number value parameter.
 author: rxcontributorone
 
 ---
@@ -11,9 +11,11 @@ Suppose you want to create a Subject-detail form, which contains fields like sub
 <li>Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .</li>
 <li>Adding Custom Message on PassingMarks Field.</li>
 <li>Adding value which you want to restrict number in the property. The maximum number is '100s'. </li>
+<data-scope scope="['decorator','validator']">
 <li>Apply maxNumber validation dynamically based on server rules.</li>
+</data-scope>
 </ol>
-Let’s see how maxNumber validator fulfil the need.
+Let’s see how maxNumber {{validatorType}} fulfil the need.
 
 # Basic MaxNumber Validation
 
@@ -22,7 +24,13 @@ First we need to create subject-detail model class define a property of PassingM
 <div component="app-code" key="maxNumber-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
+<data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope>
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -52,13 +60,23 @@ Next, we need to write html code.
 </data-scope>
 
 # NumberConfig 
-message and conditional expression options are not mandatory to use in the `@maxNumber()` decorator but value is mandatory. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@maxNumber()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.maxNumber()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `maxNumber` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="value">[value](#value)</a></td><td>enter value which you want to restrict number in the property</td></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>max number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
+<tr><td><a (click)='scrollTo("#value")' title="value">value</a></td><td>enter value which you want to restrict number in the property</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>max number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## conditionalExpression 

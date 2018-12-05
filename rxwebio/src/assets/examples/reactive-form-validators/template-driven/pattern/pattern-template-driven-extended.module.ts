@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { PatternCompleteTemplateDrivenComponent } from './complete/pattern-complete.component';
-import { PatternPatternTemplateDrivenComponent } from './pattern/pattern-pattern.component';
+import { PatternExpressionTemplateDrivenComponent } from './expression/pattern-expression.component';
 import { PatternMessageTemplateDrivenComponent } from './message/pattern-message.component';
 import { PatternConditionalExpressionTemplateDrivenComponent } from './conditionalExpression/pattern-conditional-expression.component';
 import { PatternAddTemplateDrivenComponent } from './add/pattern-add.component';
@@ -14,14 +14,14 @@ import { PatternAddTemplateDrivenComponent } from './add/pattern-add.component';
 @NgModule({
   declarations: [
 	PatternCompleteTemplateDrivenComponent,
-	PatternPatternTemplateDrivenComponent,
+	PatternExpressionTemplateDrivenComponent,
 	PatternMessageTemplateDrivenComponent,
 	PatternConditionalExpressionTemplateDrivenComponent,
 	PatternAddTemplateDrivenComponent,
   ],
 entryComponents: [
 	PatternCompleteTemplateDrivenComponent,
-	PatternPatternTemplateDrivenComponent,
+	PatternExpressionTemplateDrivenComponent,
 	PatternMessageTemplateDrivenComponent,
 	PatternConditionalExpressionTemplateDrivenComponent,
 	PatternAddTemplateDrivenComponent,
@@ -34,7 +34,7 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	PatternCompleteTemplateDrivenComponent,
-	PatternPatternTemplateDrivenComponent,
+	PatternExpressionTemplateDrivenComponent,
 	PatternMessageTemplateDrivenComponent,
 	PatternConditionalExpressionTemplateDrivenComponent,
 	PatternAddTemplateDrivenComponent,

@@ -8,7 +8,7 @@ export class UserInfo {
 	@numeric({acceptValue:NumericValueType.NegativeNumber  ,message:'{{0}} is not a negative number' }) 
 	negativeNumber: number;
 
-	@numeric({allowDecimal:true  ,message:'{{0}} is not a decimal number' }) 
+	@numeric({allowDecimal:true  ,message:'{{0}} is not a positive decimal number' }) 
 	decimalNumber: number;
 
 	//If you want to apply conditional expression of type 'function'

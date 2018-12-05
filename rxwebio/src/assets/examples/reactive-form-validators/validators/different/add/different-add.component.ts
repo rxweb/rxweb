@@ -10,13 +10,13 @@ export class DifferentAddValidatorComponent implements OnInit {
     accountInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
         this.accountInfoFormGroup = this.formBuilder.group({
             firstName:['',], 
-            lastName:['', RxwebValidators.different({fieldName:"firstName" })], 
+            lastName:['', RxwebValidators.different({fieldName:'firstName' })], 
         });
     }
 }

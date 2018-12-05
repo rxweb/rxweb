@@ -2,7 +2,7 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>Marks</label>
-      <input type="text" name="marks" [(ngModel)]="user.marks"  class="form-control"  lessThan />
+      <input type="text" name="marks" [(ngModel)]="user.marks"  class="form-control"   />
 	   <small class="form-text text-danger" *ngIf="userForm.controls.marks?.errors">{{userForm.controls.marks?.errors.lessThan.message}}<br/></small>	
     </div>
     <div class="form-group">

@@ -10,7 +10,7 @@ export class MinLengthConditionalExpressionValidatorComponent implements OnInit 
     contactFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {

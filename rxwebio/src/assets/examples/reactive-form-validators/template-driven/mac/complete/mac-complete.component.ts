@@ -8,7 +8,7 @@ import { MacAddressInfo } from './mac-address-info.model';
 })
 export class MacCompleteTemplateDrivenComponent implements OnInit {
     macaddressinfo: MacAddressInfo
-
+	
     constructor(
     ) { }
 

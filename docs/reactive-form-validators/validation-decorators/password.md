@@ -1,6 +1,6 @@
 ---
 title: password  
-description: Password validation decorator will allow user to enter only the input according to correct password validation format.
+description: Password validation  {{validatorType}}  will allow user to enter only the input according to correct password validation format.
 author: rxcontributorone
 
 ---
@@ -8,10 +8,12 @@ author: rxcontributorone
 Suppose you want to create a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
 <ol>
    <li>Adding validation on oldPassword Field and adding  Custom Message on it.</li>
-   <li>Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter,        minLength, maxLength.</li>
+   <li>Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</li>
+   <data-scope scope="['decorator','validator']">
    <li>Apply password validation dynamically based on server rules.</li>
+   </data-scope>
 </ol>
-Let’s see how password validator fulfil the need.
+Let’s see how password {{validatorType}} fulfil the need.
 
 # Basic password Validation
 <data-scope scope="['decorator']">
@@ -19,7 +21,13 @@ First we need to create LoginInfo model class define a property of password in t
 <div component="app-code" key="password-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
-Here we have covered Add and Edit form operations.
+<data-scope scope="['decorator']">
+Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope>
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -49,12 +57,23 @@ Next, we need to write html code.
 </data-scope>
 
 # PasswordConfig 
-message options are not mandatory to use in the `@password()` decorator but validation is mandatory. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@password()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.password()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `password` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
-<tr><td><a title="validation">[validation](#validation)</a>Validation is used for setting the parameters for password validation, In Password validation there is validations on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a href="#validation" (click)='scrollTo("#validation")'  title="validation">validation</a></td><td> Validation is used for setting the parameters for password validation, In Password validation there is validations on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</td></tr>
+</table>
 
 ## message 
 Type :  `string` 

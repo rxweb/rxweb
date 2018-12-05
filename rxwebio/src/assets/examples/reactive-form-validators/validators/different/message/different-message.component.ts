@@ -10,14 +10,13 @@ export class DifferentMessageValidatorComponent implements OnInit {
     accountInfoFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
         this.accountInfoFormGroup = this.formBuilder.group({
             firstName:['',], 
-            userName:['', RxwebValidators.different({fieldName:"firstName"  ,conditionalExpression:'x => x.firstName == "Bharat"' })], 
-            password:['', RxwebValidators.different({fieldName:"firstName"  ,message:'{{0}} is same as firstName' })], 
+            password:['', RxwebValidators.different({fieldName:'firstName'  ,message:'{{0}} is same as firstName' })], 
         });
     }
 }

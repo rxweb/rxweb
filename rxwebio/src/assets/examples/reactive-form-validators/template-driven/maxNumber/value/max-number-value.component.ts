@@ -8,7 +8,7 @@ import { SubjectDetails } from './subject-details.model';
 })
 export class MaxNumberValueTemplateDrivenComponent implements OnInit {
     subjectdetails: SubjectDetails
-
+	
     constructor(
     ) { }
 

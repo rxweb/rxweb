@@ -14,7 +14,7 @@ This validation framework is an extension of angular forms library, which will h
 To start using rxweb reactive form validation framework, you need to install the package from npm/yarn.
 
 ## Import Modules
-To work on reactive form it is require to import angular modules (FormsModule & ReactiveFormsModule) and for rxweb reactive form validation to import 'RxReactiveFormsModule' module and register that in the NgModule decorator imports property.
+To work on reactive form it is require to import angular modules (FormsModule & ReactiveFormsModule) and for rxweb reactive form validation to import 'RxReactiveFormsModule' module and register that in the NgModule  decorators  imports property.
 ```js
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

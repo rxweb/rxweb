@@ -8,7 +8,7 @@ import { ResultInfo } from './result-info.model';
 })
 export class MinNumberConditionalExpressionTemplateDrivenComponent implements OnInit {
     resultinfo: ResultInfo
-
+	
     constructor(
     ) { }
 

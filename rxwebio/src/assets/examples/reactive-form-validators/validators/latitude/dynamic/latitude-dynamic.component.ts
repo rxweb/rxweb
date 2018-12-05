@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilderConfiguration} from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,RxFormBuilder} from '@rxweb/reactive-form-validators';
 
 @Component({
     selector: 'app-latitude-dynamic-validator',
@@ -12,7 +12,7 @@ export class LatitudeDynamicValidatorComponent implements OnInit {
     countryFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder , private http: HttpClient )
+        private formBuilder: RxFormBuilder , private http: HttpClient )
 	{ }
 
     ngOnInit() {

@@ -10,14 +10,14 @@ export class FactorConditionalExpressionValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
             firstNumber:['',], 
-            thirdNumber:['', RxwebValidators.factor({fieldName:"firstNumber"  ,conditionalExpression:'x => x.firstNumber == 25' })], 
-            secondNumber:['', RxwebValidators.factor({fieldName:"firstNumber"  ,conditionalExpression:(x,y) =>x.firstNumber == 25  })], 
+            thirdNumber:['', RxwebValidators.factor({fieldName:'firstNumber'  ,conditionalExpression:'x => x.firstNumber == 25' })], 
+            secondNumber:['', RxwebValidators.factor({fieldName:'firstNumber'  ,conditionalExpression:(x,y) =>x.firstNumber == 25  })], 
         });
     }
 }

@@ -8,7 +8,7 @@ import { Country } from './country.model';
 })
 export class LatLongConditionalExpressionTemplateDrivenComponent implements OnInit {
     country: Country
-
+	
     constructor(
     ) { }
 

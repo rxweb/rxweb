@@ -1,6 +1,6 @@
 <div id="wrapper" *ngIf="showComponent">
     <div class="content">
-        <app-title [title]="codeContent.title" [description]="codeContent.description" [validatorType]="codeContent.validatorType"></app-title>
+        <app-title [title]="codeContent.title" [description]="codeContent.description" [validatorType]="codeContent.validatorType" [validationTypeTitle]="codeContent.validationTypeTitle"></app-title>
         <div class="bg-white py-3 border-radius">
             <div class="row">
                 <div class="col-lg-12">
@@ -18,11 +18,13 @@
                                 <a (click)="route('decorators')">Decorator</a>
                             </li>
                         </ul>
-                        <div class="tab-content">
+                        <div class="tab-content" *ngIf="showViewer" >
                             <div class="tab-pane active panel-body validation-tab">
-                                <page-viewer *ngIf="showViewer" [content]="codeContent.htmlContent" [tabArray]="codeContent.tabArray" [data]="jsonContent"
+                                <!--<page-viewer *ngIf="showViewer"  [@enterAnimation] [content]="codeContent.htmlContent" [tabArray]="codeContent.tabArray" [data]="jsonContent"
+                                    [typeName]="typeName"></page-viewer>-->
+                                <page-viewer   [content]="codeContent.htmlContent" [tabArray]="codeContent.tabArray" [data]="jsonContent"
                                     [typeName]="typeName"></page-viewer>
-                                <div class="row" id="githubissues">
+                                <!--<div class="row" id="githubissues">
                                     <div class="col-lg-12">
                                         <app-github-issue></app-github-issue>
                                     </div>
@@ -31,7 +33,7 @@
                                     <div class="col-lg-12">
                                         <app-disqus></app-disqus>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -39,6 +41,5 @@
             </div>
         </div>
     </div>
-    {{codeContent.rightSidebarLinks | json}}
     <app-right-sidebar [sidebarLinks]="codeContent.rightSidebarLinks"></app-right-sidebar>
 </div>

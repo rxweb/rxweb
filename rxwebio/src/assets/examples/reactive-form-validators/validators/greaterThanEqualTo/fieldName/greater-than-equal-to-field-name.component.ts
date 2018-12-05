@@ -10,14 +10,13 @@ export class GreaterThanEqualToFieldNameValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(
-        private formBuilder: FormBuilder)
+        private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            age:['',], 
-            memberAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:'x => x.age >= 18 ' })], 
-            voterAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'age'  ,conditionalExpression:(x,y) => x.age >= 18  })], 
+            admissionAge:['',], 
+            retiermentAge:['', RxwebValidators.greaterThanEqualTo({fieldName:'admissionAge' })], 
         });
     }
 }

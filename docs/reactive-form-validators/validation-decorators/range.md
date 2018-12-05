@@ -1,6 +1,6 @@
 ---
 title: range 
-description: Range validation decorator will check that the entered value is in the specified range.
+description: Range validation  {{validatorType}}  will check that the entered value is in the specified range.
 author: rxcontributorone
 
 ---
@@ -10,9 +10,11 @@ Suppose you want to create a employeeInfo form, which contains field of employee
  <li>Adding value which you want to restrict number in the property. The minimum number is 18 and maximum number is 60.</li> 
  <li>Apply range validation based on matched condition in the form, like if the age is greater than ‘25’ then the employeeExperience value should be between 2 to 20.</li>
  <li>Adding Custom Message on Salary Field.</li>
+ <data-scope scope="['decorator','validator']">
  <li>Apply range validation dynamically based on server rules.</li>
+ </data-scope>
 </ol>
-Let’s see how range validator fulfil the need.
+Let’s see how range {{validatorType}} fulfil the need.
 
 # Basic range Validation
 <data-scope scope="['decorator']">
@@ -20,7 +22,13 @@ First we need to create employeeInfo model class define a property of employeeAg
 <div component="app-code" key="range-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
-Here we have covered Add and Edit form operations.
+<data-scope scope="['decorator']">
+Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven']">
+Here we have covered Add form operations. 
+</data-scope>
 
 <data-scope scope="['decorator']">
 <div component="app-tabs" key="basic-operations"></div>
@@ -50,14 +58,25 @@ Next, we need to write html code.
 </data-scope>
 
 # RangeConfig 
-conditionalExpression and message options are not mandatory to use in the `@range()` decorator but the minimum number and maximum number is mandatory parameter. If needed then use the below options.
+<data-scope scope="['decorator']">
+Below options are not mandatory to use in the `@range()` decorator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['validator']">
+Below options are not mandatory to use in the `RxwebValidators.range()` validator. If needed then use the below options.
+</data-scope>
+
+<data-scope scope="['template-driven']">
+Below options are not mandatory to use in the `range` validation. If needed then use the below options.
+</data-scope>
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a title="conditionalExpression">[conditionalExpression](#conditionalExpression)</a></td><td>range validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a title="message">[message](#message)</a></td><td>To override the global configuration message and set the custom message on respective FormControl.</td></tr>
-<tr><td><a title="minimumnumber">[minimumnumber](#minimumnumber)</a></td><td> Minimum number is for define a minimum number of range.</td></tr>
-<tr><td><a title="maximumNumber">[maximumNumber](#maximumNumber)</a></td><td> Maximum number is for define a maximum number of range.</td></tr>
+<tr><td><a (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>range validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a (click)='scrollTo("#minimumNumber")' title="minimumnumber">minimumNumber</a></td><td> Minimum number is for define a minimum number of range.</td></tr>
+<tr><td><a (click)='scrollTo("#maximumNumber")' title="maximumNumber">maximumNumber</a></td><td> Maximum number is for define a maximum number of range.</td></tr>
+</table>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string`
