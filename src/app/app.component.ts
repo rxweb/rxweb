@@ -15,7 +15,7 @@ endsWith,
 startsWith,
 primeNumber,
 latitude,
-longitude,rule,RxFormGroup
+longitude,rule,RxFormGroup, unique
 } from "@rxweb/reactive-form-validators";
 
 export class Consultant {
@@ -190,7 +190,7 @@ export class Address {
 
 import { CLIENT_SETTINGS } from './client-setting'
 export class Attendance {
-    @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
+   @unique({additionalValidation:(fieldName,formGroupValue,formArrayValue) =>{ debugger; return false; }}) @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
 }
 export class EmployeeDetail {
    
@@ -257,8 +257,8 @@ export class Employee {
     @email({ message: "email", conditionalExpression: "(x,y) => x.firstName == 'john' && y.firstName == 'john'" }) email: string;
     @hexColor({ message: "hex"}) hexColor: string;
     @lowerCase({ message: "lowercase", conditionalExpression: "x => x.firstName == 'john'" }) lowerCase: string;
-    @maxDate({ value: new Date(2018,7-1,30) }) maxDate: string; // do some work
-    @minDate({ value: new Date(2000, 0, 1) }) minDates: string; // do some work
+    @maxDate({fieldName:'minDates'  }) maxDate: string; // do some work
+    @minDate({ value: "07/30/2018" }) minDates: string; // do some work
     @maxLength({ value: 20, message: "length exceed", conditionalExpression: "x => x.firstName == 'john'" }) maxLength: string;
     @maxNumber({ value: 100000000 }) maxNumber: string;
     @minLength({ value: 10 }) minLength: number;
@@ -509,6 +509,18 @@ fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
         var employeeDetail = new Attendance()
         employeeDetail.startTime = 1
         employee.attendances.push(employeeDetail)
+        employeeDetail = new Attendance()
+        employeeDetail.startTime = 2
+        employee.attendances.push(employeeDetail)
+employeeDetail = new Attendance()
+        employeeDetail.startTime = 3
+        employee.attendances.push(employeeDetail)
+employeeDetail = new Attendance()
+        employeeDetail.startTime = 4
+        employee.attendances.push(employeeDetail)
+employeeDetail = new Attendance()
+        employeeDetail.startTime = 5
+        employee.attendances.push(employeeDetail)
         //this.secondEmployee = new Employee();
         //this.secondEmployee.employeeDetail = new EmployeeDetail();
         //employee.employeeDetail.areaName = "";
@@ -518,8 +530,12 @@ fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
         //employeeDetail.startTime = undefined
         //this.secondEmployee.attendances.push(employeeDetails)
         ReactiveFormConfig.set({
+            "baseConfig":{
+              "dateFormat": "mdy",
+               "seperator": "/"
+            },
             "internationalization": {
-                "dateFormat": "dmy",
+                "dateFormat": "mdy",
                 "seperator": "/"
             },
             "validationMessage": {

@@ -8,7 +8,7 @@ RADIO,FILE, ELEMENT_VALUE,BLUR,FOCUS,CHANGE,BLANK
   } from "../../const";
 import { ApplicationUtil } from '../../util/app-util';
 import { DecimalProvider } from "../../domain/element-processor/decimal.provider"
-import {AlphaConfig,ArrayConfig,BaseConfig,ChoiceConfig,CompareConfig,ComposeConfig,ContainsConfig,CreditCardConfig,DateConfig,DefaultConfig,DigitConfig,EmailConfig,ExtensionConfig,FactorConfig,FieldConfig,HexColorConfig,MessageConfig,NumberConfig,NumericConfig,PasswordConfig,PatternConfig,RangeConfig,RequiredConfig,RuleConfig,SizeConfig,TimeConfig ,DifferentConfig,RelationalOperatorConfig } from '../../models/config'
+import {AlphaConfig,ArrayConfig,BaseConfig,ChoiceConfig,CompareConfig,ComposeConfig,ContainsConfig,CreditCardConfig,DateConfig,DefaultConfig,DigitConfig,EmailConfig,ExtensionConfig,FactorConfig,FieldConfig,HexColorConfig,MessageConfig,NumberConfig,NumericConfig,PasswordConfig,PatternConfig,RangeConfig,RequiredConfig,RuleConfig,SizeConfig,TimeConfig ,DifferentConfig,RelationalOperatorConfig,UniqueConfig } from '../../models/config'
 const COMPOSE:string = 'compose';
 const NGMODEL_BINDING: any = {
   provide: NG_VALIDATORS,
@@ -16,7 +16,7 @@ const NGMODEL_BINDING: any = {
   multi: true
 };
 
-const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','alphaNumeric','ascii','dataUri','digit','email','even','hexColor','json','latitude','latLong','leapYear','longitude','lowerCase','mac','odd','port','primeNumber','time','upperCase','url'];
+const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','alphaNumeric','ascii','dataUri','digit','email','even','hexColor','json','latitude','latLong','leapYear','longitude','lowerCase','mac','odd','port','primeNumber','time','upperCase','url','unique'];
 
 @Directive({
   selector: '[ngModel],[formControlName],[formControl]',
@@ -83,9 +83,10 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
   @Input() time:TimeConfig;
   @Input() upperCase:MessageConfig;
   @Input() url:DefaultConfig;
+  @Input() unique:UniqueConfig;
 
   
-  @Input() formControl:FormControl | AbstractControl;
+  
 
   constructor(private elementRef: ElementRef,
         private renderer: Renderer,private decimalProvider:DecimalProvider){
@@ -108,7 +109,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
       if(validators.length > 0)
         this.validator = APP_VALIDATORS[COMPOSE]({validators:validators})
       if(this.numeric && this.numeric.isFormat)
-      this.bindNumericElementEvent();
+        this.bindNumericElementEvent();
   }
 
   bindNumericElementEvent(config?:NumericConfig){

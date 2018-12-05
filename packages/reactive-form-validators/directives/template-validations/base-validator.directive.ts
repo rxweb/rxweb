@@ -1,3 +1,4 @@
+import { Input } from "@angular/core")
 import { Validator,ValidatorFn, AbstractControl,FormControl } from '@angular/forms';
 import {INPUT,SELECT,CHECKBOX,TEXTAREA,KEYPRESS, ONCHANGE,ONKEYUP,ONCLICK,
 RADIO,FILE, ELEMENT_VALUE,BLUR,FOCUS,CHANGE,BLANK
@@ -7,6 +8,7 @@ import { ControlExpressionProcess } from './control-expression-process'
 
 
 export class BaseValidator extends ControlExpressionProcess implements Validator{
+    @Input() formControl:FormControl | AbstractControl;
 
     protected validators:ValidatorFn[];
     protected element: any;
@@ -27,6 +29,8 @@ export class BaseValidator extends ControlExpressionProcess implements Validator
     }
 
   validate(control: AbstractControl): { [key: string]: any } {
+    if(!this.formControl)
+        this.formControl = control;
     if (control["conditionalValidator"]) {
       this.conditionalValidator = control["conditionalValidator"];
       delete control["conditionalValidator"];

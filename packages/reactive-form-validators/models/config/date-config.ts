@@ -1,5 +1,5 @@
 import { BaseConfig } from './base-config'
 export interface DateConfig extends BaseConfig{
-    value: Date;
-    
+    value?: Date | string;
+    fieldName?:string;
 }

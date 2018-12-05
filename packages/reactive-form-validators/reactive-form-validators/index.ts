@@ -51,3 +51,4 @@ export * from './compose.validator';
 export * from './rule.validator';
 export * from './file.validator';
 export * from './custom.validator';
+export * from './unique.validator';

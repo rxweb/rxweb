@@ -51,7 +51,7 @@
 
 <form #heroFormas="ngForm" [rxwebForm]="heroFormas">
   <div class="form-group">
-    <input type="text" [numeric]="{'isFormat':true}" [(ngModel)]="after" name="afters" placeholder="After" class="form-control" />
+    numeric : <input type="text" [numeric]="{'isFormat':true}" [(ngModel)]="after" name="afters" placeholder="After" class="form-control" />
 
     <input type="text" [numeric]="{'isFormat':true}" [(ngModel)]="before" name="befores" placeholder="Before" class="form-control" />
   </div>
@@ -185,8 +185,8 @@ sampleFormGroup.controls.lastName.errors | json
       propobject <input type="text" formControlName="areaName" />{{sampleFormGroup.controls.employeeDetail.controls.areaName.errors | json}}<br />
     </div>
 
-    <div [formGroup]="sampleFormGroup.controls.attendances.controls[0]">
-      proparray <input type="text" formControlName="startTime" />{{sampleFormGroup.controls.attendances.controls[0].controls.startTime.errors | json}}<br />
+    <div [formGroup]="attendanceGroup" *ngFor="let attendanceGroup of sampleFormGroup.controls.attendances.controls;let i = index">
+      proparray <input type="text" formControlName="startTime" />{{sampleFormGroup.controls.attendances.controls[i].controls.startTime.errors | json}}<br />
     </div>
 
     <input (click)="addItem($event.target)" type="checkbox" value="ajay" /> Ajay

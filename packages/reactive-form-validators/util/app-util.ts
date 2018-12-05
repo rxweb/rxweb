@@ -1,4 +1,5 @@
 import { AbstractControl, FormGroup, FormArray } from "@angular/forms";
+import { RxFormArray } from "../services/rx-form-array";
 import {NumericValueType } from '../enums'
 export class ApplicationUtil{
     static getParentObjectValue(control: AbstractControl) :{ [key:string]:any} {
@@ -15,6 +16,27 @@ export class ApplicationUtil{
             return parent;
         }
         return control;
+    }
+
+    static getFormControlName(control:AbstractControl){
+        let controlName:string = '';
+        if(control.parent){
+          for(var formControlName in control.parent.controls){
+            if(control.parent.controls[formControlName] == control){
+              controlName = formControlName;
+              break;
+            }
+          }
+        }
+      return controlName;
+    }
+
+    static getParentFormArray(control:AbstractControl){
+        if (control.parent && !(control.parent instanceof FormArray || control.parent instanceof RxFormArray)) {
+            let parent = this.getParentFormArray(control.parent)
+            return parent;
+        }
+        return control.parent;
     }
 
     static getFormControl(fieldName:string,control:AbstractControl){

@@ -58,7 +58,7 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
 
   private setConditionalValidator(controls) {
     Object.keys(controls).forEach(fieldName => {
-      if (this.validationRule.conditionalValidationProps[fieldName]) {
+      if (this.validationRule.conditionalValidationProps && this.validationRule.conditionalValidationProps[fieldName]) {
         controls[fieldName]["conditionalValidator"] = conditionalChangeValidator(this.validationRule.conditionalValidationProps[fieldName]);
       }
     });

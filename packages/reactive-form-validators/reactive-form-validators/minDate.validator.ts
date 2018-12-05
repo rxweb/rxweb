@@ -16,7 +16,7 @@ export function minDateValidator(config: DateConfig): ValidatorFn {
           if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
                 if (dateProvider.isValid(control.value)) {
-                    let minDate = config.value;
+                    let minDate = dateProvider.getCompareDate(config,control);
                     let currentControlValue = dateProvider.getDate(control.value);
                     if (!(currentControlValue >= minDate))
                         return ObjectMaker.toJson(AnnotationTypes.minDate, config.message || null, [control.value])

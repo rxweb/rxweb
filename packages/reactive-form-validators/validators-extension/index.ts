@@ -50,3 +50,4 @@ export * from './longitude-validator.extension';
 export * from './compose-validator.extension';
 export * from './file-validator.extension';
 export * from './custom-validator.extension';
+export * from './unique-validator.extension';
