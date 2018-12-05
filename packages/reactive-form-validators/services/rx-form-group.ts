@@ -1,4 +1,4 @@
-import { FormGroup,FormArray,FormControl ,AbstractControl,ValidatorFn,AbstractControlOptions,AsyncValidatorFn } from "@angular/forms";
+import { FormGroup,FormArray,FormControl ,AbstractControl,ValidatorFn,AsyncValidatorFn } from "@angular/forms";
 import { RxFormControl } from "./form-control";
 import { EntityService } from './entity.service';
 import { FormGroupExtension } from './form-group';
@@ -12,7 +12,7 @@ export class RxFormGroup extends FormGroup  {
     private entityService:EntityService;
     constructor(private model:any,private entityObject:{[key:string]:any},controls: {
         [key: string]: AbstractControl;
-    }, validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions | null, asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null){
+    }, validatorOrOpts?: any, asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null){
       super(controls,validatorOrOpts,asyncValidator);
       this.baseObject = Object.assign({}, this.entityObject)
       this.entityService = new EntityService();

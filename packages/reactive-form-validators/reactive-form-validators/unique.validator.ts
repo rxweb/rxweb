@@ -24,7 +24,7 @@ export function uniqueValidator(config: UniqueConfig): ValidatorFn {
             window.clearTimeout(timeOut);
             },200)
     }
-    var additionalValidation = (config:UniqueConfig,fieldName:string,formGroup:FormGroup,formArray:FormArray) =>{
+    var additionalValidation = (config:UniqueConfig,fieldName:string,formGroup:AbstractControl,formArray:FormArray,currentValue:any) =>{
                   let indexOf = formArray.controls.indexOf(formGroup);
                   let formArrayValue = [];
                   if(indexOf != -1){
@@ -32,8 +32,10 @@ export function uniqueValidator(config: UniqueConfig): ValidatorFn {
                     if(indexOf != i)
                       formArrayValue.push(t)
                   })
+                  return config.additionalValidation(currentValue,indexOf,fieldName,formGroup.value,formArrayValue);
                   }
-                  return config.additionalValidation(fieldName,formGroup.value,formArrayValue);
+        return false;
+                  
     }
     return (control: AbstractControl): { [key: string]: any } => {
         config = ApplicationUtil.getConfigObject(config);
@@ -67,7 +69,7 @@ export function uniqueValidator(config: UniqueConfig): ValidatorFn {
 
              let validation = false;
               if(config.additionalValidation){
-                  validation = additionalValidation(config,fieldName,parentFormGroup.value,formArray);
+                  validation = additionalValidation(config,fieldName,parentFormGroup,formArray,currentValue);
               }
              if(isMatched && !validation)
                   return ObjectMaker.toJson(AnnotationTypes.unique, config.message || null, [control.value])

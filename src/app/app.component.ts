@@ -190,7 +190,7 @@ export class Address {
 
 import { CLIENT_SETTINGS } from './client-setting'
 export class Attendance {
-   @unique({additionalValidation:(fieldName,formGroupValue,formArrayValue) =>{ debugger; return false; }}) @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
+   @unique({additionalValidation:(currentValue,indexOf,fieldName,formGroupValue,formArrayValue) =>{ debugger; return false; }}) @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
 }
 export class EmployeeDetail {
    
