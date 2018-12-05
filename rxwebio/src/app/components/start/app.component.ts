@@ -14,13 +14,13 @@ import { RxSpinner } from "src/app/controls/spinner/spinner.service";
 })
 export class AppComponent implements OnInit {
   title = 'rx.web.io';
-  isHome = true;
-  constructor(private router: Router,private spinner:RxSpinner) {
+  isHome = false;
+  constructor(private router: Router,private spinner:RxSpinner,private applicationBroadCast:ApplicationBroadcaster) {
+    this.applicationBroadCast.urlSubscriber.subscribe(t => {
+      this.homeInit(t)
+    });
     router.events.subscribe((val) => {
-      if (val instanceof NavigationStart) {
-        this.spinner.show();
-      }
-      else if (val instanceof NavigationEnd) {
+      if (val instanceof NavigationEnd) {
         this.spinner.hide();
         (<any>window).ga('set', 'page', val.urlAfterRedirects);
         (<any>window).ga('send', 'pageview');
@@ -37,6 +37,9 @@ export class AppComponent implements OnInit {
             }
           }
         }, 500);
+      }
+      if (val instanceof NavigationStart) {
+        this.spinner.show();
       }
     });
   }
@@ -104,5 +107,8 @@ export class AppComponent implements OnInit {
         "url": "Input must be an url"
       }
     });
+  }
+  homeInit(isHome){
+    this.isHome = isHome;
   }
 }

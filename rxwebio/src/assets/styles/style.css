@@ -6227,7 +6227,7 @@ body.hide-sidebar #menu .header-link {
 
 /*-------- do not add any css here ---------- */
 
-.link-header:hover, .link-header:focus, .link-header:active:hover, .link-header:active:focus {
+.link-header:hover, .link-header:focus, .link-header:active:hover, .link-header:active:focus,h2:hover .link-header,h4:hover .link-header {
     opacity: 1;
 }
 .link-header {

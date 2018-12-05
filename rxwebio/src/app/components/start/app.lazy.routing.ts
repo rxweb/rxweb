@@ -23,7 +23,11 @@ const APP_LAZY_ROUTES: Routes = [
     path: 'form-validations',
     loadChildren: 'src/app/components/form-validation/form-validation.module#FormValidationModule',
   },
- 
+  {
+    path: '**', 
+    redirectTo:'home',
+    pathMatch: 'full'
+  }
  
 ];
 

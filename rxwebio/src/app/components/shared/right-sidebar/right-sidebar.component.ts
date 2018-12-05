@@ -34,20 +34,11 @@ export class RightSideBarComponent implements OnInit {
         feedback.uri = location.href;
         this.feedbackForm = this.formBuilder.formGroup<FeedbackModel>(FeedbackModel,feedback);
         this.feedbackForm.controls.uri.patchValue(location.href);
-        console.log(JSON.stringify(this.feedbackForm.value));
         this.showComponent = true;
     }
     scrollTo(section) {
         window.location.hash = section;
         return false;
     }
-    submitForm(){
-         if(event['keyCode'] == 13) {
-             //this.feedbackForm.value
-             var data = {	"Id":"ACDED", "feedback":"abc","uri":"abc"};
-            this.http.post("https://6x6kyhn7s6.execute-api.us-east-2.amazonaws.com/Production",data,this.httpOptions).pipe().map(response => {
-                debugger;
-            });
-         }
-    }
+   
 }

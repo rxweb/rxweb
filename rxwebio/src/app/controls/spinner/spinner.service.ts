@@ -4,23 +4,28 @@ import { Injectable } from '@angular/core';
 export class RxSpinner {
     element: HTMLElement;
     timeOut: number;
+    timeOutHide:number;
     constructor() {
         this.element = document.getElementById('rx-spinner');
     }
 
     show(): void {
-        if(!this.element)
+        //document.body.classList.add("fade")
+        if (!this.element) 
             this.element = document.getElementById("rx-spinner");
-        this.element.className = "page-loader fade"
         if (this.timeOut)
             window.clearTimeout(this.timeOut);
         this.timeOut = window.setTimeout(() => {
-            this.element.classList.add("spinner-in")
-            this.element.classList.add("in")
-        },20)
+            this.element.className = "spinner-in"
+        },1)
     }
 
     hide(): void {
-        this.element.className = "page-loader fade in hide"
+        if (this.timeOutHide)
+            window.clearTimeout(this.timeOutHide);
+        this.timeOutHide = window.setTimeout(() => {
+            // document.body.classList.remove("fade")
+             this.element.className = "fade in hide"
+        }, 1000)
     }
 }

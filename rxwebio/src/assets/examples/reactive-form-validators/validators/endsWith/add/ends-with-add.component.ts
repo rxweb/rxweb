@@ -15,7 +15,7 @@ export class EndsWithAddValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            name:['', RxwebValidators.endsWith({value:'m' })], 
+            name:['', RxwebValidators.endsWith({value:'t' })], 
         });
     }
 }
