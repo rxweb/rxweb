@@ -9,6 +9,7 @@ import { MinDateCompleteTemplateDrivenComponent } from './complete/min-date-comp
 import { MinDateValueTemplateDrivenComponent } from './value/min-date-value.component';
 import { MinDateConditionalExpressionTemplateDrivenComponent } from './conditionalExpression/min-date-conditional-expression.component';
 import { MinDateMessageTemplateDrivenComponent } from './message/min-date-message.component';
+import { MinDateFieldNameTemplateDrivenComponent } from './fieldName/min-date-field-name.component';
 import { MinDateAddTemplateDrivenComponent } from './add/min-date-add.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { MinDateAddTemplateDrivenComponent } from './add/min-date-add.component'
 	MinDateValueTemplateDrivenComponent,
 	MinDateConditionalExpressionTemplateDrivenComponent,
 	MinDateMessageTemplateDrivenComponent,
+	MinDateFieldNameTemplateDrivenComponent,
 	MinDateAddTemplateDrivenComponent,
   ],
 entryComponents: [
@@ -24,6 +26,7 @@ entryComponents: [
 	MinDateValueTemplateDrivenComponent,
 	MinDateConditionalExpressionTemplateDrivenComponent,
 	MinDateMessageTemplateDrivenComponent,
+	MinDateFieldNameTemplateDrivenComponent,
 	MinDateAddTemplateDrivenComponent,
   ],
   imports: [
@@ -37,6 +40,7 @@ entryComponents: [
 	MinDateValueTemplateDrivenComponent,
 	MinDateConditionalExpressionTemplateDrivenComponent,
 	MinDateMessageTemplateDrivenComponent,
+	MinDateFieldNameTemplateDrivenComponent,
 	MinDateAddTemplateDrivenComponent,
   ],
 

@@ -16,4 +16,10 @@ export class User {
 	@minDate({value:new Date(2018,7,30)  ,message:'{{0}} exceeds the Minimum Date Limit' }) 
 	registrationDate: Date;
 
+	@prop()
+	enrollmentDate: Date;
+
+	@minDate({fieldName:'enrollmentDate' }) 
+	lastRegistrationDate: Date;
+
 }

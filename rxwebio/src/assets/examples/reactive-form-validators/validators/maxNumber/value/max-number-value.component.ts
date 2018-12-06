@@ -15,7 +15,6 @@ export class MaxNumberValueValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.subjectDetailsFormGroup = this.formBuilder.group({
-            subjectCode:['',], 
             obtainedMarks:['', RxwebValidators.maxNumber({value:100  ,conditionalExpression:'x => x.subjectCode == "8CS5A"' })], 
             maximumMarks:['', RxwebValidators.maxNumber({value:100  ,conditionalExpression:(x,y) => x.subjectCode == "8CS5A"  })], 
         });

@@ -1,11 +1,6 @@
 <div>
   <form #userForm = "ngForm">
     <div class="form-group">
-      <label>Password</label>
-      <input type="text" name="password" [(ngModel)]="user.password"  class="form-control"   />
-	   <small class="form-text text-danger" *ngIf="userForm.controls.password?.errors">{{userForm.controls.password?.errors.compare.message}}<br/></small>	
-    </div>
-    <div class="form-group">
       <label>Confirm Password</label>
       <input type="text" name="confirmPassword" [(ngModel)]="user.confirmPassword"  class="form-control"  [compare]="{'fieldName':'password','message':'Both Input is not matched'}" />
 	   <small class="form-text text-danger" *ngIf="userForm.controls.confirmPassword?.errors">{{userForm.controls.confirmPassword?.errors.compare.message}}<br/></small>	

@@ -9,4 +9,8 @@ export class User {
 
 	registrationDate: Date;
 
+	enrollmentDate: Date;
+
+	lastRegistrationDate: Date;
+
 }
