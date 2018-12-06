@@ -19,24 +19,6 @@ Suppose you want to create a User form, which contains fields like userName, bir
 </ol>
 Let’s see how MaxDate {{validatorType}} fulfil the need.
 
-# Set Date Format
-
-The `ReactiveFormConfig` sets the defualt date format based on which the validation is performed. The default date format is 'mm/dd/yy' which is set in the `baseConfig`, if you have a scenario in which you want to change the format of the date, Suppose you want the format to be 'dd/mm/yy' then you must set it in the `internationalization` along with the seperator if your system supports internationalization. The benefit of using it is that the `baseconfig` will deserialize the value and will validate according to your `internationalization` format.
-
-The above code is in `app.component.ts`.
-
-```js
-        ReactiveFormConfig.set({
-            "baseConfig":{
-              "dateFormat": "mdy",
-               "seperator": "/"
-            },
-            "internationalization": {
-                "dateFormat": "mdy",
-                "seperator": "/"
-            },
-```
-
 # Basic MaxDate Validation
 
 <data-scope scope="['decorator']">
