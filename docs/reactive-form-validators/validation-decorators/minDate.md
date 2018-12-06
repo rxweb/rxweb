@@ -17,26 +17,6 @@ Suppose you want to create a User form, which contains fields like Username, Bir
 </ol>
 Let’s see how minDate {{validatorType}} fulfil the need.
 
-# Set Date Format
-The `ReactiveFormConfig`is added to apply internationalization for date ,the default date format based on which the validation is performed is 'mm/dd/yy'which is set in the `baseconfig`, if you have a scenario that you want to change the format of the date, Suppose you want the format to be 'dd/mm/yy' then you must set it in the `internationalization` along with the seperator if your system supports internationalization. The benefit of using it is that the `baseconfig` will deserialize the value and will validate according to your `internationalization` format.
-
-The above code is in `app.component.ts`.
-
-```js
-
- ReactiveFormConfig.set({
-            "baseConfig":{
-              "dateFormat": "mdy",
-               "seperator": "/"
-            },
-            "internationalization": {
-                // whatever your format you want to apply in date. 
-                "dateFormat": "mdy",
-                "seperator": "/"
-            },
-
-```
-
 # Basic MinDate Validation
 <data-scope scope="['decorator']">
 First we need to create a User class and define a property of RegistrationDate in the model to achieve the functional need of point 1.
