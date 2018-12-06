@@ -20,7 +20,7 @@ Let’s see how Even  {{validatorType}}  fulfil the need.
 
 # Basic Even Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create  User class and define a property of even in the model to achieve the functional need of point 1.
 <div component="app-code" key="even-add-model"></div> 
 </data-scope>
@@ -107,7 +107,7 @@ This Complete even example which includes all the BaseConfig properties will ful
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-even-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="even-complete-model"></div>
 # [/Model]

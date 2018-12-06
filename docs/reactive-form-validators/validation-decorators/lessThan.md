@@ -18,7 +18,7 @@ Let’s see how lessThan  {{validatorType}}  fulfil the need.
 
 # Basic LessThan Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of Marks and PassingMarks with the requirement of PassingMarks must be less than Marks field in the model to achieve the functional need of point 1.
 <div component="app-code" key="lessThan-add-model"></div> 
 </data-scope>
@@ -114,7 +114,7 @@ This Complete lessThan example which includes all the RelationalOperatorConfig p
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-lessThan-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="lessThan-complete-model"></div> 
 # [/Model]

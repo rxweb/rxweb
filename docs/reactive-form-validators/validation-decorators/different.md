@@ -18,7 +18,7 @@ Suppose you want to create a user form in which you want to compare firstname an
 Let’s see how different  {{validatorType}}  fulfil the need.
 
 # Basic Different Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User Model class and define property of Password and Confirm Password in the model to achieve the functional need of point 1.
 <div component="app-code" key="different-add-model"></div> 
 </data-scope>
@@ -85,7 +85,7 @@ This Complete Different example which includes all the DifferentConfig propertie
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-different-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="different-complete-model"></div> 
 # [/Model]

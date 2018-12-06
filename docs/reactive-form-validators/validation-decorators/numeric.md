@@ -20,7 +20,7 @@ Let’s see how Numeric {{validatorType}} fulfil the need.
 
 # Basic Numeric Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of Integer Number in the model to achieve the functional need of point 1.
 <div component="app-code" key="numeric-add-model"></div> 
 </data-scope>
@@ -126,7 +126,7 @@ This Complete numeric example which includes all the NumericConfig properties wi
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-numeric-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="numeric-complete-model"></div> 
 # [/Model]

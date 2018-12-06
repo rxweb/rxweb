@@ -17,7 +17,7 @@ Suppose you want to create a location based jsonInfo form and you have fields li
 Let’s see how json {{validatorType}} fulfil the need.
 
 # Basic Json Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create location model class define a property of LocationJson in the model to achieve the functional need of point 1
 <div component="app-code" key="json-add-model"></div> 
 </data-scope>
@@ -105,7 +105,7 @@ This Complete Json example which includes all the DefaultConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-json-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="json-complete-model"></div> 
 # [/Model]

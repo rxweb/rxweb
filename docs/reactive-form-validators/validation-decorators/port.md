@@ -17,7 +17,7 @@ Suppose you want to create a websiteInfo form, which contains fields like browse
 Let's see how port  {{validatorType}}  fulfil the need.
 
 # Basic port Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a model and define a property of educationalWebsitePort in the model to achieve the functional need of point 1.
 <div component="app-code" key="port-add-model"></div> 
 </data-scope>
@@ -106,7 +106,7 @@ This Complete Port example which includes all the BaseConfig properties will ful
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-port-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="port-complete-model"></div> 
 # [/Model]

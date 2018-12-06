@@ -17,7 +17,7 @@ Suppose you want to create a ResultInfo form, which contains fields like Maths, 
 Let’s see how minNumber {{validatorType}} fulfil the need.
 
 # Basic MinNumber Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a ResultInfo class and define a property of Maths in the model to achieve the functional need of point 1.
 <div component="app-code" key="minNumber-add-model"></div> 
 </data-scope>
@@ -115,7 +115,7 @@ This Complete minNumber example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-minNumber-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="minNumber-complete-model"></div> 
 # [/Model]

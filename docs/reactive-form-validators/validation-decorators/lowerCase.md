@@ -18,7 +18,7 @@ Let’s see how lowerCase  {{validatorType}}  fulfil the need.
 
 # Basic LowerCase Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of Username in the model to achieve the functional need of point 1.
 <div component="app-code" key="lowerCase-add-model"></div> 
 </data-scope>
@@ -106,7 +106,7 @@ This Complete lowerCase example which includes all the MessageConfig properties 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-lowerCase-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="lowerCase-complete-model"></div> 
 # [/Model]

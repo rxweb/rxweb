@@ -17,7 +17,7 @@ Suppose you want to create a Location form, which contains fields like CountryNa
 Let’s see how upperCase {{validatorType}} fulfil the need.
 
 # Basic UpperCase Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a Location class and define a property of CountryName in the model to achieve the functional need of point 1.
 <div component="app-code" key="upperCase-add-model"></div> 
 </data-scope>
@@ -100,7 +100,7 @@ This Complete upperCase example which includes all the MessageConfig properties 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-upperCase-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="upperCase-complete-model"></div> 
 # [/Model]

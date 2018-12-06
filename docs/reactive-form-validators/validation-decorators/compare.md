@@ -16,7 +16,7 @@ Suppose you want to create a user form in which you want to compare passwords wh
 Let’s see how compare {{validatorType}} fulfil the need.
 
 # Basic Compare Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User Model class and define property of Password and Confirm Password in the model to achieve the functional need of point 1.
 <div component="app-code" key="compare-add-model"></div> 
 </data-scope>
@@ -71,7 +71,7 @@ This Complete Compare example which includes all the CompareConfig properties wi
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-compare-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="compare-complete-model"></div> 
 # [/Model]

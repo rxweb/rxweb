@@ -18,7 +18,7 @@ Let’s see how greaterThan {{validatorType}} fulfil the need.
 
 # Basic GreaterThan Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of Age and VoterAge with the requirement of VoterAge must be greater than Age field in the model to achieve the functional need of point 1.
 <div component="app-code" key="greaterThan-add-model"></div> 
 </data-scope>
@@ -114,7 +114,7 @@ This Complete greaterThan example which includes all the RelationalOperatorConfi
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-greaterThan-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="greaterThan-complete-model"></div> 
 # [/Model]

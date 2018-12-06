@@ -18,7 +18,7 @@ Suppose you want to create a Country form, which contains fields like CountryNam
 Let's see how alpha  {{validatorType}}  fulfil the need.
  
 # Basic Alpha Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a Country class and define a property of CountryName in the model to achieve the functional need of point 1.
 <div component="app-code" key="alpha-add-model"></div> 
 </data-scope>
@@ -114,7 +114,7 @@ This Complete Alpha example which includes all the AlphaConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-alpha-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="alpha-complete-model"></div> 
 # [/Model]

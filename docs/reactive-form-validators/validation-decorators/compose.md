@@ -19,7 +19,7 @@ Suppose you want to create UserInfo form, which contains fields like firstName, 
 Let’s see how compose  {{validatorType}}  fulfil the need.
 
 # Basic Compose Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a UserInfo class and define a property of firstName in the model to achieve the functional need of point 1.
 <div component="app-code" key="compose-add-model"></div> 
 </data-scope>
@@ -106,7 +106,7 @@ This Complete Compose example which includes all the ComposeConfig properties wi
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-compose-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="compose-complete-model"></div> 
 # [/Model]

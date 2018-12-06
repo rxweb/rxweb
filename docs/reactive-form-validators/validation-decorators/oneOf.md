@@ -19,7 +19,7 @@ Let’s see how oneOf {{validatorType}} fulfil the need.
 
 # Basic oneOf Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a employee Model class and define property of hobbies in the model to achieve the functional need of point 1.
 <div component="app-code" key="oneOf-add-model"></div> 
 </data-scope>
@@ -115,7 +115,7 @@ This Complete oneOf example which includes all the ArrayConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-oneOf-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="oneOf-complete-model"></div> 
 # [/Model]

@@ -17,7 +17,7 @@ Suppose you want to create a country form, which contains fields like continent,
 Let's see how latLong  {{validatorType}}  fulfil the need.
 
 # Basic latLong Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a model and define a property of firstCountry in the model to achieve the functional need of point 1.
 <div component="app-code" key="latLong-add-model"></div> 
 </data-scope>
@@ -104,7 +104,7 @@ This Complete latLong example which includes all the BaseConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-latLong-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="latLong-complete-model"></div> 
 # [/Model]

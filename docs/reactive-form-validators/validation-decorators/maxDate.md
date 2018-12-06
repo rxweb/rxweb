@@ -21,7 +21,7 @@ Let’s see how MaxDate {{validatorType}} fulfil the need.
 
 # Basic MaxDate Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of registrationDate in the model to achieve the functional need of point 1.
 <div component="app-code" key="maxDate-add-model"></div> 
 </data-scope>
@@ -126,7 +126,7 @@ This Complete MaxDate example which includes all the DateConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-maxDate-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="maxDate-complete-model"></div> 
 # [/Model]

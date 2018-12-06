@@ -17,7 +17,7 @@ Suppose you want to create a User form, which contains fields like EmailAddress,
 Let’s see how contains {{validatorType}} fulfil the need.
 
 # Basic Contains Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of EmailAddress in the model to achieve the functional need of point 1.
 <div component="app-code" key="contains-add-model"></div> 
 </data-scope>
@@ -113,7 +113,7 @@ This Complete Contains example which includes all the ContainsConfig properties 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-contains-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="contains-complete-model"></div> 
 # [/Model]

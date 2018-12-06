@@ -17,7 +17,7 @@ Suppose you want to create a storageCapacity form, which contains fields like de
 Let's see how fileSize  {{validatorType}}  fulfil the need.
  
 # Basic fileSize Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a storageCapacity model and define a property of videoStorageSize in the model to achieve the functional need of point 1.
 <div component="app-code" key="fileSize-add-model"></div> 
 </data-scope>
@@ -113,7 +113,7 @@ This Complete fileSize example which includes all the SizeConfig properties will
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-fileSize-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="fileSize-complete-model"></div>
 # [/Model]

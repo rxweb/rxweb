@@ -17,7 +17,7 @@ Suppose you want to create a User form, which contains fields like Age, PhoneNum
 Let’s see how digit {{validatorType}} fulfil the need.
 
 # Basic digit Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of Age in the model to achieve the functional need of point 1.
 <div component="app-code" key="digit-add-model"></div> 
 </data-scope>
@@ -104,7 +104,7 @@ This Complete digit example which includes all the DigitConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-digit-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="digit-complete-model"></div> 
 # [/Model]

@@ -20,7 +20,7 @@ Suppose you want to create a Location form, which contains fields like AreaName,
 Let’s see how alphaNumeric  {{validatorType}}  fulfil the need.
 
 # Basic AlphaNumeric Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a Location class and define a property of AreaName in the model to achieve the functional need of point 1.
 <div component="app-code" key="alphaNumeric-add-model"></div> 
 </data-scope>
@@ -116,7 +116,7 @@ This Complete AlphaNumeric example which includes all the AlphaConfig properties
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-alphaNumeric-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="alphaNumeric-complete-model"></div> 
 # [/Model]

@@ -17,7 +17,7 @@ Suppose you want to create a user form, which contains fields like Number, Type,
 Let’s see how Odd {{validatorType}} fulfil the need.
 
 # Basic Odd Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of odd in the model to achieve the functional need of point 1.
 <div component="app-code" key="odd-add-model"></div> 
 </data-scope>
@@ -106,7 +106,7 @@ This Complete Odd example which includes all the BaseConfig properties will fulf
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-odd-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="odd-complete-model"></div> 
 # [/Model]

@@ -16,7 +16,7 @@ Suppose you want to create a login form, which contains fields like newPassword 
 Let’s see how password {{validatorType}} fulfil the need.
 
 # Basic password Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create LoginInfo model class define a property of password in the model to achieve the functional need of point 1.
 <div component="app-code" key="password-add-model"></div> 
 </data-scope>
@@ -99,7 +99,7 @@ This Complete password example which includes all the PasswordConfig properties 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-password-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="password-complete-model"></div> 
 # [/Model]

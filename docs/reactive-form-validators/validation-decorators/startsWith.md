@@ -17,7 +17,7 @@ Suppose you want to create a user form, which contains fields like userId, name,
 Let's see how StartsWith  {{validatorType}}  fulfil the need.
 
 # Basic StartsWith Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User model and define a property of name in the model to achieve the functional need of point 1.
 <div component="app-code" key="startsWith-add-model"></div> 
 </data-scope>
@@ -109,7 +109,7 @@ This Complete startsWith example which includes all the DefaultConfig properties
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-startsWith-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="startsWith-complete-model"></div> 
 # [/Model]

@@ -21,7 +21,7 @@ Let’s see how hexColor  {{validatorType}}  fulfil the need.
 
 # Basic HexColor Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of Color in the model to achieve the functional need of point 1.
 <div component="app-code" key="hexColor-add-model"></div> 
 </data-scope>
@@ -108,7 +108,7 @@ This Complete hexColor example which includes all the HexColorConfig properties 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-hexColor-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="hexColor-complete-model"></div> 
 # [/Model]

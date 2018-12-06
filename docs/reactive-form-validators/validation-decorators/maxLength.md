@@ -15,7 +15,7 @@ Suppose you want to create a User form, which contains fields like FirstName, La
 Let’s see how maxLength validator fulfil the need.
 
 # Basic MaxLength Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of FirstName in the model to achieve the functional need of point 1.
 <div component="app-code" key="maxLength-add-model"></div> 
 </data-scope>
@@ -113,7 +113,7 @@ This Complete maxLength example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-maxLength-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="maxLength-complete-model"></div> 
 # [/Model]

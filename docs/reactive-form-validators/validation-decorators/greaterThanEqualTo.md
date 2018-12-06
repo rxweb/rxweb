@@ -19,7 +19,7 @@ Let’s see how greaterThanEqualTo  {{validatorType}}  fulfil the need.
 
 # Basic GreaterThanEqualTo Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create User model class define a property of Age and VoterAge  in the model to achieve the functional need of point 1. 
 <div component="app-code" key="greaterThanEqualTo-add-model"></div> 
 </data-scope>
@@ -113,7 +113,7 @@ This Complete greaterThanEqualTo example which includes all the RelationalOperat
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-greaterThanEqualTo-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="greaterThanEqualTo-complete-model"></div> 
 # [/Model]

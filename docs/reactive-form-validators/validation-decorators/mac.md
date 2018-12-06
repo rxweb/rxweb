@@ -17,7 +17,7 @@ Suppose you want to create a form in which you want user to enter mac address  w
 Let’s see how mac {{validatorType}} fulfil the need.
 
 # Basic mac Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User Model class and define property of mac and systemMacAddress in the model to achieve the functional need of point 1.
 <div component="app-code" key="mac-add-model"></div> 
 </data-scope>
@@ -106,7 +106,7 @@ This Complete mac example which includes all the BaseConfig properties will fulf
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-mac-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="mac-complete-model"></div>
 # [/Model]

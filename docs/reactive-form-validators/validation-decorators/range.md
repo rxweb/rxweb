@@ -17,7 +17,7 @@ Suppose you want to create a employeeInfo form, which contains field of employee
 Let’s see how range {{validatorType}} fulfil the need.
 
 # Basic range Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create employeeInfo model class define a property of employeeAge in the model to achieve the functional need of point 1.
 <div component="app-code" key="range-add-model"></div> 
 </data-scope>
@@ -120,7 +120,7 @@ This Complete range example which includes all the RangeConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-range-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="range-complete-model"></div> 
 # [/Model]

@@ -18,7 +18,7 @@ Let’s see how LeapYear  {{validatorType}}  fulfil the need.
 
 # Basic LeapYear Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create ea User class and define a property of leapyear in the model to achieve the functional need of point 1.
 <div component="app-code" key="leapYear-add-model"></div> 
 </data-scope>
@@ -105,7 +105,7 @@ This Complete LeapYear example which includes all the BaseConfig properties will
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-leapYear-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="leapYear-complete-model"></div> 
 # [/Model]

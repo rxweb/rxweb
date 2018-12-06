@@ -18,7 +18,7 @@ Let’s see how minLength {{validatorType}} fulfil the need.
 
 # Basic MinLength Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create Contact model class define a property of CountryName in the model to achieve the functional need of point 1.
 <div component="app-code" key="minLength-add-model"></div> 
 </data-scope>
@@ -114,7 +114,7 @@ This Complete MinLength example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-minLength-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="minLength-complete-model"></div> 
 # [/Model]

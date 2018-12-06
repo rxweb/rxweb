@@ -17,7 +17,7 @@ Suppose you want to create a storageCapacity form, which contains fields like de
 Let's see how extension  {{validatorType}}  fulfil the need.
  
 # Basic extension Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a storageCapacity model and define a property of videoFileExtension in the model to achieve the functional need of point 1.
 <div component="app-code" key="extension-add-model"></div> 
 </data-scope>
@@ -113,7 +113,7 @@ This Complete extension example which includes all the ExtensionConfig propertie
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-extension-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="extension-complete-model"></div> 
 # [/Model]

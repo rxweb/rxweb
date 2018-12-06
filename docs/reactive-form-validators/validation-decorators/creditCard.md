@@ -18,7 +18,7 @@ Supppose you want to create a user form and you want details like CreditCard and
 Let’s see how credit card {{validatorType}} fulfil the need.
 
 # Basic CreditCard Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create User model class define a property of CreditCardNo in the model to achieve the functional need of point 1.
 <div component="app-code" key="creditCard-add-model"></div> 
 </data-scope>
@@ -112,7 +112,7 @@ This Complete CreditCard example which includes all the CreditCardConfig propert
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-creditCard-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="creditCard-complete-model"></div> 
 # [/Model]

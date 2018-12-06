@@ -17,7 +17,7 @@ Suppose you want to create a user form and you have fields like TotalMarks, Obta
 Let’s see how lessThanEqualTo {{validatorType}} fulfil the need.
 
 # Basic LessThanEqualTo Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create User model class define a property of Marks and TotalMarks model to achieve the functional need of point 1. 
 <div component="app-code" key="lessThanEqualTo-add-model"></div> 
 </data-scope>
@@ -111,7 +111,7 @@ This Complete lessThanEqualTo example which includes all the RelationalOperatorC
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-lessThanEqualTo-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="lessThanEqualTo-complete-model"></div> 
 # [/Model]

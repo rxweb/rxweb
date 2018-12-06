@@ -17,7 +17,7 @@ Let's assume that you are creating a employee form in which you want employee to
 Let’s see how noneOf {{validatorType}} fulfil the need.
 
 # Basic noneOf Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a employee Model class and define property of hobbies in the model to achieve the functional need of point 1.
 <div component="app-code" key="noneOf-add-model"></div> 
 </data-scope>
@@ -114,7 +114,7 @@ This Complete noneOf example which includes all the ArrayConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-noneOf-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="noneOf-complete-model"></div> 
 # [/Model]

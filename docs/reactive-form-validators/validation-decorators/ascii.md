@@ -17,7 +17,7 @@ Suppose you want to create a user form in which you want the user to enter an  i
 Let's see how ascii  {{validatorType}}  fulfil the need.
 
 # Basic Ascii Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a model and define a property of specialCharAsciiCode in the model to achieve the functional need of point 1.
 <div component="app-code" key="ascii-add-model"></div> 
 </data-scope>
@@ -104,7 +104,7 @@ This Complete Ascii example which includes all the DefaultConfig properties will
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-ascii-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="ascii-complete-model"></div> 
 # [/Model]

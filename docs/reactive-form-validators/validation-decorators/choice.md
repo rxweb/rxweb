@@ -20,7 +20,7 @@ Suppose you want to create a employee form in which you want employee to enter v
 Let’s see how choice  {{validatorType}}  fulfil the need.
 
 # Basic choice Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a Employee Model and define a property of hobbies in the model to achieve the functional need of point 1.
 <div component="app-code" key="choice-add-model"></div> 
 </data-scope>
@@ -122,7 +122,7 @@ This Complete choice example which includes all the ChoiceConfig properties will
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-choice-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="choice-complete-model"></div> 
 # [/Model]

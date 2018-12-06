@@ -19,7 +19,7 @@ Let’s see how maxNumber {{validatorType}} fulfil the need.
 
 # Basic MaxNumber Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create subject-detail model class define a property of PassingMarks in the model to achieve the functional need of point 1.
 <div component="app-code" key="maxNumber-add-model"></div> 
 </data-scope>
@@ -114,7 +114,7 @@ This Complete MaxNumber example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-MaxNumber-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="maxNumber-complete-model"></div> 
 # [/Model]

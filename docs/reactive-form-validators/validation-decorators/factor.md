@@ -19,7 +19,7 @@ Let’s see how factor {{validatorType}} fulfil the need.
 
 # Basic Factor Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User Model class and define property of firstNumber and secondNumber in the model to achieve the functional need of point 1.
 <div component="app-code" key="factor-add-model"></div> 
 </data-scope>
@@ -121,7 +121,7 @@ This Complete Factor example which includes all the FactorConfig properties will
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-factor-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="factor-complete-model"></div> 
 # [/Model]

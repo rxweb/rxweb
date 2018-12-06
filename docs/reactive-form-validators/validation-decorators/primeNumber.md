@@ -18,7 +18,7 @@ Let's see how primeNumber  {{validatorType}}  fulfil the need.
 
 # Basic primeNumber Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a numberInfo model and define a property of firstNumber in the model to achieve the functional need of point 1.
 <div component="app-code" key="primeNumber-add-model"></div> 
 </data-scope>
@@ -107,7 +107,7 @@ This Complete primeNumber example which includes all the PatternConfig propertie
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-primeNumber-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="primeNumber-complete-model"></div> 
 # [/Model]

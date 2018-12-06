@@ -17,7 +17,7 @@ Suppose you want to create a user form, which dataUri fields like scheme, AudioD
 Let's see how dataUri  {{validatorType}}  fulfil the need.
 
 # Basic dataUri Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a user model and define a property of htmlDataUri in the model to achieve the functional need of point 1.
 <div component="app-code" key="dataUri-add-model"></div> 
 </data-scope>
@@ -104,7 +104,7 @@ This Complete dataUri example which includes all the BaseConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-dataUri-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="dataUri-complete-model"></div> 
 # [/Model]

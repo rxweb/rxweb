@@ -17,7 +17,7 @@ Suppose you want to create a country form, which contains fields like continent,
 Let's see how longitude  {{validatorType}}  fulfil the need.
 
 # Basic longitude Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a model and define a property of firstCountryLongitude in the model to achieve the functional need of point 1.
 <div component="app-code" key="longitude-add-model"></div> 
 </data-scope>
@@ -105,7 +105,7 @@ This Complete longitude example which includes all the RelationalOperatorConfig 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-longitude-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="longitude-complete-model"></div> 
 # [/Model]

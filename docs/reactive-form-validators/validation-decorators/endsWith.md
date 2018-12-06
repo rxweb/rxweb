@@ -17,7 +17,7 @@ Suppose you want to create a user form, which endsWith fields like name, profess
 Let's see how endsWith  {{validatorType}}  fulfil the need.
 
 # Basic EndsWith Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User model and define a property of name in the model to achieve the functional need of point 1.
 <div component="app-code" key="endsWith-add-model"></div> 
 </data-scope>
@@ -113,7 +113,7 @@ This Complete endsWith example which includes all the DefaultConfig properties w
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-endsWith-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="endsWith-complete-model"></div> 
 # [/Model]

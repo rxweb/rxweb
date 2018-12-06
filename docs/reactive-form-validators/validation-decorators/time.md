@@ -19,7 +19,7 @@ Let’s see how time {{validatorType}} fulfil the need.
 
 # Basic time Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a AttendanceDetail class and define a property of EntryTime in the model to achieve the functional need of point 1.
 <div component="app-code" key="time-add-model"></div> 
 </data-scope>
@@ -114,7 +114,7 @@ This Complete time example which includes all the TimeConfig properties will ful
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-time-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="time-complete-model"></div> 
 # [/Model]
