@@ -15,7 +15,6 @@ export class MinDateFieldNameValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            userName:['',], 
             enrollmentDate:['',], 
             lastRegistrationDate:['', RxwebValidators.minDate({fieldName:'enrollmentDate' })], 
         });

@@ -6,9 +6,18 @@ export class User {
 	userName: string;
 
 	@prop()
+	allocationDate: Date;
+
+	@prop()
 	admissionDate: Date;
 
 	@prop()
 	registrationDate: Date;
+
+	@prop()
+	enrollmentDate: Date;
+
+	@prop()
+	lastRegistrationDate: Date;
 
 }
