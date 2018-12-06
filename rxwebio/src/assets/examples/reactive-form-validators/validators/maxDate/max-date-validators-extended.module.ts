@@ -9,6 +9,7 @@ import { MaxDateCompleteValidatorComponent } from './complete/max-date-complete.
 import { MaxDateValueValidatorComponent } from './value/max-date-value.component';
 import { MaxDateConditionalExpressionValidatorComponent } from './conditionalExpression/max-date-conditional-expression.component';
 import { MaxDateMessageValidatorComponent } from './message/max-date-message.component';
+import { MaxDateFieldNameValidatorComponent } from './fieldName/max-date-field-name.component';
 import { MaxDateDynamicValidatorComponent } from './dynamic/max-date-dynamic.component';
 import { MaxDateAddValidatorComponent } from './add/max-date-add.component';
 
@@ -18,6 +19,7 @@ import { MaxDateAddValidatorComponent } from './add/max-date-add.component';
 	MaxDateValueValidatorComponent,
 	MaxDateConditionalExpressionValidatorComponent,
 	MaxDateMessageValidatorComponent,
+	MaxDateFieldNameValidatorComponent,
 	MaxDateDynamicValidatorComponent,
 	MaxDateAddValidatorComponent,
   ],
@@ -26,6 +28,7 @@ entryComponents: [
 	MaxDateValueValidatorComponent,
 	MaxDateConditionalExpressionValidatorComponent,
 	MaxDateMessageValidatorComponent,
+	MaxDateFieldNameValidatorComponent,
 	MaxDateDynamicValidatorComponent,
 	MaxDateAddValidatorComponent,
   ],
@@ -40,6 +43,7 @@ entryComponents: [
 	MaxDateValueValidatorComponent,
 	MaxDateConditionalExpressionValidatorComponent,
 	MaxDateMessageValidatorComponent,
+	MaxDateFieldNameValidatorComponent,
 	MaxDateDynamicValidatorComponent,
 	MaxDateAddValidatorComponent,
   ],

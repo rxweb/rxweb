@@ -20,6 +20,20 @@
       <small class="form-text text-muted">Shows custom message.<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.registrationDate?.errors">{{userForm.controls.registrationDate?.errors.minDate.message}}<br/></small>	
     </div>
+    <div class="form-group">
+      <label>Enrollment Date</label>
+      <input type="text" name="enrollmentDate" [(ngModel)]="user.enrollmentDate"  class="form-control"   />
+      <small class="form-text text-muted">you can enter MinDate upto 30th july 2018<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.enrollmentDate?.errors">{{userForm.controls.enrollmentDate?.errors.minDate.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Last Registration Date</label>
+      <input type="text" name="lastRegistrationDate" [(ngModel)]="user.lastRegistrationDate"  class="form-control"  [minDate]="{'fieldName':'enrollmentDate'}" />
+      <small class="form-text text-muted">you can enter MinDate upto value mentioned in fieldName<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.lastRegistrationDate?.errors">{{userForm.controls.lastRegistrationDate?.errors.minDate.message}}<br/></small>	
+    </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>
 </div>

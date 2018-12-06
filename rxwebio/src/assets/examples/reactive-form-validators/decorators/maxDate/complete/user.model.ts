@@ -16,4 +16,10 @@ export class User {
 	@maxDate({value:new Date(2018,7,30)  ,message:'{{0}} exceeds the Maximum Date Limit' }) 
 	registrationDate: Date;
 
+	@prop()
+	enrollmentDate: Date;
+
+	@maxDate({fieldName:'enrollmentDate' }) 
+	lastRegistrationDate: Date;
+
 }
