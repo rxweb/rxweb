@@ -5,6 +5,9 @@ export class User {
 	@prop()
 	userName: string;
 
+	@minDate({value:new Date(2018,7,30) }) 
+	allocationDate: Date;
+
 	//If you want to apply conditional expression of type 'function'
 	@minDate({value:new Date(2018,7,30)  ,conditionalExpression:(x,y) => x.userName == "Bharat"  }) 
 	birthDate: Date;

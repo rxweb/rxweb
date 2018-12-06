@@ -15,7 +15,6 @@ export class MaxDateFieldNameValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            userName:['',], 
             enrollmentDate:['',], 
             lastRegistrationDate:['', RxwebValidators.maxDate({fieldName:'enrollmentDate' })], 
         });

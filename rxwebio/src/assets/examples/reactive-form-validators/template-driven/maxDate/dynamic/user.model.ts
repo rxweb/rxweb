@@ -3,6 +3,8 @@ export class User {
 
 	userName: string;
 
+	allocationDate: Date;
+
 	admissionDate: Date;
 
 	registrationDate: Date;
