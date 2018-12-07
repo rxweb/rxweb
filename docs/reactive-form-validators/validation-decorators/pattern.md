@@ -18,7 +18,7 @@ Let’s see how pattern {{validatorType}} fulfil the need.
 
 # Basic Pattern Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of UserName in the model to achieve the functional need of point 1.
 <div component="app-code" key="pattern-add-model"></div> 
 </data-scope>
@@ -78,7 +78,7 @@ Type :  `string`
 enter specific regex expression
 
 <div component="app-code" key="pattern-expressionExample-model"></div> 
-<div component="app-example-runner" ref-component="app-pattern-expression" title="pattern decorators with expression" key="expression"></div>
+<div component="app-example-runner" ref-component="app-pattern-expression" title="pattern {{validatorType}} with expression" key="expression"></div>
 
 ## message 
 Type :  `string` 
@@ -86,7 +86,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="pattern-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-pattern-message" title="pattern decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-pattern-message" title="pattern {{validatorType}} with message" key="message"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -99,7 +99,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object. 
 <div component="app-code" key="pattern-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-pattern-conditionalExpression" title="pattern decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-pattern-conditionalExpression" title="pattern {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 # Complete pattern Example
 
@@ -110,7 +110,7 @@ This Complete pattern example which includes all the PatternConfig properties wi
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-pattern-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="pattern-complete-model"></div> 
 # [/Model]

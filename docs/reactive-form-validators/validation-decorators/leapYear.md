@@ -18,7 +18,7 @@ Let’s see how LeapYear  {{validatorType}}  fulfil the need.
 
 # Basic LeapYear Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create ea User class and define a property of leapyear in the model to achieve the functional need of point 1.
 <div component="app-code" key="leapYear-add-model"></div> 
 </data-scope>
@@ -86,7 +86,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="leapYear-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-leapYear-conditionalExpression" title="leapYear decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-leapYear-conditionalExpression" title="leapYear {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -94,7 +94,7 @@ Type :  `string`
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="leapYear-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-leapYear-message" title="leapYear decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-leapYear-message" title="leapYear {{validatorType}} with message" key="message"></div>
 
 # Complete LeapYear Example
 
@@ -105,7 +105,7 @@ This Complete LeapYear example which includes all the BaseConfig properties will
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-leapYear-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="leapYear-complete-model"></div> 
 # [/Model]

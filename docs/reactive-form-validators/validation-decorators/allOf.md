@@ -18,7 +18,7 @@ Suppose you want to create a employee form in  which contains fields like depart
 Let’s see how allOf  {{validatorType}}  fulfil the need.
 
 # Basic allOf Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a Employee Model and define a property of hobbies in the model to achieve the functional need of point 1.
 <div component="app-code" key="allOf-add-model"></div> 
 </data-scope>
@@ -82,7 +82,7 @@ Type :  `any[]`
 matchValue is the array based on which the value is matched for validation. According to it all the values in the array should be matched.
 
 <div component="app-code" key="allOf-matchValueExample-model"></div> 
-<div component="app-example-runner" ref-component="app-allOf-matchValue" title="allOf decorators with matchValue" key="matchValue"></div>
+<div component="app-example-runner" ref-component="app-allOf-matchValue" title="allOf {{validatorType}} with matchValue" key="matchValue"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string`  
@@ -95,14 +95,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="allOf-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-allOf-conditionalExpression" title="allOf decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-allOf-conditionalExpression" title="allOf {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="allOf-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-allOf-message" title="allOf decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-allOf-message" title="allOf {{validatorType}} with message" key="message"></div>
 
 # Complete allOf Example
 
@@ -113,7 +113,7 @@ This Complete allOf example which includes all the ArrayConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-allOf-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="allOf-complete-model"></div> 
 # [/Model]

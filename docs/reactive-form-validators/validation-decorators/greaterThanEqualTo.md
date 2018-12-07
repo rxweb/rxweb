@@ -19,7 +19,7 @@ Let’s see how greaterThanEqualTo  {{validatorType}}  fulfil the need.
 
 # Basic GreaterThanEqualTo Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create User model class define a property of Age and VoterAge  in the model to achieve the functional need of point 1. 
 <div component="app-code" key="greaterThanEqualTo-add-model"></div> 
 </data-scope>
@@ -83,7 +83,7 @@ Type :  `string`
 Greater than Equal to validation should be applied based on the `fieldName` for compare other field value 
 
 <div component="app-code" key="greaterThanEqualTo-fieldNameExample-model"></div> 
-<div component="app-example-runner" ref-component="app-greaterThanEqualTo-fieldName" title="greaterThanEqualTo decorators with fieldName" key="fieldName"></div>
+<div component="app-example-runner" ref-component="app-greaterThanEqualTo-fieldName" title="greaterThanEqualTo {{validatorType}} with fieldName" key="fieldName"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -95,14 +95,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="greaterThanEqualTo-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-greaterThanEqualTo-conditionalExpression" title="greaterThanEqualTo decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-greaterThanEqualTo-conditionalExpression" title="greaterThanEqualTo {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="greaterThanEqualTo-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-greaterThanEqualTo-message" title="greaterThanEqualTo decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-greaterThanEqualTo-message" title="greaterThanEqualTo {{validatorType}} with message" key="message"></div>
 
 # Complete greaterThanEqualTo Example
 
@@ -113,7 +113,7 @@ This Complete greaterThanEqualTo example which includes all the RelationalOperat
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-greaterThanEqualTo-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="greaterThanEqualTo-complete-model"></div> 
 # [/Model]

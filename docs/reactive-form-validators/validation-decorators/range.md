@@ -17,7 +17,7 @@ Suppose you want to create a employeeInfo form, which contains field of employee
 Let’s see how range {{validatorType}} fulfil the need.
 
 # Basic range Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create employeeInfo model class define a property of employeeAge in the model to achieve the functional need of point 1.
 <div component="app-code" key="range-add-model"></div> 
 </data-scope>
@@ -88,28 +88,28 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="range-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-range-conditionalExpression" title="range decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-range-conditionalExpression" title="range {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="range-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-range-message" title="range decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-range-message" title="range {{validatorType}} with message" key="message"></div>
 
 ## minimumNumber 
 Type :  `string` 
 Minimum number is for define a minimum number of range
 
 <div component="app-code" key="range-minimumNumberExample-model"></div> 
-<div component="app-example-runner" ref-component="app-range-minimumNumber" title="range decorators with minimumNumber" key="minimumNumber"></div>
+<div component="app-example-runner" ref-component="app-range-minimumNumber" title="range {{validatorType}} with minimumNumber" key="minimumNumber"></div>
 
 ## maximumNumber 
 Type :  `string` 
 Maximum number is for define a maximum number of range
 
 <div component="app-code" key="range-maximumNumberExample-model"></div> 
-<div component="app-example-runner" ref-component="app-range-maximumNumber" title="range decorators with maximumNumber" key="maximumNumber"></div>
+<div component="app-example-runner" ref-component="app-range-maximumNumber" title="range {{validatorType}} with maximumNumber" key="maximumNumber"></div>
 
 # Complete range Example
 
@@ -120,7 +120,7 @@ This Complete range example which includes all the RangeConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-range-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="range-complete-model"></div> 
 # [/Model]

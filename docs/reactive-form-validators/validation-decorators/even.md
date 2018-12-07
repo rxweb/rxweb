@@ -20,7 +20,7 @@ Let’s see how Even  {{validatorType}}  fulfil the need.
 
 # Basic Even Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create  User class and define a property of even in the model to achieve the functional need of point 1.
 <div component="app-code" key="even-add-model"></div> 
 </data-scope>
@@ -88,7 +88,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="even-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-even-conditionalExpression" title="even decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-even-conditionalExpression" title="even {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -96,7 +96,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="even-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-even-message" title="even decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-even-message" title="even {{validatorType}} with message" key="message"></div>
 
 # Complete even Example
 
@@ -107,7 +107,7 @@ This Complete even example which includes all the BaseConfig properties will ful
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-even-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="even-complete-model"></div>
 # [/Model]

@@ -17,7 +17,7 @@ Suppose you want to create a websiteInfo form, which contains fields like browse
 Let's see how port  {{validatorType}}  fulfil the need.
 
 # Basic port Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a model and define a property of educationalWebsitePort in the model to achieve the functional need of point 1.
 <div component="app-code" key="port-add-model"></div> 
 </data-scope>
@@ -87,7 +87,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="port-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-port-conditionalExpression" title="port decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-port-conditionalExpression" title="port {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -95,7 +95,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="port-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-port-message" title="port decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-port-message" title="port {{validatorType}} with message" key="message"></div>
 
 # Complete Port Example
 
@@ -106,7 +106,7 @@ This Complete Port example which includes all the BaseConfig properties will ful
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-port-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="port-complete-model"></div> 
 # [/Model]
