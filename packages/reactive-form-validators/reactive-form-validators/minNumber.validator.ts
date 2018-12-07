@@ -14,7 +14,7 @@ export function minNumberValidator(config:NumberConfig): ValidatorFn {
           if (FormProvider.ProcessRule(control,config)) {
         if (RegexValidator.isNotBlank(control.value)) {
             if (!(parseFloat(control.value) >= config.value))
-                return ObjectMaker.toJson(AnnotationTypes.minNumber, config.message || null, [control.value])
+                return ObjectMaker.toJson(AnnotationTypes.minNumber, config.message || null, [control.value,config.value])
             }
         }
         return ObjectMaker.null();

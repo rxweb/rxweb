@@ -14,7 +14,7 @@ export function minLengthValidator(config:NumberConfig): ValidatorFn {
           if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
                 if (!(String(control.value).length >= config.value))
-                    return ObjectMaker.toJson(AnnotationTypes.minLength, config.message || null, [config.value, control.value.length, control.value])
+                    return ObjectMaker.toJson(AnnotationTypes.minLength, config.message || null, [control.value,config.value])
             }
         }
         return ObjectMaker.null();

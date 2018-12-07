@@ -13,7 +13,7 @@ export function maxNumberValidator(config:NumberConfig): ValidatorFn {
           if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
                 if (!(parseFloat(control.value) <= config.value))
-                    return ObjectMaker.toJson(AnnotationTypes.maxNumber, config.message || null, [control.value])
+                    return ObjectMaker.toJson(AnnotationTypes.maxNumber, config.message || null, [control.value,config.value])
             }
         }
         return ObjectMaker.null();
