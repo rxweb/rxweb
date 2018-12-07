@@ -19,6 +19,7 @@ export class SideBarComponent implements OnInit {
   }
   ngOnInit(): void {
     this.http.get('assets/json/sidebar.json').subscribe((response: any) => {
+      debugger;
       this.links = response.links;
       var splitedArray = location.pathname.split('#')[0].split('/')
       if(splitedArray[1]){
@@ -33,11 +34,27 @@ export class SideBarComponent implements OnInit {
             }
           }
         }
+        else
+        {
+          var children = this.links[1]['childrens']; 
+          var currentArray = children.filter(a=>a.uri == splitedArray[1]);
+          if(currentArray && currentArray.length > 0){
+            currentArray[0].isActive = true;
+            if(splitedArray[2]){
+              if(currentArray[0].childrens && currentArray[0].childrens.length > 0)
+              {
+                var currentObj = currentArray[0].childrens.filter(a=>a.title == splitedArray[2]);
+                currentObj[0].isActive = true;
+              }
+            }
+          }
+        }
       }
       this.showComponent = true;
     });
   }
   navigateTo(link: any): void {
+
     if (link != null && link.uri != null) {
       this.links.forEach(element => {
         element.isActive = false;

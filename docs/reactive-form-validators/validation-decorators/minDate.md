@@ -17,6 +17,8 @@ Suppose you want to create a User form, which contains fields like Username, Bir
 </ol>
 Let’s see how minDate {{validatorType}} fulfil the need.
 
+To Configure Date format globally in your application, Please refer <a href="/reactive-form-config">`ReactiveFormConfig`</a>
+
 # Basic MinDate Validation
 <data-scope scope="['decorator']">
 First we need to create a User class and define a property of RegistrationDate in the model to achieve the functional need of point 1.
