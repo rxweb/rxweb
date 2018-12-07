@@ -20,7 +20,7 @@ Let’s see how Numeric {{validatorType}} fulfil the need.
 
 # Basic Numeric Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of Integer Number in the model to achieve the functional need of point 1.
 <div component="app-code" key="numeric-add-model"></div> 
 </data-scope>
@@ -85,7 +85,7 @@ Below options are not mandatory to use in the `numeric` validation. If needed th
 Type :  `NumericValueType` 
 
 <div component="app-code" key="numeric-acceptValueExample-model"></div> 
-<div component="app-example-runner" ref-component="app-numeric-acceptValue" title="numeric decorators with acceptValue" key="acceptValue"></div>
+<div component="app-example-runner" ref-component="app-numeric-acceptValue" title="numeric {{validatorType}} with acceptValue" key="acceptValue"></div>
 
 ## allowDecimal 
 Type :  `boolean` 
@@ -93,7 +93,7 @@ Type :  `boolean`
 This will allow decimal in particular control property.The default value is `false`.
 
 <div component="app-code" key="numeric-allowDecimalExample-model"></div> 
-<div component="app-example-runner" ref-component="app-numeric-allowDecimal" title="numeric decorators with allowDecimal" key="allowDecimal"></div>
+<div component="app-example-runner" ref-component="app-numeric-allowDecimal" title="numeric {{validatorType}} with allowDecimal" key="allowDecimal"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -106,7 +106,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object. 
 <div component="app-code" key="numeric-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-numeric-conditionalExpression" title="numeric decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-numeric-conditionalExpression" title="numeric {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -114,7 +114,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="numeric-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-numeric-message" title="numeric decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-numeric-message" title="numeric {{validatorType}} with message" key="message"></div>
 
 # Complete numeric Example
 
@@ -126,7 +126,7 @@ This Complete numeric example which includes all the NumericConfig properties wi
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-numeric-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="numeric-complete-model"></div> 
 # [/Model]

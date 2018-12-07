@@ -19,7 +19,7 @@ Let’s see how maxNumber {{validatorType}} fulfil the need.
 
 # Basic MaxNumber Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create subject-detail model class define a property of PassingMarks in the model to achieve the functional need of point 1.
 <div component="app-code" key="maxNumber-add-model"></div> 
 </data-scope>
@@ -89,21 +89,21 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="maxNumber-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-maxNumber-conditionalExpression" title="maxNumber decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-maxNumber-conditionalExpression" title="maxNumber {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="maxNumber-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-maxNumber-message" title="maxNumber decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-maxNumber-message" title="maxNumber {{validatorType}} with message" key="message"></div>
 
 ## value 
 Type :  `number` 
 enter value which you want to restrict number in the property.
 
 <div component="app-code" key="maxNumber-valueExample-model"></div> 
-<div component="app-example-runner" ref-component="app-maxNumber-value" title="maxNumber decorators with value" key="value"></div>
+<div component="app-example-runner" ref-component="app-maxNumber-value" title="maxNumber {{validatorType}} with value" key="value"></div>
 
 # Complete MaxNumber Example
 
@@ -114,7 +114,7 @@ This Complete MaxNumber example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-MaxNumber-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="maxNumber-complete-model"></div> 
 # [/Model]

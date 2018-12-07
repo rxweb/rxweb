@@ -17,7 +17,7 @@ Suppose you want to create a form in which you want user to enter mac address  w
 Let’s see how mac {{validatorType}} fulfil the need.
 
 # Basic mac Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User Model class and define property of mac and systemMacAddress in the model to achieve the functional need of point 1.
 <div component="app-code" key="mac-add-model"></div> 
 </data-scope>
@@ -87,7 +87,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="mac-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-mac-conditionalExpression" title="mac decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-mac-conditionalExpression" title="mac {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
@@ -95,7 +95,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="mac-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-mac-message" title="mac decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-mac-message" title="mac {{validatorType}} with message" key="message"></div>
 
 # Complete mac Example
 
@@ -106,7 +106,7 @@ This Complete mac example which includes all the BaseConfig properties will fulf
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-mac-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="mac-complete-model"></div>
 # [/Model]

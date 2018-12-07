@@ -19,27 +19,9 @@ Suppose you want to create a User form, which contains fields like userName, bir
 </ol>
 Let’s see how MaxDate {{validatorType}} fulfil the need.
 
-# Set Date Format
-
-The `ReactiveFormConfig` sets the defualt date format based on which the validation is performed. The default date format is 'mm/dd/yy' which is set in the `baseConfig`, if you have a scenario in which you want to change the format of the date, Suppose you want the format to be 'dd/mm/yy' then you must set it in the `internationalization` along with the seperator if your system supports internationalization. The benefit of using it is that the `baseconfig` will deserialize the value and will validate according to your `internationalization` format.
-
-The above code is in `app.component.ts`.
-
-```js
-        ReactiveFormConfig.set({
-            "baseConfig":{
-              "dateFormat": "mdy",
-               "seperator": "/"
-            },
-            "internationalization": {
-                "dateFormat": "mdy",
-                "seperator": "/"
-            },
-```
-
 # Basic MaxDate Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of registrationDate in the model to achieve the functional need of point 1.
 <div component="app-code" key="maxDate-add-model"></div> 
 </data-scope>
@@ -94,18 +76,18 @@ Below options are not mandatory to use in the `maxDate` validation. If needed th
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a (click)='scrollTo("#value")' title="value">value</a></td><td>enter value which you want to restrict number in the property</td></tr>
-<tr><td><a (click)='scrollTo("#fieldName")' title="fieldName">fieldName</a></td><td>fieldName for which the maxDate has to be set.</td></tr>
-<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>maxDate validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a (click)='scrollTo("#value")' title="value">value</a></td><td>Enter date value which you want to restrict in the property. </td></tr>
+<tr><td><a (click)='scrollTo("#fieldName")' title="fieldName">fieldName</a></td><td>Field Name for which the maxDate has to be set.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>MaxDate validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
 ## value 
 Type :  `number` 
-enter value which you want to restrict number in the property. 
+Enter date value which you want to restrict in the property. 
 
 <div component="app-code" key="maxDate-valueExample-model"></div> 
-<div component="app-example-runner" ref-component="app-maxDate-value" title="maxDate decorators with value" key="value"></div>
+<div component="app-example-runner" ref-component="app-maxDate-value" title="maxDate {{validatorType}} with value" key="value"></div>
 
 ## fieldName 
 Type :  `string` 
@@ -113,7 +95,7 @@ Type :  `string`
 MaxDate validation should be applied based on the `fieldName` on which the maxDate has to be set.
 
 <div component="app-code" key="maxDate-fieldNameExample-model"></div> 
-<div component="app-example-runner" ref-component="app-maxDate-fieldName" title="maxDate decorators with fieldName" key="fieldName"></div>
+<div component="app-example-runner" ref-component="app-maxDate-fieldName" title="maxDate {{validatorType}} with fieldName" key="fieldName"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string`
@@ -125,14 +107,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="maxDate-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-maxDate-conditionalExpression" title="maxDate decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-maxDate-conditionalExpression" title="maxDate {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property. 
 
 <div component="app-code" key="maxDate-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-maxDate-message" title="maxDate decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-maxDate-message" title="maxDate {{validatorType}} with message" key="message"></div>
 
 # Complete MaxDate Example
 
@@ -144,7 +126,7 @@ This Complete MaxDate example which includes all the DateConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-maxDate-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="maxDate-complete-model"></div> 
 # [/Model]

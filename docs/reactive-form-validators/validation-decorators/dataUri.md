@@ -17,7 +17,7 @@ Suppose you want to create a user form, which dataUri fields like scheme, AudioD
 Let's see how dataUri  {{validatorType}}  fulfil the need.
 
 # Basic dataUri Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a user model and define a property of htmlDataUri in the model to achieve the functional need of point 1.
 <div component="app-code" key="dataUri-add-model"></div> 
 </data-scope>
@@ -85,7 +85,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="dataUri-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-dataUri-conditionalExpression" title="dataUri decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-dataUri-conditionalExpression" title="dataUri {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -93,7 +93,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="dataUri-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-dataUri-message" title="dataUri decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-dataUri-message" title="dataUri {{validatorType}} with message" key="message"></div>
 
 # Complete dataUri Example
 
@@ -104,7 +104,7 @@ This Complete dataUri example which includes all the BaseConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-dataUri-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="dataUri-complete-model"></div> 
 # [/Model]

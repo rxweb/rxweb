@@ -18,7 +18,7 @@ Suppose you want to create a Country form, which contains fields like CountryNam
 Let's see how alpha  {{validatorType}}  fulfil the need.
  
 # Basic Alpha Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a Country class and define a property of CountryName in the model to achieve the functional need of point 1.
 <div component="app-code" key="alpha-add-model"></div> 
 </data-scope>
@@ -82,7 +82,7 @@ Type :  `boolean`
 This will allow whitespace in particular control property.The default value is `false`.
 
 <div component="app-code" key="alpha-allowWhiteSpaceExample-model"></div> 
-<div component="app-example-runner" ref-component="app-alpha-allowWhiteSpace" title="alpha decorators with allowWhiteSpace" key="allowWhiteSpace"></div>
+<div component="app-example-runner" ref-component="app-alpha-allowWhiteSpace" title="alpha {{validatorType}} with allowWhiteSpace" key="allowWhiteSpace"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -95,7 +95,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="alpha-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-alpha-conditionalExpression" title="alpha decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-alpha-conditionalExpression" title="alpha {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -103,7 +103,7 @@ Type :  `string`
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="alpha-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-alpha-message" title="alpha decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-alpha-message" title="alpha {{validatorType}} with message" key="message"></div>
 
 # Complete Alpha Example
 
@@ -114,7 +114,7 @@ This Complete Alpha example which includes all the AlphaConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-alpha-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="alpha-complete-model"></div> 
 # [/Model]

@@ -18,7 +18,7 @@ Supppose you want to create a user form and you want details like CreditCard and
 Let’s see how credit card {{validatorType}} fulfil the need.
 
 # Basic CreditCard Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create User model class define a property of CreditCardNo in the model to achieve the functional need of point 1.
 <div component="app-code" key="creditCard-add-model"></div> 
 </data-scope>
@@ -45,7 +45,7 @@ Next, we need to write html code.
 The below code is `user-data.json` for getting data from the server
 <div component="app-code" key="creditCard-edit-json"></div> 
 Next, we need to write html code.
-<div component="app-code" key="creditCard-edit-html"></div> 
+<div component="app-code" key="creditCard-edit-html"></div>
 <div component="app-example-runner" ref-component="app-creditCard-edit"></div>
 # [/Edit]
 ***
@@ -94,14 +94,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="creditCard-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-creditCard-conditionalExpression" title="creditCard decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-creditCard-conditionalExpression" title="creditCard {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property. 
 
-<div component="app-code" key="creditCard-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-creditCard-message" title="creditCard decorators with message" key="message"></div>
+<div component="app-code" key="creditCard-messageExample-model"></div>
+<div component="app-example-runner" ref-component="app-creditCard-message" title="creditCard {{validatorType}} with message" key="message"></div>
 
 # Complete CreditCard Example
 
@@ -112,7 +112,7 @@ This Complete CreditCard example which includes all the CreditCardConfig propert
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-creditCard-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="creditCard-complete-model"></div> 
 # [/Model]

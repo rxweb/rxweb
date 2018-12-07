@@ -18,7 +18,7 @@ Let’s see how required {{validatorType}} fulfil the need.
 
 # Basic Required Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of FirstName in the model to achieve the functional need of point 1.
 <div component="app-code" key="required-add-model"></div> 
 </data-scope>
@@ -88,7 +88,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="required-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-required-conditionalExpression" title="required decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-required-conditionalExpression" title="required {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -96,7 +96,7 @@ Type :  `string`
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="required-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-required-message" title="required decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-required-message" title="required {{validatorType}} with message" key="message"></div>
 
 # Complete required Example
 
@@ -107,7 +107,7 @@ This Complete required example which includes all the RequiredConfig properties 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-required-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="required-complete-model"></div> 
 # [/Model]

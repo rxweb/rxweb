@@ -19,7 +19,7 @@ export class MinDateDynamicValidatorComponent implements OnInit {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/validators/minDate/dynamic/dynamic.json').subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			var user = { userName:'', birthDate:'', admissionDate:'', registrationDate:'',  }
+			var user = { userName:'', allocationDate:'', birthDate:'', admissionDate:'', registrationDate:'', enrollmentDate:'', lastRegistrationDate:'',  }
 			this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
 		})
     }

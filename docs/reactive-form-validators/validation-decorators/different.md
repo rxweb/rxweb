@@ -18,7 +18,7 @@ Suppose you want to create a user form in which you want to compare firstname an
 Let’s see how different  {{validatorType}}  fulfil the need.
 
 # Basic Different Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User Model class and define property of Password and Confirm Password in the model to achieve the functional need of point 1.
 <div component="app-code" key="different-add-model"></div> 
 </data-scope>
@@ -60,21 +60,21 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="different-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-different-conditionalExpression" title="different decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-different-conditionalExpression" title="different {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## fieldName 
 Type :  `string` 
 Current property is matched with the particular property. so we need to pass particular property name.
 
 <div component="app-code" key="different-fieldNameExample-model"></div> 
-<div component="app-example-runner" ref-component="app-different-fieldName" title="different decorators with fieldName" key="fieldName"></div>
+<div component="app-example-runner" ref-component="app-different-fieldName" title="different {{validatorType}} with fieldName" key="fieldName"></div>
 
 ## message
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="different-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-different-message" title="different decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-different-message" title="different {{validatorType}} with message" key="message"></div>
 
 # Complete Different Example
 
@@ -85,7 +85,7 @@ This Complete Different example which includes all the DifferentConfig propertie
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-different-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="different-complete-model"></div> 
 # [/Model]

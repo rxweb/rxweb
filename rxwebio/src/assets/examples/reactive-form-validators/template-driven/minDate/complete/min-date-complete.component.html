@@ -7,6 +7,13 @@
 	   <small class="form-text text-danger" *ngIf="userForm.controls.userName?.errors">{{userForm.controls.userName?.errors.minDate.message}}<br/></small>	
     </div>
     <div class="form-group">
+      <label>Allocation Date</label>
+      <input type="text" name="allocationDate" [(ngModel)]="user.allocationDate"  class="form-control"  [minDate]="{'value': '2018,7,30'}" />
+      <small class="form-text text-muted">you can enter MinDate upto 30th july 2018<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.allocationDate?.errors">{{userForm.controls.allocationDate?.errors.minDate.message}}<br/></small>	
+    </div>
+    <div class="form-group">
       <label>Admission Date</label>
       <input type="text" name="admissionDate" [(ngModel)]="user.admissionDate"  class="form-control"  [minDate]="{'value': '2018,7,30','conditionalExpression':'x => x.userName == \'Bharat\''}" />
       <small class="form-text text-muted">To apply the validation of Min Date on 'Admission Date' field, then enter the value 'Bharat' in 'User Name' textbox and you can enter maxDate as 30th july 2018<br/></small>
@@ -19,6 +26,20 @@
       <small class="form-text text-muted">you can enter MinDate upto 30th july 2018<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.registrationDate?.errors">{{userForm.controls.registrationDate?.errors.minDate.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Enrollment Date</label>
+      <input type="text" name="enrollmentDate" [(ngModel)]="user.enrollmentDate"  class="form-control"   />
+      <small class="form-text text-muted">you can enter MinDate upto 30th july 2018<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.enrollmentDate?.errors">{{userForm.controls.enrollmentDate?.errors.minDate.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Last Registration Date</label>
+      <input type="text" name="lastRegistrationDate" [(ngModel)]="user.lastRegistrationDate"  class="form-control"  [minDate]="{'fieldName':'enrollmentDate'}" />
+      <small class="form-text text-muted">you can enter MinDate upto value mentioned in fieldName<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.lastRegistrationDate?.errors">{{userForm.controls.lastRegistrationDate?.errors.minDate.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

@@ -5,6 +5,9 @@ export class User {
 	@prop()
 	userName: string;
 
+	@prop()
+	enrollmentDate: Date;
+
 	//If you want to apply conditional expression of type 'string'
 	@maxDate({value:new Date(2018,7,30)  ,conditionalExpression:'x => x.userName == "Bharat"' }) 
 	admissionDate: Date;
