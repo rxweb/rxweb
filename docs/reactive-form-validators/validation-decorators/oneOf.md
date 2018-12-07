@@ -84,7 +84,7 @@ Type :  `any[]`
 matchValue is the array based on which the validation property is set. According to it one of the values in the array should be matched.
 
 <div component="app-code" key="oneOf-matchValueExample-model"></div> 
-<div component="app-example-runner" ref-component="app-oneOf-matchValue" title="oneOf decorators with matchValue" key="matchValue"></div>
+<div component="app-example-runner" ref-component="app-oneOf-matchValue" title="oneOf {{validatorType}} with matchValue" key="matchValue"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -97,14 +97,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="oneOf-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-oneOf-conditionalExpression" title="oneOf decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-oneOf-conditionalExpression" title="oneOf {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="oneOf-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-oneOf-message" title="oneOf decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-oneOf-message" title="oneOf {{validatorType}} with message" key="message"></div>
 
 # Complete oneOf Example
 

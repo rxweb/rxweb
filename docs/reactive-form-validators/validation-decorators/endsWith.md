@@ -81,7 +81,7 @@ Type :  `string`
 This is substring value.
 
 <div component="app-code" key="endsWith-valueExample-model"></div> 
-<div component="app-example-runner" ref-component="app-endsWith-value" title="endsWith decorators with value" key="value"></div>
+<div component="app-example-runner" ref-component="app-endsWith-value" title="endsWith {{validatorType}} with value" key="value"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -94,7 +94,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="endsWith-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-endsWith-conditionalExpression" title="endsWith decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-endsWith-conditionalExpression" title="endsWith {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -102,7 +102,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="endsWith-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-endsWith-message" title="endsWith decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-endsWith-message" title="endsWith {{validatorType}} with message" key="message"></div>
 
 # Complete endsWith Example
 

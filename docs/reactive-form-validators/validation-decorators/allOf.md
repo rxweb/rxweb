@@ -82,7 +82,7 @@ Type :  `any[]`
 matchValue is the array based on which the value is matched for validation. According to it all the values in the array should be matched.
 
 <div component="app-code" key="allOf-matchValueExample-model"></div> 
-<div component="app-example-runner" ref-component="app-allOf-matchValue" title="allOf decorators with matchValue" key="matchValue"></div>
+<div component="app-example-runner" ref-component="app-allOf-matchValue" title="allOf {{validatorType}} with matchValue" key="matchValue"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string`  
@@ -95,14 +95,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="allOf-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-allOf-conditionalExpression" title="allOf decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-allOf-conditionalExpression" title="allOf {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="allOf-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-allOf-message" title="allOf decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-allOf-message" title="allOf {{validatorType}} with message" key="message"></div>
 
 # Complete allOf Example
 

@@ -82,7 +82,7 @@ Type :  `ValidatorFn[]`
 It is an array of rxwebValidators. Validators are set according to the relative requirement based on which validation you want to apply. Here you have to specify the name of validator which you want to use.
 
 <div component="app-code" key="compose-validatorsExample-model"></div> 
-<div component="app-example-runner" ref-component="app-compose-validators" title="Compose decorators with validators" key="validators"></div>
+<div component="app-example-runner" ref-component="app-compose-validators" title="Compose {{validatorType}} with validators" key="validators"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -95,7 +95,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object. 
 <div component="app-code" key="compose-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-compose-conditionalExpression" title="alpha decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-compose-conditionalExpression" title="alpha {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 # Complete Compose Example
 

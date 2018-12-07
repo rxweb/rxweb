@@ -45,7 +45,7 @@ Next, we need to write html code.
 The below code is `user-data.json` for getting data from the server
 <div component="app-code" key="creditCard-edit-json"></div> 
 Next, we need to write html code.
-<div component="app-code" key="creditCard-edit-html"></div> 
+<div component="app-code" key="creditCard-edit-html"></div>
 <div component="app-example-runner" ref-component="app-creditCard-edit"></div>
 # [/Edit]
 ***
@@ -94,14 +94,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="creditCard-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-creditCard-conditionalExpression" title="creditCard decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-creditCard-conditionalExpression" title="creditCard {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property. 
 
-<div component="app-code" key="creditCard-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-creditCard-message" title="creditCard decorators with message" key="message"></div>
+<div component="app-code" key="creditCard-messageExample-model"></div>
+<div component="app-example-runner" ref-component="app-creditCard-message" title="creditCard {{validatorType}} with message" key="message"></div>
 
 # Complete CreditCard Example
 

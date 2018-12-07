@@ -52,7 +52,7 @@ Type :  `string`
 Current property is matched with the particular property. so we need to pass particular property name.
 
 <div component="app-code" key="compare-fieldNameExample-model"></div> 
-<div component="app-example-runner" ref-component="app-compare-fieldName" title="fieldName decorators with fieldName" key="fieldName"></div>
+<div component="app-example-runner" ref-component="app-compare-fieldName" title="fieldName {{validatorType}} with fieldName" key="fieldName"></div>
 
 ## message
 Type :  `string` 
@@ -60,7 +60,7 @@ Type :  `string`
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="compare-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-compare-message" title="compare decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-compare-message" title="compare {{validatorType}} with message" key="message"></div>
 
 # Complete Compare Example
 

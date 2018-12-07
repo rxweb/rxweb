@@ -88,28 +88,28 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="range-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-range-conditionalExpression" title="range decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-range-conditionalExpression" title="range {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="range-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-range-message" title="range decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-range-message" title="range {{validatorType}} with message" key="message"></div>
 
 ## minimumNumber 
 Type :  `string` 
 Minimum number is for define a minimum number of range
 
 <div component="app-code" key="range-minimumNumberExample-model"></div> 
-<div component="app-example-runner" ref-component="app-range-minimumNumber" title="range decorators with minimumNumber" key="minimumNumber"></div>
+<div component="app-example-runner" ref-component="app-range-minimumNumber" title="range {{validatorType}} with minimumNumber" key="minimumNumber"></div>
 
 ## maximumNumber 
 Type :  `string` 
 Maximum number is for define a maximum number of range
 
 <div component="app-code" key="range-maximumNumberExample-model"></div> 
-<div component="app-example-runner" ref-component="app-range-maximumNumber" title="range decorators with maximumNumber" key="maximumNumber"></div>
+<div component="app-example-runner" ref-component="app-range-maximumNumber" title="range {{validatorType}} with maximumNumber" key="maximumNumber"></div>
 
 # Complete range Example
 

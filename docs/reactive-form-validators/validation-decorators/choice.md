@@ -84,14 +84,14 @@ Type :  `number`
 minLength  is to define a minLength of field which is in form of array
 
 <div component="app-code" key="choice-minLengthExample-model"></div> 
-<div component="app-example-runner" ref-component="app-choice-minLength" title="choice decorators with minLength" key="minLength"></div>
+<div component="app-example-runner" ref-component="app-choice-minLength" title="choice {{validatorType}} with minLength" key="minLength"></div>
 
 ## maxLength 
 Type :  `number` 
 maxLength number is for define a maxLength number of range
 
 <div component="app-code" key="choice-maxLengthExample-model"></div> 
-<div component="app-example-runner" ref-component="app-choice-maxLength" title="choice decorators with maxLength" key="maxLength"></div>
+<div component="app-example-runner" ref-component="app-choice-maxLength" title="choice {{validatorType}} with maxLength" key="maxLength"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -104,14 +104,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object. 
 <div component="app-code" key="choice-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-choice-conditionalExpression" title="choice decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-choice-conditionalExpression" title="choice {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="choice-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-choice-message" title="choice decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-choice-message" title="choice {{validatorType}} with message" key="message"></div>
 
 # Complete choice Example
 

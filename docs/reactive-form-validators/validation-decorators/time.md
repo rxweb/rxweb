@@ -89,21 +89,21 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="time-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-time-conditionalExpression" title="time decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-time-conditionalExpression" title="time {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## allowSeconds 
 Type :  `boolean` 
 If you are allowed seconds in time format then you need to put this as true.
 
 <div component="app-code" key="time-allowSecondsExample-model"></div> 
-<div component="app-example-runner" ref-component="app-time-allowSeconds" title="time decorators with allowSeconds" key="allowSeconds"></div>
+<div component="app-example-runner" ref-component="app-time-allowSeconds" title="time {{validatorType}} with allowSeconds" key="allowSeconds"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="time-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-time-message" title="time decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-time-message" title="time {{validatorType}} with message" key="message"></div>
 
 # Complete time Example
 

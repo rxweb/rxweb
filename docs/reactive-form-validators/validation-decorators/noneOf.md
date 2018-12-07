@@ -83,7 +83,7 @@ Type :  `any[]`
 matchValue is the array based on which the value is matched for validation. According to it none of the values in the array should be matched
 
 <div component="app-code" key="noneOf-matchValueExample-model"></div> 
-<div component="app-example-runner" ref-component="noneOf-matchValue-value" title="matchValue decorators with value" key="matchValue"></div>
+<div component="app-example-runner" ref-component="noneOf-matchValue-value" title="matchValue {{validatorType}} with value" key="matchValue"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -96,14 +96,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object. 
 <div component="app-code" key="noneOf-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-noneOf-conditionalExpression" title="noneOf decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-noneOf-conditionalExpression" title="noneOf {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="noneOf-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-noneOf-message" title="noneOf decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-noneOf-message" title="noneOf {{validatorType}} with message" key="message"></div>
 
 # Complete noneOf Example
 

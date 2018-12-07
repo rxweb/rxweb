@@ -89,21 +89,21 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="minLength-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-minLength-conditionalExpression" title="minLength decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-minLength-conditionalExpression" title="minLength {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="minLength-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-minLength-message" title="minLength decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-minLength-message" title="minLength {{validatorType}} with message" key="message"></div>
 
 ## value 
 Type :  `number` 
 enter value which you want to restrict string length in the property.
 
 <div component="app-code" key="minLength-valueExample-model"></div> 
-<div component="app-example-runner" ref-component="app-minLength-value" title="minLength decorators with value" key="value"></div>
+<div component="app-example-runner" ref-component="app-minLength-value" title="minLength {{validatorType}} with value" key="value"></div>
 
 # Complete MinLength Example
 

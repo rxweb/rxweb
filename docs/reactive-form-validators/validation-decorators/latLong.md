@@ -85,7 +85,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="latLong-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-latLong-conditionalExpression" title="latLong decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-latLong-conditionalExpression" title="latLong {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -93,7 +93,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 [<div component="app-code" key="latLong-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-latLong-message" title="latLong decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-latLong-message" title="latLong {{validatorType}} with message" key="message"></div>
 
 # Complete latLong Example
 

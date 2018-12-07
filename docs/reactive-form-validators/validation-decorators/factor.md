@@ -83,14 +83,14 @@ Type :  `string`
  Dividend is the value for which factors are calculated.
 
 <div component="app-code" key="factor-dividendExample-model"></div> 
-<div component="app-example-runner" ref-component="app-factor-dividend" title="factor decorators with dividend" key="dividend"></div>
+<div component="app-example-runner" ref-component="app-factor-dividend" title="factor {{validatorType}} with dividend" key="dividend"></div>
 
 ## fieldName 
 Type :  `string` 
 Current property is matched with the particular property. so we need to pass particular property name.
 
 <div component="app-code" key="factor-fieldNameExample-model"></div> 
-<div component="app-example-runner" ref-component="app-factor-fieldName" title="factor decorators with fieldName" key="fieldName"></div>
+<div component="app-example-runner" ref-component="app-factor-fieldName" title="factor {{validatorType}} with fieldName" key="fieldName"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -103,14 +103,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="factor-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-factor-conditionalExpression" title="factor decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-factor-conditionalExpression" title="factor {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="factor-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-factor-message" title="factor decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-factor-message" title="factor {{validatorType}} with message" key="message"></div>
 
 # Complete Factor Example
 

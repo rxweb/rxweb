@@ -77,7 +77,7 @@ Type: `string`
 The `value` from which the input should starts with.
 
 <div component="app-code" key="startsWith-valueExample-model"></div> 
-<div component="app-example-runner" ref-component="app-startsWith-value" title="startsWith decorators with value" key="value"></div>
+<div component="app-example-runner" ref-component="app-startsWith-value" title="startsWith {{validatorType}} with value" key="value"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -90,7 +90,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="startsWith-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-startsWith-conditionalExpression" title="startsWith decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-startsWith-conditionalExpression" title="startsWith {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -98,7 +98,7 @@ Type :  `string`
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="startsWith-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-startsWith-message" title="startsWith decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-startsWith-message" title="startsWith {{validatorType}} with message" key="message"></div>
 
 # Complete StartsWith Example
 

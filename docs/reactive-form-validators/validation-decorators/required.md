@@ -88,7 +88,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="required-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-required-conditionalExpression" title="required decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-required-conditionalExpression" title="required {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -96,7 +96,7 @@ Type :  `string`
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="required-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-required-message" title="required decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-required-message" title="required {{validatorType}} with message" key="message"></div>
 
 # Complete required Example
 

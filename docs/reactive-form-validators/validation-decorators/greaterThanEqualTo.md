@@ -83,7 +83,7 @@ Type :  `string`
 Greater than Equal to validation should be applied based on the `fieldName` for compare other field value 
 
 <div component="app-code" key="greaterThanEqualTo-fieldNameExample-model"></div> 
-<div component="app-example-runner" ref-component="app-greaterThanEqualTo-fieldName" title="greaterThanEqualTo decorators with fieldName" key="fieldName"></div>
+<div component="app-example-runner" ref-component="app-greaterThanEqualTo-fieldName" title="greaterThanEqualTo {{validatorType}} with fieldName" key="fieldName"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -95,14 +95,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="greaterThanEqualTo-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-greaterThanEqualTo-conditionalExpression" title="greaterThanEqualTo decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-greaterThanEqualTo-conditionalExpression" title="greaterThanEqualTo {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="greaterThanEqualTo-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-greaterThanEqualTo-message" title="greaterThanEqualTo decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-greaterThanEqualTo-message" title="greaterThanEqualTo {{validatorType}} with message" key="message"></div>
 
 # Complete greaterThanEqualTo Example
 

@@ -81,7 +81,7 @@ Type :  `string[]`
 extensions parameter is the array of multiple extensions which are allowed to be entered by the user.
 
 <div component="app-code" key="extension-extensionsExample-model"></div> 
-<div component="app-example-runner" ref-component="app-extension-extensions" title="extension decorators with extensions" key="extensions"></div>
+<div component="app-example-runner" ref-component="app-extension-extensions" title="extension {{validatorType}} with extensions" key="extensions"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -94,7 +94,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="extension-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-extension-conditionalExpression" title="extension decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-extension-conditionalExpression" title="extension {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -102,7 +102,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="extension-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-extension-message" title="extension decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-extension-message" title="extension {{validatorType}} with message" key="message"></div>
 
 # Complete extension Example
 
