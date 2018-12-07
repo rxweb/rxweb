@@ -43,16 +43,37 @@ export abstract class BaseComponentProvider implements OnDestroy {
 
     getPramas(element:any,type?:string){
         let keyName = element.getAttribute("key");
-        
-      
-        let jObject = this.getKeyData(keyName);
-        let params = {};
-        params["content"] = jObject;
         let refComponentString= element.getAttribute('ref-component');
+        let params = {};
+        let jObject ={};
+        if(!keyName && refComponentString){
+            let refComponent = refComponentString.split('-');
+            keyName = refComponent[refComponent.length - 1];
+            jObject = this.getKeyData(keyName);
+            params["showTab"] = false;
+        }
+        else{
+            params["showTab"] = true;
+            jObject = this.getKeyData(keyName);
+        }
+        params["content"] = jObject;
         if(refComponentString){
             let refComponent = refComponentString.split('-');
             params["title"] = element.getAttribute('title');
             params["refComponent"] =this.exampleComponents[this.typeName][refComponent[refComponent.length - 1]];
+            params["decoratorName"]=refComponent[1];
+            params["exampleName"]=refComponent[2];
+            switch(this.typeName){
+                case "validators":
+                    params["typeName"]="validator";
+                break;
+                case "decorators":
+                    params["typeName"]="decorator";
+                break;
+                case "template_driven":
+                    params["typeName"]="templateDriven";
+                break;
+            }
         }
         if(type == "app-tabs"){
             params["content"] = this.data;

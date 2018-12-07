@@ -604,7 +604,6 @@ body .model-ts.combined {
     position: relative;
 }
 .model-ts.combined .showHideExample .tab-pane .code > a, body .model-ts.combined .file-icon {
-    position: absolute;
     right: 5px;
 }
 a.copy-icon:not(.copied), .copy-icon:not(.copied), a.file-icon, .file-icon { color: #2e2e2e; }
