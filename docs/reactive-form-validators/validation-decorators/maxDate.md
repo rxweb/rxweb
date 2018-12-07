@@ -19,6 +19,8 @@ Suppose you want to create a User form, which contains fields like userName, bir
 </ol>
 Let’s see how MaxDate {{validatorType}} fulfil the need.
 
+To Configure Date format globally in your application, Please refer <a href="/reactive-form-config">`ReactiveFormConfig`</a>
+
 # Basic MaxDate Validation
 
 <data-scope scope="['decorator','template-driven']">

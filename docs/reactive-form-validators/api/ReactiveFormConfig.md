@@ -21,7 +21,7 @@ To set the date format throughtout the application for date validation check, th
         });
 ```
 # internationalization 
-Suppose You want the application to work worldwide and you want the date format to change according to country and login ,In that case you can set `internationalization` if your system supports it.
+Suppose You want the application to work worldwide and you want the date format to validated according to your region,In that case you can change `internationalization` dynamically if your system supports it.
 
 ```js
 ReactiveFormConfig.set({
@@ -41,14 +41,10 @@ Apply global validation messages throughout the application, then configure the 
 ```js
   ReactiveFormConfig.set({
             "validationMessage": {
-                "alpha": "only alpha value you enter",
-                "alphaNumeric": "only alpha Numeric value you enter",
-                "contains": "you should contains ",
-                "onlyDigit": "abc",
                 "required":"this field is required",
-                "min":"minimum number are allowed {{0}}",
-                "minLength":"minimum length is {{0}}"
-
+                "alpha": "only alpha value you enter",
+               .....          
+                
             }
         });
 ```
