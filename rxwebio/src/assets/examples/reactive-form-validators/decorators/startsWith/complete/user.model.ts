@@ -2,7 +2,7 @@ import {  startsWith,prop, } from "@rxweb/reactive-form-validators"
 
 export class User {
 
-	@startsWith({value:'B'  ,message:'{{0}} does not starts with `B`' }) 
+	@startsWith({value:'B' }) 
 	name: string;
 
 	//If you want to apply conditional expression of type 'function'
@@ -12,5 +12,8 @@ export class User {
 	//If you want to apply conditional expression of type 'string'
 	@startsWith({value:'#'  ,conditionalExpression:'x => x.name =="Bharat"' }) 
 	taskId: string;
+
+	@startsWith({value:'R'  ,message:'{{0}} does not starts with `R`' }) 
+	company: string;
 
 }

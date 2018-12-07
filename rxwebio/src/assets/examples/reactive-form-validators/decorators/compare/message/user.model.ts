@@ -5,7 +5,7 @@ export class User {
 	@prop()
 	password: string;
 
-	@compare({fieldName:'password'  ,message:'Both Input is not matched' }) 
+	@compare({fieldName:'password'  ,message:'You must enter same password' }) 
 	confirmPassword: string;
 
 }

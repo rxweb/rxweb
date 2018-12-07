@@ -1,1 +1,1 @@
-{"firstName":{},"password":{"different":{"fieldName":"firstName","message":"{{0}} is same as firstName"}},"userName":{"different":{"fieldName":"firstName","conditionalExpression":"x => x.firstName == \"Bharat\""}}}
+{"firstName":{},"middleName":{"different":{"fieldName":"firstName"}},"password":{"different":{"fieldName":"firstName","message":"{{0}} is same as firstName"}},"userName":{"different":{"fieldName":"firstName","conditionalExpression":"x => x.firstName == \"Bharat\""}}}

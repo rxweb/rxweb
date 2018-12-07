@@ -10,7 +10,6 @@ import { User } from './user.model';
 })
 export class CreditCardMessageComponent implements OnInit {
     userFormGroup: FormGroup
-				creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
 
     constructor(
         private formBuilder: RxFormBuilder    ) { }

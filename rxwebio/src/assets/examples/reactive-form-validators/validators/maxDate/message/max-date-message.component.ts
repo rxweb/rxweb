@@ -15,7 +15,7 @@ export class MaxDateMessageValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            registrationDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30)  ,message:'{{0}} exceeds the Maximum Date Limit' })], 
+            registrationDate:['', RxwebValidators.maxDate({value:'07/30/2018'  ,message:'{{0}} exceeds the Maximum Date Limit' })], 
         });
     }
 }

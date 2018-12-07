@@ -17,7 +17,7 @@
     <div class="form-group">
       <label>Integer Number</label>
       <input type="text" formControlName="integerNumber" class="form-control"  />
-      <small class="form-text text-muted">If you want to apply conditional validation on 'Integer Number' then you need to add 'Data Type' input as 'Positive'.<br/></small>
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Integer Number' then you need to add 'Data Type' input as 'Integer'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
 	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.integerNumber.errors">{{userInfoFormGroup.controls.integerNumber.errors.numeric.message}}<br/></small>	
     </div>

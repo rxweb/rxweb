@@ -9,7 +9,8 @@ import { RxwebValidators ,NumericValueType} from '@rxweb/reactive-form-validator
 export class NumericCompleteValidatorComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
-				dataTypes = [ "Real", "Positive",];
+				dataTypes = [ "Real", "Integer",];
+	
 	
 	
 	
@@ -22,10 +23,11 @@ export class NumericCompleteValidatorComponent implements OnInit {
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({
             dataType:['',], 
-            negativeNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.NegativeNumber  ,message:'{{0}} is not a negative number' })], 
-            decimalNumber:['', RxwebValidators.numeric({allowDecimal:true  ,message:'{{0}} is not a positive decimal number' })], 
-            integerNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,conditionalExpression:(x,y) => x.dataType == "Positive"  })], 
+            negativeNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.NegativeNumber })], 
+            decimalNumber:['', RxwebValidators.numeric({allowDecimal:true })], 
+            integerNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,conditionalExpression:(x,y) => x.dataType == "Integer"  })], 
             realNumber:['', RxwebValidators.numeric({acceptValue:NumericValueType.Both  ,conditionalExpression:'x => x.dataType == "Real"' })], 
+            positiveNumber:['', RxwebValidators.numeric({message:'{{0}} is not a positive number' })], 
         });
     }
 }

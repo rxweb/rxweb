@@ -18,7 +18,8 @@ export class MaxNumberCompleteValidatorComponent implements OnInit {
             subjectCode:['',], 
             maximumMarks:['', RxwebValidators.maxNumber({value:100  ,conditionalExpression:(x,y) => x.subjectCode == "8CS5A"  })], 
             obtainedMarks:['', RxwebValidators.maxNumber({value:100  ,conditionalExpression:'x => x.subjectCode == "8CS5A"' })], 
-            passingMarks:['', RxwebValidators.maxNumber({value:50  ,message:'{{0}} exceeds the Maximum marks Limit' })], 
+            passingMarks:['', RxwebValidators.maxNumber({value:50 })], 
+            practicalMarks:['', RxwebValidators.maxNumber({value:70  ,message:'{{0}} exceeds the Maximum marks Limit' })], 
         });
     }
 }

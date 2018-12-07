@@ -7,26 +7,26 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { NumericCompleteTemplateDrivenComponent } from './complete/numeric-complete.component';
 import { NumericAcceptValueTemplateDrivenComponent } from './acceptValue/numeric-accept-value.component';
-import { NumericMessageTemplateDrivenComponent } from './message/numeric-message.component';
 import { NumericAllowDecimalTemplateDrivenComponent } from './allowDecimal/numeric-allow-decimal.component';
 import { NumericConditionalExpressionTemplateDrivenComponent } from './conditionalExpression/numeric-conditional-expression.component';
+import { NumericMessageTemplateDrivenComponent } from './message/numeric-message.component';
 import { NumericAddTemplateDrivenComponent } from './add/numeric-add.component';
 
 @NgModule({
   declarations: [
 	NumericCompleteTemplateDrivenComponent,
 	NumericAcceptValueTemplateDrivenComponent,
-	NumericMessageTemplateDrivenComponent,
 	NumericAllowDecimalTemplateDrivenComponent,
 	NumericConditionalExpressionTemplateDrivenComponent,
+	NumericMessageTemplateDrivenComponent,
 	NumericAddTemplateDrivenComponent,
   ],
 entryComponents: [
 	NumericCompleteTemplateDrivenComponent,
 	NumericAcceptValueTemplateDrivenComponent,
-	NumericMessageTemplateDrivenComponent,
 	NumericAllowDecimalTemplateDrivenComponent,
 	NumericConditionalExpressionTemplateDrivenComponent,
+	NumericMessageTemplateDrivenComponent,
 	NumericAddTemplateDrivenComponent,
   ],
   imports: [
@@ -38,9 +38,9 @@ entryComponents: [
   exports: [
 	NumericCompleteTemplateDrivenComponent,
 	NumericAcceptValueTemplateDrivenComponent,
-	NumericMessageTemplateDrivenComponent,
 	NumericAllowDecimalTemplateDrivenComponent,
 	NumericConditionalExpressionTemplateDrivenComponent,
+	NumericMessageTemplateDrivenComponent,
 	NumericAddTemplateDrivenComponent,
   ],
 

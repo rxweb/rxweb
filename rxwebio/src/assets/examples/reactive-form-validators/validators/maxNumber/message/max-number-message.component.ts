@@ -15,7 +15,7 @@ export class MaxNumberMessageValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.subjectDetailsFormGroup = this.formBuilder.group({
-            passingMarks:['', RxwebValidators.maxNumber({value:50  ,message:'{{0}} exceeds the Maximum marks Limit' })], 
+            practicalMarks:['', RxwebValidators.maxNumber({value:70  ,message:'{{0}} exceeds the Maximum marks Limit' })], 
         });
     }
 }

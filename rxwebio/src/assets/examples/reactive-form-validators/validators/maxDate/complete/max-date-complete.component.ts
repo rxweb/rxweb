@@ -16,10 +16,10 @@ export class MaxDateCompleteValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
             userName:['',], 
-            allocationDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30) })], 
-            birthDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30)  ,conditionalExpression:(x,y) => x.userName == "Bharat"  })], 
-            admissionDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30)  ,conditionalExpression:'x => x.userName == "Bharat"' })], 
-            registrationDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30)  ,message:'{{0}} exceeds the Maximum Date Limit' })], 
+            allocationDate:['', RxwebValidators.maxDate({value:'07/30/2018' })], 
+            birthDate:['', RxwebValidators.maxDate({value:'07/30/2018'  ,conditionalExpression:(x,y) => x.userName == "Bharat"  })], 
+            admissionDate:['', RxwebValidators.maxDate({value:'07/30/2018'  ,conditionalExpression:'x => x.userName == "Bharat"' })], 
+            registrationDate:['', RxwebValidators.maxDate({value:'07/30/2018'  ,message:'{{0}} exceeds the Maximum Date Limit' })], 
             enrollmentDate:['',], 
             lastRegistrationDate:['', RxwebValidators.maxDate({fieldName:'enrollmentDate' })], 
         });

@@ -15,7 +15,7 @@ export class FactorMessageValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            fourthNumber:['', RxwebValidators.factor({dividend:50  ,message:'{{0}} is not a factor of 50' })], 
+            sixthNumber:['', RxwebValidators.factor({dividend:30  ,message:'{{0}} is not a factor of 50' })], 
         });
     }
 }

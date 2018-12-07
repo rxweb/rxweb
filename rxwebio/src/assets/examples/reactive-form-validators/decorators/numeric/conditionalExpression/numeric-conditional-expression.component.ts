@@ -10,7 +10,7 @@ import { UserInfo } from './user-info.model';
 })
 export class NumericConditionalExpressionComponent implements OnInit {
     userInfoFormGroup: FormGroup
-				dataTypes = [ "Real", "Positive",];
+				dataTypes = [ "Real", "Integer",];
 
     constructor(
         private formBuilder: RxFormBuilder    ) { }

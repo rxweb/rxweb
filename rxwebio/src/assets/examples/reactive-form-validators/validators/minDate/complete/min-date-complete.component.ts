@@ -16,10 +16,10 @@ export class MinDateCompleteValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
             userName:['',], 
-            allocationDate:['', RxwebValidators.minDate({value:new Date(2018,7,30) })], 
-            birthDate:['', RxwebValidators.minDate({value:new Date(2018,7,30)  ,conditionalExpression:(x,y) => x.userName == "Bharat"  })], 
-            admissionDate:['', RxwebValidators.minDate({value:new Date(2018,7,30)  ,conditionalExpression:'x => x.userName == "Bharat"' })], 
-            registrationDate:['', RxwebValidators.minDate({value:new Date(2018,7,30)  ,message:'{{0}} exceeds the Minimum Date Limit' })], 
+            allocationDate:['', RxwebValidators.minDate({value:'07/30/2018' })], 
+            birthDate:['', RxwebValidators.minDate({value:'07/30/2018'  ,conditionalExpression:(x,y) => x.userName == "Bharat"  })], 
+            admissionDate:['', RxwebValidators.minDate({value:'07/30/2018'  ,conditionalExpression:'x => x.userName == "Bharat"' })], 
+            registrationDate:['', RxwebValidators.minDate({value:'07/30/2018'  ,message:'{{0}} exceeds the Minimum Date Limit' })], 
             enrollmentDate:['',], 
             lastRegistrationDate:['', RxwebValidators.minDate({fieldName:'enrollmentDate' })], 
         });

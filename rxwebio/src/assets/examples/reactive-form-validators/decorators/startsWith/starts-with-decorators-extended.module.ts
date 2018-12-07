@@ -7,8 +7,8 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { StartsWithCompleteComponent } from './complete/starts-with-complete.component';
 import { StartsWithValueComponent } from './value/starts-with-value.component';
-import { StartsWithMessageComponent } from './message/starts-with-message.component';
 import { StartsWithConditionalExpressionComponent } from './conditionalExpression/starts-with-conditional-expression.component';
+import { StartsWithMessageComponent } from './message/starts-with-message.component';
 import { StartsWithDynamicComponent } from './dynamic/starts-with-dynamic.component';
 import { StartsWithAddComponent } from './add/starts-with-add.component';
 import { StartsWithEditComponent } from './edit/starts-with-edit.component';
@@ -17,8 +17,8 @@ import { StartsWithEditComponent } from './edit/starts-with-edit.component';
   declarations: [
 	StartsWithCompleteComponent,
 	StartsWithValueComponent,
-	StartsWithMessageComponent,
 	StartsWithConditionalExpressionComponent,
+	StartsWithMessageComponent,
 	StartsWithDynamicComponent,
 	StartsWithAddComponent,
 	StartsWithEditComponent,
@@ -26,8 +26,8 @@ import { StartsWithEditComponent } from './edit/starts-with-edit.component';
 entryComponents: [
 	StartsWithCompleteComponent,
 	StartsWithValueComponent,
-	StartsWithMessageComponent,
 	StartsWithConditionalExpressionComponent,
+	StartsWithMessageComponent,
 	StartsWithDynamicComponent,
 	StartsWithAddComponent,
 	StartsWithEditComponent,
@@ -41,8 +41,8 @@ entryComponents: [
   exports: [
 	StartsWithCompleteComponent,
 	StartsWithValueComponent,
-	StartsWithMessageComponent,
 	StartsWithConditionalExpressionComponent,
+	StartsWithMessageComponent,
 	StartsWithDynamicComponent,
 	StartsWithAddComponent,
 	StartsWithEditComponent,

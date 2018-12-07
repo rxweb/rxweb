@@ -5,18 +5,18 @@ export class User {
 	@prop()
 	userName: string;
 
-	@minDate({value:new Date(2018,7,30) }) 
+	@minDate({value:'07/30/2018' }) 
 	allocationDate: Date;
 
 	//If you want to apply conditional expression of type 'function'
-	@minDate({value:new Date(2018,7,30)  ,conditionalExpression:(x,y) => x.userName == "Bharat"  }) 
+	@minDate({value:'07/30/2018'  ,conditionalExpression:(x,y) => x.userName == "Bharat"  }) 
 	birthDate: Date;
 
 	//If you want to apply conditional expression of type 'string'
-	@minDate({value:new Date(2018,7,30)  ,conditionalExpression:'x => x.userName == "Bharat"' }) 
+	@minDate({value:'07/30/2018'  ,conditionalExpression:'x => x.userName == "Bharat"' }) 
 	admissionDate: Date;
 
-	@minDate({value:new Date(2018,7,30)  ,message:'{{0}} exceeds the Minimum Date Limit' }) 
+	@minDate({value:'07/30/2018'  ,message:'{{0}} exceeds the Minimum Date Limit' }) 
 	registrationDate: Date;
 
 	@prop()

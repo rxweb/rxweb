@@ -15,7 +15,7 @@ export class FactorDividendValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            fourthNumber:['', RxwebValidators.factor({dividend:50  ,message:'{{0}} is not a factor of 50' })], 
+            fourthNumber:['', RxwebValidators.factor({dividend:50 })], 
         });
     }
 }

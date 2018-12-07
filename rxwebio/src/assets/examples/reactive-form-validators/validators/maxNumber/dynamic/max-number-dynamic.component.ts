@@ -19,7 +19,7 @@ export class MaxNumberDynamicValidatorComponent implements OnInit {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/validators/maxNumber/dynamic/dynamic.json').subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			var subjectDetails = { subjectCode:'', maximumMarks:'', obtainedMarks:'', passingMarks:'',  }
+			var subjectDetails = { subjectCode:'', maximumMarks:'', obtainedMarks:'', passingMarks:'', practicalMarks:'',  }
 			this.subjectDetailsFormGroup = this.formBuilder.group(subjectDetails,formBuilderConfiguration);
 		})
     }

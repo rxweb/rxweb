@@ -5,6 +5,9 @@ export class AccountInfo {
 	@prop()
 	firstName: string;
 
+	@different({fieldName:'firstName' }) 
+	middleName: string;
+
 	@different({fieldName:'firstName'  ,message:'{{0}} is same as firstName' }) 
 	password: string;
 

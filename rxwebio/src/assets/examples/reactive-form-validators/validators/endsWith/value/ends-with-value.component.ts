@@ -15,7 +15,7 @@ export class EndsWithValueValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            name:['', RxwebValidators.endsWith({value:'t'  ,message:'{{0}} does not ends with `t`' })], 
+            name:['', RxwebValidators.endsWith({value:'t' })], 
         });
     }
 }

@@ -9,4 +9,6 @@ export class UserInfo {
 
 	realNumber: number;
 
+	positiveNumber: number;
+
 }

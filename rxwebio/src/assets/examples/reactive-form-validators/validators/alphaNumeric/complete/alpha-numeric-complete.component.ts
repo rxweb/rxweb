@@ -17,7 +17,7 @@ export class AlphaNumericCompleteValidatorComponent implements OnInit {
         this.locationFormGroup = this.formBuilder.group({
             areaName:['', RxwebValidators.alphaNumeric()], 
             flatAddress:['', RxwebValidators.alphaNumeric({allowWhiteSpace:true })], 
-            postalAddress:['', RxwebValidators.alphaNumeric({allowWhiteSpace:true  ,message:'Please enter only alphanumerics, special characters are not allowed and whitespace is allowed.' })], 
+            postalAddress:['', RxwebValidators.alphaNumeric({message:'Please enter only alphanumerics, special characters are not allowed.' })], 
             countryCode:['', RxwebValidators.alphaNumeric({conditionalExpression:(x,y) => x.areaName == "Delhi"  })], 
             cityCode:['', RxwebValidators.alphaNumeric({conditionalExpression:'x => x.areaName =="Delhi"' })], 
         });

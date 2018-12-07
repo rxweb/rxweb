@@ -2,7 +2,7 @@
   <form #userForm = "ngForm">
     <div class="form-group">
       <label>Fourth Number</label>
-      <input type="text" name="fourthNumber" [(ngModel)]="user.fourthNumber"  class="form-control"  [factor]="{'dividend':50,'message':'Fourth Number is not a factor of 50'}" />
+      <input type="text" name="fourthNumber" [(ngModel)]="user.fourthNumber"  class="form-control"  [factor]="{'dividend':50}" />
       <small class="form-text text-muted">you can enter only factors of 50<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.fourthNumber?.errors">{{userForm.controls.fourthNumber?.errors.factor.message}}<br/></small>	

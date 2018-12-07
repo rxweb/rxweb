@@ -9,4 +9,6 @@ export class SubjectDetails {
 
 	passingMarks: number;
 
+	practicalMarks: number;
+
 }

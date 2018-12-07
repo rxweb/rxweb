@@ -8,4 +8,7 @@ export class User {
 	@prop()
 	taskId: string;
 
+	@prop()
+	company: string;
+
 }

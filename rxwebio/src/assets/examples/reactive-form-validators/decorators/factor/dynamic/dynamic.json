@@ -1,1 +1,1 @@
-{"firstNumber":{},"fifthNumber":{"factor":{"fieldName":"firstNumber"}},"thirdNumber":{"factor":{"fieldName":"firstNumber","conditionalExpression":"x => x.firstNumber == 25"}},"fourthNumber":{"factor":{"dividend":"50","message":"{{0}} is not a factor of 50"}}}
+{"firstNumber":{},"fifthNumber":{"factor":{"fieldName":"firstNumber"}},"thirdNumber":{"factor":{"fieldName":"firstNumber","conditionalExpression":"x => x.firstNumber == 25"}},"fourthNumber":{"factor":{"dividend":"50"}},"sixthNumber":{"factor":{"dividend":"30","message":"{{0}} is not a factor of 50"}}}

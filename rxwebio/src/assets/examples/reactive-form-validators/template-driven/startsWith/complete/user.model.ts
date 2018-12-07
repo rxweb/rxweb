@@ -7,4 +7,6 @@ export class User {
 
 	taskId: string;
 
+	company: string;
+
 }

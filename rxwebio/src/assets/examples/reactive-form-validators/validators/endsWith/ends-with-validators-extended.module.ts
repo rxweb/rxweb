@@ -7,8 +7,8 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { EndsWithCompleteValidatorComponent } from './complete/ends-with-complete.component';
 import { EndsWithValueValidatorComponent } from './value/ends-with-value.component';
-import { EndsWithMessageValidatorComponent } from './message/ends-with-message.component';
 import { EndsWithConditionalExpressionValidatorComponent } from './conditionalExpression/ends-with-conditional-expression.component';
+import { EndsWithMessageValidatorComponent } from './message/ends-with-message.component';
 import { EndsWithDynamicValidatorComponent } from './dynamic/ends-with-dynamic.component';
 import { EndsWithAddValidatorComponent } from './add/ends-with-add.component';
 
@@ -16,16 +16,16 @@ import { EndsWithAddValidatorComponent } from './add/ends-with-add.component';
   declarations: [
 	EndsWithCompleteValidatorComponent,
 	EndsWithValueValidatorComponent,
-	EndsWithMessageValidatorComponent,
 	EndsWithConditionalExpressionValidatorComponent,
+	EndsWithMessageValidatorComponent,
 	EndsWithDynamicValidatorComponent,
 	EndsWithAddValidatorComponent,
   ],
 entryComponents: [
 	EndsWithCompleteValidatorComponent,
 	EndsWithValueValidatorComponent,
-	EndsWithMessageValidatorComponent,
 	EndsWithConditionalExpressionValidatorComponent,
+	EndsWithMessageValidatorComponent,
 	EndsWithDynamicValidatorComponent,
 	EndsWithAddValidatorComponent,
   ],
@@ -38,8 +38,8 @@ entryComponents: [
   exports: [
 	EndsWithCompleteValidatorComponent,
 	EndsWithValueValidatorComponent,
-	EndsWithMessageValidatorComponent,
 	EndsWithConditionalExpressionValidatorComponent,
+	EndsWithMessageValidatorComponent,
 	EndsWithDynamicValidatorComponent,
 	EndsWithAddValidatorComponent,
   ],
