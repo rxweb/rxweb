@@ -20,20 +20,6 @@
       <small class="form-text text-muted">Shows custom message.<br/></small>
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.registrationDate.errors">{{userFormGroup.controls.registrationDate.errors.maxDate.message}}<br/></small>
     </div>
-    <div class="form-group">
-      <label>Enrollment Date</label>
-      <input type="text" formControlName="enrollmentDate" class="form-control"  />
-      <small class="form-text text-muted">you can enter MaxDate upto 30th july 2018<br/></small>
-      <small class="form-text text-muted">Shows custom message.<br/></small>
-      <small class="form-text text-danger" *ngIf="userFormGroup.controls.enrollmentDate.errors">{{userFormGroup.controls.enrollmentDate.errors.maxDate.message}}<br/></small>
-    </div>
-    <div class="form-group">
-      <label>Last Registration Date</label>
-      <input type="text" formControlName="lastRegistrationDate" class="form-control"  />
-      <small class="form-text text-muted">you can enter MaxDate upto value mentioned in fieldName<br/></small>
-      <small class="form-text text-muted">Shows custom message.<br/></small>
-      <small class="form-text text-danger" *ngIf="userFormGroup.controls.lastRegistrationDate.errors">{{userFormGroup.controls.lastRegistrationDate.errors.maxDate.message}}<br/></small>
-    </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>
 </div>

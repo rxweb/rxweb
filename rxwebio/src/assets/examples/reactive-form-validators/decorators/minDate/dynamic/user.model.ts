@@ -11,10 +11,4 @@ export class User {
 	@prop()
 	registrationDate: Date;
 
-	@prop()
-	enrollmentDate: Date;
-
-	@prop()
-	lastRegistrationDate: Date;
-
 }

@@ -10,9 +10,6 @@ import { MaxDateConditionalExpressionValidatorComponent } from "src/assets/examp
 import { MaxDateMessageComponent } from "src/assets/examples/reactive-form-validators/decorators/maxDate/message/max-date-message.component";
 import { MaxDateMessageTemplateDrivenComponent } from "src/assets/examples/reactive-form-validators/template-driven/maxDate/message/max-date-message.component";
 import { MaxDateMessageValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/maxDate/message/max-date-message.component";
-import { MaxDateFieldNameComponent } from "src/assets/examples/reactive-form-validators/decorators/maxDate/fieldName/max-date-field-name.component";
-import { MaxDateFieldNameTemplateDrivenComponent } from "src/assets/examples/reactive-form-validators/template-driven/maxDate/fieldName/max-date-field-name.component";
-import { MaxDateFieldNameValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/maxDate/fieldName/max-date-field-name.component";
 import { MaxDateDynamicComponent } from "src/assets/examples/reactive-form-validators/decorators/maxDate/dynamic/max-date-dynamic.component";
 import { MaxDateDynamicValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/maxDate/dynamic/max-date-dynamic.component";
 import { MaxDateAddComponent } from "src/assets/examples/reactive-form-validators/decorators/maxDate/add/max-date-add.component";
@@ -26,7 +23,6 @@ export const MAX_DATE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						value : MaxDateValueComponent,
 						conditionalExpression : MaxDateConditionalExpressionComponent,
 						message : MaxDateMessageComponent,
-						fieldName : MaxDateFieldNameComponent,
 						dynamic : MaxDateDynamicComponent,
 						add : MaxDateAddComponent,
 						edit : MaxDateEditComponent,
@@ -36,7 +32,6 @@ export const MAX_DATE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						value : MaxDateValueValidatorComponent,
 						conditionalExpression : MaxDateConditionalExpressionValidatorComponent,
 						message : MaxDateMessageValidatorComponent,
-						fieldName : MaxDateFieldNameValidatorComponent,
 						dynamic : MaxDateDynamicValidatorComponent,
 						add : MaxDateAddValidatorComponent,
 			  },
@@ -45,7 +40,6 @@ export const MAX_DATE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						value : MaxDateValueTemplateDrivenComponent,
 						conditionalExpression : MaxDateConditionalExpressionTemplateDrivenComponent,
 						message : MaxDateMessageTemplateDrivenComponent,
-						fieldName : MaxDateFieldNameTemplateDrivenComponent,
 						add : MaxDateAddTemplateDrivenComponent,
 			  },
 }

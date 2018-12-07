@@ -19,8 +19,6 @@ export class MaxDateCompleteValidatorComponent implements OnInit {
             birthDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30)  ,conditionalExpression:(x,y) => x.userName == "Bharat"  })], 
             admissionDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30)  ,conditionalExpression:'x => x.userName == "Bharat"' })], 
             registrationDate:['', RxwebValidators.maxDate({value:new Date(2018,7,30)  ,message:'{{0}} exceeds the Maximum Date Limit' })], 
-            enrollmentDate:['',], 
-            lastRegistrationDate:['', RxwebValidators.maxDate({fieldName:'enrollmentDate' })], 
         });
     }
 }
