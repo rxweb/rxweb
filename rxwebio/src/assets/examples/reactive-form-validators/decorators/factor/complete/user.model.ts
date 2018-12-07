@@ -16,7 +16,10 @@ export class User {
 	@factor({fieldName:'firstNumber'  ,conditionalExpression:'x => x.firstNumber == 25' }) 
 	thirdNumber: number;
 
-	@factor({dividend:50  ,message:'{{0}} is not a factor of 50' }) 
+	@factor({dividend:50 }) 
 	fourthNumber: number;
+
+	@factor({dividend:30  ,message:'{{0}} is not a factor of 50' }) 
+	sixthNumber: number;
 
 }

@@ -19,7 +19,7 @@ Let’s see how factor {{validatorType}} fulfil the need.
 
 # Basic Factor Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User Model class and define property of firstNumber and secondNumber in the model to achieve the functional need of point 1.
 <div component="app-code" key="factor-add-model"></div> 
 </data-scope>
@@ -74,7 +74,7 @@ Below options are not mandatory to use in the `factor` validation. If needed the
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a href="#dividend" (click)='scrollTo("#dividend")' title="dividend">dividend</a></td><td>Dividend is the value for which factors are calculated.</td></tr>
 <tr><td><a href="#fieldName" (click)='scrollTo("#fieldName")' title="fieldName">fieldName</a></td><td>Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
-<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>factor validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Factor validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
 <tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
@@ -83,14 +83,14 @@ Type :  `string`
  Dividend is the value for which factors are calculated.
 
 <div component="app-code" key="factor-dividendExample-model"></div> 
-<div component="app-example-runner" ref-component="app-factor-dividend" title="factor decorators with dividend" key="dividend"></div>
+<div component="app-example-runner" ref-component="app-factor-dividend" title="factor {{validatorType}} with dividend" key="dividend"></div>
 
 ## fieldName 
 Type :  `string` 
 Current property is matched with the particular property. so we need to pass particular property name.
 
 <div component="app-code" key="factor-fieldNameExample-model"></div> 
-<div component="app-example-runner" ref-component="app-factor-fieldName" title="factor decorators with fieldName" key="fieldName"></div>
+<div component="app-example-runner" ref-component="app-factor-fieldName" title="factor {{validatorType}} with fieldName" key="fieldName"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -103,14 +103,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="factor-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-factor-conditionalExpression" title="factor decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-factor-conditionalExpression" title="factor {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="factor-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-factor-message" title="factor decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-factor-message" title="factor {{validatorType}} with message" key="message"></div>
 
 # Complete Factor Example
 
@@ -121,7 +121,7 @@ This Complete Factor example which includes all the FactorConfig properties will
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-factor-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="factor-complete-model"></div> 
 # [/Model]

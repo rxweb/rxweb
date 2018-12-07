@@ -16,7 +16,7 @@ Suppose you want to create a login form, which contains fields like newPassword 
 Let’s see how password {{validatorType}} fulfil the need.
 
 # Basic password Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create LoginInfo model class define a property of password in the model to achieve the functional need of point 1.
 <div component="app-code" key="password-add-model"></div> 
 </data-scope>
@@ -80,7 +80,7 @@ Type :  `string`
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="password-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-password-message" title="password decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-password-message" title="password {{validatorType}} with message" key="message"></div>
 
 ## validation 
 Type :  `PasswordValidation`
@@ -88,7 +88,7 @@ Type :  `PasswordValidation`
 Password Validation is used for setting the parameters for password validation, In Password validation there is validation on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.
 
 <div component="app-code" key="password-validationExample-model"></div> 
-<div component="app-example-runner" ref-component="app-password-validation" title="password decorators with validation" key="validation"></div>
+<div component="app-example-runner" ref-component="app-password-validation" title="password {{validatorType}} with validation" key="validation"></div>
 
 # Complete password Example
 
@@ -99,7 +99,7 @@ This Complete password example which includes all the PasswordConfig properties 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-password-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="password-complete-model"></div> 
 # [/Model]

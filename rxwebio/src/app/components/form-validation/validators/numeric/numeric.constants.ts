@@ -4,15 +4,15 @@ import { NumericCompleteValidatorComponent } from "src/assets/examples/reactive-
 import { NumericAcceptValueComponent } from "src/assets/examples/reactive-form-validators/decorators/numeric/acceptValue/numeric-accept-value.component";
 import { NumericAcceptValueTemplateDrivenComponent } from "src/assets/examples/reactive-form-validators/template-driven/numeric/acceptValue/numeric-accept-value.component";
 import { NumericAcceptValueValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/numeric/acceptValue/numeric-accept-value.component";
-import { NumericMessageComponent } from "src/assets/examples/reactive-form-validators/decorators/numeric/message/numeric-message.component";
-import { NumericMessageTemplateDrivenComponent } from "src/assets/examples/reactive-form-validators/template-driven/numeric/message/numeric-message.component";
-import { NumericMessageValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/numeric/message/numeric-message.component";
 import { NumericAllowDecimalComponent } from "src/assets/examples/reactive-form-validators/decorators/numeric/allowDecimal/numeric-allow-decimal.component";
 import { NumericAllowDecimalTemplateDrivenComponent } from "src/assets/examples/reactive-form-validators/template-driven/numeric/allowDecimal/numeric-allow-decimal.component";
 import { NumericAllowDecimalValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/numeric/allowDecimal/numeric-allow-decimal.component";
 import { NumericConditionalExpressionComponent } from "src/assets/examples/reactive-form-validators/decorators/numeric/conditionalExpression/numeric-conditional-expression.component";
 import { NumericConditionalExpressionTemplateDrivenComponent } from "src/assets/examples/reactive-form-validators/template-driven/numeric/conditionalExpression/numeric-conditional-expression.component";
 import { NumericConditionalExpressionValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/numeric/conditionalExpression/numeric-conditional-expression.component";
+import { NumericMessageComponent } from "src/assets/examples/reactive-form-validators/decorators/numeric/message/numeric-message.component";
+import { NumericMessageTemplateDrivenComponent } from "src/assets/examples/reactive-form-validators/template-driven/numeric/message/numeric-message.component";
+import { NumericMessageValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/numeric/message/numeric-message.component";
 import { NumericDynamicComponent } from "src/assets/examples/reactive-form-validators/decorators/numeric/dynamic/numeric-dynamic.component";
 import { NumericDynamicValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/numeric/dynamic/numeric-dynamic.component";
 import { NumericAddComponent } from "src/assets/examples/reactive-form-validators/decorators/numeric/add/numeric-add.component";
@@ -24,9 +24,9 @@ export const NUMERIC_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 	decorators:{
 						complete : NumericCompleteComponent,
 						acceptValue : NumericAcceptValueComponent,
-						message : NumericMessageComponent,
 						allowDecimal : NumericAllowDecimalComponent,
 						conditionalExpression : NumericConditionalExpressionComponent,
+						message : NumericMessageComponent,
 						dynamic : NumericDynamicComponent,
 						add : NumericAddComponent,
 						edit : NumericEditComponent,
@@ -34,18 +34,18 @@ export const NUMERIC_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 	validators:{
 						complete : NumericCompleteValidatorComponent,
 						acceptValue : NumericAcceptValueValidatorComponent,
-						message : NumericMessageValidatorComponent,
 						allowDecimal : NumericAllowDecimalValidatorComponent,
 						conditionalExpression : NumericConditionalExpressionValidatorComponent,
+						message : NumericMessageValidatorComponent,
 						dynamic : NumericDynamicValidatorComponent,
 						add : NumericAddValidatorComponent,
 			  },
 	template_driven:{
 						complete : NumericCompleteTemplateDrivenComponent,
 						acceptValue : NumericAcceptValueTemplateDrivenComponent,
-						message : NumericMessageTemplateDrivenComponent,
 						allowDecimal : NumericAllowDecimalTemplateDrivenComponent,
 						conditionalExpression : NumericConditionalExpressionTemplateDrivenComponent,
+						message : NumericMessageTemplateDrivenComponent,
 						add : NumericAddTemplateDrivenComponent,
 			  },
 }

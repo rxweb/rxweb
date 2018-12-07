@@ -1,10 +1,10 @@
 <div>
   <form #userForm = "ngForm">
     <div class="form-group">
-      <label>Name</label>
-      <input type="text" name="name" [(ngModel)]="user.name"  class="form-control"  [startsWith]="{'value':'B','message':'Name does not starts with `B`'}" />
-      <small class="form-text text-muted">If you want to apply conditional validation on 'Profession' or 'Task Id', then you need to add 'name' input as 'Bharat'<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.name?.errors">{{userForm.controls.name?.errors.startsWith.message}}<br/></small>	
+      <label>Company</label>
+      <input type="text" name="company" [(ngModel)]="user.company"  class="form-control"  [startsWith]="{'value':'R','message':'Company does not starts with `R`'}" />
+      <small class="form-text text-muted">Input should startsWith `R`<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.company?.errors">{{userForm.controls.company?.errors.startsWith.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

@@ -13,7 +13,7 @@ export class User {
 	@url({conditionalExpression:'x => x.adminWebsiteUrl == "https://google.co.in"'  }) 
 	customerWebsiteUrl: string;
 
-	@url({message:'Is not the correct url pattern.' }) 
+	@url({message:'{{0}} Is not the correct url pattern.' }) 
 	maintenanceWebSiteUrl: string;
 
 }

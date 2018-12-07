@@ -8,8 +8,7 @@ import { User } from './user.model';
 })
 export class CreditCardMessageTemplateDrivenComponent implements OnInit {
     user: User
-					creditCardTypes = [ "Visa", "AmericanExpress", "Maestro", "JCB", "Discover", "DinersClub", "MasterCard",];
-
+	
     constructor(
     ) { }
 

@@ -15,9 +15,10 @@ export class EndsWithCompleteValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            name:['', RxwebValidators.endsWith({value:'t'  ,message:'{{0}} does not ends with `t`' })], 
+            name:['', RxwebValidators.endsWith({value:'t' })], 
             profession:['', RxwebValidators.endsWith({value:'r'  ,conditionalExpression:(x,y) => x.name == "Bharat"  })], 
-            taskId:['', RxwebValidators.endsWith({value:'#'  ,conditionalExpression:'x => x.name =="Bharat"' })], 
+            taskId:['', RxwebValidators.endsWith({value:'1'  ,conditionalExpression:'x => x.name =="Bharat"' })], 
+            company:['', RxwebValidators.endsWith({value:'b'  ,message:'{{0}} does not ends with `b`' })], 
         });
     }
 }

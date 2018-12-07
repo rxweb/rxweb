@@ -1,0 +1,5 @@
+{
+    "baseConfig" : "ReactiveFormConfig.set({ \r\n            \"baseConfig\": {\r\n                \"dateFormat\": \"mdy\",\r\n\t\t\"seperator\": \"/\"\r\n            }\r\n        });",
+    "internationalization" : "ReactiveFormConfig.set({ \r\n            \"baseConfig\": {\r\n                \"dateFormat\": \"mdy\",\r\n\t\t\"seperator\": \"/\",\r\n        \"internationalization\": {\r\n                \"dateFormat\": \"mdy\",\r\n\t\t\"seperator\": \"/\"\r\n            }\r\n        });",
+    "validationMessage":"ReactiveFormConfig.set({ \r\n            \"validationMessage\": {\r\n                \"required\": \"this field is required.\",\r\n\t\t    \"alpha\": \"Only alphabets are allowed.\",        \r\n\t\t    ......       \r\n\t\t    }\r\n        });"
+}

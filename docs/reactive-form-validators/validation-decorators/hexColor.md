@@ -21,7 +21,7 @@ Let’s see how hexColor  {{validatorType}}  fulfil the need.
 
 # Basic HexColor Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of Color in the model to achieve the functional need of point 1.
 <div component="app-code" key="hexColor-add-model"></div> 
 </data-scope>
@@ -89,7 +89,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="hexColor-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-hexColor-conditionalExpression" title="hexColor decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-hexColor-conditionalExpression" title="hexColor {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -97,7 +97,7 @@ Type :  `string`
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="hexColor-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-hexColor-message" title="hexColor decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-hexColor-message" title="hexColor {{validatorType}} with message" key="message"></div>
 
 # Complete hexColor Example
 
@@ -108,7 +108,7 @@ This Complete hexColor example which includes all the HexColorConfig properties 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-hexColor-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="hexColor-complete-model"></div> 
 # [/Model]

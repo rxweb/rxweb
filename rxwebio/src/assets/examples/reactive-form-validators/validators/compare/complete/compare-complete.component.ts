@@ -15,8 +15,10 @@ export class CompareCompleteValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
+            email:['',], 
+            confirmEmail:['', RxwebValidators.compare({fieldName:'email' })], 
             password:['',], 
-            confirmPassword:['', RxwebValidators.compare({fieldName:'password'  ,message:'Both Input is not matched' })], 
+            confirmPassword:['', RxwebValidators.compare({fieldName:'password'  ,message:'You must enter same password' })], 
         });
     }
 }

@@ -18,7 +18,7 @@ Let's see how primeNumber  {{validatorType}}  fulfil the need.
 
 # Basic primeNumber Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a numberInfo model and define a property of firstNumber in the model to achieve the functional need of point 1.
 <div component="app-code" key="primeNumber-add-model"></div> 
 </data-scope>
@@ -88,7 +88,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="primeNumber-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-primeNumber-conditionalExpression" title="primeNumber decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-primeNumber-conditionalExpression" title="primeNumber {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -96,7 +96,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="primeNumber-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-primeNumber-message" title="primeNumber decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-primeNumber-message" title="primeNumber {{validatorType}} with message" key="message"></div>
 
 # Complete primeNumber Example
 
@@ -107,7 +107,7 @@ This Complete primeNumber example which includes all the PatternConfig propertie
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-primeNumber-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="primeNumber-complete-model"></div> 
 # [/Model]

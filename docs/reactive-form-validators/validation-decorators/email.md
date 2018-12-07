@@ -20,7 +20,7 @@ Let’s see how email  {{validatorType}}  fulfil the need.
 
 # Basic Email Validation
 
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create User model class define a property of Email in the model to achieve the functional need of point 1.
 <div component="app-code" key="email-add-model"></div> 
 </data-scope>
@@ -89,7 +89,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="email-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-email-conditionalExpression" title="email decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-email-conditionalExpression" title="email {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -97,7 +97,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="email-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-email-message" title="email decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-email-message" title="email {{validatorType}} with message" key="message"></div>
 
 # Complete Email Example
 
@@ -109,7 +109,7 @@ This Complete Email example which includes all the EmailConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-email-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="email-complete-model"></div> 
 # [/Model]

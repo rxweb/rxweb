@@ -13,7 +13,10 @@ export class SubjectDetails {
 	@maxNumber({value:100  ,conditionalExpression:'x => x.subjectCode == "8CS5A"' }) 
 	obtainedMarks: number;
 
-	@maxNumber({value:50  ,message:'{{0}} exceeds the Maximum marks Limit' }) 
+	@maxNumber({value:50 }) 
 	passingMarks: number;
+
+	@maxNumber({value:70  ,message:'{{0}} exceeds the Maximum marks Limit' }) 
+	practicalMarks: number;
 
 }

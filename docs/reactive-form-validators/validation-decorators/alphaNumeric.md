@@ -20,7 +20,7 @@ Suppose you want to create a Location form, which contains fields like AreaName,
 Let’s see how alphaNumeric  {{validatorType}}  fulfil the need.
 
 # Basic AlphaNumeric Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a Location class and define a property of AreaName in the model to achieve the functional need of point 1.
 <div component="app-code" key="alphaNumeric-add-model"></div> 
 </data-scope>
@@ -84,7 +84,7 @@ Type :  `boolean`
 This will allow whitespace in particular control property.The default value is `false`.
 
 <div component="app-code" key="alphaNumeric-allowWhiteSpaceExample-model"></div> 
-<div component="app-example-runner" ref-component="app-alphaNumeric-allowWhiteSpace" title="AlphaNumeric decorators with allowWhiteSpace" key="allowWhiteSpace"></div>
+<div component="app-example-runner" ref-component="app-alphaNumeric-allowWhiteSpace" title="AlphaNumeric {{validatorType}} with allowWhiteSpace" key="allowWhiteSpace"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -97,7 +97,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="alphaNumeric-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-alphaNumeric-conditionalExpression" title="AlphaNumeric decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-alphaNumeric-conditionalExpression" title="AlphaNumeric {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -105,7 +105,7 @@ Type :  `string`
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="alphaNumeric-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-alphaNumeric-message" title="AlphaNumeric decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-alphaNumeric-message" title="AlphaNumeric {{validatorType}} with message" key="message"></div>
 
 # Complete AlphaNumeric Example
 
@@ -116,7 +116,7 @@ This Complete AlphaNumeric example which includes all the AlphaConfig properties
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-alphaNumeric-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="alphaNumeric-complete-model"></div> 
 # [/Model]

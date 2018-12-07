@@ -19,7 +19,8 @@ export class FactorCompleteValidatorComponent implements OnInit {
             fifthNumber:['', RxwebValidators.factor({fieldName:'firstNumber' })], 
             secondNumber:['', RxwebValidators.factor({fieldName:'firstNumber'  ,conditionalExpression:(x,y) =>x.firstNumber == 25  })], 
             thirdNumber:['', RxwebValidators.factor({fieldName:'firstNumber'  ,conditionalExpression:'x => x.firstNumber == 25' })], 
-            fourthNumber:['', RxwebValidators.factor({dividend:50  ,message:'{{0}} is not a factor of 50' })], 
+            fourthNumber:['', RxwebValidators.factor({dividend:50 })], 
+            sixthNumber:['', RxwebValidators.factor({dividend:30  ,message:'{{0}} is not a factor of 50' })], 
         });
     }
 }

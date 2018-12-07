@@ -4,6 +4,7 @@ import { DashboardComponent } from "../dashboard/dashboard.component";
 import { HomeComponent } from "src/app/components/home/home.component";
 import { NoPreloading } from "@angular/router";
 import { GettingStartedComponent } from "src/app/components/getting-started/getting-started.component";
+import { ReactiveFormConfigComponent } from "../reactive-form-config/reactive-form-config.component";
 
 
 const APP_LAZY_ROUTES: Routes = [
@@ -18,6 +19,9 @@ const APP_LAZY_ROUTES: Routes = [
   },
   {
     path: 'getting-started', component: GettingStartedComponent
+  },
+  {
+    path:'reactive-form-config',component:ReactiveFormConfigComponent
   },
   {
     path: 'form-validations',

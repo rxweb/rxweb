@@ -1,24 +1,10 @@
 <div>
   <form  [formGroup]="userFormGroup">
     <div class="form-group">
-      <label>User Name</label>
-      <input type="text" formControlName="userName" class="form-control"  />
-      <small class="form-text text-muted">If you want to apply conditional validation on 'Birth Date' or 'Admission Date', then you need to add 'User Name' input as 'Bharat'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.userName.errors">{{userFormGroup.controls.userName.errors.maxDate.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Admission Date</label>
-      <input type="text" formControlName="admissionDate" class="form-control"  />
-      <small class="form-text text-muted">To apply the validation of Max Date on 'Admission Date' field, then enter the value 'Bharat' in 'User Name' textbox and you can enter maxDate as 30th july 2018<br/></small>
-      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.admissionDate.errors">{{userFormGroup.controls.admissionDate.errors.maxDate.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Birth Date</label>
-      <input type="text" formControlName="birthDate" class="form-control"  />
-      <small class="form-text text-muted">To apply the validation of Max Date on 'Birth date' field, then enter the value 'Bharat' in 'User Name' textbox and you can enter maxDate as 30th july 2018<br/></small>
-      <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.birthDate.errors">{{userFormGroup.controls.birthDate.errors.maxDate.message}}<br/></small>	
+      <label>Allocation Date</label>
+      <input type="text" formControlName="allocationDate" class="form-control"  />
+      <small class="form-text text-muted">you can enter MinDate upto 30th july 2018<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.allocationDate.errors">{{userFormGroup.controls.allocationDate.errors.maxDate.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

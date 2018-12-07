@@ -17,7 +17,7 @@ Suppose you want to create a ResultInfo form, which contains fields like Maths, 
 Let’s see how minNumber {{validatorType}} fulfil the need.
 
 # Basic MinNumber Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a ResultInfo class and define a property of Maths in the model to achieve the functional need of point 1.
 <div component="app-code" key="minNumber-add-model"></div> 
 </data-scope>
@@ -72,9 +72,9 @@ Below options are not mandatory to use in the `minNumber` validation. If needed 
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>minNumber validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>MinNumber validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
-<tr><td><a (click)='scrollTo("#value")' title="value">value</a></td></td> enter value which you want to restrict number in the property.</td></tr>
+<tr><td><a (click)='scrollTo("#value")' title="value">value</a></td></td> Enter value which you want to restrict number in the property.</td></tr>
 </table>
 
 ## conditionalExpression 
@@ -88,7 +88,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="minNumber-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-minNumber-conditionalExpression" title="minNumber decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-minNumber-conditionalExpression" title="minNumber {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -96,7 +96,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="minNumber-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-minNumber-message" title="minNumber decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-minNumber-message" title="minNumber {{validatorType}} with message" key="message"></div>
 
 ## value 
 Type :  `number` 
@@ -104,7 +104,7 @@ Type :  `number`
 enter value which you want to restrict number in the property
 
 <div component="app-code" key="minNumber-valueExample-model"></div> 
-<div component="app-example-runner" ref-component="minNumber-value-value" title="minNumber decorators with value" key="value"></div>
+<div component="app-example-runner" ref-component="minNumber-value-value" title="minNumber {{validatorType}} with value" key="value"></div>
 
 # Complete minNumber Example
 
@@ -115,7 +115,7 @@ This Complete minNumber example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-minNumber-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="minNumber-complete-model"></div> 
 # [/Model]

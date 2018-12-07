@@ -2,9 +2,8 @@
   <form #userinfoForm = "ngForm">
     <div class="form-group">
       <label>Decimal Number</label>
-      <input type="text" name="decimalNumber" [(ngModel)]="userinfo.decimalNumber"  class="form-control"  [numeric]="{'allowDecimal':true,'message':'Decimal Number is not a positive decimal number'}" />
-      <small class="form-text text-muted">you can enter only a decimal number<br/></small>
-      <small class="form-text text-muted">Shows custom message.<br/></small>
+      <input type="text" name="decimalNumber" [(ngModel)]="userinfo.decimalNumber"  class="form-control"  [numeric]="{'allowDecimal':true}" />
+      <small class="form-text text-muted">you can enter only a positive decimal number<br/></small>
 	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.decimalNumber?.errors">{{userinfoForm.controls.decimalNumber?.errors.numeric.message}}<br/></small>	
     </div>
     <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>

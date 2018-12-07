@@ -1,1 +1,1 @@
-{"name":{"endsWith":{"value":"t","message":"{{0}} does not ends with `t`"}},"taskId":{"endsWith":{"value":"#","conditionalExpression":"x => x.name ==\"Bharat\""}}}
+{"name":{"endsWith":{"value":"t"}},"taskId":{"endsWith":{"value":"1","conditionalExpression":"x => x.name ==\"Bharat\""}},"company":{"endsWith":{"value":"b","message":"{{0}} does not ends with `b`"}}}

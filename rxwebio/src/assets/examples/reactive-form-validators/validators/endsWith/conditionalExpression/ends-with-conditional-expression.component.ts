@@ -15,8 +15,8 @@ export class EndsWithConditionalExpressionValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            name:['', RxwebValidators.endsWith({value:'t'  ,message:'{{0}} does not ends with `t`' })], 
-            taskId:['', RxwebValidators.endsWith({value:'#'  ,conditionalExpression:'x => x.name =="Bharat"' })], 
+            name:['', RxwebValidators.endsWith({value:'t' })], 
+            taskId:['', RxwebValidators.endsWith({value:'1'  ,conditionalExpression:'x => x.name =="Bharat"' })], 
             profession:['', RxwebValidators.endsWith({value:'r'  ,conditionalExpression:(x,y) => x.name == "Bharat"  })], 
         });
     }

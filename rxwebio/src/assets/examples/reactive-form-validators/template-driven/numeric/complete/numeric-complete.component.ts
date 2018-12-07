@@ -8,7 +8,7 @@ import { UserInfo } from './user-info.model';
 })
 export class NumericCompleteTemplateDrivenComponent implements OnInit {
     userinfo: UserInfo
-					dataTypes = [ "Real", "Positive",];
+					dataTypes = [ "Real", "Integer",];
 
     constructor(
     ) { }

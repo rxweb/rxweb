@@ -17,7 +17,7 @@ Suppose you want to create a location based jsonInfo form and you have fields li
 Let’s see how json {{validatorType}} fulfil the need.
 
 # Basic Json Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create location model class define a property of LocationJson in the model to achieve the functional need of point 1
 <div component="app-code" key="json-add-model"></div> 
 </data-scope>
@@ -71,7 +71,7 @@ Below options are not mandatory to use in the `json` validation. If needed then 
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>json validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Json validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
 
@@ -86,7 +86,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="json-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-json-conditionalExpression" title="json decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-json-conditionalExpression" title="json {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -94,7 +94,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 [<div component="app-code" key="json-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-json-message" title="json decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-json-message" title="json {{validatorType}} with message" key="message"></div>
 
 # Complete Json Example
 
@@ -105,7 +105,7 @@ This Complete Json example which includes all the DefaultConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-json-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="json-complete-model"></div> 
 # [/Model]

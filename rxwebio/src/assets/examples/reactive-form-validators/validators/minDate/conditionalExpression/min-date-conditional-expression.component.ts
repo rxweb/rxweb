@@ -16,8 +16,8 @@ export class MinDateConditionalExpressionValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
             userName:['',], 
-            admissionDate:['', RxwebValidators.minDate({value:new Date(2018,7,30)  ,conditionalExpression:'x => x.userName == "Bharat"' })], 
-            birthDate:['', RxwebValidators.minDate({value:new Date(2018,7,30)  ,conditionalExpression:(x,y) => x.userName == "Bharat"  })], 
+            admissionDate:['', RxwebValidators.minDate({value:'07/30/2018'  ,conditionalExpression:'x => x.userName == "Bharat"' })], 
+            birthDate:['', RxwebValidators.minDate({value:'07/30/2018'  ,conditionalExpression:(x,y) => x.userName == "Bharat"  })], 
         });
     }
 }

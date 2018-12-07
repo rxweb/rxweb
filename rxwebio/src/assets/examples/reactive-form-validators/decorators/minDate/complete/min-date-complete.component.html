@@ -7,6 +7,12 @@
 	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.userName.errors">{{userFormGroup.controls.userName.errors.minDate.message}}<br/></small>	
     </div>
     <div class="form-group">
+      <label>Allocation Date</label>
+      <input type="text" formControlName="allocationDate" class="form-control"  />
+      <small class="form-text text-muted">you can enter MinDate upto 30th july 2018<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.allocationDate.errors">{{userFormGroup.controls.allocationDate.errors.minDate.message}}<br/></small>	
+    </div>
+    <div class="form-group">
       <label>Birth Date</label>
       <input type="text" formControlName="birthDate" class="form-control"  />
       <small class="form-text text-muted">To apply the validation of Min Date on 'Birth date' field, then enter the value 'Bharat' in 'User Name' textbox and you can enter minDate as 30th july 2018<br/></small>
@@ -26,6 +32,18 @@
       <small class="form-text text-muted">you can enter MinDate upto 30th july 2018<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
 	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.registrationDate.errors">{{userFormGroup.controls.registrationDate.errors.minDate.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Enrollment Date</label>
+      <input type="text" formControlName="enrollmentDate" class="form-control"  />
+      <small class="form-text text-muted">you can enter MinDate upto 30th july 2018<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.enrollmentDate.errors">{{userFormGroup.controls.enrollmentDate.errors.minDate.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Last Registration Date</label>
+      <input type="text" formControlName="lastRegistrationDate" class="form-control"  />
+      <small class="form-text text-muted">you can enter MinDate upto value mentioned in fieldName<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.lastRegistrationDate.errors">{{userFormGroup.controls.lastRegistrationDate.errors.minDate.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

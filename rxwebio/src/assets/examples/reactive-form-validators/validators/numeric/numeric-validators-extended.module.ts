@@ -7,9 +7,9 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { NumericCompleteValidatorComponent } from './complete/numeric-complete.component';
 import { NumericAcceptValueValidatorComponent } from './acceptValue/numeric-accept-value.component';
-import { NumericMessageValidatorComponent } from './message/numeric-message.component';
 import { NumericAllowDecimalValidatorComponent } from './allowDecimal/numeric-allow-decimal.component';
 import { NumericConditionalExpressionValidatorComponent } from './conditionalExpression/numeric-conditional-expression.component';
+import { NumericMessageValidatorComponent } from './message/numeric-message.component';
 import { NumericDynamicValidatorComponent } from './dynamic/numeric-dynamic.component';
 import { NumericAddValidatorComponent } from './add/numeric-add.component';
 
@@ -17,18 +17,18 @@ import { NumericAddValidatorComponent } from './add/numeric-add.component';
   declarations: [
 	NumericCompleteValidatorComponent,
 	NumericAcceptValueValidatorComponent,
-	NumericMessageValidatorComponent,
 	NumericAllowDecimalValidatorComponent,
 	NumericConditionalExpressionValidatorComponent,
+	NumericMessageValidatorComponent,
 	NumericDynamicValidatorComponent,
 	NumericAddValidatorComponent,
   ],
 entryComponents: [
 	NumericCompleteValidatorComponent,
 	NumericAcceptValueValidatorComponent,
-	NumericMessageValidatorComponent,
 	NumericAllowDecimalValidatorComponent,
 	NumericConditionalExpressionValidatorComponent,
+	NumericMessageValidatorComponent,
 	NumericDynamicValidatorComponent,
 	NumericAddValidatorComponent,
   ],
@@ -41,9 +41,9 @@ entryComponents: [
   exports: [
 	NumericCompleteValidatorComponent,
 	NumericAcceptValueValidatorComponent,
-	NumericMessageValidatorComponent,
 	NumericAllowDecimalValidatorComponent,
 	NumericConditionalExpressionValidatorComponent,
+	NumericMessageValidatorComponent,
 	NumericDynamicValidatorComponent,
 	NumericAddValidatorComponent,
   ],

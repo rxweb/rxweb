@@ -14,4 +14,7 @@ export class UserInfo {
 	@prop()
 	realNumber: number;
 
+	@prop()
+	positiveNumber: number;
+
 }

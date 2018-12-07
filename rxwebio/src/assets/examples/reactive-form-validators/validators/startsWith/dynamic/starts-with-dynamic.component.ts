@@ -19,7 +19,7 @@ export class StartsWithDynamicValidatorComponent implements OnInit {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/validators/startsWith/dynamic/dynamic.json').subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			var user = { name:'', profession:'', taskId:'',  }
+			var user = { name:'', profession:'', taskId:'', company:'',  }
 			this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
 		})
     }

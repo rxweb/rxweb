@@ -17,7 +17,7 @@ Suppose you want to create a user form and you have fields like TotalMarks, Obta
 Let’s see how lessThanEqualTo {{validatorType}} fulfil the need.
 
 # Basic LessThanEqualTo Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create User model class define a property of Marks and TotalMarks model to achieve the functional need of point 1. 
 <div component="app-code" key="lessThanEqualTo-add-model"></div> 
 </data-scope>
@@ -80,7 +80,7 @@ Type :  `string`
 Less than Equal to validation should be applied based on the `fieldName` for compare other field value. 
 
 <div component="app-code" key="lessThanEqualTo-fieldNameExample-model"></div> 
-<div component="app-example-runner" ref-component="app-lessThanEqualTo-fieldName" title="lessThanEqualTo decorators with fieldName" key="fieldName"></div>
+<div component="app-example-runner" ref-component="app-lessThanEqualTo-fieldName" title="lessThanEqualTo {{validatorType}} with fieldName" key="fieldName"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -92,7 +92,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="lessThanEqualTo-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-lessThanEqualTo-conditionalExpression" title="lessThanEqualTo decorators with conditionalExpression" key="conditionalExpression"></div> 
+<div component="app-example-runner" ref-component="app-lessThanEqualTo-conditionalExpression" title="lessThanEqualTo {{validatorType}} with conditionalExpression" key="conditionalExpression"></div> 
 
 ## message 
 Type :  `string` 
@@ -100,7 +100,7 @@ Type :  `string`
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="lessThanEqualTo-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-lessThanEqualTo-message" title="lessThanEqualTo decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-lessThanEqualTo-message" title="lessThanEqualTo {{validatorType}} with message" key="message"></div>
 
 # Complete lessThanEqualTo Example
 
@@ -111,7 +111,7 @@ This Complete lessThanEqualTo example which includes all the RelationalOperatorC
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-lessThanEqualTo-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="lessThanEqualTo-complete-model"></div> 
 # [/Model]

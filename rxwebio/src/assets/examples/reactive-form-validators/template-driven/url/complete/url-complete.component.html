@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
       <label>Maintenance Website Url</label>
-      <input type="text" name="maintenanceWebSiteUrl" [(ngModel)]="user.maintenanceWebSiteUrl"  class="form-control"  [url]="{'message':'Is not the correct url pattern.'}" />
+      <input type="text" name="maintenanceWebSiteUrl" [(ngModel)]="user.maintenanceWebSiteUrl"  class="form-control"  [url]="{'message':'Maintenance Website Url Is not the correct url pattern.'}" />
       <small class="form-text text-muted">Shows Custom Validation Message.<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.maintenanceWebSiteUrl?.errors">{{userForm.controls.maintenanceWebSiteUrl?.errors.url.message}}<br/></small>	
     </div>

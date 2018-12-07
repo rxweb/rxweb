@@ -1,6 +1,6 @@
 
 export class UserInfo {
 
-	negativeNumber: number;
+	positiveNumber: number;
 
 }

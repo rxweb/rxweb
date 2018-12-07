@@ -9,6 +9,7 @@ import { MaxDateCompleteTemplateDrivenComponent } from './complete/max-date-comp
 import { MaxDateValueTemplateDrivenComponent } from './value/max-date-value.component';
 import { MaxDateConditionalExpressionTemplateDrivenComponent } from './conditionalExpression/max-date-conditional-expression.component';
 import { MaxDateMessageTemplateDrivenComponent } from './message/max-date-message.component';
+import { MaxDateFieldNameTemplateDrivenComponent } from './fieldName/max-date-field-name.component';
 import { MaxDateAddTemplateDrivenComponent } from './add/max-date-add.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { MaxDateAddTemplateDrivenComponent } from './add/max-date-add.component'
 	MaxDateValueTemplateDrivenComponent,
 	MaxDateConditionalExpressionTemplateDrivenComponent,
 	MaxDateMessageTemplateDrivenComponent,
+	MaxDateFieldNameTemplateDrivenComponent,
 	MaxDateAddTemplateDrivenComponent,
   ],
 entryComponents: [
@@ -24,6 +26,7 @@ entryComponents: [
 	MaxDateValueTemplateDrivenComponent,
 	MaxDateConditionalExpressionTemplateDrivenComponent,
 	MaxDateMessageTemplateDrivenComponent,
+	MaxDateFieldNameTemplateDrivenComponent,
 	MaxDateAddTemplateDrivenComponent,
   ],
   imports: [
@@ -37,6 +40,7 @@ entryComponents: [
 	MaxDateValueTemplateDrivenComponent,
 	MaxDateConditionalExpressionTemplateDrivenComponent,
 	MaxDateMessageTemplateDrivenComponent,
+	MaxDateFieldNameTemplateDrivenComponent,
 	MaxDateAddTemplateDrivenComponent,
   ],
 

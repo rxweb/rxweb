@@ -2,7 +2,7 @@ import {  numeric,prop, NumericValueType, } from "@rxweb/reactive-form-validator
 
 export class UserInfo {
 
-	@numeric({acceptValue:NumericValueType.NegativeNumber  ,message:'{{0}} is not a negative number' }) 
-	negativeNumber: number;
+	@numeric({message:'{{0}} is not a positive number' }) 
+	positiveNumber: number;
 
 }

@@ -11,4 +11,6 @@ export class User {
 
 	fourthNumber: number;
 
+	sixthNumber: number;
+
 }

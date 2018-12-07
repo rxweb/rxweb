@@ -17,7 +17,7 @@ Suppose you want to create a website-info form, which contains fields like Admin
 Let’s see how url {{validatorType}} fulfil the need.
 
 # Basic url Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a User class and define a property of AdminWebsiteUrl in the model to achieve the functional need of point 1.
 <div component="app-code" key="url-add-model"></div> 
 </data-scope>
@@ -87,14 +87,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="url-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-url-conditionalExpression" title="url decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-url-conditionalExpression" title="url {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
 <div component="app-code" key="url-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-url-message" title="url decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-url-message" title="url {{validatorType}} with message" key="message"></div>
 
 # Complete url Example
 
@@ -105,7 +105,7 @@ This Complete url example which includes all the DefaultConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-url-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="url-complete-model"></div> 
 # [/Model]

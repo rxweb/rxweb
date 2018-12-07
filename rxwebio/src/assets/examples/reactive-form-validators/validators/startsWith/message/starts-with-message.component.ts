@@ -15,7 +15,7 @@ export class StartsWithMessageValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            name:['', RxwebValidators.startsWith({value:'B'  ,message:'{{0}} does not starts with `B`' })], 
+            company:['', RxwebValidators.startsWith({value:'R'  ,message:'{{0}} does not starts with `R`' })], 
         });
     }
 }

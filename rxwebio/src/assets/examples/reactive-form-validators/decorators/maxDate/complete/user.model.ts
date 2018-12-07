@@ -5,15 +5,24 @@ export class User {
 	@prop()
 	userName: string;
 
+	@maxDate({value:'07/30/2018' }) 
+	allocationDate: Date;
+
 	//If you want to apply conditional expression of type 'function'
-	@maxDate({value:new Date(2018,7,30)  ,conditionalExpression:(x,y) => x.userName == "Bharat"  }) 
+	@maxDate({value:'07/30/2018'  ,conditionalExpression:(x,y) => x.userName == "Bharat"  }) 
 	birthDate: Date;
 
 	//If you want to apply conditional expression of type 'string'
-	@maxDate({value:new Date(2018,7,30)  ,conditionalExpression:'x => x.userName == "Bharat"' }) 
+	@maxDate({value:'07/30/2018'  ,conditionalExpression:'x => x.userName == "Bharat"' }) 
 	admissionDate: Date;
 
-	@maxDate({value:new Date(2018,7,30)  ,message:'{{0}} exceeds the Maximum Date Limit' }) 
+	@maxDate({value:'07/30/2018'  ,message:'{{0}} exceeds the Maximum Date Limit' }) 
 	registrationDate: Date;
+
+	@prop()
+	enrollmentDate: Date;
+
+	@maxDate({fieldName:'enrollmentDate' }) 
+	lastRegistrationDate: Date;
 
 }

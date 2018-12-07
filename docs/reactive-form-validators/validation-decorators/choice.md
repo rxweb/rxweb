@@ -20,7 +20,7 @@ Suppose you want to create a employee form in which you want employee to enter v
 Let’s see how choice  {{validatorType}}  fulfil the need.
 
 # Basic choice Validation
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 First we need to create a Employee Model and define a property of hobbies in the model to achieve the functional need of point 1.
 <div component="app-code" key="choice-add-model"></div> 
 </data-scope>
@@ -73,8 +73,8 @@ Below options are not mandatory to use in the `choice` validation. If needed the
 
 <table class="table table-bordered table-striped">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a (click)='scrollTo("#minLength")' title="#minLength">minLength</a></td><td>minLength  is to define a minLength of field which is in form of array</td></tr>
-<tr><td><a (click)='scrollTo("#maxLength")' title="#maxLength">maxLength</a></td><td>maxLength  is to define a maxLength of field which is in form of array</td></tr>
+<tr><td><a (click)='scrollTo("#minLength")' title="#minLength">minLength</a></td><td>MinLength  is to define a minLength of field which is in form of array</td></tr>
+<tr><td><a (click)='scrollTo("#maxLength")' title="#maxLength">maxLength</a></td><td>MaxLength  is to define a maxLength of field which is in form of array</td></tr>
 <tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
 </table>
@@ -84,14 +84,14 @@ Type :  `number`
 minLength  is to define a minLength of field which is in form of array
 
 <div component="app-code" key="choice-minLengthExample-model"></div> 
-<div component="app-example-runner" ref-component="app-choice-minLength" title="choice decorators with minLength" key="minLength"></div>
+<div component="app-example-runner" ref-component="app-choice-minLength" title="choice {{validatorType}} with minLength" key="minLength"></div>
 
 ## maxLength 
 Type :  `number` 
 maxLength number is for define a maxLength number of range
 
 <div component="app-code" key="choice-maxLengthExample-model"></div> 
-<div component="app-example-runner" ref-component="app-choice-maxLength" title="choice decorators with maxLength" key="maxLength"></div>
+<div component="app-example-runner" ref-component="app-choice-maxLength" title="choice {{validatorType}} with maxLength" key="maxLength"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
@@ -104,14 +104,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 > Binding `conditionalExpression` with `string` object. 
 <div component="app-code" key="choice-conditionalExpressionExampleString-model"></div> 
 
-<div component="app-example-runner" ref-component="app-choice-conditionalExpression" title="choice decorators with conditionalExpression" key="conditionalExpression"></div>
+<div component="app-example-runner" ref-component="app-choice-conditionalExpression" title="choice {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
 Type :  `string` 
 To override the global configuration message and show the custom message on particular control property.
 
 <div component="app-code" key="choice-messageExample-model"></div> 
-<div component="app-example-runner" ref-component="app-choice-message" title="choice decorators with message" key="message"></div>
+<div component="app-example-runner" ref-component="app-choice-message" title="choice {{validatorType}} with message" key="message"></div>
 
 # Complete choice Example
 
@@ -122,7 +122,7 @@ This Complete choice example which includes all the ChoiceConfig properties will
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-choice-complete"></div>
 # [/Example]
-<data-scope scope="['decorator']">
+<data-scope scope="['decorator','template-driven']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="choice-complete-model"></div> 
 # [/Model]

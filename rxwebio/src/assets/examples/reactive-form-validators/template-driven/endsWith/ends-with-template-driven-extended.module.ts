@@ -7,23 +7,23 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { EndsWithCompleteTemplateDrivenComponent } from './complete/ends-with-complete.component';
 import { EndsWithValueTemplateDrivenComponent } from './value/ends-with-value.component';
-import { EndsWithMessageTemplateDrivenComponent } from './message/ends-with-message.component';
 import { EndsWithConditionalExpressionTemplateDrivenComponent } from './conditionalExpression/ends-with-conditional-expression.component';
+import { EndsWithMessageTemplateDrivenComponent } from './message/ends-with-message.component';
 import { EndsWithAddTemplateDrivenComponent } from './add/ends-with-add.component';
 
 @NgModule({
   declarations: [
 	EndsWithCompleteTemplateDrivenComponent,
 	EndsWithValueTemplateDrivenComponent,
-	EndsWithMessageTemplateDrivenComponent,
 	EndsWithConditionalExpressionTemplateDrivenComponent,
+	EndsWithMessageTemplateDrivenComponent,
 	EndsWithAddTemplateDrivenComponent,
   ],
 entryComponents: [
 	EndsWithCompleteTemplateDrivenComponent,
 	EndsWithValueTemplateDrivenComponent,
-	EndsWithMessageTemplateDrivenComponent,
 	EndsWithConditionalExpressionTemplateDrivenComponent,
+	EndsWithMessageTemplateDrivenComponent,
 	EndsWithAddTemplateDrivenComponent,
   ],
   imports: [
@@ -35,8 +35,8 @@ entryComponents: [
   exports: [
 	EndsWithCompleteTemplateDrivenComponent,
 	EndsWithValueTemplateDrivenComponent,
-	EndsWithMessageTemplateDrivenComponent,
 	EndsWithConditionalExpressionTemplateDrivenComponent,
+	EndsWithMessageTemplateDrivenComponent,
 	EndsWithAddTemplateDrivenComponent,
   ],
 

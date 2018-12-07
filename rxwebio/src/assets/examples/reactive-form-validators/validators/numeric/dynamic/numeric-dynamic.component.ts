@@ -11,7 +11,8 @@ import { FormBuilderConfiguration,RxFormBuilder} from '@rxweb/reactive-form-vali
 export class NumericDynamicValidatorComponent implements OnInit {
     userInfoFormGroup: FormGroup
 
-				dataTypes = [ "Real", "Positive",];
+				dataTypes = [ "Real", "Integer",];
+	
 	
 	
 	
@@ -25,7 +26,7 @@ export class NumericDynamicValidatorComponent implements OnInit {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/validators/numeric/dynamic/dynamic.json').subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			var userInfo = { dataType:'', negativeNumber:'', decimalNumber:'', integerNumber:'', realNumber:'',  }
+			var userInfo = { dataType:'', negativeNumber:'', decimalNumber:'', integerNumber:'', realNumber:'', positiveNumber:'',  }
 			this.userInfoFormGroup = this.formBuilder.group(userInfo,formBuilderConfiguration);
 		})
     }
