@@ -88,12 +88,5 @@ export class PageComponent implements OnInit {
 
   scrollTo(section) {
     window.location.hash = section;
-    // var node = document.querySelector('#' + section);
-    // node.scrollIntoView({behavior: "instant", block: "start", inline: "nearest"});
-    // var scrolledY = window.scrollY;
-    // if (scrolledY) {
-    //   window.scroll(0, scrolledY - 62);
-    // }
-    // return false;
   }
 }

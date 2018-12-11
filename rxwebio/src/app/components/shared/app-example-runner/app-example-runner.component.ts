@@ -9,6 +9,7 @@ import { ViewContainerRef } from "@angular/core";
 import { ComponentView } from "src/app/domain/view";
 import { ViewChild } from "@angular/core";
 import { CodeExampleComponent } from "src/app/components/shared/code-example/code-example.component";
+import { StackBlitzService } from "src/app/components/shared/stackblitz/stackblitz.service";
 
 @Component({
   selector: 'app-example-runner',
@@ -19,7 +20,11 @@ import { CodeExampleComponent } from "src/app/components/shared/code-example/cod
 export class AppExampleRunnerComponent implements OnInit {
   @Input() title: string;
   @Input() refComponent: string;
-  @Input() content: any;
+  @Input() decoratorName: string;
+  @Input() exampleName: string;
+  @Input() typeName: string;
+  @Input() content:any;
+  @Input() showTab:boolean;
   showElement: any = {};
   tabArray: any = {};
   activeTab: string;
@@ -30,7 +35,7 @@ export class AppExampleRunnerComponent implements OnInit {
   ngOnInit(): void {
     this.showElement = false;
     this.tabArray = [];
-    if(this.content){
+    if(this.content && this.showTab){
       if (this.content.model != null)
         this.tabArray.push({ "tabName": "Model", "tabItem": "model", "content": this.content.model })
       if (this.content.component != null)
@@ -41,6 +46,13 @@ export class AppExampleRunnerComponent implements OnInit {
         this.tabArray.push({ "tabName": "Html", "tabItem": "html", "content": this.content.html })
       this.activeTab = this.tabArray[0].tabName;
     }
+  }
+  openStackblitz(){
+     var stackBlitz = new StackBlitzService();
+     let form = stackBlitz.buildForm(this.decoratorName,this.exampleName,this.typeName,this.content,this.title)
+     document.body.appendChild(form);
+     form.submit();
+     document.body.removeChild(form);
   }
 }
 
