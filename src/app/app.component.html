@@ -54,6 +54,8 @@
     numeric : <input type="text" [numeric]="{'isFormat':true}" [(ngModel)]="after" name="afters" placeholder="After" class="form-control" />
 
     <input type="text" [numeric]="{'isFormat':true}" [(ngModel)]="before" name="befores" placeholder="Before" class="form-control" />
+    template driven image <input type="file" #imageCs="ngModel" [(ngModel)]="imageC" name="imageC" [image]="{maxWidth:1920,maxHeight:1200}"/>
+    {{imageCs.errors | json}}
   </div>
 </form>
 <form #heroForm="ngForm" [rxwebForm]="heroForm">
@@ -99,7 +101,7 @@
     amountamount    <input type="text" formControlName="amount" />{{testForm.controls.amount.errors | json}}
     filedata<input type="file" formControlName="fileData" />{{testForm.controls.fileData.errors | json}}
     filesize<input type="file" formControlName="fileSize" />{{testForm.controls.fileSize.errors | json}}
-
+    image<input type="file" formControlName="image" />{{testForm.controls.image.errors | json}}
   </form>
   <form [formGroup]="userInfoFormGroup">
     <div class="form-group">
@@ -157,6 +159,7 @@
     alpha numeric <input type="text" formControlName="lastName" />{{
 sampleFormGroup.controls.lastName.errors | json
     }}<br />
+    image <input type="file" formControlName="image" />{{sampleFormGroup.controls.image.errors | json}}<br />
     accessor <input type="text" formControlName="classProperty" />{{sampleFormGroup.controls.classProperty.errors | json}}<br />
     contains <input type="text" formControlName="contains" />{{sampleFormGroup.controls.contains.errors | json}}<br />
     digit <input type="text" formControlName="digit" />{{sampleFormGroup.controls.digit.errors | json}}<br />

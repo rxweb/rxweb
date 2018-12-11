@@ -15,7 +15,7 @@ endsWith,
 startsWith,
 primeNumber,
 latitude,
-longitude,rule,RxFormGroup, unique
+longitude,rule,RxFormGroup, unique,image
 } from "@rxweb/reactive-form-validators";
 
 export class Consultant {
@@ -291,6 +291,7 @@ export class Employee {
     @primeNumber()                    primeNumber:number;
     @latitude()                       latitude:number;
     @longitude()                      longitude:number;
+    @image({maxWidth:1920,maxHeight:1200}) image:string;
    private _classProperty: ExternalClass;
 
 
@@ -484,7 +485,8 @@ this.testForm = this.formBuilder.group({
   creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
   amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]],
 fileData:['',RxwebValidators.extension({extensions:[".jpg"]})],
-fileSize:['',RxwebValidators.fileSize({maxSize:20000})]
+fileSize:['',RxwebValidators.fileSize({maxSize:20000})],
+image:['',RxwebValidators.image({maxWidth:1920,maxHeight:1200 })]
   
 });
         this.angularFormGroup = this.validation.group({

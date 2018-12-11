@@ -29,8 +29,6 @@ export class FileControlDirective implements Validator {
       this.pushValidator(FILE_VALIDATOR_NAMES[2],config)
     }
 
-    
-
     constructor(private elementRef: ElementRef){
         this.element = elementRef.nativeElement as Node;
     }
@@ -57,6 +55,6 @@ export class FileControlDirective implements Validator {
           if(result)
             break;
       }
-      return result
+      return result 
     }    
 }

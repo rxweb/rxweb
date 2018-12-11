@@ -51,3 +51,4 @@ export * from './compose-validator.extension';
 export * from './file-validator.extension';
 export * from './custom-validator.extension';
 export * from './unique-validator.extension';
+export * from './image-validator.extension';

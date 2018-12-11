@@ -10,11 +10,12 @@ import { HtmlControlTemplateDirective} from '../directives/html-control-template
 import { ControlHostDirective} from '../directives/control-host.directive'
 import {RxFormControlDirective  } from "../directives/template-validations/rxformcontrol.directive"
 import {FileControlDirective } from "../directives/template-validations/file-control.directive"
+import {ImageFileControlDirective} from "../directives/template-validations/image-file-control.directive"
 @NgModule({
-    declarations: [RxwebFormDirective, RxwebDynamicFormComponent,HtmlControlTemplateDirective,RxwebControlComponent,ControlHostDirective,RxFormControlDirective,FileControlDirective  ],
+    declarations: [RxwebFormDirective, RxwebDynamicFormComponent,HtmlControlTemplateDirective,RxwebControlComponent,ControlHostDirective,RxFormControlDirective,FileControlDirective,ImageFileControlDirective  ],
     imports: [CommonModule,FormsModule, ReactiveFormsModule],
     providers: [RxFormBuilder,DecimalProvider, DecimalPipe],
-    exports:[RxwebFormDirective,RxwebDynamicFormComponent,HtmlControlTemplateDirective,RxwebControlComponent,RxFormControlDirective,FileControlDirective  ]
+    exports:[RxwebFormDirective,RxwebDynamicFormComponent,HtmlControlTemplateDirective,RxwebControlComponent,RxFormControlDirective,FileControlDirective ,ImageFileControlDirective ]
 })
 export class RxReactiveFormsModule {
     static forRoot(): ModuleWithProviders { return { ngModule: RxReactiveFormsModule, providers: [] }; }
