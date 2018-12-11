@@ -483,7 +483,7 @@ this.testForm = this.formBuilder.group({
   cardType:[''],
   creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
   amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]],
-fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
+fileData:['',RxwebValidators.extension({extensions:[".jpg"]})],
 fileSize:['',RxwebValidators.fileSize({maxSize:20000})]
   
 });
