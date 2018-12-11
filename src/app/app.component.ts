@@ -190,7 +190,7 @@ export class Address {
 
 import { CLIENT_SETTINGS } from './client-setting'
 export class Attendance {
-   @unique({additionalValidation:(currentValue,indexOf,fieldName,formGroupValue,formArrayValue) =>{ debugger; return false; }}) @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
+   @unique({additionalValidation:(currentValue,indexOf,fieldName,formGroupValue,formArrayValue) =>{ return false; }}) @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
 }
 export class EmployeeDetail {
    
@@ -284,7 +284,8 @@ export class Employee {
     @dataUri()                        dataUri:string;
     @port()                           port:number;
     @latLong()                        latLong:string
-    @fileSize({maxSize:20000})       extension:object;
+    @extension({extensions:["jpg"]})       extension:object;
+    @fileSize({maxSize:20000})       fileSize:object;  
     @endsWith({value:'jha'})          endsWith:string
     @startsWith({value:'aja'})        startsWith:string
     @primeNumber()                    primeNumber:number;
@@ -483,6 +484,7 @@ this.testForm = this.formBuilder.group({
   creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
   amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]],
 fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
+fileSize:['',RxwebValidators.fileSize({maxSize:20000})]
   
 });
         this.angularFormGroup = this.validation.group({

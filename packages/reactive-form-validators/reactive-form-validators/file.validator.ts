@@ -9,15 +9,17 @@ import { FileConfig } from "../models/config/file-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
-export function fileValidator(config: FileConfig): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } => {
+export function fileValidator(config: FileConfig): any {
+    return (control: AbstractControl,files:FileList): { [key: string]: any } => {
         config = ApplicationUtil.getConfigObject(config);
+        if(!control["validatorConfig"] || !control["validatorConfig"]["file"])
+          ApplicationUtil.configureControl(control,config,AnnotationTypes.file);
        if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
-                let files = control.value as File[];
                 let minFiles = config.minFiles ? config.minFiles : 1;
-                if (!(files.length > 0 && files[0] instanceof File && files.length >= minFiles && files.length <= config.maxFiles))
-                    return ObjectMaker.toJson(AnnotationTypes.file, config.message || null, [control.value]);
+                let maxFiles = config.maxFiles ? config.maxFiles : 1;
+                if (!(files.length > 0 && files[0] instanceof File && files.length >= minFiles && files.length <= maxFiles))
+                    return ObjectMaker.toJson(AnnotationTypes.file, config.message || null, [files.length,minFiles,maxFiles]);
             }
         } return ObjectMaker.null();
     }

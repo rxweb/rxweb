@@ -1,5 +1,5 @@
 import { Directive, Input,ElementRef,Renderer, forwardRef, OnInit,OnDestroy } from '@angular/core';
-import { NG_VALIDATORS, AbstractControl,FormControl} from '@angular/forms';
+import { Validator,NG_VALIDATORS, AbstractControl,FormControl} from '@angular/forms';
 import { formatNumber } from "@angular/common"
 import { APP_VALIDATORS} from '../../const/app-validators.const';
 import { BaseValidator } from './base-validator.directive';
@@ -22,8 +22,9 @@ const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','alphaNumeric','ascii
   selector: '[ngModel],[formControlName],[formControl]',
   providers: [NGMODEL_BINDING],
 })
-export class RxFormControlDirective extends BaseValidator implements OnInit,OnDestroy{
+export class RxFormControlDirective extends BaseValidator implements OnInit,OnDestroy,Validator{
   private eventListeners:any[] = [];
+  private isNumericSubscribed:boolean = false;
   set validationControls(value:{[key:string]:FormControl}){
       this.controls = value;
   }
@@ -142,11 +143,32 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
     }
   }
 
+  subscribeNumericFormatter(){
+    if(this.formControl["validatorConfig"] && this.formControl["validatorConfig"]["numeric"] && this.formControl["validatorConfig"]["numeric"]["isFormat"] && !this.isNumericSubscribed){
+      this.bindNumericElementEvent(this.formControl["validatorConfig"]["numeric"]);
+      this.isNumericSubscribed = true;
+    }
+  }
   
-
   private setValueOnElement(value: any) {
         this.renderer.setElementProperty(this.element, ELEMENT_VALUE, value);
   }
+
+  validate(control: AbstractControl): { [key: string]: any } {
+    if(!this.formControl)
+        this.formControl = control;
+    if(!this.isNumericSubscribed)
+      this.subscribeNumericFormatter();
+    if (control["conditionalValidator"]) {
+      this.conditionalValidator = control["conditionalValidator"];
+      delete control["conditionalValidator"];
+    }
+    if (this.conditionalValidator)
+      this.conditionalValidator(control);
+    if (!this.isProcessed)
+      this.setModelConfig(control);
+    return  this.validator ? this.validator(control) : null;
+    }
 
   ngOnDestroy(){
     this.controls = undefined;

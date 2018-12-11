@@ -96,9 +96,9 @@
     <input type="text" formControlName="age" />{{testForm.controls.age.errors | json}}
     <input type="text" formControlName="cardType" />{{testForm.controls.cardType.errors | json}}
     <input type="text" formControlName="creditCard" />{{testForm.controls.creditCard.errors | json}}
-    <input type="text" formControlName="amount" />{{testForm.controls.amount.errors | json}}
-    <input type="file" formControlName="fileData" />{{testForm.controls.amount.errors | json}}
-    {{testForm.controls.amount.value}}
+    amountamount    <input type="text" formControlName="amount" />{{testForm.controls.amount.errors | json}}
+    filedata<input type="file" formControlName="fileData" />{{testForm.controls.fileData.errors | json}}
+    filesize<input type="file" formControlName="fileSize" />{{testForm.controls.fileSize.errors | json}}
 
   </form>
   <form [formGroup]="userInfoFormGroup">
@@ -144,7 +144,8 @@
     primeNumber <input type="text" formControlName="primeNumber" /> {{sampleFormGroup.controls.primeNumber.errors | json}}<br />
     latitude <input type="text" formControlName="latitude" /> {{sampleFormGroup.controls.latitude.errors | json}}<br />
     longitude <input type="text" formControlName="longitude" /> {{sampleFormGroup.controls.longitude.errors | json}}<br />
-    extension <input type="file" formControlName="extension" /> {{sampleFormGroup.controls.extension.errors | json}}<br />
+    extension <input type="file" formControlName="extension" /> {{sampleFormGroup.controls.extension.errors | json}}<br /> {{sampleFormGroup.controls.extension.value}}
+    fileSize <input type="file" formControlName="fileSize" /> {{sampleFormGroup.controls.fileSize.errors | json}}<br /> {{sampleFormGroup.controls.fileSize.value}}
 
     leapYear <input type="text" formControlName="leapYear" /> {{sampleFormGroup.controls.leapYear.errors | json}}<br />
     factor <input type="text" formControlName="factor" /> {{sampleFormGroup.controls.factor.errors | json}}<br />

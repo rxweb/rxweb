@@ -7,7 +7,7 @@ RADIO,FILE, ELEMENT_VALUE,BLUR,FOCUS,CHANGE,BLANK
 import { ControlExpressionProcess } from './control-expression-process'
 
 
-export class BaseValidator extends ControlExpressionProcess implements Validator{
+export class BaseValidator extends ControlExpressionProcess{
     @Input() formControl:FormControl | AbstractControl;
 
     protected validators:ValidatorFn[];
@@ -28,17 +28,5 @@ export class BaseValidator extends ControlExpressionProcess implements Validator
       this.eventName = eventName.toLowerCase();
     }
 
-  validate(control: AbstractControl): { [key: string]: any } {
-    if(!this.formControl)
-        this.formControl = control;
-    if (control["conditionalValidator"]) {
-      this.conditionalValidator = control["conditionalValidator"];
-      delete control["conditionalValidator"];
-    }
-    if (this.conditionalValidator)
-      this.conditionalValidator(control);
-    if (!this.isProcessed)
-      this.setModelConfig(control);
-    return  this.validator ? this.validator(control) : null;
-    }
+  
 }
