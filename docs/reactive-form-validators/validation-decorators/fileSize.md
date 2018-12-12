@@ -5,11 +5,11 @@ author: rxcontributortwo
 
 ---
 # When to use
-Suppose you want to create a storageCapacity form, which contains fields like device, videoStorageSize, documentStorageSize and photographStorageSize and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..
+Suppose you want to create a UserInfo form, which contains fields like fileType , videoFile , audioFile and imageFile, documentFile ,contactFile, profilePicture and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..
 <ol class='showHideElement'>
-   <li>Allow videoStorageSize which have proper size format and adding Custom Message on videoStorageSize.</li>
-   <li>Apply validation on documentStorageSize field based on matched condition in the form, like if the device is 'SmartPhone', then the documentStorageSize must be a size format (Used as a function).</li>
-   <li>Apply validation on photographStorageSize field based on matched condition in the form, like if the device is 'SmartPhone', then the photographStorageSize must be a size format (Used as a string datatype).</li>
+   <li>Allow videoFile which have proper size format and adding Custom Message on videoFile.</li>
+   <li>Apply validation on documentFile field based on matched condition in the form, like if the fileType is 'Document', then the documentFile must be a size format (Used as a function).</li>
+   <li>Apply validation on imageFile field based on matched condition in the form, like if the device is 'SmartPhone', then the imageFile must be a size format (Used as a string datatype).</li>
    <data-scope scope="['decorator','validator']">
    <li>Apply fileSize validation dynamically based on server rules.</li>
    </data-scope>
@@ -18,7 +18,7 @@ Let's see how fileSize  {{validatorType}}  fulfil the need.
  
 # Basic fileSize Validation
 <data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
-First we need to create a storageCapacity model and define a property of videoStorageSize in the model to achieve the functional need of point 1.
+First we need to create a UserInfo model and define a property of videoFile in the model to achieve the functional need of point 1.
 <div component="app-code" key="fileSize-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.

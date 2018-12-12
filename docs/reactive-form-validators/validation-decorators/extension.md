@@ -8,8 +8,8 @@ author: rxcontributortwo
 Suppose you want to create a storageCapacity form, which contains fields like fileType, profilePicture ,imageFile ,documentFile ,contactFile and you want the user to enter input which is a proper extension format. Here depending upon the requirement, these scenarios may arise..
 <ol class='showHideElement'>
    <li>Allow profilePicture which have proper extension format and adding Custom Message on profilePicture.</li>
-   <li>Apply  extension validation on  documentFile field based on matched condition in the form, like if the device is 'Document', then the documentFile must be a extension format (Used as a function).</li>
-   <li>Apply extension validation on imageFile field based on matched condition in the form, like if the device is 'Picture', then the imageFile must be a extension format (Used as a string datatype).</li>
+   <li>Apply  extension validation on  documentFile field based on matched condition in the form, like if the fileType is 'Document', then the documentFile must be a extension format (Used as a function).</li>
+   <li>Apply extension validation on imageFile field based on matched condition in the form, like if the fileType is 'Picture', then the imageFile must be a extension format (Used as a string datatype).</li>
    <data-scope scope="['decorator','validator']">
    <li>Apply extension validation dynamically based on server rules.</li>
    </data-scope>
