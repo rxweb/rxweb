@@ -1,13 +1,24 @@
 <div>
-  <form #storagecapacityForm = "ngForm">
+  <form #userinfoForm = "ngForm">
     <div class="form-group">
-      <label>Photograph Storage Size</label>
-	    <input type="text" name="photographStorageSize" [(ngModel)]="storagecapacity.photographStorageSize"  class="form-control" />
+      <label>Video File</label>
+	    <input type="file" name="videoFile" [(ngModel)]="userinfo.videoFile"  class="form-control" />
 
-      <small class="form-text text-muted">If you want to apply conditional validation on 'Photograph Storage Size' then you need to add 'Device' input as 'SmartPhone'.<br/></small>
-      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="storagecapacityForm.controls.photographStorageSize?.errors">{{storagecapacityForm.controls.photographStorageSize?.errors.fileSize.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.videoFile?.errors">{{userinfoForm.controls.videoFile?.errors.fileSize.message}}<br/></small>	
     </div>
-    <button [disabled]="!storagecapacityForm.valid" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+      <label>Audio File</label>
+	    <input type="file" name="audioFile" [(ngModel)]="userinfo.audioFile"  class="form-control" />
+
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.audioFile?.errors">{{userinfoForm.controls.audioFile?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Image File</label>
+	    <input type="file" name="imageFile" [(ngModel)]="userinfo.imageFile"  class="form-control" />
+
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Image File' then you need to add 'File Type' input as 'Picture'.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.imageFile?.errors">{{userinfoForm.controls.imageFile?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>
 </div>

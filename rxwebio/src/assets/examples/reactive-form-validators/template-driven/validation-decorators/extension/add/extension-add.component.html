@@ -2,7 +2,7 @@
   <form #userinfoForm = "ngForm">
     <div class="form-group">
       <label>Profile Picture</label>
-	    <input type="text" name="profilePicture" [(ngModel)]="userinfo.profilePicture"  class="form-control" />
+	    <input type="file" name="profilePicture" [(ngModel)]="userinfo.profilePicture"  class="form-control" />
 
       <small class="form-text text-muted">This field only allow file extension as jpg or bmp only.<br/></small>
 	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.profilePicture?.errors">{{userinfoForm.controls.profilePicture?.errors.extension.message}}<br/></small>	

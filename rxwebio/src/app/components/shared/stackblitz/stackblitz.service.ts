@@ -9,19 +9,23 @@ export class StackBlitzService {
   constructor() {
   }
 
-  buildForm(validationName: string, exampleName: string, validationType: string, exampleContent: { [key: string]: any }, title?: string) {
+  buildForm(validationName: string, exampleName: string, validationType: string,templateDrivenType:string, exampleContent: { [key: string]: any }, title?: string) {
     if (title == null)
       title = validationName + " " + validationType + " with " + exampleName;
     let exampleComponentFileName = `src/app/${this.parseName(validationName)}-${this.parseName(exampleName)}.component.ts`
     let componentPath = `${this.parseName(validationName)}-${this.parseName(exampleName)}.component`;
     let exampleComponentHtmlFileName = `src/app/${this.parseName(validationName)}-${this.parseName(exampleName)}.component.html`
     let form = this.createFormElement(exampleComponentFileName);
-    this.addDefaultElement(form, validationName, exampleName, validationType, title);
+    this.addDefaultElement(form, validationName, exampleName, validationType,templateDrivenType, title);
     let selectorName;
     let componentName;
-    if (validationType != undefined && validationType != "decorator") {
+    if (validationType != undefined && validationType == "validator") {
       selectorName = `app-${validationName}-${exampleName}-${this.dashCase(validationType)}`
       componentName = `${this.pascalCase(validationName)}${this.pascalCase(exampleName)}${this.pascalCase(validationType)}Component`;
+    }
+    else if (validationType != undefined && validationType == "templateDriven") {
+      selectorName = `app-${validationName}-${exampleName}-${this.dashCase(validationType)}-validation-${templateDrivenType}`
+      componentName = `${this.pascalCase(validationName)}${this.pascalCase(exampleName)}${this.pascalCase(validationType)}Validation${this.pascalCase(templateDrivenType)}Component`;   
     }
     else {
       selectorName = `app-${validationName}-${exampleName}`;
@@ -59,8 +63,8 @@ export class StackBlitzService {
     return form;
   }
 
-  private addDefaultElement(form: any, validatorName: string, exampleName: string, validatorType: string, title?: string) {
-    ['angular', 'reactive-form-validation', 'rxweb', validatorType, validatorName, exampleName].forEach((tag, i) => this.addInputElement(form, `tags[${i}]`, tag));
+  private addDefaultElement(form: any, validatorName: string, exampleName: string, validatorType:string, templateDrivenType:string, title?: string) {
+    ['angular', 'reactive-form-validation', 'rxweb', validatorType,templateDrivenType, validatorName, exampleName].forEach((tag, i) => this.addInputElement(form, `tags[${i}]`, tag));
     this.addInputElement(form, 'private', 'true');
     this.addInputElement(form, 'title', title);
     this.addInputElement(form, 'description', title);

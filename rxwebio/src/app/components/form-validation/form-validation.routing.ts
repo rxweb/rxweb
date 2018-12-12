@@ -59,6 +59,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './validators/factor/factor.module#FactorModule',
 },
 {
+	path:'file',
+	loadChildren: './validators/file/file.module#FileModule',
+},
+{
 	path:'fileSize',
 	loadChildren: './validators/fileSize/file-size.module#FileSizeModule',
 },
@@ -73,6 +77,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'hexColor',
 	loadChildren: './validators/hexColor/hex-color.module#HexColorModule',
+},
+{
+	path:'image',
+	loadChildren: './validators/image/image.module#ImageModule',
 },
 {
 	path:'json',

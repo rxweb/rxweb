@@ -7,15 +7,15 @@ import { RxwebValidators } from '@rxweb/reactive-form-validators';
     templateUrl: './file-size-message.component.html'
 })
 export class FileSizeMessageValidatorComponent implements OnInit {
-    storageCapacityFormGroup: FormGroup
+    userInfoFormGroup: FormGroup
 
 	constructor(
         private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
-        this.storageCapacityFormGroup = this.formBuilder.group({
-            videoStorageSize:['', RxwebValidators.fileSize({maxSize:50  ,message:'{{0}} is not a valid size' })], 
+        this.userInfoFormGroup = this.formBuilder.group({
+            contactFile:['', RxwebValidators.fileSize({maxSize:10  ,message:'File exceed maximum size.' })], 
         });
     }
 }

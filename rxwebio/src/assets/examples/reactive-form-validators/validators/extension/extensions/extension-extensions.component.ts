@@ -15,8 +15,7 @@ export class ExtensionExtensionsValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({
-            imageFile:['', RxwebValidators.extension({extensions:['jpg','bmp']  ,conditionalExpression:'x => x.fileType == "Picture"' })], 
-            documentFile:['', RxwebValidators.extension({extensions:['doc','docx']  ,conditionalExpression:'(x,y) => x.fileType == "Document"' })], 
+            profilePicture:['', RxwebValidators.extension({extensions:['jpg','bmp'] })], 
         });
     }
 }

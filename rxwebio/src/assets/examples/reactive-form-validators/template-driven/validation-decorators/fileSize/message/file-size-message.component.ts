@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,Validators } from "@angular/forms"
-import { StorageCapacity } from './storage-capacity.model';
+import { UserInfo } from './user-info.model';
 
 @Component({
     selector: 'app-fileSize-message-template-driven-validation-decorators',
     templateUrl: './file-size-message.component.html'
 })
 export class FileSizeMessageTemplateDrivenValidationDecoratorsComponent implements OnInit {
-    storagecapacity: StorageCapacity
+    userinfo: UserInfo
 	
     constructor(
     ) { }
 
     ngOnInit() {
-       this.storagecapacity= new StorageCapacity()
+       this.userinfo= new UserInfo()
     }
 }

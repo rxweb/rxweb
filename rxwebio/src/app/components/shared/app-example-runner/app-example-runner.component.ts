@@ -25,6 +25,7 @@ export class AppExampleRunnerComponent implements OnInit {
   @Input() typeName: string;
   @Input() content:any;
   @Input() showTab:boolean;
+  @Input() templateDrivenType:string;
   showElement: any = {};
   tabArray: any = {};
   activeTab: string;
@@ -49,7 +50,7 @@ export class AppExampleRunnerComponent implements OnInit {
   }
   openStackblitz(){
      var stackBlitz = new StackBlitzService();
-     let form = stackBlitz.buildForm(this.decoratorName,this.exampleName,this.typeName,this.content,this.title)
+     let form = stackBlitz.buildForm(this.decoratorName,this.exampleName,this.typeName,this.templateDrivenType,this.content,this.title)
      document.body.appendChild(form);
      form.submit();
      document.body.removeChild(form);
