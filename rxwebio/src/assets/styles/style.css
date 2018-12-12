@@ -6235,3 +6235,12 @@ body.hide-sidebar #menu .header-link {
     opacity: 0;
     transition: all 0.3s;
 }
+.right-tabs li{
+    float: right
+}
+.showElement{
+    display: block;
+}
+.hideElement{
+    display: none;
+}

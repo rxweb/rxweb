@@ -1,0 +1,12 @@
+<div>
+  <form #userForm = "ngForm">
+    <div class="form-group">
+      <label>Maintenance Website Url</label>
+	    <input type="text" name="maintenanceWebSiteUrl" [(ngModel)]="user.maintenanceWebSiteUrl"  class="form-control" />
+
+      <small class="form-text text-muted">Shows Custom Validation Message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.maintenanceWebSiteUrl?.errors">{{userForm.controls.maintenanceWebSiteUrl?.errors.url.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

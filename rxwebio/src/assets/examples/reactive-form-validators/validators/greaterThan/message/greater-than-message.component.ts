@@ -15,7 +15,6 @@ export class GreaterThanMessageValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            age:['',], 
             otherAge:['', RxwebValidators.greaterThan({fieldName:'age'  ,message:'Please enter number greater than 0.' })], 
         });
     }

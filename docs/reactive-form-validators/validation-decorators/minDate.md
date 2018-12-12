@@ -20,16 +20,16 @@ Let’s see how minDate {{validatorType}} fulfil the need.
 To Configure Date format globally in your application, Please refer <a href="/reactive-form-config">`ReactiveFormConfig`</a>
 
 # Basic MinDate Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a User class and define a property of RegistrationDate in the model to achieve the functional need of point 1.
-<div component="app-code" class='showHideElement' key="minDate-add-model"></div> 
+<div component="app-code" key="minDate-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
 <data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -37,26 +37,26 @@ Here we have covered Add form operations.
 <div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-<div component="app-code" class='showHideElement' key="minDate-add-component"></div> 
+<div component="app-code" key="minDate-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="minDate-add-html"></div> 
+<div component="app-code" key="minDate-add-html"></div> 
 <div component="app-example-runner" ref-component="app-minDate-add"></div>
 # [/Add]
 # [Edit](#tab\basicedit)
-<div component="app-code" class='showHideElement' key="minDate-edit-component"></div>
+<div component="app-code" key="minDate-edit-component"></div>
 The below code is `user-data.json` for getting data from the server 
-<div component="app-code" class='showHideElement' key="minDate-edit-json"></div> 
+<div component="app-code" key="minDate-edit-json"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="minDate-edit-html"></div> 
+<div component="app-code" key="minDate-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-minDate-edit"></div>
 # [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
-<div component="app-code" class='showHideElement' key="minDate-add-component"></div> 
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
+<div component="app-code" key="minDate-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="minDate-add-html"></div> 
+<div component="app-code" key="minDate-add-html"></div> 
 <div component="app-example-runner" ref-component="app-minDate-add"></div>
 </data-scope>
 
@@ -69,7 +69,7 @@ Below options are not mandatory to use in the `@minDate()` decorator. If needed 
 Below options are not mandatory to use in the `RxwebValidators.minDate()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `minDate` validation. If needed then use the below options.
 </data-scope>
 
@@ -86,7 +86,7 @@ Type :  `string`
 
 MinDate validation should be applied based on the `fieldName` on which the minDate has to be set.
 
-<div component="app-code" class='showHideElement' key="minDate-fieldNameExample-model"></div> 
+<div component="app-code" key="minDate-fieldNameExample-model"></div> 
 <div component="app-example-runner" ref-component="app-minDate-fieldName" title="minDate {{validatorType}} with fieldName" key="fieldName"></div>
 
 ## conditionalExpression 
@@ -96,9 +96,9 @@ Min Date validation should be applied if the condition is matched in the `condit
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
 > Binding `conditionalExpression` with `Function` object.
-<div component="app-code" class='showHideElement' key="minDate-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-code" key="minDate-conditionalExpressionExampleFunction-model"></div> 
 > Binding `conditionalExpression` with `string` object.
-<div component="app-code" class='showHideElement' key="minDate-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="minDate-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-minDate-conditionalExpression" title="minDate {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
@@ -107,7 +107,7 @@ Type :  `string`
 
 To override the global configuration message and set the custom message on respective FormControl.
 
-<div component="app-code" class='showHideElement' key="minDate-messageExample-model"></div> 
+<div component="app-code" key="minDate-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-minDate-message" title="minDate {{validatorType}} with message" key="message"></div>
 
 ## value 
@@ -115,7 +115,7 @@ Type :  `Date`
 
 Enter date value which you want to restrict in the property. 
 
-<div component="app-code" class='showHideElement' key="minDate-valueExample-model"></div> 
+<div component="app-code" key="minDate-valueExample-model"></div> 
 <div component="app-example-runner" ref-component="minDate-value-value" title="minDate {{validatorType}} with value" key="value"></div>
 
 # Complete minDate Example
@@ -127,16 +127,16 @@ This Complete minDate example which includes all the DateConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-minDate-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
-<div component="app-code" class='showHideElement' key="minDate-complete-model"></div> 
+<div component="app-code" key="minDate-complete-model"></div> 
 # [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
-<div component="app-code" class='showHideElement' key="minDate-complete-component"></div> 
+<div component="app-code" key="minDate-complete-component"></div> 
 # [/Component]
 # [Html](#tab\completehtml)
-<div component="app-code" class='showHideElement' key="minDate-complete-html"></div> 
+<div component="app-code" key="minDate-complete-html"></div> 
 # [/Html]
 ***
 
@@ -153,17 +153,17 @@ This Dynamic minDate example which execute based on json passed. conditional exp
 # [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-<div component="app-code" class='showHideElement' key="minDate-dynamic-model"></div>
+<div component="app-code" key="minDate-dynamic-model"></div>
 # [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
-<div component="app-code" class='showHideElement' key="minDate-dynamic-component"></div>
+<div component="app-code" key="minDate-dynamic-component"></div>
 # [/Component]
 # [Json](#tab\dynamicjson)
-<div component="app-code" class='showHideElement' key="minDate-dynamic-json"></div>
+<div component="app-code" key="minDate-dynamic-json"></div>
 # [/Json]
 # [Html](#tab\dynamichtml)
-<div component="app-code" class='showHideElement' key="minDate-dynamic-html"></div> 
+<div component="app-code" key="minDate-dynamic-html"></div> 
 # [/Html]
 ***
 </data-scope>

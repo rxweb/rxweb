@@ -1,0 +1,28 @@
+<div>
+  <form #countryForm = "ngForm">
+    <div class="form-group">
+      <label> Continent</label>
+	    <input type="text" name="continent" [(ngModel)]="country.continent"  class="form-control" />
+
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Second Country Longitude' or 'Third Country Longitude', then you need to add 'Continent' input as 'Asia'.<br/></small>
+	   <small class="form-text text-danger" *ngIf="countryForm.controls.continent?.errors">{{countryForm.controls.continent?.errors.longitude.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Third Country Longitude</label>
+	    <input type="text" name="thirdCountryLongitude" [(ngModel)]="country.thirdCountryLongitude"  class="form-control" [longitude]="{'conditionalExpression':'x => x.continent ==\'Asia\''}"/>
+
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Third Country Longitude' then you need to add 'Continent' input as 'Asia'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+	   <small class="form-text text-danger" *ngIf="countryForm.controls.thirdCountryLongitude?.errors">{{countryForm.controls.thirdCountryLongitude?.errors.longitude.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>First Country Longitude</label>
+	    <input type="text" name="firstCountryLongitude" [(ngModel)]="country.firstCountryLongitude"  class="form-control" [longitude]="{'message':'First Country Longitude is not a longitude'}"/>
+
+      <small class="form-text text-muted">You can enter only longitude<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="countryForm.controls.firstCountryLongitude?.errors">{{countryForm.controls.firstCountryLongitude?.errors.longitude.message}}<br/></small>	
+    </div>
+    <button [disabled]="!countryForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

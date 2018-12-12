@@ -19,16 +19,16 @@ Suppose you want to create UserInfo form, which contains fields like firstName, 
 Let’s see how compose  {{validatorType}}  fulfil the need.
 
 # Basic Compose Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a UserInfo class and define a property of firstName in the model to achieve the functional need of point 1.
-<div component="app-code" class='showHideElement' key="compose-add-model"></div> 
+<div component="app-code" key="compose-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
 <data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -36,26 +36,26 @@ Here we have covered Add form operations.
 <div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-<div component="app-code" class='showHideElement' key="compose-add-component"></div> 
+<div component="app-code" key="compose-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="compose-add-html"></div> 
+<div component="app-code" key="compose-add-html"></div> 
 <div component="app-example-runner" ref-component="app-compose-add"></div>
 # [/Add]
 # [Edit](#tab\basicedit)
-<div component="app-code" class='showHideElement' key="compose-edit-component"></div> 
+<div component="app-code" key="compose-edit-component"></div> 
 The below code is `userInfo-data.json` for getting data from the server
-<div component="app-code" class='showHideElement' key="compose-edit-json"></div> 
+<div component="app-code" key="compose-edit-json"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="compose-edit-html"></div> 
+<div component="app-code" key="compose-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-compose-edit"></div>
 # [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
-<div component="app-code" class='showHideElement' key="compose-add-component"></div> 
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
+<div component="app-code" key="compose-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="compose-add-html"></div> 
+<div component="app-code" key="compose-add-html"></div> 
 <div component="app-example-runner" ref-component="app-compose-add"></div>
 </data-scope>
 
@@ -66,7 +66,7 @@ Below options are not mandatory to use in the `@compose()` decorator. If needed 
 <data-scope scope="['validator']">
 Below options are not mandatory to use in the `RxwebValidators.compose()` validator. If needed then use the below options.
 </data-scope>
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `compose` validation. If needed then use the below options.
 </data-scope>
 
@@ -81,7 +81,7 @@ Type :  `ValidatorFn[]`
 
 It is an array of rxwebValidators. Validators are set according to the relative requirement based on which validation you want to apply. Here you have to specify the name of validator which you want to use.
 
-<div component="app-code" class='showHideElement' key="compose-validatorsExample-model"></div> 
+<div component="app-code" key="compose-validatorsExample-model"></div> 
 <div component="app-example-runner" ref-component="app-compose-validators" title="Compose {{validatorType}} with validators" key="validators"></div>
 
 ## conditionalExpression 
@@ -91,9 +91,9 @@ Compose validation should be applied if the condition is matched in the `conditi
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
 > Binding `conditionalExpression` with `Function` object. 
-<div component="app-code" class='showHideElement' key="compose-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-code" key="compose-conditionalExpressionExampleFunction-model"></div> 
 > Binding `conditionalExpression` with `string` object. 
-<div component="app-code" class='showHideElement' key="compose-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="compose-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-compose-conditionalExpression" title="alpha {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
@@ -106,16 +106,16 @@ This Complete Compose example which includes all the ComposeConfig properties wi
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-compose-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
-<div component="app-code" class='showHideElement' key="compose-complete-model"></div> 
+<div component="app-code" key="compose-complete-model"></div> 
 # [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
-<div component="app-code" class='showHideElement' key="compose-complete-component"></div> 
+<div component="app-code" key="compose-complete-component"></div> 
 # [/Component]
 # [Html](#tab\completehtml)
-<div component="app-code" class='showHideElement' key="compose-complete-html"></div> 
+<div component="app-code" key="compose-complete-html"></div> 
 # [/Html]
 ***
 
@@ -132,17 +132,17 @@ This Dynamic Compose example which execute based on json passed. conditional exp
 # [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-<div component="app-code" class='showHideElement' key="compose-dynamic-model"></div>
+<div component="app-code" key="compose-dynamic-model"></div>
 # [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
-<div component="app-code" class='showHideElement' key="compose-dynamic-component"></div>
+<div component="app-code" key="compose-dynamic-component"></div>
 # [/Component]
 # [Json](#tab\dynamicjson)
-<div component="app-code" class='showHideElement' key="compose-dynamic-json"></div>
+<div component="app-code" key="compose-dynamic-json"></div>
 # [/Json]
 # [Html](#tab\dynamichtml)
-<div component="app-code" class='showHideElement' key="compose-dynamic-html"></div> 
+<div component="app-code" key="compose-dynamic-html"></div> 
 # [/Html]
 ***
 </data-scope>

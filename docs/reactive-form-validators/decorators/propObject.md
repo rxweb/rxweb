@@ -11,13 +11,13 @@ Let's see how @propObject() decorator fulfil the need.
 # Basic propObject decorator
 First we need to create a user model and define a property of emailAddress in user class, create Address class in the user model and define property of city and country into it.Create propObject of address class in the user class to achieve the functional need.
 
-<div component="app-code" class='showHideElement' key="propObject-add-model"></div> 
+<div component="app-code" key="propObject-add-model"></div> 
 
 Through Angular FormBuilder service we create FormGroup in the component.
 
-<div component="app-code" class='showHideElement' key="propObject-add-component"></div> 
+<div component="app-code" key="propObject-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="propObject-add-html"></div> 
+<div component="app-code" key="propObject-add-html"></div> 
 <div component="app-propObject-add" title="propObject Decorator for add Example"></div>
 
 # Complete propObject Example
@@ -29,10 +29,10 @@ This Complete propObject example which will fulfil the requirement.
 # [Example](#tab\completeexample)
 <div component="app-propObject-complete"></div>
 # [Model](#tab\completemodel)
-<div component="app-code" class='showHideElement' key="propObject-complete-model"></div> 
+<div component="app-code" key="propObject-complete-model"></div> 
 </data-scope>
 # [Component](#tab\completecomponent)
-<div component="app-code" class='showHideElement' key="propObject-complete-component"></div> 
+<div component="app-code" key="propObject-complete-component"></div> 
 # [Html](#tab\completehtml)
-<div component="app-code" class='showHideElement' key="propObject-complete-html"></div> 
+<div component="app-code" key="propObject-complete-html"></div> 
 ***

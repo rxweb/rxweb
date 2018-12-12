@@ -19,16 +19,16 @@ Let’s see how maxNumber {{validatorType}} fulfil the need.
 
 # Basic MaxNumber Validation
 
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create subject-detail model class define a property of PassingMarks in the model to achieve the functional need of point 1.
-<div component="app-code" class='showHideElement' key="maxNumber-add-model"></div> 
+<div component="app-code" key="maxNumber-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
 <data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -36,26 +36,26 @@ Here we have covered Add form operations.
 <div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-<div component="app-code" class='showHideElement' key="maxNumber-add-component"></div> 
+<div component="app-code" key="maxNumber-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="maxNumber-add-html"></div> 
+<div component="app-code" key="maxNumber-add-html"></div> 
 <div component="app-example-runner" ref-component="app-MaxNumber-add"></div>
 # [/Add]
 # [Edit](#tab\basicedit)
-<div component="app-code" class='showHideElement' key="maxNumber-edit-component"></div> 
+<div component="app-code" key="maxNumber-edit-component"></div> 
 The below code is `subject-detail-data.json` for getting data from the server
-<div component="app-code" class='showHideElement' key="maxNumber-edit-json"></div> 
+<div component="app-code" key="maxNumber-edit-json"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="maxNumber-edit-html"></div> 
+<div component="app-code" key="maxNumber-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-MaxNumber-edit"></div>
 # [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
-<div component="app-code" class='showHideElement' key="maxNumber-add-component"></div> 
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
+<div component="app-code" key="maxNumber-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="maxNumber-add-html"></div> 
+<div component="app-code" key="maxNumber-add-html"></div> 
 <div component="app-example-runner" ref-component="app-MaxNumber-add"></div>
 </data-scope>
 
@@ -68,7 +68,7 @@ Below options are not mandatory to use in the `@maxNumber()` decorator. If neede
 Below options are not mandatory to use in the `RxwebValidators.maxNumber()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `maxNumber` validation. If needed then use the below options.
 </data-scope>
 
@@ -85,9 +85,9 @@ Max Number validation should be applied if the condition is matched in the `cond
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
 > Binding `conditionalExpression` with `Function` object.
-<div component="app-code" class='showHideElement' key="maxNumber-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-code" key="maxNumber-conditionalExpressionExampleFunction-model"></div> 
 > Binding `conditionalExpression` with `string` object.
-<div component="app-code" class='showHideElement' key="maxNumber-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="maxNumber-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-maxNumber-conditionalExpression" title="maxNumber {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
@@ -95,14 +95,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
-<div component="app-code" class='showHideElement' key="maxNumber-messageExample-model"></div> 
+<div component="app-code" key="maxNumber-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-maxNumber-message" title="maxNumber {{validatorType}} with message" key="message"></div>
 
 ## value 
 Type :  `number` 
 enter value which you want to restrict number in the property.
 
-<div component="app-code" class='showHideElement' key="maxNumber-valueExample-model"></div> 
+<div component="app-code" key="maxNumber-valueExample-model"></div> 
 <div component="app-example-runner" ref-component="app-maxNumber-value" title="maxNumber {{validatorType}} with value" key="value"></div>
 
 # Complete MaxNumber Example
@@ -114,16 +114,16 @@ This Complete MaxNumber example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-MaxNumber-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
-<div component="app-code" class='showHideElement' key="maxNumber-complete-model"></div> 
+<div component="app-code" key="maxNumber-complete-model"></div> 
 # [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
-<div component="app-code" class='showHideElement' key="maxNumber-complete-component"></div> 
+<div component="app-code" key="maxNumber-complete-component"></div> 
 # [/Component]
 # [Html](#tab\completehtml)
-<div component="app-code" class='showHideElement' key="maxNumber-complete-html"></div> 
+<div component="app-code" key="maxNumber-complete-html"></div> 
 # [/Html]
 ***
 
@@ -140,17 +140,17 @@ This Dynamic MaxDate example which execute based on json passed. conditional exp
 # [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-<div component="app-code" class='showHideElement' key="maxNumber-dynamic-model"></div>
+<div component="app-code" key="maxNumber-dynamic-model"></div>
 # [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
-<div component="app-code" class='showHideElement' key="maxNumber-dynamic-component"></div>
+<div component="app-code" key="maxNumber-dynamic-component"></div>
 # [/Component]
 # [Json](#tab\dynamicjson)
-<div component="app-code" class='showHideElement' key="maxNumber-dynamic-json"></div>
+<div component="app-code" key="maxNumber-dynamic-json"></div>
 # [/Json]
 # [Html](#tab\dynamichtml)
-<div component="app-code" class='showHideElement' key="maxNumber-dynamic-html"></div>
+<div component="app-code" key="maxNumber-dynamic-html"></div>
 # [/Html]
 ***
 </data-scope>

@@ -5,6 +5,10 @@ const MAX_LENGTH_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const MAX_LENGTH_ROUTING: ModuleWithProviders = RouterModule.forChild(MAX_LENGTH_ROUTES);

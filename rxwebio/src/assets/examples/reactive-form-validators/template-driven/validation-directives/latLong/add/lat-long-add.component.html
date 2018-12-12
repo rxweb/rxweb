@@ -1,0 +1,12 @@
+<div>
+  <form #countryForm = "ngForm">
+    <div class="form-group">
+      <label>First Country</label>
+	    <input type="text" name="firstCountry" [(ngModel)]="country.firstCountry"  class="form-control" latLong/>
+
+      <small class="form-text text-muted">You must enter a proper Latitude or Longitude<br/></small>
+	   <small class="form-text text-danger" *ngIf="countryForm.controls.firstCountry?.errors">{{countryForm.controls.firstCountry?.errors.latLong.message}}<br/></small>	
+    </div>
+    <button [disabled]="!countryForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -18,16 +18,16 @@ Let’s see how minLength {{validatorType}} fulfil the need.
 
 # Basic MinLength Validation
 
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create Contact model class define a property of CountryName in the model to achieve the functional need of point 1.
-<div component="app-code" class='showHideElement' key="minLength-add-model"></div> 
+<div component="app-code" key="minLength-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
 <data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope> 
 
@@ -35,26 +35,26 @@ Here we have covered Add form operations.
 <div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-<div component="app-code" class='showHideElement' key="minLength-add-component"></div> 
+<div component="app-code" key="minLength-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="minLength-add-html"></div> 
+<div component="app-code" key="minLength-add-html"></div> 
 <div component="app-example-runner" ref-component="app-minLength-add"></div>
 # [/Add]
 # [Edit](#tab\basicedit)
-<div component="app-code" class='showHideElement' key="minLength-edit-component"></div> 
+<div component="app-code" key="minLength-edit-component"></div> 
 The below code is `contact-data.json` for getting data from the server
-<div component="app-code" class='showHideElement' key="minLength-edit-json"></div> 
+<div component="app-code" key="minLength-edit-json"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="minLength-edit-html"></div> 
+<div component="app-code" key="minLength-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-minLength-edit"></div>
 # [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
-<div component="app-code" class='showHideElement' key="minLength-add-component"></div> 
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
+<div component="app-code" key="minLength-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="minLength-add-html"></div> 
+<div component="app-code" key="minLength-add-html"></div> 
 <div component="app-example-runner" ref-component="app-minLength-add"></div>
 </data-scope>
 
@@ -68,7 +68,7 @@ Below options are not mandatory to use in the `@minLength()` decorator. If neede
 Below options are not mandatory to use in the `RxwebValidators.minLength()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `minLength` validation. If needed then use the below options.
 </data-scope>
 
@@ -85,9 +85,9 @@ Min Length validation should be applied if the condition is matched in the `cond
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
 > Binding `conditionalExpression` with `Function` object.
-<div component="app-code" class='showHideElement' key="minLength-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-code" key="minLength-conditionalExpressionExampleFunction-model"></div> 
 > Binding `conditionalExpression` with `string` object.
-<div component="app-code" class='showHideElement' key="minLength-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="minLength-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-minLength-conditionalExpression" title="minLength {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
@@ -95,14 +95,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `string` 
 To override the global configuration message and set the custom error message on respective FormControl
 
-<div component="app-code" class='showHideElement' key="minLength-messageExample-model"></div> 
+<div component="app-code" key="minLength-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-minLength-message" title="minLength {{validatorType}} with message" key="message"></div>
 
 ## value 
 Type :  `number` 
 enter value which you want to restrict string length in the property.
 
-<div component="app-code" class='showHideElement' key="minLength-valueExample-model"></div> 
+<div component="app-code" key="minLength-valueExample-model"></div> 
 <div component="app-example-runner" ref-component="app-minLength-value" title="minLength {{validatorType}} with value" key="value"></div>
 
 # Complete MinLength Example
@@ -114,16 +114,16 @@ This Complete MinLength example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-minLength-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
-<div component="app-code" class='showHideElement' key="minLength-complete-model"></div> 
+<div component="app-code" key="minLength-complete-model"></div> 
 # [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
-<div component="app-code" class='showHideElement' key="minLength-complete-component"></div> 
+<div component="app-code" key="minLength-complete-component"></div> 
 # [/Component]
 # [Html](#tab\completehtml)
-<div component="app-code" class='showHideElement' key="minLength-complete-html"></div> 
+<div component="app-code" key="minLength-complete-html"></div> 
 # [/Html]
 ***
 
@@ -140,17 +140,17 @@ This Dynamic Alpha example which execute based on json passed. conditional expre
 # [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-<div component="app-code" class='showHideElement' key="minLength-dynamic-model"></div>
+<div component="app-code" key="minLength-dynamic-model"></div>
 # [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
-<div component="app-code" class='showHideElement' key="minLength-dynamic-component"></div>
+<div component="app-code" key="minLength-dynamic-component"></div>
 # [/Component]
 # [Json](#tab\dynamicjson)
-<div component="app-code" class='showHideElement' key="minLength-dynamic-json"></div>
+<div component="app-code" key="minLength-dynamic-json"></div>
 # [/Json]
 # [Html](#tab\dynamichtml)
-<div component="app-code" class='showHideElement' key="minLength-dynamic-html"></div> 
+<div component="app-code" key="minLength-dynamic-html"></div> 
 # [/Html]
 ***
 </data-scope>

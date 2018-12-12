@@ -5,6 +5,10 @@ const DIGIT_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const DIGIT_ROUTING: ModuleWithProviders = RouterModule.forChild(DIGIT_ROUTES);

@@ -1,0 +1,13 @@
+<div>
+  <form #resultinfoForm = "ngForm">
+    <div class="form-group">
+      <label>Science</label>
+	    <input type="text" name="science" [(ngModel)]="resultinfo.science"  class="form-control" />
+
+      <small class="form-text text-muted">Shows Custom Validation Message<br/></small>
+      <small class="form-text text-muted">you can enter min number upto 35<br/></small>
+	   <small class="form-text text-danger" *ngIf="resultinfoForm.controls.science?.errors">{{resultinfoForm.controls.science?.errors.minNumber.message}}<br/></small>	
+    </div>
+    <button [disabled]="!resultinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

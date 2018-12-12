@@ -1,4 +1,4 @@
-import {  odd,prop, } from "@rxweb/reactive-form-validators"
+import {  odd, } from "@rxweb/reactive-form-validators"
 
 export class User {
 

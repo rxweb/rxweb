@@ -17,16 +17,16 @@ Suppose you want to create a website-info form, which contains fields like Admin
 Let’s see how url {{validatorType}} fulfil the need.
 
 # Basic url Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a User class and define a property of AdminWebsiteUrl in the model to achieve the functional need of point 1.
-<div component="app-code" class='showHideElement' key="url-add-model"></div> 
+<div component="app-code" key="url-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
 <data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope> 
 
@@ -34,26 +34,26 @@ Here we have covered Add form operations.
 <div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-<div component="app-code" class='showHideElement' key="url-add-component"></div> 
+<div component="app-code" key="url-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="url-add-html"></div> 
+<div component="app-code" key="url-add-html"></div> 
 <div component="app-example-runner" ref-component="app-url-add"></div>
 # [/Add]
 # [Edit](#tab\basicedit)
-<div component="app-code" class='showHideElement' key="url-edit-component"></div>
+<div component="app-code" key="url-edit-component"></div>
 The below code is `web-site-info-model-data.json` for getting data from the server 
-<div component="app-code" class='showHideElement' key="url-edit-json"></div> 
+<div component="app-code" key="url-edit-json"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="url-edit-html"></div> 
+<div component="app-code" key="url-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-url-edit"></div>
 # [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
-<div component="app-code" class='showHideElement' key="url-add-component"></div> 
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
+<div component="app-code" key="url-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="url-add-html"></div> 
+<div component="app-code" key="url-add-html"></div> 
 <div component="app-example-runner" ref-component="app-url-add"></div>
 </data-scope>
 
@@ -66,7 +66,7 @@ Below options are not mandatory to use in the `@url()` decorator. If needed then
 Below options are not mandatory to use in the `RxwebValidators.url()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `url` validation. If needed then use the below options.
 </data-scope>
 
@@ -83,9 +83,9 @@ Url validation should be applied if the condition is matched in the `conditional
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
 > Binding `conditionalExpression` with `Function` object.
-<div component="app-code" class='showHideElement' key="url-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-code" key="url-conditionalExpressionExampleFunction-model"></div> 
 > Binding `conditionalExpression` with `string` object.
-<div component="app-code" class='showHideElement' key="url-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="url-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-url-conditionalExpression" title="url {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
@@ -93,7 +93,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
-<div component="app-code" class='showHideElement' key="url-messageExample-model"></div> 
+<div component="app-code" key="url-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-url-message" title="url {{validatorType}} with message" key="message"></div>
 
 # Complete url Example
@@ -105,16 +105,16 @@ This Complete url example which includes all the DefaultConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-url-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
-<div component="app-code" class='showHideElement' key="url-complete-model"></div> 
+<div component="app-code" key="url-complete-model"></div> 
 # [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
-<div component="app-code" class='showHideElement' key="url-complete-component"></div> 
+<div component="app-code" key="url-complete-component"></div> 
 # [/Component]
 # [Html](#tab\completehtml)
-<div component="app-code" class='showHideElement' key="url-complete-html"></div> 
+<div component="app-code" key="url-complete-html"></div> 
 # [/Html]
 ***
 
@@ -131,17 +131,17 @@ This Dynamic url example which execute based on json passed. conditional express
 # [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-<div component="app-code" class='showHideElement' key="url-dynamic-model"></div>
+<div component="app-code" key="url-dynamic-model"></div>
 # [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
-<div component="app-code" class='showHideElement' key="url-dynamic-component"></div>
+<div component="app-code" key="url-dynamic-component"></div>
 # [/Component]
 # [Json](#tab\dynamicjson)
-<div component="app-code" class='showHideElement' key="url-dynamic-json"></div>
+<div component="app-code" key="url-dynamic-json"></div>
 # [/Json]
 # [Html](#tab\dynamichtml)
-<div component="app-code" class='showHideElement' key="url-dynamic-html"></div> 
+<div component="app-code" key="url-dynamic-html"></div> 
 # [/Html]
 ***
 </data-scope>

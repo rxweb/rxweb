@@ -19,16 +19,16 @@ Let’s see how time {{validatorType}} fulfil the need.
 
 # Basic time Validation
 
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a AttendanceDetail class and define a property of EntryTime in the model to achieve the functional need of point 1.
-<div component="app-code" class='showHideElement' key="time-add-model"></div> 
+<div component="app-code" key="time-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
 <data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope> 
 
@@ -36,26 +36,26 @@ Here we have covered Add form operations.
 <div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-<div component="app-code" class='showHideElement' key="time-add-component"></div> 
+<div component="app-code" key="time-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="time-add-html"></div> 
+<div component="app-code" key="time-add-html"></div> 
 <div component="app-example-runner" ref-component="app-time-add"></div>
 # [/Add]
 # [Edit](#tab\basicedit)
-<div component="app-code" class='showHideElement' key="time-edit-component"></div> 
+<div component="app-code" key="time-edit-component"></div> 
 The below code is `attendance-data.json` for getting data from the server
-<div component="app-code" class='showHideElement' key="time-edit-json"></div> 
+<div component="app-code" key="time-edit-json"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="time-edit-html"></div> 
+<div component="app-code" key="time-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-time-edit"></div>
 # [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
-<div component="app-code" class='showHideElement' key="time-add-component"></div> 
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
+<div component="app-code" key="time-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="time-add-html"></div> 
+<div component="app-code" key="time-add-html"></div> 
 <div component="app-example-runner" ref-component="app-time-add"></div>
 </data-scope>
 
@@ -68,7 +68,7 @@ Below options are not mandatory to use in the `@time()` decorator. If needed the
 Below options are not mandatory to use in the `RxwebValidators.time()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `time` validation. If needed then use the below options.
 </data-scope>
 
@@ -85,9 +85,9 @@ time validation should be applied if the condition is matched in the `conditiona
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
 > Binding `conditionalExpression` with `Function` object.
-<div component="app-code" class='showHideElement' key="time-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-code" key="time-conditionalExpressionExampleFunction-model"></div> 
 > Binding `conditionalExpression` with `string` object.
-<div component="app-code" class='showHideElement' key="time-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="time-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-time-conditionalExpression" title="time {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
@@ -95,14 +95,14 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `boolean` 
 If you are allowed seconds in time format then you need to put this as true.
 
-<div component="app-code" class='showHideElement' key="time-allowSecondsExample-model"></div> 
+<div component="app-code" key="time-allowSecondsExample-model"></div> 
 <div component="app-example-runner" ref-component="app-time-allowSeconds" title="time {{validatorType}} with allowSeconds" key="allowSeconds"></div>
 
 ## message 
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
-<div component="app-code" class='showHideElement' key="time-messageExample-model"></div> 
+<div component="app-code" key="time-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-time-message" title="time {{validatorType}} with message" key="message"></div>
 
 # Complete time Example
@@ -114,16 +114,16 @@ This Complete time example which includes all the TimeConfig properties will ful
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-time-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
-<div component="app-code" class='showHideElement' key="time-complete-model"></div> 
+<div component="app-code" key="time-complete-model"></div> 
 # [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
-<div component="app-code" class='showHideElement' key="time-complete-component"></div> 
+<div component="app-code" key="time-complete-component"></div> 
 # [/Component]
 # [Html](#tab\completehtml)
-<div component="app-code" class='showHideElement' key="time-complete-html"></div> 
+<div component="app-code" key="time-complete-html"></div> 
 # [/Html]
 ***
 
@@ -140,17 +140,17 @@ This Dynamic time example which execute based on json passed. conditional expres
 # [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-<div component="app-code" class='showHideElement' key="time-dynamic-model"></div>
+<div component="app-code" key="time-dynamic-model"></div>
 # [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
-<div component="app-code" class='showHideElement' key="time-dynamic-component"></div>
+<div component="app-code" key="time-dynamic-component"></div>
 # [/Component]
 # [Json](#tab\dynamicjson)
-<div component="app-code" class='showHideElement' key="time-dynamic-json"></div>
+<div component="app-code" key="time-dynamic-json"></div>
 # [/Json]
 # [Html](#tab\dynamichtml)
-<div component="app-code" class='showHideElement' key="time-dynamic-html"></div> 
+<div component="app-code" key="time-dynamic-html"></div> 
 # [/Html]
 ***
 </data-scope>

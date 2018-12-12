@@ -17,16 +17,16 @@ Let's assume that you are creating a employee form in which you want employee to
 Let’s see how noneOf {{validatorType}} fulfil the need.
 
 # Basic noneOf Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a employee Model class and define property of hobbies in the model to achieve the functional need of point 1.
-<div component="app-code" class='showHideElement' key="noneOf-add-model"></div> 
+<div component="app-code" key="noneOf-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
 <data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope> 
 
@@ -34,26 +34,26 @@ Here we have covered Add form operations.
 <div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-<div component="app-code" class='showHideElement' key="noneOf-add-component"></div> 
+<div component="app-code" key="noneOf-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="noneOf-add-html"></div> 
+<div component="app-code" key="noneOf-add-html"></div> 
 <div component="app-example-runner" ref-component="app-noneOf-add"></div>
 # [/Add]
 # [Edit](#tab\basicedit)
-<div component="app-code" class='showHideElement' key="noneOf-edit-component"></div>
+<div component="app-code" key="noneOf-edit-component"></div>
 The below code is `user-data.json` for getting data from the server 
-<div component="app-code" class='showHideElement' key="noneOf-edit-json"></div> 
+<div component="app-code" key="noneOf-edit-json"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="noneOf-edit-html"></div> 
+<div component="app-code" key="noneOf-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-noneOf-edit"></div>
 # [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
-<div component="app-code" class='showHideElement' key="noneOf-add-component"></div> 
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
+<div component="app-code" key="noneOf-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="noneOf-add-html"></div> 
+<div component="app-code" key="noneOf-add-html"></div> 
 <div component="app-example-runner" ref-component="app-noneOf-add"></div>
 </data-scope>
 
@@ -66,7 +66,7 @@ Below options are not mandatory to use in the `@noneOf()` decorator. If needed t
 Below options are not mandatory to use in the `RxwebValidators.noneOf()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `noneOf` validation. If needed then use the below options.
 </data-scope>
 
@@ -82,7 +82,7 @@ Type :  `any[]`
 
 matchValue is the array based on which the value is matched for validation. According to it none of the values in the array should be matched
 
-<div component="app-code" class='showHideElement' key="noneOf-matchValueExample-model"></div> 
+<div component="app-code" key="noneOf-matchValueExample-model"></div> 
 <div component="app-example-runner" ref-component="noneOf-matchValue-value" title="matchValue {{validatorType}} with value" key="matchValue"></div>
 
 ## conditionalExpression 
@@ -92,9 +92,9 @@ noneOf validation should be applied if the condition is matched in the `conditio
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
  
 > Binding `conditionalExpression` with `Function` object.
-<div component="app-code" class='showHideElement' key="noneOf-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-code" key="noneOf-conditionalExpressionExampleFunction-model"></div> 
 > Binding `conditionalExpression` with `string` object. 
-<div component="app-code" class='showHideElement' key="noneOf-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="noneOf-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-noneOf-conditionalExpression" title="noneOf {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
@@ -102,7 +102,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 Type :  `string` 
 To override the global configuration message and set the custom message on respective FormControl.
 
-<div component="app-code" class='showHideElement' key="noneOf-messageExample-model"></div> 
+<div component="app-code" key="noneOf-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-noneOf-message" title="noneOf {{validatorType}} with message" key="message"></div>
 
 # Complete noneOf Example
@@ -114,16 +114,16 @@ This Complete noneOf example which includes all the ArrayConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-noneOf-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
-<div component="app-code" class='showHideElement' key="noneOf-complete-model"></div> 
+<div component="app-code" key="noneOf-complete-model"></div> 
 # [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
-<div component="app-code" class='showHideElement' key="noneOf-complete-component"></div> 
+<div component="app-code" key="noneOf-complete-component"></div> 
 # [/Component]
 # [Html](#tab\completehtml)
-<div component="app-code" class='showHideElement' key="noneOf-complete-html"></div> 
+<div component="app-code" key="noneOf-complete-html"></div> 
 # [/Html]
 ***
 
@@ -140,17 +140,17 @@ This Dynamic noneOf example which execute based on json passed. conditional expr
 # [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-<div component="app-code" class='showHideElement' key="noneOf-dynamic-model"></div>
+<div component="app-code" key="noneOf-dynamic-model"></div>
 # [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
-<div component="app-code" class='showHideElement' key="noneOf-dynamic-component"></div>
+<div component="app-code" key="noneOf-dynamic-component"></div>
 # [/Component]
 # [Json](#tab\dynamicjson)
-<div component="app-code" class='showHideElement' key="noneOf-dynamic-json"></div>
+<div component="app-code" key="noneOf-dynamic-json"></div>
 # [/Json]
 # [Html](#tab\dynamichtml)
-<div component="app-code" class='showHideElement' key="noneOf-dynamic-html"></div> 
+<div component="app-code" key="noneOf-dynamic-html"></div> 
 # [/Html]
 ***
 </data-scope>

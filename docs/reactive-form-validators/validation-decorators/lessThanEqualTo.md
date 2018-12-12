@@ -17,16 +17,16 @@ Suppose you want to create a user form and you have fields like TotalMarks, Obta
 Let’s see how lessThanEqualTo {{validatorType}} fulfil the need.
 
 # Basic LessThanEqualTo Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create User model class define a property of Marks and TotalMarks model to achieve the functional need of point 1. 
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-add-model"></div> 
+<div component="app-code" key="lessThanEqualTo-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
 <data-scope scope="['decorator']">
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -34,26 +34,26 @@ Here we have covered Add form operations.
 <div component="app-tabs" key="basic-operations"></div>
 [!TabGroup]
 # [Add](#tab\basicadd)
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-add-component"></div> 
+<div component="app-code" key="lessThanEqualTo-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-add-html"></div> 
+<div component="app-code" key="lessThanEqualTo-add-html"></div> 
 <div component="app-example-runner" ref-component="app-lessThanEqualTo-add"></div>
 # [/Add]
 # [Edit](#tab\basicedit)
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-edit-component"></div>
+<div component="app-code" key="lessThanEqualTo-edit-component"></div>
 The below code is `user-data.json` for getting data from the server 
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-edit-json"></div> 
+<div component="app-code" key="lessThanEqualTo-edit-json"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-edit-html"></div> 
+<div component="app-code" key="lessThanEqualTo-edit-html"></div> 
 <div component="app-example-runner" ref-component="app-lessThanEqualTo-edit"></div>
 # [/Edit]
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-add-component"></div> 
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
+<div component="app-code" key="lessThanEqualTo-add-component"></div> 
 Next, we need to write html code.
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-add-html"></div> 
+<div component="app-code" key="lessThanEqualTo-add-html"></div> 
 <div component="app-example-runner" ref-component="app-lessThanEqualTo-add"></div>
 </data-scope>
 
@@ -64,7 +64,7 @@ Below options are not mandatory to use in the `@lessThanEqualTo()` decorator. If
 <data-scope scope="['validator']">
 Below options are not mandatory to use in the `RxwebValidators.lessThanEqualTo()` validator. If needed then use the below options.
 </data-scope>
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `lessThanEqualTo` validation. If needed then use the below options.
 </data-scope>
 
@@ -79,7 +79,7 @@ Below options are not mandatory to use in the `lessThanEqualTo` validation. If n
 Type :  `string` 
 Less than Equal to validation should be applied based on the `fieldName` for compare other field value. 
 
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-fieldNameExample-model"></div> 
+<div component="app-code" key="lessThanEqualTo-fieldNameExample-model"></div> 
 <div component="app-example-runner" ref-component="app-lessThanEqualTo-fieldName" title="lessThanEqualTo {{validatorType}} with fieldName" key="fieldName"></div>
 
 ## conditionalExpression 
@@ -88,9 +88,9 @@ Less than Equal to validation should be applied if the condition is matched in t
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. 
 
 > Binding `conditionalExpression` with `Function` object.
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-conditionalExpressionExampleFunction-model"></div> 
+<div component="app-code" key="lessThanEqualTo-conditionalExpressionExampleFunction-model"></div> 
 > Binding `conditionalExpression` with `string` object.
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-conditionalExpressionExampleString-model"></div> 
+<div component="app-code" key="lessThanEqualTo-conditionalExpressionExampleString-model"></div> 
 
 <div component="app-example-runner" ref-component="app-lessThanEqualTo-conditionalExpression" title="lessThanEqualTo {{validatorType}} with conditionalExpression" key="conditionalExpression"></div> 
 
@@ -99,7 +99,7 @@ Type :  `string`
 
 To override the global configuration message and set the custom message on respective FormControl.
 
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-messageExample-model"></div> 
+<div component="app-code" key="lessThanEqualTo-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-lessThanEqualTo-message" title="lessThanEqualTo {{validatorType}} with message" key="message"></div>
 
 # Complete lessThanEqualTo Example
@@ -111,16 +111,16 @@ This Complete lessThanEqualTo example which includes all the RelationalOperatorC
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-lessThanEqualTo-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-complete-model"></div> 
+<div component="app-code" key="lessThanEqualTo-complete-model"></div> 
 # [/Model]
 </data-scope>
 # [Component](#tab\completecomponent)
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-complete-component"></div>
+<div component="app-code" key="lessThanEqualTo-complete-component"></div>
 # [/Component]
 # [Html](#tab\completehtml)
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-complete-html"></div> 
+<div component="app-code" key="lessThanEqualTo-complete-html"></div> 
 # [/Html]
 ***
 
@@ -137,17 +137,17 @@ This Dynamic lessThanEqualTo example which execute based on json passed. conditi
 # [/Example]
 <data-scope scope="['decorator']">
 # [Model](#tab\dynamicmodel)
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-dynamic-model"></div>
+<div component="app-code" key="lessThanEqualTo-dynamic-model"></div>
 # [/Model]
 </data-scope>
 # [Component](#tab\dynamiccomponent)
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-dynamic-component"></div>
+<div component="app-code" key="lessThanEqualTo-dynamic-component"></div>
 # [/Component]
 # [Json](#tab\dynamicjson)
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-dynamic-json"></div>
+<div component="app-code" key="lessThanEqualTo-dynamic-json"></div>
 # [/Json]
 # [Html](#tab\dynamichtml)
-<div component="app-code" class='showHideElement' key="lessThanEqualTo-dynamic-html"></div> 
+<div component="app-code" key="lessThanEqualTo-dynamic-html"></div> 
 # [/Html]
 ***
 </data-scope>
