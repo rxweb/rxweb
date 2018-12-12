@@ -5,6 +5,10 @@ const CONTAINS_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const CONTAINS_ROUTING: ModuleWithProviders = RouterModule.forChild(CONTAINS_ROUTES);

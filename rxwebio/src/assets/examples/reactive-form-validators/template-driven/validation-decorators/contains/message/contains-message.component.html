@@ -1,0 +1,12 @@
+<div>
+  <form #userForm = "ngForm">
+    <div class="form-group">
+      <label>Other Email Address</label>
+	    <input type="text" name="otherEmailAddress" [(ngModel)]="user.otherEmailAddress"  class="form-control" />
+
+      <small class="form-text text-muted">Shows custom message<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.otherEmailAddress?.errors">{{userForm.controls.otherEmailAddress?.errors.contains.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -6,7 +6,7 @@ author: rxcontributortwo
 ---
 # When to use
 Suppose you want to create a user form, which dataUri fields like scheme, AudioDataUri, VideoDataUri and ImageDataUri and you want the user to enter input which is a proper data URI format. depending on the requirements, these scenarios may arise..
-<ol>
+<ol class='showHideElement'>
    <li>Allow the user to enter valid dataUri in the field of AudioDataUri with custom error message.</li>
    <li>Apply validation on VideoDataUri  field based on matched condition in the form, like if the scheme is 'DataUri', then the VideoDataUri  must be a data URI format (Used as a function).</li>
    <li>Apply validation on ImageDataUri based on matched condition in the form, like if the scheme is 'DataUri', then the ImageDataUri must be a data URI format (Used as a string datatype).</li>
@@ -17,7 +17,7 @@ Suppose you want to create a user form, which dataUri fields like scheme, AudioD
 Let's see how dataUri  {{validatorType}}  fulfil the need.
 
 # Basic dataUri Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a user model and define a property of htmlDataUri in the model to achieve the functional need of point 1.
 <div component="app-code" key="dataUri-add-model"></div> 
 </data-scope>
@@ -26,7 +26,7 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -50,7 +50,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 <div component="app-code" key="dataUri-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="dataUri-add-html"></div> 
@@ -64,11 +64,11 @@ Below options are not mandatory to use in the `@dataUri()` decorator. If needed 
 <data-scope scope="['validator']">
 Below options are not mandatory to use in the `RxwebValidators.dataUri()` validator. If needed then use the below options.
 </data-scope>
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `dataUri` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>DataUri validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
@@ -104,7 +104,7 @@ This Complete dataUri example which includes all the BaseConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-dataUri-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="dataUri-complete-model"></div> 
 # [/Model]

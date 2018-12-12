@@ -1,4 +1,4 @@
-import {  fileSize,prop, } from "@rxweb/reactive-form-validators"
+import {  fileSize, } from "@rxweb/reactive-form-validators"
 
 export class StorageCapacity {
 

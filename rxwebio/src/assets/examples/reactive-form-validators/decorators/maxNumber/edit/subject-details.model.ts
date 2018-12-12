@@ -1,4 +1,4 @@
-import {  maxNumber,prop, } from "@rxweb/reactive-form-validators"
+import {  maxNumber, } from "@rxweb/reactive-form-validators"
 
 export class SubjectDetails {
 

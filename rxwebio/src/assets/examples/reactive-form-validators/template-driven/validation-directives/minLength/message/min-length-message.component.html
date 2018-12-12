@@ -1,0 +1,13 @@
+<div>
+  <form #contactForm = "ngForm">
+    <div class="form-group">
+      <label>Land line No</label>
+	    <input type="text" name="landLineNo" [(ngModel)]="contact.landLineNo"  class="form-control" [minLength]="{'value':8,'message':'Minimum 8 characters are allowed'}"/>
+
+      <small class="form-text text-muted">Minimum length upto 8 characters.<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="contactForm.controls.landLineNo?.errors">{{contactForm.controls.landLineNo?.errors.minLength.message}}<br/></small>	
+    </div>
+    <button [disabled]="!contactForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

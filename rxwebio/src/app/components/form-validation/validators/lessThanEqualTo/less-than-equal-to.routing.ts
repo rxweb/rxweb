@@ -5,6 +5,10 @@ const LESS_THAN_EQUAL_TO_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const LESS_THAN_EQUAL_TO_ROUTING: ModuleWithProviders = RouterModule.forChild(LESS_THAN_EQUAL_TO_ROUTES);

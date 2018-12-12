@@ -6,12 +6,9 @@ export class AccountInfo {
 	firstName: string;
 
 	@prop()
+	lastName: string;
+
+	@prop()
 	middleName: string;
-
-	@prop()
-	password: string;
-
-	@prop()
-	userName: string;
 
 }

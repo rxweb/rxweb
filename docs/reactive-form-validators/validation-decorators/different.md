@@ -18,7 +18,7 @@ Suppose you want to create a user form in which you want to compare firstname an
 Let’s see how different  {{validatorType}}  fulfil the need.
 
 # Basic Different Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a User Model class and define property of Password and Confirm Password in the model to achieve the functional need of point 1.
 <div component="app-code" key="different-add-model"></div> 
 </data-scope>
@@ -38,7 +38,7 @@ Below options are not mandatory to use in the `@different()` decorator. If neede
 <data-scope scope="['validator']">
 Below options are not mandatory to use in the `RxwebValidators.different()` validator. If needed then use the below options.
 </data-scope>
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `different` validation. If needed then use the below options.
 </data-scope>
 
@@ -71,7 +71,7 @@ This Complete Different example which includes all the DifferentConfig propertie
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-different-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="different-complete-model"></div> 
 # [/Model]

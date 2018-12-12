@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 # When to use
 Suppose you want to create a login form, which contains fields like newPassword and oldPassword and you want the user to enter valid Password pattern. Here depending upon the requirement these scenarios may arise.	
-<ol>
+<ol class='showHideElement'>
    <li>Adding validation on oldPassword Field and adding  Custom Message on it.</li>
    <li>Apply validation in newPassword validation there is validators on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</li>
    <data-scope scope="['decorator','validator']">
@@ -16,7 +16,7 @@ Suppose you want to create a login form, which contains fields like newPassword 
 Let’s see how password {{validatorType}} fulfil the need.
 
 # Basic password Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create LoginInfo model class define a property of password in the model to achieve the functional need of point 1.
 <div component="app-code" key="password-add-model"></div> 
 </data-scope>
@@ -25,7 +25,7 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -49,7 +49,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 <div component="app-code" key="password-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="password-add-html"></div> 
@@ -65,11 +65,11 @@ Below options are not mandatory to use in the `@password()` decorator. If needed
 Below options are not mandatory to use in the `RxwebValidators.password()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `password` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 <tr><td><a href="#validation" (click)='scrollTo("#validation")'  title="validation">validation</a></td><td> Validation is used for setting the parameters for password validation, In Password validation there is validations on digit, alphabets, contains, lowerCase, upperCase, specialCharacter, minLength, maxLength.</td></tr>
@@ -99,7 +99,7 @@ This Complete password example which includes all the PasswordConfig properties 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-password-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="password-complete-model"></div> 
 # [/Model]

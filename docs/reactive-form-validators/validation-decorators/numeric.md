@@ -6,7 +6,7 @@ author: rxcontributortwo
 ---
 # When to use
 Suppose you want to create a user form, which contains fields like DataType, integerNumber, integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.
-<ol>
+<ol class='showHideElement'>
 <li>Allow only positive numbers in integerNumber.</li>
 <li>Allow only Negative numbers in integerNumber.</li>
 <li>Allow decimal value in integerNumber  </li>
@@ -20,7 +20,7 @@ Let’s see how Numeric {{validatorType}} fulfil the need.
 
 # Basic Numeric Validation
 
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a User class and define a property of Integer Number in the model to achieve the functional need of point 1.
 <div component="app-code" key="numeric-add-model"></div> 
 </data-scope>
@@ -29,7 +29,7 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope> 
 
@@ -53,7 +53,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 <div component="app-code" key="numeric-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="numeric-add-html"></div> 
@@ -69,11 +69,11 @@ Below options are not mandatory to use in the `@numeric()` decorator. If needed 
 Below options are not mandatory to use in the `RxwebValidators.numeric()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `numeric` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a (click)='scrollTo("#acceptValue")' title="acceptValue">acceptValue</a></td><td> To apply validation based on checking positive or negative value or both. </td></tr>
 <tr><td><a   (click)='scrollTo("#allowDecimal")' title="allowDecimal">allowDecimal</a></td><td>This will allow decimal in particular control property.The default value is `false`.</td></tr>
@@ -126,7 +126,7 @@ This Complete numeric example which includes all the NumericConfig properties wi
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-numeric-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="numeric-complete-model"></div> 
 # [/Model]

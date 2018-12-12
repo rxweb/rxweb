@@ -1,0 +1,11 @@
+<div>
+  <form #userForm = "ngForm">
+    <div class="form-group">
+      <label>Confirm Password</label>
+	    <input type="text" name="confirmPassword" [(ngModel)]="user.confirmPassword"  class="form-control" />
+
+	   <small class="form-text text-danger" *ngIf="userForm.controls.confirmPassword?.errors">{{userForm.controls.confirmPassword?.errors.compare.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

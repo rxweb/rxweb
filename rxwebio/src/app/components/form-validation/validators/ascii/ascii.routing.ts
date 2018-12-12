@@ -5,6 +5,10 @@ const ASCII_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const ASCII_ROUTING: ModuleWithProviders = RouterModule.forChild(ASCII_ROUTES);

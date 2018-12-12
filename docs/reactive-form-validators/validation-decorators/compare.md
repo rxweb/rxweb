@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 # When to use
 Suppose you want to create a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.
-<ol>
+<ol class='showHideElement'>
 	<li>The Name of Password field on which comparison is done.</li>
     <li>The Custom Message on ConfirmPassword field.</li>
     <data-scope scope="['decorator','validator']">
@@ -16,7 +16,7 @@ Suppose you want to create a user form in which you want to compare passwords wh
 Let’s see how compare {{validatorType}} fulfil the need.
 
 # Basic Compare Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a User Model class and define property of Password and Confirm Password in the model to achieve the functional need of point 1.
 <div component="app-code" key="compare-add-model"></div> 
 </data-scope>
@@ -36,11 +36,11 @@ Below options are not mandatory to use in the `@compare()` decorator. If needed 
 <data-scope scope="['validator']">
 Below options are not mandatory to use in the `RxwebValidators.compare()` validator. If needed then use the below options.
 </data-scope>
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `compare` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a  (click)='scrollTo("#fieldName")'  title="fieldName">fieldName</a></td><td>Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
 <tr><td><a   (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
@@ -71,7 +71,7 @@ This Complete Compare example which includes all the CompareConfig properties wi
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-compare-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="compare-complete-model"></div> 
 # [/Model]

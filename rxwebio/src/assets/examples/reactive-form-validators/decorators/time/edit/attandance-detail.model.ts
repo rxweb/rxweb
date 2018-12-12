@@ -1,4 +1,4 @@
-import {  time,prop, } from "@rxweb/reactive-form-validators"
+import {  time, } from "@rxweb/reactive-form-validators"
 
 export class AttandanceDetail {
 

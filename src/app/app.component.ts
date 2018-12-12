@@ -264,7 +264,7 @@ export class Employee {
     @minLength({ value: 10 }) minLength: number;
     @minNumber({ value: 20, message: "minimum number {{0}}", conditionalExpression: "x => x.firstName == 'john'" }) minNumber: string;
     @password({ validation: { maxLength: 10, minLength: 5, digit: true, specialCharacter: true } }) password: string;
-    @pattern({ pattern: { 'onlyDigit': /^[0-9]+$/ }, conditionalExpression: "x => x.firstName == 'john'" }) pattern: string;
+    @pattern({ expression: { 'onlyDigit': /^[0-9]+$/ }, conditionalExpression: "x => x.firstName == 'john'" }) pattern: string;
     @range({ minimumNumber: 5, maximumNumber: 10 }) range: string;
     @required({ message: "minimum number {{0}}", conditionalExpression: "x => x.firstName == 'john'" }) required: string;
     @upperCase({ message: "minimum number {{0}}", conditionalExpression: "x => x.firstName == 'john'" }) upperCase: string;
@@ -427,7 +427,7 @@ save() {
       'hh_phone_number': new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern(/^-?([0-9]\d*)?$/)]),
       'date_added': new FormControl('', [Validators.required]),
       'u_id': ['', [RxwebValidators.required({ conditionalExpression: (x) => x.gov_id_type === '' && x.gov_id_number === '' }),
-      RxwebValidators.pattern({ pattern: { 'unid': RegExp('^[0-9A-Z]{3}(-)[0-9]{2}(C)[0-9]{5}$') }, conditionalExpression: (x) => x.u_id !== '' })]],
+      RxwebValidators.pattern({ expression: { 'unid': RegExp('^[0-9A-Z]{3}(-)[0-9]{2}(C)[0-9]{5}$') }, conditionalExpression: (x) => x.u_id !== '' })]],
       'gov_id_type': ['', RxwebValidators.required({ conditionalExpression: (x) => x.u_id === '' })],
       'gov_id_number': ['', RxwebValidators.required({ conditionalExpression: (x) => x.gov_id_type !== '' })],
       'legal_id': new FormControl(''),

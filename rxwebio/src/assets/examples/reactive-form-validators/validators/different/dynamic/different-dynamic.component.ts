@@ -19,7 +19,7 @@ export class DifferentDynamicValidatorComponent implements OnInit {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/validators/different/dynamic/dynamic.json').subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			var accountInfo = { firstName:'', middleName:'', password:'', lastName:'', userName:'',  }
+			var accountInfo = { firstName:'', lastName:'', middleName:'',  }
 			this.accountInfoFormGroup = this.formBuilder.group(accountInfo,formBuilderConfiguration);
 		})
     }

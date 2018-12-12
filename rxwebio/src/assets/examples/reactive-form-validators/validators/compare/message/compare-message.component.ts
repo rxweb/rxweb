@@ -15,7 +15,6 @@ export class CompareMessageValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            password:['',], 
             confirmPassword:['', RxwebValidators.compare({fieldName:'password'  ,message:'You must enter same password' })], 
         });
     }
