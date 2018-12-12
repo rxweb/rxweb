@@ -1,11 +1,11 @@
 <div>
   <form #userinfoForm = "ngForm">
     <div class="form-group">
-      <label>Image File</label>
-	    <input type="text" name="imageFile" [(ngModel)]="userinfo.imageFile"  class="form-control" />
+      <label>Profile Picture</label>
+	    <input type="file" name="profilePicture" [(ngModel)]="userinfo.profilePicture"  class="form-control" />
 
-      <small class="form-text text-muted">If you want to apply conditional validation on 'Image File' then you need to add 'File Type' input as 'Picture'.<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.imageFile?.errors">{{userinfoForm.controls.imageFile?.errors.extension.message}}<br/></small>	
+      <small class="form-text text-muted">This field only allow file extension as jpg or bmp only.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.profilePicture?.errors">{{userinfoForm.controls.profilePicture?.errors.extension.message}}<br/></small>	
     </div>
     <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

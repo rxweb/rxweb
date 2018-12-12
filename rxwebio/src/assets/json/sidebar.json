@@ -90,6 +90,11 @@
           "isActive": false
         },
         {
+          "title": "file",
+          "uri": "/form-validations/file/validators",
+          "isActive": false
+        },
+        {
           "title": "greaterThanEqualTo",
           "uri": "/form-validations/greaterThanEqualTo/validators",
           "isActive": false
@@ -102,6 +107,11 @@
         {
           "title": "hexColor",
           "uri": "/form-validations/hexColor/validators",
+          "isActive": false
+        },
+        {
+          "title": "image",
+          "uri": "/form-validations/image/validators",
           "isActive": false
         },
         {

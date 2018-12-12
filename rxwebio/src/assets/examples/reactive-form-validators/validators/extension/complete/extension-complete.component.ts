@@ -22,10 +22,10 @@ export class ExtensionCompleteValidatorComponent implements OnInit {
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({
             fileType:['',], 
+            profilePicture:['', RxwebValidators.extension({extensions:['jpg','bmp'] })], 
             imageFile:['', RxwebValidators.extension({extensions:['jpg','bmp']  ,conditionalExpression:'x => x.fileType == "Picture"' })], 
             documentFile:['', RxwebValidators.extension({extensions:['doc','docx']  ,conditionalExpression:'(x,y) => x.fileType == "Document"' })], 
             contactFile:['', RxwebValidators.extension({extensions:['.vcf']  ,message:'You can upload only .vcf files.' })], 
-            profilePicture:['', RxwebValidators.extension({extensions:['jpg','bmp'] })], 
         });
     }
 }

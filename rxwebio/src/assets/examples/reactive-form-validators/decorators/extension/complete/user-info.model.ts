@@ -5,6 +5,9 @@ export class UserInfo {
 	@prop()
 	fileType: string;
 
+	@extension({extensions:['jpg','bmp'] }) 
+	profilePicture: string;
+
 	@extension({extensions:['jpg','bmp']  ,conditionalExpression:'x => x.fileType == "Picture"' }) 
 	imageFile: string;
 
@@ -13,8 +16,5 @@ export class UserInfo {
 
 	@extension({extensions:['.vcf']  ,message:'You can upload only .vcf files.' }) 
 	contactFile: string;
-
-	@extension({extensions:['jpg','bmp'] }) 
-	profilePicture: string;
 
 }

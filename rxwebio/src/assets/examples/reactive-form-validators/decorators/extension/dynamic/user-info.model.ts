@@ -6,12 +6,12 @@ export class UserInfo {
 	fileType: string;
 
 	@prop()
+	profilePicture: string;
+
+	@prop()
 	imageFile: string;
 
 	@prop()
 	contactFile: string;
-
-	@prop()
-	profilePicture: string;
 
 }

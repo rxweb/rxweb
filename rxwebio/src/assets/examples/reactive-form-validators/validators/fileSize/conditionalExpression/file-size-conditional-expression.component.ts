@@ -7,17 +7,25 @@ import { RxwebValidators } from '@rxweb/reactive-form-validators';
     templateUrl: './file-size-conditional-expression.component.html'
 })
 export class FileSizeConditionalExpressionValidatorComponent implements OnInit {
-    storageCapacityFormGroup: FormGroup
+    userInfoFormGroup: FormGroup
 
+				fileTypes = [ "Picture", "Document",];
+	
+	
+	
+	
+	
 	constructor(
         private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
-        this.storageCapacityFormGroup = this.formBuilder.group({
-            device:['',], 
-            photographStorageSize:['', RxwebValidators.fileSize({maxSize:50  ,conditionalExpression:'x => x.device =="SmartPhone"' })], 
-            documentStorageSize:['', RxwebValidators.fileSize({maxSize:50  ,conditionalExpression:(x,y) => x.device == "SmartPhone"  })], 
+        this.userInfoFormGroup = this.formBuilder.group({
+            fileType:['',], 
+            videoFile:['', RxwebValidators.fileSize({maxSize:100 })], 
+            audioFile:['', RxwebValidators.fileSize({minSize:3  ,maxSize:100 })], 
+            imageFile:['', RxwebValidators.fileSize({maxSize:50  ,conditionalExpression:'x => x.fileType == "Picture"' })], 
+            documentFile:['', RxwebValidators.fileSize({maxSize:10  ,conditionalExpression:'(x,y) => x.fileType == "Document"' })], 
         });
     }
 }

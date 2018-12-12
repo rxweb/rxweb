@@ -7,15 +7,15 @@ import { RxwebValidators } from '@rxweb/reactive-form-validators';
     templateUrl: './file-size-add.component.html'
 })
 export class FileSizeAddValidatorComponent implements OnInit {
-    storageCapacityFormGroup: FormGroup
+    userInfoFormGroup: FormGroup
 
 	constructor(
         private formBuilder: FormBuilder )
 	{ }
 
     ngOnInit() {
-        this.storageCapacityFormGroup = this.formBuilder.group({
-            videoStorageSize:['', RxwebValidators.fileSize({maxSize:50 })], 
+        this.userInfoFormGroup = this.formBuilder.group({
+            profilePicture:['', RxwebValidators.fileSize({maxSize:10 })], 
         });
     }
 }

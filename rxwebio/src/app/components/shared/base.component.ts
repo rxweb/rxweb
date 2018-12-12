@@ -67,6 +67,7 @@ export abstract class BaseComponentProvider implements OnDestroy {
                 params["refComponent"] =this.exampleComponents[this.typeName][refComponent[refComponent.length - 1]];
             params["decoratorName"]=refComponent[1];
             params["exampleName"]=refComponent[2];
+            params["templateDrivenType"] = this.templateDrivenType;
             switch(this.typeName){
                 case "validators":
                     params["typeName"]="validator";

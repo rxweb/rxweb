@@ -2,7 +2,7 @@
   <form #userinfoForm = "ngForm">
     <div class="form-group">
       <label>Contact File</label>
-	    <input type="text" name="contactFile" [(ngModel)]="userinfo.contactFile"  class="form-control" [extension]="{'extensions':['.vcf'],'message':'You can upload only .vcf files.'}"/>
+	    <input type="file" name="contactFile" [(ngModel)]="userinfo.contactFile"  class="form-control" [extension]="{'extensions':['.vcf'],'message':'You can upload only .vcf files.'}"/>
 
       <small class="form-text text-muted">This field only allow file extension as .vcf files.<br/></small>
       <small class="form-text text-muted">It shows custom message<br/></small>
