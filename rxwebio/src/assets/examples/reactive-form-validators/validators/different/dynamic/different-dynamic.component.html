@@ -2,7 +2,7 @@
   <form  *ngIf="accountInfoFormGroup"  [formGroup]="accountInfoFormGroup">
     <div class="form-group">
       <label>First Name</label>
-      <input type="text" formControlName="firstName" class="form-control"  />
+      <input type="text" formControlName="firstName" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Last Name' or 'Username', then you need to add 'First Name' input as 'Bharat'<br/></small>
       <small class="form-text text-danger" *ngIf="accountInfoFormGroup.controls.firstName.errors">{{accountInfoFormGroup.controls.firstName.errors.different.message}}<br/></small>
     </div>

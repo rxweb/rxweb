@@ -2,19 +2,19 @@
   <form #userinfoForm = "ngForm">
     <div class="form-group">
       <label>Video File</label>
-	    <input type="file" name="videoFile" [(ngModel)]="userinfo.videoFile"  class="form-control" [fileSize]="{'maxSize':100}"/>
+	    <input type="file" name="videoFile"  [(ngModel)]="userinfo.videoFile"  class="form-control" [fileSize]="{'maxSize':100}"/>
 
 	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.videoFile?.errors">{{userinfoForm.controls.videoFile?.errors.fileSize.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Audio File</label>
-	    <input type="file" name="audioFile" [(ngModel)]="userinfo.audioFile"  class="form-control" [fileSize]="{'minSize':3,'maxSize':100}"/>
+	    <input type="file" name="audioFile"  [(ngModel)]="userinfo.audioFile"  class="form-control" [fileSize]="{'minSize':3,'maxSize':100}"/>
 
 	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.audioFile?.errors">{{userinfoForm.controls.audioFile?.errors.fileSize.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Image File</label>
-	    <input type="file" name="imageFile" [(ngModel)]="userinfo.imageFile"  class="form-control" [fileSize]="{'maxSize':50,'conditionalExpression':'x => x.fileType == \'Picture\''}"/>
+	    <input type="file" name="imageFile"  [(ngModel)]="userinfo.imageFile"  class="form-control" [fileSize]="{'maxSize':50,'conditionalExpression':'x => x.fileType == \'Picture\''}"/>
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Image File' then you need to add 'File Type' input as 'Picture'.<br/></small>
 	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.imageFile?.errors">{{userinfoForm.controls.imageFile?.errors.fileSize.message}}<br/></small>	

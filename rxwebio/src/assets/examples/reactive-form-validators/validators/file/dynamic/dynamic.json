@@ -1,0 +1,1 @@
+{"fileType":{},"totalImageFiles":{"file":{"maxFiles":"5"}},"totalDocumentFiles":{"file":{"minFiles":"5"}},"minimumFiles":{"file":{"minFiles":"5","conditionalExpression":"x => x.fileType == \"Picture\""}},"minMaxFiles":{"file":{"minFiles":"5","maxFiles":"10","message":"You can upload minimum 5 and maximum 10 files."}}}

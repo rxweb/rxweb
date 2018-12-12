@@ -2,7 +2,7 @@
   <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Admission Age</label>
-      <input type="text" formControlName="admissionAge" class="form-control"  />
+      <input type="text" formControlName="admissionAge" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Voter Age' or 'Member Age' then need to add this input greater than or equal to '18'.<br/></small>
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.admissionAge.errors">{{userFormGroup.controls.admissionAge.errors.greaterThanEqualTo.message}}<br/></small>
     </div>

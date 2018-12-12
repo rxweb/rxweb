@@ -59,12 +59,12 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './validators/factor/factor.module#FactorModule',
 },
 {
-	path:'file',
-	loadChildren: './validators/file/file.module#FileModule',
-},
-{
 	path:'fileSize',
 	loadChildren: './validators/fileSize/file-size.module#FileSizeModule',
+},
+{
+	path:'file',
+	loadChildren: './validators/file/file.module#FileModule',
 },
 {
 	path:'greaterThanEqualTo',

@@ -2,7 +2,7 @@
   <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Age</label>
-      <input type="text" formControlName="age" class="form-control"  />
+      <input type="text" formControlName="age" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Phone Number' or 'Fax Number' then you need to add this input greater than or equal to '25'.<br/></small>
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.age.errors">{{userFormGroup.controls.age.errors.digit.message}}<br/></small>
     </div>

@@ -2,7 +2,7 @@
   <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Name</label>
-      <input type="text" formControlName="name" class="form-control"  />
+      <input type="text" formControlName="name" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Birth Year' or 'Admission Date', then you need to add 'Name' input as 'Bharat'<br/></small>
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.name.errors">{{userFormGroup.controls.name.errors.leapYear.message}}<br/></small>
     </div>

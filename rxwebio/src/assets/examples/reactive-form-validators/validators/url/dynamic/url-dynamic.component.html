@@ -2,7 +2,7 @@
   <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Admin Website Url</label>
-      <input type="text" formControlName="adminWebsiteUrl" class="form-control"  />
+      <input type="text" formControlName="adminWebsiteUrl" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'QA Website Url' or 'Customer Website Url', then you need to add 'Admin Website Url' input as 'https://google.co.in'<br/></small>
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.adminWebsiteUrl.errors">{{userFormGroup.controls.adminWebsiteUrl.errors.url.message}}<br/></small>
     </div>

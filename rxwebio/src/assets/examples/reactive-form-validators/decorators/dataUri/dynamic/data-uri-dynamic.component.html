@@ -2,7 +2,7 @@
   <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Scheme</label>
-      <input type="text" formControlName="scheme" class="form-control"  />
+      <input type="text" formControlName="scheme" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'CSS Data Uri' or 'Javascript Data Uri', then you need to add 'Scheme' input as 'DataUri'<br/></small>
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.scheme.errors">{{userFormGroup.controls.scheme.errors.dataUri.message}}<br/></small>
     </div>

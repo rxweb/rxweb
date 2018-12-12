@@ -10,30 +10,30 @@
     </div>
     <div class="form-group">
       <label>Video File</label>
-      <input type="file" formControlName="videoFile" class="form-control"  />
+      <input type="file" formControlName="videoFile" class="form-control"   />
       <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.videoFile.errors">{{userInfoFormGroup.controls.videoFile.errors.fileSize.message}}<br/></small>
     </div>
     <div class="form-group">
       <label>Audio File</label>
-      <input type="file" formControlName="audioFile" class="form-control"  />
+      <input type="file" formControlName="audioFile" class="form-control"   />
       <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.audioFile.errors">{{userInfoFormGroup.controls.audioFile.errors.fileSize.message}}<br/></small>
     </div>
     <div class="form-group">
       <label>Image File</label>
-      <input type="file" formControlName="imageFile" class="form-control"  />
+      <input type="file" formControlName="imageFile" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Image File' then you need to add 'File Type' input as 'Picture'.<br/></small>
       <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.imageFile.errors">{{userInfoFormGroup.controls.imageFile.errors.fileSize.message}}<br/></small>
     </div>
     <div class="form-group">
       <label>Contact File</label>
-      <input type="file" formControlName="contactFile" class="form-control"  />
+      <input type="file" formControlName="contactFile" class="form-control"   />
       <small class="form-text text-muted">Uploaded File must be in the file size range.<br/></small>
       <small class="form-text text-muted">It shows custom message<br/></small>
       <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.contactFile.errors">{{userInfoFormGroup.controls.contactFile.errors.fileSize.message}}<br/></small>
     </div>
     <div class="form-group">
       <label>Profile Picture</label>
-      <input type="file" formControlName="profilePicture" class="form-control"  />
+      <input type="file" formControlName="profilePicture" class="form-control"   />
       <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePicture.errors">{{userInfoFormGroup.controls.profilePicture.errors.fileSize.message}}<br/></small>
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>

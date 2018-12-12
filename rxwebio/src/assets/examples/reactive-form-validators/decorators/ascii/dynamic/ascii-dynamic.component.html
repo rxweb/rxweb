@@ -2,7 +2,7 @@
   <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Language</label>
-      <input type="text" formControlName="language" class="form-control"  />
+      <input type="text" formControlName="language" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Number Ascii Code' or 'Alphabet Ascii Code', then you need to add 'Language' input as 'Java'<br/></small>
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.language.errors">{{userFormGroup.controls.language.errors.ascii.message}}<br/></small>
     </div>

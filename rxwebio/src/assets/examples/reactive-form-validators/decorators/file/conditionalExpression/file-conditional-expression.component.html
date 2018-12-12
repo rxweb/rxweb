@@ -1,0 +1,25 @@
+<div>
+  <form  [formGroup]="userInfoFormGroup">
+    <div class="form-group">
+      <label>File Type</label>
+      <select formControlName="fileType" class="form-control">
+		<option [value]="item" *ngFor="let item of fileTypes">{{item}}</option>
+      </select>
+      <small class="form-text text-muted">Based on selection of file type conditional validation is applied<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.fileType.errors">{{userInfoFormGroup.controls.fileType.errors.file.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>MinimumFiles</label>
+      <input type="file" formControlName="minimumFiles" class="form-control" multiple />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'MinimumFiles' then you need to add 'File Type' input as 'Picture'. we can add minimum 5 files<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.minimumFiles.errors">{{userInfoFormGroup.controls.minimumFiles.errors.file.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Maximum File</label>
+      <input type="file" formControlName="maximumFile" class="form-control" multiple />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Maximum File' then you need to add 'File Type' input as 'Document'. we can add maximum 5 files<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.maximumFile.errors">{{userInfoFormGroup.controls.maximumFile.errors.file.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>
