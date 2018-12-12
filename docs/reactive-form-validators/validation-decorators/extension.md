@@ -5,11 +5,11 @@ author: rxcontributortwo
 
 ---
 # When to use
-Suppose you want to create a storageCapacity form, which contains fields like device, videoFileExtension, documentFileExtension and photographFileExtension and you want the user to enter input which is a proper extension format. Here depending upon the requirement, these scenarios may arise..
+Suppose you want to create a storageCapacity form, which contains fields like fileType, profilePicture ,imageFile ,documentFile ,contactFile and you want the user to enter input which is a proper extension format. Here depending upon the requirement, these scenarios may arise..
 <ol class='showHideElement'>
-   <li>Allow videoFileExtension which have proper extension format and adding Custom Message on videoFileExtension.</li>
-   <li>Apply  extension validation on  documentFileExtension field based on matched condition in the form, like if the device is 'SmartPhone', then the documentFileExtension must be a extension format (Used as a function).</li>
-   <li>Apply extension validation on photographFileExtension field based on matched condition in the form, like if the device is 'SmartPhone', then the photographFileExtension must be a extension format (Used as a string datatype).</li>
+   <li>Allow profilePicture which have proper extension format and adding Custom Message on profilePicture.</li>
+   <li>Apply  extension validation on  documentFile field based on matched condition in the form, like if the fileType is 'Document', then the documentFile must be a extension format (Used as a function).</li>
+   <li>Apply extension validation on imageFile field based on matched condition in the form, like if the fileType is 'Picture', then the imageFile must be a extension format (Used as a string datatype).</li>
    <data-scope scope="['decorator','validator']">
    <li>Apply extension validation dynamically based on server rules.</li>
    </data-scope>
@@ -18,7 +18,7 @@ Let's see how extension  {{validatorType}}  fulfil the need.
  
 # Basic extension Validation
 <data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
-First we need to create a storageCapacity model and define a property of videoFileExtension in the model to achieve the functional need of point 1.
+First we need to create a storageCapacity model and define a property of profilePicture in the model to achieve the functional need of point 1.
 <div component="app-code" key="extension-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.

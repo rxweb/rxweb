@@ -1,4 +1,4 @@
-import {  alpha, } from "@rxweb/reactive-form-validators"
+import {  alpha } from "@rxweb/reactive-form-validators"
 
 export class Country {
 
