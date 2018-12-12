@@ -11,7 +11,8 @@ Suppose you want to create a User form, which contains fields like ProfilePhoto,
     <li>Allow validation using maxwidth on field of ProfilePhoto.</li>
     <li>Apply image validation based on maxheight in Signature</li>
     <li>Adding Custom Message on VoterId field.</li>
-    <li>Applying Conditional validation on Aadhard card and panCard.</li>
+   <li>Apply validation on AadharCard field based on matched condition in the form, like if the ImageType is 'IdentityCard', then the AadharCard must be a Image format (Used as a function).</li>
+   <li>Apply validation on PanCard field based on matched condition in the form, like if the ImageType is 'IdentityCard', then the PanCard must be a Image format (Used as a string datatype).</li>
     <data-scope scope="['decorator','validator']">
     <li>Apply image validation dynamically based on server rules.</li>
     </data-scope>
