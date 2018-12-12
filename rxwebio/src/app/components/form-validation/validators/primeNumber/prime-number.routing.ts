@@ -5,6 +5,10 @@ const PRIME_NUMBER_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const PRIME_NUMBER_ROUTING: ModuleWithProviders = RouterModule.forChild(PRIME_NUMBER_ROUTES);

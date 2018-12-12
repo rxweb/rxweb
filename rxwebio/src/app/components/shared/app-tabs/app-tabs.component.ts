@@ -10,6 +10,7 @@ export class AppTabsComponent implements OnInit {
   @Input() tabArray:TabModel[];
   @Input() content;
   @Input() typeName:string;
+  @Input() templateDrivenType:string;
   activeTab:string;
   constructor(
   ) {

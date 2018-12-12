@@ -5,6 +5,10 @@ const DIFFERENT_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const DIFFERENT_ROUTING: ModuleWithProviders = RouterModule.forChild(DIFFERENT_ROUTES);

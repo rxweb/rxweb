@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 # When to use
 Suppose you want to create a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise.
-<ol>
+<ol class='showHideElement'>
    <li>Apply factor validation on firstNumber field by setting  dividend property as 50 so the validation will allow only factors of 50</li>
    <li>Apply factor validation based on matched condition in the form, like if the firstNumber  is `25` then the Fourthyear value should be factor.</li>
    <li>The Custom Message on ThirdNumber field.</li>
@@ -19,7 +19,7 @@ Let’s see how factor {{validatorType}} fulfil the need.
 
 # Basic Factor Validation
 
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a User Model class and define property of firstNumber and secondNumber in the model to achieve the functional need of point 1.
 <div component="app-code" key="factor-add-model"></div> 
 </data-scope>
@@ -28,7 +28,7 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -52,7 +52,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 <div component="app-code" key="factor-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="factor-add-html"></div> 
@@ -66,11 +66,11 @@ Below options are not mandatory to use in the `@factor()` decorator. If needed t
 <data-scope scope="['validator']">
 Below options are not mandatory to use in the `RxwebValidators.factor()` validator. If needed then use the below options.
 </data-scope>
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `factor` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a href="#dividend" (click)='scrollTo("#dividend")' title="dividend">dividend</a></td><td>Dividend is the value for which factors are calculated.</td></tr>
 <tr><td><a href="#fieldName" (click)='scrollTo("#fieldName")' title="fieldName">fieldName</a></td><td>Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
@@ -121,7 +121,7 @@ This Complete Factor example which includes all the FactorConfig properties will
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-factor-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="factor-complete-model"></div> 
 # [/Model]

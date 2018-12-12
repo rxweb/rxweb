@@ -22,6 +22,7 @@ export abstract class BaseComponentProvider implements OnDestroy {
     {
         return this._typeName;
     }
+    @Input() templateDrivenType:string;
     @Input() tabArray: any;
 
     _typeName:string;
@@ -60,7 +61,10 @@ export abstract class BaseComponentProvider implements OnDestroy {
         if(refComponentString){
             let refComponent = refComponentString.split('-');
             params["title"] = element.getAttribute('title');
-            params["refComponent"] =this.exampleComponents[this.typeName][refComponent[refComponent.length - 1]];
+            if(this.typeName == "template_driven" )
+                params["refComponent"] =this.exampleComponents[this.typeName+"_validation_" + this.templateDrivenType][refComponent[refComponent.length - 1]];
+            else
+                params["refComponent"] =this.exampleComponents[this.typeName][refComponent[refComponent.length - 1]];
             params["decoratorName"]=refComponent[1];
             params["exampleName"]=refComponent[2];
             switch(this.typeName){
@@ -79,6 +83,7 @@ export abstract class BaseComponentProvider implements OnDestroy {
             params["content"] = this.data;
             params["typeName"] = this.typeName;
             params["tabArray"] = this.tabArray[keyName];
+            params["templateDrivenType"] = this.templateDrivenType;
         }
         return params;
     }

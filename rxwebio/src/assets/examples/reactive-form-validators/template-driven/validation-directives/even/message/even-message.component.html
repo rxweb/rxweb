@@ -1,0 +1,13 @@
+<div>
+  <form #userForm = "ngForm">
+    <div class="form-group">
+      <label>Multiples of Even Number</label>
+	    <input type="text" name="multiplesOfEvenNumber" [(ngModel)]="user.multiplesOfEvenNumber"  class="form-control" [even]="{'message':'Multiples of Even Number is not an even number'}"/>
+
+      <small class="form-text text-muted">you can enter only an even number<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.multiplesOfEvenNumber?.errors">{{userForm.controls.multiplesOfEvenNumber?.errors.even.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

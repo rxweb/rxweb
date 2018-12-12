@@ -5,6 +5,10 @@ const ENDS_WITH_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const ENDS_WITH_ROUTING: ModuleWithProviders = RouterModule.forChild(ENDS_WITH_ROUTES);

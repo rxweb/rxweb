@@ -8,7 +8,7 @@ author: rxcontributortwo
 # When to use
 Suppose you want to create a employee form in which you want employee to enter value of a particular choice which contains fields like department, hobbies and skills.Here the field is taken in the form of array and according to that the choice is applied on the property by applying minlength and maxLength. Here depending upon the requirement these scenarios may arise.
 
-<ol>
+<ol class='showHideElement'>
     <li>The skills field in which you want the user to enter maximum three skills and minimum of one skill.</li>
     <li>Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be maximum three and minimum one.</li>
     <li>The Custom Message on Hobbies field.</li>
@@ -20,7 +20,7 @@ Suppose you want to create a employee form in which you want employee to enter v
 Let’s see how choice  {{validatorType}}  fulfil the need.
 
 # Basic choice Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a Employee Model and define a property of hobbies in the model to achieve the functional need of point 1.
 <div component="app-code" key="choice-add-model"></div> 
 </data-scope>
@@ -29,7 +29,7 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -53,7 +53,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 <div component="app-code" key="choice-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="choice-add-html"></div> 
@@ -67,11 +67,11 @@ Below options are not mandatory to use in the `@choice()` decorator. If needed t
 <data-scope scope="['validator']">
 Below options are not mandatory to use in the `RxwebValidators.choice()` validator. If needed then use the below options.
 </data-scope>
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `choice` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a (click)='scrollTo("#minLength")' title="#minLength">minLength</a></td><td>MinLength  is to define a minLength of field which is in form of array</td></tr>
 <tr><td><a (click)='scrollTo("#maxLength")' title="#maxLength">maxLength</a></td><td>MaxLength  is to define a maxLength of field which is in form of array</td></tr>
@@ -122,7 +122,7 @@ This Complete choice example which includes all the ChoiceConfig properties will
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-choice-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="choice-complete-model"></div> 
 # [/Model]

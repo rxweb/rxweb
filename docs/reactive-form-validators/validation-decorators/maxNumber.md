@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 # When to use
 Suppose you want to create a Subject-detail form, which contains fields like subjectCode, maximumMarks, PassingMarks and you want the user to enter valid  Number which does not exceed the Maximum number. Here depending upon the requirement these scenarios may arise.
-<ol>
+<ol class='showHideElement'>
 <li>Adding field of PassingMarks without any conditional expression.</li>
 <li>Apply MaxNumber validation based on matched condition in the form, like if the subjectCode is ‘8CS5A’ then the maximumMarks value should be enter valid  Number which does not exceed the Maximum number .</li>
 <li>Adding Custom Message on PassingMarks Field.</li>
@@ -19,7 +19,7 @@ Let’s see how maxNumber {{validatorType}} fulfil the need.
 
 # Basic MaxNumber Validation
 
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create subject-detail model class define a property of PassingMarks in the model to achieve the functional need of point 1.
 <div component="app-code" key="maxNumber-add-model"></div> 
 </data-scope>
@@ -28,7 +28,7 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -52,7 +52,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 <div component="app-code" key="maxNumber-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="maxNumber-add-html"></div> 
@@ -68,11 +68,11 @@ Below options are not mandatory to use in the `@maxNumber()` decorator. If neede
 Below options are not mandatory to use in the `RxwebValidators.maxNumber()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `maxNumber` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a (click)='scrollTo("#value")' title="value">value</a></td><td>Enter value which you want to restrict number in the property</td></tr>
 <tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Max number validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
@@ -114,7 +114,7 @@ This Complete MaxNumber example which includes all the NumberConfig properties w
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-MaxNumber-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="maxNumber-complete-model"></div> 
 # [/Model]

@@ -5,6 +5,10 @@ const ODD_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const ODD_ROUTING: ModuleWithProviders = RouterModule.forChild(ODD_ROUTES);

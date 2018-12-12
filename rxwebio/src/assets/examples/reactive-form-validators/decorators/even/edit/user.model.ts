@@ -1,4 +1,4 @@
-import {  even,prop, } from "@rxweb/reactive-form-validators"
+import {  even, } from "@rxweb/reactive-form-validators"
 
 export class User {
 

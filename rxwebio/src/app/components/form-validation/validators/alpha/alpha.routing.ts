@@ -5,6 +5,10 @@ const ALPHA_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const ALPHA_ROUTING: ModuleWithProviders = RouterModule.forChild(ALPHA_ROUTES);

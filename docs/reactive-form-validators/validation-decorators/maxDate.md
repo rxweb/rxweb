@@ -7,7 +7,7 @@ author:  rxcontributorone
 # When to use
 Suppose you want to create a User form, which contains fields like userName, birthDate, RegistrationDate and you want the user to enter valid date which does not exceed the maximum date. Here depending upon the requirement these scenarios may arise.
 
-<ol>
+<ol class='showHideElement'>
 <li>Apply MaxDate validation in lastRegistrationDate based on fieldName for which the maxDate has to be set.</li>
 <li>Adding field registrationDate without any conditional expression.</li>
 <li>Apply MaxDate validation based on matched condition in the form, like if the userName is ‘John’ then the birthDate value should be valid date does not exceed the maximum date.</li>
@@ -23,7 +23,7 @@ To Configure Date format globally in your application, Please refer <a href="/re
 
 # Basic MaxDate Validation
 
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a User class and define a property of registrationDate in the model to achieve the functional need of point 1.
 <div component="app-code" key="maxDate-add-model"></div> 
 </data-scope>
@@ -32,7 +32,7 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -56,7 +56,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 <div component="app-code" key="maxDate-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="maxDate-add-html"></div> 
@@ -72,11 +72,11 @@ Below options are not mandatory to use in the `@maxDate()` decorator. If needed 
 Below options are not mandatory to use in the `RxwebValidators.maxDate()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `maxDate` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a (click)='scrollTo("#value")' title="value">value</a></td><td>Enter date value which you want to restrict in the property. </td></tr>
 <tr><td><a (click)='scrollTo("#fieldName")' title="fieldName">fieldName</a></td><td>Field Name for which the maxDate has to be set.</td></tr>
@@ -128,7 +128,7 @@ This Complete MaxDate example which includes all the DateConfig properties will 
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-maxDate-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="maxDate-complete-model"></div> 
 # [/Model]

@@ -51,8 +51,16 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './validators/even/even.module#EvenModule',
 },
 {
+	path:'extension',
+	loadChildren: './validators/extension/extension.module#ExtensionModule',
+},
+{
 	path:'factor',
 	loadChildren: './validators/factor/factor.module#FactorModule',
+},
+{
+	path:'fileSize',
+	loadChildren: './validators/fileSize/file-size.module#FileSizeModule',
 },
 {
 	path:'greaterThanEqualTo',

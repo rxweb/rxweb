@@ -1,4 +1,4 @@
-import {  latitude,prop, } from "@rxweb/reactive-form-validators"
+import {  latitude, } from "@rxweb/reactive-form-validators"
 
 export class NumberInfo {
 

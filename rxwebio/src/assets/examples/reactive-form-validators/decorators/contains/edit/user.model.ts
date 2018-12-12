@@ -1,4 +1,4 @@
-import {  contains,prop, } from "@rxweb/reactive-form-validators"
+import {  contains, } from "@rxweb/reactive-form-validators"
 
 export class User {
 

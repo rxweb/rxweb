@@ -5,6 +5,10 @@ const EVEN_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const EVEN_ROUTING: ModuleWithProviders = RouterModule.forChild(EVEN_ROUTES);

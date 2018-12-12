@@ -5,6 +5,10 @@ const NUMERIC_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const NUMERIC_ROUTING: ModuleWithProviders = RouterModule.forChild(NUMERIC_ROUTES);
