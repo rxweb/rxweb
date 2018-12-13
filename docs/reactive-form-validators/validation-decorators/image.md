@@ -13,6 +13,7 @@ Suppose you want to create a User form, which contains fields like ProfilePhoto,
     <li>Adding Custom Message on VoterId field.</li>
    <li>Apply validation on AadharCard field based on matched condition in the form, like if the ImageType is 'IdentityCard', then the AadharCard must be a Image format (Used as a function).</li>
    <li>Apply validation on PanCard field based on matched condition in the form, like if the ImageType is 'IdentityCard', then the PanCard must be a Image format (Used as a string datatype).</li>
+   <li>Adding custom message on residenceProof field.</li>
     <data-scope scope="['decorator','validator']">
     <li>Apply image validation dynamically based on server rules.</li>
     </data-scope>
@@ -121,8 +122,11 @@ Type :  `Function`  |  `string`
 image validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
+<data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="image-conditionalExpressionExampleFunction-model"></div> 
+</data-scope>
+
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="image-conditionalExpressionExampleString-model"></div> 
 

@@ -5,11 +5,12 @@ author: rxcontributortwo
 
 ---
 # When to use
-Suppose you want to create a UserInfo form, which contains fields like fileType , videoFile , audioFile and imageFile, documentFile ,contactFile, profilePicture and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..
+Suppose you want to create a UserInfo form, which contains fields like fileType , profilePhoto, videoFile , audioFile and imageFile, documentFile ,contactFile, profilePicture and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..
 <ol class='showHideElement'>
-   <li>Allow videoFile which have proper size format and adding Custom Message on videoFile.</li>
+   <li>Allow profilePhoto which have proper size format.</li>
    <li>Apply validation on documentFile field based on matched condition in the form, like if the fileType is 'Document', then the documentFile must be a size format (Used as a function).</li>
    <li>Apply validation on imageFile field based on matched condition in the form, like if the device is 'SmartPhone', then the imageFile must be a size format (Used as a string datatype).</li>
+   <li>Adding custom message on ContactFile field</li>
    <data-scope scope="['decorator','validator']">
    <li>Apply fileSize validation dynamically based on server rules.</li>
    </data-scope>
@@ -89,8 +90,11 @@ Type :  `Function`  |  `string`
 fileSize validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
+<data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="fileSize-conditionalExpressionExampleFunction-model"></div> 
+</data-scope>
+
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="fileSize-conditionalExpressionExampleString-model"></div> 
 

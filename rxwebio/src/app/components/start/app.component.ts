@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.spinner.hide();
-        (<any>window).ga('set', 'page', val.urlAfterRedirects);
-        (<any>window).ga('send', 'pageview');
+        // (<any>window).ga('set', 'page', val.urlAfterRedirects);
+        // (<any>window).ga('send', 'pageview');
         if (val.url == "/" || val.url == "/home")
           this.isHome = true;
         else
