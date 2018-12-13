@@ -1,1 +1,1 @@
-{"fileType":{},"profilePicture":{"extension":{"extensions":"[jpg,bmp]"}},"imageFile":{"extension":{"extensions":"[jpg,bmp]","conditionalExpression":"x => x.fileType == \"Picture\""}},"contactFile":{"extension":{"extensions":"[.vcf]","message":"You can upload only .vcf files."}}}
+{"fileType":{},"profilePicture":{"extension":{"extensions":"[jpg,bmp]"}},"imageFile":{"extension":{"extensions":"[jpg,bmp]","conditionalExpression":"x => x.fileType == \"Picture\""}},"contactFile":{"extension":{"extensions":"[vcf]","message":"You can upload only .vcf files."}}}

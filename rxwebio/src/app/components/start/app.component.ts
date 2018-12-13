@@ -104,7 +104,11 @@ export class AppComponent implements OnInit {
         "startsWith": "Please enter a valid input",
         "time": "Input must be a proper time",
         "upperCase": "Input must be in Uppercase",
-        "url": "Input must be an url"
+        "url": "Input must be an url",
+        "extension": "Enter a valid extension.",
+        "file": "Enter valid file count",
+        "image": "Enter valid file height and width"
+
       }
     });
   }
