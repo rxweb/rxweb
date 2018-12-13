@@ -9,8 +9,16 @@ import { FormBuilderConfiguration,RxFormBuilder} from '@rxweb/reactive-form-vali
     templateUrl: './file-size-dynamic.component.html'
 })
 export class FileSizeDynamicValidatorComponent implements OnInit {
-    storageCapacityFormGroup: FormGroup
+    userInfoFormGroup: FormGroup
 
+				fileTypes = [ "Picture", "Document",];
+	
+	
+	
+	
+	
+	
+	
 	constructor(
         private formBuilder: RxFormBuilder , private http: HttpClient )
 	{ }
@@ -19,8 +27,8 @@ export class FileSizeDynamicValidatorComponent implements OnInit {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/validators/fileSize/dynamic/dynamic.json').subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			var storageCapacity = { device:'', documentStorageSize:'', photographStorageSize:'', videoStorageSize:'',  }
-			this.storageCapacityFormGroup = this.formBuilder.group(storageCapacity,formBuilderConfiguration);
+			var userInfo = { fileType:'', videoFile:'', audioFile:'', imageFile:'', documentFile:'', contactFile:'', profilePicture:'',  }
+			this.userInfoFormGroup = this.formBuilder.group(userInfo,formBuilderConfiguration);
 		})
     }
 }

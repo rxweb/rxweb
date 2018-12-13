@@ -4,24 +4,25 @@ import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
-import { StorageCapacity } from './storage-capacity.model';
+import { UserInfo } from './user-info.model';
 
 @Component({
     selector: 'app-fileSize-dynamic',
     templateUrl: './file-size-dynamic.component.html'
 })
 export class FileSizeDynamicComponent implements OnInit {
-    storageCapacityFormGroup: FormGroup
+    userInfoFormGroup: FormGroup
+				fileTypes = [ "Picture", "Document",];
 
     constructor(
         private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
-        let storageCapacity = new StorageCapacity();
+        let userInfo = new UserInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/decorators/fileSize/dynamic/dynamic.json').subscribe(dynamic => {
             formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			this.storageCapacityFormGroup = this.formBuilder.formGroup(storageCapacity,formBuilderConfiguration);
+			this.userInfoFormGroup = this.formBuilder.formGroup(userInfo,formBuilderConfiguration);
         })
     }
 }

@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 # When to use
 Suppose you want to create a website-info form, which contains fields like AdminWebsiteUrl, CustomerWebsiteUrl, MaintenanceWebsiteUrl and you want the user to enter valid url. Here depending upon the requirement these scenarios may arise.
-<ol>
+<ol class='showHideElement'>
    <li>Adding AdminWebsiteUrl without any conditional expression.</li>
    <li>Apply url validation based on matched condition in the form, like if the adminWebsiteUrl is ‘https://google.co.in’ then the customerWebsiteUrl value should be in proper format of url.</li>
    <li>Adding Custom Message on MaintenanceWebsiteUrl Field.</li>
@@ -17,7 +17,7 @@ Suppose you want to create a website-info form, which contains fields like Admin
 Let’s see how url {{validatorType}} fulfil the need.
 
 # Basic url Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a User class and define a property of AdminWebsiteUrl in the model to achieve the functional need of point 1.
 <div component="app-code" key="url-add-model"></div> 
 </data-scope>
@@ -26,7 +26,7 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope> 
 
@@ -50,7 +50,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 <div component="app-code" key="url-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="url-add-html"></div> 
@@ -66,14 +66,14 @@ Below options are not mandatory to use in the `@url()` decorator. If needed then
 Below options are not mandatory to use in the `RxwebValidators.url()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `url` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a  (click)='scrollTo("#conditionalExpression")'  title="conditionalExpression">conditionalExpression</a></td><td>url validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a  (click)='scrollTo("#message")'  title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")'  title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
 ## conditionalExpression 
@@ -82,8 +82,11 @@ Type :  `Function`  |  `string`
 Url validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
+<data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="url-conditionalExpressionExampleFunction-model"></div> 
+</data-scope>
+
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="url-conditionalExpressionExampleString-model"></div> 
 
@@ -105,7 +108,7 @@ This Complete url example which includes all the DefaultConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-url-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="url-complete-model"></div> 
 # [/Model]

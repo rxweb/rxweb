@@ -5,6 +5,10 @@ const LEAP_YEAR_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const LEAP_YEAR_ROUTING: ModuleWithProviders = RouterModule.forChild(LEAP_YEAR_ROUTES);

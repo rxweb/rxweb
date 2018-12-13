@@ -51,8 +51,20 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './validators/even/even.module#EvenModule',
 },
 {
+	path:'extension',
+	loadChildren: './validators/extension/extension.module#ExtensionModule',
+},
+{
 	path:'factor',
 	loadChildren: './validators/factor/factor.module#FactorModule',
+},
+{
+	path:'fileSize',
+	loadChildren: './validators/fileSize/file-size.module#FileSizeModule',
+},
+{
+	path:'file',
+	loadChildren: './validators/file/file.module#FileModule',
 },
 {
 	path:'greaterThanEqualTo',
@@ -65,6 +77,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'hexColor',
 	loadChildren: './validators/hexColor/hex-color.module#HexColorModule',
+},
+{
+	path:'image',
+	loadChildren: './validators/image/image.module#ImageModule',
 },
 {
 	path:'json',

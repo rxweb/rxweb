@@ -5,6 +5,10 @@ const MIN_DATE_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const MIN_DATE_ROUTING: ModuleWithProviders = RouterModule.forChild(MIN_DATE_ROUTES);

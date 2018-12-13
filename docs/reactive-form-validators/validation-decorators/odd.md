@@ -6,7 +6,7 @@ author: rxcontributorone
 ---
 # When to use
 Suppose you want to create a user form, which contains fields like Number, Type, OddNumber and you want the user to enter only odd numbers Here depending upon the requirement these scenarios may arise.
-<ol>
+<ol class='showHideElement'>
 	<li>Allow only odd numbers in oddNumber’s field.</li>
 	<li>Apply Odd validation based on matched condition in the form, like if the type  is ‘Odd’ then the number value should be odd number.</li>
 	<li>Adding Custom Message on OddNumber Field.</li>
@@ -17,7 +17,7 @@ Suppose you want to create a user form, which contains fields like Number, Type,
 Let’s see how Odd {{validatorType}} fulfil the need.
 
 # Basic Odd Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a User class and define a property of odd in the model to achieve the functional need of point 1.
 <div component="app-code" key="odd-add-model"></div> 
 </data-scope>
@@ -26,7 +26,7 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope> 
 
@@ -50,7 +50,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 <div component="app-code" key="odd-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="odd-add-html"></div> 
@@ -66,14 +66,14 @@ Below options are not mandatory to use in the `@odd()` decorator. If needed then
 Below options are not mandatory to use in the `RxwebValidators.odd()` validator. If needed then use the below options.
 </data-scope>
 
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `odd` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>odd validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
 ## conditionalExpression 
@@ -82,8 +82,11 @@ Type :  `Function`  |  `string`
 Odd validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
+<data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="odd-conditionalExpressionExampleFunction-model"></div> 
+</data-scope>
+
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="odd-conditionalExpressionExampleString-model"></div> 
 
@@ -106,7 +109,7 @@ This Complete Odd example which includes all the BaseConfig properties will fulf
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-odd-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="odd-complete-model"></div> 
 # [/Model]

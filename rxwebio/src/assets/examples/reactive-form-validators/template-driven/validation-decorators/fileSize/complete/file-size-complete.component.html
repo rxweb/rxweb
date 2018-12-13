@@ -1,0 +1,47 @@
+<div>
+  <form #userinfoForm = "ngForm">
+    <div class="form-group">
+      <label>File Type</label>
+      <select name="fileType" [(ngModel)]="userinfo.fileType"  class="form-control" >
+		<option [value]="item" *ngFor="let item of fileTypes">{{item}}</option>
+      </select>
+
+      <small class="form-text text-muted">Based on selection of file type conditional validation is applied<br/></small>
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.fileType?.errors">{{userinfoForm.controls.fileType?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Video File</label>
+	    <input type="file" name="videoFile"  [(ngModel)]="userinfo.videoFile"  class="form-control" />
+
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.videoFile?.errors">{{userinfoForm.controls.videoFile?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Audio File</label>
+	    <input type="file" name="audioFile"  [(ngModel)]="userinfo.audioFile"  class="form-control" />
+
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.audioFile?.errors">{{userinfoForm.controls.audioFile?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Image File</label>
+	    <input type="file" name="imageFile"  [(ngModel)]="userinfo.imageFile"  class="form-control" />
+
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Image File' then you need to add 'File Type' input as 'Picture'.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.imageFile?.errors">{{userinfoForm.controls.imageFile?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Contact File</label>
+	    <input type="file" name="contactFile"  [(ngModel)]="userinfo.contactFile"  class="form-control" />
+
+      <small class="form-text text-muted">Uploaded File must be in the file size range.<br/></small>
+      <small class="form-text text-muted">It shows custom message<br/></small>
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.contactFile?.errors">{{userinfoForm.controls.contactFile?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Profile Picture</label>
+	    <input type="file" name="profilePicture"  [(ngModel)]="userinfo.profilePicture"  class="form-control" />
+
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.profilePicture?.errors">{{userinfoForm.controls.profilePicture?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

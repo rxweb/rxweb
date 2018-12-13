@@ -2,7 +2,7 @@
   <form  *ngIf="subjectDetailsFormGroup"  [formGroup]="subjectDetailsFormGroup">
     <div class="form-group">
       <label>Subject Code</label>
-      <input type="text" formControlName="subjectCode" class="form-control"  />
+      <input type="text" formControlName="subjectCode" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Maximum Marks' or 'Obtained Marks', then you need to add 'Type' input as '8CS5A'<br/></small>
       <small class="form-text text-danger" *ngIf="subjectDetailsFormGroup.controls.subjectCode.errors">{{subjectDetailsFormGroup.controls.subjectCode.errors.maxNumber.message}}<br/></small>
     </div>
@@ -23,6 +23,7 @@
       <label>Practical Marks</label>
       <input type="text" formControlName="practicalMarks" class="form-control"  />
       <small class="form-text text-muted">you can enter MaxNumber upto 70<br/></small>
+      <small class="form-text text-muted">Shows custom message<br/></small>
       <small class="form-text text-danger" *ngIf="subjectDetailsFormGroup.controls.practicalMarks.errors">{{subjectDetailsFormGroup.controls.practicalMarks.errors.maxNumber.message}}<br/></small>
     </div>
     <button [disabled]="!subjectDetailsFormGroup.valid" class="btn btn-primary">Submit</button>

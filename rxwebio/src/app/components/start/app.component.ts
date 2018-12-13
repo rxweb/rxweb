@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.spinner.hide();
-        (<any>window).ga('set', 'page', val.urlAfterRedirects);
-        (<any>window).ga('send', 'pageview');
+        // (<any>window).ga('set', 'page', val.urlAfterRedirects);
+        // (<any>window).ga('send', 'pageview');
         if (val.url == "/" || val.url == "/home")
           this.isHome = true;
         else
@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
         "endsWith": "Please enter a valid input",
         "even": "Please enter an even number",
         "factor": "Please enter valid factors",
-        "fileSize": "Please enter a valid file size",
+        "fileSize": "Please enter a valid size of file",
         "greaterThan": "Input should be greater than pre defined field",
         "greaterThanEqualTo": "Input should be greater than or equal to pre defined field",
         "hexColor": "Invalid Hex Color format",
@@ -104,7 +104,11 @@ export class AppComponent implements OnInit {
         "startsWith": "Please enter a valid input",
         "time": "Input must be a proper time",
         "upperCase": "Input must be in Uppercase",
-        "url": "Input must be an url"
+        "url": "Input must be an url",
+        "extension": "Enter a valid extension.",
+        "file": "Enter valid file count",
+        "image": "Enter valid file height and width",
+
       }
     });
   }

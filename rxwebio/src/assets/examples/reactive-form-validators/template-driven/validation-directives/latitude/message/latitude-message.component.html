@@ -1,0 +1,13 @@
+<div>
+  <form #countryForm = "ngForm">
+    <div class="form-group">
+      <label>First Country Latitude</label>
+	    <input type="text" name="firstCountryLatitude" [(ngModel)]="country.firstCountryLatitude"  class="form-control" [latitude]="{'message':'First Country Latitude is not a latitude'}"/>
+
+      <small class="form-text text-muted">You can enter only latitude<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="countryForm.controls.firstCountryLatitude?.errors">{{countryForm.controls.firstCountryLatitude?.errors.latitude.message}}<br/></small>	
+    </div>
+    <button [disabled]="!countryForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

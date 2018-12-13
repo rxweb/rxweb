@@ -2,7 +2,7 @@
   <form  *ngIf="locationFormGroup"  [formGroup]="locationFormGroup">
     <div class="form-group">
       <label>Area Name</label>
-      <input type="text" formControlName="areaName" class="form-control"  />
+      <input type="text" formControlName="areaName" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'City Code'  or 'Country Code' then you need to add this input as 'Delhi'.<br/></small>
       <small class="form-text text-danger" *ngIf="locationFormGroup.controls.areaName.errors">{{locationFormGroup.controls.areaName.errors.alphaNumeric.message}}<br/></small>
     </div>

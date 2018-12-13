@@ -19,7 +19,6 @@ export class SideBarComponent implements OnInit {
   }
   ngOnInit(): void {
     this.http.get('assets/json/sidebar.json').subscribe((response: any) => {
-      debugger;
       this.links = response.links;
       var splitedArray = location.pathname.split('#')[0].split('/')
       if(splitedArray[1]){

@@ -2,7 +2,7 @@
   <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Email</label>
-      <input type="text" formControlName="email" class="form-control"  />
+      <input type="text" formControlName="email" class="form-control"   />
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.email.errors">{{userFormGroup.controls.email.errors.compare.message}}<br/></small>
     </div>
     <div class="form-group">
@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
       <label>Password</label>
-      <input type="text" formControlName="password" class="form-control"  />
+      <input type="text" formControlName="password" class="form-control"   />
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.password.errors">{{userFormGroup.controls.password.errors.compare.message}}<br/></small>
     </div>
     <div class="form-group">

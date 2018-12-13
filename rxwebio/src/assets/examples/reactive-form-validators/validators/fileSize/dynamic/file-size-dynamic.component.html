@@ -1,25 +1,41 @@
 <div>
-  <form  *ngIf="storageCapacityFormGroup"  [formGroup]="storageCapacityFormGroup">
+  <form  *ngIf="userInfoFormGroup"  [formGroup]="userInfoFormGroup">
     <div class="form-group">
-      <label>Device</label>
-      <input type="text" formControlName="device" class="form-control"  />
-      <small class="form-text text-muted">If you want to apply conditional validation on 'Document Storage Size' or 'Photograph Storage Size', then you need to add 'Device' input as 'SmartPhone'<br/></small>
-      <small class="form-text text-danger" *ngIf="storageCapacityFormGroup.controls.device.errors">{{storageCapacityFormGroup.controls.device.errors.fileSize.message}}<br/></small>
+      <label>File Type</label>
+      <select formControlName="fileType" class="form-control">
+		<option [value]="item" *ngFor="let item of fileTypes">{{item}}</option>
+      </select>
+      <small class="form-text text-muted">Based on selection of file type conditional validation is applied<br/></small>
+      <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.fileType.errors">{{userInfoFormGroup.controls.fileType.errors.fileSize.message}}<br/></small>
     </div>
     <div class="form-group">
-      <label>Photograph Storage Size</label>
-      <input type="text" formControlName="photographStorageSize" class="form-control"  />
-      <small class="form-text text-muted">If you want to apply conditional validation on 'Photograph Storage Size' then you need to add 'Device' input as 'SmartPhone'.<br/></small>
-      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-      <small class="form-text text-danger" *ngIf="storageCapacityFormGroup.controls.photographStorageSize.errors">{{storageCapacityFormGroup.controls.photographStorageSize.errors.fileSize.message}}<br/></small>
+      <label>Video File</label>
+      <input type="file" formControlName="videoFile" class="form-control"   />
+      <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.videoFile.errors">{{userInfoFormGroup.controls.videoFile.errors.fileSize.message}}<br/></small>
     </div>
     <div class="form-group">
-      <label>Video Storage Size</label>
-      <input type="text" formControlName="videoStorageSize" class="form-control"  />
-      <small class="form-text text-muted">you can enter upto 50<br/></small>
-      <small class="form-text text-muted">Shows custom message.<br/></small>
-      <small class="form-text text-danger" *ngIf="storageCapacityFormGroup.controls.videoStorageSize.errors">{{storageCapacityFormGroup.controls.videoStorageSize.errors.fileSize.message}}<br/></small>
+      <label>Audio File</label>
+      <input type="file" formControlName="audioFile" class="form-control"   />
+      <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.audioFile.errors">{{userInfoFormGroup.controls.audioFile.errors.fileSize.message}}<br/></small>
     </div>
-    <button [disabled]="!storageCapacityFormGroup.valid" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+      <label>Image File</label>
+      <input type="file" formControlName="imageFile" class="form-control"   />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Image File' then you need to add 'File Type' input as 'Picture'.<br/></small>
+      <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.imageFile.errors">{{userInfoFormGroup.controls.imageFile.errors.fileSize.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Contact File</label>
+      <input type="file" formControlName="contactFile" class="form-control"   />
+      <small class="form-text text-muted">Uploaded File must be in the file size range.<br/></small>
+      <small class="form-text text-muted">It shows custom message<br/></small>
+      <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.contactFile.errors">{{userInfoFormGroup.controls.contactFile.errors.fileSize.message}}<br/></small>
+    </div>
+    <div class="form-group">
+      <label>Profile Picture</label>
+      <input type="file" formControlName="profilePicture" class="form-control"   />
+      <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePicture.errors">{{userInfoFormGroup.controls.profilePicture.errors.fileSize.message}}<br/></small>
+    </div>
+    <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>
 </div>

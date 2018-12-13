@@ -2,7 +2,7 @@
   <form  *ngIf="numberInfoFormGroup"  [formGroup]="numberInfoFormGroup">
     <div class="form-group">
       <label>Number Type</label>
-      <input type="text" formControlName="numberType" class="form-control"  />
+      <input type="text" formControlName="numberType" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Second Number' or 'Third Number', then you need to add 'Number Type' input as 'Prime'.<br/></small>
       <small class="form-text text-danger" *ngIf="numberInfoFormGroup.controls.numberType.errors">{{numberInfoFormGroup.controls.numberType.errors.primeNumber.message}}<br/></small>
     </div>

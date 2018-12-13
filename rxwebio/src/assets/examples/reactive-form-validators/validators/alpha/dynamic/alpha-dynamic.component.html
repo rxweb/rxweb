@@ -2,7 +2,7 @@
   <form  *ngIf="addressInfoFormGroup"  [formGroup]="addressInfoFormGroup">
     <div class="form-group">
       <label>Country Name</label>
-      <input type="text" formControlName="countryName" class="form-control"  />
+      <input type="text" formControlName="countryName" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Country Code' or 'City' then you need to add this input as 'India'.<br/></small>
       <small class="form-text text-danger" *ngIf="addressInfoFormGroup.controls.countryName.errors">{{addressInfoFormGroup.controls.countryName.errors.alpha.message}}<br/></small>
     </div>

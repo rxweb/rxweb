@@ -2,7 +2,7 @@
   <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Obtained Marks</label>
-      <input type="text" formControlName="obtainedMarks" class="form-control"  />
+      <input type="text" formControlName="obtainedMarks" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Practical Exam Marks' or 'Passing Marks', then Obtained Marks must be less than '35'<br/></small>
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.obtainedMarks.errors">{{userFormGroup.controls.obtainedMarks.errors.lessThan.message}}<br/></small>
     </div>

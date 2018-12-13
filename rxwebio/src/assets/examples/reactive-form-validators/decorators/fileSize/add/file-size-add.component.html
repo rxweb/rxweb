@@ -1,11 +1,11 @@
 <div>
-  <form  [formGroup]="storageCapacityFormGroup">
+  <form  [formGroup]="userInfoFormGroup">
     <div class="form-group">
-      <label>Video Storage Size</label>
-      <input type="text" formControlName="videoStorageSize" class="form-control"  />
-      <small class="form-text text-muted">You must enter a valid size<br/></small>
-	 <small class="form-text text-danger" *ngIf="storageCapacityFormGroup.controls.videoStorageSize.errors">{{storageCapacityFormGroup.controls.videoStorageSize.errors.fileSize.message}}<br/></small>	
+      <label>Profile Picture</label>
+      <input type="file" formControlName="profilePicture" class="form-control"  />
+      <small class="form-text text-muted">Uploaded File must be in the file size range.<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePicture.errors">{{userInfoFormGroup.controls.profilePicture.errors.fileSize.message}}<br/></small>	
     </div>
-    <button [disabled]="!storageCapacityFormGroup.valid" class="btn btn-primary">Submit</button>
+    <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>
 </div>

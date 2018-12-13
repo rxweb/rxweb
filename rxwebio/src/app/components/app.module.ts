@@ -22,8 +22,11 @@ import { GettingStartedComponent } from "src/app/components/getting-started/gett
 import { BasicExamplesExtendedModule } from "src/assets/examples/reactive-form-validators/basic-examples/basic-examples-extended.module";
 import { ControlModule } from "src/app/controls/control.module";
 import { ReactiveFormConfigComponent } from './reactive-form-config/reactive-form-config.component';
-
-
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from 'src/environments/environment';
+import { PromptUpdateService } from '../services/prompt-update.service';
+import { LogUpdateService } from '../services/log-update.service';
+import { CheckForUpdateService } from '../services/check-for-update.service';
 
 
 @NgModule({
@@ -31,9 +34,9 @@ import { ReactiveFormConfigComponent } from './reactive-form-config/reactive-for
     AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe,GettingStartedComponent,ReactiveFormConfigComponent,HomeComponent
   ],
   imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,ControlModule,
-    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule 
+    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [ApplicationBroadcaster],
+  providers: [ApplicationBroadcaster,PromptUpdateService,LogUpdateService,CheckForUpdateService],
 exports:[RouterModule],
   bootstrap: [AppComponent],
   schemas: [

@@ -5,6 +5,10 @@ const CREDIT_CARD_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const CREDIT_CARD_ROUTING: ModuleWithProviders = RouterModule.forChild(CREDIT_CARD_ROUTES);

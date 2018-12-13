@@ -5,6 +5,10 @@ const RANGE_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const RANGE_ROUTING: ModuleWithProviders = RouterModule.forChild(RANGE_ROUTES);

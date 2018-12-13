@@ -7,6 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { FileSizeCompleteValidatorComponent } from './complete/file-size-complete.component';
 import { FileSizeMaxSizeValidatorComponent } from './maxSize/file-size-max-size.component';
+import { FileSizeMinSizeValidatorComponent } from './minSize/file-size-min-size.component';
 import { FileSizeConditionalExpressionValidatorComponent } from './conditionalExpression/file-size-conditional-expression.component';
 import { FileSizeMessageValidatorComponent } from './message/file-size-message.component';
 import { FileSizeDynamicValidatorComponent } from './dynamic/file-size-dynamic.component';
@@ -16,6 +17,7 @@ import { FileSizeAddValidatorComponent } from './add/file-size-add.component';
   declarations: [
 	FileSizeCompleteValidatorComponent,
 	FileSizeMaxSizeValidatorComponent,
+	FileSizeMinSizeValidatorComponent,
 	FileSizeConditionalExpressionValidatorComponent,
 	FileSizeMessageValidatorComponent,
 	FileSizeDynamicValidatorComponent,
@@ -24,6 +26,7 @@ import { FileSizeAddValidatorComponent } from './add/file-size-add.component';
 entryComponents: [
 	FileSizeCompleteValidatorComponent,
 	FileSizeMaxSizeValidatorComponent,
+	FileSizeMinSizeValidatorComponent,
 	FileSizeConditionalExpressionValidatorComponent,
 	FileSizeMessageValidatorComponent,
 	FileSizeDynamicValidatorComponent,
@@ -38,6 +41,7 @@ entryComponents: [
   exports: [
 	FileSizeCompleteValidatorComponent,
 	FileSizeMaxSizeValidatorComponent,
+	FileSizeMinSizeValidatorComponent,
 	FileSizeConditionalExpressionValidatorComponent,
 	FileSizeMessageValidatorComponent,
 	FileSizeDynamicValidatorComponent,

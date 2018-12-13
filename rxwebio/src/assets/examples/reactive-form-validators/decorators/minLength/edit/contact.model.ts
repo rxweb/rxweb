@@ -1,4 +1,4 @@
-import {  minLength,prop, } from "@rxweb/reactive-form-validators"
+import {  minLength, } from "@rxweb/reactive-form-validators"
 
 export class Contact {
 

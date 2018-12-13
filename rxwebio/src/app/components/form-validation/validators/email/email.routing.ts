@@ -5,6 +5,10 @@ const EMAIL_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
+},
+{
+	path:':typeName/:templateDrivenType',
+	component:PageComponent
 }
 ];
 export const EMAIL_ROUTING: ModuleWithProviders = RouterModule.forChild(EMAIL_ROUTES);

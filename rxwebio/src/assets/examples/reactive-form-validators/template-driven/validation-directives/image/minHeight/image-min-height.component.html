@@ -1,0 +1,11 @@
+<div>
+  <form #userinfoForm = "ngForm">
+    <div class="form-group">
+      <label>Identity Card</label>
+	    <input type="file" name="identityCard"  [(ngModel)]="userinfo.identityCard"  class="form-control" [image]="{'minHeight':10,'maxHeight':100,'maxWidth':100}"/>
+
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.identityCard?.errors">{{userinfoForm.controls.identityCard?.errors.image.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

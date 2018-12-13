@@ -2,7 +2,7 @@
   <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>First Number</label>
-      <input type="text" formControlName="firstNumber" class="form-control"  />
+      <input type="text" formControlName="firstNumber" class="form-control"   />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Second Number' or 'Third Number', then you need to add 'First Number' input as '25'<br/></small>
       <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstNumber.errors">{{userFormGroup.controls.firstNumber.errors.factor.message}}<br/></small>
     </div>

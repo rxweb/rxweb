@@ -4,6 +4,7 @@
       <label>Practical Marks</label>
       <input type="text" formControlName="practicalMarks" class="form-control"  />
       <small class="form-text text-muted">you can enter MaxNumber upto 70<br/></small>
+      <small class="form-text text-muted">Shows custom message<br/></small>
 	 <small class="form-text text-danger" *ngIf="subjectDetailsFormGroup.controls.practicalMarks.errors">{{subjectDetailsFormGroup.controls.practicalMarks.errors.maxNumber.message}}<br/></small>	
     </div>
     <button [disabled]="!subjectDetailsFormGroup.valid" class="btn btn-primary">Submit</button>

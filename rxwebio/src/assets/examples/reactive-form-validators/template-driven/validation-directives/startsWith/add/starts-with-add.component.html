@@ -1,0 +1,12 @@
+<div>
+  <form #userForm = "ngForm">
+    <div class="form-group">
+      <label>Name</label>
+	    <input type="text" name="name" [(ngModel)]="user.name"  class="form-control" [startsWith]="{'value':'n'}"/>
+
+      <small class="form-text text-muted">You can enter value which starts with 'n'<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.name?.errors">{{userForm.controls.name?.errors.startsWith.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

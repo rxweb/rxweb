@@ -1,4 +1,4 @@
-import {  endsWith,prop, } from "@rxweb/reactive-form-validators"
+import {  endsWith, } from "@rxweb/reactive-form-validators"
 
 export class User {
 

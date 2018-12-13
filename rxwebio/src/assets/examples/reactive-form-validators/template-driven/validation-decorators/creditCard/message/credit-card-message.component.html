@@ -1,0 +1,14 @@
+<div>
+  <form #userForm = "ngForm">
+    <div class="form-group">
+      <label>Other Visa Card</label>
+	    <input type="text" name="otherVisaCard" [(ngModel)]="user.otherVisaCard"  class="form-control" />
+
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Visa Card' then you need to add 'card type' input as 'Visa'.<br/></small>
+      <small class="form-text text-muted">It shows custom message<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls.otherVisaCard?.errors">{{userForm.controls.otherVisaCard?.errors.creditCard.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

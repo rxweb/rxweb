@@ -6,7 +6,7 @@ author: rxcontributorone
 
 # When to use
 Suppose you want to create a Country form, which contains fields like CountryName, CountryCode, StateName, StateCode and you want the user to enter only alphabets. Here depending upon the requirement these scenarios may arise.
-<ol>
+<ol class='showHideElement'>
 	<li>Allow only alphabets in CountryName without space.</li>
 	<li>Allowing WhiteSpace in StateName.</li>
 	<li>Apply alpha validation based on matched condition in the form, like if the CountryName is 'India' then the StateCode value should be in alphabets.</li>
@@ -18,7 +18,7 @@ Suppose you want to create a Country form, which contains fields like CountryNam
 Let's see how alpha  {{validatorType}}  fulfil the need.
  
 # Basic Alpha Validation
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 First we need to create a Country class and define a property of CountryName in the model to achieve the functional need of point 1.
 <div component="app-code" key="alpha-add-model"></div> 
 </data-scope>
@@ -27,7 +27,7 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Here we have covered Add and Edit form operations. 
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 Here we have covered Add form operations. 
 </data-scope>
 
@@ -51,7 +51,7 @@ Next, we need to write html code.
 ***
 </data-scope>
 
-<data-scope scope="['validator','template-driven']">
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
 <div component="app-code" key="alpha-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="alpha-add-html"></div> 
@@ -65,21 +65,21 @@ Below options are not mandatory to use in the `@alpha()` decorator. If needed th
 <data-scope scope="['validator']">
 Below options are not mandatory to use in the `RxwebValidators.alpha()` validator. If needed then use the below options.
 </data-scope>
-<data-scope scope="['template-driven']">
+<data-scope scope="['template-driven-directives','template-driven-decorators']">
 Below options are not mandatory to use in the `alpha` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a (click)='scrollTo("#allowwhitespace")' title="allowWhiteSpace">allowWhiteSpace</a></td><td>This will allow whitespace in particular control property. The default value is `false`.</td></tr>
 <tr><td><a (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Alpha validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
-<tr><td><a (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and show the custom message on particular control property.</td></tr>
+<tr><td><a (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
 ## allowWhiteSpace 
 Type :  `boolean` 
 
-This will allow whitespace in particular control property.The default value is `false`.
+This will allow whitespace in particular FormControl value .The default value is `false`.
 
 <div component="app-code" key="alpha-allowWhiteSpaceExample-model"></div> 
 <div component="app-example-runner" ref-component="app-alpha-allowWhiteSpace" title="alpha {{validatorType}} with allowWhiteSpace" key="allowWhiteSpace"></div>
@@ -90,8 +90,11 @@ Type :  `Function`  |  `string`
 Alpha validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
 If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
 
+<data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
 <div component="app-code" key="alpha-conditionalExpressionExampleFunction-model"></div> 
+</data-scope>
+
 > Binding `conditionalExpression` with `string` object.
 <div component="app-code" key="alpha-conditionalExpressionExampleString-model"></div> 
 
@@ -100,7 +103,7 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 ## message 
 Type :  `string` 
 
-To override the global configuration message and show the custom message on particular control property.
+To override the global configuration message and set the custom error message on respective FormControl
 
 <div component="app-code" key="alpha-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-alpha-message" title="alpha {{validatorType}} with message" key="message"></div>
@@ -114,7 +117,7 @@ This Complete Alpha example which includes all the AlphaConfig properties will f
 # [Example](#tab\completeexample)
 <div component="app-example-runner" ref-component="app-alpha-complete"></div>
 # [/Example]
-<data-scope scope="['decorator','template-driven']">
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
 # [Model](#tab\completemodel)
 <div component="app-code" key="alpha-complete-model"></div> 
 # [/Model]

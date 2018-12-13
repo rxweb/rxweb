@@ -4,6 +4,7 @@
       <label>Company</label>
       <input type="text" formControlName="company" class="form-control"  />
       <small class="form-text text-muted">Input should startsWith `R`<br/></small>
+      <small class="form-text text-muted">Shows custom message<br/></small>
 	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.company.errors">{{userFormGroup.controls.company.errors.startsWith.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>

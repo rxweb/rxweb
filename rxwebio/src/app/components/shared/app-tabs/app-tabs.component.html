@@ -4,7 +4,7 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane" [class.active]="activeTab == item.tabName" *ngFor="let item of tabArray">
-            <page-viewer [content]="item.content" [data]="content" [typeName]="typeName" *ngIf="item.content"></page-viewer>
+            <page-viewer [content]="item.content" [data]="content" [typeName]="typeName" [templateDrivenType]="templateDrivenType" *ngIf="item.content"></page-viewer>
         </div>
     </div>
 </div>

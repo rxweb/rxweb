@@ -1,4 +1,4 @@
-import {  password,prop, } from "@rxweb/reactive-form-validators"
+import {  password, } from "@rxweb/reactive-form-validators"
 
 export class LoginInfo {
 
