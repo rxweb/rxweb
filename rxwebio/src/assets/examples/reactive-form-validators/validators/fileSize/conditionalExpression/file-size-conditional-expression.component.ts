@@ -13,8 +13,6 @@ export class FileSizeConditionalExpressionValidatorComponent implements OnInit {
 	
 	
 	
-	
-	
 	constructor(
         private formBuilder: FormBuilder )
 	{ }
@@ -22,8 +20,6 @@ export class FileSizeConditionalExpressionValidatorComponent implements OnInit {
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({
             fileType:['',], 
-            videoFile:['', RxwebValidators.fileSize({maxSize:100 })], 
-            audioFile:['', RxwebValidators.fileSize({minSize:3  ,maxSize:100 })], 
             imageFile:['', RxwebValidators.fileSize({maxSize:50  ,conditionalExpression:'x => x.fileType == "Picture"' })], 
             documentFile:['', RxwebValidators.fileSize({maxSize:10  ,conditionalExpression:'(x,y) => x.fileType == "Document"' })], 
         });

@@ -5,12 +5,6 @@ export class UserInfo {
 	@prop()
 	fileType: string;
 
-	@fileSize({maxSize:100 }) 
-	videoFile: string;
-
-	@fileSize({minSize:3  ,maxSize:100 }) 
-	audioFile: string;
-
 	@fileSize({maxSize:50  ,conditionalExpression:'x => x.fileType == "Picture"' }) 
 	imageFile: string;
 

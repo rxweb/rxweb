@@ -8,6 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { ImageCompleteTemplateDrivenValidationDecoratorsComponent } from './complete/image-complete.component';
 import { ImageMaxHeightTemplateDrivenValidationDecoratorsComponent } from './maxHeight/image-max-height.component';
 import { ImageMaxWidthTemplateDrivenValidationDecoratorsComponent } from './maxWidth/image-max-width.component';
+import { ImageMinHeightTemplateDrivenValidationDecoratorsComponent } from './minHeight/image-min-height.component';
 import { ImageConditionalExpressionTemplateDrivenValidationDecoratorsComponent } from './conditionalExpression/image-conditional-expression.component';
 import { ImageMessageTemplateDrivenValidationDecoratorsComponent } from './message/image-message.component';
 import { ImageAddTemplateDrivenValidationDecoratorsComponent } from './add/image-add.component';
@@ -17,6 +18,7 @@ import { ImageAddTemplateDrivenValidationDecoratorsComponent } from './add/image
 	ImageCompleteTemplateDrivenValidationDecoratorsComponent,
 	ImageMaxHeightTemplateDrivenValidationDecoratorsComponent,
 	ImageMaxWidthTemplateDrivenValidationDecoratorsComponent,
+	ImageMinHeightTemplateDrivenValidationDecoratorsComponent,
 	ImageConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 	ImageMessageTemplateDrivenValidationDecoratorsComponent,
 	ImageAddTemplateDrivenValidationDecoratorsComponent,
@@ -25,6 +27,7 @@ entryComponents: [
 	ImageCompleteTemplateDrivenValidationDecoratorsComponent,
 	ImageMaxHeightTemplateDrivenValidationDecoratorsComponent,
 	ImageMaxWidthTemplateDrivenValidationDecoratorsComponent,
+	ImageMinHeightTemplateDrivenValidationDecoratorsComponent,
 	ImageConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 	ImageMessageTemplateDrivenValidationDecoratorsComponent,
 	ImageAddTemplateDrivenValidationDecoratorsComponent,
@@ -39,6 +42,7 @@ entryComponents: [
 	ImageCompleteTemplateDrivenValidationDecoratorsComponent,
 	ImageMaxHeightTemplateDrivenValidationDecoratorsComponent,
 	ImageMaxWidthTemplateDrivenValidationDecoratorsComponent,
+	ImageMinHeightTemplateDrivenValidationDecoratorsComponent,
 	ImageConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 	ImageMessageTemplateDrivenValidationDecoratorsComponent,
 	ImageAddTemplateDrivenValidationDecoratorsComponent,

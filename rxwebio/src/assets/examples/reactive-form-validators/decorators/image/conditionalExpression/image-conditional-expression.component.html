@@ -1,26 +1,6 @@
 <div>
   <form  [formGroup]="userInfoFormGroup">
     <div class="form-group">
-      <label>Profile Photo</label>
-      <input type="file" formControlName="profilePhoto" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePhoto.errors">{{userInfoFormGroup.controls.profilePhoto.errors.image.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Signature</label>
-      <input type="file" formControlName="signature" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.signature.errors">{{userInfoFormGroup.controls.signature.errors.image.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Identity Card</label>
-      <input type="file" formControlName="identityCard" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.identityCard.errors">{{userInfoFormGroup.controls.identityCard.errors.image.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Driving License</label>
-      <input type="file" formControlName="drivinglicense" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.drivinglicense.errors">{{userInfoFormGroup.controls.drivinglicense.errors.image.message}}<br/></small>	
-    </div>
-    <div class="form-group">
       <label>Aadhar Card</label>
       <input type="file" formControlName="aadharCard" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Aadhar Card' then you need to add 'Image Type' input as 'IdentityCard'.<br/></small>

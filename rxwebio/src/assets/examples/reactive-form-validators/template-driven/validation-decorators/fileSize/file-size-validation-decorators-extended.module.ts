@@ -7,6 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { FileSizeCompleteTemplateDrivenValidationDecoratorsComponent } from './complete/file-size-complete.component';
 import { FileSizeMaxSizeTemplateDrivenValidationDecoratorsComponent } from './maxSize/file-size-max-size.component';
+import { FileSizeMinSizeTemplateDrivenValidationDecoratorsComponent } from './minSize/file-size-min-size.component';
 import { FileSizeConditionalExpressionTemplateDrivenValidationDecoratorsComponent } from './conditionalExpression/file-size-conditional-expression.component';
 import { FileSizeMessageTemplateDrivenValidationDecoratorsComponent } from './message/file-size-message.component';
 import { FileSizeAddTemplateDrivenValidationDecoratorsComponent } from './add/file-size-add.component';
@@ -15,6 +16,7 @@ import { FileSizeAddTemplateDrivenValidationDecoratorsComponent } from './add/fi
   declarations: [
 	FileSizeCompleteTemplateDrivenValidationDecoratorsComponent,
 	FileSizeMaxSizeTemplateDrivenValidationDecoratorsComponent,
+	FileSizeMinSizeTemplateDrivenValidationDecoratorsComponent,
 	FileSizeConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 	FileSizeMessageTemplateDrivenValidationDecoratorsComponent,
 	FileSizeAddTemplateDrivenValidationDecoratorsComponent,
@@ -22,6 +24,7 @@ import { FileSizeAddTemplateDrivenValidationDecoratorsComponent } from './add/fi
 entryComponents: [
 	FileSizeCompleteTemplateDrivenValidationDecoratorsComponent,
 	FileSizeMaxSizeTemplateDrivenValidationDecoratorsComponent,
+	FileSizeMinSizeTemplateDrivenValidationDecoratorsComponent,
 	FileSizeConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 	FileSizeMessageTemplateDrivenValidationDecoratorsComponent,
 	FileSizeAddTemplateDrivenValidationDecoratorsComponent,
@@ -35,6 +38,7 @@ entryComponents: [
   exports: [
 	FileSizeCompleteTemplateDrivenValidationDecoratorsComponent,
 	FileSizeMaxSizeTemplateDrivenValidationDecoratorsComponent,
+	FileSizeMinSizeTemplateDrivenValidationDecoratorsComponent,
 	FileSizeConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 	FileSizeMessageTemplateDrivenValidationDecoratorsComponent,
 	FileSizeAddTemplateDrivenValidationDecoratorsComponent,

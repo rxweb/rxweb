@@ -7,6 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { FileSizeCompleteComponent } from './complete/file-size-complete.component';
 import { FileSizeMaxSizeComponent } from './maxSize/file-size-max-size.component';
+import { FileSizeMinSizeComponent } from './minSize/file-size-min-size.component';
 import { FileSizeConditionalExpressionComponent } from './conditionalExpression/file-size-conditional-expression.component';
 import { FileSizeMessageComponent } from './message/file-size-message.component';
 import { FileSizeDynamicComponent } from './dynamic/file-size-dynamic.component';
@@ -17,6 +18,7 @@ import { FileSizeEditComponent } from './edit/file-size-edit.component';
   declarations: [
 	FileSizeCompleteComponent,
 	FileSizeMaxSizeComponent,
+	FileSizeMinSizeComponent,
 	FileSizeConditionalExpressionComponent,
 	FileSizeMessageComponent,
 	FileSizeDynamicComponent,
@@ -26,6 +28,7 @@ import { FileSizeEditComponent } from './edit/file-size-edit.component';
 entryComponents: [
 	FileSizeCompleteComponent,
 	FileSizeMaxSizeComponent,
+	FileSizeMinSizeComponent,
 	FileSizeConditionalExpressionComponent,
 	FileSizeMessageComponent,
 	FileSizeDynamicComponent,
@@ -41,6 +44,7 @@ entryComponents: [
   exports: [
 	FileSizeCompleteComponent,
 	FileSizeMaxSizeComponent,
+	FileSizeMinSizeComponent,
 	FileSizeConditionalExpressionComponent,
 	FileSizeMessageComponent,
 	FileSizeDynamicComponent,

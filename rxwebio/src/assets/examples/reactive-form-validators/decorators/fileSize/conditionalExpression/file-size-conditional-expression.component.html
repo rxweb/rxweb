@@ -9,16 +9,6 @@
 	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.fileType.errors">{{userInfoFormGroup.controls.fileType.errors.fileSize.message}}<br/></small>	
     </div>
     <div class="form-group">
-      <label>Video File</label>
-      <input type="file" formControlName="videoFile" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.videoFile.errors">{{userInfoFormGroup.controls.videoFile.errors.fileSize.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Audio File</label>
-      <input type="file" formControlName="audioFile" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.audioFile.errors">{{userInfoFormGroup.controls.audioFile.errors.fileSize.message}}<br/></small>	
-    </div>
-    <div class="form-group">
       <label>Image File</label>
       <input type="file" formControlName="imageFile" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Image File' then you need to add 'File Type' input as 'Picture'.<br/></small>

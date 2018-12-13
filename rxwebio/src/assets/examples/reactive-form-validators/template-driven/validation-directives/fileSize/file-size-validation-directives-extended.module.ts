@@ -7,6 +7,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 import { FileSizeCompleteTemplateDrivenValidationDirectivesComponent } from './complete/file-size-complete.component';
 import { FileSizeMaxSizeTemplateDrivenValidationDirectivesComponent } from './maxSize/file-size-max-size.component';
+import { FileSizeMinSizeTemplateDrivenValidationDirectivesComponent } from './minSize/file-size-min-size.component';
 import { FileSizeConditionalExpressionTemplateDrivenValidationDirectivesComponent } from './conditionalExpression/file-size-conditional-expression.component';
 import { FileSizeMessageTemplateDrivenValidationDirectivesComponent } from './message/file-size-message.component';
 import { FileSizeAddTemplateDrivenValidationDirectivesComponent } from './add/file-size-add.component';
@@ -15,6 +16,7 @@ import { FileSizeAddTemplateDrivenValidationDirectivesComponent } from './add/fi
   declarations: [
 	FileSizeCompleteTemplateDrivenValidationDirectivesComponent,
 	FileSizeMaxSizeTemplateDrivenValidationDirectivesComponent,
+	FileSizeMinSizeTemplateDrivenValidationDirectivesComponent,
 	FileSizeConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 	FileSizeMessageTemplateDrivenValidationDirectivesComponent,
 	FileSizeAddTemplateDrivenValidationDirectivesComponent,
@@ -22,6 +24,7 @@ import { FileSizeAddTemplateDrivenValidationDirectivesComponent } from './add/fi
 entryComponents: [
 	FileSizeCompleteTemplateDrivenValidationDirectivesComponent,
 	FileSizeMaxSizeTemplateDrivenValidationDirectivesComponent,
+	FileSizeMinSizeTemplateDrivenValidationDirectivesComponent,
 	FileSizeConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 	FileSizeMessageTemplateDrivenValidationDirectivesComponent,
 	FileSizeAddTemplateDrivenValidationDirectivesComponent,
@@ -35,6 +38,7 @@ entryComponents: [
   exports: [
 	FileSizeCompleteTemplateDrivenValidationDirectivesComponent,
 	FileSizeMaxSizeTemplateDrivenValidationDirectivesComponent,
+	FileSizeMinSizeTemplateDrivenValidationDirectivesComponent,
 	FileSizeConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 	FileSizeMessageTemplateDrivenValidationDirectivesComponent,
 	FileSizeAddTemplateDrivenValidationDirectivesComponent,

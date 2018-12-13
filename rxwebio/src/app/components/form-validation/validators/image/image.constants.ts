@@ -10,6 +10,10 @@ import { ImageMaxWidthComponent } from "src/assets/examples/reactive-form-valida
 import { ImageMaxWidthTemplateDrivenValidationDirectivesComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-directives/image/maxWidth/image-max-width.component";
 import { ImageMaxWidthTemplateDrivenValidationDecoratorsComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-decorators/image/maxWidth/image-max-width.component";
 import { ImageMaxWidthValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/image/maxWidth/image-max-width.component";
+import { ImageMinHeightComponent } from "src/assets/examples/reactive-form-validators/decorators/image/minHeight/image-min-height.component";
+import { ImageMinHeightTemplateDrivenValidationDirectivesComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-directives/image/minHeight/image-min-height.component";
+import { ImageMinHeightTemplateDrivenValidationDecoratorsComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-decorators/image/minHeight/image-min-height.component";
+import { ImageMinHeightValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/image/minHeight/image-min-height.component";
 import { ImageConditionalExpressionComponent } from "src/assets/examples/reactive-form-validators/decorators/image/conditionalExpression/image-conditional-expression.component";
 import { ImageConditionalExpressionTemplateDrivenValidationDirectivesComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-directives/image/conditionalExpression/image-conditional-expression.component";
 import { ImageConditionalExpressionTemplateDrivenValidationDecoratorsComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-decorators/image/conditionalExpression/image-conditional-expression.component";
@@ -31,6 +35,7 @@ export const IMAGE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						complete : ImageCompleteComponent,
 						maxHeight : ImageMaxHeightComponent,
 						maxWidth : ImageMaxWidthComponent,
+						minHeight : ImageMinHeightComponent,
 						conditionalExpression : ImageConditionalExpressionComponent,
 						message : ImageMessageComponent,
 						dynamic : ImageDynamicComponent,
@@ -41,6 +46,7 @@ export const IMAGE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						complete : ImageCompleteValidatorComponent,
 						maxHeight : ImageMaxHeightValidatorComponent,
 						maxWidth : ImageMaxWidthValidatorComponent,
+						minHeight : ImageMinHeightValidatorComponent,
 						conditionalExpression : ImageConditionalExpressionValidatorComponent,
 						message : ImageMessageValidatorComponent,
 						dynamic : ImageDynamicValidatorComponent,
@@ -50,6 +56,7 @@ export const IMAGE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						complete : ImageCompleteTemplateDrivenValidationDirectivesComponent,
 						maxHeight : ImageMaxHeightTemplateDrivenValidationDirectivesComponent,
 						maxWidth : ImageMaxWidthTemplateDrivenValidationDirectivesComponent,
+						minHeight : ImageMinHeightTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : ImageConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 						message : ImageMessageTemplateDrivenValidationDirectivesComponent,
 						add : ImageAddTemplateDrivenValidationDirectivesComponent,
@@ -58,6 +65,7 @@ export const IMAGE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						complete : ImageCompleteTemplateDrivenValidationDecoratorsComponent,
 						maxHeight : ImageMaxHeightTemplateDrivenValidationDecoratorsComponent,
 						maxWidth : ImageMaxWidthTemplateDrivenValidationDecoratorsComponent,
+						minHeight : ImageMinHeightTemplateDrivenValidationDecoratorsComponent,
 						conditionalExpression : ImageConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : ImageMessageTemplateDrivenValidationDecoratorsComponent,
 						add : ImageAddTemplateDrivenValidationDecoratorsComponent,

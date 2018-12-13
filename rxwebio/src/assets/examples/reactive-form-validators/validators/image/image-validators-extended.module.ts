@@ -8,6 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { ImageCompleteValidatorComponent } from './complete/image-complete.component';
 import { ImageMaxHeightValidatorComponent } from './maxHeight/image-max-height.component';
 import { ImageMaxWidthValidatorComponent } from './maxWidth/image-max-width.component';
+import { ImageMinHeightValidatorComponent } from './minHeight/image-min-height.component';
 import { ImageConditionalExpressionValidatorComponent } from './conditionalExpression/image-conditional-expression.component';
 import { ImageMessageValidatorComponent } from './message/image-message.component';
 import { ImageDynamicValidatorComponent } from './dynamic/image-dynamic.component';
@@ -18,6 +19,7 @@ import { ImageAddValidatorComponent } from './add/image-add.component';
 	ImageCompleteValidatorComponent,
 	ImageMaxHeightValidatorComponent,
 	ImageMaxWidthValidatorComponent,
+	ImageMinHeightValidatorComponent,
 	ImageConditionalExpressionValidatorComponent,
 	ImageMessageValidatorComponent,
 	ImageDynamicValidatorComponent,
@@ -27,6 +29,7 @@ entryComponents: [
 	ImageCompleteValidatorComponent,
 	ImageMaxHeightValidatorComponent,
 	ImageMaxWidthValidatorComponent,
+	ImageMinHeightValidatorComponent,
 	ImageConditionalExpressionValidatorComponent,
 	ImageMessageValidatorComponent,
 	ImageDynamicValidatorComponent,
@@ -42,6 +45,7 @@ entryComponents: [
 	ImageCompleteValidatorComponent,
 	ImageMaxHeightValidatorComponent,
 	ImageMaxWidthValidatorComponent,
+	ImageMinHeightValidatorComponent,
 	ImageConditionalExpressionValidatorComponent,
 	ImageMessageValidatorComponent,
 	ImageDynamicValidatorComponent,

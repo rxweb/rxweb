@@ -1,30 +1,6 @@
 <div>
   <form #userinfoForm = "ngForm">
     <div class="form-group">
-      <label>Profile Photo</label>
-	    <input type="file" name="profilePhoto"  [(ngModel)]="userinfo.profilePhoto"  class="form-control" />
-
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.profilePhoto?.errors">{{userinfoForm.controls.profilePhoto?.errors.image.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Signature</label>
-	    <input type="file" name="signature"  [(ngModel)]="userinfo.signature"  class="form-control" />
-
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.signature?.errors">{{userinfoForm.controls.signature?.errors.image.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Identity Card</label>
-	    <input type="file" name="identityCard"  [(ngModel)]="userinfo.identityCard"  class="form-control" />
-
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.identityCard?.errors">{{userinfoForm.controls.identityCard?.errors.image.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Driving License</label>
-	    <input type="file" name="drivinglicense"  [(ngModel)]="userinfo.drivinglicense"  class="form-control" />
-
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.drivinglicense?.errors">{{userinfoForm.controls.drivinglicense?.errors.image.message}}<br/></small>	
-    </div>
-    <div class="form-group">
       <label>Aadhar Card</label>
 	    <input type="file" name="aadharCard"  [(ngModel)]="userinfo.aadharCard"  class="form-control" />
 

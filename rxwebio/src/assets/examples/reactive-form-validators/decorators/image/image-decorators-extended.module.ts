@@ -8,6 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { ImageCompleteComponent } from './complete/image-complete.component';
 import { ImageMaxHeightComponent } from './maxHeight/image-max-height.component';
 import { ImageMaxWidthComponent } from './maxWidth/image-max-width.component';
+import { ImageMinHeightComponent } from './minHeight/image-min-height.component';
 import { ImageConditionalExpressionComponent } from './conditionalExpression/image-conditional-expression.component';
 import { ImageMessageComponent } from './message/image-message.component';
 import { ImageDynamicComponent } from './dynamic/image-dynamic.component';
@@ -19,6 +20,7 @@ import { ImageEditComponent } from './edit/image-edit.component';
 	ImageCompleteComponent,
 	ImageMaxHeightComponent,
 	ImageMaxWidthComponent,
+	ImageMinHeightComponent,
 	ImageConditionalExpressionComponent,
 	ImageMessageComponent,
 	ImageDynamicComponent,
@@ -29,6 +31,7 @@ entryComponents: [
 	ImageCompleteComponent,
 	ImageMaxHeightComponent,
 	ImageMaxWidthComponent,
+	ImageMinHeightComponent,
 	ImageConditionalExpressionComponent,
 	ImageMessageComponent,
 	ImageDynamicComponent,
@@ -45,6 +48,7 @@ entryComponents: [
 	ImageCompleteComponent,
 	ImageMaxHeightComponent,
 	ImageMaxWidthComponent,
+	ImageMinHeightComponent,
 	ImageConditionalExpressionComponent,
 	ImageMessageComponent,
 	ImageDynamicComponent,

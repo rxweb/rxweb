@@ -6,6 +6,10 @@ import { FileSizeMaxSizeComponent } from "src/assets/examples/reactive-form-vali
 import { FileSizeMaxSizeTemplateDrivenValidationDirectivesComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-directives/fileSize/maxSize/file-size-max-size.component";
 import { FileSizeMaxSizeTemplateDrivenValidationDecoratorsComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-decorators/fileSize/maxSize/file-size-max-size.component";
 import { FileSizeMaxSizeValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/fileSize/maxSize/file-size-max-size.component";
+import { FileSizeMinSizeComponent } from "src/assets/examples/reactive-form-validators/decorators/fileSize/minSize/file-size-min-size.component";
+import { FileSizeMinSizeTemplateDrivenValidationDirectivesComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-directives/fileSize/minSize/file-size-min-size.component";
+import { FileSizeMinSizeTemplateDrivenValidationDecoratorsComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-decorators/fileSize/minSize/file-size-min-size.component";
+import { FileSizeMinSizeValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/fileSize/minSize/file-size-min-size.component";
 import { FileSizeConditionalExpressionComponent } from "src/assets/examples/reactive-form-validators/decorators/fileSize/conditionalExpression/file-size-conditional-expression.component";
 import { FileSizeConditionalExpressionTemplateDrivenValidationDirectivesComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-directives/fileSize/conditionalExpression/file-size-conditional-expression.component";
 import { FileSizeConditionalExpressionTemplateDrivenValidationDecoratorsComponent } from "src/assets/examples/reactive-form-validators/template-driven/validation-decorators/fileSize/conditionalExpression/file-size-conditional-expression.component";
@@ -26,6 +30,7 @@ export const FILE_SIZE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 	decorators:{
 						complete : FileSizeCompleteComponent,
 						maxSize : FileSizeMaxSizeComponent,
+						minSize : FileSizeMinSizeComponent,
 						conditionalExpression : FileSizeConditionalExpressionComponent,
 						message : FileSizeMessageComponent,
 						dynamic : FileSizeDynamicComponent,
@@ -35,6 +40,7 @@ export const FILE_SIZE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 	validators:{
 						complete : FileSizeCompleteValidatorComponent,
 						maxSize : FileSizeMaxSizeValidatorComponent,
+						minSize : FileSizeMinSizeValidatorComponent,
 						conditionalExpression : FileSizeConditionalExpressionValidatorComponent,
 						message : FileSizeMessageValidatorComponent,
 						dynamic : FileSizeDynamicValidatorComponent,
@@ -43,6 +49,7 @@ export const FILE_SIZE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 	template_driven_validation_directives:{
 						complete : FileSizeCompleteTemplateDrivenValidationDirectivesComponent,
 						maxSize : FileSizeMaxSizeTemplateDrivenValidationDirectivesComponent,
+						minSize : FileSizeMinSizeTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : FileSizeConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 						message : FileSizeMessageTemplateDrivenValidationDirectivesComponent,
 						add : FileSizeAddTemplateDrivenValidationDirectivesComponent,
@@ -50,6 +57,7 @@ export const FILE_SIZE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 	template_driven_validation_decorators:{
 						complete : FileSizeCompleteTemplateDrivenValidationDecoratorsComponent,
 						maxSize : FileSizeMaxSizeTemplateDrivenValidationDecoratorsComponent,
+						minSize : FileSizeMinSizeTemplateDrivenValidationDecoratorsComponent,
 						conditionalExpression : FileSizeConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : FileSizeMessageTemplateDrivenValidationDecoratorsComponent,
 						add : FileSizeAddTemplateDrivenValidationDecoratorsComponent,

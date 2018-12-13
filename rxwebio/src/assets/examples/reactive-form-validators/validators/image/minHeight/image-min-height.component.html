@@ -1,0 +1,10 @@
+<div>
+  <form  [formGroup]="userInfoFormGroup">
+    <div class="form-group">
+      <label>Identity Card</label>
+      <input type="file" formControlName="identityCard" class="form-control"  />
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.identityCard.errors">{{userInfoFormGroup.controls.identityCard.errors.image.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

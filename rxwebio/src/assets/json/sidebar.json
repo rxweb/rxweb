@@ -90,11 +90,6 @@
           "isActive": false
         },
         {
-          "title": "file",
-          "uri": "/form-validations/file/validators",
-          "isActive": false
-        },
-        {
           "title": "greaterThanEqualTo",
           "uri": "/form-validations/greaterThanEqualTo/validators",
           "isActive": false

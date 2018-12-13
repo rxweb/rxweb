@@ -8,6 +8,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { ImageCompleteTemplateDrivenValidationDirectivesComponent } from './complete/image-complete.component';
 import { ImageMaxHeightTemplateDrivenValidationDirectivesComponent } from './maxHeight/image-max-height.component';
 import { ImageMaxWidthTemplateDrivenValidationDirectivesComponent } from './maxWidth/image-max-width.component';
+import { ImageMinHeightTemplateDrivenValidationDirectivesComponent } from './minHeight/image-min-height.component';
 import { ImageConditionalExpressionTemplateDrivenValidationDirectivesComponent } from './conditionalExpression/image-conditional-expression.component';
 import { ImageMessageTemplateDrivenValidationDirectivesComponent } from './message/image-message.component';
 import { ImageAddTemplateDrivenValidationDirectivesComponent } from './add/image-add.component';
@@ -17,6 +18,7 @@ import { ImageAddTemplateDrivenValidationDirectivesComponent } from './add/image
 	ImageCompleteTemplateDrivenValidationDirectivesComponent,
 	ImageMaxHeightTemplateDrivenValidationDirectivesComponent,
 	ImageMaxWidthTemplateDrivenValidationDirectivesComponent,
+	ImageMinHeightTemplateDrivenValidationDirectivesComponent,
 	ImageConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 	ImageMessageTemplateDrivenValidationDirectivesComponent,
 	ImageAddTemplateDrivenValidationDirectivesComponent,
@@ -25,6 +27,7 @@ entryComponents: [
 	ImageCompleteTemplateDrivenValidationDirectivesComponent,
 	ImageMaxHeightTemplateDrivenValidationDirectivesComponent,
 	ImageMaxWidthTemplateDrivenValidationDirectivesComponent,
+	ImageMinHeightTemplateDrivenValidationDirectivesComponent,
 	ImageConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 	ImageMessageTemplateDrivenValidationDirectivesComponent,
 	ImageAddTemplateDrivenValidationDirectivesComponent,
@@ -39,6 +42,7 @@ entryComponents: [
 	ImageCompleteTemplateDrivenValidationDirectivesComponent,
 	ImageMaxHeightTemplateDrivenValidationDirectivesComponent,
 	ImageMaxWidthTemplateDrivenValidationDirectivesComponent,
+	ImageMinHeightTemplateDrivenValidationDirectivesComponent,
 	ImageConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 	ImageMessageTemplateDrivenValidationDirectivesComponent,
 	ImageAddTemplateDrivenValidationDirectivesComponent,

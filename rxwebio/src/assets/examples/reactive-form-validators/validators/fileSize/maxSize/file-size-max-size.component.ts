@@ -16,9 +16,6 @@ export class FileSizeMaxSizeValidatorComponent implements OnInit {
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({
             videoFile:['', RxwebValidators.fileSize({maxSize:100 })], 
-            audioFile:['', RxwebValidators.fileSize({minSize:3  ,maxSize:100 })], 
-            imageFile:['', RxwebValidators.fileSize({maxSize:50  ,conditionalExpression:'x => x.fileType == "Picture"' })], 
-            documentFile:['', RxwebValidators.fileSize({maxSize:10  ,conditionalExpression:'(x,y) => x.fileType == "Document"' })], 
         });
     }
 }

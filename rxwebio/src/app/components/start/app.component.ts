@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
         "endsWith": "Please enter a valid input",
         "even": "Please enter an even number",
         "factor": "Please enter valid factors",
-        "fileSize": "Please enter a valid file size",
+        "fileSize": "Please enter a valid size of file",
         "greaterThan": "Input should be greater than pre defined field",
         "greaterThanEqualTo": "Input should be greater than or equal to pre defined field",
         "hexColor": "Invalid Hex Color format",
@@ -107,7 +107,7 @@ export class AppComponent implements OnInit {
         "url": "Input must be an url",
         "extension": "Enter a valid extension.",
         "file": "Enter valid file count",
-        "image": "Enter valid file height and width"
+        "image": "Enter valid file height and width",
 
       }
     });
