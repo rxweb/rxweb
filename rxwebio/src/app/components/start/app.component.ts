@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.spinner.hide();
-        (<any>window).ga('set', 'page', val.urlAfterRedirects);
-        (<any>window).ga('send', 'pageview');
+        // (<any>window).ga('set', 'page', val.urlAfterRedirects);
+        // (<any>window).ga('send', 'pageview');
         if (val.url == "/" || val.url == "/home")
           this.isHome = true;
         else
@@ -104,7 +104,11 @@ export class AppComponent implements OnInit {
         "startsWith": "Please enter a valid input",
         "time": "Input must be a proper time",
         "upperCase": "Input must be in Uppercase",
-        "url": "Input must be an url"
+        "url": "Input must be an url",
+        "extension": "Enter a valid extension.",
+        "file": "Enter valid file count",
+        "image": "Enter valid file height and width"
+
       }
     });
   }

@@ -14,7 +14,7 @@ export class UserInfo {
 	@extension({extensions:['doc','docx']  ,conditionalExpression:'(x,y) => x.fileType == "Document"' }) 
 	documentFile: string;
 
-	@extension({extensions:['.vcf']  ,message:'You can upload only .vcf files.' }) 
+	@extension({extensions:['vcf']  ,message:'You can upload only .vcf files.' }) 
 	contactFile: string;
 
 }

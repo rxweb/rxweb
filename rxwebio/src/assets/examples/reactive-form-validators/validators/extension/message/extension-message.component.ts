@@ -15,7 +15,7 @@ export class ExtensionMessageValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userInfoFormGroup = this.formBuilder.group({
-            contactFile:['', RxwebValidators.extension({extensions:['.vcf']  ,message:'You can upload only .vcf files.' })], 
+            contactFile:['', RxwebValidators.extension({extensions:['vcf']  ,message:'You can upload only .vcf files.' })], 
         });
     }
 }
