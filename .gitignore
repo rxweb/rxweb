@@ -56,3 +56,4 @@ Thumbs.db
 *.rar
 /node_modules_old
 /Web.config
+/node_modules_delete
