@@ -85,6 +85,11 @@
           "isActive": false
         },
         {
+          "title": "file",
+          "uri": "/form-validations/file/validators",
+          "isActive": false
+        },
+        {
           "title": "fileSize",
           "uri": "/form-validations/fileSize/validators",
           "isActive": false
@@ -255,7 +260,7 @@
       "childrens":[
         {
           "title":"ReactiveFormConfig",
-          "uri":"reactive-form-config",
+          "uri":"api/reactive-form-config",
           "isActive": false
         }
       ]

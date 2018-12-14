@@ -15,7 +15,7 @@ export class DataUriMessageValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            htmlDataUri:['', RxwebValidators.dataUri({message:'{{0}} is not a proper data URI' })], 
+            videoDataUri:['', RxwebValidators.dataUri({message:'{{0}} is not a proper data URI' })], 
         });
     }
 }

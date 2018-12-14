@@ -21,7 +21,7 @@ const APP_LAZY_ROUTES: Routes = [
     path: 'getting-started', component: GettingStartedComponent
   },
   {
-    path:'reactive-form-config',component:ReactiveFormConfigComponent
+    path:'api/reactive-form-config',component:ReactiveFormConfigComponent
   },
   {
     path: 'form-validations',

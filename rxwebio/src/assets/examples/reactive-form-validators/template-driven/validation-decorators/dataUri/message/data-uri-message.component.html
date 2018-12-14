@@ -1,12 +1,12 @@
 <div>
   <form #userForm = "ngForm">
     <div class="form-group">
-      <label>HTML Data Uri</label>
-	    <input type="text" name="htmlDataUri" [(ngModel)]="user.htmlDataUri"  class="form-control" />
+      <label>Video Data Uri</label>
+	    <input type="text" name="videoDataUri" [(ngModel)]="user.videoDataUri"  class="form-control" />
 
       <small class="form-text text-muted">enter Data URI only<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.htmlDataUri?.errors">{{userForm.controls.htmlDataUri?.errors.dataUri.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls.videoDataUri?.errors">{{userForm.controls.videoDataUri?.errors.dataUri.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>
