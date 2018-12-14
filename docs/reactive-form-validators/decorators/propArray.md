@@ -21,20 +21,4 @@ Through Angular FormBuilder service we create FormGroup in the component.
 <div component="app-code" key="propArray-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="propArray-add-html"></div> 
-<div component="app-propArray-add" title="propArray Decorator for add Example"></div>
-
-# Complete propArray Example
-
-This Complete propArray example which will fulfil the requirement.
-
-<div component="app-tabs" key="complete"></div>
-[!TabGroup]
-# [Example](#tab\completeexample)
-<div component="app-propArray-complete"></div>
-# [Model](#tab\completemodel)
-<div component="app-code" key="propArray-complete-model"></div> 
-</data-scope>
-# [Component](#tab\completecomponent)
-<div component="app-code" key="propArray-complete-component"></div> 
-# [Html](#tab\completehtml)
-<div component="app-code" key="propArray-complete-html"></div> 
+<div component="app-example-runner" ref-component="app-propArray-add"></div>

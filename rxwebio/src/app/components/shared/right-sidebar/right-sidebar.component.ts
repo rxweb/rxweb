@@ -26,6 +26,7 @@ export class RightSideBarComponent implements OnInit {
     contributorList: any = [];
     gitEditUrl: string = "https://github.com/rxweb/rxweb/edit/master/docs/reactive-form-validators";
     ngOnInit(): void {
+        console.log(location.pathname);
         if (location.pathname.includes("form-validation"))
             this.gitEditUrl += "/validation-decorators/" + location.pathname.split('/')[2] + ".md"
         else

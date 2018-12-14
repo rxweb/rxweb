@@ -28,6 +28,10 @@ const APP_LAZY_ROUTES: Routes = [
     loadChildren: 'src/app/components/form-validation/form-validation.module#FormValidationModule',
   },
   {
+    path: 'decorators',
+    loadChildren: 'src/app/components/decorators/decorators.module#DecoratorsModule',
+  },
+  {
     path: '**', 
     redirectTo:'home',
     pathMatch: 'full'

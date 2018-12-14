@@ -66,9 +66,9 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
           let formBuilder = new FormBuilder();
           let formGroup = formBuilder.group({
 			'adminWebsiteUrl':['https://google.co.in'],
-            'qaWebsiteUrl':'https:/#/www'
+            'qaWebsiteUrl':'https:/#/www.'
           });
-          expect(RxwebValidators.url({conditionalExpression:(x,y) => x.adminWebsiteUrl == "https://google.co.in" })(formGroup.controls.qaWebsiteUrl)).toEqual({'url':{ message: 'Please enter proper url format', refValues: [ 'https:/#/www' ] } }); 
+          expect(RxwebValidators.url({conditionalExpression:(x,y) => x.adminWebsiteUrl == "https://google.co.in" })(formGroup.controls.qaWebsiteUrl)).toEqual({'url':{ message: 'Please enter proper url format', refValues: [ 'https:/#/www.' ] } }); 
         });
 
       it("Should not error, Conditional Expression with type 'string'",
