@@ -29,13 +29,13 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
           expect(RxwebValidators.alphaNumeric()(new FormControl(undefined))).toBeNull(); 
         });
 
-      it("Should not error, ",
+      it("Should not error, This allowed whitespace in alpha Numeric validation",
         () => { 
           expect(RxwebValidators.alphaNumeric({allowWhiteSpace:true})(new FormControl('Victoria Park'))).toBeNull(); 
         });
 
 
-      it("Should error, ",
+      it("Should error, Shows custom message",
         () => { 
           expect(RxwebValidators.alphaNumeric({message:'Please enter only alphanumerics, special characters are not allowed.'})(new FormControl('1600 Amphi-theatre Pkwy'))).toEqual({'alphaNumeric':{ message: 'Please enter only alphanumerics, special characters are not allowed.', refValues: [ '1600 Amphi-theatre Pkwy' ] } }); 
         });
