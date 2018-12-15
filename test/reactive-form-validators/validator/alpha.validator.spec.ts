@@ -18,7 +18,7 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
 
 	      it('should not error on an empty string.',
         () => { 
-          expect(RxwebValidators.alpha()(new FormControl('a@'))).toBeNull();
+          expect(RxwebValidators.alpha()(new FormControl(''))).toBeNull();
         });
 	
       it('should not error on null.',
