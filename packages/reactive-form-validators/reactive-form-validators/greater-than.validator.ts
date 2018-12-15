@@ -18,7 +18,7 @@ export function greaterThanValidator(config: RelationalOperatorConfig): Validato
         config = ApplicationUtil.getConfigObject(config);
         const matchControl = ApplicationUtil.getFormControl(config.fieldName,control);
         const matchControlValue = (matchControl) ? matchControl.value : '';
-       if (FormProvider.ProcessRule(control,config)) {
+        if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value) && RegexValidator.isNotBlank(matchControlValue)) {
                 if (!(matchControl && parseFloat(control.value) > parseFloat(matchControlValue)))
                     return ObjectMaker.toJson(AnnotationTypes.greaterThan, config.message || null, [control.value, matchControlValue]);

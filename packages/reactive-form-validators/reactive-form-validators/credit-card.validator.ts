@@ -25,6 +25,7 @@ export function creditCardValidator(config:CreditCardConfig): ValidatorFn {
             if (RegexValidator.isNotBlank(controlValue)) {
                 let isValid = false;
                 let cardTypes = config.fieldName && parentObject[config.fieldName] ? [parentObject[config.fieldName]] : config.creditCardTypes
+                let cardType:string = '';
                 for (let creditCardType of cardTypes) {
                     switch (creditCardType) {
                         case "AmericanExpress":
@@ -49,10 +50,11 @@ export function creditCardValidator(config:CreditCardConfig): ValidatorFn {
                             isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Visa);
                             break;
                     }
+                  cardType  = creditCardType;
                 }
                 isValid = isValid ?  controlValue.length == 16 : isValid;
                 if (!isValid)
-                    return ObjectMaker.toJson(AnnotationTypes.creditCard, config.message || null, [controlValue])
+                    return ObjectMaker.toJson(AnnotationTypes.creditCard, config.message || null, [controlValue,cardType])
             }
         }
         return ObjectMaker.null();

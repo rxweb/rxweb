@@ -418,29 +418,9 @@ save() {
   }
   unformGroup: FormGroup;
   ngOnInit() {
-
-    this.unformGroup = this.formBuilder.group({
-      'hh_lmms_id': new FormControl(''),
-      'last_name_ar': new FormControl('', [Validators.required, Validators.pattern('[\u0600-\u06FF ]*')]),
-      'last_name_en': new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
-      'num_ind_of_hh': new FormControl({ value: '0', disabled: true }, [Validators.required,]),
-      'address_in_origin_country': new FormControl('', [Validators.required]),
-      'hh_status': new FormControl('Active', [Validators.required]),
-      'hh_phone_number': new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern(/^-?([0-9]\d*)?$/)]),
-      'date_added': new FormControl('', [Validators.required]),
-      'u_id': ['', [RxwebValidators.required({ conditionalExpression: (x) => x.gov_id_type === '' && x.gov_id_number === '' }),
-      RxwebValidators.pattern({ expression: { 'unid': RegExp('^[0-9A-Z]{3}(-)[0-9]{2}(C)[0-9]{5}$') }, conditionalExpression: (x) => x.u_id !== '' })]],
-      'gov_id_type': ['', RxwebValidators.required({ conditionalExpression: (x) => x.u_id === '' })],
-      'gov_id_number': ['', RxwebValidators.required({ conditionalExpression: (x) => x.gov_id_type !== '' })],
-      'legal_id': new FormControl(''),
-      'protection_id': new FormControl(''),
-      'situation_id': new FormControl(''),
-      'willing_to_go_back': new FormControl('')
-    })
-
     this.person = new Person();
     this.persons = new Array<Person>();
-var fc= new FormBuilderConfiguration();
+    var fc= new FormBuilderConfiguration();
     fc.autoInstanceConfig = {
       objectPropInstanceConfig:[{
         propertyName:'skill'
@@ -451,7 +431,6 @@ var fc= new FormBuilderConfiguration();
       }]
     }
     this.form = <RxFormGroup>this.validation.formGroup(Person,this.person,fc);
-console.log(this.form);
 let address = new Address();
 this.dynamicFormGroup  = this.validation.group({questions:this.validatorJson},{
 //excludeProps:['questions.fieldId','questions.label','questions.placeHolder','questions.sortId','questions.validation'],
@@ -471,41 +450,8 @@ conditionalExpression:(x) => x.nationality == 'Abroad' })
     ]]
 });
 
-this.testForm = this.formBuilder.group({
-  password:['',[RxwebValidators.password ({
-        validation:{
-          upperCase:true,
-          lowerCase:true,
-        }
-      }),RxwebValidators.minLength({value:8}),
-      RxwebValidators.maxLength({value:10})]],
-  confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
-  age:['',RxwebValidators.startsWith({value:"n"})],
-  cardType:[''],
-  creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
-  amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]],
-fileData:['',RxwebValidators.extension({extensions:[".jpg"]})],
-fileSize:['',RxwebValidators.fileSize({maxSize:20000})],
-image:['',RxwebValidators.image({maxWidth:1920,maxHeight:1200 })]
-  
-});
-        this.angularFormGroup = this.validation.group({
-          firstName:['',RxwebValidators.required()],
-          lastName:[''],
-          minDate:['',RxwebValidators.minDate({fieldName:'maxDate'})],
-          maxDate:['',RxwebValidators.maxDate({value:"10/11/2018"})],
-          address:this.validation.group({
-            city:[''],
-            country:['']
-          }),
-          skills:this.formBuilder.array([this.validation.group({
-            skillName:['a',RxwebValidators.unique()]
-          }),
-this.validation.group({
-            skillName:['b',RxwebValidators.unique()]
-          })
-])
-      })
+
+        
 
       this.userInfoFormGroup = this.validation.group({
         firstName: '',
