@@ -4,6 +4,7 @@
       <label>Postal Address</label>
 	    <input type="text" name="postalAddress" [(ngModel)]="location.postalAddress"  class="form-control" />
 
+      <small class="form-text text-muted">Shows custom message<br/></small>
 	   <small class="form-text text-danger" *ngIf="locationForm.controls.postalAddress?.errors">{{locationForm.controls.postalAddress?.errors.alphaNumeric.message}}<br/></small>	
     </div>
     <button [disabled]="!locationForm.valid" class="btn btn-primary">Submit</button>

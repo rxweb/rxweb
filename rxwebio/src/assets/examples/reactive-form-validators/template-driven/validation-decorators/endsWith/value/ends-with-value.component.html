@@ -4,6 +4,7 @@
       <label>Name</label>
 	    <input type="text" name="name" [(ngModel)]="user.name"  class="form-control" />
 
+      <small class="form-text text-muted">It should ends with 't'<br/></small>
       <small class="form-text text-muted">If you want to apply conditional validation on 'Profession' or 'Task Id', then you need to add 'name' input as 'Bharat'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.name?.errors">{{userForm.controls.name?.errors.endsWith.message}}<br/></small>	
     </div>

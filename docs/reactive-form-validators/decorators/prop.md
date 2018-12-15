@@ -17,21 +17,4 @@ Through Angular FormBuilder service we create FormGroup in the component.
 <div component="app-code" key="prop-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="prop-add-html"></div> 
-<div component="app-prop-add" title="prop Decorator for add Example"></div>
-
-# Complete prop Example
-
-This Complete prop example which will fulfil the requirement.
-
-<div component="app-tabs" key="complete"></div>
-[!TabGroup]
-# [Example](#tab\completeexample)
-<div component="app-prop-complete"></div>
-# [Model](#tab\completemodel)
-<div component="app-code" key="prop-complete-model"></div> 
-</data-scope>
-# [Component](#tab\completecomponent)
-<div component="app-code" key="prop-complete-component"></div> 
-# [Html](#tab\completehtml)
-<div component="app-code" key="prop-complete-html"></div> 
-***
+<div component="app-example-runner" ref-component="app-prop-add"></div>

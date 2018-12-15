@@ -6,9 +6,9 @@ export class User {
 	scheme: string;
 
 	@prop()
-	javascriptDataUri: string;
+	audioDataUri: string;
 
 	@prop()
-	htmlDataUri: string;
+	videoDataUri: string;
 
 }

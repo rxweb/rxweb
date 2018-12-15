@@ -19,7 +19,7 @@ export class DataUriDynamicValidatorComponent implements OnInit {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/validators/dataUri/dynamic/dynamic.json').subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			var user = { scheme:'', cssDataUri:'', javascriptDataUri:'', htmlDataUri:'',  }
+			var user = { scheme:'', imageDataUri:'', audioDataUri:'', videoDataUri:'',  }
 			this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
 		})
     }

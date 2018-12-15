@@ -4421,7 +4421,7 @@ body.modal-open {
 }
 
 #side-menu li .nav-second-level li a, #side-menu li a {
- padding: 15px 25px 15px 30px;
+ padding: 6px 25px 6px 30px;
     color: #222222;
     text-transform: none;
     font-weight: 600;
@@ -4441,7 +4441,7 @@ body.modal-open {
     /*font-weight: 300;*/
     line-height: 22px;
     font-weight: 400;
-     padding: 6px 10px 6px 30px;
+     padding: 5px 10px 5px 30px;
 }
 #side-menu li .nav-third-level li a {
     font-size: 12px;
@@ -4457,6 +4457,7 @@ body.modal-open {
 #side-menu li a span.fa {
     display: inline-block;
     line-height: 22px;
+    font-size: 15px;
 }
 .arrow {
     float: right;
@@ -5551,6 +5552,7 @@ pre {
   background-color:transparent !important;
   font-size: 15px !important;
     line-height: 17px !important;
+    white-space: pre;
 }
 
 .padding-zero-tab {
@@ -5585,8 +5587,7 @@ pre {
   text-decoration: none;
 }
 #navigation {
-  min-height: 100%;
-  margin-top: 62px;
+  margin-top: 75px;
   display: inline-block;
   overflow: hidden; 
   width: 100%;
@@ -6039,10 +6040,12 @@ ul.menu li {
     border:none !important;
     
 }
-#side-menu li .nav-second-level li a.active,#side-menu li a.active{
-    font-weight: 550;
+#side-menu li .nav-second-level li a.active, #side-menu li a.active {
+    font-weight: 600;
     background-color: #dfeff8;
+    border-left: 4px solid #0f96e4;
 }
+
 #navigation, .header-link{ transition: all .4s ease 0s;}
 body.hide-sidebar #menu #navigation {
     opacity: 0;
@@ -6053,7 +6056,13 @@ body.hide-sidebar #menu #navigation {
 body.hide-sidebar #menu .header-link {
     border-bottom-color: transparent;
 }
-
+#side-menu > li > a.active {
+    padding: 12px 25px 12px 15px;
+    font-size: 13px;
+    background-color: #dfeff8;
+    font-weight: 600;
+    margin-bottom: 1px;
+}
 /*=============== media query ================*/
 @media only screen and (max-width:1199px) {
     header.banner{
