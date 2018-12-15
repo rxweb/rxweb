@@ -17,7 +17,7 @@ export function startsWithValidator(config: DefaultConfig): ValidatorFn {
             if (RegexValidator.isNotBlank(control.value)) {
                 var startString = String(control.value).substr(0,config.value.length);
                 if (startString != config.value)
-                    return ObjectMaker.toJson(AnnotationTypes.startsWith, config.message || null, [control.value]);
+                    return ObjectMaker.toJson(AnnotationTypes.startsWith, config.message || null, [control.value,config.value]);
             }
         } return ObjectMaker.null();
     }

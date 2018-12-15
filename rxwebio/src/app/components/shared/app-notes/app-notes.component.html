@@ -1,0 +1,5 @@
+<blockquote *ngIf="content?.length > 0">
+    <ng-container *ngFor="let item of content">
+        <p [innerHtml]="item"></p>
+    </ng-container>
+</blockquote>

@@ -1,0 +1,12 @@
+<div>
+  <form #numberinfoForm = "ngForm">
+    <div class="form-group">
+      <label>First Number</label>
+	    <input type="text" name="firstNumber" [(ngModel)]="numberinfo.firstNumber"  class="form-control" primeNumber/>
+
+      <small class="form-text text-muted">You must enter a proper prime number<br/></small>
+	   <small class="form-text text-danger" *ngIf="numberinfoForm.controls.firstNumber?.errors">{{numberinfoForm.controls.firstNumber?.errors.primeNumber.message}}<br/></small>	
+    </div>
+    <button [disabled]="!numberinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

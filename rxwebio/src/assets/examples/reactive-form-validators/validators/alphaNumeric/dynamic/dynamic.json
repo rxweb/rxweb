@@ -1,0 +1,1 @@
+{"areaName":{"alphaNumeric":true},"flatAddress":{"alphaNumeric":{"allowWhiteSpace":"true"}},"postalAddress":{"alphaNumeric":{"message":"Please enter only alphanumerics, special characters are not allowed."}},"cityCode":{"alphaNumeric":{"conditionalExpression":"x => x.areaName ==\"Delhi\""}}}

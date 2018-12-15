@@ -14,7 +14,7 @@ export function maxLengthValidator(config: NumberConfig): ValidatorFn {
           if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
                 if (!(control.value.length <= config.value))
-                    return ObjectMaker.toJson(AnnotationTypes.maxLength, config.message || null, [control.value])
+                    return ObjectMaker.toJson(AnnotationTypes.maxLength, config.message || null, [control.value,config.value])
             }
         }
         return ObjectMaker.null();

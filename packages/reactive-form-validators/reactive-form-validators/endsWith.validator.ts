@@ -17,7 +17,7 @@ export function endsWithValidator(config: DefaultConfig): ValidatorFn {
             if (RegexValidator.isNotBlank(control.value)) {
                 var endString = String(control.value).substr(control.value.length - config.value.length,config.value.length);
                 if (endString != config.value)
-                    return ObjectMaker.toJson(AnnotationTypes.endsWith, config.message || null, [control.value]);
+                    return ObjectMaker.toJson(AnnotationTypes.endsWith, config.message || null, [control.value,config.value]);
             }
         } return ObjectMaker.null();
     }

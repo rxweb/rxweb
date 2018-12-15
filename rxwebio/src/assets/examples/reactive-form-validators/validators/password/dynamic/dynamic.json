@@ -1,0 +1,1 @@
+{"newPassword":{"password":{"validation":"{maxLength: 10,minLength: 5,digit: true,specialCharacter: true}"}},"oldPassword":{"password":{"validation":"{maxLength: 10,minLength: 5,digit: true,specialCharacter: true}","message":"Password is not valid"}}}

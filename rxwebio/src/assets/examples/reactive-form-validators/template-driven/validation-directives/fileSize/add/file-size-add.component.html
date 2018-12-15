@@ -1,0 +1,12 @@
+<div>
+  <form #userinfoForm = "ngForm">
+    <div class="form-group">
+      <label>Profile Picture</label>
+	    <input type="file" name="profilePicture"  [(ngModel)]="userinfo.profilePicture"  class="form-control" [fileSize]="{'maxSize':10}"/>
+
+      <small class="form-text text-muted">Uploaded File must be in the file size range.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.profilePicture?.errors">{{userinfoForm.controls.profilePicture?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

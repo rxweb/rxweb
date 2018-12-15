@@ -54,4 +54,6 @@ export * from './longitude.decorator';
 export * from './rule.decorator';
 export * from './file.decorator';
 export * from './custom.decorator';
+export * from './unique.decorator';
+export * from './image.decorator';
 

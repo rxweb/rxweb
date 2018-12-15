@@ -7,6 +7,7 @@
 
 # dependencies
 /node_modules
+/rxwebio/node_modules
 
 # IDEs and editors
 /.idea
@@ -47,3 +48,12 @@ Thumbs.db
 
 /packages/reactive-form-validators/const/locale/alphabets-locale.regex.ts
 /packages/reactive-form-validators/const/locale
+/rxweb.io.rar
+/rxwebio/.vscode
+/node_modules_old.rar
+/test-config
+/node_modules_New
+*.rar
+/node_modules_old
+/Web.config
+/node_modules_delete

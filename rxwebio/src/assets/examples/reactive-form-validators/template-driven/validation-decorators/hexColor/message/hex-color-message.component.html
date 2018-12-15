@@ -1,0 +1,12 @@
+<div>
+  <form #hexcolorinfoForm = "ngForm">
+    <div class="form-group">
+      <label>Body Hexcode</label>
+	    <input type="text" name="bodyHexcolorCode" [(ngModel)]="hexcolorinfo.bodyHexcolorCode"  class="form-control" />
+
+      <small class="form-text text-muted">Shows custom message<br/></small>
+	   <small class="form-text text-danger" *ngIf="hexcolorinfoForm.controls.bodyHexcolorCode?.errors">{{hexcolorinfoForm.controls.bodyHexcolorCode?.errors.hexColor.message}}<br/></small>	
+    </div>
+    <button [disabled]="!hexcolorinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

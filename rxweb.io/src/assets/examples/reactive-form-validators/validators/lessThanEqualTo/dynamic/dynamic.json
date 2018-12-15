@@ -1,1 +1,0 @@
-{"totalMarks":{"lessThanEqualTo":true},"practicalExamMarks":{"fieldName":"'totalMarks'","conditionalExpression":"'x => x.totalMarks == 100'"},"otherMarks":{"fieldName":"'totalMarks'","message":"'Please enter number less than 100.'"}}

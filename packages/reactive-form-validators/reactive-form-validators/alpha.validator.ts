@@ -13,8 +13,6 @@ import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
 export function alphaValidator(config: AlphaConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-if(control.value == "#abc")
-debugger
         config = ApplicationUtil.getConfigObject(config);
         if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {

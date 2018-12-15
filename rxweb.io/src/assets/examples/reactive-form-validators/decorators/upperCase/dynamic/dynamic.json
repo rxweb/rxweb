@@ -1,1 +1,0 @@
-{"countryName":{"upperCase":true},"cityName":{"conditionalExpression":"'x => x.countryName == \"INDIA\"'"},"colonyName":{"message":"'You can enter only upperCase letters.'"}}

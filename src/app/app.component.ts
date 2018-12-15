@@ -15,7 +15,7 @@ endsWith,
 startsWith,
 primeNumber,
 latitude,
-longitude,rule,RxFormGroup
+longitude,rule,RxFormGroup, unique,image
 } from "@rxweb/reactive-form-validators";
 
 export class Consultant {
@@ -190,7 +190,7 @@ export class Address {
 
 import { CLIENT_SETTINGS } from './client-setting'
 export class Attendance {
-    @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
+   @unique({additionalValidation:(currentValue,indexOf,fieldName,formGroupValue,formArrayValue) =>{ return false; }}) @prop() @required({ conditionalExpression: (x,y) => y.firstName == 'john' && y.employeeDetail.areaName == 'ahmedabad' }) startTime: number;
 }
 export class EmployeeDetail {
    
@@ -257,14 +257,14 @@ export class Employee {
     @email({ message: "email", conditionalExpression: "(x,y) => x.firstName == 'john' && y.firstName == 'john'" }) email: string;
     @hexColor({ message: "hex"}) hexColor: string;
     @lowerCase({ message: "lowercase", conditionalExpression: "x => x.firstName == 'john'" }) lowerCase: string;
-    @maxDate({ value: new Date(2018,7-1,30) }) maxDate: string; // do some work
-    @minDate({ value: new Date(2000, 0, 1) }) minDates: string; // do some work
+    @maxDate({fieldName:'minDates'  }) maxDate: string; // do some work
+    @minDate({ value: "07/30/2018" }) minDates: string; // do some work
     @maxLength({ value: 20, message: "length exceed", conditionalExpression: "x => x.firstName == 'john'" }) maxLength: string;
     @maxNumber({ value: 100000000 }) maxNumber: string;
     @minLength({ value: 10 }) minLength: number;
     @minNumber({ value: 20, message: "minimum number {{0}}", conditionalExpression: "x => x.firstName == 'john'" }) minNumber: string;
     @password({ validation: { maxLength: 10, minLength: 5, digit: true, specialCharacter: true } }) password: string;
-    @pattern({ pattern: { 'onlyDigit': /^[0-9]+$/ }, conditionalExpression: "x => x.firstName == 'john'" }) pattern: string;
+    @pattern({ expression: { 'onlyDigit': /^[0-9]+$/ }, conditionalExpression: "x => x.firstName == 'john'" }) pattern: string;
     @range({ minimumNumber: 5, maximumNumber: 10 }) range: string;
     @required({ message: "minimum number {{0}}", conditionalExpression: "x => x.firstName == 'john'" }) required: string;
     @upperCase({ message: "minimum number {{0}}", conditionalExpression: "x => x.firstName == 'john'" }) upperCase: string;
@@ -272,24 +272,26 @@ export class Employee {
     @propArray(Attendance) attendances: Attendance[]
     @compare({ fieldName: 'country' }) state: string;
     @prop() country: string;
-    @time({ allowSeconds: true, message: "time" }) time: string;
+    @time({ allowSeconds: false, message: "time" }) time: string;
     @url() url: string;
     @json() json: string;
     @greaterThan({ fieldName: 'minNumber' }) greaterThan: string;
     @greaterThanEqualTo({ fieldName: 'minNumber' }) greaterThanEqualTo: string;
     @lessThan({ fieldName: 'minNumber' }) lessThan: string;
     @lessThanEqualTo({ fieldName: 'minNumber' }) lessThanEqualTo: string;
-    @creditCard({ creditCardTypes: ["AmericanExpress",] }) creditCard: string;
+    @creditCard({ creditCardTypes: ["Visa",] }) creditCard: string;
     @ascii()                          ascii:string;
     @dataUri()                        dataUri:string;
     @port()                           port:number;
     @latLong()                        latLong:string
-    @fileSize({maxSize:20000})       extension:object;
+    @extension({extensions:["jpg"]})       extension:object;
+    @fileSize({maxSize:20000})       fileSize:object;  
     @endsWith({value:'jha'})          endsWith:string
     @startsWith({value:'aja'})        startsWith:string
     @primeNumber()                    primeNumber:number;
     @latitude()                       latitude:number;
     @longitude()                      longitude:number;
+    @image({maxWidth:1920,maxHeight:1200}) image:string;
    private _classProperty: ExternalClass;
 
 
@@ -416,29 +418,9 @@ save() {
   }
   unformGroup: FormGroup;
   ngOnInit() {
-
-    this.unformGroup = this.formBuilder.group({
-      'hh_lmms_id': new FormControl(''),
-      'last_name_ar': new FormControl('', [Validators.required, Validators.pattern('[\u0600-\u06FF ]*')]),
-      'last_name_en': new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
-      'num_ind_of_hh': new FormControl({ value: '0', disabled: true }, [Validators.required,]),
-      'address_in_origin_country': new FormControl('', [Validators.required]),
-      'hh_status': new FormControl('Active', [Validators.required]),
-      'hh_phone_number': new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern(/^-?([0-9]\d*)?$/)]),
-      'date_added': new FormControl('', [Validators.required]),
-      'u_id': ['', [RxwebValidators.required({ conditionalExpression: (x) => x.gov_id_type === '' && x.gov_id_number === '' }),
-      RxwebValidators.pattern({ pattern: { 'unid': RegExp('^[0-9A-Z]{3}(-)[0-9]{2}(C)[0-9]{5}$') }, conditionalExpression: (x) => x.u_id !== '' })]],
-      'gov_id_type': ['', RxwebValidators.required({ conditionalExpression: (x) => x.u_id === '' })],
-      'gov_id_number': ['', RxwebValidators.required({ conditionalExpression: (x) => x.gov_id_type !== '' })],
-      'legal_id': new FormControl(''),
-      'protection_id': new FormControl(''),
-      'situation_id': new FormControl(''),
-      'willing_to_go_back': new FormControl('')
-    })
-
     this.person = new Person();
     this.persons = new Array<Person>();
-var fc= new FormBuilderConfiguration();
+    var fc= new FormBuilderConfiguration();
     fc.autoInstanceConfig = {
       objectPropInstanceConfig:[{
         propertyName:'skill'
@@ -449,7 +431,6 @@ var fc= new FormBuilderConfiguration();
       }]
     }
     this.form = <RxFormGroup>this.validation.formGroup(Person,this.person,fc);
-console.log(this.form);
 let address = new Address();
 this.dynamicFormGroup  = this.validation.group({questions:this.validatorJson},{
 //excludeProps:['questions.fieldId','questions.label','questions.placeHolder','questions.sortId','questions.validation'],
@@ -469,33 +450,8 @@ conditionalExpression:(x) => x.nationality == 'Abroad' })
     ]]
 });
 
-this.testForm = this.formBuilder.group({
-  password:['',[RxwebValidators.password ({
-        validation:{
-          upperCase:true,
-          lowerCase:true,
-        }
-      }),RxwebValidators.minLength({value:8}),
-      RxwebValidators.maxLength({value:10})]],
-  confirmPassword:['',RxwebValidators.compare({fieldName:'password'})],
-  age:['',RxwebValidators.startsWith({value:"n"})],
-  cardType:[''],
-  creditCard:['',RxwebValidators.creditCard({fieldName:'cardType'})],
-  amount:['',[RxwebValidators.required(),RxwebValidators.numeric({allowDecimal:true,digitsInfo:'3.1-5',isFormat:true})]],
-fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
-  
-});
-        this.angularFormGroup = this.validation.group({
-          firstName:['',RxwebValidators.required()],
-          lastName:[''],
-          address:this.validation.group({
-            city:[''],
-            country:['']
-          }),
-          skills:this.formBuilder.array([this.validation.group({
-            skillName:['']
-          })])
-      })
+
+        
 
       this.userInfoFormGroup = this.validation.group({
         firstName: '',
@@ -509,6 +465,18 @@ fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
         var employeeDetail = new Attendance()
         employeeDetail.startTime = 1
         employee.attendances.push(employeeDetail)
+        employeeDetail = new Attendance()
+        employeeDetail.startTime = 2
+        employee.attendances.push(employeeDetail)
+employeeDetail = new Attendance()
+        employeeDetail.startTime = 3
+        employee.attendances.push(employeeDetail)
+employeeDetail = new Attendance()
+        employeeDetail.startTime = 4
+        employee.attendances.push(employeeDetail)
+employeeDetail = new Attendance()
+        employeeDetail.startTime = 5
+        employee.attendances.push(employeeDetail)
         //this.secondEmployee = new Employee();
         //this.secondEmployee.employeeDetail = new EmployeeDetail();
         //employee.employeeDetail.areaName = "";
@@ -518,8 +486,12 @@ fileData:['',RxwebValidators.extension({extensions:[".jpg"]})]
         //employeeDetail.startTime = undefined
         //this.secondEmployee.attendances.push(employeeDetails)
         ReactiveFormConfig.set({
+            "baseConfig":{
+              "dateFormat": "mdy",
+               "seperator": "/"
+            },
             "internationalization": {
-                "dateFormat": "dmy",
+                "dateFormat": "mdy",
                 "seperator": "/"
             },
             "validationMessage": {

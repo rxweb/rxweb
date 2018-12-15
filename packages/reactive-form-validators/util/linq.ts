@@ -4,7 +4,7 @@ export class Linq {
         var match = expression.match(/^\s*\(?\s*([^)]*)\s*\)?\s*=>(.*)/);
         var splitSelect = match[2].split(",");
         for (var i = 0; i < splitSelect.length; i++) {
-            var equalToOperator = splitSelect[i].match(/^\s*\(?\s*([^)]*)\s*\)?\s*==(.*)/);
+            var equalToOperator = splitSelect[i].match(/^\s*\(?\s*([^)]*)\s*\)?\s*|===|!==|==|!=|>=|>|<=|<|(.*)/);
             if (equalToOperator !== null) {
                 functionSetter = new Function(match[1], "return " + equalToOperator.input);
             } else {

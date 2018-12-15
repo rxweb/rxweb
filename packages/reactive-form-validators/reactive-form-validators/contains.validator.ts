@@ -15,7 +15,7 @@ export function containsValidator(config:DefaultConfig): ValidatorFn {
         if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
                 if (control.value.indexOf(config.value) == -1)
-                    return ObjectMaker.toJson(AnnotationTypes.contains, config.message || null, [config.value,control.value]);
+                    return ObjectMaker.toJson(AnnotationTypes.contains, config.message || null, [control.value,config.value]);
             }
         }
         return ObjectMaker.null();

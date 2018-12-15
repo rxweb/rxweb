@@ -1,0 +1,11 @@
+<div>
+  <form #userinfoForm = "ngForm">
+    <div class="form-group">
+      <label>Video File</label>
+	    <input type="file" name="videoFile"  [(ngModel)]="userinfo.videoFile"  class="form-control" [fileSize]="{'maxSize':100}"/>
+
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.videoFile?.errors">{{userinfoForm.controls.videoFile?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

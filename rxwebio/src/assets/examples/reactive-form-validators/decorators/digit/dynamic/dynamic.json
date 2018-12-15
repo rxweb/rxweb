@@ -1,0 +1,1 @@
+{"age":{"digit":true},"faxNumber":{"digit":{"conditionalExpression":"x => x.age >=25"}},"mobileNumber":{"digit":{"message":"Please enter only digit."}}}

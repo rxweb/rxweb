@@ -1,0 +1,12 @@
+<div>
+  <form  [formGroup]="accountInfoFormGroup">
+    <div class="form-group">
+      <label>Middle Name</label>
+      <input type="text" formControlName="middleName" class="form-control"  />
+      <small class="form-text text-muted">Middle Name and First Name must be different<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	 <small class="form-text text-danger" *ngIf="accountInfoFormGroup.controls.middleName.errors">{{accountInfoFormGroup.controls.middleName.errors.different.message}}<br/></small>	
+    </div>
+    <button [disabled]="!accountInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

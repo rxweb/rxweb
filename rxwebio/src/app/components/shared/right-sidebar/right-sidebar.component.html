@@ -1,0 +1,62 @@
+<!--<div id="rightsidebar" class="p-1">
+    <div class="border-left">
+        <ul class="list-unstyled" >
+            <li class="nav-item" *ngFor="let item of sidebarItem;let i = index"  [class.sidebar-list]="item.subLink?.length > 0">
+                <a class="nav-link sidebar-link" [class.child-item-list]="item.subLink?.length > 0" href="#{{item.parentLinkId}}" [class.active]="i == 0" (click)="scrollTo(item.parentLinkId)">{{item.parentLink}}</a>
+                <ul class="list-unstyled" [class.child-list]="item.subLink?.length > 0">
+                    <li *ngFor="let obj of item.subLink" class="nav-item px-1"><a class="nav-link" href="#{{obj.id}}" (click)="scrollTo(obj.id)">{{obj.value}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+	<div class="contributors"  *ngIf="showComponent">
+		  <h4>Contributors</h4>
+		  <div class="row" *ngIf="contributorList.length > 0">
+			<div class="col-xs-12 col-sm-6 text-center" *ngFor="let item of contributorList">
+			<a href="{{item.html_url}}" target="_blank">
+				<img class="img-responsive d-inline-block" src="{{item.avatar_url}}" width="50" height="50">
+				<p class="my-2">{{item.login}}</p>
+			</a>
+			</div>
+		</div>
+		  <div class="row" *ngIf="contributorList.length == 0">
+			  <div class="col-xs-12 col-sm-12 ml-20">
+				<span>No Contributors found.</span>
+			  </div>
+		  </div>
+	 </div>
+</div>-->
+
+<div id="rightsidebar" class="p-1">
+    <div>
+        <ul class="list-unstyled" id="rightsidebar-items">
+            <li class="nav-item" *ngFor="let item of sidebarLinks;let i = index" [class.d-flex]="i == 0" [class.border-none]="i == 0"  [class.sidebar-list]="item.subLink?.length > 0">
+                <a class="nav-link sidebar-link" [class.child-item-list]="item.subLink?.length > 0" href="#{{item.id}}" [class.active]="i == 0" (click)="scrollTo(item.id)">{{item.title}}</a>
+                    <a *ngIf="i == 0" target="_blank" href="{{gitEditUrl}}" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <ul class="list-unstyled" [class.child-list]="item.subLink?.length > 0">
+                    <li *ngFor="let obj of item.subLink" class="nav-item px-1"><a class="nav-link" href="#{{obj.id}}" (click)="scrollTo(obj.id)">{{obj.title}}</a></li>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="rightsidebar btm-link">
+        <ul class="nav navbar-nav no-borders">
+            <li>
+                <a href="https://github.com/rxweb/rxweb/issues" title="GitHub" target="_blank"><i class="fa fa-github"></i>Report Issues</a>
+            </li>
+            <li>
+                <a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i>Stack Overflow</a>
+            </li>
+            <li>
+                <a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" title="Comment" target="_blank"><i class="fa fa-comment"></i>Chat On Gitter</a>
+            </li>
+            </ul>
+    </div>
+    <!--<div class="feedback">
+        <form  [formGroup]="feedbackForm" (keydown)="submitForm()">
+            <textarea placeholder="Submit your feedback" formControlName="feedback"></textarea>
+            <small class="form-text text-danger" *ngIf="feedbackForm.controls.feedback.errors">{{feedbackForm.controls.feedback.errors.required.message}}<br/></small>	
+        </form>
+    </div>-->
+</div>

@@ -1,0 +1,11 @@
+<div>
+  <form  [formGroup]="userInfoFormGroup">
+    <div class="form-group">
+      <label>Total Document Files</label>
+      <input type="file" formControlName="totalDocumentFiles" class="form-control" multiple />
+      <small class="form-text text-muted">This field allow minmum 5 files.<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.totalDocumentFiles.errors">{{userInfoFormGroup.controls.totalDocumentFiles.errors.file.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

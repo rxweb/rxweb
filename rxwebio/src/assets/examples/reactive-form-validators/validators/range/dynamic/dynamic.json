@@ -1,0 +1,1 @@
+{"age":{"range":{"minimumNumber":"18","maximumNumber":"60"}},"experience":{"range":{"minimumNumber":"2","maximumNumber":"20","conditionalExpression":"x => x.age >=25"}},"salary":{"range":{"minimumNumber":"1000","maximumNumber":"200000","message":"Your Salary should be between 1000 to 200000."}}}

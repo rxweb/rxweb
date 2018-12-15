@@ -1,0 +1,14 @@
+<form [formGroup]="userInfoFormGroup">
+<div class="form-group">
+    <label>First Name</label>
+    <input type="text" formControlName="firstName" class="form-control"  />
+    <small class="form-text text-danger" >{{userInfoFormGroup.controls.firstName["errorMessage"]}}<br/></small>
+</div>
+<div class="form-group">
+    <label>Last Name</label>
+    <input type="text" formControlName="lastName" class="form-control"  />
+    <small class="form-text text-danger" >{{userInfoFormGroup.controls.lastName["errorMessage"]}}<br/></small>
+    
+</div>
+<button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+</form> 

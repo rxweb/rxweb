@@ -1,0 +1,11 @@
+<div>
+  <form #userinfoForm = "ngForm">
+    <div class="form-group">
+      <label>Audio File</label>
+	    <input type="file" name="audioFile"  [(ngModel)]="userinfo.audioFile"  class="form-control" [fileSize]="{'minSize':3,'maxSize':100}"/>
+
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.audioFile?.errors">{{userinfoForm.controls.audioFile?.errors.fileSize.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

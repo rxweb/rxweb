@@ -41,7 +41,8 @@ export abstract class ControlExpressionProcess
             this.conditionalValidator = conditionalChangeValidator(validationRule.conditionalValidationProps[name]);
   }
 
-  setModelConfig(control:AbstractControl){
+  setModelConfig(control: AbstractControl) {
+    this.isProcessed = true;
     if(this.controlConfig && this.controlConfig.validatorConfig){
       control["validatorConfig"] = this.controlConfig.validatorConfig;
       this.controlConfig = undefined;
@@ -49,12 +50,8 @@ export abstract class ControlExpressionProcess
   }
 
   expressionProcessor(control:AbstractControl){
-      this.setModelConfig(control);
-      if(this.formControlName){
-      if(!this.isProcessed && control.parent && !control.parent["model"]){
-          this.process(control,this.formControlName);      
-      }
-      }else if(!this.isProcessed && this.name && control.parent && control.parent["marked"]){
+      
+      if(!this.isProcessed && this.name && control.parent && control.parent["marked"]){
         this.process(control,this.name);      
       }
     }

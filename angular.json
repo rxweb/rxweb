@@ -5,7 +5,7 @@
   "projects": {
     "rxweb": {
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "./",
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
@@ -50,7 +50,8 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "serviceWorker": true
             }
           }
         },

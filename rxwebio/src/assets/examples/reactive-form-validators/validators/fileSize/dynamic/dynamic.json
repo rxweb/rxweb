@@ -1,0 +1,1 @@
+{"fileType":{},"videoFile":{"fileSize":{"maxSize":"100"}},"audioFile":{"fileSize":{"minSize":"3","maxSize":"100"}},"imageFile":{"fileSize":{"maxSize":"50","conditionalExpression":"x => x.fileType == \"Picture\""}},"contactFile":{"fileSize":{"maxSize":"10","message":"File exceed maximum size."}},"profilePicture":{"fileSize":{"maxSize":"50"}}}

@@ -1,1 +1,0 @@
-{"scheme":{"dataUri":true},"javascriptDataUri":{"conditionalExpression":"'x => x.scheme ==\"DataUri\"'"},"htmlDataUri":{"message":"'{{0}} is not a proper data URI'"}}

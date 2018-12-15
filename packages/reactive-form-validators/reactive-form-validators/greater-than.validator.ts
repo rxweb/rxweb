@@ -16,9 +16,9 @@ import { ApplicationUtil } from '../util/app-util';
 export function greaterThanValidator(config: RelationalOperatorConfig): ValidatorFn {
     return (control: FormGroup): { [key: string]: any } => {
         config = ApplicationUtil.getConfigObject(config);
-        const matchControl = control.root.get([config.fieldName]);
+        const matchControl = ApplicationUtil.getFormControl(config.fieldName,control);
         const matchControlValue = (matchControl) ? matchControl.value : '';
-       if (FormProvider.ProcessRule(control,config)) {
+        if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value) && RegexValidator.isNotBlank(matchControlValue)) {
                 if (!(matchControl && parseFloat(control.value) > parseFloat(matchControlValue)))
                     return ObjectMaker.toJson(AnnotationTypes.greaterThan, config.message || null, [control.value, matchControlValue]);

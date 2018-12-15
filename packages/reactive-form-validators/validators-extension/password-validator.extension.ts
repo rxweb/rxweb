@@ -7,7 +7,7 @@ import { defaultContainer } from "../core/defaultContainer"
 import { AnnotationTypes } from "../core/validator.static"
 import {STRING } from '../const/validator.const';
 import {ApplicationUtil} from '../util/app-util';
-export function passwordcValidatorExtension(config?: PasswordConfig): ValidatorFn {
+export function passwordcValidatorExtension(config: PasswordConfig): ValidatorFn {
     var validator = passwordValidator(config);
     var rxwebValidator = (control:any,target?:object): { [key: string]: any } => {
         if (typeof control == STRING)

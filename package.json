@@ -5,10 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --code-coverage --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "report-coverage": "codecov -f coverage/coverage-final.json",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
     "build:validators": "ng-packagr -p ./packages/reactive-form-validators/package.json"
   },
   "dependencies": {
@@ -21,7 +21,9 @@
     "@angular/http": "^7.1.0",
     "@angular/platform-browser": "^7.1.0",
     "@angular/platform-browser-dynamic": "^7.1.0",
+    "@angular/pwa": "^0.11.2",
     "@angular/router": "^7.1.0",
+    "@rxweb/reactive-form-validators": "^1.4.4",
     "codecov": "^3.1.0",
     "core-js": "^2.5.4",
     "ng-packagr": "^1.4.1",

@@ -1,0 +1,1 @@
+{"username":{"lowerCase":true},"middleName":{"lowerCase":{"conditionalExpression":"x => x.username == \"jonathan.feldman\""}},"lastName":{"lowerCase":{"message":"You can enter only lowerCase letters."}}}

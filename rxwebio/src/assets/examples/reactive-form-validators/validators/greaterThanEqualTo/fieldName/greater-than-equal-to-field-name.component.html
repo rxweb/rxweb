@@ -1,0 +1,17 @@
+<div>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Admission Age</label>
+      <input type="text" formControlName="admissionAge" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Voter Age' or 'Member Age' then need to add this input greater than or equal to '18'.<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.admissionAge.errors">{{userFormGroup.controls.admissionAge.errors.greaterThanEqualTo.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Retirement Age</label>
+      <input type="text" formControlName="retiermentAge" class="form-control"  />
+      <small class="form-text text-muted">Retirement Age should be greater than equal to Admission Age<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.retiermentAge.errors">{{userFormGroup.controls.retiermentAge.errors.greaterThanEqualTo.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,1 @@
+{"userName":{"pattern":{"expression":"{onlyAlpha: RegExp(/^[A-Za-z]+$/)}"}},"zipCode":{"pattern":{"expression":"{zipCode:RegExp(^[0-9]{5}(?:-[0-9]{4})?$) }","message":"Zip code should match 12345 or 12345-6789"}},"age":{"pattern":{"expression":"{onlyDigit: RegExp(/^[0-9]*$new /)}","conditionalExpression":"x => x.userName==\"Bharat\""}}}

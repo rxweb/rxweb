@@ -17,7 +17,7 @@ import { ApplicationUtil } from '../util/app-util';
 export function lessThanValidator(config: RelationalOperatorConfig): ValidatorFn {
     return (control: FormGroup): { [key: string]: any } => {
         config = ApplicationUtil.getConfigObject(config);
-        const matchControl = control.root.get([config.fieldName]);
+        const matchControl = ApplicationUtil.getFormControl(config.fieldName,control);
         const matchControlValue = (matchControl) ? matchControl.value : '';
           if (FormProvider.ProcessRule(control,config)) {
             if ((RegexValidator.isNotBlank(control.value) && RegexValidator.isNotBlank(matchControlValue))) {

@@ -10,16 +10,19 @@ import { ExtensionConfig } from "../models/config/extension-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
-export function extensionValidator(config: ExtensionConfig): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } => {
-        config = ApplicationUtil.getConfigObject(config);
-       if (FormProvider.ProcessRule(control,config)) {
+export function extensionValidator(config: ExtensionConfig): any {
+    return (control: AbstractControl,files:FileList): { [key: string]: any } => {
+       config = ApplicationUtil.getConfigObject(config);
+       if(!control["validatorConfig"] || !control["validatorConfig"]["extension"])
+          ApplicationUtil.configureControl(control,config,AnnotationTypes.extension);
+       if (files && FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
-                let files = control.value as File[];
                 let testResult = true;
-                for(let file of files){
+                let extension:string = '';
+                for (var i = 0; i < files.length; i++) {
+                    let file = files.item(i);
                     let splitText = file.name.split(".");
-                    let extension:string = splitText[splitText.length - 1];
+                    extension = splitText[splitText.length - 1];
                     let result = config.extensions.filter(t=>{ return extension.toLowerCase() == t.toLowerCase() })[0] ;
                     if(!result){
                             testResult = false;
@@ -28,7 +31,7 @@ export function extensionValidator(config: ExtensionConfig): ValidatorFn {
                       
                 }
                 if (!testResult)
-                    return ObjectMaker.toJson(AnnotationTypes.extension, config.message || null, [control.value]);
+                    return ObjectMaker.toJson(AnnotationTypes.extension, config.message || null, [extension,config.extensions.join(",")]);
             }
         } return ObjectMaker.null();
     }

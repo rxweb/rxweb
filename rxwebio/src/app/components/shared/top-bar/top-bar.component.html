@@ -1,0 +1,65 @@
+<div id="header">
+  <!-- <div class="header-link hide-menu d-flex align-items-center" (click)="hideSideBar()">
+		<svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+		<a routerLink="/home" title="rxweb" class="rxlogo">rxweb</a>
+   </div>
+  <div id="logo" class="light-version">
+    <a routerLink="/home">
+    <img src="/assets/images/rxweb-logo.png" />
+    </a>
+  </div>-->
+  <nav role="navigation">
+	    <div class="mobile-menu">
+      <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-Target="#mobile-collapse">
+        <i class="fa fa-chevron-down"></i>
+      </button>
+	    <div class="collapse mobile-navbar" id="mobile-collapse">
+        <ul class="nav navbar-nav">
+					<li>
+						<a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators" target="_blank">GitHub</a>
+					</li>
+					<li>
+						<a href="https://stackoverflow.com/search?q=rxweb" target="_blank">Stack Overflow</a>
+					</li>
+					<li>
+						<a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" target="_blank">Comment</a>
+					</li>
+				</ul>
+		 </div>
+    </div>
+		<!--<div class="navbar-right">
+      <ul class="nav navbar-nav no-borders">
+				<li>
+					<a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators" title="GitHub" target="_blank"><i class="fa fa-github"></i></a>
+				</li>
+				<li>
+					<a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i></a>
+				</li>
+				<li>
+					<a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" title="Comment" target="_blank"><i class="fa fa-comment"></i></a>
+				</li>
+		</ul>
+		</div>-->
+	</nav>
+	<div class="hidden-md hidden-lg mobile-view">
+			<div class="header-link hide-menu d-flex align-items-center" (click)="hideSideBar()">
+					<svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+					<a class="rxlogo" routerlink="/home" title="rxweb" href="/home">rxweb</a>
+					<div >
+							<ul class="nav navbar-nav no-borders">
+									<li><a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators" target="_blank"
+													title="GitHub"><i class="fa fa-github"></i>GitHub issues</a></li>
+									<li><a href="https://stackoverflow.com/search?q=rxweb" target="_blank" title="Stack Overflow"><i class="fa fa-stack-overflow"></i>Stack
+													Overflow</a></li>
+									<li><a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" target="_blank" title="Comment"><i class="fa fa-comment"></i>Chat
+													On Gitter</a></li>
+							</ul>
+					</div>
+			</div>
+	</div>
+</div>
+
+<!--<div class="searchMenu formValidators" id="searchContent" *ngIf="showSearchMenu">
+		<div class="bg-white">	<button class="searchclose" (click)="showSearchMenu=false"> <span class="glyphicon glyphicon-remove"></span></button> </div>
+	<app-dashboard  searchText={{searchFormGroup.value.search}} ></app-dashboard>
+</div>-->

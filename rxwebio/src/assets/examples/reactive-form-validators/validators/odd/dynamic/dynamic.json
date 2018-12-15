@@ -1,0 +1,1 @@
+{"type":{},"oddNumber":{"odd":{"conditionalExpression":"x => x.type == \"Odd\""}},"multiplesOfOddNumber":{"odd":{"message":"{{0}} is not an odd number"}}}

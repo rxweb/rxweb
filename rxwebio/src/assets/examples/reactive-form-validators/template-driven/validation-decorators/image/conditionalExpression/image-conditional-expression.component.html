@@ -1,0 +1,12 @@
+<div>
+  <form #userinfoForm = "ngForm">
+    <div class="form-group">
+      <label>Aadhar Card</label>
+	    <input type="file" name="aadharCard"  [(ngModel)]="userinfo.aadharCard"  class="form-control" />
+
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Aadhar Card' then you need to add 'Image Type' input as 'IdentityCard'.<br/></small>
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.aadharCard?.errors">{{userinfoForm.controls.aadharCard?.errors.image.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

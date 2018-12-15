@@ -14,7 +14,7 @@ export function requiredValidator(config: RequiredConfig): ValidatorFn {
         config = ApplicationUtil.getConfigObject(config);
           if (FormProvider.ProcessRule(control,config)) {
             if (!RegexValidator.isNotBlank(control.value)) {
-                return ObjectMaker.toJson(AnnotationTypes.required, config.message || null, [control.value])
+                return ObjectMaker.toJson(AnnotationTypes.required, config.message || null, [])
             }
         }
         return ObjectMaker.null();

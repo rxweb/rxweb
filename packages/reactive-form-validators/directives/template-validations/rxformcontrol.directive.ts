@@ -1,5 +1,5 @@
 import { Directive, Input,ElementRef,Renderer, forwardRef, OnInit,OnDestroy } from '@angular/core';
-import { NG_VALIDATORS, AbstractControl,FormControl} from '@angular/forms';
+import { Validator,NG_VALIDATORS, AbstractControl,FormControl} from '@angular/forms';
 import { formatNumber } from "@angular/common"
 import { APP_VALIDATORS} from '../../const/app-validators.const';
 import { BaseValidator } from './base-validator.directive';
@@ -8,7 +8,7 @@ RADIO,FILE, ELEMENT_VALUE,BLUR,FOCUS,CHANGE,BLANK
   } from "../../const";
 import { ApplicationUtil } from '../../util/app-util';
 import { DecimalProvider } from "../../domain/element-processor/decimal.provider"
-import {AlphaConfig,ArrayConfig,BaseConfig,ChoiceConfig,CompareConfig,ComposeConfig,ContainsConfig,CreditCardConfig,DateConfig,DefaultConfig,DigitConfig,EmailConfig,ExtensionConfig,FactorConfig,FieldConfig,HexColorConfig,MessageConfig,NumberConfig,NumericConfig,PasswordConfig,PatternConfig,RangeConfig,RequiredConfig,RuleConfig,SizeConfig,TimeConfig ,DifferentConfig,RelationalOperatorConfig } from '../../models/config'
+import {AlphaConfig,ArrayConfig,BaseConfig,ChoiceConfig,CompareConfig,ComposeConfig,ContainsConfig,CreditCardConfig,DateConfig,DefaultConfig,DigitConfig,EmailConfig,ExtensionConfig,FactorConfig,FieldConfig,HexColorConfig,MessageConfig,NumberConfig,NumericConfig,PasswordConfig,PatternConfig,RangeConfig,RequiredConfig,RuleConfig,SizeConfig,TimeConfig ,DifferentConfig,RelationalOperatorConfig,UniqueConfig } from '../../models/config'
 const COMPOSE:string = 'compose';
 const NGMODEL_BINDING: any = {
   provide: NG_VALIDATORS,
@@ -16,14 +16,15 @@ const NGMODEL_BINDING: any = {
   multi: true
 };
 
-const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','aphaNumeric','ascii','dataUri','digit','email','even','hexColor','json','latitude','latLong','leapYear','longitude','lowerCase','mac','odd','port','primeNumber','time','upperCase','url'];
+const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required','alpha','alphaNumeric','ascii','dataUri','digit','email','even','hexColor','json','latitude','latLong','leapYear','longitude','lowerCase','mac','odd','port','primeNumber','time','upperCase','url','unique'];
 
 @Directive({
   selector: '[ngModel],[formControlName],[formControl]',
   providers: [NGMODEL_BINDING],
 })
-export class RxFormControlDirective extends BaseValidator implements OnInit,OnDestroy{
+export class RxFormControlDirective extends BaseValidator implements OnInit,OnDestroy,Validator{
   private eventListeners:any[] = [];
+  private isNumericSubscribed:boolean = false;
   set validationControls(value:{[key:string]:FormControl}){
       this.controls = value;
   }
@@ -83,9 +84,10 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
   @Input() time:TimeConfig;
   @Input() upperCase:MessageConfig;
   @Input() url:DefaultConfig;
+  @Input() unique:UniqueConfig;
 
   
-  @Input() formControl:FormControl | AbstractControl;
+  
 
   constructor(private elementRef: ElementRef,
         private renderer: Renderer,private decimalProvider:DecimalProvider){
@@ -99,14 +101,16 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
       Object.keys(APP_VALIDATORS).forEach(validatorName=>{
         if((this[validatorName]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[validatorName] == BLANK)){
           validators.push(APP_VALIDATORS[validatorName](this[validatorName]));
-          if(this.name && !(this.formControlName && this.formControl))
-            ApplicationUtil.configureControl(this.controlConfig,this[validatorName],validatorName);
+          if (this.name && !(this.formControlName && this.formControl)) {
+            ApplicationUtil.configureControl(this.controlConfig, this[validatorName], validatorName);
+          }
+          
         }
       })
       if(validators.length > 0)
         this.validator = APP_VALIDATORS[COMPOSE]({validators:validators})
       if(this.numeric && this.numeric.isFormat)
-          this.bindNumericElementEvent();
+        this.bindNumericElementEvent();
   }
 
   bindNumericElementEvent(config?:NumericConfig){
@@ -139,11 +143,32 @@ export class RxFormControlDirective extends BaseValidator implements OnInit,OnDe
     }
   }
 
+  subscribeNumericFormatter(){
+    if(this.formControl["validatorConfig"] && this.formControl["validatorConfig"]["numeric"] && this.formControl["validatorConfig"]["numeric"]["isFormat"] && !this.isNumericSubscribed){
+      this.bindNumericElementEvent(this.formControl["validatorConfig"]["numeric"]);
+      this.isNumericSubscribed = true;
+    }
+  }
   
-
   private setValueOnElement(value: any) {
         this.renderer.setElementProperty(this.element, ELEMENT_VALUE, value);
   }
+
+  validate(control: AbstractControl): { [key: string]: any } {
+    if(!this.formControl)
+        this.formControl = control;
+    if(!this.isNumericSubscribed)
+      this.subscribeNumericFormatter();
+    if (control["conditionalValidator"]) {
+      this.conditionalValidator = control["conditionalValidator"];
+      delete control["conditionalValidator"];
+    }
+    if (this.conditionalValidator)
+      this.conditionalValidator(control);
+    if (!this.isProcessed)
+      this.setModelConfig(control);
+    return  this.validator ? this.validator(control) : null;
+    }
 
   ngOnDestroy(){
     this.controls = undefined;

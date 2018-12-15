@@ -1,0 +1,13 @@
+<div>
+  <form #userinfoForm = "ngForm">
+    <div class="form-group">
+      <label>Residence Proof</label>
+	    <input type="file" name="residenceProof"  [(ngModel)]="userinfo.residenceProof"  class="form-control" [image]="{'maxHeight':100,'maxWidth':100,'message':'File exceed maximum Height.'}"/>
+
+      <small class="form-text text-muted">Invalid Image height or width.<br/></small>
+      <small class="form-text text-muted">It shows custom message<br/></small>
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.residenceProof?.errors">{{userinfoForm.controls.residenceProof?.errors.image.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

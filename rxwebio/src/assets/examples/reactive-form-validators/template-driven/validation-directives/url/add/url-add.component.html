@@ -1,0 +1,11 @@
+<div>
+  <form #websiteinfomodelForm = "ngForm">
+    <div class="form-group">
+      <label>Admin Website Url</label>
+	    <input type="text" name="adminWebsiteUrl" [(ngModel)]="websiteinfomodel.adminWebsiteUrl"  class="form-control" url/>
+
+	   <small class="form-text text-danger" *ngIf="websiteinfomodelForm.controls.adminWebsiteUrl?.errors">{{websiteinfomodelForm.controls.adminWebsiteUrl?.errors.url.message}}<br/></small>	
+    </div>
+    <button [disabled]="!websiteinfomodelForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

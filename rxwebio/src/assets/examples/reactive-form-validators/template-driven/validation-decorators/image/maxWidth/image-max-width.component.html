@@ -1,0 +1,11 @@
+<div>
+  <form #userinfoForm = "ngForm">
+    <div class="form-group">
+      <label>Profile Photo</label>
+	    <input type="file" name="profilePhoto"  [(ngModel)]="userinfo.profilePhoto"  class="form-control" />
+
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.profilePhoto?.errors">{{userinfoForm.controls.profilePhoto?.errors.image.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

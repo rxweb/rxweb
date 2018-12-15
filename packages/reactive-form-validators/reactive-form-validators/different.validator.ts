@@ -20,7 +20,7 @@ import { FormProvider } from '../util/form-provider';
 export function differentValidator(config:DifferentConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
       config = ApplicationUtil.getConfigObject(config);
-      const differentControl = control.root.get([config.fieldName]);
+      const differentControl = ApplicationUtil.getFormControl(config.fieldName,control);
       const differentControlValue = (differentControl) ? differentControl.value : '';
         if (FormProvider.ProcessRule(control,config)) {
         if (RegexValidator.isNotBlank(control.value)) {

@@ -1,1 +1,0 @@
-{"entryPlace":{"time":true},"entryTime":{"conditionalExpression":"'x => x.entryPlace == \"Lunch Room\"'"},"totalOutTime":{"allowSeconds":"true"},"exitTime":{"message":"'You can enter only time format data'"}}

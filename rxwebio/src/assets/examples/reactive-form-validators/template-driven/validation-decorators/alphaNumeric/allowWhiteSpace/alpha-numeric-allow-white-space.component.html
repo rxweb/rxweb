@@ -1,0 +1,11 @@
+<div>
+  <form #locationForm = "ngForm">
+    <div class="form-group">
+      <label>Flat Address</label>
+	    <input type="text" name="flatAddress" [(ngModel)]="location.flatAddress"  class="form-control" />
+
+	   <small class="form-text text-danger" *ngIf="locationForm.controls.flatAddress?.errors">{{locationForm.controls.flatAddress?.errors.alphaNumeric.message}}<br/></small>	
+    </div>
+    <button [disabled]="!locationForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

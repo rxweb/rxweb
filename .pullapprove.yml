@@ -1,32 +1,52 @@
 version: 3
 
+notifications:
+- when: pull_request.opened
+  comment: |
+    Hey @{{ author }}, thanks for the PR!
+    The review will start once the tests and CI checks have passed.
+pullapprove_conditions:
+- "'*travis*' in statuses.succeeded"
 groups:
-  all:
-    users: all
-    required: 1
-    rejection_value: -999
-    author_approval:
-      auto: false
-      ignored: true
-    files:
-      include:
-        - "*"
   reactive_form_validators:
-      conditions:
-        files:
-          - "packages/reactive-form-validators/*"
+    conditions:
+    - "'packages/reactive-form-validators/*' in files"
+    reviewers:
       users:
-        - ajayojha
+      - ajayojha
+    reviews:
+      required: 1
+      request: 1
+      request_order: random
   reactive_form_validators_testing:
-      conditions:
-        files:
-          - "test/reactive-form-validators/*"
+    conditions:
+    - "'test/reactive-form-validators/*' in files"
+    reviewers:
       users:
-        - ajayojha
+      - ajayojha
+    reviews:
+      required: 1
+      request: 1
+      request_order: random
   docs/reactive_form_validators:
-      conditions:
-        files:
-          include:
-            - "docs/reactive_form_validators"
+    conditions:
+    - "'docs/reactive_form_validators/*' in files"
+    reviewers:
       users:
-        - ajayojha
+      - rxcontributorone
+      - ajayojha
+    reviews:
+      required: 1
+      request: 1
+      request_order: random
+  docs/reactive_form_validators:
+    conditions:
+    - "'rxweb.io/*' in files"
+    reviewers:
+      users:
+      - rxwebteam
+      - ajayojha
+    reviews:
+      required: 1
+      request: 1
+      request_order: random

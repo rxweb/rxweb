@@ -16,7 +16,7 @@ export function maxDateValidator(config:DateConfig): ValidatorFn {
           if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(control.value)) {
                 if (dateProvider.isValid(control.value)) {
-                    let maxDate = config.value;
+                    let maxDate = dateProvider.getCompareDate(config,control);
                     let currentValueDate = dateProvider.getDate(control.value);
                     if (!(maxDate >= currentValueDate))
                         return ObjectMaker.toJson(AnnotationTypes.maxDate, config.message || null, [control.value])

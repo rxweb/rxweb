@@ -55,5 +55,6 @@ export const AnnotationTypes: { [key: string]: any } = {
     compose:"compose",
     rule:"rule",
     file:"file",
-    image:"image"
+    image:"image",
+    unique:"unique"
 }

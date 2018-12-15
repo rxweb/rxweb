@@ -15,7 +15,7 @@ endsWithValidator,
 startsWithValidator,
 primeNumberValidator,
 latitudeValidator,
-longitudeValidator,composeValidator,ruleValidator,fileValidator
+longitudeValidator,composeValidator,ruleValidator,fileValidator,uniqueValidator,imageValidator
 } from '../reactive-form-validators/index';
 
 export const APP_VALIDATORS: { [key: string]: Function } = {
@@ -70,5 +70,7 @@ export const APP_VALIDATORS: { [key: string]: Function } = {
     "longitude":         longitudeValidator,
     "compose":composeValidator,
     "rule":ruleValidator,
-    "file":fileValidator
+    "file":fileValidator,
+    "unique":uniqueValidator,
+    "image":imageValidator
 }

@@ -1,0 +1,1 @@
+{"userName":{},"allocationDate":{"minDate":{"value":"07/30/2018"}},"admissionDate":{"minDate":{"value":"07/30/2018","conditionalExpression":"x => x.userName == \"Bharat\""}},"registrationDate":{"minDate":{"value":"07/30/2018","message":"{{0}} exceeds the Minimum Date Limit"}},"enrollmentDate":{},"lastRegistrationDate":{"minDate":{"fieldName":"enrollmentDate"}}}

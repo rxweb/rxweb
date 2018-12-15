@@ -1,1 +1,0 @@
-{"age":{"greaterThanEqualTo":true},"memberAge":{"fieldName":"'age'","conditionalExpression":"'x => x.age >= 18 '"},"otherAge":{"fieldName":"'age'","message":"'Please enter number greater than or equal to 1.'"}}

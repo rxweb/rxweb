@@ -17,7 +17,9 @@ latitudeValidatorExtension,
 longitudeValidatorExtension,
 composeValidatorExtension,
 fileValidatorExtension,
-customValidatorExtension
+customValidatorExtension,
+uniqueValidatorExtension,
+imageValidatorExtension
  } from './index'
 
 export class RxwebValidators  {
@@ -74,4 +76,6 @@ static readonly longitude  =longitudeValidatorExtension;
 static readonly compose  = composeValidatorExtension;
 static readonly file  = fileValidatorExtension;
 static readonly custom  = customValidatorExtension;
+static readonly unique  = uniqueValidatorExtension;
+static readonly image  = imageValidatorExtension;
 }
