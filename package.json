@@ -1,6 +1,6 @@
 {
   "name": "rxweb",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "scripts": {
     "commit": "git-cz",
     "ng": "ng",
@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "build:validators": "ng-packagr -p ./packages/reactive-form-validators/package.json"
+    "build:validators": "ng-packagr -p ./packages/reactive-form-validators/package.json",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@angular-devkit/build-ng-packagr": "^0.8.3",
@@ -54,7 +55,8 @@
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "semantic-release": "^15.13.0"
   },
   "config": {
     "commitizen": {
@@ -64,5 +66,9 @@
       "pre-commit": "npm run test",
       "commit-msg": "validate-commit-msg"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb.git"
   }
 }
