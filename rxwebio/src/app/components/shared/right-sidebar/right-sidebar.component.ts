@@ -26,14 +26,26 @@ export class RightSideBarComponent implements OnInit {
     contributorList: any = [];
     gitEditUrl: string = "https://github.com/rxweb/rxweb/edit/master/docs/reactive-form-validators";
     ngOnInit(): void {
-        if (location.pathname.includes("form-validation"))
-            this.gitEditUrl += "/validation-decorators/" + location.pathname.split('/')[2] + ".md"
-        else
-            this.gitEditUrl += location.pathname.split('/')[1] + ".md"
-        let feedback = new FeedbackModel();
-        feedback.uri = location.href;
-        this.feedbackForm = this.formBuilder.formGroup<FeedbackModel>(FeedbackModel,feedback);
-        this.feedbackForm.controls.uri.patchValue(location.href);
+        var splitedArray = location.pathname.split("/");
+        debugger
+        if(splitedArray.length > 0 && splitedArray[1])
+        {
+            switch(splitedArray[1])
+            {
+                case "decorators":
+                    this.gitEditUrl += "/decorators/" + splitedArray[2] + ".md"    
+                    break;
+                case "form-validations":
+                    this.gitEditUrl += "/validation-decorators/" + splitedArray[2] + ".md"    
+                    break;
+                case "api":
+                    this.gitEditUrl += "/api/ReactiveFormConfig.md"    
+                    break;
+                case "getting-started":
+                    this.gitEditUrl += "/getting-started.md"    
+                    break;
+            }
+        }
         this.showComponent = true;
     }
     scrollTo(section) {

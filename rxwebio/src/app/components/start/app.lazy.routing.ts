@@ -21,11 +21,15 @@ const APP_LAZY_ROUTES: Routes = [
     path: 'getting-started', component: GettingStartedComponent
   },
   {
-    path:'reactive-form-config',component:ReactiveFormConfigComponent
+    path:'api/reactive-form-config',component:ReactiveFormConfigComponent
   },
   {
     path: 'form-validations',
     loadChildren: 'src/app/components/form-validation/form-validation.module#FormValidationModule',
+  },
+  {
+    path: 'decorators',
+    loadChildren: 'src/app/components/decorators/decorators.module#DecoratorsModule',
   },
   {
     path: '**', 

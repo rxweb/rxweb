@@ -7,10 +7,10 @@ export class User {
 
 	//If you want to apply conditional expression of type 'string'
 	@dataUri({conditionalExpression:'x => x.scheme =="DataUri"' }) 
-	javascriptDataUri: string;
+	audioDataUri: string;
 
 	//If you want to apply conditional expression of type 'function'
 	@dataUri({conditionalExpression:(x,y) => x.scheme == "DataUri"  }) 
-	cssDataUri: string;
+	imageDataUri: string;
 
 }

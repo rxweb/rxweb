@@ -3,10 +3,10 @@ export class User {
 
 	scheme: string;
 
-	cssDataUri: string;
+	imageDataUri: string;
 
-	javascriptDataUri: string;
+	audioDataUri: string;
 
-	htmlDataUri: string;
+	videoDataUri: string;
 
 }

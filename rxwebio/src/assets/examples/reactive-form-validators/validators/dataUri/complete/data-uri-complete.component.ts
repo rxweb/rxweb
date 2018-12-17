@@ -16,9 +16,9 @@ export class DataUriCompleteValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
             scheme:['',], 
-            cssDataUri:['', RxwebValidators.dataUri({conditionalExpression:(x,y) => x.scheme == "DataUri"  })], 
-            javascriptDataUri:['', RxwebValidators.dataUri({conditionalExpression:'x => x.scheme =="DataUri"' })], 
-            htmlDataUri:['', RxwebValidators.dataUri({message:'{{0}} is not a proper data URI' })], 
+            imageDataUri:['', RxwebValidators.dataUri({conditionalExpression:(x,y) => x.scheme == "DataUri"  })], 
+            audioDataUri:['', RxwebValidators.dataUri({conditionalExpression:'x => x.scheme =="DataUri"' })], 
+            videoDataUri:['', RxwebValidators.dataUri({message:'{{0}} is not a proper data URI' })], 
         });
     }
 }

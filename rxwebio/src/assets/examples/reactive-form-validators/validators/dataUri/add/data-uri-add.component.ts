@@ -15,7 +15,7 @@ export class DataUriAddValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            htmlDataUri:['', RxwebValidators.dataUri()], 
+            videoDataUri:['', RxwebValidators.dataUri()], 
         });
     }
 }

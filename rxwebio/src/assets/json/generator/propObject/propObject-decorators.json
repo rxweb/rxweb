@@ -1,0 +1,11 @@
+{
+    "add": {
+        "notes": null,
+        "component": "import { Component, OnInit } from '@angular\/core';\r\nimport { FormGroup } from \"@angular\/forms\"\r\n\r\nimport { RxFormBuilder } from '@rxweb\/reactive-form-validators';\r\n\r\nimport { User,Address } from '.\/propObject.model';\r\n\r\n@Component({\r\n    selector: 'app-prop-object',\r\n    templateUrl: '.\/propObject.component.html'\r\n})\r\nexport class PropObjectComponent implements OnInit {\r\n\r\n    userFormGroup: FormGroup\r\n\r\n    constructor(\r\n        private formBuilder: RxFormBuilder\r\n    ) { }\r\n\r\n    ngOnInit() {\r\n        let user = new User();\r\n        user.address = new Address();\r\n        this.userFormGroup = this.formBuilder.formGroup(user);\r\n    }\r\n}\r\n",
+        "html": "<form *ngIf=\"userFormGroup\" [formGroup]=\"userFormGroup\">\r\n    <div class=\"form-group\">\r\n        <label>Email Address<\/label>\r\n        <input type=\"text\" formControlName=\"emailAddress\" class=\"form-control\" \/>\r\n    <\/div>\r\n    <div [formGroup]=\"userFormGroup.controls.address\">\r\n        <div class=\"form-group\">\r\n            <label>City<\/label>\r\n            <input type=\"text\" formControlName=\"city\" class=\"form-control\" \/>\r\n        <\/div>\r\n        <div class=\"form-group\">\r\n            <label>Country<\/label>\r\n            <input type=\"text\" formControlName=\"country\" class=\"form-control\" \/>\r\n        <\/div>\r\n    <\/div>\r\n    <button [disabled]=\"!userFormGroup.valid\" class=\"btn btn-primary\">Submit<\/button>\r\n<\/form>",
+        "model": "import { prop, propObject } from \"@rxweb\/reactive-form-validators\"\r\n\r\nexport class Address {\r\n  @prop()\r\n  city: string;\r\n\r\n  @prop()\r\n  country: string;\r\n}\r\n\r\nexport class User {\r\n\r\n  @prop()\r\n  emailAddress: string;\r\n\r\n  @propObject(Address)\r\n  address: Address;\r\n}\r\n",
+        "modelName": "propObject.model.ts",
+        "jsonName": null,
+        "json": null
+    }
+}

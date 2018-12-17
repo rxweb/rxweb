@@ -1,80 +1,98 @@
 <div id="wrapper" *ngIf="showComponent">
-        <div class="content">
-                <div class="title" id="reactive-form-config">
-                        <h1>ReactiveFormConfig</h1>
-                        <p>ReactiveFormConfig is used to configure <span class="highlighted">date format,</span> <span class="highlighted">validation messages</span> globally at the start of the application.
-                         </p>                        
-                    </div>
-                    <div class="bg-white py-3 border-radius">
-                            <div class="row">
-                              <div class="col-lg-12">
-                                    <div class="hpanel">
-                                            <div class="panel-body validation-tab">
-                                                    <div class='row page-section' id="about-reactiveformconfig">
-                                                            <div class='col-lg-12'>
-                                                                <h2>About ReactiveFormConfig<a title="Link to this heading" class="link-header" routerLink="/reactive-form-config" fragment="about-reactiveformconfig"><i class="fa fa-link"></i></a></h2>
-                                                                <p>ReactiveFormConfig is used to globally set date format,validation messages whenever the application starts it will initialized automatically. we have to set "validationMessage" for setting global validation message ,"baseConfig" for setting dateformat globally and "internationalization" for setting dateformat for worldwide applications. 
-                                                                   </p>
-                                                            </div>
-                                                        </div>
-                                                        <div class='row page-section' id="baseConfig">
-                                                                <div class='col-lg-12'>
-                                                                    <h4>baseConfig<a title="Link to this heading" class="link-header" routerLink="/reactive-form-config" fragment="baseConfig"><i class="fa fa-link"></i></a></h4>
-                                                                    <p>To set the date format throughtout the application for date validation check, the <span class="highlighted">baseConfig</span> of ReactiveFormConfig is a configuration if you set then the applied the value prameter 'value' in 'minDate' and 'maxDate' validation works accordingly otherwise it will take the default format of 'mm/dd/yyyy'.Suppose date format in your country is 'mm/dd/yy', Set the dateformat as "mdy" or if it is 'dd/mm/yy' Set the dateformat as "dmy" and the format will be set globally.</p>
-                                                    
-                                                                    <hr>                                                        
-                                                                    <div class="model-ts">
-                                                                        <div class="code">
-                                                                            <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.baseConfig" (cbOnSuccess)="baseConfigCopied = true" [class.copied]="baseConfigCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-                                                                            <div highlight="pre code">
-                                                                                <pre><code [textContent]="codeContent.baseConfig"></code></pre>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                
-                                                                </div>
-                                                            </div>
+    <div class="content">
+        <div class="title" id="reactive-form-config">
+            <h1>ReactiveFormConfig</h1>
+            <p>ReactiveFormConfig is used to configure <span class="highlighted">date format,</span> <span class="highlighted">validation
+                    messages</span> globally at the start of the application.
+            </p>
+        </div>
+        <div class="bg-white py-3 border-radius">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hpanel">
+                        <div class="panel-body validation-tab">
+                            <div class='row page-section' id="about-reactiveformconfig">
+                                <div class='col-lg-12'>
+                                    <h2>About ReactiveFormConfig<a title="Link to this heading" class="link-header"
+                                            routerLink="/reactive-form-config" fragment="about-reactiveformconfig"><i
+                                                class="fa fa-link"></i></a></h2>
+                                    <p>ReactiveFormConfig is used to globally set date format,validation messages
+                                        whenever the application starts it will initialized automatically. we have to
+                                        set "validationMessage" for setting global validation message ,"baseConfig" for
+                                        setting dateformat globally and "internationalization" for setting dateformat
+                                        for worldwide applications.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class='row page-section' id="baseConfig">
+                                <div class='col-lg-12'>
+                                    <h4>baseConfig<a title="Link to this heading" class="link-header" routerLink="/reactive-form-config"
+                                            fragment="baseConfig"><i class="fa fa-link"></i></a></h4>
+                                    <p>To set the date format throughtout the application for date validation check,
+                                        the <span class="highlighted">baseConfig</span> of ReactiveFormConfig is a
+                                        configuration if you set then the applied the value prameter 'value' in
+                                        'minDate' and 'maxDate' validation works accordingly otherwise it will take the
+                                        default format of 'mm/dd/yyyy'.Suppose date format in your country is
+                                        'mm/dd/yy', Set the dateformat as "mdy" or if it is 'dd/mm/yy' Set the
+                                        dateformat as "dmy" and the format will be set globally.</p>
 
-                                                            <div class='row page-section' id="internationalization">
-                                                                    <div class='col-lg-12'>
-                                                                        <h4>internationalization<a title="Link to this heading" class="link-header" routerLink="/reactive-form-config" fragment="internationalization"><i class="fa fa-link"></i></a></h4>
-                                                                        <p>Suppose You want the application to work worldwide and you want the date format to validated according to your region,In that case you can change <span class="highlighted">internationalization</span> dynamically if your system supports it.</p>
-                                                                        <div class="model-ts">
-                                                                            <div class="code">
-                                                                                <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.internationalization" (cbOnSuccess)="internationalizationCopied = true"
-                                                                                    [class.copied]="internationalizationCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-                                                                                <div highlight="pre code">
-                                                                                    <pre><code [textContent]="codeContent.internationalization"></code></pre>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class='row page-section' id="validationMessage">
-                                                                        <div class='col-lg-12'>
-                                                                            <h4>Validation Messages<a title="Link to this heading" class="link-header" routerLink="/reactive-form-config" fragment="validationMessage"><i class="fa fa-link"></i></a></h4>
-                                                                            <p>Apply global validation messages throughout the application, then configure the validation messages globaly, You must set message for every validator you use.</p>
-                                                                            <div class="model-ts">
-                                                                                <div class="code">
-                                                                                    <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.validationMessage" (cbOnSuccess)="validationMessageCopied = true"
-                                                                                        [class.copied]="validationMessageCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-                                                                                    <div highlight="pre code">
-                                                                                        <pre><code [textContent]="codeContent.validationMessage"></code></pre>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row page-section" id="discussion">
-                                                                            <div class="col-lg-12">
-                                                                                <app-disqus></app-disqus>
-                                                                            </div>
-                                                                        </div>
+                                    <hr>
+                                    <div class="model-ts">
+                                        <div class="code">
+                                            <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.baseConfig"
+                                                (cbOnSuccess)="baseConfigCopied = true" [class.copied]="baseConfigCopied"><i
+                                                    class="fa fa-files-o" aria-hidden="true"></i></a>
+                                            <div highlight="pre code">
+                                                <pre><code [textContent]="codeContent.baseConfig"></code></pre>
                                             </div>
+                                        </div>
                                     </div>
-                             </div>
-                           </div>
+
+                                </div>
+                            </div>
+
+                            <div class='row page-section' id="internationalization">
+                                <div class='col-lg-12'>
+                                    <h4>internationalization<a title="Link to this heading" class="link-header"
+                                            routerLink="/reactive-form-config" fragment="internationalization"><i class="fa fa-link"></i></a></h4>
+                                    <p>Suppose You want the application to work worldwide and you want the date format
+                                        to validated according to your region,In that case you can change <span class="highlighted">internationalization</span>
+                                        dynamically if your system supports it.</p>
+                                    <div class="model-ts">
+                                        <div class="code">
+                                            <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.internationalization"
+                                                (cbOnSuccess)="internationalizationCopied = true" [class.copied]="internationalizationCopied"><i
+                                                    class="fa fa-files-o" aria-hidden="true"></i></a>
+                                            <div highlight="pre code">
+                                                <pre><code [textContent]="codeContent.internationalization"></code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='row page-section' id="validationMessage">
+                                <div class='col-lg-12'>
+                                    <h4>Validation Messages<a title="Link to this heading" class="link-header"
+                                            routerLink="/reactive-form-config" fragment="validationMessage"><i class="fa fa-link"></i></a></h4>
+                                    <p>Apply global validation messages throughout the application, then configure the
+                                        validation messages globaly, You must set message for every validator you use.</p>
+                                    <div class="model-ts">
+                                        <div class="code">
+                                            <a class="float-right copy-icon" ngxClipboard [cbContent]="codeContent.validationMessage"
+                                                (cbOnSuccess)="validationMessageCopied = true" [class.copied]="validationMessageCopied"><i
+                                                    class="fa fa-files-o" aria-hidden="true"></i></a>
+                                            <div highlight="pre code">
+                                                <pre><code [textContent]="codeContent.validationMessage"></code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
             </div>
-            <app-right-sidebar [sidebarLinks]="rightSidebarLinks"></app-right-sidebar>
+        </div>
     </div>
+    <app-right-sidebar [sidebarLinks]="rightSidebarLinks"></app-right-sidebar>
+</div>

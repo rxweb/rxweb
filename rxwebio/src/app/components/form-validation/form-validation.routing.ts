@@ -4,195 +4,195 @@ import { Routes, RouterModule } from '@angular/router';
 const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'alpha',
-	loadChildren: './validators/alpha/alpha.module#AlphaModule',
+	loadChildren: './alpha/alpha.module#AlphaModule',
 },
 {
 	path:'alphaNumeric',
-	loadChildren: './validators/alphaNumeric/alpha-numeric.module#AlphaNumericModule',
+	loadChildren: './alphaNumeric/alpha-numeric.module#AlphaNumericModule',
 },
 {
 	path:'ascii',
-	loadChildren: './validators/ascii/ascii.module#AsciiModule',
+	loadChildren: './ascii/ascii.module#AsciiModule',
 },
 {
 	path:'compare',
-	loadChildren: './validators/compare/compare.module#CompareModule',
+	loadChildren: './compare/compare.module#CompareModule',
 },
 {
 	path:'contains',
-	loadChildren: './validators/contains/contains.module#ContainsModule',
+	loadChildren: './contains/contains.module#ContainsModule',
 },
 {
 	path:'creditCard',
-	loadChildren: './validators/creditCard/credit-card.module#CreditCardModule',
+	loadChildren: './creditCard/credit-card.module#CreditCardModule',
 },
 {
 	path:'dataUri',
-	loadChildren: './validators/dataUri/data-uri.module#DataUriModule',
+	loadChildren: './dataUri/data-uri.module#DataUriModule',
 },
 {
 	path:'different',
-	loadChildren: './validators/different/different.module#DifferentModule',
+	loadChildren: './different/different.module#DifferentModule',
 },
 {
 	path:'digit',
-	loadChildren: './validators/digit/digit.module#DigitModule',
+	loadChildren: './digit/digit.module#DigitModule',
 },
 {
 	path:'email',
-	loadChildren: './validators/email/email.module#EmailModule',
+	loadChildren: './email/email.module#EmailModule',
 },
 {
 	path:'endsWith',
-	loadChildren: './validators/endsWith/ends-with.module#EndsWithModule',
+	loadChildren: './endsWith/ends-with.module#EndsWithModule',
 },
 {
 	path:'even',
-	loadChildren: './validators/even/even.module#EvenModule',
+	loadChildren: './even/even.module#EvenModule',
 },
 {
 	path:'extension',
-	loadChildren: './validators/extension/extension.module#ExtensionModule',
+	loadChildren: './extension/extension.module#ExtensionModule',
 },
 {
 	path:'factor',
-	loadChildren: './validators/factor/factor.module#FactorModule',
+	loadChildren: './factor/factor.module#FactorModule',
 },
 {
 	path:'fileSize',
-	loadChildren: './validators/fileSize/file-size.module#FileSizeModule',
+	loadChildren: './fileSize/file-size.module#FileSizeModule',
 },
 {
 	path:'file',
-	loadChildren: './validators/file/file.module#FileModule',
+	loadChildren: './file/file.module#FileModule',
 },
 {
 	path:'greaterThanEqualTo',
-	loadChildren: './validators/greaterThanEqualTo/greater-than-equal-to.module#GreaterThanEqualToModule',
+	loadChildren: './greaterThanEqualTo/greater-than-equal-to.module#GreaterThanEqualToModule',
 },
 {
 	path:'greaterThan',
-	loadChildren: './validators/greaterThan/greater-than.module#GreaterThanModule',
+	loadChildren: './greaterThan/greater-than.module#GreaterThanModule',
 },
 {
 	path:'hexColor',
-	loadChildren: './validators/hexColor/hex-color.module#HexColorModule',
+	loadChildren: './hexColor/hex-color.module#HexColorModule',
 },
 {
 	path:'image',
-	loadChildren: './validators/image/image.module#ImageModule',
+	loadChildren: './image/image.module#ImageModule',
 },
 {
 	path:'json',
-	loadChildren: './validators/json/json.module#JsonModule',
+	loadChildren: './json/json.module#JsonModule',
 },
 {
 	path:'latitude',
-	loadChildren: './validators/latitude/latitude.module#LatitudeModule',
+	loadChildren: './latitude/latitude.module#LatitudeModule',
 },
 {
 	path:'latLong',
-	loadChildren: './validators/latLong/lat-long.module#LatLongModule',
+	loadChildren: './latLong/lat-long.module#LatLongModule',
 },
 {
 	path:'leapYear',
-	loadChildren: './validators/leapYear/leap-year.module#LeapYearModule',
+	loadChildren: './leapYear/leap-year.module#LeapYearModule',
 },
 {
 	path:'lessThanEqualTo',
-	loadChildren: './validators/lessThanEqualTo/less-than-equal-to.module#LessThanEqualToModule',
+	loadChildren: './lessThanEqualTo/less-than-equal-to.module#LessThanEqualToModule',
 },
 {
 	path:'lessThan',
-	loadChildren: './validators/lessThan/less-than.module#LessThanModule',
+	loadChildren: './lessThan/less-than.module#LessThanModule',
 },
 {
 	path:'longitude',
-	loadChildren: './validators/longitude/longitude.module#LongitudeModule',
+	loadChildren: './longitude/longitude.module#LongitudeModule',
 },
 {
 	path:'lowerCase',
-	loadChildren: './validators/lowerCase/lower-case.module#LowerCaseModule',
+	loadChildren: './lowerCase/lower-case.module#LowerCaseModule',
 },
 {
 	path:'mac',
-	loadChildren: './validators/mac/mac.module#MacModule',
+	loadChildren: './mac/mac.module#MacModule',
 },
 {
 	path:'maxDate',
-	loadChildren: './validators/maxDate/max-date.module#MaxDateModule',
+	loadChildren: './maxDate/max-date.module#MaxDateModule',
 },
 {
 	path:'maxLength',
-	loadChildren: './validators/maxLength/max-length.module#MaxLengthModule',
+	loadChildren: './maxLength/max-length.module#MaxLengthModule',
 },
 {
 	path:'maxNumber',
-	loadChildren: './validators/maxNumber/max-number.module#MaxNumberModule',
+	loadChildren: './maxNumber/max-number.module#MaxNumberModule',
 },
 {
 	path:'minDate',
-	loadChildren: './validators/minDate/min-date.module#MinDateModule',
+	loadChildren: './minDate/min-date.module#MinDateModule',
 },
 {
 	path:'minLength',
-	loadChildren: './validators/minLength/min-length.module#MinLengthModule',
+	loadChildren: './minLength/min-length.module#MinLengthModule',
 },
 {
 	path:'minNumber',
-	loadChildren: './validators/minNumber/min-number.module#MinNumberModule',
+	loadChildren: './minNumber/min-number.module#MinNumberModule',
 },
 {
 	path:'numeric',
-	loadChildren: './validators/numeric/numeric.module#NumericModule',
+	loadChildren: './numeric/numeric.module#NumericModule',
 },
 {
 	path:'odd',
-	loadChildren: './validators/odd/odd.module#OddModule',
+	loadChildren: './odd/odd.module#OddModule',
 },
 {
 	path:'password',
-	loadChildren: './validators/password/password.module#PasswordModule',
+	loadChildren: './password/password.module#PasswordModule',
 },
 {
 	path:'pattern',
-	loadChildren: './validators/pattern/pattern.module#PatternModule',
+	loadChildren: './pattern/pattern.module#PatternModule',
 },
 {
 	path:'port',
-	loadChildren: './validators/port/port.module#PortModule',
+	loadChildren: './port/port.module#PortModule',
 },
 {
 	path:'primeNumber',
-	loadChildren: './validators/primeNumber/prime-number.module#PrimeNumberModule',
+	loadChildren: './primeNumber/prime-number.module#PrimeNumberModule',
 },
 {
 	path:'range',
-	loadChildren: './validators/range/range.module#RangeModule',
+	loadChildren: './range/range.module#RangeModule',
 },
 {
 	path:'required',
-	loadChildren: './validators/required/required.module#RequiredModule',
+	loadChildren: './required/required.module#RequiredModule',
 },
 {
 	path:'fileSize',
-	loadChildren: './validators/fileSize/file-size.module#FileSizeModule',
+	loadChildren: './fileSize/file-size.module#FileSizeModule',
 },
 {
 	path:'startsWith',
-	loadChildren: './validators/startsWith/starts-with.module#StartsWithModule',
+	loadChildren: './startsWith/starts-with.module#StartsWithModule',
 },
 {
 	path:'time',
-	loadChildren: './validators/time/time.module#TimeModule',
+	loadChildren: './time/time.module#TimeModule',
 },
 {
 	path:'upperCase',
-	loadChildren: './validators/upperCase/upper-case.module#UpperCaseModule',
+	loadChildren: './upperCase/upper-case.module#UpperCaseModule',
 },
 {
 	path:'url',
-	loadChildren: './validators/url/url.module#UrlModule',
+	loadChildren: './url/url.module#UrlModule',
 },
 ];
 export const FORM_VALIDATION_ROUTING: ModuleWithProviders = RouterModule.forChild(FORM_VALIDATION_ROUTES);

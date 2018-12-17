@@ -34,7 +34,7 @@ import { CheckForUpdateService } from '../services/check-for-update.service';
     AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe,GettingStartedComponent,ReactiveFormConfigComponent,HomeComponent
   ],
   imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,ControlModule,
-    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('../dist/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [ApplicationBroadcaster,PromptUpdateService,LogUpdateService,CheckForUpdateService],
 exports:[RouterModule],

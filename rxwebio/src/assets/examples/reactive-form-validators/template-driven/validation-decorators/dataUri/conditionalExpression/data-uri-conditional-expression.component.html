@@ -4,16 +4,16 @@
       <label>Scheme</label>
 	    <input type="text" name="scheme" [(ngModel)]="user.scheme"  class="form-control" />
 
-      <small class="form-text text-muted">If you want to apply conditional validation on 'CSS Data Uri' or 'Javascript Data Uri', then you need to add 'Scheme' input as 'DataUri'<br/></small>
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Image Data Uri' or 'Audio Data Uri', then you need to add 'Scheme' input as 'DataUri'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.scheme?.errors">{{userForm.controls.scheme?.errors.dataUri.message}}<br/></small>	
     </div>
     <div class="form-group">
-      <label>Javascript Data Uri</label>
-	    <input type="text" name="javascriptDataUri" [(ngModel)]="user.javascriptDataUri"  class="form-control" />
+      <label>Audio Data Uri</label>
+	    <input type="text" name="audioDataUri" [(ngModel)]="user.audioDataUri"  class="form-control" />
 
-      <small class="form-text text-muted">If you want to apply conditional validation on 'Javascript Data Uri' then you need to add 'Scheme' input as 'DataUri'.<br/></small>
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Audio Data Uri' then you need to add 'Scheme' input as 'DataUri'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.javascriptDataUri?.errors">{{userForm.controls.javascriptDataUri?.errors.dataUri.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls.audioDataUri?.errors">{{userForm.controls.audioDataUri?.errors.dataUri.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

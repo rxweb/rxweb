@@ -11,7 +11,7 @@
       "title": "Form Validations",
       "uri": null,
       "otherUri":"form-validations",
-      "isOpen": true,
+      "isOpen": false,
       "isActive": false,
       "childrens": [
         {
@@ -82,6 +82,11 @@
         {
           "title": "factor",
           "uri": "/form-validations/factor/validators",
+          "isActive": false
+        },
+        {
+          "title": "file",
+          "uri": "/form-validations/file/validators",
           "isActive": false
         },
         {
@@ -255,7 +260,31 @@
       "childrens":[
         {
           "title":"ReactiveFormConfig",
-          "uri":"reactive-form-config",
+          "uri":"api/reactive-form-config",
+          "isActive": false
+        }
+      ]
+    },
+    {
+      "title": "Decorators",
+      "uri": null,
+      "otherUri":"decorators",
+      "isOpen": false,
+      "isActive": false,
+      "childrens":[
+        {
+          "title":"prop",
+          "uri":"/decorators/prop/decorators",
+          "isActive": false
+        },
+        {
+          "title":"propArray",
+          "uri":"/decorators/propArray/decorators",
+          "isActive": false
+        },
+        {
+          "title":"propObject",
+          "uri":"/decorators/propObject/decorators",
           "isActive": false
         }
       ]
