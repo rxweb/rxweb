@@ -39,6 +39,12 @@ export class ApplicationUtil{
         return control.parent;
     }
 
+    static toLower(value){
+        if(value)
+          return String(value).toLowerCase();
+        return value;
+    }
+
     static getFormControl(fieldName:string,control:AbstractControl){
         let splitText = fieldName.split('.');
           if(splitText.length > 1 && control.parent){
