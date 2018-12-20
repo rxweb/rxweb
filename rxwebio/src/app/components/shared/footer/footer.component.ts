@@ -6,12 +6,14 @@ import { Router } from '@angular/router';
   templateUrl: './footer.component.html',
 })
 
-export class FooterComponent implements OnInit {
+export class FooterComponent implements OnInit{
   constructor(
     private router: Router
   ) {
   }
-  ngOnInit(): void {
+  showComponent:boolean = false;
+  ngOnInit(){
+    this.showComponent = true;
   }
 }
 

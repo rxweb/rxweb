@@ -3,9 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { PageViewerComponent } from "src/app/components/shared/page-viewer/page-viewer.component";
 import { ActivatedRoute } from "@angular/router";
-import { Inject } from "@angular/core";
-import { COMPONENT_EXAMPLE } from "src/app/domain/application.const";
-import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   templateUrl: './page.component.html',
@@ -106,8 +103,8 @@ export class PageComponent implements OnInit {
     this.showExample = !this.showExample;
     var splitedArray = location.pathname.split('/');
     if(splitedArray[4])
-      this.router.navigate(['/',splitedArray[1],splitedArray[2],splitedArray[3],splitedArray[4]], { queryParams: { showExample: this.showExample }});
+      this.router.navigate(['/',splitedArray[1],splitedArray[2],splitedArray[3],splitedArray[4]], { queryParams: { showExample: this.showExample },replaceUrl:false});
     else
-      this.router.navigate(['/',splitedArray[1],splitedArray[2],splitedArray[3]], { queryParams: { showExample: this.showExample } });
+      this.router.navigate(['/',splitedArray[1],splitedArray[2],splitedArray[3]], { queryParams: { showExample: this.showExample },replaceUrl:false });
   }
 }
