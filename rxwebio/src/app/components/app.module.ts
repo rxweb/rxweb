@@ -11,7 +11,6 @@ import { TopBarComponent } from './shared/top-bar/top-bar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HighlightModule } from 'ngx-highlightjs';
 import { ClipboardModule } from 'ngx-clipboard';
-import { FooterComponent } from "src/app/components/shared/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FilterPipe } from "src/app/pipes/filter.pipe";
 import { RightSideBarSharedModule } from "src/app/components/shared/right-sidebar/right-sidebar-shared.module";
@@ -27,14 +26,15 @@ import { environment } from 'src/environments/environment';
 import { PromptUpdateService } from '../services/prompt-update.service';
 import { LogUpdateService } from '../services/log-update.service';
 import { CheckForUpdateService } from '../services/check-for-update.service';
+import { FooterSharedModule } from './shared/footer/footer-shared.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FooterComponent,FilterPipe,GettingStartedComponent,ReactiveFormConfigComponent,HomeComponent
+    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FilterPipe,GettingStartedComponent,ReactiveFormConfigComponent,HomeComponent
   ],
-  imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,ControlModule,
-    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('../dist/ngsw-worker.js', { enabled: environment.production })
+  imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,ControlModule,FooterSharedModule,
+    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [ApplicationBroadcaster,PromptUpdateService,LogUpdateService,CheckForUpdateService],
 exports:[RouterModule],

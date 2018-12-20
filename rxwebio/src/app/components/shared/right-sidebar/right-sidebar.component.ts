@@ -27,7 +27,6 @@ export class RightSideBarComponent implements OnInit {
     gitEditUrl: string = "https://github.com/rxweb/rxweb/edit/master/docs/reactive-form-validators";
     ngOnInit(): void {
         var splitedArray = location.pathname.split("/");
-        debugger
         if(splitedArray.length > 0 && splitedArray[1])
         {
             switch(splitedArray[1])
