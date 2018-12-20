@@ -1,4 +1,7 @@
-
+---
+title: Git Commit Message Conventions
+author: ajayojha
+---
 
 ## The reasons for these conventions:
 - automatic generating of the changelog
@@ -24,8 +27,8 @@ Fixes #58
 ```
 
 ## Message subject (first line)
-The first line cannot be longer than 70 characters, the second line is always blank and
-other lines should be wrapped at 80 characters. The type and scope should
+The first line cannot be longer than 50 characters, the second line is always blank and
+other lines should be wrapped at 70 characters. The type and scope should
 always be lowercase as shown below.
 
 ### Allowed `<type>` values:
@@ -80,16 +83,13 @@ description of the change, justification and migration notes.
 BREAKING CHANGE: pattern validator regex binding parameter has been changed and 'pattern' parameter has been removed.
 To change the code follow below :
 
-```
+
 Before:
 RxwebValidators.pattern({pattern:new RegExp([a-z])})
 
 After:
 RxwebValidators.pattern({expression:new RegExp([a-z])})
-
 ```
-```
-
 ---
 
 This document is based on [AngularJS Git Commit Msg Convention]. See the
