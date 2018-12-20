@@ -4,13 +4,13 @@ author: ajayojha
 ---
 This document is for rxweb team members who have extra powers and responsibilities.  
 
-If you are interested in contributing to rxweb, you might check out Contributing to the rxweb framework.
+If you are interested in contributing to rxweb, you might check out [Contributing to the rxweb framework](contributing).
 
 # Merging a pull request
 Please, make sure:
 * Travis build is green.
 * At least one owner (other than you) approved the PR
-* All the commits follow the convention.
+* All the [commits follow the convention](commit_guideline).
 
 # Becoming a maintainer
 If you are interested in becoming one – be active in our framework by answering issues, reviewing PRs, discussing changes, submitting PRs for open bugs and help others on our gitter channel or stackoverflow. 
