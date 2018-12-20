@@ -5,4 +5,7 @@
     <app-side-bar></app-side-bar>
   </aside>
   <router-outlet></router-outlet>
+  <div>
+    <app-footer *ngIf="!isHome"></app-footer>
+  </div>
 </div>
