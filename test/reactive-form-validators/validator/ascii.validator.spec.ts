@@ -57,7 +57,7 @@ import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-
               'language': 'Java',
               'numberAsciiCode': '中國哲學'
             });
-            expect(RxwebValidators.ascii({ conditionalExpression: (x, y) => x.language == "Java" })(formGroup.controls.numberAsciiCode)).toEqual({ 'ascii': { message: 'Please enter a valid ascii code.', refValues: ['中國哲學'] } });
+            expect(RxwebValidators.ascii({ conditionalExpression: (x, y) => x.language == "Java" })(formGroup.controls.numberAsciiCode)).toEqual({ 'ascii': { message: 'Please enter a valid ascii code', refValues: ['中國哲學'] } });
           });
   
         it("Should not error, ascii validator Conditional Expression with type 'string'",
@@ -87,15 +87,15 @@ import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-
               'language': 'Java',
               'alphabetAsciiCode': '中國哲學'
             });
-            expect(RxwebValidators.ascii({ conditionalExpression: 'x => x.language == "Java"' })(formGroup.controls.cityCode)).toEqual({ 'ascii': { message: 'Please enter a valid ascii code.', refValues: ['中國哲學'] } });
+            expect(RxwebValidators.ascii({ conditionalExpression: 'x => x.language == "Java"' })(formGroup.controls.alphabetAsciiCode)).toEqual({ 'ascii': { message: 'Please enter a valid ascii code', refValues: ['中國哲學'] } });
           });
   
         it("Should error, ascii validator Shows custom message",
           () => {
-            expect(RxwebValidators.ascii({ message: '{{0}} is not an Ascii Code' })(new FormControl('中国哲学书电子化计划'))).toEqual({ 'ascii': { message: '中国哲学书电子化计划 is not valid ascii code', refValues: ['中国哲学书电子化计划'] } });
+            expect(RxwebValidators.ascii({ message: '{{0}} is not an Ascii Code' })(new FormControl('中国哲学书电子化计划'))).toEqual({ 'ascii': { message: '中国哲学书电子化计划 is not an Ascii Code', refValues: ['中国哲学书电子化计划'] } });
           });
       });
 
   });
-});
+})();
 
