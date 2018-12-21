@@ -35,7 +35,7 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
          () => {
           let formBuilder = new FormBuilder();
           let formGroup = formBuilder.group({
-'color':['#AFAFAF'],
+            'color':['#AFAFAF'],
             'footerHexCode':'#008083'
           });
           expect(RxwebValidators.hexColor({conditionalExpression:(x,y) =>x.color == "#AFAFAF"})(formGroup.controls.footerHexCode)).toBeNull()
@@ -45,7 +45,7 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
          () => {
           let formBuilder = new FormBuilder();
           let formGroup = formBuilder.group({
-'color':['#e33514'],
+            'color':['#e33514'],
             'footerHexCode':'#08083'
           });
           expect(RxwebValidators.hexColor({conditionalExpression:(x,y) =>x.color == "#AFAFAF"})(formGroup.controls.footerHexCode)).toBeNull()

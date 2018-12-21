@@ -57,3 +57,8 @@ Thumbs.db
 /node_modules_old
 /Web.config
 /node_modules_delete
+/node_modules_final
+/rxweb.csproj
+/rxweb.csproj.user
+/node_modules_release
+

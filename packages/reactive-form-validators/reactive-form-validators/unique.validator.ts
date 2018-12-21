@@ -51,10 +51,10 @@ export function uniqueValidator(config: UniqueConfig): ValidatorFn {
             let isMatched = false;
             for(let formGroup of formArray.controls){
                 if(formGroup != parentFormGroup){
-                  isMatched = (formGroup.controls[fieldName].value == currentValue && !(formGroup.controls[fieldName].errors && formGroup.controls[fieldName].errors[AnnotationTypes.unique]))
+                  isMatched = (ApplicationUtil.toLower(formGroup.controls[fieldName].value) == ApplicationUtil.toLower(currentValue) && !(formGroup.controls[fieldName].errors && formGroup.controls[fieldName].errors[AnnotationTypes.unique]))
                 if(formGroup.controls[fieldName].errors && formGroup.controls[fieldName].errors[AnnotationTypes.unique])
                 {
-                  var matchedControl = formArray.controls.filter(t=>t.controls[fieldName] != formGroup.controls[fieldName] && t.controls[fieldName].value == formGroup.controls[fieldName].value)[0];
+                  var matchedControl = formArray.controls.filter(t=>t.controls[fieldName] != formGroup.controls[fieldName] && ApplicationUtil.toLower(t.controls[fieldName].value) == ApplicationUtil.toLower(formGroup.controls[fieldName].value))[0];
                   if(!matchedControl)
                     invalidateControls.push(formGroup.controls[fieldName])
                 }

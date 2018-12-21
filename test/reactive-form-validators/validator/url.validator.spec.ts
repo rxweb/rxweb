@@ -113,7 +113,11 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
           expect(RxwebValidators.url({message:'{{0}} Is not the correct url pattern.'})(new FormControl('https:/@/stackblitz.com/'))).toEqual({'url':{ message: 'https:/@/stackblitz.com/ Is not the correct url pattern.', refValues: [ 'https:/@/stackblitz.com/' ] } }); 
         });
 
-
+      // this is the spec of issue #51 resolution.
+      it("Should error, as incorrect value in input 'https:/#/www.google.com'",
+        () => { 
+          expect(RxwebValidators.url()(new FormControl('https:/#/www.google.com'))).toEqual({'url':{ message: 'Please enter proper url format', refValues: [ 'https:/#/www.google.com' ] } }); 
+        });
 
 
 	//end

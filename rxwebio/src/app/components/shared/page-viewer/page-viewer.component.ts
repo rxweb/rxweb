@@ -14,6 +14,7 @@ import { COMPONENT_EXAMPLE } from "src/app/domain/application.const";
 import { BaseComponentProvider } from "src/app/components/shared/base.component";
 import { GitHubIssueComponent } from "src/app/components/shared/disqus/github-issue/github-issue.component";
 import { DisqusComponent } from "src/app/components/shared/disqus/disqus/disqus.component";
+import { ContributionComponent } from '../disqus/contribution/contribution.component';
 @Component({
     selector: 'page-viewer',
     templateUrl: './page-viewer.component.html',
@@ -62,8 +63,9 @@ export class PageViewerComponent extends BaseComponentProvider implements OnInit
                 case "app-github-issue":
                     element.appendChild(this.create(GitHubIssueComponent, {}).rootNode());
                     break;
-                case "app-disqus":
-                    element.appendChild(this.create(DisqusComponent, {}).rootNode());
+                case "app-contribution":
+                    debugger;
+                    element.appendChild(this.create(ContributionComponent, {}).rootNode());
                     break;
 
             }

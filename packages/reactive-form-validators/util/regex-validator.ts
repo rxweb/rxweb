@@ -21,7 +21,7 @@ export class RegexValidator {
     }
 
     static isNotBlank(value: any): boolean {
-        return value != undefined && value != "" && value != null ;
+        return (value === 0) || ( value != undefined && value != "" && value != null );
     }
 
     static isValidPassword(passwordValidation: PasswordValidation, value: string): { [key: string]: any } {

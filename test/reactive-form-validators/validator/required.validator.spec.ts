@@ -98,6 +98,16 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
           expect(RxwebValidators.required({message:'Username cannot be blank.'})(new FormControl(''))).toEqual({'required':{ message: 'Username cannot be blank.', refValues: [  ] } }); 
         });
 
+      it("Should not error, once reset the FormControl with value of '0'",
+        () => {
+          let formBuilder = new FormBuilder();
+          let formGroup = formBuilder.group({
+			        'amount':[1,RxwebValidators.required()],
+          });
+          formGroup.reset({amount:'0'})
+          expect(formGroup.controls.amount.errors).toBeNull(); 
+        });
+
 
 
 
