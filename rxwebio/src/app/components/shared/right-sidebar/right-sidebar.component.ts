@@ -24,7 +24,7 @@ export class RightSideBarComponent implements OnInit {
     @Input('sidebarLinks') sidebarLinks: any = {};
     showComponent: boolean = false;
     contributorList: any = [];
-    gitEditUrl: string = "https://github.com/rxweb/rxweb/edit/master/docs/reactive-form-validators";
+    gitEditUrl: string = "https://github.com/rxweb/rxweb/edit/master/docs/";
     ngOnInit(): void {
         var splitedArray = location.pathname.split("/");
         if(splitedArray.length > 0 && splitedArray[1])
@@ -32,16 +32,19 @@ export class RightSideBarComponent implements OnInit {
             switch(splitedArray[1])
             {
                 case "decorators":
-                    this.gitEditUrl += "/decorators/" + splitedArray[2] + ".md"    
+                    this.gitEditUrl += "reactive-form-validators/decorators/" + splitedArray[2] + ".md"    
                     break;
                 case "form-validations":
-                    this.gitEditUrl += "/validation-decorators/" + splitedArray[2] + ".md"    
+                    this.gitEditUrl += "reactive-form-validators/validation-decorators/" + splitedArray[2] + ".md"    
                     break;
                 case "api":
-                    this.gitEditUrl += "/api/ReactiveFormConfig.md"    
+                    this.gitEditUrl += "reactive-form-validators/api/ReactiveFormConfig.md"    
+                    break;
+                case "community":
+                    this.gitEditUrl += "community/" + splitedArray[2] + ".md"
                     break;
                 case "getting-started":
-                    this.gitEditUrl += "/getting-started.md"    
+                    this.gitEditUrl += "reactive-form-validators/getting-started.md"    
                     break;
             }
         }

@@ -2,7 +2,9 @@
 title: maxDate  
 description: MaxDate validation  {{validatorType}}  will allow user to enter the date less than the maxDate value parameter.
 author:  rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: maxDate
 ---
 # When to use
 Suppose you want to create a User form, which contains fields like userName, birthDate, RegistrationDate and you want the user to enter valid date which does not exceed the maximum date. Here depending upon the requirement these scenarios may arise.

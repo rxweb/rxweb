@@ -2,7 +2,9 @@
 title: creditCard 
 description: creditCard validation {{validatorType}} will check property value is creditcardtype or not, It will not allow to enter any value other than credit card format.
 author:  rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: creditCard
 ---
 # When to use
 Supppose you want to create a user form and you want details like CreditCard and you have fields like CardType, VisaCard, AmericanExpress,MaestroCard, JCBcard, DiscoverCard, MasterCard  Here depending upon the requirement these scenarios may arise.

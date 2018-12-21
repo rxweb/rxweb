@@ -5971,6 +5971,7 @@ header.banner .top-bar .navbar-nav a:hover {
     border-top: 1px solid #fff;
     margin-top: 15px;
     padding-top: 10px;
+    font-size:15px;
 }
 .foot-brand{
     text-align: center;
@@ -6264,4 +6265,54 @@ body.hide-sidebar #menu .header-link {
 }
 .hideElement{
     display: none;
+}
+.right__community {
+    position: relative;
+}
+
+.right__community label {
+    font-weight: 100;
+    font-size: 14px;
+    text-align: right;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    right: 0;
+    background: #fff;
+    display: inline-block;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.right__community ul {
+    padding: 0px 15px 15px;
+    list-style: none;
+    margin-top: 15px;
+    font-size: 12px;
+    padding-left: 18px;
+}
+
+#rightsidebar .btm-link .nav.navbar-nav li a {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-height: 21px;
+    border: 0;
+    padding: 0;
+    height: auto;
+    color: #888;
+}
+
+.rightsidebar {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.plain-text a {
+    font-weight: bold;
+}
+.plain-text ul li{
+    padding-top:8px;
+    color:#34495e;
+}
+.plain-text code.bash{
+    font-size: 18px
 }

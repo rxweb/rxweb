@@ -7,7 +7,6 @@ import { AppCodeComponent } from '../app-code/app-code.component'
 import { ComponentView } from '../../../domain/view'
 
 import { AppExampleRunnerComponent } from "src/app/components/shared/app-example-runner/app-example-runner.component";
-import { AppNotesComponent } from "src/app/components/shared/app-notes/app-notes.component";
 import { AppTabsComponent } from "src/app/components/shared/app-tabs/app-tabs.component";
 import { Inject } from "@angular/core";
 import { COMPONENT_EXAMPLE } from "src/app/domain/application.const";
@@ -22,7 +21,7 @@ import { ContributionComponent } from '../disqus/contribution/contribution.compo
 
 export class PageViewerComponent extends BaseComponentProvider implements OnInit {
     @Input() content: string;
-    @Input() showExample: boolean;
+    @Input() showExample?: boolean =true;
     constructor(
         private elementRef: ElementRef, componentFactoryResolver: ComponentFactoryResolver, viewContainerRef: ViewContainerRef,
         @Inject(COMPONENT_EXAMPLE) exampleComponents: { [key: string]: any },
@@ -54,9 +53,6 @@ export class PageViewerComponent extends BaseComponentProvider implements OnInit
                 case "app-example-runner":
                     element.appendChild(this.create(AppExampleRunnerComponent, params).rootNode());
                     break;
-                case "app-note":
-                    element.appendChild(this.create(AppNotesComponent, params).rootNode());
-                    break;
                 case "app-tabs":
                     element.appendChild(this.create(AppTabsComponent, params).rootNode());
                     break;
@@ -64,7 +60,6 @@ export class PageViewerComponent extends BaseComponentProvider implements OnInit
                     element.appendChild(this.create(GitHubIssueComponent, {}).rootNode());
                     break;
                 case "app-contribution":
-                    debugger;
                     element.appendChild(this.create(ContributionComponent, {}).rootNode());
                     break;
 

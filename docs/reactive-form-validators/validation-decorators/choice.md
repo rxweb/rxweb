@@ -1,8 +1,10 @@
---s
+--
 title: choice 
 description: choice validation  {{validatorType}}  will check whether the value entered is matching the properties defined.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: choice
 --
 
 # When to use

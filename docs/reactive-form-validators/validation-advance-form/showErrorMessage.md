@@ -2,7 +2,9 @@
 title: Better Way To Show Error Messages 
 description: RxFormBuilder provide a property of `errorMessage` in every FormControl which will show the current error message of the control.
 author: rxcontributortwo
-
+category: decorators
+type:decorators
+linktitle: betterWayToShowErrorMessage
 ---
 
 ## When To Use

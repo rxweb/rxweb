@@ -2,7 +2,9 @@
 title: contains  
 description: Contains validation  {{validatorType}}  will check that value is in the input, It will not allow to enter input that not contains the predefined value.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: contains
 ---
 # When to use
 Suppose you want to create a User form, which contains fields like EmailAddress, RecoveryEmailAddress, OtherEmailAddress and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.

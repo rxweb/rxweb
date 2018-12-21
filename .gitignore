@@ -62,3 +62,5 @@ Thumbs.db
 /rxweb.csproj.user
 /node_modules_release
 
+/rxwebio/package-lock.json
+/rxwebio/rxwebio.csproj

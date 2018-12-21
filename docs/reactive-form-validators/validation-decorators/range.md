@@ -2,7 +2,9 @@
 title: range 
 description: Range validation  {{validatorType}}  will check that the entered value is in the specified range.
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: range
 ---
 # When to use
 Suppose you want to create a employeeInfo form, which contains field of employeeAge, employeeExperience, salary and you want the user to enter value in a specified range. Here depending upon the requirement these scenarios may arise.

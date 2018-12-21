@@ -2,7 +2,9 @@
 title: leapYear
 description: LeapYear validation  {{validatorType}}  will check whether the value entered is a leap year or not.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: leapYear
 ---
 # When to use
 Suppose you want to create a user value form, which contains fields like name, birth year, joining year and you want the user to enter value which is in leap year format Here depending upon the requirement these scenarios may arise..

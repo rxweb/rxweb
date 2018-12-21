@@ -2,7 +2,9 @@
 title: dataUri
 description: dataUri validation  {{validatorType}}  allows user to enter the input which is a valid data Uri.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: dataUri
 ---
 # When to use
 Suppose you want to create a user form, which dataUri fields like scheme, AudioDataUri, VideoDataUri and ImageDataUri and you want the user to enter input which is a proper data URI format. depending on the requirements, these scenarios may arise..

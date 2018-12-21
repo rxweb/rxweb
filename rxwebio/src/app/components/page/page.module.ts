@@ -11,7 +11,6 @@ import { AppTabsComponent } from "src/app/components/shared/app-tabs/app-tabs.co
 import { PageViewerComponent } from "src/app/components/shared/page-viewer/page-viewer.component";
 import { AppCodeComponent } from "src/app/components/shared/app-code/app-code.component";
 import { AppExampleRunnerComponent } from "src/app/components/shared/app-example-runner/app-example-runner.component";
-import { AppNotesComponent } from "src/app/components/shared/app-notes/app-notes.component";
 
 
 @NgModule({
@@ -23,7 +22,7 @@ import { AppNotesComponent } from "src/app/components/shared/app-notes/app-notes
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  entryComponents: [PageViewerComponent, AppCodeComponent, AppExampleRunnerComponent, AppNotesComponent,AppTabsComponent]
+  entryComponents: [PageViewerComponent, AppCodeComponent, AppExampleRunnerComponent, AppTabsComponent]
 })
 export class PageModule { }
 

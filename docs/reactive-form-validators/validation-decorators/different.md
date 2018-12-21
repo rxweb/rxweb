@@ -2,7 +2,9 @@
 title: different 
 description: Different validation  {{validatorType}}  will check two inputs whether they are different or not. It is just opposite of compare decorator.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: different
 ---
 # When to use
 Suppose you want to create a user form in which you want to compare firstname and LastName which are entered by the user which contains fields like firstname and lastname, password Here depending upon the requirement these scenarios may arise.

@@ -2,7 +2,9 @@
 title: time 
 description: time validation  {{validatorType}}  will allow user to enter the input only in the correct time format.
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: time
 ---
 # When to use
 Suppose you want to create a AttendanceDetail form, which contains field of EntryPlace, EntryTime, TotalTimeOut and Exit Time you want the user to enter valid time. Here depending upon the requirement these scenarios may arise.

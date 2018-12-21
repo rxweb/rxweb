@@ -2,7 +2,9 @@
 title: oneOf
 description: oneOf validation  {{validatorType}}  will check whether the user has entered any one of the given inputs or not.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: oneOf
 ---
 
 # When to use

@@ -2,7 +2,9 @@
 title: prop
 description: It is used to define a property of a field in the model class.
 author: rxcontributorone
-
+category: decorators
+type:decorators
+linktitle: prop
 ---
 # When to use
 Suppose you want to create a user form, which contains fields like emailAddress and you want to use the prop decorator on that field.
