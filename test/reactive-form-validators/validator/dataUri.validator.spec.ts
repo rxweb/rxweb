@@ -95,4 +95,4 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
       });
     });
 });
-});
+})();
