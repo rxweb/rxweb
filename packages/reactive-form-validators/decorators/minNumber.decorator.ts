@@ -1,11 +1,6 @@
-import { defaultContainer } from '../core/defaultContainer';
+import { baseDecoratorFunction } from "./base-decorator.function"
 import { NumberConfig } from "../models/config/number-config";
 import { AnnotationTypes } from "../core/validator.static";
 export function minNumber(config:NumberConfig) {
-    return function (
-        target: Object,
-        propertyKey: string, parameterIndex?: any
-    ) {
-      defaultContainer.init(target, parameterIndex, propertyKey, AnnotationTypes.minNumber, config)    
-    }
+    return baseDecoratorFunction (AnnotationTypes.minNumber, config)    
 }

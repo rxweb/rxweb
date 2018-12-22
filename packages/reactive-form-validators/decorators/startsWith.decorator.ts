@@ -1,12 +1,7 @@
-import { defaultContainer } from '../core/defaultContainer';
+import { baseDecoratorFunction } from "./base-decorator.function"
 import { AnnotationTypes } from '../core/validator.static';
 import { DefaultConfig } from "../models/config/default-config";
 
 export function startsWith(config:DefaultConfig) {
-    return function (
-        target: Object,
-        propertyKey: string, parameterIndex?: any
-    ) {
-      defaultContainer.init(target, parameterIndex, propertyKey, AnnotationTypes.startsWith, config)
-    } 
+    return baseDecoratorFunction (AnnotationTypes.startsWith, config)
 }
