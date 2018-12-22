@@ -2,9 +2,6 @@ import { AbstractControl } from "@angular/forms";
 import { ApplicationUtil } from "./app-util";
 import { FormProvider } from "./form-provider";
 import { RegexValidator } from "./regex-validator";
-import { GREATER_THAN, LESS_THAN, GREATER_THAN_EQUAL_TO, LESS_THAN_EQUAL_TO } from "../const/app.const";
-import { AnnotationTypes } from "../core/validator.static";
-import { ObjectMaker } from "./object-maker";
 
 export class ValidatorValueChecker{
 
