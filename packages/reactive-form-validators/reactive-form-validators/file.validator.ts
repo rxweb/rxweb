@@ -1,5 +1,4 @@
 import {
-    ValidatorFn,
     AbstractControl
 } from "@angular/forms";
 
@@ -19,7 +18,7 @@ export function fileValidator(config: FileConfig): any {
                 let minFiles = config.minFiles ? config.minFiles : 1;
                 let maxFiles = config.maxFiles ? config.maxFiles : 1;
                 if (!(files.length > 0 && files[0] instanceof File && files.length >= minFiles && files.length <= maxFiles))
-                    return ObjectMaker.toJson(AnnotationTypes.file, config.message || null, [files.length,minFiles,maxFiles]);
+                    return ObjectMaker.toJson(AnnotationTypes.file, config, [files.length,minFiles,maxFiles]);
             }
         } return ObjectMaker.null();
     }

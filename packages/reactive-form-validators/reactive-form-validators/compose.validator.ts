@@ -5,7 +5,6 @@ import {
 
 import { ObjectMaker } from "../util/object-maker";
 import { ComposeConfig } from "../models/config/compose-config";
-import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
 

@@ -3,15 +3,10 @@ import {
     AbstractControl
 } from "@angular/forms";
 
-import { RegexValidator } from "../util/regex-validator";
-import { RegExRule } from "../util/regex-rules";
-import { DecoratorName } from "../util/decorator-name"
 import { ObjectMaker } from "../util/object-maker";
 import { DefaultConfig } from "../models/config/default-config";
-import { Linq } from "../util/linq";
-import { ApplicationUtil } from "../util/app-util";
 import { AnnotationTypes } from "../core/validator.static";
-import { FormProvider } from '../util/form-provider';
+import { ValidatorValueChecker } from "../util/validator-value-checker";
 export function jsonValidator(config: DefaultConfig): ValidatorFn {
     function process(value){
           var result:boolean = false;
@@ -26,12 +21,10 @@ export function jsonValidator(config: DefaultConfig): ValidatorFn {
     }
 
     return (control: AbstractControl): { [key: string]: any } => {
-        config = ApplicationUtil.getConfigObject(config);
-        if (FormProvider.ProcessRule(control,config)) {
-            if (RegexValidator.isNotBlank(control.value)) {
-              if(process(control.value))
-                return ObjectMaker.toJson(AnnotationTypes.json, config.message || null, [control.value]);
+        if (ValidatorValueChecker.pass(control,config)) {
+            if(process(control.value))
+                return ObjectMaker.toJson(AnnotationTypes.json, config, [control.value]);
             }
-        } return ObjectMaker.null();
+        return ObjectMaker.null();
     }
 }

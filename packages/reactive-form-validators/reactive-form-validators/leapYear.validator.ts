@@ -3,22 +3,17 @@ import {
     AbstractControl
 } from "@angular/forms";
 
-import { RegexValidator } from "../util/regex-validator";
-import { RegExRule } from "../util/regex-rules";
 import { ObjectMaker } from "../util/object-maker";
 import { BaseConfig } from "../models/config/base-config";
 import { AnnotationTypes } from "../core/validator.static";
-import { FormProvider } from '../util/form-provider';
-import { ApplicationUtil } from '../util/app-util';
+import { ValidatorValueChecker } from "../util/validator-value-checker";
 export function leapYearValidator(config: BaseConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-        config = ApplicationUtil.getConfigObject(config);
-        if (FormProvider.ProcessRule(control,config)) {
-            if (RegexValidator.isNotBlank(control.value)) {
-                var testResult = (control.value % 100 === 0) ? (control.value % 400 === 0) : (control.value % 4 === 0);
-                if (!testResult)
-                    return ObjectMaker.toJson(AnnotationTypes.leapYear, config.message || null, [control.value]);
+        if (ValidatorValueChecker.pass(control,config)) {
+                var isValid = (control.value % 100 === 0) ? (control.value % 400 === 0) : (control.value % 4 === 0);
+                if (!isValid)
+                    return ObjectMaker.toJson(AnnotationTypes.leapYear, config, [control.value]);
             }
-        } return ObjectMaker.null();
+         return ObjectMaker.null();
     }
 }
