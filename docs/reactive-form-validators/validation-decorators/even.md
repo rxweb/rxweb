@@ -2,7 +2,9 @@
 title: even 
 description: Even validation  {{validatorType}}  will check whether the value entered by user is an even number or not.
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: even
 ---
 # When to use
 Suppose you want to create a user form, which contains fields like Number, Type, EvenNumber and you want the user to enter only even numbers Here depending upon the requirement these scenarios may arise.

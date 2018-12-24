@@ -10,14 +10,22 @@ import { HttpClient } from "@angular/common/http";
 export class TitleComponent implements OnInit {
   @Input() title:string;
   @Input() description:string;
-  @Input() validatorType:string;
-  @Input() validationTypeTitle:string;
+  @Input() validatorType?:string;
+  @Input() validationTypeTitle?:string;
+  @Input() mainType?:string;
   showComponent: boolean = false;
+  linkHref:string = "";
   constructor(
   ) {
   }
   ngOnInit(): void {
-      this.showComponent = true;
+    if(this.mainType)
+      this.linkHref += "/" + this.mainType;
+    else if(this.title)
+      this.linkHref += "/" + this.title;
+    else if(this.validatorType)
+      this.linkHref += "/" + this.validatorType;
+    this.showComponent = true;
   }
 }
 

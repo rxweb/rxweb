@@ -2,7 +2,9 @@
 title: primeNumber
 description: primeNumber validation  {{validatorType}}  allows user to enter only prime number.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: primeNumber
 ---
 # When to use
 Suppose you want to create a numberInfo form, which contains fields like numberType, firstNumber, secondNumber and thirdNumber and you want the user to enter input which is a prime number. Here depending upon the requirement, these scenarios may arise..

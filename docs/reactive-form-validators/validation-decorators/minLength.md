@@ -2,7 +2,9 @@
 title: minLength 
 description: MinLength validation  {{validatorType}}  will allow user to enter the input length matching the minimum length value parameter.
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: minLength
 ---
 # When to use
 Suppose you want to create a Contact form, which contains fields like countryName, MobileNo, LandlineNo and you want the user to enter valid  Number which should be of the minimum specified length. Here depending upon the requirement these scenarios may arise.

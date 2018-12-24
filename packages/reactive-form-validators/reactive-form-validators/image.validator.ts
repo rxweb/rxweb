@@ -1,5 +1,4 @@
 import {
-    AsyncValidatorFn,
     AbstractControl
 } from "@angular/forms";
 
@@ -34,17 +33,17 @@ export function imageValidator(config: ImageConfig):  any {
                     image.onload = () => {
                       testResult = (image.width >= config.minWidth && image.height >= config.minHeight) && (image.width <= config.maxWidth && image.height <= config.maxHeight);
                       if(!testResult)
-                        resolve(ObjectMaker.toJson(AnnotationTypes.image, config.message || null, [image.width,image.height]));
+                        resolve(ObjectMaker.toJson(AnnotationTypes.image, config, [image.width,image.height]));
                       else
                         resolve(ObjectMaker.null());
                     }
                     image.onerror = () => {
-                        resolve(ObjectMaker.toJson(AnnotationTypes.image, config.message || null, []));
+                        resolve(ObjectMaker.toJson(AnnotationTypes.image, config, []));
                     }
                     image.src = URL.createObjectURL(file)
                 }
                 if (!testResult)
-                    resolve(ObjectMaker.toJson(AnnotationTypes.image, config.message || null, []));
+                    resolve(ObjectMaker.toJson(AnnotationTypes.image, config, []));
             }
         } return ObjectMaker.null();
       })

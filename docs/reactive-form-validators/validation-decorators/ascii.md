@@ -2,7 +2,9 @@
 title: ascii
 description: ascii validation  {{validatorType}}  allows user to enter the input which is in the proper ascii format.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: ascii
 ---
 # When to use
 Suppose you want to create a user form in which you want the user to enter an  input which is in form of valid ascii code. The form contains fields like language, numberAsciiCode, alphabetAsciiCode and specialCharAsciiCode. depending on requirements these scenarios may arise..

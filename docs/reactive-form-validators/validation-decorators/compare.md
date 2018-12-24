@@ -2,7 +2,9 @@
 title: compare 
 description: Compare validation  {{validatorType}}  will compare two inputs whether they are same or not.
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: compare
 ---
 # When to use
 Suppose you want to create a user form in which you want to compare passwords which are entered by the user which contains fields like Password and Confirm Password Here depending upon the requirement these scenarios may arise.

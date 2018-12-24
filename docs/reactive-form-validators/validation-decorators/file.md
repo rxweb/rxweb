@@ -2,7 +2,9 @@
 title: file
 description: file validation  {{validatorType}}  allows user to validate whether how many files can be uploaded . It depends upon maxFiles and minFiles.
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: file
 ---
 # When to use
 Suppose you want to create a User form, which contains fields like totalImageFiles, totalDocumentFiles, minimumFiles,maximumFile,minMaxFiles and you want the user to upload files as per validation format. Here depending upon the requirement these scenarios may arise.

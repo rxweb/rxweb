@@ -2,7 +2,9 @@
 title: alphaNumeric
 description: Alpha Numeric validation  {{validatorType}}  will allow only alphabets and numbers to be entered, It will not allow any special character. 
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: alphaNumeric
 ---
 # When to use
 Suppose you want to create a Location form, which contains fields like AreaName, FlatAddress, PostalAddress, CityCode and you want the user to enter only alphabets and numbers. Here depending upon the requirement these scenarios may arise.

@@ -2,7 +2,9 @@
 title: allOf 
 description: allOf validation  {{validatorType}}  will check whether the user has entered all of the values of given field or not.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: allOf
 ---
 
 # When to use

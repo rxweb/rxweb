@@ -5,22 +5,17 @@ import {
 
 import { RegexValidator } from "../util/regex-validator";
 import { RegExRule } from "../util/regex-rules";
-import { DecoratorName } from "../util/decorator-name"
 import { ObjectMaker } from "../util/object-maker";
-import { CreditCardTypes } from "../const/credit-card-types";
 import { CreditCardConfig } from "../models/config/credit-card-config";
 import { ApplicationUtil } from "../util/app-util";
-import { Linq } from "../util/linq";
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 
 export function creditCardValidator(config:CreditCardConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
         const controlValue = control.value;
-        const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         config = ApplicationUtil.getConfigObject(config);
         const parentObject = (control.parent) ? control.parent.value : undefined;
-        const refFieldControl = config.fieldName ? ApplicationUtil.getFormControl(config.fieldName,control) : undefined;
         if (FormProvider.ProcessRule(control,config)) {
             if (RegexValidator.isNotBlank(controlValue)) {
                 let isValid = false;
@@ -54,7 +49,7 @@ export function creditCardValidator(config:CreditCardConfig): ValidatorFn {
                 }
                 isValid = isValid ?  controlValue.length == 16 : isValid;
                 if (!isValid)
-                    return ObjectMaker.toJson(AnnotationTypes.creditCard, config.message || null, [controlValue,cardType])
+                    return ObjectMaker.toJson(AnnotationTypes.creditCard, config, [controlValue,cardType])
             }
         }
         return ObjectMaker.null();

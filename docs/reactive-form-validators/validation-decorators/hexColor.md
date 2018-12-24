@@ -2,7 +2,9 @@
 title: hexColor  
 description: HexColor validation  {{validatorType}}  will allow user to enter only the input in proper Hex Color format.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: hexColor
 ---
 # When to use
 Suppose you want to create a User form, which contains fields like ColorPicker, HeaderHexColorCode, BodyHexColorCode, StrictHexColorCode and you want the user to enter only the hex color format. Here depending upon the requirement these scenarios may arise.

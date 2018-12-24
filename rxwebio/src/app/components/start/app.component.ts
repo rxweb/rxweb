@@ -15,19 +15,27 @@ import { RxSpinner } from "src/app/controls/spinner/spinner.service";
 export class AppComponent implements OnInit {
   title = 'rx.web.io';
   isHome = false;
+  showFooter = false;
   constructor(private router: Router,private spinner:RxSpinner,private applicationBroadCast:ApplicationBroadcaster) {
     this.applicationBroadCast.urlSubscriber.subscribe(t => {
       this.homeInit(t)
     });
     router.events.subscribe((val) => {
+      debugger;
       if (val instanceof NavigationEnd) {
         this.spinner.hide();
-        (<any>window).ga('set', 'page', val.urlAfterRedirects);
-        (<any>window).ga('send', 'pageview');
+        
         if (val.url == "/" || val.url == "/home")
           this.isHome = true;
-        else
+        else{
           this.isHome = false;
+          var t = setTimeout(() => {
+            this.showFooter = true;  
+          }, 200);
+          
+        }
+        (<any>window).ga('set', 'page', val.urlAfterRedirects);
+        (<any>window).ga('send', 'pageview');
         var t = setTimeout(function () {
           const tree = router.parseUrl(router.url);
           if (tree.fragment) {
@@ -39,6 +47,7 @@ export class AppComponent implements OnInit {
         }, 500);
       }
       if (val instanceof NavigationStart) {
+        this.showFooter = false;
         this.spinner.show();
       }
     });

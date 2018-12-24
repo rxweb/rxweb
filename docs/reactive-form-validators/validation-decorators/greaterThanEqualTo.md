@@ -2,7 +2,9 @@
 title: greaterThanEqualTo 
 description: Greater than equal to validation  {{validatorType}}  will check that input property is greater than or equal to the related field input.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: greaterThanEqualTo
 ---
 # When to use
 Suppose you want to create a user form and you have fields like Age, VoterAge, OtherAge and you want user to enter Age such that VoterAge,OtherAge should be greater than or equal to Age Here depending upon the requirement these scenarios may arise.

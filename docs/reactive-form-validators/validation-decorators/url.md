@@ -2,7 +2,9 @@
 title: url 
 description: Url validation  {{validatorType}}  will check that value entered in the property is in the correct url format or not.
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: url
 ---
 # When to use
 Suppose you want to create a website-info form, which contains fields like AdminWebsiteUrl, CustomerWebsiteUrl, MaintenanceWebsiteUrl and you want the user to enter valid url. Here depending upon the requirement these scenarios may arise.

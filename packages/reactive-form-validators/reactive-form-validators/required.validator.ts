@@ -3,7 +3,6 @@ import {
     AbstractControl
 } from "@angular/forms";
 import { RegexValidator } from "../util/regex-validator";
-import { MessageConfig } from "../models/config/message-config";
 import { ObjectMaker } from "../util/object-maker";
 import { AnnotationTypes } from "../core/validator.static";
 import { RequiredConfig } from "../models/config/required-config";
@@ -14,7 +13,7 @@ export function requiredValidator(config: RequiredConfig): ValidatorFn {
         config = ApplicationUtil.getConfigObject(config);
           if (FormProvider.ProcessRule(control,config)) {
             if (!RegexValidator.isNotBlank(control.value)) {
-                return ObjectMaker.toJson(AnnotationTypes.required, config.message || null, [])
+                return ObjectMaker.toJson(AnnotationTypes.required, config, [])
             }
         }
         return ObjectMaker.null();

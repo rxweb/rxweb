@@ -2,7 +2,9 @@
 title: image
 description: image validation  {{validatorType}}  allows user to validate image like height,width etc .
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: image
 ---
 # When to use
 Suppose you want to create a User form, which contains fields like ProfilePhoto, Signature, DrivingLicense,IdentityCard,DrvingLicense,VoterId,AadharCard, and you want the user to enter only the hex color format. Here depending upon the requirement these scenarios may arise.
