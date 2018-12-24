@@ -1,4 +1,4 @@
-export const AnnotationTypes: { [key: string]: any } = {
+export const AnnotationTypes: { [key: string]: string } = {
     numeric:'numeric',
     required: 'required',
     minLength: 'minLength',

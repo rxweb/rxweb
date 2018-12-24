@@ -8,16 +8,13 @@ import { RegExRule } from "../util/regex-rules";
 import { ObjectMaker } from "../util/object-maker";
 import { DefaultConfig } from "../models/config/default-config";
 import { AnnotationTypes } from "../core/validator.static";
-import { FormProvider } from '../util/form-provider';
-import { ApplicationUtil } from '../util/app-util';
+import { ValidatorValueChecker } from "../util/validator-value-checker";
 export function urlValidator(config: DefaultConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-        config = ApplicationUtil.getConfigObject(config);
-          if (FormProvider.ProcessRule(control,config)) {
-            if (RegexValidator.isNotBlank(control.value)) {
-                if (!RegexValidator.isValid(control.value, RegExRule.url))
-                    return ObjectMaker.toJson(AnnotationTypes.url, config.message || null, [control.value]);
+        if (ValidatorValueChecker.pass(control,config)) {
+            if (!RegexValidator.isValid(control.value, RegExRule.url))
+                    return ObjectMaker.toJson(AnnotationTypes.url,config, [control.value]);
             }
-        } return ObjectMaker.null();
+        return ObjectMaker.null();
     }
 }

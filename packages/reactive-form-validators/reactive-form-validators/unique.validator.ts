@@ -1,15 +1,12 @@
 import {
     ValidatorFn,
     AbstractControl,
-    FormGroup,
     FormArray
 } from "@angular/forms";
 
 import { RegexValidator } from "../util/regex-validator";
-import { RegExRule } from "../util/regex-rules";
 import { ObjectMaker } from "../util/object-maker";
 import { UniqueConfig } from "../models/config/unique-config";
-import { Linq } from "../util/linq";
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
@@ -72,7 +69,7 @@ export function uniqueValidator(config: UniqueConfig): ValidatorFn {
                   validation = additionalValidation(config,fieldName,parentFormGroup,formArray,currentValue);
               }
              if(isMatched && !validation)
-                  return ObjectMaker.toJson(AnnotationTypes.unique, config.message || null, [control.value])
+                  return ObjectMaker.toJson(AnnotationTypes.unique, config, [control.value])
            }
         }
       }

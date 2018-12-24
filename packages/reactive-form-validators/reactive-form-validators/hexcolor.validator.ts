@@ -6,18 +6,13 @@ import { RegexValidator } from "../util/regex-validator";
 import { ObjectMaker } from "../util/object-maker";
 import { AnnotationTypes } from "../core/validator.static";
 import { HexColorConfig } from "../models/config/hex-color-config";
-import { FormProvider } from '../util/form-provider';
-import { ApplicationUtil } from '../util/app-util';
+import { ValidatorValueChecker } from "../util/validator-value-checker";
 export function hexColorValidator(config:HexColorConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-        config = ApplicationUtil.getConfigObject(config);
-        if (FormProvider.ProcessRule(control,config)) {
-            if (RegexValidator.isNotBlank(control.value)) {
-                let hexRegex = RegExRule.strictHexColor;
-                if (!RegexValidator.isValid(control.value, hexRegex))
-                    return ObjectMaker.toJson(AnnotationTypes.hexColor, config.message || null, [control.value])
+        if (ValidatorValueChecker.pass(control,config)) {
+            if (!RegexValidator.isValid(control.value, RegExRule.strictHexColor))
+                    return ObjectMaker.toJson(AnnotationTypes.hexColor, config, [control.value])
             }
-        }
         return ObjectMaker.null();
     }
 }

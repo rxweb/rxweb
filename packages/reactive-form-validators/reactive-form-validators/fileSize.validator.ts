@@ -1,5 +1,4 @@
 import {
-    ValidatorFn,
     AbstractControl
 } from "@angular/forms";
 
@@ -27,7 +26,7 @@ export function fileSizeValidator(config: SizeConfig): any {
                       break;
                 }
                 if (testResult)
-                    return ObjectMaker.toJson(AnnotationTypes.fileSize, config.message || null, [fileSize,config.maxSize]);
+                    return ObjectMaker.toJson(AnnotationTypes.fileSize, config, [fileSize,config.maxSize]);
             }
         } return ObjectMaker.null();
     }

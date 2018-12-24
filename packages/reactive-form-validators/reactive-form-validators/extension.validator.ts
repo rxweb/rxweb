@@ -1,10 +1,8 @@
 import {
-    ValidatorFn,
     AbstractControl
 } from "@angular/forms";
 
 import { RegexValidator } from "../util/regex-validator";
-import { RegExRule } from "../util/regex-rules";
 import { ObjectMaker } from "../util/object-maker";
 import { ExtensionConfig } from "../models/config/extension-config";
 import { AnnotationTypes } from "../core/validator.static";
@@ -31,7 +29,7 @@ export function extensionValidator(config: ExtensionConfig): any {
                       
                 }
                 if (!testResult)
-                    return ObjectMaker.toJson(AnnotationTypes.extension, config.message || null, [extension,config.extensions.join(",")]);
+                    return ObjectMaker.toJson(AnnotationTypes.extension, config, [extension,config.extensions.join(",")]);
             }
         } return ObjectMaker.null();
     }

@@ -1,12 +1,7 @@
-import { defaultContainer } from '../core/defaultContainer';
+import { baseDecoratorFunction } from "./base-decorator.function"
 import { AnnotationTypes } from '../core/validator.static';
 import { RuleConfig } from "../models/config/rule-config";
 
 export function rule(config?:RuleConfig) {
-    return function (
-        target: Object,
-        propertyKey: string, parameterIndex?: any
-    ) {
-      defaultContainer.init(target,parameterIndex, propertyKey,AnnotationTypes.rule,config)
-    }
+    return baseDecoratorFunction (AnnotationTypes.rule,config)
 }

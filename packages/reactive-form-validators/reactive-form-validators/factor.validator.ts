@@ -1,10 +1,6 @@
 import {
     FormGroup,
-    FormBuilder,
-    Validators,
-    Validator,
     ValidatorFn,
-    AbstractControl
 } from "@angular/forms";
 
 import { RegexValidator } from "../util/regex-validator";
@@ -18,7 +14,6 @@ export function factorValidator(config:FactorConfig): ValidatorFn {
 
     function positiveFactors(dividend,value){
       let isPositive = false;
-      let factors = [];
       let index = 1;
       for (index = 1; index <= Math.floor(Math.sqrt(dividend)); index += 1){
           if (dividend % index === 0)
@@ -42,7 +37,7 @@ export function factorValidator(config:FactorConfig): ValidatorFn {
        if (FormProvider.ProcessRule(control,config)) {
         if (RegexValidator.isNotBlank(control.value) && dividend > 0) {
           if (!RegexValidator.isValid(control.value, RegExRule.onlyDigit) || !positiveFactors(dividend,parseInt(control.value)))
-            return ObjectMaker.toJson(AnnotationTypes.factor, config.message || null, [control.value]);
+            return ObjectMaker.toJson(AnnotationTypes.factor, config, [control.value]);
         }
       }
         return ObjectMaker.null();
