@@ -2,7 +2,9 @@
 title: latitude
 description: latitude validation  {{validatorType}}  allows user to enter value which is valid latitude.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: latitude
 ---
 # When to use
 Suppose you want to create a country form, which contains fields like continent, firstCountryLatitude, secondCountryLatitude and thirdCountryLatitude and you want the user to enter input which is a proper latitude format. Here depending upon the requirement, these scenarios may arise..

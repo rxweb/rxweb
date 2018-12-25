@@ -2,7 +2,9 @@
 title: odd
 description: Odd validation {{validatorType}} will check whether the value entered is an odd number or not.
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: odd
 ---
 # When to use
 Suppose you want to create a user form, which contains fields like Number, Type, OddNumber and you want the user to enter only odd numbers Here depending upon the requirement these scenarios may arise.

@@ -14,16 +14,17 @@ export abstract class BaseComponentProvider implements OnDestroy {
     element: HTMLElement;
     componentViews:ComponentView<any>[] = new Array<ComponentView<any>>();
     
-    @Input() data: { [key: string]: any };
+    @Input() data?: { [key: string]: any };
     @Input() set typeName(value:string){
-        this._typeName = value.replace("-","_");
+        if(value)
+            this._typeName = value.replace("-","_");
     };
     get typeName():string
     {
         return this._typeName;
     }
-    @Input() templateDrivenType:string;
-    @Input() tabArray: any;
+    @Input() templateDrivenType?:string;
+    @Input() tabArray?: any;
 
     _typeName:string;
     constructor(viewContainerRef:ViewContainerRef,componentFactoryResolver:ComponentFactoryResolver,

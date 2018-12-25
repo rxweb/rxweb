@@ -2,7 +2,9 @@
 title: lessThanEqualTo
 description: Less than equal to validation  {{validatorType}}  will allow the user to enter only that value which is less than oe equal to the value in the pre defined field.
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: lessThanEqualTo
 ---
 # When to use
 Suppose you want to create a user form and you have fields like TotalMarks, ObtainedMarks, OtherMarks and you want user to enter ObtainedMarks, OtherMarks such that they should be less than or equal to TotalMarks Here depending upon the requirement these scenarios may arise

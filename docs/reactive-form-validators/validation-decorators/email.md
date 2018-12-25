@@ -2,7 +2,9 @@
 title: email 
 description: Email validation  {{validatorType}}  will only allow user to enter input which is in the correct email format.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: email
 ---
 # When to use
 Suppose you want to create a user form and you have fields like Email, RecoveryEmail, OtherEmailAddress and you want user to enter valid EmailAddress Here depending upon the requirement these scenarios may arise.

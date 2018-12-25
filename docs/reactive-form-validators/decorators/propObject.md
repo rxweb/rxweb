@@ -2,7 +2,9 @@
 title: propObject
 description: It is used to define an object of thes property of a field in the model class.
 author: rxcontributorone
-
+category: decorators
+type:decorators
+linktitle: propObject
 ---
 # When to use
 Suppose you want to create a user form, which contains fields like emailAddress,city and country.You want to create an object of the address class and access the properties of it in the user model class. 

@@ -2,7 +2,9 @@
 title: factor 
 description: factor validation {{validatorType}} will allow user to enter factor of a number which is called dividend.
 author: rxcontributorone
-
+category: form-validations
+type:tabs
+linktitle: factor
 ---
 # When to use
 Suppose you want to create a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise.

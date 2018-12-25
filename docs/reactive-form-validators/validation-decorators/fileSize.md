@@ -2,7 +2,9 @@
 title: fileSize
 description: fileSize validation  {{validatorType}}  allows user to enter the input which is in the proper file size format.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: fileSize
 ---
 # When to use
 Suppose you want to create a UserInfo form, which contains fields like fileType , profilePhoto, videoFile , audioFile and imageFile, documentFile ,contactFile, profilePicture and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..

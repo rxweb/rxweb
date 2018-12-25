@@ -2,7 +2,9 @@
 title: digit
 description: Digit validation  {{validatorType}}  will allow only digits to be entered, It will not allow any alphabets or special character.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: digit
 ---
 # When to use
 Suppose you want to create a User form, which contains fields like Age, PhoneNumber, MobileNumber and you want the user to enter only numbers. Here depending upon the requirement these scenarios may arise.

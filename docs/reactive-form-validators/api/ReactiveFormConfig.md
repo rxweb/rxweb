@@ -2,7 +2,9 @@
 title: ReactiveFormConfig
 description: ReactiveFormConfig is used to configure date format,validation messages globally at the start of the application. 
 author: rxcontributorone
-
+category: api
+type:simple
+linktitle: reactive-form-config
 ---
 # About ReactiveFormConfig
 

@@ -8,7 +8,7 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
       beforeEach(() => {
         ReactiveFormConfig.set({
           "validationMessage": {
-            "factor": " Enter valid factors.",
+            "factor": "Enter valid factors.",
           }
         });
       });  
@@ -123,4 +123,4 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
   //end
     });
     });
-});
+})();

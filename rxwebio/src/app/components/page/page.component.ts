@@ -20,7 +20,7 @@ export class PageComponent implements OnInit {
   showViewer: boolean = false;
   templateDrivenType: string;
   showExample: boolean = true;
-  mainType:string;
+  mainType: string;
   constructor(
     private http: HttpClient, private elementRef: ElementRef,
     private activatedRoute: ActivatedRoute,
@@ -35,7 +35,7 @@ export class PageComponent implements OnInit {
       this.bind();
     })
     activatedRoute.queryParams.subscribe(params => {
-      if(params.showExample)
+      if (params.showExample)
         this.showExample = params.showExample == "true" ? true : false;
       else
         this.showExample = true;
@@ -77,15 +77,16 @@ export class PageComponent implements OnInit {
       }
       document.title = "rxweb " + splitedArray[2] + " : " + titleString;
     }
-    this.http.get(codeUri, this.options).subscribe(response => {
-      this.codeContent = JSON.parse(response.toString());
-      this.http.get(htmlUri, this.options).subscribe((responseObj: object) => {
-        this.jsonContent = JSON.parse(responseObj.toString());
-        this.showComponent = true;
-        this.activeTab = splitedArray[3];
-        this.showViewer = true;
+  
+      this.http.get(codeUri, this.options).subscribe(response => {
+        this.codeContent = JSON.parse(response.toString());
+        this.http.get(htmlUri, this.options).subscribe((responseObj: object) => {
+          this.jsonContent = JSON.parse(responseObj.toString());
+          this.showComponent = true;
+          this.activeTab = splitedArray[3];
+          this.showViewer = true;
+        });
       });
-    });
   }
 
   route(typeName: string, templateDrivenType?: string) {
@@ -102,9 +103,9 @@ export class PageComponent implements OnInit {
   routeExample() {
     this.showExample = !this.showExample;
     var splitedArray = location.pathname.split('/');
-    if(splitedArray[4])
-      this.router.navigate(['/',splitedArray[1],splitedArray[2],splitedArray[3],splitedArray[4]], { queryParams: { showExample: this.showExample },replaceUrl:false});
+    if (splitedArray[4])
+      this.router.navigate(['/', splitedArray[1], splitedArray[2], splitedArray[3], splitedArray[4]], { queryParams: { showExample: this.showExample }, replaceUrl: false });
     else
-      this.router.navigate(['/',splitedArray[1],splitedArray[2],splitedArray[3]], { queryParams: { showExample: this.showExample },replaceUrl:false });
+      this.router.navigate(['/', splitedArray[1], splitedArray[2], splitedArray[3]], { queryParams: { showExample: this.showExample }, replaceUrl: false });
   }
 }
