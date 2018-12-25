@@ -12,7 +12,7 @@ import { ValidatorValueChecker } from "../util/validator-value-checker";
 export function alphaNumericValidator(config: AlphaConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
             if (ValidatorValueChecker.pass(control,config)) {
-                var isValid = (!config.allowWhiteSpace) ?
+              var isValid = (!config || !config.allowWhiteSpace) ?
                                   RegexValidator.isValid(control.value, RegExRule.alphaNumeric) :
                                   RegexValidator.isValid(control.value, RegExRule.alphaNumericWithSpace);
                 if (!isValid)
