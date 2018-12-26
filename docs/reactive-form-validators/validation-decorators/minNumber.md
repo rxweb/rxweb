@@ -2,7 +2,9 @@
 title: minNumber 
 description: MinNumber validation  {{validatorType}}  will allow user to enter the input greater than the minimum number value parameter.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: minNumber
 ---
 # When to use
 Suppose you want to create a ResultInfo form, which contains fields like Maths, Science, Statistics and you want the user to enter number which should not be less than a minimum number. Here depending upon the requirement these scenarios may arise.

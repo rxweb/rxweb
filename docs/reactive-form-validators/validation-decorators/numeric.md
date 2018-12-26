@@ -2,7 +2,9 @@
 title: numeric
 description: numeric validation  {{validatorType}}  will check whether the value entered is a valid numberic value or not.The validation can be set according to requirement, it can be either decimal,negative number or positive number.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: numeric
 ---
 # When to use
 Suppose you want to create a user form, which contains fields like DataType, integerNumber, integerNumber and you want the user to enter only numeric value depending on validation of the property. Here depending upon the requirement these scenarios may arise.

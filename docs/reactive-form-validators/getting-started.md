@@ -1,6 +1,9 @@
 ---
 title: Getting Started
 uid: getting-started
+category: getting-started
+type:simple
+linktitle: getting-started
 ---
 ## Introduction
 The most powerful validation framework for angular based enterprise application. This provides all type of complex validation including dynamic validation likewise Reactive Form Validation, Template Driven Form Validation and Model Based Form Validation.
@@ -20,7 +23,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'; 
 
-import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validator';
 
 import {AppComponent} from './app.component';
 
@@ -44,7 +47,7 @@ Below is the example to configure the validation messages in 'ReactiveFromConfig
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { ReactiveFormConfig } from '@rxweb/reactive-form-validators'; 
+import { ReactiveFormConfig } from '@rxweb/reactive-form-validator'; 
 
 @Component({
   selector: 'app-root',

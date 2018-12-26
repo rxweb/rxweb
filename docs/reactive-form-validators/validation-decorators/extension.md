@@ -2,7 +2,9 @@
 title: extension
 description: extension validation  {{validatorType}}  allows user to enter the input which is in the proper extension format.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: extension
 ---
 # When to use
 Suppose you want to create a UserInfo form, which contains fields like fileType, profilePicture ,imageFile ,documentFile ,contactFile and you want the user to enter input which is a proper extension format. Here depending upon the requirement, these scenarios may arise..

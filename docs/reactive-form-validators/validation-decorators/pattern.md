@@ -2,7 +2,9 @@
 title: pattern 
 description: Pattern validation {{validatorType}} will allow user to enter the input which match the predefined pattern value parameter.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: pattern
 ---
 # When to use
 Suppose you want to create a User form, which contains fields like Username, Zipcode, Age and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.

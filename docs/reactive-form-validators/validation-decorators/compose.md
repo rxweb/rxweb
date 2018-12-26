@@ -2,7 +2,9 @@
 title: compose
 description: Compose validation  {{validatorType}}  is used to apply multiple validations on a particular field.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: compose
 ---
 # When to use
 Suppose you want to create UserInfo form, which contains fields like firstName, lastName, age, emailId and you want to apply multiple validations on these fields. Here depending upon the requirement these scenarios may arise.

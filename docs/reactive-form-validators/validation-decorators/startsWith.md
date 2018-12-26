@@ -2,7 +2,9 @@
 title: startsWith
 description: startsWith validation  {{validatorType}}  allows user to enter the input which starts with particular value.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: startsWith
 ---
 # When to use
 Suppose you want to create a user form, which contains fields like userId, name, profession and taskId and you want the user to enter input which starts with a particular value. Here depending upon the requirement, these scenarios may arise..

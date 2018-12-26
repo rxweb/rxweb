@@ -2,7 +2,9 @@
 title: endsWith
 description: endsWith validation  {{validatorType}}  allows user to enter the input which ends with particular value
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: endsWith
 ---
 # When to use
 Suppose you want to create a user form, which endsWith fields like name, profession and taskId and you want the user to enter input which ends with a particular value. Here depending upon the requirement, these scenarios may arise..

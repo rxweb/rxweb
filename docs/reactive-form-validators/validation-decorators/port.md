@@ -2,7 +2,9 @@
 title: port
 description: port validation  {{validatorType}}  allows user to enter the input which is a valid port number.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: port
 ---
 # When to use
 Suppose you want to create a websiteInfo form, which contains fields like browser, educationalWebsitePort, entertainmentWebsitePort and shoppingWebsitePort and you want the user to enter input which is a proper port number. Here depending upon the requirement, these scenarios may arise..

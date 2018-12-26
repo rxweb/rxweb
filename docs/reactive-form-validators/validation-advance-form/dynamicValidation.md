@@ -2,7 +2,9 @@
 title: Dynamic Validation  
 description: Dynamic validation is used when there is no static code on client side to manage , The validation rules will come form server side.
 author: rxcontributorone
-
+category: decorators
+type:decorators
+linktitle: dynamicValidation
 --- 
 # Dynamic Validations
 While using validation the validations are managed from client side, but when we want the validation rules to come from server side dynamic validations are used. Here there is no static code on client side to manage. All validation rules are coming from the server in response of JSON format.Here the strings are coming from a HttpClient call .

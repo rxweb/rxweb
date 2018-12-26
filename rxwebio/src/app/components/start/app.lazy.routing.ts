@@ -32,6 +32,10 @@ const APP_LAZY_ROUTES: Routes = [
     loadChildren: 'src/app/components/decorators/decorators.module#DecoratorsModule',
   },
   {
+    path: 'community',
+    loadChildren: 'src/app/components/community/community.module#CommunityModule',
+  },
+  {
     path: '**', 
     redirectTo:'home',
     pathMatch: 'full'

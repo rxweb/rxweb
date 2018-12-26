@@ -1,20 +1,11 @@
 import {
-    ValidatorFn,AbstractControl
+    ValidatorFn
 } from "@angular/forms";
 import { FileConfig } from "../models/config/file-config";
 import { fileValidator } from '../reactive-form-validators/index'
-import { defaultContainer } from "../core/defaultContainer"
 import { AnnotationTypes } from "../core/validator.static"
-import {STRING } from '../const/validator.const';
-import {ApplicationUtil} from '../util/app-util';
+import { baseValidator } from "./base-validator.function";
+
 export function fileValidatorExtension(config: FileConfig): ValidatorFn {
-    var validator = (control) =>{return null};
-    var rxwebValidator = (control:any,target?:object): { [key: string]: any } => {
-        if (typeof control == STRING)
-          defaultContainer.init(target, 0, control, AnnotationTypes.file, config);
-        else
-          return ApplicationUtil.configureControl(control,config,AnnotationTypes.file),validator(control);
-      return null
-    }
-    return rxwebValidator;
+  return baseValidator(config, AnnotationTypes.file, (control) => { return null })
 }

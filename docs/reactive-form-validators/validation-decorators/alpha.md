@@ -2,6 +2,9 @@
 title: alpha
 description: Alpha validation  {{validatorType}}  will allow only alphabets to be entered. It will not allow any digit or special character.
 author: rxcontributorone
+category: form-validations
+type:tabs
+linktitle: alpha
 ---
 
 # When to use

@@ -2,7 +2,9 @@
 title: Conditional Validation  
 description: Conditional validation is used when the user wants to apply validation on the field depending upon the condition of some other field
 author: rxcontributorone
-
+category: decorators
+type:decorators
+linktitle: conditionalValidation
 ---     
 
 # Conditional Validation.

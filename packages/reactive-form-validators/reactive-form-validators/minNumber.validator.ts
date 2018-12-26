@@ -2,22 +2,16 @@ import {
     ValidatorFn,
     AbstractControl
 } from "@angular/forms";
-import { RegexValidator } from "../util/regex-validator";
 import { NumberConfig } from "../models/config/number-config";
 import { ObjectMaker } from "../util/object-maker";
 import { AnnotationTypes } from "../core/validator.static";
-import { FormProvider } from '../util/form-provider';
-import { ApplicationUtil } from '../util/app-util';
+import { ValidatorValueChecker } from "../util/validator-value-checker";
 export function minNumberValidator(config:NumberConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-        config = ApplicationUtil.getConfigObject(config);
-          if (FormProvider.ProcessRule(control,config)) {
-        if (RegexValidator.isNotBlank(control.value)) {
+        if (ValidatorValueChecker.pass(control,config)) {
             if (!(parseFloat(control.value) >= config.value))
-                return ObjectMaker.toJson(AnnotationTypes.minNumber, config.message || null, [control.value,config.value])
+                return ObjectMaker.toJson(AnnotationTypes.minNumber, config, [control.value,config.value])
             }
-        }
         return ObjectMaker.null();
-
     }
 }

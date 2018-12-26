@@ -28,6 +28,7 @@
 </div>-->
 
 <div id="rightsidebar" class="p-1">
+     
     <div>
         <ul class="list-unstyled" id="rightsidebar-items">
             <li class="nav-item" *ngFor="let item of sidebarLinks;let i = index" [class.d-flex]="i == 0" [class.border-none]="i == 0"  [class.sidebar-list]="item.subLink?.length > 0">
@@ -40,18 +41,30 @@
             </li>
         </ul>
     </div>
-    <div class="rightsidebar btm-link">
+    <div class="rightside-social-links d-flex">
+            <!-- <button type="button" class="btn btn-link search" ><i class="fa fa-search" aria-hidden="true"></i></button>
+            <div class="rx-search-box">
+                    <button type="button" class="btn btn-link" ><i class="fa fa-search" aria-hidden="true"></i></button>
+                   <input  placeholder="Search ...." role="textbox" type="text"  class="form-control">
+                   <button type="reset" title="Clear the search query." class="btn btn-link close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="10" height="10">
+                      <path d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z" fill-rule="evenodd">
+                      </path>
+                    </svg>
+                  </button>
+                </div> -->
+            <a href="https://github.com/rxweb/rxweb/issues" title="GitHub" target="_blank"><i class="fa fa-github"></i><span class="sr-only">Report Issues</span></a>
+            <a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i><span class="sr-only">Stack Overflow</span></a>
+            <a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" title="Comment" target="_blank"><i class="fa fa-comment"></i><span class="sr-only">Chat On Gitter</span></a>
+        </div>
+    <div class="right__community  btm-link">
+        <label>Community</label>
         <ul class="nav navbar-nav no-borders">
-            <li>
-                <a href="https://github.com/rxweb/rxweb/issues" title="GitHub" target="_blank"><i class="fa fa-github"></i>Report Issues</a>
-            </li>
-            <li>
-                <a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i>Stack Overflow</a>
-            </li>
-            <li>
-                <a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" title="Comment" target="_blank"><i class="fa fa-comment"></i>Chat On Gitter</a>
-            </li>
-            </ul>
+            <li><a routerLink="/community/where_to_start_contributing" routerLinkActive="active" title="Want to Contribute, but ?"><i class="fa fa-question-circle" aria-hidden="true"></i>Want to Contribute, but ?</a></li>
+            <li><a routerLink="/community/contributing" title="Contributing" routerLinkActive="active"><i class="fa fa-users"></i>Contributing</a></li>
+            <li><a routerLink="/community/maintaining" title="Maintaining" routerLinkActive="active"><i class="fa fa-cogs"></i>Maintaining</a></li>
+            <li><a routerLink="/community/commit_guideline" title="Commit Guideline" routerLinkActive="active"><i class="fa fa-cloud-upload"></i>Commit Guideline</a></li>
+        </ul>   
     </div>
     <!--<div class="feedback">
         <form  [formGroup]="feedbackForm" (keydown)="submitForm()">

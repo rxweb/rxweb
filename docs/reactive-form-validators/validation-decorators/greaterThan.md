@@ -2,7 +2,9 @@
 title: greaterThan
 description: Greater than validation  {{validatorType}}  will check that input property is greater than related field input.
 author: rxcontributortwo
-
+category: form-validations
+type:tabs
+linktitle: greaterThan
 ---
 #  When to use
 Suppose you want to create a User form, which contains fields like Age, VoterAge, OtherAge and you want the user to enter the numbers which are greater than a related field. Here depending upon the requirement these scenarios may arise.
