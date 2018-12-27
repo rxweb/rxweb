@@ -1,13 +1,13 @@
 import {
-    FormGroup,
-    ValidatorFn,
+  FormGroup,
+  ValidatorFn,
 } from "@angular/forms";
 
 import { AnnotationTypes } from "../core/validator.static";
 import { RelationalOperatorConfig } from "../models/config/relational-operator-config";
 import { relationalCheck } from "../util/relational-checker.function";
 export function greaterThanValidator(config: RelationalOperatorConfig): ValidatorFn {
-    return (control: FormGroup): { [key: string]: any } => {
-        return relationalCheck(control,config,AnnotationTypes.greaterThan)    
-    }
+  return (control: FormGroup): { [key: string]: any } => {
+    return relationalCheck(control, config, AnnotationTypes.greaterThan)
+  }
 }
