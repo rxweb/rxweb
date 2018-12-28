@@ -6,6 +6,7 @@ import { RxwebValidators } from "@rxweb/reactive-form-validators"
 import {User} from "./model/user.model";
 import { FormBuilderConfiguration, RxFormBuilder } from "@rxweb/reactive-form-validators";
 import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
+import { AuthService } from 'src/app/domain/auth.service';
 @Component({
   templateUrl: './home.component.html'
 })
@@ -21,11 +22,16 @@ export class HomeComponent implements OnInit {
   conditionalValidationRequiredTab:string = "component";
   decoratorbasedModelValidationTab:string = "component";
   dynamicValidationTab:string = "component";
-  constructor(private http: HttpClient, private formBuilder: FormBuilder,private rxFormBuilder:RxFormBuilder,private applicationBroadcast:ApplicationBroadcaster
+  isLoggedIn:boolean = false;
+  constructor(private http: HttpClient, private formBuilder: FormBuilder,private rxFormBuilder:RxFormBuilder,private applicationBroadcast:ApplicationBroadcaster,private auth: AuthService
   ) {
   }
 
   ngOnInit(): void {
+    this.isLoggedIn = false;
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      this.isLoggedIn = true;
+    }
     this.applicationBroadcast.urlBroadCast(true);
     this.userFormGroup = this.formBuilder.group({
       password: ['',],
@@ -48,6 +54,10 @@ export class HomeComponent implements OnInit {
         this.showComponent= true;
       });
     })
+  }
+
+  login():void{
+    this.auth.login();
   }
 
 }

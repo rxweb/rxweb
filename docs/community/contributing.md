@@ -7,7 +7,7 @@ linktitle:contributing
 ---
 If you are thinking to make rxweb framework better, that's truly great. You can contribute from a single character to core architectural work or significant documentation – all with the goal of making a robust rxweb framework which helps for everyone in their projects. Even if you are don’t feel up to writing code or documentation yet, there are a variety of other ways that you can contribute like reporting issues to testing patches. 
 
-Here are some great tips on how you can put your precious efforts on the rxweb framework and contribute in the respective area. We expect from you to follow the rxweb framework code of conduct and follow the <a href="https://rxweb.io/community/commit_guideline">commit message conventions.</a> 
+Here are some great tips on how you can put your precious efforts on the rxweb framework and contribute in the respective area. We expect from you to follow the rxweb framework code of conduct and follow the <a href="/community/commit_guideline">commit message conventions.</a> 
 
 # Need Help or Found an Issue
 Please refer our <a href="https://github.com/rxweb/rxweb/wiki/rxweb-issue-workflow" target="_blank">issue workflow wiki</a>, where you get complete information on the same.
@@ -36,7 +36,7 @@ You can request a new feature by submitting an issue to our <a href="https://git
 ## Changing the Docs
 You can help to improve the rxweb guides by making them more coherent, consistent, or readable, adding missing information, correcting factual errors, fixing typos, or bringing them up to date with the latest edge rxweb.
 
-For documentation changes, click on edit icon, located at the top right side of the documentation on <a href="https://rxweb.io">rxweb.io</a> site. This will take you to the source file on Github where you can submit a pull request with your changes. For documentation changes, you don’t need to set up in your local machine and do the changes.
+For documentation changes, click on edit icon, located at the top right side of the documentation on <a href="/">rxweb.io</a> site. This will take you to the source file on Github where you can submit a pull request with your changes. For documentation changes, you don’t need to set up in your local machine and do the changes.
 
 ## Changing the Code
 Checkout a new branch and name it accordingly to what you intend to do:

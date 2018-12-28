@@ -3,7 +3,7 @@
     <!-- <h1>{{title}}<a title="Link to this heading" class="link-header" href="{{linkHref}}#{{title}}"><i class="fa fa-link"></i></a><span class="label validator-type" *ngIf="validationTypeTitle">{{validationTypeTitle}}</span></h1> -->
     <h1><span>{{title}}</span><a title="Link to this heading" class="link-header" href="{{linkHref}}#{{title}}"><i class="fa fa-link"></i></a>
         <div class="hpanel">
-                <ul class="nav nav-tabs page-tabs">
+                <ul class="nav nav-tabs page-tabs" *ngIf="mainType !== 'community'">
                     <li [class.active]="activeTab == 'validators'" *ngIf="mainType == 'form-validations'">
                         <a (click)="route('validators')">Validator</a>
                     </li>

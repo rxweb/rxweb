@@ -5,7 +5,20 @@
 		<div class="collapse-btn menu-open"  (click)="hideSideBar()"> <i class="fa fa-angle-right" aria-hidden="true"></i></div>
 	</div>
 	<div id="navigation" >
-		
+		<div class="profile-picture" *ngIf="userProfile">
+			<a href="/">
+				<img [src]="userProfile.picture" class="img-circle m-b" alt="@{{userProfile.name}}" height="75" width="75">
+			</a>
+			<div class="stats-label text-color">
+				<div class="dropdown" [class.open]="isOpen">
+					<span class="font-extra-bold font-uppercase dropdown-toggle" data-toggle="dropdown"
+					 aria-expanded="true">{{userProfile.name}}</span><b (click)="isOpen=!isOpen" class="caret"></b>
+					<ul class="dropdown-menu animated flipInX m-t-xs">
+						<li><a (click)="logOut()">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 		<ul class="nav" id="side-menu">
 			<!--<li>
 				<div class="input-group">

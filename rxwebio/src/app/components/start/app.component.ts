@@ -7,6 +7,7 @@ import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
 import { HostListener } from "@angular/core";
 import { NavigationStart } from "@angular/router";
 import { RxSpinner } from "src/app/controls/spinner/spinner.service";
+import { AuthService } from 'src/app/domain/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +17,11 @@ export class AppComponent implements OnInit {
   title = 'rx.web.io';
   isHome = false;
   showFooter = false;
-  constructor(private router: Router,private spinner:RxSpinner,private applicationBroadCast:ApplicationBroadcaster) {
+  constructor(private router: Router,private spinner:RxSpinner,private applicationBroadCast:ApplicationBroadcaster,private auth:AuthService) {
     this.applicationBroadCast.urlSubscriber.subscribe(t => {
       this.homeInit(t)
     });
     router.events.subscribe((val) => {
-      debugger;
       if (val instanceof NavigationEnd) {
         this.spinner.hide();
         
@@ -29,13 +29,14 @@ export class AppComponent implements OnInit {
           this.isHome = true;
         else{
           this.isHome = false;
-          var t = setTimeout(() => {
-            this.showFooter = true;  
-          }, 200);
-          
         }
-        (<any>window).ga('set', 'page', val.urlAfterRedirects);
-        (<any>window).ga('send', 'pageview');
+        var t = setTimeout(() => {
+          this.showFooter = true;  
+        }, 200);
+        if(location.host =="rxweb.io"){
+         (<any>window).ga('set', 'page', val.urlAfterRedirects);
+         (<any>window).ga('send', 'pageview');
+        }
         var t = setTimeout(function () {
           const tree = router.parseUrl(router.url);
           if (tree.fragment) {
@@ -56,7 +57,9 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-   
+    // if (localStorage.getItem('isLoggedIn') === 'true') {
+    //   this.auth.renewSession();
+    // }
     ReactiveFormConfig.set({
       "internationalization": {
         "dateFormat": "dmy",

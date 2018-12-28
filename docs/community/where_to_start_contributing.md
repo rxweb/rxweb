@@ -18,11 +18,11 @@ All the documentation is available in <a href="https://github.com/rxweb/rxweb/tr
 # Fix something that helps others too
 If you find a bug and that helps other users too, then try to find an existing issue. If it doesn’t exist yet, create one. Look into the code and do the changes. After that send a pull request and let give a chance to other contributors to use their brains to review the request.
 
-<a href="https://rxweb.io/community/contributing#sendingapullrequest">Here</a> is some more info on how to set up your workspace and send a pull request.
+<a href="/community/contributing#sendingapullrequest">Here</a> is some more info on how to set up your workspace and send a pull request.
 
 # Review Pull Request
 Check out the list of outstanding pull request and if there is something you might be interested in give better suggestion or approach how to fix this problem? Let us know….
 
 # I want to help more
-Check out <a href="https://rxweb.io/community/maintaining">Maintaining</a> rxweb. Becoming the rxweb maintainer is simple. You just do it. There is no test to pass ;-)
+Check out <a href="/community/maintaining">Maintaining</a> rxweb. Becoming the rxweb maintainer is simple. You just do it. There is no test to pass ;-)
 

@@ -2,6 +2,7 @@ import { Component, OnChanges, SimpleChanges, OnInit, Input, EventEmitter } from
 import { Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
+import { AuthService } from 'src/app/domain/auth.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -13,12 +14,14 @@ export class SideBarComponent implements OnInit {
   isSecondLevelCollapse: boolean = false;
   isthirdLevelCollapse: boolean = true;
   showComponent: boolean;
+  userProfile:any;
   constructor(
-    private http: HttpClient, private router: Router, private applicationBroadcaster: ApplicationBroadcaster
+    private http: HttpClient, private router: Router, private applicationBroadcaster: ApplicationBroadcaster,private authService:AuthService
   ) {
   }
   ngOnInit(): void {
     this.http.get('assets/json/sidebar.json').subscribe((response: any) => {
+      this.userProfile = localStorage.getItem("profile") != undefined ? JSON.parse(localStorage.getItem("profile")) : null;
       this.links = response.links;
       var splitedArray = location.pathname.split('#')[0].split('/')
       if (splitedArray[1]) {
@@ -87,7 +90,9 @@ export class SideBarComponent implements OnInit {
       this.router.navigateByUrl(link.uri);
     }
   }
-
+  logOut():void{
+    this.authService.logout()
+  }
   hideSideBar(): void {
     const body = document.getElementsByTagName('body')[0];
     if (window.innerWidth < 769) {

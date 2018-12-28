@@ -89,13 +89,7 @@ export class PageComponent implements OnInit {
       });
   }
 
-  route(typeName: string, templateDrivenType?: string) {
-    if (templateDrivenType)
-      this.router.navigate(['/', 'form-validations', this.validationName, typeName, templateDrivenType])
-    else
-      this.router.navigate(['/', 'form-validations', this.validationName, typeName])
-  }
-
+  
   scrollTo(section) {
     window.location.hash = section;
   }

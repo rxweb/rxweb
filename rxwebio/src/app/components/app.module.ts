@@ -27,6 +27,7 @@ import { PromptUpdateService } from '../services/prompt-update.service';
 import { LogUpdateService } from '../services/log-update.service';
 import { CheckForUpdateService } from '../services/check-for-update.service';
 import { FooterSharedModule } from './shared/footer/footer-shared.module';
+import { AuthService } from '../domain/auth.service';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { FooterSharedModule } from './shared/footer/footer-shared.module';
   imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,ControlModule,FooterSharedModule,
     HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [ApplicationBroadcaster,PromptUpdateService,LogUpdateService,CheckForUpdateService],
+  providers: [ApplicationBroadcaster,PromptUpdateService,LogUpdateService,CheckForUpdateService,AuthService],
 exports:[RouterModule],
   bootstrap: [AppComponent],
   schemas: [
