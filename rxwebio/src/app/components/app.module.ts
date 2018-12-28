@@ -27,14 +27,14 @@ import { PromptUpdateService } from '../services/prompt-update.service';
 import { LogUpdateService } from '../services/log-update.service';
 import { CheckForUpdateService } from '../services/check-for-update.service';
 import { FooterSharedModule } from './shared/footer/footer-shared.module';
-
+import { NgAisModule } from 'angular-instantsearch';
 
 @NgModule({
   declarations: [
     AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FilterPipe,GettingStartedComponent,ReactiveFormConfigComponent,HomeComponent
   ],
   imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,ControlModule,FooterSharedModule,
-    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),NgAisModule.forRoot()
   ],
   providers: [ApplicationBroadcaster,PromptUpdateService,LogUpdateService,CheckForUpdateService],
 exports:[RouterModule],

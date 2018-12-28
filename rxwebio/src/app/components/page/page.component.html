@@ -1,9 +1,12 @@
 <div id="wrapper" *ngIf="showComponent">
     <div class="content">
+           
         <app-title [title]="codeContent.title" [description]="codeContent.description" [mainType]="mainType" [validatorType]="codeContent.validatorType"
             [validationTypeTitle]="codeContent.validationTypeTitle"></app-title>
+            
         <div class="bg-white border-radius">
             <div class="row">
+                  
                 <div class="col-lg-12">
                     <div class="hpanel">
                         <ul class="nav nav-tabs page-tabs">
@@ -47,5 +50,6 @@
             </div>
         </div>
     </div>
+   
     <app-right-sidebar [sidebarLinks]="codeContent.rightSidebarLinks"></app-right-sidebar>
 </div>

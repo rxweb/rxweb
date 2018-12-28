@@ -124,4 +124,14 @@ export class AppComponent implements OnInit {
   homeInit(isHome){
     this.isHome = isHome;
   }
+  slidePanel()
+  {
+    var slide  = document.getElementById('slidePanelin');
+    slide.className = 'slidePanel In';
+  }
+  slidepanelcross()
+  {
+    var slide  = document.getElementById('slidePanelin');
+    slide.className = 'slidePanel';
+  }
 }
