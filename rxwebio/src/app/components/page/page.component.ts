@@ -3,10 +3,33 @@ import { Router, NavigationEnd } from '@angular/router';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { PageViewerComponent } from "src/app/components/shared/page-viewer/page-viewer.component";
 import { ActivatedRoute } from "@angular/router";
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 
 @Component({
   templateUrl: './page.component.html',
   entryComponents: [PageViewerComponent],
+
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({transform: 'translateX(100%)', opacity: 0}),
+          animate('500ms', style({transform: 'translateX(0)', opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'translateX(0)', opacity: 1}),
+          animate('500ms', style({transform: 'translateX(100%)', opacity: 0}))
+        ])
+      ]
+    )
+  ],
 })
 export class PageComponent implements OnInit {
   showComponent: boolean = false;

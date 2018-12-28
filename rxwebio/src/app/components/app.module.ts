@@ -28,6 +28,7 @@ import { LogUpdateService } from '../services/log-update.service';
 import { CheckForUpdateService } from '../services/check-for-update.service';
 import { FooterSharedModule } from './shared/footer/footer-shared.module';
 import { AuthService } from '../domain/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AuthService } from '../domain/auth.service';
     AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FilterPipe,GettingStartedComponent,ReactiveFormConfigComponent,HomeComponent
   ],
   imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,ControlModule,FooterSharedModule,
-    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule
   ],
   providers: [ApplicationBroadcaster,PromptUpdateService,LogUpdateService,CheckForUpdateService,AuthService],
 exports:[RouterModule],

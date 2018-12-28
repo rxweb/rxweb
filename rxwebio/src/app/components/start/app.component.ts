@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     });
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        this.spinner.hide();
+        
         
         if (val.url == "/" || val.url == "/home")
           this.isHome = true;
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
       }
       if (val instanceof NavigationStart) {
         this.showFooter = false;
-        this.spinner.show();
+        
       }
     });
   }

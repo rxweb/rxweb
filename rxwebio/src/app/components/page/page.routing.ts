@@ -4,13 +4,7 @@ import { PageComponent } from "src/app/components/page/page.component";
 
 const PAGE_ROUTES: Routes = [
 {
-  path: 'decorators', component: PageComponent
-},
-{
-  path: 'validators', component: PageComponent
-},
-{
-  path: 'template-driven', component: PageComponent
+  path: '', component: PageComponent
 }
 ];
 
