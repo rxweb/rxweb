@@ -1,5 +1,5 @@
 
-    <div class="title" id="{{title | lowercase }}">
+    <div class="title" id="{{title | lowercase }}" [class.sticky] = "sticky">
     <!-- <h1>{{title}}<a title="Link to this heading" class="link-header" href="{{linkHref}}#{{title}}"><i class="fa fa-link"></i></a><span class="label validator-type" *ngIf="validationTypeTitle">{{validationTypeTitle}}</span></h1> -->
     <h1><span>{{title}}</span><a title="Link to this heading" class="link-header" href="{{linkHref}}#{{title}}"><i class="fa fa-link"></i></a>
         <div class="hpanel">

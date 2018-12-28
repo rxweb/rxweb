@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, OnInit, Input, EventEmitter,HostListener, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 
@@ -17,6 +17,8 @@ export class TitleComponent implements OnInit {
   @Input() activeTab?:string;
   showComponent: boolean = false;
   linkHref:string = "";
+  sticky: boolean = false;
+
   constructor(
     private router: Router
   ) {
@@ -36,6 +38,16 @@ export class TitleComponent implements OnInit {
       this.router.navigate(['/', this.mainType, this.validationName, typeName, templateDrivenType])
     else
       this.router.navigate(['/', this.mainType, this.validationName, typeName])
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  handleScroll(){
+    const windowScroll = document.documentElement.scrollTop;
+        if(windowScroll >= 50){
+            this.sticky = true;
+        } else {
+            this.sticky = false;
+        }
   }
 
 }

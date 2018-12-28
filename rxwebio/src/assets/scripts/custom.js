@@ -6,15 +6,7 @@ $(window).scroll(function() {
                         $("[href='#"+$(this)[0].id +"']").addClass('active')
 				}
 		});
-		var scroll = $(window).scrollTop();
-		if (window.innerWidth > 991)
-		{
-			if (scroll >= 50) {
-				$(".title").addClass("sticky");
-			} else {
-				$(".title").removeClass("sticky");
-			}
-		}
+
 }).scroll();
 
 function scrollTo(section){
