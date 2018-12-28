@@ -625,19 +625,27 @@ div[key=complete] .model-ts,div[key=dynamic] .model-ts{
     background: #ffffff;
 }
 .nav-tabs.page-tabs {
-    border-bottom: 2px solid #0f96e4;
+    border-color: transparent;
+    margin-top: 8px;
+    padding-left: 20px;
 }
 .nav-tabs.page-tabs > li {
     margin: 0;
 }
 body .page-tabs li a, body .page-tabs li a:hover, body .page-tabs li a:focus {
-    background: #dfeff8;
-    border-radius: 0;
-    margin: 0;
+    border-radius: 20px;
+    color: #555;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 500;
 }
 body .page-tabs>li.active>a, body .page-tabs li.active a:hover, body .page-tabs li.active a:focus {
-    background: #0f96e4;
-    color: #ffffff;
+    background: transparent;
+    box-shadow: 0 1px 5px 0px rgba(132, 145, 151, 0.5);
+    border: 0;
+    font-weight: 600;
+    color: #3c4043;
+    margin-right: 7px;
 }
 
 /*divya.shah css ends*/
@@ -646,11 +654,21 @@ body .page-tabs>li.active>a, body .page-tabs li.active a:hover, body .page-tabs 
 .title > h1 {
     font-size: 52px;
     color: #3c4043;
-    margin-bottom:  20px;
+    margin-bottom: 0px;
     padding-top: 10px;
     margin-top: 0;
+    transition: all 0.3s ease-in-out;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center!important;
+    align-items: center!important;
 }
-.hpanel .h2, .hpanel h2 { font-size: 24px; margin-top: 15px; }
+.title > h1 .link-header{margin-right:auto;}
+.title > h1 .hpanel{margin:10px 0;}
+.title > h1 .hpanel .nav-tabs.page-tabs{padding-left:0;}
+.hpanel .h2, .hpanel h2 { font-size: 24px; line-height:30px; margin-top: 15px;     color: #3c4043;}
 .hpanel p, .hpanel  .p { margin: 15px 0; }
 .d-flex {display: -ms-flexbox; display: flex; }
 .align-items-center  {  -ms-flex-align: center;  align-items: center;}
@@ -1445,9 +1463,7 @@ a.list-group-item.active:focus {
 
 .hpanel .panel-body {
   border-radius: 2px;
-  padding-left: 0px;
   position: relative;
-  padding-right: 0px;
   padding-bottom: 20px;
 }
 
@@ -1464,10 +1480,9 @@ a.list-group-item.active:focus {
 }
 
 .hpanel {
-    background-color: none;
     border: 0;
     box-shadow: none;
-    margin-bottom: 25px
+    /* margin-bottom: 25px; */
 }
 
 .panel-tools {
@@ -2356,16 +2371,25 @@ h1, .h1 {
 }
  /* End Utilities */
 
-.title {
-   background-color: #ffffff;
- padding:10px 0px 20px 0px;
-  /*border-bottom: 1px solid #eaeaea;*/
-
+ .title {
+    background-color: #ffffff;
+    padding: 10px 20px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    transition: all 0.3s ease-in-out;
+}
+.title.sticky > h1 {
+    font-size: 40px;
+    padding-top:0;
+}
+.title-bar {
+    padding: 0 20px;
 }
 .hpanel .tab-content {
     /*padding: 20px 0;*/
 	/*border-bottom: 1px solid #eaeaea;*/
-    margin-bottom:10px;
+    /* margin-bottom:10px; */
     padding: 20px;
     border: 1px solid #eaeaea;
     border-top: 0;
@@ -3927,7 +3951,7 @@ html {
 
 body {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #f1f3f6;
+    background-color: #ffffff;
     font-size: 14px;
     color: #666666;
     margin: 0;
@@ -3987,7 +4011,7 @@ body {
 }
 #wrapper {
     /* margin: 0 353px 0 252px; */
-    margin: 0px 300px 0 225px;
+    margin: 0px 290px 0 200px;
     padding: 0;
     background: #ffffff;
     transition: margin .4s ease 0s;
@@ -4419,7 +4443,7 @@ body.modal-open {
     /* background: #ffffff; */
     min-height: 100%;
     /*padding-top: 20px;*/
-    padding-bottom: 0px;
+    padding-bottom: 50px;
 }
 
 #side-menu li a {
@@ -4518,7 +4542,7 @@ body.modal-open {
     background:transparent;
 }
 .header-link {
-    font-size: 27px;
+    font-size: 34px;
     /* float: left; */
     width: 100%;
     /*max-width: 299px;*/
@@ -4590,19 +4614,34 @@ body.hide-sidebar #menu {
 body.hide-sidebar #wrapper, body.hide-sidebar #full-wrapper {
     margin-left: 0;
 }
+.collapse-btn{
+    width:30px;
+    height: 30px;
+    border-radius: 100px;
+    background: #888;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    font-size: 20px;
+}
 .menu-open {
-    color: #0f96e4;
     position: fixed;
     left: 0;
-    top:37px;
+    top: 37px;
     opacity: 0;
-    visibility: hidden;
-
+    visibility: hidden;   
 }
 .hide-sidebar .menu-open {
 opacity: 1;
 visibility: visible;
 transition: all .4s ease 0s;
+}
+.bottom-collapse {
+    position: fixed;
+    bottom: 0;
+    padding: 17px 25px;
+    width: 227px;
+    background: #fff;
 }
 body.page-small #menu {
     margin-left: -250px
@@ -6095,6 +6134,9 @@ body.hide-sidebar #menu .header-link {
     margin-right: 15px;
     color: #666666;
 }
+.rightside-social-links a:hover {
+    color: #000;
+}
 .rightside-social-links {
     padding-top: 10px;
     padding-bottom: 5px;
@@ -6110,6 +6152,32 @@ body.hide-sidebar #menu .header-link {
     font-size: 13px;
     vertical-align: middle;
     display: inline-block;
+}
+.btn-outline-secondary {
+    background: #fff;
+    color: #3c4043;
+    border-color: #3c4043;
+}
+.btn-outline-secondary:hover, .btn-outline-secondary:focus {
+    background: #eee;
+}
+.example-btn {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    z-index: 99;
+}
+.title.sticky{padding: 0px 20px 10px;}
+.title.sticky:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    border-bottom: 1px solid #ddd;
+    width: calc(100% - 40px);
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 /* .rx-search-box {
     position: fixed;
@@ -6163,13 +6231,14 @@ body.hide-sidebar #menu .header-link {
     .features h2 {
         margin-bottom: 40px;
     }
-    #menu{ width: 229px; }
-    #wrapper, #full-wrapper{ margin: 0px 240px 0 225px; padding: 0 20px; }
+    #menu{ width: 210px; }
+    #wrapper, #full-wrapper{ margin: 0px 230px 0 200px; padding: 0 20px; }
     #full-wrapper{margin-right:0;}
     #rightsidebar{width: 240px!important; padding-left: 20px; }
     /*26-11-2018*/
-    .header-link { max-width: 225px; }
+    .header-link { max-width: 210px; }
     #search-input { width: 100%; max-width: 260px; }
+    .footer {    padding: 15px 245px 15px 240px;}
 }
 @media only screen and (max-width:991px){
     .downloads-counter{
@@ -6228,7 +6297,11 @@ body.hide-sidebar #menu .header-link {
     }
     #wrapper, .dashboard#wrapper, #full-wrapper{margin-left:0;}
     /*26-11-2018*/
-    body.fixed-navbar #wrapper { top: 62px; margin: 0 ;  }
+    body.fixed-navbar #wrapper { top: 62px; margin: 0 ;margin-bottom:62px;  }
+    .footer {
+        padding: 15px;
+    }
+    .hpanel .tab-content{padding-bottom:0;}
     app-right-sidebar {  display: none;  }
     .navbar-nav>li:last-child>a { padding-right: 0; }
     .header-link.hide-menu svg{margin-left:0;}
@@ -6239,8 +6312,19 @@ body.hide-sidebar #menu .header-link {
         min-height: 100%;
     }
     .menu-open{display: none !important; }
+    .bottom-collapse{display: none;}
+    .title{position: static;}
+    #side-menu{padding-bottom: 10px;}
 }
 @media only screen and (max-width:767px){
+    .title > h1{font-size: 32px}
+    body .page-tabs>li.active>a, body .page-tabs li.active a:hover, body .page-tabs li.active a:focus{margin-right:0;}
+    body .page-tabs li a, body .page-tabs li a:hover, body .page-tabs li a:focus{
+        font-size: 14px;
+    line-height: 21px;
+    padding: 7px 8px;
+    }
+    .title, .title-bar, .hpanel .tab-content, .hpanel .panel-body, .title.sticky{padding-left:0;padding-right:0; }
     .home-page .banner-text{
         text-align: center;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
