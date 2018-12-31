@@ -5,7 +5,7 @@
 		<div class="collapse-btn menu-open"  (click)="hideSideBar()"> <i class="fa fa-angle-right" aria-hidden="true"></i></div>
 	</div>
 	<div id="navigation" >
-		<div class="profile-picture" *ngIf="userProfile">
+		<!-- <div class="profile-picture" *ngIf="userProfile">
 			<a href="/">
 				<img [src]="userProfile.picture" class="img-circle m-b" alt="@{{userProfile.name}}" height="75" width="75">
 			</a>
@@ -18,7 +18,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<ul class="nav" id="side-menu">
 			<!--<li>
 				<div class="input-group">
@@ -44,7 +44,7 @@
 		</ul>
 	</div>
 	<div class="bottom-collapse">
-		<div class="collapse-btn"  (click)="hideSideBar()"> <i class="fa fa-angle-right" aria-hidden="true"></i></div>
+		<div class="collapse-btn"  (click)="hideSideBar()"> <i class="fa fa-angle-left" aria-hidden="true"></i></div>
 	</div>
 </aside>
 

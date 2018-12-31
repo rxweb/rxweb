@@ -2390,10 +2390,11 @@ h1, .h1 {
     /*padding: 20px 0;*/
 	/*border-bottom: 1px solid #eaeaea;*/
     /* margin-bottom:10px; */
-    padding: 20px;
+    padding: 20px 0;
     border: 1px solid #eaeaea;
     border-top: 0;
 }
+.hpanel.validation-tab {padding-left: 20px;padding-right:20px;}
 .ts-title {
     background-color: #f5f5f5;
     padding: 10px;
@@ -6324,7 +6325,7 @@ body.hide-sidebar #menu .header-link {
     line-height: 21px;
     padding: 7px 8px;
     }
-    .title, .title-bar, .hpanel .tab-content, .hpanel .panel-body, .title.sticky{padding-left:0;padding-right:0; }
+    .title, .title-bar, .hpanel .tab-content, .hpanel .panel-body, .title.sticky, .hpanel.validation-tab{padding-left:0;padding-right:0; }
     .home-page .banner-text{
         text-align: center;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -6464,4 +6465,7 @@ body.hide-sidebar #menu .header-link {
 }
 .plain-text code.bash{
     font-size: 18px
+}
+.tab-fade{
+    min-height: 300px;
 }
