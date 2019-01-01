@@ -15,8 +15,8 @@ export function fileValidator(config: FileConfig): any {
       ApplicationUtil.configureControl(control, config, AnnotationTypes.file);
     if (FormProvider.ProcessRule(control, config)) {
       if (RegexValidator.isNotBlank(control.value)) {
-        let minFiles = config.minFiles ? config.minFiles : 1;
-        let maxFiles = config.maxFiles ? config.maxFiles : 1;
+        let minFiles = config.minFiles ? config.minFiles : 0;
+        let maxFiles = config.maxFiles ? config.maxFiles : files.length;
         if (!(files.length > 0 && files[0] instanceof File && files.length >= minFiles && files.length <= maxFiles))
           return ObjectMaker.toJson(AnnotationTypes.file, config, [files.length, minFiles, maxFiles]);
       }
