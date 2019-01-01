@@ -280,8 +280,7 @@ import { RxwebValidators, ReactiveFormConfig ,RxFormBuilder,FormGroupExtension} 
             expect(address.zipcode.errors).toEqual({'digit':{ message:'Only digits are allowed',refValues: ['A10001']}}); 
         })
 
-     it("should display error",()=>{
-     
+     it("should display error",()=>{     
         let formBuilder = new RxFormBuilder();
         let formGroup = formBuilder.group({             
             firstName: ['',RxwebValidators.required()],

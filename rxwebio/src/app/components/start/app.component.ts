@@ -127,4 +127,5 @@ export class AppComponent implements OnInit {
   homeInit(isHome){
     this.isHome = isHome;
   }
+
 }

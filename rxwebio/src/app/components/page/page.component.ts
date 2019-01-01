@@ -66,7 +66,7 @@ export class PageComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-
+   
   }
 
   bind() {

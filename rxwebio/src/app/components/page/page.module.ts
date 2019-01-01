@@ -11,11 +11,12 @@ import { AppTabsComponent } from "src/app/components/shared/app-tabs/app-tabs.co
 import { PageViewerComponent } from "src/app/components/shared/page-viewer/page-viewer.component";
 import { AppCodeComponent } from "src/app/components/shared/app-code/app-code.component";
 import { AppExampleRunnerComponent } from "src/app/components/shared/app-example-runner/app-example-runner.component";
+import { NgAisModule } from 'angular-instantsearch';
 
 
 @NgModule({
   imports: [
-    RouterModule,CommonModule, FormsModule, ReactiveFormsModule, ClipboardModule, RightSideBarSharedModule, ClipboardModule, HighlightModule, CommonSharedModule,
+    RouterModule,CommonModule, FormsModule, ReactiveFormsModule, ClipboardModule, RightSideBarSharedModule, ClipboardModule, HighlightModule, CommonSharedModule,NgAisModule
   ],
   declarations: [PageComponent],
   exports: [RouterModule],
