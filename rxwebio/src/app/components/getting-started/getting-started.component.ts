@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, HostListener } from '@angular/core';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { Http } from "@angular/http";
 
@@ -17,6 +17,7 @@ export class GettingStartedComponent implements OnInit {
   reactiveFormBasedValidation:string = "Example";
   templateFormBasedValidation:string = "Example";
   modelBasedFormValidation:string  ="Example";
+    sticky: boolean = false;
   constructor(private http: Http
   ) {
   }
@@ -27,6 +28,17 @@ export class GettingStartedComponent implements OnInit {
            this.showComponent = true;
        });
   }
+
+  @HostListener('window:scroll', ['$event'])
+  handleScroll(){
+    const windowScroll = document.documentElement.scrollTop;
+        if(windowScroll >= 50){
+            this.sticky = true;
+        } else {
+            this.sticky = false;
+        }
+  }
+  
    scrollTo(section) {
         location.hash = section;
         return false;

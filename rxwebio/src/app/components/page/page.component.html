@@ -1,15 +1,12 @@
 <div id="wrapper" *ngIf="showComponent">
     <div class="content">
-           
-        <app-title [title]="codeContent.title" [description]="codeContent.description" [mainType]="mainType" [validatorType]="codeContent.validatorType"
+        <app-title [title]="codeContent.title" [description]="codeContent.description" [mainType]="mainType" [activeTab]="activeTab" [validationName]="validationName" [validatorType]="codeContent.validatorType"
             [validationTypeTitle]="codeContent.validationTypeTitle"></app-title>
-            
-        <div class="bg-white border-radius">
+        <div class="bg-white border-radius tab-fade">
             <div class="row">
-                  
                 <div class="col-lg-12">
                     <div class="hpanel">
-                        <ul class="nav nav-tabs page-tabs">
+                        <ul class="nav nav-tabs page-tabs hide">
                             <li [class.active]="activeTab == 'validators'" *ngIf="mainType == 'form-validations'">
                                 <a (click)="route('validators')">Validator</a>
                             </li>
@@ -19,37 +16,24 @@
                             <li [class.active]="activeTab == 'decorators'">
                                 <a (click)="route('decorators')">Decorator</a>
                             </li>
-                            <li class="pull-right">
+                            <!-- <li class="pull-right">
                                 <button class="btn" [class.btn-primary]="showExample" [class.btn-danger]="!showExample" (click)="routeExample()">Show Examples Only</button>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="tab-content fade" [class.show]="showViewer">
-                            <div class="tab-pane active panel-body validation-tab">
-                                <!-- <div *ngIf="activeTab == 'template-driven'">
-                                    <ul class="nav nav-tabs right-tabs">
-                                        <li [class.active]="templateDrivenType == 'decorators'"><a (click)="route(activeTab,'decorators')"
-                                                data-toggle="tab"> Template Driven Decorators</a></li>
-                                        <li [class.active]="templateDrivenType == 'directives'"><a (click)="route(activeTab,'directives')"
-                                                data-toggle="tab"> Template Driven Directives</a></li>
-                                    </ul>
-                                    <div class="tab-content" *ngIf="showViewer">
-                                        <div class="tab-pane panel-body active">
-                                            <page-viewer [content]="codeContent.htmlContent" [tabArray]="codeContent.tabArray"
-                                                [data]="jsonContent" [typeName]="typeName" [templateDrivenType]="templateDrivenType" [showExample]="showExample"></page-viewer>
-                                        </div>
-                                    </div>
-                                </div> -->
+                            <div class="tab-pane panel-body validation-tab active">
                                 <div class="tabs-left" *ngIf="showViewer">
+                                        <button class="btn btn-outline-secondary example-btn" [class.btn-danger]="!showExample" (click)="routeExample()">Examples Only</button>
                                     <page-viewer [content]="codeContent.htmlContent" [tabArray]="codeContent.tabArray"
                                         [data]="jsonContent" [typeName]="typeName" [templateDrivenType]="templateDrivenType" [showExample]="showExample"></page-viewer>
                                 </div>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   
     <app-right-sidebar [sidebarLinks]="codeContent.rightSidebarLinks"></app-right-sidebar>
 </div>
