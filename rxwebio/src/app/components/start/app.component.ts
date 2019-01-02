@@ -3,11 +3,12 @@ import { OnInit } from "@angular/core";
 import { ReactiveFormConfig } from "@rxweb/reactive-form-validators";
 import { Router } from "@angular/router";
 import { NavigationEnd } from "@angular/router";
-import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
 import { HostListener } from "@angular/core";
 import { NavigationStart } from "@angular/router";
-import { RxSpinner } from "src/app/controls/spinner/spinner.service";
-import { AuthService } from 'src/app/domain/auth.service';
+import { RxSpinner } from '../../controls/spinner/spinners';
+import { AuthService } from '../../domain/auth.service';
+import { ApplicationBroadcaster } from '../../domain/application-broadcaster';
+
 
 @Component({
   selector: 'app-root',

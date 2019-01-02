@@ -24,9 +24,7 @@
               "src/manifest.json"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/angular-instantsearch/bundles/instantsearch.min.css",
-              "node_modules/angular-instantsearch/bundles/instantsearch-theme-algolia.min.css"
+              "src/styles.css"
             ],
             "scripts": [
               "src/assets/scripts/jquery.min.js",

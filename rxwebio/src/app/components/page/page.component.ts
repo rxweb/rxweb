@@ -1,7 +1,6 @@
 import { ElementRef, Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import { PageViewerComponent } from "src/app/components/shared/page-viewer/page-viewer.component";
 import { ActivatedRoute } from "@angular/router";
 import {
   trigger,
@@ -11,6 +10,7 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+import { PageViewerComponent } from '../shared/page-viewer/page-viewer.component';
 
 @Component({
   templateUrl: './page.component.html',

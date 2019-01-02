@@ -59,6 +59,14 @@ export class User {
                     expect(formGroup.controls.adminWebsiteUrl.errors).toBeNull();
                 });
 
+                it('should error in adminWebsiteUrl property with "https:/@/stackoverflow.com/" value.',
+                () => {
+                    let user = new User();
+                    user.adminWebsiteUrl = 'https:/@/stackoverflow.com/';
+                    let formGroup = formBuilder.formGroup(user);
+                    expect(formGroup.controls.adminWebsiteUrl.errors).toEqual({ 'url': { message: 'Input must be an url', refValues: ['https:/@/stackoverflow.com/'] } });
+                });
+
             it("Should not error, url decorator  Conditional Expression with type 'function'",
                 () => {
                     let user = new User();
