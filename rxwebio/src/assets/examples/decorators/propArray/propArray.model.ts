@@ -1,4 +1,4 @@
-import { prop, propObject } from "@rxweb/reactive-form-validators"
+import { prop, propArray } from "@rxweb/reactive-form-validators"
 
 export class Address {
   @prop()
@@ -13,6 +13,6 @@ export class User {
   @prop()
   emailAddress: string;
 
-  @propObject(Address)
-  address: Address[];
+  @propArray(Address)
+  addresses: Address[];
 }

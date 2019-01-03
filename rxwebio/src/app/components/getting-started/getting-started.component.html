@@ -1,7 +1,9 @@
 <div id="wrapper" *ngIf="showComponent">
     <div class="content">
-        <div class="title" id="getting-started">
-            <h1>Getting Started</h1>
+        <div class="title" id="getting-started" [class.sticky] = "sticky">
+            <h1>Getting Started </h1>
+        </div>
+            <div class="title-bar">
             <p>The most powerful validation framework for angular based enterprise application. This provides all type of complex
                 validation including dynamic validation likewise <span class="highlighted"> Reactive Form Validation</span>,
                 <span class="highlighted">Template Driven Form Validation</span> and <span class="highlighted">Model Based Form Validation</span>.</p>
@@ -10,7 +12,8 @@
                 the core objective is to provide optimum solution for basic, complex and dynamic validation for angular based
                 enterprise applications. This validation framework is an extension of angular forms library, which will help
                 to fulfil the need by following angular standard practices with less lines of code. </p>
-        </div>
+            </div>
+     
         <div class="bg-white border-radius">
             <div class="row">
                 <div class="col-lg-12">

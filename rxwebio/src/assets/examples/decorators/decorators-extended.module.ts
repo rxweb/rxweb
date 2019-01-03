@@ -4,20 +4,20 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { PropObjectComponent } from './propObject/propObject.component';
-import { PropArrayComponent } from './propArray/propArray.component';
-import { PropComponent } from './prop/prop.component';
+import { PropObjectAddComponent } from './propObject/prop-object-add.component';
+import { PropArrayAddComponent } from "src/assets/examples/decorators/propArray/prop-array-add.component";
+import { PropAddComponent } from './prop/prop-add.component';
 
 @NgModule({
   declarations: [
-	PropComponent,
-	PropArrayComponent,
-	PropObjectComponent
+    PropAddComponent,
+	PropArrayAddComponent,
+	PropObjectAddComponent
   ],
 entryComponents: [
-    PropComponent,
-	PropArrayComponent,
-	PropObjectComponent
+  PropAddComponent,
+	PropArrayAddComponent,
+	PropObjectAddComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -26,9 +26,9 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-    PropComponent,
-	PropArrayComponent,
-	PropObjectComponent,
+    PropAddComponent,
+    PropArrayAddComponent,
+	PropObjectAddComponent,
   ],
 
 })

@@ -48,7 +48,7 @@ export class Location {
         expect(formGroup.controls.countryName.errors).toBeNull();
      });
 
-	 it('should not error in countryName property with null value.',
+	 it('should not error in countryName property with undefined value.',
         () => {
 		let location = new Location();
         location.countryName = undefined;

@@ -1,11 +1,11 @@
 <div>
   <rx-spinner></rx-spinner>
   <app-top-bar *ngIf="!isHome"></app-top-bar>
-  <aside id="menu" *ngIf="!isHome">
+  <div *ngIf="!isHome">
     <app-side-bar></app-side-bar>
-  </aside>
+  </div>
   <router-outlet></router-outlet>
   <div *ngIf="showFooter">
     <app-footer></app-footer>
-  </div>
+  </div>s
 </div>

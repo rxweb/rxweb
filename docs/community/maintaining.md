@@ -5,14 +5,14 @@ category: community
 type:simple
 linktitle:maintaining
 ---
-This document is for rxweb team members who have extra powers and responsibilities.  If you are interested in contributing to rxweb, you might check out <a href="https://rxweb.io/community/contributing" >Contributing to the rxweb framework</a> .
+This document is for rxweb team members who have extra powers and responsibilities.  If you are interested in contributing to rxweb, you might check out <a href="/community/contributing" >Contributing to the rxweb framework</a> .
 
 # Merging a pull request
 Please, make sure:
 <ul>
 <li>Travis build is green.</li>
 <li>At least one owner (other than you) approved the PR</li>
-<li>All the <a href="https://rxweb.io/community/commit_guideline">commits follow the convention</a></li>
+<li>All the <a href="/community/commit_guideline">commits follow the convention</a></li>
 </ul>
 
 # Becoming a maintainer

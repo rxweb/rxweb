@@ -1,7 +1,9 @@
 <div id="wrapper" *ngIf="showComponent">
     <div class="content">
-        <div class="title" id="reactive-form-config">
+        <div class="title" id="reactive-form-config" [class.sticky] = "sticky">
             <h1>ReactiveFormConfig</h1>
+        </div>
+        <div class="title-bar">
             <p>ReactiveFormConfig is used to configure <span class="highlighted">date format,</span> <span class="highlighted">validation
                     messages</span> globally at the start of the application.
             </p>

@@ -65,8 +65,8 @@ The `&lt;scope&gt;` can be empty (e.g. if the change is a global or difficult to
 For more info about message body, see:
 
 <ul>
-<li><a href="http://365git.tumblr.com/post/3308646748/writing-git-commit-messages" target="_blank">http://365git.tumblr.com/post/3308646748/writing-git-commit-messages</a></li>
-<li><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html" target="_blank">http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html</a></li>
+<li><a href="http://365git.tumblr.com/post/3308646748/writing-git-commit-messages" target="_blank" rel="noopener">http://365git.tumblr.com/post/3308646748/writing-git-commit-messages</a></li>
+<li><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html" target="_blank" rel="noopener">http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html</a></li>
 </ul>
 
 # Message footer
@@ -91,5 +91,5 @@ RxwebValidators.pattern({pattern:new RegExp([a-z])})<br />
 After:
 RxwebValidators.pattern({expression:new RegExp([a-z])}) 
 ```
-This document is based on <a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#" target="_blank">AngularJS Git Commit Msg Convention</a>.  See the <a href="https://github.com/rxweb/rxweb/commits/master" target="_blank">commit history</a>  for examples of properly-formatted commit messages.
+This document is based on <a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#" target="_blank" rel="noopener">AngularJS Git Commit Msg Convention</a>.  See the <a href="https://github.com/rxweb/rxweb/commits/master" target="_blank" rel="noopener">commit history</a>  for examples of properly-formatted commit messages.
 

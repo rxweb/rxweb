@@ -20,5 +20,15 @@ export class TopBarComponent{
       body.classList.toggle('hide-sidebar');
     }
   }
+  showsearchcontent(searchvalue : string)
+  {
+     if(searchvalue.length > 0)
+     {
+     document.getElementById("searchlist-content").style.display = "block";
+     }
+     else{
+       document.getElementById("searchlist-content").style.display = "none";
+     }
+  }
 
 }

@@ -1,4 +1,22 @@
-<div class="title" id="{{title | lowercase }}">
-    <h1>{{title}}<a title="Link to this heading" class="link-header" href="{{linkHref}}#{{title}}"><i class="fa fa-link"></i></a><span class="label validator-type" *ngIf="validationTypeTitle">{{validationTypeTitle}}</span></h1>
+
+    <div class="title" id="{{title | lowercase }}" [class.sticky] = "sticky">
+    <!-- <h1>{{title}}<a title="Link to this heading" class="link-header" href="{{linkHref}}#{{title}}"><i class="fa fa-link"></i></a><span class="label validator-type" *ngIf="validationTypeTitle">{{validationTypeTitle}}</span></h1> -->
+    <h1><span>{{title}}</span><a title="Link to this heading" class="link-header" href="{{linkHref}}#{{title}}"><i class="fa fa-link"></i></a>
+        <div class="hpanel">
+                <ul class="nav nav-tabs page-tabs" *ngIf="mainType !== 'community'">
+                    <li [class.active]="activeTab == 'validators'" *ngIf="mainType == 'form-validations'">
+                        <a (click)="route('validators')">Validator</a>
+                    </li>
+                    <li [class.active]="activeTab == 'template-driven'" *ngIf="mainType == 'form-validations'">
+                        <a (click)="route('template-driven','directives')">Template Driven</a>
+                    </li>
+                    <li [class.active]="activeTab == 'decorators'">
+                        <a (click)="route('decorators')">Decorator</a>
+                    </li>
+                </ul>
+                </div>
+    </h1>
+</div>
+<div class="title-bar">
     <p [innerHtml]="description"></p>
 </div>

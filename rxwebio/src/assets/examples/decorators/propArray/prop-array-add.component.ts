@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms"
+import { FormGroup,FormArray } from "@angular/forms"
 
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
@@ -7,9 +7,9 @@ import { User,Address } from './propArray.model';
 
 @Component({
     selector: 'app-propArray-add',
-    templateUrl: './propArray.component.html'
+    templateUrl: './prop-array-add.component.html'
 })
-export class PropArrayComponent implements OnInit {
+export class PropArrayAddComponent implements OnInit {
 
     userFormGroup: FormGroup
 
@@ -19,9 +19,17 @@ export class PropArrayComponent implements OnInit {
 
     ngOnInit() {
         let user = new User();
-        user.address = new Array<Address>();
+        user.addresses = new Array<Address>();
         let address = new Address();
-        user.address.push(address);
+        user.addresses.push(address);
         this.userFormGroup = this.formBuilder.formGroup(user);
+    }
+
+    addAddress(){
+      let addresses = this.userFormGroup.controls.addresses as FormArray;
+      addresses.push(this.formBuilder.formGroup(Address));
+    }
+
+    onSubmit(){
     }
 }
