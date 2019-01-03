@@ -7,9 +7,9 @@ import { User,Address } from './propObject.model';
 
 @Component({
     selector: 'app-propObject-add',
-    templateUrl: './propObject.component.html'
+    templateUrl: './prop-object-add.component.html'
 })
-export class PropObjectComponent implements OnInit {
+export class PropObjectAddComponent implements OnInit {
 
     userFormGroup: FormGroup
 

@@ -7,9 +7,12 @@
       "resources": {
         "files": [
           "/favicon.ico",
-          "/index.html",
-          "/*.css",
-          "/*.js"
+          "/**/*.html",
+        "/**/*.js",
+        "/**/*.css"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/**"
         ]
       }
     }, {
@@ -22,5 +25,17 @@
         ]
       }
     }
-  ]
+  ],
+  "dataGroups": [{
+    "name": "api",
+    "urls": [
+      "/assets/json/generator/*/*.json"
+    ],
+    "cacheConfig": {
+      "strategy": "freshness",
+      "maxSize": 100,
+      "maxAge": "3d",
+      "timeout": "10s"
+    }
+  }]
 }

@@ -22,7 +22,7 @@
                         </ul>
                         <div class="tab-content fade" [class.show]="showViewer">
                             <div class="tab-pane panel-body validation-tab active">
-                                <div class="tabs-left" *ngIf="showViewer">
+                                <div class="tabs-left" *ngIf="showViewer" [@enterAnimation]>
                                         <button class="btn btn-outline-secondary example-btn" [class.btn-danger]="!showExample" (click)="routeExample()">Examples Only</button>
                                     <page-viewer [content]="codeContent.htmlContent" [tabArray]="codeContent.tabArray"
                                         [data]="jsonContent" [typeName]="typeName" [templateDrivenType]="templateDrivenType" [showExample]="showExample"></page-viewer>

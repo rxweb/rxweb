@@ -10,15 +10,15 @@ If you are thinking to make rxweb framework better, that's truly great. You can 
 Here are some great tips on how you can put your precious efforts on the rxweb framework and contribute in the respective area. We expect from you to follow the rxweb framework code of conduct and follow the <a href="/community/commit_guideline">commit message conventions.</a> 
 
 # Need Help or Found an Issue
-Please refer our <a href="https://github.com/rxweb/rxweb/wiki/rxweb-issue-workflow" target="_blank">issue workflow wiki</a>, where you get complete information on the same.
+Please refer our <a href="https://github.com/rxweb/rxweb/wiki/rxweb-issue-workflow" target="_blank" rel="noopener">issue workflow wiki</a>, where you get complete information on the same.
 
 # Feature request
-You can request a new feature by submitting an issue to our <a href="https://github.com/rxweb/rxweb/issues/new/choose" target="_blank">GitHub Repository</a>. If you would like to implement a new feature, please submit an issue with a proposal for your work first, to be sure that we can use it.
+You can request a new feature by submitting an issue to our <a href="https://github.com/rxweb/rxweb/issues/new/choose" target="_blank" rel="noopener">GitHub Repository</a>. If you would like to implement a new feature, please submit an issue with a proposal for your work first, to be sure that we can use it.
 
 # Setting up the code and execute tests
 <ul>
-<li>Make sure you have a <a href="https://github.com/signup/free" target="_blank">GitHub account</a>. </li>
-<li><a href="https://github.com/rxweb/rxweb/fork" target="_blank">Fork the repository</a> on GitHub.</li>
+<li>Make sure you have a <a href="https://github.com/signup/free" target="_blank" rel="noopener">GitHub account</a>. </li>
+<li><a href="https://github.com/rxweb/rxweb/fork" target="_blank" rel="noopener">Fork the repository</a> on GitHub.</li>
 <li>	Clone your fork
 ```bash
   $ git clone https://github.com/&lt;your-username&gt;/rxweb.git

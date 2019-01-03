@@ -1,6 +1,7 @@
 import { ElementRef, Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
+import { PageViewerComponent } from "src/app/components/shared/page-viewer/page-viewer.component";
 import { ActivatedRoute } from "@angular/router";
 import {
   trigger,
@@ -10,7 +11,6 @@ import {
   transition,
   // ...
 } from '@angular/animations';
-import { PageViewerComponent } from '../shared/page-viewer/page-viewer.component';
 
 @Component({
   templateUrl: './page.component.html',
@@ -20,12 +20,12 @@ import { PageViewerComponent } from '../shared/page-viewer/page-viewer.component
     trigger(
       'enterAnimation', [
         transition(':enter', [
-          style({transform: 'translateX(100%)', opacity: 0}),
-          animate('500ms', style({transform: 'translateX(0)', opacity: 1}))
+          style({opacity: 0}),
+          animate('500ms', style({opacity: 1}))
         ]),
         transition(':leave', [
-          style({transform: 'translateX(0)', opacity: 1}),
-          animate('500ms', style({transform: 'translateX(100%)', opacity: 0}))
+          style({opacity: 1}),
+          animate('500ms', style({opacity: 0}))
         ])
       ]
     )
@@ -66,7 +66,7 @@ export class PageComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-   
+
   }
 
   bind() {
