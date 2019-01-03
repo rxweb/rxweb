@@ -1,4 +1,4 @@
-import { Component,AfterContentInit, OnInit,ContentChildren,QueryList,ContentChild,ViewChildren } from "@angular/core"
+import { Component,AfterContentInit, ContentChildren,QueryList} from "@angular/core"
 import { HtmlControlTemplateDirective } from '../directives/html-control-template.directive';
 
 @Component({
