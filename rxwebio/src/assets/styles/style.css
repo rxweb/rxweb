@@ -6469,3 +6469,103 @@ body.hide-sidebar #menu .header-link {
 .tab-fade{
     min-height: 300px;
 }
+.search-content {
+    padding: 50px 60px;
+    
+}
+/* .search-content .ais-SearchBox-input {
+    padding: 10px 30px 10px 60px;
+    font-size: 18px;
+    font-weight: 400;
+} */
+.search-content  .ais-SearchBox-submitIcon {
+    width: 40px;
+    height: 20px;
+}
+.ais-SearchBox-submitIcon
+{
+    display: none;
+}
+.search-content .ais-SearchBox-submit {
+    left: 20px;
+}
+.search-content .ais-SearchBox-reset {
+    right: 10px;
+}
+.search-content .ais-Stats {
+    margin-top: 20px;
+}
+.search-list > li:hover {
+    background: #f1f1f1;
+}
+.search-list > li {
+    padding: 18px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    line-height: 22px;
+    color: #222;
+}
+.search-list > li > a {
+    font-size: 13px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.search-title {
+    font-weight: 600;
+    padding-bottom: 13px;
+    font-size: 18px;
+}
+#searchlist-content
+{
+    display: none;
+}
+.search-list > li:last-child {
+    border: 0;
+}
+.search-list {
+    margin-top: 10px;
+}
+.search-content .ais-Stats .ais-Stats-text {
+    font-size: 14px;
+    color: #222;
+    padding: 0 20px;
+}
+.position-relative{position: relative;}
+.login-link {
+    position: absolute;
+    right: 0;
+    max-width: 75px;
+}
+.search-box .search-field:focus, .search-box .search-field.search-field-focus {
+    outline: 0;
+    border-bottom: 1px solid #eee;
+}
+.search-box .search-field {
+    border: 0;
+    width: 100%;
+    font-size: 22px;
+    font-weight: 300;
+    padding: 10px 0;
+    border-bottom: 1px solid transparent;
+}
+.search-box .ais-SearchBox-input
+{
+    border: 0;
+    width: 100%;
+    font-size: 22px;
+    font-weight: 300;
+    padding: 10px 0;
+    border-bottom: 1px solid transparent;
+}
+.search-btn {
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    text-align: center;
+    line-height: 49px;
+    position: absolute;
+    cursor: pointer;
+}
