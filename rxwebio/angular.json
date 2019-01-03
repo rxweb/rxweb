@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rxwebio",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -29,6 +29,7 @@
             "scripts": [
               "src/assets/scripts/jquery.min.js",
               "src/assets/scripts/bootstrap.min.js",
+              "src/assets/scripts/custom.js",
               "src/assets/scripts/auth0.min.js",
               "src/assets/scripts/lock.min.js",
               "src/assets/scripts/highlight.pack.js",
@@ -38,6 +39,7 @@
           },
           "configurations": {
             "production": {
+              "serviceWorker": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

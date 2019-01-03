@@ -1,0 +1,10 @@
+{
+    "name": "Rx Web IO",
+    "short_name": "rxwebio",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "The most powerful form validation framework with tons of validation scenarios, which fulfil every large scale enterprise application’s need. The most easiest way to implement complex form validation solution with less line of code and quick to develop.",
+    "icons": [],
+    "related_applications": []
+  }

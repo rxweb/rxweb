@@ -23,7 +23,6 @@ export class PropArrayAddComponent implements OnInit {
         let address = new Address();
         user.addresses.push(address);
         this.userFormGroup = this.formBuilder.formGroup(user);
-        console.log(this.userFormGroup)
     }
 
     addAddress(){
@@ -32,6 +31,5 @@ export class PropArrayAddComponent implements OnInit {
     }
 
     onSubmit(){
-      console.log(this.userFormGroup.value)
     }
 }

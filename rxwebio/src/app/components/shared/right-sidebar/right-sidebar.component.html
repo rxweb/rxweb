@@ -33,7 +33,7 @@
         <ul class="list-unstyled" id="rightsidebar-items">
             <li class="nav-item" *ngFor="let item of sidebarLinks;let i = index" [class.d-flex]="i == 0" [class.border-none]="i == 0"  [class.sidebar-list]="item.subLink?.length > 0">
                 <a class="nav-link sidebar-link" [class.child-item-list]="item.subLink?.length > 0" href="#{{item.id}}" [class.active]="i == 0" (click)="scrollTo(item.id)">{{item.title}}</a>
-                    <a *ngIf="i == 0" target="_blank" href="{{gitEditUrl}}" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    <a *ngIf="i == 0" target="_blank" rel="noopener" href="{{gitEditUrl}}" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                 <ul class="list-unstyled" [class.child-list]="item.subLink?.length > 0">
                     <li *ngFor="let obj of item.subLink" class="nav-item px-1"><a class="nav-link" href="#{{obj.id}}" (click)="scrollTo(obj.id)">{{obj.title}}</a></li>
                     
@@ -53,9 +53,9 @@
                     </svg>
                   </button>
                 </div> -->
-            <a href="https://github.com/rxweb/rxweb/issues" title="GitHub" target="_blank"><i class="fa fa-github"></i><span class="sr-only">Report Issues</span></a>
-            <a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank"><i class="fa fa-stack-overflow"></i><span class="sr-only">Stack Overflow</span></a>
-            <a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" title="Comment" target="_blank"><i class="fa fa-comment"></i><span class="sr-only">Chat On Gitter</span></a>
+            <a href="https://github.com/rxweb/rxweb/issues" title="GitHub" target="_blank" rel="noopener"><i class="fa fa-github"></i><span class="sr-only">Report Issues</span></a>
+            <a href="https://stackoverflow.com/search?q=rxweb" title="Stack Overflow" target="_blank" rel="noopener"><i class="fa fa-stack-overflow"></i><span class="sr-only">Stack Overflow</span></a>
+            <a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" title="Comment"  rel="noopener"><i class="fa fa-comment"></i><span class="sr-only">Chat On Gitter</span></a>
         </div>
     <div class="right__community  btm-link">
         <label>Community</label>
