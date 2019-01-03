@@ -5,7 +5,7 @@ export class User {
 
 	birthYear: number;
 
-	admissionYear: Date;
+	admissionYear: number;
 
 	joiningYear: number;
 

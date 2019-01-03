@@ -15,7 +15,7 @@ export class PatternExpressionValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            userName:['', RxwebValidators.pattern({expression:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} })], 
+            userName:['', RxwebValidators.pattern({expression:{'onlyAlpha': /^[A-Za-z]+$/} })], 
         });
     }
 }

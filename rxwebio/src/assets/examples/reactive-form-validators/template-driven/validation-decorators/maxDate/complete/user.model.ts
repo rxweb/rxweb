@@ -6,23 +6,23 @@ export class User {
 	userName: string;
 
 	@maxDate({value:'07/30/2018' }) 
-	allocationDate: Date;
+	allocationDate: string;
 
 	//If you want to apply conditional expression of type 'function'
 	@maxDate({value:'07/30/2018'  ,conditionalExpression:(x,y) => x.userName == "Bharat"  }) 
-	birthDate: Date;
+	birthDate: string;
 
 	//If you want to apply conditional expression of type 'string'
 	@maxDate({value:'07/30/2018'  ,conditionalExpression:'x => x.userName == "Bharat"' }) 
-	admissionDate: Date;
+	admissionDate: string;
 
 	@maxDate({value:'07/30/2018'  ,message:'{{0}} exceeds the Maximum Date Limit' }) 
-	registrationDate: Date;
+	registrationDate: string;
 
 	@prop()
-	enrollmentDate: Date;
+	enrollmentDate: string;
 
 	@maxDate({fieldName:'enrollmentDate' }) 
-	lastRegistrationDate: Date;
+	lastRegistrationDate: string;
 
 }

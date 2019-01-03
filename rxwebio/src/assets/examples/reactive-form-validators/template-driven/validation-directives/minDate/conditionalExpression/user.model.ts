@@ -3,8 +3,8 @@ export class User {
 
 	userName: string;
 
-	admissionDate: Date;
+	admissionDate: string;
 
-	birthDate: Date;
+	birthDate: string;
 
 }

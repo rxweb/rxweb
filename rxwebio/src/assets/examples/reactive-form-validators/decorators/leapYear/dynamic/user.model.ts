@@ -6,7 +6,7 @@ export class User {
 	name: string;
 
 	@prop()
-	admissionYear: Date;
+	admissionYear: number;
 
 	@prop()
 	joiningYear: number;

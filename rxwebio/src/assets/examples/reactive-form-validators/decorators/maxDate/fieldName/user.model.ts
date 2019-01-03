@@ -3,9 +3,9 @@ import {  maxDate,prop, } from "@rxweb/reactive-form-validators"
 export class User {
 
 	@prop()
-	enrollmentDate: Date;
+	enrollmentDate: string;
 
 	@maxDate({fieldName:'enrollmentDate' }) 
-	lastRegistrationDate: Date;
+	lastRegistrationDate: string;
 
 }

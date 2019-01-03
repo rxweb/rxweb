@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 })
 
 export class TopBarComponent{
-
+  searchvalue:string
   hideSideBar(): void {
     const body = document.getElementsByTagName('body')[0];
     
@@ -20,8 +20,14 @@ export class TopBarComponent{
       body.classList.toggle('hide-sidebar');
     }
   }
-  showsearchcontent(searchvalue : string)
+  showsearchcontent(event, searchvalue : string)
   {
+    if(event.key == "Escape"){
+      document.getElementById("searchlist-content").style.display = "none";
+      this.searchvalue = "";
+    }
+    else
+    {
      if(searchvalue.length > 0)
      {
      document.getElementById("searchlist-content").style.display = "block";
@@ -29,6 +35,7 @@ export class TopBarComponent{
      else{
        document.getElementById("searchlist-content").style.display = "none";
      }
+    }
   }
 
 }
