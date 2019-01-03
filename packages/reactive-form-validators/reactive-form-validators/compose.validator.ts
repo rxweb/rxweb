@@ -7,6 +7,7 @@ import { ObjectMaker } from "../util/object-maker";
 import { ComposeConfig } from "../models/config/compose-config";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
+import { AnnotationTypes } from "../core/validator.static";
 
 export function composeValidator(config: ComposeConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
@@ -20,7 +21,7 @@ export function composeValidator(config: ComposeConfig): ValidatorFn {
             break;
         }
         if (result)
-          return result;
+          return ObjectMaker.toJson(config.messageKey || AnnotationTypes.compose, config, [control.value]);
       }
     } return ObjectMaker.null();
   }
