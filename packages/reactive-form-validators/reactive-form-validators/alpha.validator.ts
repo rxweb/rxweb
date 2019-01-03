@@ -1,6 +1,6 @@
 import {
-    ValidatorFn,
-    AbstractControl
+  ValidatorFn,
+  AbstractControl
 } from "@angular/forms";
 
 import { RegexValidator } from "../util/regex-validator";
@@ -11,15 +11,15 @@ import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import { ApplicationUtil } from "../util/app-util";
 export function alphaValidator(config: AlphaConfig): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } => {
-        config = ApplicationUtil.getConfigObject(config);
-            if (ValidatorValueChecker.pass(control,config)) {
-                var isValid = (!config.allowWhiteSpace) ?
-                                  RegexValidator.isValid(control.value, RegExRule.alpha) :
-                                  RegexValidator.isValid(control.value, RegExRule.alphaWithSpace);
-                if (!isValid)
-                    return ObjectMaker.toJson(AnnotationTypes.alpha, config, [control.value]);
-            }
-         return ObjectMaker.null();
+  return (control: AbstractControl): { [key: string]: any } => {
+    config = ApplicationUtil.getConfigObject(config);
+    if (ValidatorValueChecker.pass(control, config)) {
+      var isValid = (!config || !config.allowWhiteSpace) ?
+        RegexValidator.isValid(control.value, RegExRule.alpha) :
+        RegexValidator.isValid(control.value, RegExRule.alphaWithSpace);
+      if (!isValid)
+        return ObjectMaker.toJson(AnnotationTypes.alpha, config, [control.value]);
     }
+    return ObjectMaker.null();
+  }
 }

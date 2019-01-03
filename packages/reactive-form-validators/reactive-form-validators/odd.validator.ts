@@ -1,6 +1,6 @@
 import {
-    ValidatorFn,
-    AbstractControl
+  ValidatorFn,
+  AbstractControl
 } from "@angular/forms";
 
 import { ObjectMaker } from "../util/object-maker";
@@ -9,11 +9,12 @@ import { ApplicationUtil } from "../util/app-util";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 export function oddValidator(config: BaseConfig): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } => {
-        if (ValidatorValueChecker.pass(control,config)) {
-            if (!(!(control.value % 2 == 0)) || !ApplicationUtil.isNumeric(control.value))
-                    return ObjectMaker.toJson(AnnotationTypes.odd, config, [control.value]);
-            }
-        return ObjectMaker.null();
+  return (control: AbstractControl): { [key: string]: any } => {
+    config = ApplicationUtil.getConfigObject(config);
+    if (ValidatorValueChecker.pass(control, config)) {
+      if (!(!(control.value % 2 == 0)) || !ApplicationUtil.isNumeric(control.value))
+        return ObjectMaker.toJson(AnnotationTypes.odd, config, [control.value]);
     }
+    return ObjectMaker.null();
+  }
 }
