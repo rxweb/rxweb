@@ -21,7 +21,8 @@ import {
   customValidatorExtension,
   uniqueValidatorExtension,
   imageValidatorExtension,
-  notEmptyValidatorExtension
+  notEmptyValidatorExtension,
+  ipValidatorExtension
 } from './index'
 
 export class RxwebValidators {
@@ -81,4 +82,5 @@ export class RxwebValidators {
   static readonly unique = uniqueValidatorExtension;
   static readonly image = imageValidatorExtension;
   static readonly notEmpty = notEmptyValidatorExtension;
+  static readonly ip = ipValidatorExtension;
 }

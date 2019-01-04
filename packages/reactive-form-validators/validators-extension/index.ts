@@ -53,3 +53,4 @@ export * from './custom-validator.extension';
 export * from './unique-validator.extension';
 export * from './image-validator.extension';
 export * from './notEmpty-validator.extension';
+export * from './ip-validator.extension';

@@ -57,5 +57,6 @@ export const AnnotationTypes: { [key: string]: string } = {
   file: "file",
   image: "image",
   unique: "unique",
-  notEmpty:"notEmpty"
+  notEmpty: "notEmpty",
+  ip:"ip"
 }
