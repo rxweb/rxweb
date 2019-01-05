@@ -240,6 +240,11 @@
           "isActive": false
         },
         {
+          "title": "unique",
+          "uri": "/form-validations/unique/validators",
+          "isActive": false
+        },
+        {
           "title": "upperCase",
           "uri": "/form-validations/upperCase/validators",
           "isActive": false

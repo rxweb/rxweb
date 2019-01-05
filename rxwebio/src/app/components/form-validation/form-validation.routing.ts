@@ -187,6 +187,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './time/time.module#TimeModule',
 },
 {
+	path:'unique',
+	loadChildren: './unique/unique.module#UniqueModule',
+},
+{
 	path:'upperCase',
 	loadChildren: './upperCase/upper-case.module#UpperCaseModule',
 },

@@ -1,0 +1,48 @@
+<div>
+    <form [formGroup]="employeeFormGroup">
+
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" formControlName="fullName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Skills</label>
+            <button class="btn btn-primary" (click)="addSkill()">Add Skill</button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Skill Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr [formGroup]="item" *ngFor="let item of employeeFormGroup.controls.skills.controls; let i = index;">
+                    <th scope="row">{{ i+1}}</th>
+                    <td><input type="text" formControlName="skillName" class="form-control" />
+                </tr>
+            </tbody>
+        </table>
+
+                <div class="form-group">
+                        <label>Hobbies</label>
+                        <button class="btn btn-primary" (click)="addHobby()">Add Hobby</button>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Hobby</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr [formGroup]="item" *ngFor="let item of employeeFormGroup.controls.hobbies.controls; let i = index;">
+                                <th scope="row">{{ i+1}}</th>
+                                <td><input type="text" formControlName="hobbyName" class="form-control" />
+                            </tr>
+                        </tbody>
+                    </table>
+        <button [disabled]="!employeeFormGroup.valid" class="btn btn-primary">Submit</button>
+    </form>
+</div>
