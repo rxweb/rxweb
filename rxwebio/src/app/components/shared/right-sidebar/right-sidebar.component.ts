@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Input } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { RxFormBuilder } from "@rxweb/reactive-form-validators";
@@ -16,6 +16,7 @@ import { HttpHeaders } from "@angular/common/http";
 
 export class RightSideBarComponent implements OnInit {
     public feedbackForm: FormGroup
+    sticky:boolean = false;
     httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
     constructor(
         private http: HttpClient,private formBuilder: RxFormBuilder
@@ -25,6 +26,16 @@ export class RightSideBarComponent implements OnInit {
     showComponent: boolean = false;
     contributorList: any = [];
     gitEditUrl: string = "https://github.com/rxweb/rxweb/edit/master/docs/";
+    @HostListener('window:scroll', ['$event'])
+    handleScroll(){
+        const windowScroll = document.documentElement.scrollTop;
+            if(windowScroll >= 50){
+                this.sticky = true;
+            } else {
+                this.sticky = false;
+            }
+    }
+  
     ngOnInit(): void {
         var splitedArray = location.pathname.split("/");
         if(splitedArray.length > 0 && splitedArray[1])

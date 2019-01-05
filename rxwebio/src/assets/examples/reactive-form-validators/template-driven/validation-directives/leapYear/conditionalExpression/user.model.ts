@@ -3,7 +3,7 @@ export class User {
 
 	name: string;
 
-	admissionYear: Date;
+	admissionYear: number;
 
 	birthYear: number;
 

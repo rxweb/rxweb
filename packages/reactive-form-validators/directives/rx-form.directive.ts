@@ -1,13 +1,10 @@
-import { Directive, ContentChildren, QueryList, Input, AfterContentInit, OnDestroy, ElementRef, Renderer } from "@angular/core"
-import { FormGroup, AbstractControl,FormArray } from "@angular/forms";
+import { Directive, Input, AfterContentInit, OnDestroy} from "@angular/core"
+import { FormGroup,FormArray } from "@angular/forms";
 import { AnnotationTypes } from "../core/validator.static";
 import { defaultContainer } from "../core/defaultContainer";
 import { BaseDirective } from "./base-directive"
 import { Linq } from "../util/linq";
 import { conditionalChangeValidator } from '../reactive-form-validators/conditional-change.validator';
-import { DecimalProvider } from "../domain/element-processor/decimal.provider"
-
-import { ApplicationUtil } from '../util/app-util';
 
 
 @Directive({
