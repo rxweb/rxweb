@@ -121,7 +121,7 @@ export class AppComponent implements OnInit {
         "extension": "Enter a valid extension.",
         "file": "Enter valid file count",
         "image": "Enter valid file height and width",
-
+        "unique": "Enter unique value in the input"
       }
     });
   }
