@@ -2,12 +2,12 @@
     <form [formGroup]="employeeFormGroup">
 
         <div class="form-group">
-            <label>Full Name</label>
+            <h4>Full Name</h4>
             <input type="text" formControlName="fullName" class="form-control" />
         </div>
 
         <div class="form-group">
-            <label>Skills</label>
+            <h4>Skills</h4>
             <button class="btn btn-primary" (click)="addSkill()">Add Skill</button>
         </div>
         <table class="table">
@@ -28,7 +28,7 @@
         </table>
 
                 <div class="form-group">
-                        <label>Hobbies</label>
+                        <h4>Hobbies</h4>
                         <button class="btn btn-primary" (click)="addHobby()">Add Hobby</button>
                     </div>
                     <table class="table">
