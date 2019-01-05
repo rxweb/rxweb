@@ -12,10 +12,11 @@ Suppose you want to create a User form, which contains fields like ipType,ipV4, 
 
 <ol class='showHideElement'>
 	<li>Allow only ip addresses in ipV4 field based on version.</li>
-    <li>Allow only ip addresses in ipV4 field based on version.</li>
+    <li>Allow only ip addresses in ipV6 field based on version.</li>
     <li>Allow only ip addresses in ipV4Cidr field based on CIDR.</li>
     <li>Allow only ip addresses in ipV6Cidr field based on CIDR.</li>
 	<li>Apply ip validation based on matched condition in the form, like if the ipType is 'V6' then the ipV6Conditional value should be in ip address format only.</li>
+		<li>Apply ip validation based on matched condition in the form, like if the ipType is 'V4' then the ipV4Conditional value should be in ip address format only.</li>
 	<li>Adding custom message in ipV4Message field.</li>
 	<data-scope scope="['decorator','validator']">
 		<li>Apply ip validation dynamically based on server rules. </li>

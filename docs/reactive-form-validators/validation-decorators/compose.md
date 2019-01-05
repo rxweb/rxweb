@@ -1,24 +1,26 @@
 ---
 title: compose
-description: Compose validation  {{validatorType}}  is used to apply multiple validations on a particular field.
+description: Compose validation {{validatorType}} is used to apply multiple validations on a particular field.
 author: rxcontributortwo
 category: form-validations
 type:tabs
 linktitle: compose
 ---
 # When to use
-Suppose you want to create UserInfo form, which contains fields like firstName, lastName, age, emailId and you want to apply multiple validations on these fields. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create UserInfo form, which contains fields like firstName, lastName, age, cityName, countryName and apply multiple validations on these fields. Here depending upon the requirement these scenarios may arise.
+
 <ol class='showHideElement'>
-    <li>Apply required and alpha validation on firstName field.</li>
-    <li>Apply required, alpha and different validation on lastName field.</li>
-    <li>Apply digit, maxNumber and minNumber validation on age field based on matched condition in the form, like if the firstName is 'Bharat', then only the age must be validated.</li>
-    <li>Apply required, email and maxLength validation based on matched condition in the form, like if the firstName is 'Bharat', then only the emailId must be validated.</li>
+    <li>Apply compose validation on firstName field.</li>
+    <li>Apply compose validation on lastName field using message key.</li>
+    <li>Apply compose validation on age field based on matched condition in the form, like if the firstName is 'Bharat', then only the age must be validated.</li>
+    <li>Apply compose validation based on matched condition in the form, like if the firstName is 'Bharat', then only the cityName must be validated.</li>
+     <li>Apply compose validation on countryName field.</li>
     <data-scope scope="['decorator','validator']">
     <li>Apply compose validation dynamically based on server rules.</li>
     </data-scope>
 </ol>
 
-Let’s see how compose  {{validatorType}}  fulfil the need.
+Let’s see how compose {{validatorType}} fulfil the need.
 
 # Basic Compose Validation
 <data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
@@ -75,6 +77,7 @@ Below options are not mandatory to use in the `compose` validation. If needed th
 <table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a (click)='scrollTo("#validators")' title="validators">validators</a></td><td>It is an array of rxwebValidators. Validators are set according to the relative requirement based on which validation you want to apply. Here you have to specify the name of validator which you want to use.</td></tr>
+<tr><td><a (click)='scrollTo("#messageKey")' title="messageKey">messageKey</a></td><td>messageKey option of compose validation is used to set the key based validation message.</td></tr>
 <tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Compose validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
 </table>
 
@@ -85,6 +88,14 @@ It is an array of rxwebValidators. Validators are set according to the relative 
 
 <div component="app-code" key="compose-validatorsExample-model"></div> 
 <div component="app-example-runner" ref-component="app-compose-validators" title="Compose {{validatorType}} with validators" key="validators"></div>
+
+## messageKey
+Type :  `string`
+
+messageKey option of compose validation is used to set the key based validation message.
+
+<div component="app-code" key="compose-messageKeyExample-model"></div> 
+<div component="app-example-runner" ref-component="app-compose-messageKey" title="Compose {{validatorType}} with messageKey" key="messageKey"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
