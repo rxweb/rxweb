@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { UniqueCompleteComponent } from './complete/unique-complete.component';
-import { UniqueAdditionalValidationComponent } from './additionalValidation/unique-additional-validation.component';
 import { UniqueMessageComponent } from './message/unique-message.component';
 import { UniqueAddComponent } from './add/unique-add.component';
 
@@ -13,13 +12,11 @@ import { UniqueAddComponent } from './add/unique-add.component';
 @NgModule({
   declarations: [
 	UniqueCompleteComponent,
-	UniqueAdditionalValidationComponent,
 	UniqueMessageComponent,
 	UniqueAddComponent,
   ],
 entryComponents: [
 	UniqueCompleteComponent,
-	UniqueAdditionalValidationComponent,
 	UniqueMessageComponent,
 	UniqueAddComponent,
   ],
@@ -31,7 +28,6 @@ entryComponents: [
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
 	UniqueCompleteComponent,
-	UniqueAdditionalValidationComponent,
 	UniqueMessageComponent,
 	UniqueAddComponent,
   ],

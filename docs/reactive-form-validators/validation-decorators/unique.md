@@ -11,8 +11,6 @@ linktitle: unique
 Suppose you want to create a Employee form, which contains fields like fullName, skillName, projectDomain, companyName and hobbies and you want the user to enter unique values which are not previously mentioned in the array. Here depending upon the requirement these scenarios may arise.
 <ol class = 'showHideElement'>
 <li>Apply unique validation on skillName field.</li>
-<li>Apply unique validation based on matched condition in the form, like if the fullName is 'Bharat Patel' then the projectDomain input values must be unique.</li>
-<li>Apply unique validation based on matched condition in the form, like if the fullName is 'Bharat Patel' then the companyName input values must be unique.</li>
 <li>Adding Custom Message on hobbies Field.</li>
 	<data-scope scope="['decorator','validator']">
 		<li>Apply unique validation dynamically based on server rules. </li>
@@ -67,19 +65,10 @@ Below options are not mandatory to use in the `RxwebValidators.unique()` validat
 Below options are not mandatory to use in the `unique` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped showHideElement">
+<table class="table table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a  (click)='scrollTo("#additionalValidation")' title="additionalValidation">additionalValidation</a></td><td>if user wants to validate the colum based on some other values of the row as well, then additional validation comes into the picture</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
-
-## additionalValidation
-Type :  `Function`
-
-If user wants to validate the colum based on some other values of the row as well, then additional validation comes into the picture
-
-<div component="app-code" key="unique-additionalValidationExample-model"></div> 
-<div component="app-example-runner" ref-component="app-unique-additionalValidation" title="unique {{validatorType}} with additionalValidation" key="additionalValidation"></div>
 
 ## message 
 Type :  `string` 

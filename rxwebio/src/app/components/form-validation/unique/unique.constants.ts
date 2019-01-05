@@ -1,22 +1,18 @@
 import { UniqueCompleteComponent } from "src/assets/examples/reactive-form-validators/decorators/unique/complete/unique-complete.component";
-import { UniqueAdditionalValidationComponent } from "src/assets/examples/reactive-form-validators/decorators/unique/additionalValidation/unique-additional-validation.component";
 import { UniqueMessageComponent } from "src/assets/examples/reactive-form-validators/decorators/unique/message/unique-message.component";
 import { UniqueAddComponent } from "src/assets/examples/reactive-form-validators/decorators/unique/add/unique-add.component";
 import { UniqueCompleteValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/unique/complete/unique-complete.component";
-import { UniqueAdditionalValidationValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/unique/additionalValidation/unique-additional-validation.component";
 import { UniqueMessageValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/unique/message/unique-message.component";
 import { UniqueAddValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/unique/add/unique-add.component";
 
 export const UNIQUE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 	decorators:{
 						complete : UniqueCompleteComponent,
-						additionalValidation : UniqueAdditionalValidationComponent,
 						message : UniqueMessageComponent,
 						add : UniqueAddComponent,
 			  },
 	validators:{
 						complete : UniqueCompleteValidatorComponent,
-						additionalValidation : UniqueAdditionalValidationValidatorComponent,
 						message : UniqueMessageValidatorComponent,
 						add : UniqueAddValidatorComponent,
 			  },
