@@ -37,15 +37,6 @@ export const MIN_DATE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : MinDateAddComponent,
 						edit : MinDateEditComponent,
 			  },
-	validators:{
-						complete : MinDateCompleteValidatorComponent,
-						value : MinDateValueValidatorComponent,
-						conditionalExpression : MinDateConditionalExpressionValidatorComponent,
-						message : MinDateMessageValidatorComponent,
-						fieldName : MinDateFieldNameValidatorComponent,
-						dynamic : MinDateDynamicValidatorComponent,
-						add : MinDateAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : MinDateCompleteTemplateDrivenValidationDirectivesComponent,
 						value : MinDateValueTemplateDrivenValidationDirectivesComponent,
@@ -61,5 +52,14 @@ export const MIN_DATE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						message : MinDateMessageTemplateDrivenValidationDecoratorsComponent,
 						fieldName : MinDateFieldNameTemplateDrivenValidationDecoratorsComponent,
 						add : MinDateAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : MinDateCompleteValidatorComponent,
+						value : MinDateValueValidatorComponent,
+						conditionalExpression : MinDateConditionalExpressionValidatorComponent,
+						message : MinDateMessageValidatorComponent,
+						fieldName : MinDateFieldNameValidatorComponent,
+						dynamic : MinDateDynamicValidatorComponent,
+						add : MinDateAddValidatorComponent,
 			  },
 }

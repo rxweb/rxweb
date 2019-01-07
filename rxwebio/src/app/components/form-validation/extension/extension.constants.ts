@@ -32,14 +32,6 @@ export const EXTENSION_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : ExtensionAddComponent,
 						edit : ExtensionEditComponent,
 			  },
-	validators:{
-						complete : ExtensionCompleteValidatorComponent,
-						extensions : ExtensionExtensionsValidatorComponent,
-						conditionalExpression : ExtensionConditionalExpressionValidatorComponent,
-						message : ExtensionMessageValidatorComponent,
-						dynamic : ExtensionDynamicValidatorComponent,
-						add : ExtensionAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : ExtensionCompleteTemplateDrivenValidationDirectivesComponent,
 						extensions : ExtensionExtensionsTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const EXTENSION_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : ExtensionConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : ExtensionMessageTemplateDrivenValidationDecoratorsComponent,
 						add : ExtensionAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : ExtensionCompleteValidatorComponent,
+						extensions : ExtensionExtensionsValidatorComponent,
+						conditionalExpression : ExtensionConditionalExpressionValidatorComponent,
+						message : ExtensionMessageValidatorComponent,
+						dynamic : ExtensionDynamicValidatorComponent,
+						add : ExtensionAddValidatorComponent,
 			  },
 }

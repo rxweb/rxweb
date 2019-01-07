@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, OnInit, Input, Inject, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnChanges, SimpleChanges,  Input, Inject, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 })
 
 export class TopBarComponent {
+
   searchvalue: string
   @ViewChild('search') searchInput: ElementRef;
   hideSideBar(): void {

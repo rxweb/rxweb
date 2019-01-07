@@ -79,6 +79,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './hexColor/hex-color.module#HexColorModule',
 },
 {
+	path:'ip',
+	loadChildren: './ip/ip.module#IpModule',
+},
+{
 	path:'image',
 	loadChildren: './image/image.module#ImageModule',
 },

@@ -37,15 +37,6 @@ export const MAX_DATE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : MaxDateAddComponent,
 						edit : MaxDateEditComponent,
 			  },
-	validators:{
-						complete : MaxDateCompleteValidatorComponent,
-						value : MaxDateValueValidatorComponent,
-						conditionalExpression : MaxDateConditionalExpressionValidatorComponent,
-						message : MaxDateMessageValidatorComponent,
-						fieldName : MaxDateFieldNameValidatorComponent,
-						dynamic : MaxDateDynamicValidatorComponent,
-						add : MaxDateAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : MaxDateCompleteTemplateDrivenValidationDirectivesComponent,
 						value : MaxDateValueTemplateDrivenValidationDirectivesComponent,
@@ -61,5 +52,14 @@ export const MAX_DATE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						message : MaxDateMessageTemplateDrivenValidationDecoratorsComponent,
 						fieldName : MaxDateFieldNameTemplateDrivenValidationDecoratorsComponent,
 						add : MaxDateAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : MaxDateCompleteValidatorComponent,
+						value : MaxDateValueValidatorComponent,
+						conditionalExpression : MaxDateConditionalExpressionValidatorComponent,
+						message : MaxDateMessageValidatorComponent,
+						fieldName : MaxDateFieldNameValidatorComponent,
+						dynamic : MaxDateDynamicValidatorComponent,
+						add : MaxDateAddValidatorComponent,
 			  },
 }

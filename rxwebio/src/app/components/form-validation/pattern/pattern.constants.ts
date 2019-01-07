@@ -32,14 +32,6 @@ export const PATTERN_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : PatternAddComponent,
 						edit : PatternEditComponent,
 			  },
-	validators:{
-						complete : PatternCompleteValidatorComponent,
-						expression : PatternExpressionValidatorComponent,
-						message : PatternMessageValidatorComponent,
-						conditionalExpression : PatternConditionalExpressionValidatorComponent,
-						dynamic : PatternDynamicValidatorComponent,
-						add : PatternAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : PatternCompleteTemplateDrivenValidationDirectivesComponent,
 						expression : PatternExpressionTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const PATTERN_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						message : PatternMessageTemplateDrivenValidationDecoratorsComponent,
 						conditionalExpression : PatternConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						add : PatternAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : PatternCompleteValidatorComponent,
+						expression : PatternExpressionValidatorComponent,
+						message : PatternMessageValidatorComponent,
+						conditionalExpression : PatternConditionalExpressionValidatorComponent,
+						dynamic : PatternDynamicValidatorComponent,
+						add : PatternAddValidatorComponent,
 			  },
 }

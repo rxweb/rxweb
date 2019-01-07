@@ -4140,7 +4140,8 @@ body {
     right: 0;
     display: inline-block;
     /* margin-right: 5px; */
-    margin-top: 52px;
+    margin-top:7px;
+    /* margin-top: 52px; */
     padding-left: 0;
     border-left: 1px solid #eeeeee;
     transition: all 0.3s ease-in-out;

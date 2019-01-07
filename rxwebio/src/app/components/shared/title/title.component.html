@@ -7,10 +7,10 @@
                     <li [class.active]="activeTab == 'validators'" *ngIf="mainType == 'form-validations'">
                         <a (click)="route('validators')">Validator</a>
                     </li>
-                    <li [class.active]="activeTab == 'template-driven'" *ngIf="mainType == 'form-validations' && (validationName !== 'pattern' || validationName !== 'unique')">
-                        <a (click)="route('template-driven','directives')">Template Driven</a>
+                    <li [class.active]="activeTab == 'template-driven'" *ngIf="mainType == 'form-validations' && (validationName !== 'pattern' && validationName !== 'unique'  && validationName !== 'ip')">
+                        <a (click)="route('template-driven')">Template Driven</a>
                     </li>
-                    <li [class.active]="activeTab == 'decorators'">
+                    <li [class.active]="activeTab == 'decorators'" *ngIf="validationName !== 'ip'">
                         <a (click)="route('decorators')">Decorator</a>
                     </li>
                 </ul>

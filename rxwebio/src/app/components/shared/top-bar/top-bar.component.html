@@ -9,7 +9,7 @@
 	}">
 				<div class="search-box position-relative">
 
-					<ais-search-box :autofocus="true" placeholder='' type="text" (keyup)="showsearchcontent($event,searchvalue)" #search (blur)="hideSearch()" [(ngModel)]="searchvalue" name="searchvalue"
+					<ais-search-box id="search" placeholder='' type="text" (keyup)="showsearchcontent($event,searchvalue)" #search [(ngModel)]="searchvalue" name="searchvalue"
 					 class="search-field search-field-focus" ngDefaultControl focus></ais-search-box>
 
 					<!-- <div class="search-btn">
@@ -35,7 +35,7 @@
 									<ul class="list-unstyled see-more-links">
 										<li class="bold">Go to : </li>
 											<li class="" *ngFor="let item of hit.refLinks">
-												<a [routerLink]="hit.url">{{item.title}}</a>
+												<a [routerLink]="item.url">{{item.title}}</a>
 											</li>
 										</ul>
 								</li>

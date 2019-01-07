@@ -27,13 +27,6 @@ export const PORT_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : PortAddComponent,
 						edit : PortEditComponent,
 			  },
-	validators:{
-						complete : PortCompleteValidatorComponent,
-						conditionalExpression : PortConditionalExpressionValidatorComponent,
-						message : PortMessageValidatorComponent,
-						dynamic : PortDynamicValidatorComponent,
-						add : PortAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : PortCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : PortConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const PORT_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : PortConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : PortMessageTemplateDrivenValidationDecoratorsComponent,
 						add : PortAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : PortCompleteValidatorComponent,
+						conditionalExpression : PortConditionalExpressionValidatorComponent,
+						message : PortMessageValidatorComponent,
+						dynamic : PortDynamicValidatorComponent,
+						add : PortAddValidatorComponent,
 			  },
 }

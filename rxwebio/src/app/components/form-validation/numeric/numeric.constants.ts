@@ -37,15 +37,6 @@ export const NUMERIC_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : NumericAddComponent,
 						edit : NumericEditComponent,
 			  },
-	validators:{
-						complete : NumericCompleteValidatorComponent,
-						acceptValue : NumericAcceptValueValidatorComponent,
-						allowDecimal : NumericAllowDecimalValidatorComponent,
-						conditionalExpression : NumericConditionalExpressionValidatorComponent,
-						message : NumericMessageValidatorComponent,
-						dynamic : NumericDynamicValidatorComponent,
-						add : NumericAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : NumericCompleteTemplateDrivenValidationDirectivesComponent,
 						acceptValue : NumericAcceptValueTemplateDrivenValidationDirectivesComponent,
@@ -61,5 +52,14 @@ export const NUMERIC_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : NumericConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : NumericMessageTemplateDrivenValidationDecoratorsComponent,
 						add : NumericAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : NumericCompleteValidatorComponent,
+						acceptValue : NumericAcceptValueValidatorComponent,
+						allowDecimal : NumericAllowDecimalValidatorComponent,
+						conditionalExpression : NumericConditionalExpressionValidatorComponent,
+						message : NumericMessageValidatorComponent,
+						dynamic : NumericDynamicValidatorComponent,
+						add : NumericAddValidatorComponent,
 			  },
 }

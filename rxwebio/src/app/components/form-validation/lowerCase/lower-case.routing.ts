@@ -5,10 +5,7 @@ const LOWER_CASE_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const LOWER_CASE_ROUTING: ModuleWithProviders = RouterModule.forChild(LOWER_CASE_ROUTES);

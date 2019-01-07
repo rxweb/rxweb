@@ -32,14 +32,6 @@ export const GREATER_THAN_EQUAL_TO_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: 
 						add : GreaterThanEqualToAddComponent,
 						edit : GreaterThanEqualToEditComponent,
 			  },
-	validators:{
-						complete : GreaterThanEqualToCompleteValidatorComponent,
-						fieldName : GreaterThanEqualToFieldNameValidatorComponent,
-						conditionalExpression : GreaterThanEqualToConditionalExpressionValidatorComponent,
-						message : GreaterThanEqualToMessageValidatorComponent,
-						dynamic : GreaterThanEqualToDynamicValidatorComponent,
-						add : GreaterThanEqualToAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : GreaterThanEqualToCompleteTemplateDrivenValidationDirectivesComponent,
 						fieldName : GreaterThanEqualToFieldNameTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const GREATER_THAN_EQUAL_TO_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: 
 						conditionalExpression : GreaterThanEqualToConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : GreaterThanEqualToMessageTemplateDrivenValidationDecoratorsComponent,
 						add : GreaterThanEqualToAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : GreaterThanEqualToCompleteValidatorComponent,
+						fieldName : GreaterThanEqualToFieldNameValidatorComponent,
+						conditionalExpression : GreaterThanEqualToConditionalExpressionValidatorComponent,
+						message : GreaterThanEqualToMessageValidatorComponent,
+						dynamic : GreaterThanEqualToDynamicValidatorComponent,
+						add : GreaterThanEqualToAddValidatorComponent,
 			  },
 }

@@ -5,6 +5,7 @@ const PROP_ARRAY_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
+}
+
 ];
 export const PROP_ARRAY_ROUTING: ModuleWithProviders = RouterModule.forChild(PROP_ARRAY_ROUTES);

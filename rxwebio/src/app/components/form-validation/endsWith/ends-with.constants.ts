@@ -32,14 +32,6 @@ export const ENDS_WITH_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : EndsWithAddComponent,
 						edit : EndsWithEditComponent,
 			  },
-	validators:{
-						complete : EndsWithCompleteValidatorComponent,
-						value : EndsWithValueValidatorComponent,
-						conditionalExpression : EndsWithConditionalExpressionValidatorComponent,
-						message : EndsWithMessageValidatorComponent,
-						dynamic : EndsWithDynamicValidatorComponent,
-						add : EndsWithAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : EndsWithCompleteTemplateDrivenValidationDirectivesComponent,
 						value : EndsWithValueTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const ENDS_WITH_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : EndsWithConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : EndsWithMessageTemplateDrivenValidationDecoratorsComponent,
 						add : EndsWithAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : EndsWithCompleteValidatorComponent,
+						value : EndsWithValueValidatorComponent,
+						conditionalExpression : EndsWithConditionalExpressionValidatorComponent,
+						message : EndsWithMessageValidatorComponent,
+						dynamic : EndsWithDynamicValidatorComponent,
+						add : EndsWithAddValidatorComponent,
 			  },
 }

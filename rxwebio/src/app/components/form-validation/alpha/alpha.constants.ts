@@ -32,14 +32,6 @@ export const ALPHA_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : AlphaAddComponent,
 						edit : AlphaEditComponent,
 			  },
-	validators:{
-						complete : AlphaCompleteValidatorComponent,
-						conditionalExpression : AlphaConditionalExpressionValidatorComponent,
-						allowWhiteSpace : AlphaAllowWhiteSpaceValidatorComponent,
-						message : AlphaMessageValidatorComponent,
-						dynamic : AlphaDynamicValidatorComponent,
-						add : AlphaAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : AlphaCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : AlphaConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const ALPHA_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						allowWhiteSpace : AlphaAllowWhiteSpaceTemplateDrivenValidationDecoratorsComponent,
 						message : AlphaMessageTemplateDrivenValidationDecoratorsComponent,
 						add : AlphaAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : AlphaCompleteValidatorComponent,
+						conditionalExpression : AlphaConditionalExpressionValidatorComponent,
+						allowWhiteSpace : AlphaAllowWhiteSpaceValidatorComponent,
+						message : AlphaMessageValidatorComponent,
+						dynamic : AlphaDynamicValidatorComponent,
+						add : AlphaAddValidatorComponent,
 			  },
 }

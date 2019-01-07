@@ -27,13 +27,6 @@ export const EVEN_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : EvenAddComponent,
 						edit : EvenEditComponent,
 			  },
-	validators:{
-						complete : EvenCompleteValidatorComponent,
-						conditionalExpression : EvenConditionalExpressionValidatorComponent,
-						message : EvenMessageValidatorComponent,
-						dynamic : EvenDynamicValidatorComponent,
-						add : EvenAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : EvenCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : EvenConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const EVEN_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : EvenConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : EvenMessageTemplateDrivenValidationDecoratorsComponent,
 						add : EvenAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : EvenCompleteValidatorComponent,
+						conditionalExpression : EvenConditionalExpressionValidatorComponent,
+						message : EvenMessageValidatorComponent,
+						dynamic : EvenDynamicValidatorComponent,
+						add : EvenAddValidatorComponent,
 			  },
 }

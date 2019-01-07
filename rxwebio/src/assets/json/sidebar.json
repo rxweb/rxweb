@@ -110,6 +110,11 @@
           "isActive": false
         },
         {
+          "title": "ip",
+          "uri": "/form-validations/ip/validators",
+          "isActive": false
+        },
+        {
           "title": "image",
           "uri": "/form-validations/image/validators",
           "isActive": false

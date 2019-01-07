@@ -5,10 +5,7 @@ const URL_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const URL_ROUTING: ModuleWithProviders = RouterModule.forChild(URL_ROUTES);

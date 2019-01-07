@@ -5,10 +5,7 @@ const COMPARE_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const COMPARE_ROUTING: ModuleWithProviders = RouterModule.forChild(COMPARE_ROUTES);

@@ -27,13 +27,6 @@ export const LEAP_YEAR_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : LeapYearAddComponent,
 						edit : LeapYearEditComponent,
 			  },
-	validators:{
-						complete : LeapYearCompleteValidatorComponent,
-						conditionalExpression : LeapYearConditionalExpressionValidatorComponent,
-						message : LeapYearMessageValidatorComponent,
-						dynamic : LeapYearDynamicValidatorComponent,
-						add : LeapYearAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : LeapYearCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : LeapYearConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const LEAP_YEAR_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : LeapYearConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : LeapYearMessageTemplateDrivenValidationDecoratorsComponent,
 						add : LeapYearAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : LeapYearCompleteValidatorComponent,
+						conditionalExpression : LeapYearConditionalExpressionValidatorComponent,
+						message : LeapYearMessageValidatorComponent,
+						dynamic : LeapYearDynamicValidatorComponent,
+						add : LeapYearAddValidatorComponent,
 			  },
 }

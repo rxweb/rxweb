@@ -27,13 +27,6 @@ export const MAC_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : MacAddComponent,
 						edit : MacEditComponent,
 			  },
-	validators:{
-						complete : MacCompleteValidatorComponent,
-						conditionalExpression : MacConditionalExpressionValidatorComponent,
-						message : MacMessageValidatorComponent,
-						dynamic : MacDynamicValidatorComponent,
-						add : MacAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : MacCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : MacConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const MAC_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : MacConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : MacMessageTemplateDrivenValidationDecoratorsComponent,
 						add : MacAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : MacCompleteValidatorComponent,
+						conditionalExpression : MacConditionalExpressionValidatorComponent,
+						message : MacMessageValidatorComponent,
+						dynamic : MacDynamicValidatorComponent,
+						add : MacAddValidatorComponent,
 			  },
 }

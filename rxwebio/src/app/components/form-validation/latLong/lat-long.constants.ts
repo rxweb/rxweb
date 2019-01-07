@@ -27,13 +27,6 @@ export const LAT_LONG_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : LatLongAddComponent,
 						edit : LatLongEditComponent,
 			  },
-	validators:{
-						complete : LatLongCompleteValidatorComponent,
-						conditionalExpression : LatLongConditionalExpressionValidatorComponent,
-						message : LatLongMessageValidatorComponent,
-						dynamic : LatLongDynamicValidatorComponent,
-						add : LatLongAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : LatLongCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : LatLongConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const LAT_LONG_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : LatLongConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : LatLongMessageTemplateDrivenValidationDecoratorsComponent,
 						add : LatLongAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : LatLongCompleteValidatorComponent,
+						conditionalExpression : LatLongConditionalExpressionValidatorComponent,
+						message : LatLongMessageValidatorComponent,
+						dynamic : LatLongDynamicValidatorComponent,
+						add : LatLongAddValidatorComponent,
 			  },
 }

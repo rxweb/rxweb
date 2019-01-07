@@ -32,14 +32,6 @@ export const MIN_LENGTH_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : MinLengthAddComponent,
 						edit : MinLengthEditComponent,
 			  },
-	validators:{
-						complete : MinLengthCompleteValidatorComponent,
-						value : MinLengthValueValidatorComponent,
-						message : MinLengthMessageValidatorComponent,
-						conditionalExpression : MinLengthConditionalExpressionValidatorComponent,
-						dynamic : MinLengthDynamicValidatorComponent,
-						add : MinLengthAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : MinLengthCompleteTemplateDrivenValidationDirectivesComponent,
 						value : MinLengthValueTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const MIN_LENGTH_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						message : MinLengthMessageTemplateDrivenValidationDecoratorsComponent,
 						conditionalExpression : MinLengthConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						add : MinLengthAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : MinLengthCompleteValidatorComponent,
+						value : MinLengthValueValidatorComponent,
+						message : MinLengthMessageValidatorComponent,
+						conditionalExpression : MinLengthConditionalExpressionValidatorComponent,
+						dynamic : MinLengthDynamicValidatorComponent,
+						add : MinLengthAddValidatorComponent,
 			  },
 }

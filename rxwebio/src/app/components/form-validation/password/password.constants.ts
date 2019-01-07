@@ -27,13 +27,6 @@ export const PASSWORD_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : PasswordAddComponent,
 						edit : PasswordEditComponent,
 			  },
-	validators:{
-						complete : PasswordCompleteValidatorComponent,
-						validation : PasswordValidationValidatorComponent,
-						message : PasswordMessageValidatorComponent,
-						dynamic : PasswordDynamicValidatorComponent,
-						add : PasswordAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : PasswordCompleteTemplateDrivenValidationDirectivesComponent,
 						validation : PasswordValidationTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const PASSWORD_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						validation : PasswordValidationTemplateDrivenValidationDecoratorsComponent,
 						message : PasswordMessageTemplateDrivenValidationDecoratorsComponent,
 						add : PasswordAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : PasswordCompleteValidatorComponent,
+						validation : PasswordValidationValidatorComponent,
+						message : PasswordMessageValidatorComponent,
+						dynamic : PasswordDynamicValidatorComponent,
+						add : PasswordAddValidatorComponent,
 			  },
 }

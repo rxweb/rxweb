@@ -5,10 +5,7 @@ const UNIQUE_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const UNIQUE_ROUTING: ModuleWithProviders = RouterModule.forChild(UNIQUE_ROUTES);

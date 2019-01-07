@@ -5,10 +5,7 @@ const MIN_NUMBER_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const MIN_NUMBER_ROUTING: ModuleWithProviders = RouterModule.forChild(MIN_NUMBER_ROUTES);

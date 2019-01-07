@@ -27,13 +27,6 @@ export const ASCII_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : AsciiAddComponent,
 						edit : AsciiEditComponent,
 			  },
-	validators:{
-						complete : AsciiCompleteValidatorComponent,
-						conditionalExpression : AsciiConditionalExpressionValidatorComponent,
-						message : AsciiMessageValidatorComponent,
-						dynamic : AsciiDynamicValidatorComponent,
-						add : AsciiAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : AsciiCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : AsciiConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const ASCII_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : AsciiConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : AsciiMessageTemplateDrivenValidationDecoratorsComponent,
 						add : AsciiAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : AsciiCompleteValidatorComponent,
+						conditionalExpression : AsciiConditionalExpressionValidatorComponent,
+						message : AsciiMessageValidatorComponent,
+						dynamic : AsciiDynamicValidatorComponent,
+						add : AsciiAddValidatorComponent,
 			  },
 }

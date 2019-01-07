@@ -5,10 +5,7 @@ const JSON_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const JSON_ROUTING: ModuleWithProviders = RouterModule.forChild(JSON_ROUTES);

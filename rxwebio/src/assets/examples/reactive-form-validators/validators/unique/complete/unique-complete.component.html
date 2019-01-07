@@ -15,9 +15,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr [formGroup]="skillGroup" *ngFor="let skillGroup of employeeFormGroup.controls.skills.controls;let i = index;">
+                <tr [formGroup]="skillGroup" *ngFor="let skillGroup of employeeFormGroup['controls']['skills']['controls'];let i = index;">
                     <th scope="row">{{i+ 1}}</th>
-                    <td><input type="text" formControlName="skillName" class="form-control" /><small class="form-text text-danger" *ngIf="skillGroup.controls.skillName.errors">{{skillGroup.controls.skillName.errors.unique.message}}<br/></small>	</td>
+                    <td><input type="text" formControlName="skillName" class="form-control" /><small class="form-text text-danger" *ngIf="skillGroup['controls']['skillName']['errors']">{{skillGroup['controls']['skillName']['errors']['unique']['message']}}<br/></small>	</td>
                 </tr>
             </tbody>
         </table>
@@ -32,9 +32,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr [formGroup]="hobbyGroup" *ngFor="let hobbyGroup of employeeFormGroup.controls.hobbies.controls;let i = index;">
+                <tr [formGroup]="hobbyGroup" *ngFor="let hobbyGroup of employeeFormGroup['controls']['hobbies']['controls'];let i = index;">
                     <th scope="row">{{i+ 1}}</th>
-                    <td><input type="text" formControlName="hobbyName" class="form-control" /><small class="form-text text-danger" *ngIf="hobbyGroup.controls.hobbyName.errors">{{hobbyGroup.controls.hobbyName.errors.unique.message}}<br/></small></td>
+                    <td><input type="text" formControlName="hobbyName" class="form-control" /><small class="form-text text-danger" *ngIf="hobbyGroup['controls']['hobbyName']['errors']">{{hobbyGroup['controls']['hobbyName']['errors']['unique']['message']}}<br/></small></td>
                 </tr>
             </tbody>
         </table>

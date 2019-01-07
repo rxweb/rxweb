@@ -42,16 +42,6 @@ export const IMAGE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : ImageAddComponent,
 						edit : ImageEditComponent,
 			  },
-	validators:{
-						complete : ImageCompleteValidatorComponent,
-						maxHeight : ImageMaxHeightValidatorComponent,
-						maxWidth : ImageMaxWidthValidatorComponent,
-						minHeight : ImageMinHeightValidatorComponent,
-						conditionalExpression : ImageConditionalExpressionValidatorComponent,
-						message : ImageMessageValidatorComponent,
-						dynamic : ImageDynamicValidatorComponent,
-						add : ImageAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : ImageCompleteTemplateDrivenValidationDirectivesComponent,
 						maxHeight : ImageMaxHeightTemplateDrivenValidationDirectivesComponent,
@@ -69,5 +59,15 @@ export const IMAGE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : ImageConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : ImageMessageTemplateDrivenValidationDecoratorsComponent,
 						add : ImageAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : ImageCompleteValidatorComponent,
+						maxHeight : ImageMaxHeightValidatorComponent,
+						maxWidth : ImageMaxWidthValidatorComponent,
+						minHeight : ImageMinHeightValidatorComponent,
+						conditionalExpression : ImageConditionalExpressionValidatorComponent,
+						message : ImageMessageValidatorComponent,
+						dynamic : ImageDynamicValidatorComponent,
+						add : ImageAddValidatorComponent,
 			  },
 }
