@@ -30,9 +30,6 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
         () => { 
           expect(RxwebValidators.alpha()(new FormControl(undefined))).toBeNull(); 
         });
-
-
-
 	//end
     });
   });
