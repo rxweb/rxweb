@@ -155,6 +155,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './odd/odd.module#OddModule',
 },
 {
+	path:'oneOf',
+	loadChildren: './oneOf/one-of.module#OneOfModule',
+},
+{
 	path:'password',
 	loadChildren: './password/password.module#PasswordModule',
 },

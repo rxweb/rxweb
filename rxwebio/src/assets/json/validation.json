@@ -208,6 +208,12 @@
       "loadChildren": "./odd/odd.module#OddModule"
     },
     {
+      "title": "@oneOf",
+      "description": "Odd validation decorator will check whether the user has entered any one of the given inputs or not.",
+      "path": "oneOf",
+      "loadChildren": "./oneOf/oneOf.module#OneOfModule"
+    },
+    {
       "title": "@password",
       "description": "Password validation decorator will allow only password pattern according for PasswordValidation parameters to be entered. ",
       "path": "password",

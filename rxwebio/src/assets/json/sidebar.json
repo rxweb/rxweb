@@ -205,6 +205,11 @@
           "isActive": false
         },
         {
+          "title": "oneOf",
+          "uri": "/form-validations/oneOf/validators",
+          "isActive": false
+        },
+        {
           "title": "password",
           "uri": "/form-validations/password/validators",
           "isActive": false

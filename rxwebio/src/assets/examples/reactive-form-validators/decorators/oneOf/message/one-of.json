@@ -1,0 +1,24 @@
+{
+    "hobbiesArray":[
+        {
+            "name":"Drawing",
+            "checked":false
+        },
+        {
+            "name":"Singing",
+            "checked":false
+        },
+        {
+            "name":"Dancing",
+            "checked":false
+        },
+        {
+            "name":"Travelling",
+            "checked":false
+        },
+        {
+            "name":"Sports",
+            "checked":false
+        }
+    ]
+}

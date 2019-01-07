@@ -111,7 +111,7 @@ export class AppComponent implements OnInit {
         "noneOf": "You can not select any option",
         "numeric": "Please enter valid number",
         "odd": "Please enter an odd number",
-        "oneOf": "You can select only one option",
+        "oneOf": "You must select any one option",
         "password": "Input does not match the password requirements",
         "pattern": "Input does not match the pattern requirements",
         "port": "Please enter a valid port number",
