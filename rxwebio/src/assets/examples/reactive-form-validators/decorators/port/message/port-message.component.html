@@ -5,7 +5,7 @@
       <input type="text" formControlName="educationalWebsitePort" class="form-control"  />
       <small class="form-text text-muted">enter port number only<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.educationalWebsitePort.errors">{{userFormGroup.controls.educationalWebsitePort.errors.port.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.educationalWebsitePort.errors">{{userFormGroup.controls.educationalWebsitePort.errors.port?.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

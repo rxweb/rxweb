@@ -4,7 +4,7 @@
       <label>Profile Picture</label>
       <input type="file" formControlName="profilePicture" class="form-control"  />
       <small class="form-text text-muted">This field only allow file extension as jpg or bmp only.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePicture.errors">{{userInfoFormGroup.controls.profilePicture.errors.extension.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePicture.errors">{{userInfoFormGroup.controls.profilePicture.errors.extension?.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

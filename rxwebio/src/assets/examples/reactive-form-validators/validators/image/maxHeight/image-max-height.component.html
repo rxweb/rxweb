@@ -3,7 +3,7 @@
     <div class="form-group">
       <label>Profile Photo</label>
       <input type="file" formControlName="profilePhoto" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePhoto.errors">{{userInfoFormGroup.controls.profilePhoto.errors.image.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePhoto.errors">{{userInfoFormGroup.controls.profilePhoto.errors.image?.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

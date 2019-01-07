@@ -15,6 +15,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './ascii/ascii.module#AsciiModule',
 },
 {
+	path:'compose',
+	loadChildren: './compose/compose.module#ComposeModule',
+},
+{
 	path:'compare',
 	loadChildren: './compare/compare.module#CompareModule',
 },

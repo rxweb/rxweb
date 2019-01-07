@@ -31,9 +31,11 @@ export class TopBarComponent {
     }
   }
   hideSearch() {
-    this.searchInput['searchBox'].nativeElement.value = "";
-    this.searchvalue = "";
-    document.getElementById("searchlist-content").style.display = "none";
+    setTimeout(() => {
+      this.searchInput['searchBox'].nativeElement.value = "";
+      this.searchvalue = "";
+      document.getElementById("searchlist-content").style.display = "none";
+    },300);
   }
 
 }

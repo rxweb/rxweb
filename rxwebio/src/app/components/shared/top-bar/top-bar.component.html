@@ -9,7 +9,7 @@
 	}">
 				<div class="search-box position-relative">
 
-					<ais-search-box id="search" placeholder='' type="text" (keyup)="showsearchcontent($event,searchvalue)" #search [(ngModel)]="searchvalue" name="searchvalue"
+					<ais-search-box id="search" placeholder='' type="text" (keyup)="showsearchcontent($event,searchvalue)" (blur)="hideSearch()" #search [(ngModel)]="searchvalue" name="searchvalue"
 					 class="search-field search-field-focus" ngDefaultControl focus></ais-search-box>
 
 					<!-- <div class="search-btn">

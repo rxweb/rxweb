@@ -35,6 +35,11 @@
           "isActive": false
         },
         {
+          "title": "compose",
+          "uri": "/form-validations/compose/validators",
+          "isActive": false
+        },
+        {
           "title": "contains",
           "uri": "/form-validations/contains/validators",
           "isActive": false
