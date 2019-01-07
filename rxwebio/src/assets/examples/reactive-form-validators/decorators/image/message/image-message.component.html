@@ -5,7 +5,7 @@
       <input type="file" formControlName="residenceProof" class="form-control"  />
       <small class="form-text text-muted">Invalid Image height or width.<br/></small>
       <small class="form-text text-muted">It shows custom message<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.residenceProof.errors">{{userInfoFormGroup.controls.residenceProof.errors.image.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.residenceProof.errors">{{userInfoFormGroup.controls.residenceProof.errors.image?.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

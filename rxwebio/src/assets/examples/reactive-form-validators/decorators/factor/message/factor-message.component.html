@@ -5,7 +5,7 @@
       <input type="text" formControlName="sixthNumber" class="form-control"  />
       <small class="form-text text-muted">you can enter only factors of 50<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.sixthNumber.errors">{{userFormGroup.controls.sixthNumber.errors.factor.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.sixthNumber.errors">{{userFormGroup.controls.sixthNumber.errors.factor?.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

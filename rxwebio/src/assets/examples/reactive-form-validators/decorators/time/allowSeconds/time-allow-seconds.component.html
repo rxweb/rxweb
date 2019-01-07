@@ -4,7 +4,7 @@
       <label>Total Time Out</label>
       <input type="text" formControlName="totalOutTime" class="form-control"  />
       <small class="form-text text-muted">Allow seconds.<br/></small>
-	 <small class="form-text text-danger" *ngIf="attandanceDetailFormGroup.controls.totalOutTime.errors">{{attandanceDetailFormGroup.controls.totalOutTime.errors.time.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="attandanceDetailFormGroup.controls.totalOutTime.errors">{{attandanceDetailFormGroup.controls.totalOutTime.errors.time?.message}}<br/></small>	
     </div>
     <button [disabled]="!attandanceDetailFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

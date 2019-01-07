@@ -139,7 +139,6 @@ This Complete Compose example which includes all the ComposeConfig properties wi
 # Dynamic Compose Example
 
 This Dynamic Compose example which execute based on json passed. conditional expression with function would be not apply in dynamic compose example. 
-4
 <div component="app-tabs" key="dynamic"></div>
 
 [!TabGroup]

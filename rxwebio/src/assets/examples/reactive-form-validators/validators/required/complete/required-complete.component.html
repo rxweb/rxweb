@@ -4,14 +4,14 @@
       <label>First Name</label>
       <input type="text" formControlName="firstName" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Middle Name' or 'Last Name', then you need to add 'First Name' input as 'Bharat'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstName.errors">{{userFormGroup.controls.firstName.errors.required.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstName.errors">{{userFormGroup.controls.firstName.errors.required?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Middle Name</label>
       <input type="text" formControlName="middleName" class="form-control"  />
       <small class="form-text text-muted">Conditional validation will be applied if the 'FirstName' field have value of 'Bharat'<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.middleName.errors">{{userFormGroup.controls.middleName.errors.required.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.middleName.errors">{{userFormGroup.controls.middleName.errors.required?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Last Name</label>
@@ -19,13 +19,13 @@
       <small class="form-text text-muted">Conditional Required Validation.<br/></small>
       <small class="form-text text-muted">Conditional validation will be applied if the 'FirstName' field have value of 'Bharat'<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.lastName.errors">{{userFormGroup.controls.lastName.errors.required.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.lastName.errors">{{userFormGroup.controls.lastName.errors.required?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>UserName</label>
       <input type="text" formControlName="userName" class="form-control"  />
       <small class="form-text text-muted">Shows Custom Validation Message.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.userName.errors">{{userFormGroup.controls.userName.errors.required.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.userName.errors">{{userFormGroup.controls.userName.errors.required?.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

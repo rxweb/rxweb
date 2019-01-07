@@ -4,7 +4,7 @@
       <label>First Country Longitude</label>
       <input type="text" formControlName="firstCountryLongitude" class="form-control"  />
       <small class="form-text text-muted">You must enter a valid longitude<br/></small>
-	 <small class="form-text text-danger" *ngIf="numberInfoFormGroup.controls.firstCountryLongitude.errors">{{numberInfoFormGroup.controls.firstCountryLongitude.errors.longitude.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="numberInfoFormGroup.controls.firstCountryLongitude.errors">{{numberInfoFormGroup.controls.firstCountryLongitude.errors.longitude?.message}}<br/></small>	
     </div>
     <button [disabled]="!numberInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

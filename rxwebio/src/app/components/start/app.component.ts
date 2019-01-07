@@ -126,7 +126,9 @@ export class AppComponent implements OnInit {
         "file": "Enter valid file count",
         "image": "Enter valid file height and width",
         "unique": "Enter unique value in the input",
-        "ip": "Enter correct ip address."
+        "ip": "Enter correct ip address.",
+        "compose": "Please enter valid value",
+        "composeMessageKey":"Please enter valid inputs"
       }
     });
   }

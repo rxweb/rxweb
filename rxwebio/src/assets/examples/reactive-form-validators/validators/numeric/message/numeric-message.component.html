@@ -5,7 +5,7 @@
       <input type="text" formControlName="positiveNumber" class="form-control"  />
       <small class="form-text text-muted">you can enter only a positive number<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.positiveNumber.errors">{{userInfoFormGroup.controls.positiveNumber.errors.numeric.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.positiveNumber.errors">{{userInfoFormGroup.controls.positiveNumber.errors.numeric?.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

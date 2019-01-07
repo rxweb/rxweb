@@ -6,55 +6,55 @@
 		<option [value]="item" *ngFor="let item of ipTypes">{{item}}</option>
       </select>
       <small class="form-text text-muted">Based on selection of ip type conditional validation is applied<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipType.errors">{{userFormGroup.controls.ipType.errors.ip.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipType.errors">{{userFormGroup.controls.ipType.errors.ip?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>IP V4</label>
       <input type="text" formControlName="ipV4" class="form-control"  />
       <small class="form-text text-muted">This validation is applied when input value is not IP V4 Type<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV4.errors">{{userFormGroup.controls.ipV4.errors.ip.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV4.errors">{{userFormGroup.controls.ipV4.errors.ip?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>IP V6</label>
       <input type="text" formControlName="ipV6" class="form-control"  />
       <small class="form-text text-muted">This validation is applied when input value is not IP V6 Type<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV6.errors">{{userFormGroup.controls.ipV6.errors.ip.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV6.errors">{{userFormGroup.controls.ipV6.errors.ip?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Any IP Type</label>
       <input type="text" formControlName="anyIPType" class="form-control"  />
       <small class="form-text text-muted">This validation is applied when input value is not any type of IP<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.anyIPType.errors">{{userFormGroup.controls.anyIPType.errors.ip.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.anyIPType.errors">{{userFormGroup.controls.anyIPType.errors.ip?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>IP V4 CIDR</label>
       <input type="text" formControlName="ipV4Cidr" class="form-control"  />
       <small class="form-text text-muted">This validation allowed ip version 4 and for supernetting Ips<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV4Cidr.errors">{{userFormGroup.controls.ipV4Cidr.errors.ip.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV4Cidr.errors">{{userFormGroup.controls.ipV4Cidr.errors.ip?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>IP V6 CIDR</label>
       <input type="text" formControlName="ipV6Cidr" class="form-control"  />
       <small class="form-text text-muted">This validation allowed ip version 6 and for supernetting Ips<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV6Cidr.errors">{{userFormGroup.controls.ipV6Cidr.errors.ip.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV6Cidr.errors">{{userFormGroup.controls.ipV6Cidr.errors.ip?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>IP V6 Conditional</label>
       <input type="text" formControlName="ipV6Conditional" class="form-control"  />
       <small class="form-text text-muted">This validation allowed ip version 6 and if ip type is IPV6 and conditionally validated<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV6Conditional.errors">{{userFormGroup.controls.ipV6Conditional.errors.ip.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV6Conditional.errors">{{userFormGroup.controls.ipV6Conditional.errors.ip?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>IP V4 Conditional</label>
       <input type="text" formControlName="ipV4Conditional" class="form-control"  />
       <small class="form-text text-muted">This validation allowed ip version 6 and if ip type is IPV6 and conditionally validated<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV4Conditional.errors">{{userFormGroup.controls.ipV4Conditional.errors.ip.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV4Conditional.errors">{{userFormGroup.controls.ipV4Conditional.errors.ip?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>IP V4 Custom Message</label>
       <input type="text" formControlName="ipV4Message" class="form-control"  />
       <small class="form-text text-muted">This validation allowed ip version 4 it display custom message<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV4Message.errors">{{userFormGroup.controls.ipV4Message.errors.ip.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV4Message.errors">{{userFormGroup.controls.ipV4Message.errors.ip?.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

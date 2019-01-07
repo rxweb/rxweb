@@ -5,7 +5,7 @@
       <input type="text" formControlName="zipCode" class="form-control"  />
       <small class="form-text text-muted">It checked that zipcode match zipcode regex or not <br/></small>
       <small class="form-text text-muted">Shows custom message<br/></small>
-	<small class="form-text text-danger" *ngIf="userFormGroup.controls.zipCode.errors">{{userFormGroup.controls.zipCode.errors.zipCode.message}}<br/></small>	
+	<small class="form-text text-danger" *ngIf="userFormGroup.controls.zipCode.errors">{{userFormGroup.controls.zipCode.errors.zipCode?.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>
