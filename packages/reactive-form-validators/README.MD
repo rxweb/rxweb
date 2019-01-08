@@ -30,10 +30,13 @@ Reactive Form Validators will work in angular projects.
     * [Dynamic Validation](#dynamic-validation)
     * [Conditional Validation](#conditional-validation)
     * [Dirty Check](#dirty-check)
+    * [Compare Password](#compare-password)
+    * [Single Error Message](#single-error-message)
 * [Upcoming Form Validations](#upcoming-form-validations)
 * [Goal](#goal)
-* [Help](#help)
-* [Your Feedback](#your-feedback)
+* [Contributing](#contributing)
+* [Need Help](#need-help)
+* [Feature Request](#feature-request)
 * [License](#license)
 
 ## Installation
@@ -85,39 +88,43 @@ Three ways to apply validation on the form via Validators, Validation Decorators
 15. [even](#even)   
 16. [extension](#extension)  
 17. [factor](#factor)   
-18. [fileSize](#filesize) 
-19. [greaterThanEqualTo](#greaterthanequalto)   
-20. [greaterThan](#greaterthan)   
-21. [hexColor](#hexcolor)   
-22. [json](#json)  
-23. [latitude](#latitude) 
-24. [latLong](#latlong) 
-25. [leapYear](#leapyear)  
-26. [lessThanEqualTo](#lessthanequalto)   
-27. [lessThan](#lessthan)   
-28. [longitude](#longitude)
-29. [lowerCase](#lowercase) 
-30. [mac](#mac) 
-31. [maxDate](#maxdate) 
-32. [maxLength](#maxlength)  
-33. [maxNumber](#maxnumber)
-34. [minDate](#mindate) 
-35. [minLength](#minlength) 
-36. [minNumber](#minnumber)   
-37. [noneOf](#noneof)  
-38. [numeric](#numeric) 
-39. [odd](#odd)  
-40. [oneOf](#oneof)  
-41. [password](#password)
-42. [pattern](#pattern)   
-43. [port](#port) 
-44. [primeNumber](#primenumber)
-45. [range](#range)   
-46. [required](#required)  
-47. [startsWith](#startswith)
-48. [time](#time)   
-49. [upperCase](#uppercase)   
-50. [url](#url)   
+18. [file](#file)
+19. [fileSize](#filesize) 
+20. [greaterThanEqualTo](#greaterthanequalto)   
+21. [greaterThan](#greaterthan)
+22. [ip](#ip)
+23. [image](#image)
+24. [hexColor](#hexcolor)   
+25. [json](#json)  
+26. [latitude](#latitude) 
+27. [latLong](#latlong) 
+28. [leapYear](#leapyear)  
+29. [lessThanEqualTo](#lessthanequalto)   
+30. [lessThan](#lessthan)   
+31. [longitude](#longitude)
+32. [lowerCase](#lowercase) 
+33. [mac](#mac) 
+34. [maxDate](#maxdate) 
+35. [maxLength](#maxlength)  
+36. [maxNumber](#maxnumber)
+37. [minDate](#mindate) 
+38. [minLength](#minlength) 
+39. [minNumber](#minnumber)   
+40. [noneOf](#noneof)  
+41. [numeric](#numeric) 
+42. [odd](#odd)  
+43. [oneOf](#oneof)  
+44. [password](#password)
+45. [pattern](#pattern)   
+46. [port](#port) 
+47. [primeNumber](#primenumber)
+48. [range](#range)   
+49. [required](#required)  
+50. [startsWith](#startswith)
+51. [time](#time)
+52. [unique](#unique)
+53. [upperCase](#uppercase)   
+54. [url](#url)   
 
 ## allOf
 allOf validation will check whether the user has entered all of the values of given field or not.
@@ -137,7 +144,7 @@ allOf validation will check whether the user has entered all of the values of gi
   @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
 ```
 ___
-## alpha
+## alpha   
 Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character.
 > Reactive Form Validation
 ```js
@@ -433,6 +440,24 @@ this.userFormGroup = this.formBuilder.group({
 @factor({dividend:50 })	firstNumber: Number;
 ```
 ___
+## file
+file validation validators allows user to validate whether how many files can be uploaded . It depends upon maxFiles and minFiles.
+> Reactive Form Validation
+```js
+   this.userInfoFormGroup = this.formBuilder.group({
+            totalDocumentFiles:['', RxwebValidators.file({minFiles:5 })], 
+        });
+```       
+> Template Form Validation
+```html
+ <input type="file" name="totalImageFiles" multiple [(ngModel)]="userinfo.totalImageFiles"  class="form-control" [file]="             {'maxFiles':5}"/>
+```
+> Decorator Based Validation
+```js
+	@file({maxFiles:5 }) 
+	totalImageFiles: number;
+```
+___
 ## fileSize
 fileSize validation  allows user to enter the input which is in the proper file size format.
 > Reactive Form Validation
@@ -505,6 +530,33 @@ this.userFormGroup = this.formBuilder.group({
 > Decorator Based Validation
 ```js
 @hexColor() color: string;
+```
+___
+## ip
+ip validation validators is used to validate the ip address of the device.
+> Reactive Form Validation
+```js
+    this.userFormGroup = this.formBuilder.group({
+            ipV4:['', RxwebValidators.ip({version:1 })], 
+        });
+```       
+___
+## image
+image validation validators allows user to validate image like height,width etc .
+> Reactive Form Validation
+```js
+   this.userInfoFormGroup = this.formBuilder.group({
+            profilePhoto:['', RxwebValidators.image({maxHeight:100  ,maxWidth:100 })], 
+        });
+```       
+> Template Form Validation
+```html
+  <input type="file" name="profilePhoto"  [(ngModel)]="userinfo.profilePhoto"  class="form-control" [image]="{'maxHeight':100,'maxWidth':100}"/>
+```
+> Decorator Based Validation
+```js
+	@image({maxHeight:100  ,maxWidth:100 }) 
+	profilePhoto: string;
 ```
 ___
 ## json
@@ -997,6 +1049,34 @@ time validation will allow user to enter the input only in the correct time form
 	@time() entryTime: string;
 ```
 ___
+## unique
+Unique validation validators is used to validate unique input based on formArray.
+> Reactive Form Validation
+```js
+ this.employeeFormGroup = this.formBuilder.group({
+            fullName:[''], 
+            skills:this.formBuilder.array([
+              this.getSkillFormGroup()
+            ])
+        });
+        
+         addSkill(){
+        let skillsArray = <FormArray>this.employeeFormGroup.controls.skills;
+        skillsArray.push(this.getSkillFormGroup());
+      }
+      
+     getSkillFormGroup(){
+        return this.formBuilder.group({
+          skillName:['',RxwebValidators.unique()]
+        })
+      }
+```       
+> Decorator Based Validation
+```js		 
+  @unique()
+	skillName: string[];
+```
+___
 ## upperCase
 UpperCase validation will allow user to enter the alphabets only in the upperCase format. 
 > Reactive Form Validation
@@ -1130,6 +1210,47 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 <button [disabled]="!userInfoFormGroup.isDirty()" class="btn btn-primary">Submit</button>
 </form>
 ```
+
+## Compare Password
+Compare validation is used to check whether the value of two formControls are same or not .Here is an example of comparing password.
+ field. See the working code example on ***[stackblitz](https://stackblitz.com/angular/nlylepgknjb?file=src%2Fapp%2Fcompare-field-name.component.ts)***
+> Reactive Form Validation
+```js
+ this.userFormGroup = this.formBuilder.group({
+            password:['',], 
+            confirmPassword:['', RxwebValidators.compare({fieldName:'password' })], 
+        });
+```       
+> Template Form Validation
+```html
+<input id="confirmPassword" name="confirmPassword" class="form-control"
+         [(ngModel)]="user.confirmPassword" [compare]='{"fieldName":"password"}'] >
+```
+> Decorator Based Validation
+```js
+@compare({fieldName:'password'}) confirmPassword: string;
+```
+## Single Error Message
+You can a single default message for a formControl and display it in single errormessage without multiple conditions ***[stackblitz](https://stackblitz.com/edit/angular-best-way-to-show-error-message-reactive-form?file=src%2Fapp%2Fapp.component.html)***
+```html
+  <input type="text" formControlName="userName" class="form-control"  />
+    {{userFormGroup.controls.userName["errorMessage"]}}
+```
+
+In ReactiveFormConfig set the global validation message
+```  ReactiveFormConfig.set({
+      "validationMessage":{
+    "required":"This field is required",
+      "minLength":"minimum length is {{0}}",
+      "maxLength":"allowed max length is {{0}}"
+      }
+    });
+    
+      this.userFormGroup = this.formBuilder.group({
+     userName:['',[RxwebValidators.required(),RxwebValidators.minLength({value:5}),RxwebValidators.maxLength({value:10})]]
+    })
+```
+
 ## Upcoming Form Validations
 1. Masking.
 2. Phone/Mobile Number Masking.
@@ -1143,16 +1264,19 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 2. Easy implementation of complex and dynamic validation with less lines of code.
 3. Faster development for Advanced/Complex validation Forms.
 
-## Help
-We are happy to help you with any kind of validation related problem in angular based application. If you face any issue with the validation framework, you can follow one of the approach below :
-1. You can join our [gitter](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) chat room and solve your queries.
-2. You can log the issue on our github repository.
-3. Ask question on stackoverflow, we are active on stackoverflow.
+## Contributing
+If you are thinking to make rxweb framework better, that's truly great. You can contribute from a single character to core architectural work or significant documentation – all with the goal of making a robust rxweb framework which helps for everyone in their projects. Even if you are don’t feel up to writing code or documentation yet, there are a variety of other ways that you can contribute like reporting issues to testing patches.
 
->If you need something different then the existing feature in the validation framework. Then you can create a feature request on our github repository.
+Check out the <a href="https://rxweb.io/community/where_to_start_contributing">docs</a> on how you can put your precious efforts on the rxweb framework and contribute in the respective area.
 
-## Your Feedback
-Your feedback is important for us, If you have any question or suggestion then please drop an email to ajay@rxweb.io.
+## Need Help
+We highly recommend for help please ask your questions on our <a href="https://gitter.im/rxweb-project/rxweb?source=orgpage">gitter/rxweb-project</a> to get quick response from us. Otherthan our gitter channel you can ask your question on <a
+href="https://stackoverflow.com/search?q=rxweb">StackOverflow</a> or <a href="https://github.com/rxweb/rxweb/issues/new/choose">create a new issue</a> in our Github Repository.
+
+For, issue please refer our issue workflow wiki for better visibility our issue process.
+
+## Feature Request
+You can request a new feature by submitting an issue to our <a href="https://github.com/rxweb/rxweb">GitHub Repository</a>. If you would like to implement a new feature, please submit an issue with a proposal for your work first, to be sure that we can use it.
 
 # License
 MIT
