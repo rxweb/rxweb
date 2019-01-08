@@ -30,10 +30,13 @@ Reactive Form Validators will work in angular projects.
     * [Dynamic Validation](#dynamic-validation)
     * [Conditional Validation](#conditional-validation)
     * [Dirty Check](#dirty-check)
+    * [Compare Password](#compare-password)
+    * [Single Error Message](#single-error-message)
 * [Upcoming Form Validations](#upcoming-form-validations)
 * [Goal](#goal)
-* [Help](#help)
-* [Your Feedback](#your-feedback)
+* [Contributing](#contributing)
+* [Need Help](#need-help)
+* [Feature Request](#feature-request)
 * [License](#license)
 
 ## Installation
@@ -1207,6 +1210,46 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 <button [disabled]="!userInfoFormGroup.isDirty()" class="btn btn-primary">Submit</button>
 </form>
 ```
+
+## Compare Password
+Compare validation is used to check whether the value of two formControls are same or not .Here is an example of comparing password 
+> Reactive Form Validation
+```js
+ this.userFormGroup = this.formBuilder.group({
+            password:['',], 
+            confirmPassword:['', RxwebValidators.compare({fieldName:'password' })], 
+        });
+```       
+> Template Form Validation
+```html
+<input id="confirmPassword" name="confirmPassword" class="form-control"
+         [(ngModel)]="user.confirmPassword" [compare]='{"fieldName":"password"}'] >
+```
+> Decorator Based Validation
+```js
+@compare({fieldName:'password'}) confirmPassword: string;
+```
+## Single Error Message
+You can a single default message for a formControl and display it in single errormessage without multiple conditions
+```html
+  <input type="text" formControlName="userName" class="form-control"  />
+    {{userFormGroup.controls.userName["errorMessage"]}}
+```
+
+In ReactiveFormConfig set the global validation message
+```  ReactiveFormConfig.set({
+      "validationMessage":{
+    "required":"This field is required",
+      "minLength":"minimum length is {{0}}",
+      "maxLength":"allowed max length is {{0}}"
+      }
+    });
+    
+      this.userFormGroup = this.formBuilder.group({
+     userName:['',[RxwebValidators.required(),RxwebValidators.minLength({value:5}),RxwebValidators.maxLength({value:10})]]
+    })
+```
+
 ## Upcoming Form Validations
 1. Masking.
 2. Phone/Mobile Number Masking.
@@ -1220,16 +1263,18 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 2. Easy implementation of complex and dynamic validation with less lines of code.
 3. Faster development for Advanced/Complex validation Forms.
 
-## Help
-We are happy to help you with any kind of validation related problem in angular based application. If you face any issue with the validation framework, you can follow one of the approach below :
-1. You can join our [gitter](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) chat room and solve your queries.
-2. You can log the issue on our github repository.
-3. Ask question on stackoverflow, we are active on stackoverflow.
+## Contributing
+If you are thinking to make rxweb framework better, that's truly great. You can contribute from a single character to core architectural work or significant documentation – all with the goal of making a robust rxweb framework which helps for everyone in their projects. Even if you are don’t feel up to writing code or documentation yet, there are a variety of other ways that you can contribute like reporting issues to testing patches.
 
->If you need something different then the existing feature in the validation framework. Then you can create a feature request on our github repository.
+Check out the [docs](#https://rxweb.io/community/where_to_start_contributing) on how you can put your precious efforts on the rxweb framework and contribute in the respective area.
 
-## Your Feedback
-Your feedback is important for us, If you have any question or suggestion then please drop an email to ajay@rxweb.io.
+## Need Help
+We highly recommend for help please ask your questions on our [gitter/rxweb-project](#https://gitter.im/rxweb-project/rxweb?source=orgpage) to get quick response from us. Otherthan our gitter channel you can ask your question on [StackOverflow](#https://stackoverflow.com/search?q=rxweb) or [create a new issue](#https://github.com/rxweb/rxweb/issues/new/choose) in our Github Repository.
+
+For, issue please refer our issue workflow wiki for better visibility our issue process.
+
+## Feature Request
+You can request a new feature by submitting an issue to our [GitHub Repository](#https://github.com/rxweb/rxweb). If you would like to implement a new feature, please submit an issue with a proposal for your work first, to be sure that we can use it.
 
 # License
 MIT
