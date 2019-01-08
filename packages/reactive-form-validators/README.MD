@@ -85,39 +85,43 @@ Three ways to apply validation on the form via Validators, Validation Decorators
 15. [even](#even)   
 16. [extension](#extension)  
 17. [factor](#factor)   
-18. [fileSize](#filesize) 
-19. [greaterThanEqualTo](#greaterthanequalto)   
-20. [greaterThan](#greaterthan)   
-21. [hexColor](#hexcolor)   
-22. [json](#json)  
-23. [latitude](#latitude) 
-24. [latLong](#latlong) 
-25. [leapYear](#leapyear)  
-26. [lessThanEqualTo](#lessthanequalto)   
-27. [lessThan](#lessthan)   
-28. [longitude](#longitude)
-29. [lowerCase](#lowercase) 
-30. [mac](#mac) 
-31. [maxDate](#maxdate) 
-32. [maxLength](#maxlength)  
-33. [maxNumber](#maxnumber)
-34. [minDate](#mindate) 
-35. [minLength](#minlength) 
-36. [minNumber](#minnumber)   
-37. [noneOf](#noneof)  
-38. [numeric](#numeric) 
-39. [odd](#odd)  
-40. [oneOf](#oneof)  
-41. [password](#password)
-42. [pattern](#pattern)   
-43. [port](#port) 
-44. [primeNumber](#primenumber)
-45. [range](#range)   
-46. [required](#required)  
-47. [startsWith](#startswith)
-48. [time](#time)   
-49. [upperCase](#uppercase)   
-50. [url](#url)   
+18. [file](#file)
+19. [fileSize](#filesize) 
+20. [greaterThanEqualTo](#greaterthanequalto)   
+21. [greaterThan](#greaterthan)
+22. [ip](#ip)
+23. [image](#image)
+24. [hexColor](#hexcolor)   
+25. [json](#json)  
+26. [latitude](#latitude) 
+27. [latLong](#latlong) 
+28. [leapYear](#leapyear)  
+29. [lessThanEqualTo](#lessthanequalto)   
+30. [lessThan](#lessthan)   
+31. [longitude](#longitude)
+32. [lowerCase](#lowercase) 
+33. [mac](#mac) 
+34. [maxDate](#maxdate) 
+35. [maxLength](#maxlength)  
+36. [maxNumber](#maxnumber)
+37. [minDate](#mindate) 
+38. [minLength](#minlength) 
+39. [minNumber](#minnumber)   
+40. [noneOf](#noneof)  
+41. [numeric](#numeric) 
+42. [odd](#odd)  
+43. [oneOf](#oneof)  
+44. [password](#password)
+45. [pattern](#pattern)   
+46. [port](#port) 
+47. [primeNumber](#primenumber)
+48. [range](#range)   
+49. [required](#required)  
+50. [startsWith](#startswith)
+51. [time](#time)
+52. [unique](#unique)
+53. [upperCase](#uppercase)   
+54. [url](#url)   
 
 ## allOf
 allOf validation will check whether the user has entered all of the values of given field or not.
@@ -137,7 +141,7 @@ allOf validation will check whether the user has entered all of the values of gi
   @allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#"]}) skills: string[];
 ```
 ___
-## alpha
+## alpha   
 Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character.
 > Reactive Form Validation
 ```js
@@ -433,6 +437,24 @@ this.userFormGroup = this.formBuilder.group({
 @factor({dividend:50 })	firstNumber: Number;
 ```
 ___
+## file
+file validation validators allows user to validate whether how many files can be uploaded . It depends upon maxFiles and minFiles.
+> Reactive Form Validation
+```js
+   this.userInfoFormGroup = this.formBuilder.group({
+            totalDocumentFiles:['', RxwebValidators.file({minFiles:5 })], 
+        });
+```       
+> Template Form Validation
+```html
+ <input type="file" name="totalImageFiles" multiple [(ngModel)]="userinfo.totalImageFiles"  class="form-control" [file]="             {'maxFiles':5}"/>
+```
+> Decorator Based Validation
+```js
+	@file({maxFiles:5 }) 
+	totalImageFiles: number;
+```
+___
 ## fileSize
 fileSize validation  allows user to enter the input which is in the proper file size format.
 > Reactive Form Validation
@@ -505,6 +527,33 @@ this.userFormGroup = this.formBuilder.group({
 > Decorator Based Validation
 ```js
 @hexColor() color: string;
+```
+___
+## ip
+ip validation validators is used to validate the ip address of the device.
+> Reactive Form Validation
+```js
+    this.userFormGroup = this.formBuilder.group({
+            ipV4:['', RxwebValidators.ip({version:1 })], 
+        });
+```       
+___
+## image
+image validation validators allows user to validate image like height,width etc .
+> Reactive Form Validation
+```js
+   this.userInfoFormGroup = this.formBuilder.group({
+            profilePhoto:['', RxwebValidators.image({maxHeight:100  ,maxWidth:100 })], 
+        });
+```       
+> Template Form Validation
+```html
+  <input type="file" name="profilePhoto"  [(ngModel)]="userinfo.profilePhoto"  class="form-control" [image]="{'maxHeight':100,'maxWidth':100}"/>
+```
+> Decorator Based Validation
+```js
+	@image({maxHeight:100  ,maxWidth:100 }) 
+	profilePhoto: string;
 ```
 ___
 ## json
@@ -995,6 +1044,34 @@ time validation will allow user to enter the input only in the correct time form
 > Decorator Based Validation
 ```js		 
 	@time() entryTime: string;
+```
+___
+## unique
+Unique validation validators is used to validate unique input based on formArray.
+> Reactive Form Validation
+```js
+ this.employeeFormGroup = this.formBuilder.group({
+            fullName:[''], 
+            skills:this.formBuilder.array([
+              this.getSkillFormGroup()
+            ])
+        });
+        
+         addSkill(){
+        let skillsArray = <FormArray>this.employeeFormGroup.controls.skills;
+        skillsArray.push(this.getSkillFormGroup());
+      }
+      
+     getSkillFormGroup(){
+        return this.formBuilder.group({
+          skillName:['',RxwebValidators.unique()]
+        })
+      }
+```       
+> Decorator Based Validation
+```js		 
+  @unique()
+	skillName: string[];
 ```
 ___
 ## upperCase
