@@ -15,6 +15,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './ascii/ascii.module#AsciiModule',
 },
 {
+	path:'choice',
+	loadChildren: './choice/choice.module#ChoiceModule',
+},
+{
 	path:'compose',
 	loadChildren: './compose/compose.module#ComposeModule',
 },
@@ -157,10 +161,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'odd',
 	loadChildren: './odd/odd.module#OddModule',
-},
-{
-	path:'oneOf',
-	loadChildren: './oneOf/one-of.module#OneOfModule',
 },
 {
 	path:'password',

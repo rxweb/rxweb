@@ -1,0 +1,20 @@
+{
+    "projectDomainsArray": [
+        {
+            "name": "ECommerce",
+            "checked": false
+        },
+        {
+            "name": "Banking",
+            "checked": false
+        },
+        {
+            "name":"Educational",
+            "checked":false
+        },
+        {
+            "name":"Gaming",
+            "checked":false
+        }
+    ]
+}

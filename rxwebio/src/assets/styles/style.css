@@ -6649,3 +6649,12 @@ body.hide-sidebar #menu .header-link {
 
 /*-------- do not add any css here ---------- */
 
+.form-check.ng-star-inserted
+{
+    display: inline-block;
+    margin-left: 10px;
+}
+.form-check.ng-star-inserted h4{
+    font-size: 14px;
+    font-weight: normal
+}

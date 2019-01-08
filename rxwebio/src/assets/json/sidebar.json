@@ -35,6 +35,11 @@
           "isActive": false
         },
         {
+          "title": "choice",
+          "uri": "/form-validations/choice/validators",
+          "isActive": false
+        },
+        {
           "title": "compose",
           "uri": "/form-validations/compose/validators",
           "isActive": false

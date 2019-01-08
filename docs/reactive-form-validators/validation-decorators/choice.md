@@ -1,15 +1,14 @@
---
+---
 title: choice 
 description: choice validation  {{validatorType}}  will check whether the value entered is matching the properties defined.
 author: rxcontributortwo
 category: form-validations
 type:tabs
 linktitle: choice
---
+---
 
 # When to use
 Suppose you want to create a employee form in which you want employee to enter value of a particular choice which contains fields like department, hobbies and skills.Here the field is taken in the form of array and according to that the choice is applied on the property by applying minlength and maxLength. Here depending upon the requirement these scenarios may arise.
-
 <ol class='showHideElement'>
     <li>The skills field in which you want the user to enter maximum three skills and minimum of one skill.</li>
     <li>Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be maximum three and minimum one.</li>
@@ -18,7 +17,6 @@ Suppose you want to create a employee form in which you want employee to enter v
     <li>Apply choice validation dynamically based on server rules.</li>
     </data-scope>
 </ol>
-
 Let’s see how choice  {{validatorType}}  fulfil the need.
 
 # Basic choice Validation
@@ -36,23 +34,10 @@ Here we have covered Add form operations.
 </data-scope>
 
 <data-scope scope="['decorator']">
-<div component="app-tabs" key="basic-operations"></div>
-[!TabGroup]
-# [Add](#tab\basicadd)
 <div component="app-code" key="choice-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="choice-add-html"></div> 
 <div component="app-example-runner" ref-component="app-choice-add"></div>
-# [/Add]
-# [Edit](#tab\basicedit)
-<div component="app-code" key="choice-edit-component"></div> 
-The below code is `employee-data.json` for getting data from the server
-<div component="app-code" key="choice-edit-json"></div>  
-Next, we need to write html code.
-<div component="app-code" key="choice-edit-html"></div> 
-<div component="app-example-runner" ref-component="app-choice-edit"></div>
-# [/Edit]
-***
 </data-scope>
 
 <data-scope scope="['validator','template-driven-directives','template-driven-decorators']">

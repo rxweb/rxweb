@@ -128,7 +128,7 @@ export class AppComponent implements OnInit {
         "unique": "Enter unique value in the input",
         "ip": "Enter correct ip address.",
         "compose": "Please enter valid value",
-        "composeMessageKey":"Please enter valid inputs"
+        "composeMessageKey":"Please enter valid inputs",
       }
     });
   }

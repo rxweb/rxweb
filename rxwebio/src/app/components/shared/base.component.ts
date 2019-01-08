@@ -37,10 +37,10 @@ export abstract class BaseComponentProvider implements OnDestroy {
     }
 
     create(component:any,params:{[key:string]:any}):any{
-        let componentView = new ComponentView(component, this.viewContainerRef, this.componentFactoryResolver);
-        componentView.create(params);
-        this.componentViews.push(componentView);
-        return componentView;
+            let componentView = new ComponentView(component, this.viewContainerRef, this.componentFactoryResolver);
+            componentView.create(params);
+            this.componentViews.push(componentView);
+            return componentView;
     }
 
     getPramas(element:any,type?:string){
