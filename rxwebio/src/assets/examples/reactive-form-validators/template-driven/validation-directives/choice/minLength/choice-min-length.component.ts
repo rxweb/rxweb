@@ -13,22 +13,22 @@ import { HttpClient } from '@angular/common/http';
 export class ChoiceMinLengthTemplateDrivenValidationDirectivesComponent implements OnInit {
     employeeInfo = new EmployeeInfo();
 
-    selectedHobbies: string[] = [];
+    selectedQualification: string[] = [];
 
     constructor(
         private formBuilder: RxFormBuilder, private http: HttpClient) { }
 
-        hobbiesArray: string[] = [];
+        qualificationsArray: string[] = [];
 
     ngOnInit() {
         this.employeeInfo = new EmployeeInfo();
-        this.http.get("assets/examples/reactive-form-validators/decorators/choice/minLength/choice.json").subscribe(response => {
-            this.hobbiesArray = response['qualificationsArray'];
+        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/minLength/choice.json").subscribe(response => {
+            this.qualificationsArray = response['qualificationsArray'];
         })
     }
 
-    addHobbies(element: any, index: number) {
-        element.checked ? this.selectedHobbies.push(element.value) : this.selectedHobbies.splice(index, 1);
-        this.employeeInfo.hobbies = this.selectedHobbies;
+    addQualification(element: any, index: number) {
+        element.checked ? this.selectedQualification.push(element.value) : this.selectedQualification.splice(index, 1);
+        this.employeeInfo.qualifications = this.selectedQualification;
     }
 }

@@ -1,27 +1,23 @@
 {
-    "qualificationsArray": [
+    "hobbiesArray":[
         {
-            "name": "Secondary",
-            "checked": false
-        },
-        {
-            "name": "Senior Secondary",
-            "checked": false
-        },
-        {
-            "name":"B.Tech.",
+            "name":"Drawing",
             "checked":false
         },
         {
-            "name":"M.Tech.",
+            "name":"Singing",
             "checked":false
         },
         {
-            "name":"B.C.A.",
+            "name":"Dancing",
             "checked":false
         },
         {
-            "name":"M.C.A.",
+            "name":"Travelling",
+            "checked":false
+        },
+        {
+            "name":"Sports",
             "checked":false
         }
     ]

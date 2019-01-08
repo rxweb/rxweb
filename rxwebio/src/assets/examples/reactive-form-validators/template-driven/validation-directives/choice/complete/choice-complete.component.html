@@ -2,14 +2,14 @@
   <form #employeeInfoForm="ngForm">
     <div class="form-group">
       <label>Department</label>
-      <input type="text" [ngModel]="employeeInfo.department" class="form-control" placeholder="Enter any department" />
+      <input type="text" name="department" [ngModel]="employeeInfo.department" class="form-control" placeholder="Enter any department" />
     </div>
     <div class="form-group">
       <label>Project Domains</label>
       <div class="form-check" *ngFor="let tag of projectDomainsArray; let i = index;">
         <h4>
           <input (click)="addProjectDomain($event.target,i)" [ngModel]="employeeInfo.projectDomains[i]" type="checkbox"
-            value="{{tag.name}}" /> {{tag.name}}
+            value="{{tag.name}}" name="projectDomains{{i}}" /> {{tag.name}}
         </h4>
       </div>
       <br />
@@ -21,7 +21,7 @@
       <div class="form-check" *ngFor="let tag of qualificationsArray; let i = index;">
         <h4>
           <input (click)="addQualification($event.target,i)" [ngModel]="employeeInfo.qualifications[i]" type="checkbox"
-            value="{{tag.name}}" /> {{tag.name}}
+            value="{{tag.name}}" name="qualifications{{i}}" /> {{tag.name}}
         </h4>
       </div>
       <br />
@@ -34,7 +34,7 @@
       <label>Languages</label><small>( With Conditional Expression )</small><br>
       <div class="form-check" *ngFor="let tag of languagesArray; let i = index;">
         <h4>
-          <input (click)="addLanguages($event.target,i)" [ngModel]="employeeInfo.languages[i]" type="checkbox" value="{{tag.name}}" />
+          <input (click)="addLanguages($event.target,i)" [ngModel]="employeeInfo.languages[i]" name="languages{{i}}" type="checkbox" value="{{tag.name}}" />
           {{tag.name}}
         </h4>
       </div>
@@ -48,7 +48,7 @@
       <label>Skills</label><small>( With Conditional Expression )</small><br>
       <div class="form-check" *ngFor="let tag of skillsArray; let i = index;">
         <h4>
-          <input (click)="addSkill($event.target,i)" [ngModel]="employeeInfo.skills[i]" type="checkbox" value="{{tag.name}}" />
+          <input (click)="addSkill($event.target,i)" [ngModel]="employeeInfo.skills[i]" type="checkbox" value="{{tag.name}}" name="skills{{i}}" />
           {{tag.name}}
         </h4>
       </div>
@@ -62,7 +62,7 @@
       <label>Hobbies</label>
       <div class="form-check" *ngFor="let tag of hobbiesArray; let i = index;">
         <h4>
-          <input (click)="addHobby($event.target,i)" [ngModel]="employeeInfo.hobbies" type="checkbox" value="{{tag.name}}" />
+          <input (click)="addHobby($event.target,i)" [ngModel]="employeeInfo.hobbies" type="checkbox" value="{{tag.name}}" name="hobbies{{i}}" />
           {{tag.name}}
         </h4>
       </div>
