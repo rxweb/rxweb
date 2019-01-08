@@ -28,22 +28,22 @@ export function creditCardValidator(config: CreditCardConfig): ValidatorFn {
               isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.AmericanExpress) && checkLength(controlValue.length,[15]);
               break;
             case "DinersClub":
-              isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.DinersClub) && checkLength(controlValue.length, [14]);
+              isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.DinersClub) && checkLength(controlValue.length, [14,16,19]);
               break;
             case "Discover":
-              isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Discover) && checkLength(controlValue.length, [16]);
+              isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Discover) && checkLength(controlValue.length, [16,19]);
               break;
             case "JCB":
-              isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.JCB) && checkLength(controlValue.length, [15,16]);
+              isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.JCB) && checkLength(controlValue.length, [16,19]);
               break;
             case "Maestro":
-              isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Maestro) && checkLength(controlValue.length, [12,19]);
+              isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Maestro) && checkLength(controlValue.length, [12,16,19]);
               break;
             case "MasterCard":
               isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.MasterCard) && checkLength(controlValue.length, [16]);
               break;
             case "Visa":
-              isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Visa) && checkLength(controlValue.length, [13,16]);
+              isValid = RegexValidator.isValid(controlValue, RegExRule.creditCard.Visa) && checkLength(controlValue.length, [13,16,19]);
               break;
           }
           cardType = creditCardType;

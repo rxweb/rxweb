@@ -20,10 +20,11 @@ export class RegexValidator {
         return regex.test(value);
     }
 
-    static isNotBlank(value: any): boolean {
-        return (value === 0) || ( value != undefined && value != "" && value != null );
-    }
-
+  static isNotBlank(value: any, isRemoveSpace: boolean = false): boolean {
+    return !isRemoveSpace ?
+      (value === 0) || (value != undefined && value != null && value != "") :
+      (value === 0) || (value != undefined && value != null && String(value).trim() != "")
+  }
     static isValidPassword(passwordValidation: PasswordValidation, value: string): { [key: string]: any } {
         let isValid = false;
         let jObject: { [key: string]: any } = {};
