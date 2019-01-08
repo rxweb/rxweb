@@ -1,0 +1,38 @@
+<div>
+  <form  *ngIf="employeeInfoFormGroup"  [formGroup]="employeeInfoFormGroup">
+    <div class="form-group">
+      <label>Department</label>
+      <input type="text" formControlName="department" class="form-control" placeholder="Enter any department" />
+    </div>
+    <div class="form-group">
+      <label>Project Domains</label>
+      <div class="form-check" *ngFor="let tag of projectDomainsArray; let i = index;">
+          <h4>
+            <input (click)="addProjectDomain($event.target,i)" type="checkbox" value="{{tag.name}}" /> {{tag.name}}
+          </h4>
+        </div>
+        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.projectDomains.errors">{{employeeInfoFormGroup.controls.projectDomains.errors.noneOf.message}}<br></small>
+    </div>
+    <div class="form-group">
+      <label>Skills</label><small>( With Conditional Expression )</small><br>
+      <div class="form-check" *ngFor="let tag of skillsArray; let i = index;">
+        <h4>
+          <input (click)="addSkill($event.target,i)" type="checkbox" value="{{tag.name}}" /> {{tag.name}}
+        </h4>
+      </div>
+      <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.skills.errors">{{employeeInfoFormGroup.controls.skills.errors.noneOf.message}}<br></small>
+      <small class="form-text text-muted" >To apply the validation on 'Skills' field, enter 'DotNet' in 'Department' field</small><br>
+    </div>
+    <div class="form-group">
+      <label>Hobbies</label>
+      <div class="form-check" *ngFor="let tag of hobbiesArray; let i = index;">
+          <h4>
+            <input (click)="addHobby($event.target,i)" type="checkbox" value="{{tag.name}}" /> {{tag.name}}
+          </h4>
+        </div>
+        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.hobbies.errors">{{employeeInfoFormGroup.controls.hobbies.errors.noneOf.message}}<br></small>
+      <small class="form-text text-muted">Shows custom message</small><br>
+    </div>
+    <button [disabled]="!employeeInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+  </div>

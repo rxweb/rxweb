@@ -20,15 +20,27 @@ export class OneOfMessageValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.employeeInfoFormGroup = this.formBuilder.group({
-            hobbies:['',RxwebValidators.oneOf({matchValues:["Drawing", "Singing","Dancing","Travelling","Sports"],message: "Please select no hobbies"})]
+            hobbies:['',RxwebValidators.oneOf({matchValues:["Drawing", "Singing","Dancing","Travelling","Sports"],message: "Please select atleast 1 hobby"})]
         });
-        this.http.get("assets/examples/reactive-form-validators/decorators/oneOf/message/one-of.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/validators/oneOf/message/one-of.json").subscribe(response => {
             this.hobbiesArray = response['hobbiesArray'];
         })
     }
 
-    addHobby(element: any, index: number) {
-        element.checked ? this.selectedHobbies.push(element.value) : this.selectedHobbies.splice(index, 1);
-        this.employeeInfoFormGroup.controls.hobbies.setValue(this.selectedHobbies);
-    }
+    index = 0;
+    addHobby(element:any) {
+        var value = this.employeeInfoFormGroup.controls.hobbies.value;
+        if(!value)
+          value = [];
+          if(element.checked) {
+                value.push(element.value);
+                this.index++;
+          }
+          else
+          {
+          var indexOf = value.indexOf(element.value);
+          value.splice(indexOf,1);
+          }
+        this.employeeInfoFormGroup.controls.hobbies.setValue(value)
+      }
 }

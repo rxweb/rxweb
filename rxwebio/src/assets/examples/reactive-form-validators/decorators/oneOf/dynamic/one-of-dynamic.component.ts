@@ -13,11 +13,6 @@ import { EmployeeInfo } from './employee-info.model';
 export class OneOfDynamicComponent implements OnInit {
     employeeInfoFormGroup: FormGroup
 
-    selectedQualifications: string[] = [];
-    selectedSkills: string[] = [];
-    selectedHobbies: string[] = [];
-    selectedProjectDomains : string[] = [];
-
     constructor(
         private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
@@ -43,24 +38,52 @@ export class OneOfDynamicComponent implements OnInit {
 
         this.employeeInfoFormGroup = this.formBuilder.formGroup(employeeInfo);
     }
-
-    addProjectDomain(element: any, index: number) {
-        element.checked ? this.selectedProjectDomains.push(element.value) : this.selectedProjectDomains.splice(index, 1);
-        this.employeeInfoFormGroup.controls.projects.setValue(this.selectedProjectDomains);
+    index = 0;
+    addProjectDomain(element:any) {
+      var value = this.employeeInfoFormGroup.controls.projectDomains.value;
+      if(!value)
+        value = [];
+        if(element.checked) {
+              value.push(element.value);
+              this.index++;
+        }
+        else
+        {
+        var indexOf = value.indexOf(element.value);
+        value.splice(indexOf,1);
+        }
+      this.employeeInfoFormGroup.controls.projectDomains.setValue(value)
     }
 
-    addQualification(element: any, index: number) {
-        element.checked ? this.selectedQualifications.push(element.value) : this.selectedQualifications.splice(index, 1);
-        this.employeeInfoFormGroup.controls.qualifications.setValue(this.selectedQualifications);
-    }
-    
-    addSkill(element: any, index: number) {
-        element.checked ? this.selectedSkills.push(element.value) : this.selectedSkills.splice(index, 1);
-        this.employeeInfoFormGroup.controls.skills.setValue(this.selectedSkills);
-    }
-    
-    addHobby(element: any, index: number) {
-        element.checked ? this.selectedHobbies.push(element.value) : this.selectedHobbies.splice(index, 1);
-        this.employeeInfoFormGroup.controls.hobbies.setValue(this.selectedHobbies);
-    }
+    addSkill(element:any) {
+        var value = this.employeeInfoFormGroup.controls.skills.value;
+        if(!value)
+          value = [];
+          if(element.checked) {
+                value.push(element.value);
+                this.index++;
+          }
+          else
+          {
+          var indexOf = value.indexOf(element.value);
+          value.splice(indexOf,1);
+          }
+        this.employeeInfoFormGroup.controls.skills.setValue(value)
+      }
+
+      addHobby(element:any) {
+        var value = this.employeeInfoFormGroup.controls.hobbies.value;
+        if(!value)
+          value = [];
+          if(element.checked) {
+                value.push(element.value);
+                this.index++;
+          }
+          else
+          {
+          var indexOf = value.indexOf(element.value);
+          value.splice(indexOf,1);
+          }
+        this.employeeInfoFormGroup.controls.hobbies.setValue(value)
+      }
 }

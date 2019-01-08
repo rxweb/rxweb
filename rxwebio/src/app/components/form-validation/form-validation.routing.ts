@@ -15,10 +15,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './ascii/ascii.module#AsciiModule',
 },
 {
-	path:'compose',
-	loadChildren: './compose/compose.module#ComposeModule',
-},
-{
 	path:'compare',
 	loadChildren: './compare/compare.module#CompareModule',
 },
@@ -149,6 +145,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'minNumber',
 	loadChildren: './minNumber/min-number.module#MinNumberModule',
+},
+{
+	path:'noneOf',
+	loadChildren: './noneOf/none-of.module#NoneOfModule',
 },
 {
 	path:'numeric',

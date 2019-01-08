@@ -15,6 +15,11 @@
       "isActive": false,
       "childrens": [
         {
+          "title": "allOf",
+          "uri": "/form-validations/allOf/validators",
+          "isActive": false
+        },
+        {
           "title": "alpha",
           "uri": "/form-validations/alpha/validators",
           "isActive": false
@@ -197,6 +202,11 @@
         {
           "title": "minNumber",
           "uri": "/form-validations/minNumber/validators",
+          "isActive": false
+        },
+        {
+          "title": "noneOf",
+          "uri": "/form-validations/noneOf/validators",
           "isActive": false
         },
         {

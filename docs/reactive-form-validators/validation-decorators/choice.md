@@ -27,40 +27,13 @@ First we need to create a Employee Model and define a property of hobbies in the
 <div component="app-code" key="choice-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
-<data-scope scope="['decorator']">
-Here we have covered Add and Edit form operations. 
-</data-scope>
+Here we have covered Add form operation.
 
-<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
-Here we have covered Add form operations. 
-</data-scope>
-
-<data-scope scope="['decorator']">
-<div component="app-tabs" key="basic-operations"></div>
-[!TabGroup]
-# [Add](#tab\basicadd)
 <div component="app-code" key="choice-add-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="choice-add-html"></div> 
 <div component="app-example-runner" ref-component="app-choice-add"></div>
-# [/Add]
-# [Edit](#tab\basicedit)
-<div component="app-code" key="choice-edit-component"></div> 
-The below code is `employee-data.json` for getting data from the server
-<div component="app-code" key="choice-edit-json"></div>  
-Next, we need to write html code.
-<div component="app-code" key="choice-edit-html"></div> 
-<div component="app-example-runner" ref-component="app-choice-edit"></div>
-# [/Edit]
 ***
-</data-scope>
-
-<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
-<div component="app-code" key="choice-add-component"></div> 
-Next, we need to write html code.
-<div component="app-code" key="choice-add-html"></div> 
-<div component="app-example-runner" ref-component="app-choice-add"></div>
-</data-scope>
 
 # ChoiceConfig
 <data-scope scope="['decorator']">

@@ -12,8 +12,6 @@ import { HttpClient } from '@angular/common/http';
 export class OneOfMatchValuesComponent implements OnInit {
     employeeInfoFormGroup: FormGroup
 
-    selectedProjectDomains:string[] = [];
-
     constructor(
         private formBuilder: RxFormBuilder ,private http: HttpClient) { }
 
@@ -28,8 +26,20 @@ export class OneOfMatchValuesComponent implements OnInit {
           this.employeeInfoFormGroup = this.formBuilder.formGroup(employeeInfo);
         }
 
-        addProjectDomain(element: any, index: number) {
-            element.checked ? this.selectedProjectDomains.push(element.value) : this.selectedProjectDomains.splice(index, 1);
-            this.employeeInfoFormGroup.controls.projects.setValue(this.selectedProjectDomains);
+        index = 0;
+        addProjectDomain(element:any) {
+          var value = this.employeeInfoFormGroup.controls.projectDomains.value;
+          if(!value)
+            value = [];
+            if(element.checked) {
+                  value.push(element.value);
+                  this.index++;
+            }
+            else
+            {
+            var indexOf = value.indexOf(element.value);
+            value.splice(indexOf,1);
+            }
+          this.employeeInfoFormGroup.controls.projectDomains.setValue(value)
         }
 }
