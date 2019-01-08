@@ -15,14 +15,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './ascii/ascii.module#AsciiModule',
 },
 {
-	path:'choice',
-	loadChildren: './choice/choice.module#ChoiceModule',
-},
-{
-	path:'compose',
-	loadChildren: './compose/compose.module#ComposeModule',
-},
-{
 	path:'compare',
 	loadChildren: './compare/compare.module#CompareModule',
 },
@@ -155,12 +147,20 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './minNumber/min-number.module#MinNumberModule',
 },
 {
+	path:'noneOf',
+	loadChildren: './noneOf/none-of.module#NoneOfModule',
+},
+{
 	path:'numeric',
 	loadChildren: './numeric/numeric.module#NumericModule',
 },
 {
 	path:'odd',
 	loadChildren: './odd/odd.module#OddModule',
+},
+{
+	path:'oneOf',
+	loadChildren: './oneOf/one-of.module#OneOfModule',
 },
 {
 	path:'password',

@@ -12,8 +12,6 @@ import { HttpClient } from '@angular/common/http';
 export class OneOfMessageComponent implements OnInit {
     employeeInfoFormGroup: FormGroup
 
-    selectedHobbies: string[] = [];
-
     constructor(
         private formBuilder: RxFormBuilder, private http: HttpClient) { }
 
@@ -28,8 +26,20 @@ export class OneOfMessageComponent implements OnInit {
         this.employeeInfoFormGroup = this.formBuilder.formGroup(employeeInfo);
     }
 
-    addHobby(element: any, index: number) {
-        element.checked ? this.selectedHobbies.push(element.value) : this.selectedHobbies.splice(index, 1);
-        this.employeeInfoFormGroup.controls.hobbies.setValue(this.selectedHobbies);
-    }
+    index = 0;
+    addHobby(element:any) {
+        var value = this.employeeInfoFormGroup.controls.hobbies.value;
+        if(!value)
+          value = [];
+          if(element.checked) {
+                value.push(element.value);
+                this.index++;
+          }
+          else
+          {
+          var indexOf = value.indexOf(element.value);
+          value.splice(indexOf,1);
+          }
+        this.employeeInfoFormGroup.controls.hobbies.setValue(value)
+      }
 }

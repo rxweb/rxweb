@@ -1,0 +1,54 @@
+{
+    "qualificationsArray": [
+        {
+            "name": "Secondary",
+            "checked": false
+        },
+        {
+            "name": "Senior Secondary",
+            "checked": false
+        },
+        {
+            "name":"B.Tech.",
+            "checked":false
+        },
+        {
+            "name":"M.Tech.",
+            "checked":false
+        },
+        {
+            "name":"B.C.A.",
+            "checked":false
+        },
+        {
+            "name":"M.C.A.",
+            "checked":false
+        }
+    ],
+    "skillsArray":[
+        {
+            "name":"MVC",
+            "checked":false
+        },
+        {
+            "name":"AngularJS",
+            "checked":false
+        },
+        {
+            "name":"Angular 5",
+            "checked":false
+        },
+        {
+            "name":"C#",
+            "checked":false
+        },
+        {
+            "name":"Web Api",
+            "checked":false
+        },
+        {
+            "name":"SQL Server",
+            "checked":false
+        }
+    ]
+}

@@ -22,7 +22,7 @@ export class OneOfAddValidatorComponent implements OnInit {
                 department:[''],
                 projectDomains:['', RxwebValidators.oneOf({matchValues:["ECommerce", "Banking","Educational","Gaming"]})], 
             });
-          this.http.get("assets/examples/reactive-form-validators/decorators/oneOf/add/one-of.json").subscribe(response => {
+          this.http.get("assets/examples/reactive-form-validators/validators/oneOf/add/one-of.json").subscribe(response => {
             this.projectDomainsArray = response['projectDomainsArray'];
         })
         }

@@ -12,9 +12,6 @@ import { HttpClient } from '@angular/common/http';
 export class OneOfConditionalExpressionComponent implements OnInit {
     employeeInfoFormGroup: FormGroup
 
-    selectedQualifications: string[] = [];
-    selectedSkills: string[] = [];
-
     constructor(
         private formBuilder: RxFormBuilder, private http: HttpClient) { }
 
@@ -31,14 +28,37 @@ export class OneOfConditionalExpressionComponent implements OnInit {
         this.employeeInfoFormGroup = this.formBuilder.formGroup(employeeInfo);
     }
 
-    addQualification(element: any, index: number) {
-        element.checked ? this.selectedQualifications.push(element.value) : this.selectedQualifications.splice(index, 1);
-        this.employeeInfoFormGroup.controls.qualifications.setValue(this.selectedQualifications);
-    }
-    
-    addSkill(element: any, index: number) {
-        element.checked ? this.selectedSkills.push(element.value) : this.selectedSkills.splice(index, 1);
-        this.employeeInfoFormGroup.controls.skills.setValue(this.selectedSkills);
-    }
+    index = 0;
+    addQualification(element:any) {
+        var value = this.employeeInfoFormGroup.controls.qualifications.value;
+        if(!value)
+          value = [];
+          if(element.checked) {
+                value.push(element.value);
+                this.index++;
+          }
+          else
+          {
+          var indexOf = value.indexOf(element.value);
+          value.splice(indexOf,1);
+          }
+        this.employeeInfoFormGroup.controls.qualifications.setValue(value)
+      }
+
+      addSkill(element:any) {
+        var value = this.employeeInfoFormGroup.controls.skills.value;
+        if(!value)
+          value = [];
+          if(element.checked) {
+                value.push(element.value);
+                this.index++;
+          }
+          else
+          {
+          var indexOf = value.indexOf(element.value);
+          value.splice(indexOf,1);
+          }
+        this.employeeInfoFormGroup.controls.skills.setValue(value)
+      }
 
 }
