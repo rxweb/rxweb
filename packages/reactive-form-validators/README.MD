@@ -1212,7 +1212,8 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 ```
 
 ## Compare Password
-Compare validation is used to check whether the value of two formControls are same or not .Here is an example of comparing password 
+Compare validation is used to check whether the value of two formControls are same or not .Here is an example of comparing password.
+ field. See the working code example on ***[stackblitz](https://stackblitz.com/angular/nlylepgknjb?file=src%2Fapp%2Fcompare-field-name.component.ts)***
 > Reactive Form Validation
 ```js
  this.userFormGroup = this.formBuilder.group({
@@ -1230,7 +1231,7 @@ Compare validation is used to check whether the value of two formControls are sa
 @compare({fieldName:'password'}) confirmPassword: string;
 ```
 ## Single Error Message
-You can a single default message for a formControl and display it in single errormessage without multiple conditions
+You can a single default message for a formControl and display it in single errormessage without multiple conditions ***[stackblitz](https://stackblitz.com/edit/angular-best-way-to-show-error-message-reactive-form?file=src%2Fapp%2Fapp.component.html)***
 ```html
   <input type="text" formControlName="userName" class="form-control"  />
     {{userFormGroup.controls.userName["errorMessage"]}}
