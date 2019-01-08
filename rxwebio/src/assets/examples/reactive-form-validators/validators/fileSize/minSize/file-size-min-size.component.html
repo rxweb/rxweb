@@ -3,7 +3,7 @@
     <div class="form-group">
       <label>Audio File</label>
       <input type="file" formControlName="audioFile" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.audioFile.errors">{{userInfoFormGroup.controls.audioFile.errors.fileSize.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.audioFile.errors">{{userInfoFormGroup.controls.audioFile.errors.fileSize?.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

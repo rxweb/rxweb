@@ -15,6 +15,11 @@
       "isActive": false,
       "childrens": [
         {
+          "title": "allOf",
+          "uri": "/form-validations/allOf/validators",
+          "isActive": false
+        },
+        {
           "title": "alpha",
           "uri": "/form-validations/alpha/validators",
           "isActive": false
@@ -32,6 +37,16 @@
         {
           "title": "compare",
           "uri": "/form-validations/compare/validators",
+          "isActive": false
+        },
+        {
+          "title": "choice",
+          "uri": "/form-validations/choice/validators",
+          "isActive": false
+        },
+        {
+          "title": "compose",
+          "uri": "/form-validations/compose/validators",
           "isActive": false
         },
         {
@@ -107,6 +122,11 @@
         {
           "title": "hexColor",
           "uri": "/form-validations/hexColor/validators",
+          "isActive": false
+        },
+        {
+          "title": "ip",
+          "uri": "/form-validations/ip/validators",
           "isActive": false
         },
         {
@@ -190,6 +210,11 @@
           "isActive": false
         },
         {
+          "title": "noneOf",
+          "uri": "/form-validations/noneOf/validators",
+          "isActive": false
+        },
+        {
           "title": "numeric",
           "uri": "/form-validations/numeric/validators",
           "isActive": false
@@ -197,6 +222,11 @@
         {
           "title": "odd",
           "uri": "/form-validations/odd/validators",
+          "isActive": false
+        },
+        {
+          "title": "oneOf",
+          "uri": "/form-validations/oneOf/validators",
           "isActive": false
         },
         {
@@ -237,6 +267,11 @@
         {
           "title": "time",
           "uri": "/form-validations/time/validators",
+          "isActive": false
+        },
+        {
+          "title": "unique",
+          "uri": "/form-validations/unique/validators",
           "isActive": false
         },
         {

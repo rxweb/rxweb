@@ -27,13 +27,6 @@ export const LOWER_CASE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : LowerCaseAddComponent,
 						edit : LowerCaseEditComponent,
 			  },
-	validators:{
-						complete : LowerCaseCompleteValidatorComponent,
-						conditionalExpression : LowerCaseConditionalExpressionValidatorComponent,
-						message : LowerCaseMessageValidatorComponent,
-						dynamic : LowerCaseDynamicValidatorComponent,
-						add : LowerCaseAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : LowerCaseCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : LowerCaseConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const LOWER_CASE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : LowerCaseConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : LowerCaseMessageTemplateDrivenValidationDecoratorsComponent,
 						add : LowerCaseAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : LowerCaseCompleteValidatorComponent,
+						conditionalExpression : LowerCaseConditionalExpressionValidatorComponent,
+						message : LowerCaseMessageValidatorComponent,
+						dynamic : LowerCaseDynamicValidatorComponent,
+						add : LowerCaseAddValidatorComponent,
 			  },
 }

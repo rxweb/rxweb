@@ -37,15 +37,6 @@ export const FILE_SIZE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : FileSizeAddComponent,
 						edit : FileSizeEditComponent,
 			  },
-	validators:{
-						complete : FileSizeCompleteValidatorComponent,
-						maxSize : FileSizeMaxSizeValidatorComponent,
-						minSize : FileSizeMinSizeValidatorComponent,
-						conditionalExpression : FileSizeConditionalExpressionValidatorComponent,
-						message : FileSizeMessageValidatorComponent,
-						dynamic : FileSizeDynamicValidatorComponent,
-						add : FileSizeAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : FileSizeCompleteTemplateDrivenValidationDirectivesComponent,
 						maxSize : FileSizeMaxSizeTemplateDrivenValidationDirectivesComponent,
@@ -61,5 +52,14 @@ export const FILE_SIZE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : FileSizeConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : FileSizeMessageTemplateDrivenValidationDecoratorsComponent,
 						add : FileSizeAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : FileSizeCompleteValidatorComponent,
+						maxSize : FileSizeMaxSizeValidatorComponent,
+						minSize : FileSizeMinSizeValidatorComponent,
+						conditionalExpression : FileSizeConditionalExpressionValidatorComponent,
+						message : FileSizeMessageValidatorComponent,
+						dynamic : FileSizeDynamicValidatorComponent,
+						add : FileSizeAddValidatorComponent,
 			  },
 }

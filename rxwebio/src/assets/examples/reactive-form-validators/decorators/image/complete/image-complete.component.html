@@ -6,46 +6,46 @@
 		<option [value]="item" *ngFor="let item of ImageTypes">{{item}}</option>
       </select>
       <small class="form-text text-muted">Based on selection of file type conditional validation is applied<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.imageType.errors">{{userInfoFormGroup.controls.imageType.errors.image.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.imageType.errors">{{userInfoFormGroup.controls.imageType.errors.image?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Profile Photo</label>
       <input type="file" formControlName="profilePhoto" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePhoto.errors">{{userInfoFormGroup.controls.profilePhoto.errors.image.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePhoto.errors">{{userInfoFormGroup.controls.profilePhoto.errors.image?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Signature</label>
       <input type="file" formControlName="signature" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.signature.errors">{{userInfoFormGroup.controls.signature.errors.image.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.signature.errors">{{userInfoFormGroup.controls.signature.errors.image?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Identity Card</label>
       <input type="file" formControlName="identityCard" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.identityCard.errors">{{userInfoFormGroup.controls.identityCard.errors.image.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.identityCard.errors">{{userInfoFormGroup.controls.identityCard.errors.image?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Driving License</label>
       <input type="file" formControlName="drivinglicense" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.drivinglicense.errors">{{userInfoFormGroup.controls.drivinglicense.errors.image.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.drivinglicense.errors">{{userInfoFormGroup.controls.drivinglicense.errors.image?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Aadhar Card</label>
       <input type="file" formControlName="aadharCard" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Aadhar Card' then you need to add 'Image Type' input as 'IdentityCard'.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.aadharCard.errors">{{userInfoFormGroup.controls.aadharCard.errors.image.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.aadharCard.errors">{{userInfoFormGroup.controls.aadharCard.errors.image?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Pan Card</label>
       <input type="file" formControlName="panCard" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Document File' then you need to add 'File Type' input as 'IdentityCard'.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.panCard.errors">{{userInfoFormGroup.controls.panCard.errors.image.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.panCard.errors">{{userInfoFormGroup.controls.panCard.errors.image?.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Residence Proof</label>
       <input type="file" formControlName="residenceProof" class="form-control"  />
       <small class="form-text text-muted">Invalid Image height or width.<br/></small>
       <small class="form-text text-muted">It shows custom message<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.residenceProof.errors">{{userInfoFormGroup.controls.residenceProof.errors.image.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.residenceProof.errors">{{userInfoFormGroup.controls.residenceProof.errors.image?.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

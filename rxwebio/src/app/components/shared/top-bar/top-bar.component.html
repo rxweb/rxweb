@@ -1,46 +1,54 @@
-<div id="wrapper"><div class="hpanel validation-tab">
-<div class="search-box position-relative">
-		
-	<ais-instantsearch [config]="{
+<div id="wrapper">
+	<div class="hpanel validation-tab">
+		<div class="search-page  position-relative">
+
+			<ais-instantsearch [config]="{
 	  apiKey: 'b7a4da24f8a9808c5230923c962ba440',
 	  appId: 'IWR8PSW8GA',
 	  indexName: 'rxwebio'
 	}">
-	<div class="search-box position-relative">
-		
-			<ais-search-box type="text" (keyup)="showsearchcontent(searchvalue)" [(ngModel)]="searchvalue" name="searchvalue" class="search-field search-field-focus" ngDefaultControl></ais-search-box>
+				<div class="search-box position-relative">
 
-			<div class="search-btn">
+					<ais-search-box id="search" placeholder='' type="text" (keyup)="showsearchcontent($event,searchvalue)" (blur)="hideSearch()" #search [(ngModel)]="searchvalue" name="searchvalue"
+					 class="search-field search-field-focus" ngDefaultControl focus></ais-search-box>
+
+					<!-- <div class="search-btn">
 					<svg height="24" viewBox="0 0 50 50" width="24" class="search"><path fill="#555555" d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg>
-				</div> 
-		  <!-- <ais-search-box class="search-field"></ais-search-box>
+				</div>  -->
+					<!-- <ais-search-box class="search-field"></ais-search-box>
 		  <	div class="search-btn">
 				<svg height="24" viewBox="0 0 50 50" width="24" class="search"><path fill="#555555" d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg>
 			</div>  -->
-			</div>
-			<div id="searchlist-content" class="search-content">
-					<h2>Search results for : {{searchvalue}} </h2>
-		  <ais-stats></ais-stats>                  
-		  <ais-hits>
-				 
-			<ng-template let-hits="hits" let-results="results">                      
-			   <ul class="list-unstyled search-list">
-			  <li *ngFor="let hit of hits">
-					
-				  <div class="search-title">  {{hit.title}}</div>
-				<a href="{{hit.link}}">See Also</a>
-				<div class="search-decr">  {{hit.description}}</div>
-			  </li>
-			</ul> 
-			</ng-template>
-			</ais-hits>
+				</div>
+				<div id="searchlist-content" class="search-content">
+					<!--	<h2>Search results for : {{searchvalue}} </h2>
+		  <ais-stats></ais-stats>                   -->
+					<ais-hits>
 
+						<ng-template let-hits="hits" let-results="results">
+							<ul class="list-unstyled search-list">
+								<li *ngFor="let hit of hits">
+									<div class="search-title">
+										<a [routerLink]="hit.link"> {{hit.title}}</a>
+									</div>
+									<div class="search-decr"> {{hit.description}}</div>
+									<ul class="list-unstyled see-more-links">
+										<li class="bold">Go to : </li>
+											<li class="" *ngFor="let item of hit.refLinks">
+												<a [routerLink]="item.url">{{item.title}}</a>
+											</li>
+										</ul>
+								</li>
+							</ul>
+						</ng-template>
+					</ais-hits>
+
+				</div>
+			</ais-instantsearch>
 		</div>
-		</ais-instantsearch>
-</div>
 
-<div id="header">
-  <!-- <div class="header-link hide-menu d-flex align-items-center" (click)="hideSideBar()">
+		<div id="header">
+			<!-- <div class="header-link hide-menu d-flex align-items-center" (click)="hideSideBar()">
 		<svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
 		<a routerLink="/home" title="rxweb" class="rxlogo">rxweb</a>
    </div>
@@ -49,27 +57,28 @@
     <img src="/assets/images/rxweb-logo.png" />
     </a>
   </div>-->
-  <nav role="navigation">
-	    <div class="mobile-menu">
-      <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-Target="#mobile-collapse">
-        <i class="fa fa-chevron-down"></i>
-      </button>
-	    <div class="collapse mobile-navbar" id="mobile-collapse">
-        <ul class="nav navbar-nav">
-					<!-- <li><a (click)="login()">Login</a></li> -->
-					<li>
-						<a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators" rel="noopener" target="_blank">GitHub</a>
-					</li>
-					<li>
-						<a href="https://stackoverflow.com/search?q=rxweb" target="_blank" rel="noopener">Stack Overflow</a>
-					</li>
-					<li>
-						<a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" target="_blank" rel="noopener">Comment</a>
-					</li>
-				</ul>
-		 </div>
-    </div>
-		<!--<div class="navbar-right">
+			<nav role="navigation">
+				<div class="mobile-menu">
+					<button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-Target="#mobile-collapse">
+						<i class="fa fa-chevron-down"></i>
+					</button>
+					<div class="collapse mobile-navbar" id="mobile-collapse">
+						<ul class="nav navbar-nav">
+							<!-- <li><a (click)="login()">Login</a></li> -->
+							<li>
+								<a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators" rel="noopener" target="_blank">GitHub</a>
+							</li>
+							<li>
+								<a href="https://stackoverflow.com/search?q=rxweb" target="_blank" rel="noopener">Stack Overflow</a>
+							</li>
+							<li>
+								<a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"
+								 target="_blank" rel="noopener">Comment</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--<div class="navbar-right">
       <ul class="nav navbar-nav no-borders">
 				<li>
 					<a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators" title="GitHub" target="_blank" rel="noopener"><i class="fa fa-github"></i></a>
@@ -82,29 +91,33 @@
 				</li>
 		</ul>
 		</div>-->
-	</nav>
-	<div class="hidden-md hidden-lg mobile-view">
-			<div class="header-link hide-menu d-flex align-items-center" (click)="hideSideBar()">
-					<svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+			</nav>
+			<div class="hidden-md hidden-lg mobile-view">
+				<div class="header-link hide-menu d-flex align-items-center" (click)="hideSideBar()">
+					<svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+					</svg>
 					<a class="rxlogo" routerlink="/home" title="rxweb" href="/home">rxweb</a>
-					<div >
-							<ul class="nav navbar-nav no-borders">
-									<!-- <li><a (click)="login()"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a></li> -->
-									<li><a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators" target="_blank" rel="noopener"
-													title="GitHub"><i class="fa fa-github"></i>GitHub issues</a></li>
-									<li><a href="https://stackoverflow.com/search?q=rxweb" target="_blank" rel="noopener" title="Stack Overflow"><i class="fa fa-stack-overflow"></i>Stack
-													Overflow</a></li>
-									<li><a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge" target="_blank" rel="noopener" title="Comment"><i class="fa fa-comment"></i>Chat
-													On Gitter</a></li>
-							</ul>
+					<div>
+						<ul class="nav navbar-nav no-borders">
+							<!-- <li><a (click)="login()"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a></li> -->
+							<li><a href="https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators" target="_blank" rel="noopener"
+								 title="GitHub"><i class="fa fa-github"></i>GitHub issues</a></li>
+							<li><a href="https://stackoverflow.com/search?q=rxweb" target="_blank" rel="noopener" title="Stack Overflow"><i
+									 class="fa fa-stack-overflow"></i>Stack
+									Overflow</a></li>
+							<li><a href="https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"
+								 target="_blank" rel="noopener" title="Comment"><i class="fa fa-comment"></i>Chat
+									On Gitter</a></li>
+						</ul>
 					</div>
+				</div>
 			</div>
-	</div>
-</div>
+		</div>
 
-<!--<div class="searchMenu formValidators" id="searchContent" *ngIf="showSearchMenu">
+		<!--<div class="searchMenu formValidators" id="searchContent" *ngIf="showSearchMenu">
 		<div class="bg-white">	<button class="searchclose" (click)="showSearchMenu=false"> <span class="glyphicon glyphicon-remove"></span></button> </div>
 	<app-dashboard  searchText={{searchFormGroup.value.search}} ></app-dashboard>
 </div>-->
-</div>
+	</div>
 </div>

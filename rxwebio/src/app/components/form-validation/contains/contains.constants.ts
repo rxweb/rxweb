@@ -32,14 +32,6 @@ export const CONTAINS_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : ContainsAddComponent,
 						edit : ContainsEditComponent,
 			  },
-	validators:{
-						complete : ContainsCompleteValidatorComponent,
-						value : ContainsValueValidatorComponent,
-						conditionalExpression : ContainsConditionalExpressionValidatorComponent,
-						message : ContainsMessageValidatorComponent,
-						dynamic : ContainsDynamicValidatorComponent,
-						add : ContainsAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : ContainsCompleteTemplateDrivenValidationDirectivesComponent,
 						value : ContainsValueTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const CONTAINS_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : ContainsConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : ContainsMessageTemplateDrivenValidationDecoratorsComponent,
 						add : ContainsAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : ContainsCompleteValidatorComponent,
+						value : ContainsValueValidatorComponent,
+						conditionalExpression : ContainsConditionalExpressionValidatorComponent,
+						message : ContainsMessageValidatorComponent,
+						dynamic : ContainsDynamicValidatorComponent,
+						add : ContainsAddValidatorComponent,
 			  },
 }

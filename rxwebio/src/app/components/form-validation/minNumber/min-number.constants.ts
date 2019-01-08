@@ -32,14 +32,6 @@ export const MIN_NUMBER_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : MinNumberAddComponent,
 						edit : MinNumberEditComponent,
 			  },
-	validators:{
-						complete : MinNumberCompleteValidatorComponent,
-						value : MinNumberValueValidatorComponent,
-						message : MinNumberMessageValidatorComponent,
-						conditionalExpression : MinNumberConditionalExpressionValidatorComponent,
-						dynamic : MinNumberDynamicValidatorComponent,
-						add : MinNumberAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : MinNumberCompleteTemplateDrivenValidationDirectivesComponent,
 						value : MinNumberValueTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const MIN_NUMBER_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						message : MinNumberMessageTemplateDrivenValidationDecoratorsComponent,
 						conditionalExpression : MinNumberConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						add : MinNumberAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : MinNumberCompleteValidatorComponent,
+						value : MinNumberValueValidatorComponent,
+						message : MinNumberMessageValidatorComponent,
+						conditionalExpression : MinNumberConditionalExpressionValidatorComponent,
+						dynamic : MinNumberDynamicValidatorComponent,
+						add : MinNumberAddValidatorComponent,
 			  },
 }

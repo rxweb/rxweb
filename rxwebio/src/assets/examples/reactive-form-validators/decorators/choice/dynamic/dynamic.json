@@ -1,0 +1,27 @@
+{
+    "department": {
+        "choice": false
+    },
+    "projectDomains": {
+        "choice": {
+            "minLength": 5
+        }
+    },
+    "qualifications": {
+        "choice": {
+            "maxLength":5
+        }
+    },
+    "skills": {
+        "choice": {
+            "minLength":3,
+            "conditionalExpression": "x => x.department =='DotNet'"
+        }
+    },
+    "hobbies": {
+        "choice": {
+            "maxLength":5,
+            "message": "Please select upto 5 hobby"
+        }
+    }
+}

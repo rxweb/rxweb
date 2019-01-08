@@ -26,7 +26,7 @@
     "@angular/pwa": "^0.11.3",
     "@angular/router": "^7.1.0",
     "@angular/service-worker": "^7.1.4",
-    "@rxweb/reactive-form-validators": "^1.4.4",
+    "@rxweb/reactive-form-validators": "^1.4.6",
     "angular-instantsearch": "^2.1.0",
     "auth0-lock": "^11.12.1",
     "core-js": "^2.5.4",

@@ -5,10 +5,7 @@ const IMAGE_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const IMAGE_ROUTING: ModuleWithProviders = RouterModule.forChild(IMAGE_ROUTES);

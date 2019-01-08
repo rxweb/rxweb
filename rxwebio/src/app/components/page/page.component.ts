@@ -5,17 +5,14 @@ import { PageViewerComponent } from "src/app/components/shared/page-viewer/page-
 import { ActivatedRoute } from "@angular/router";
 import {
   trigger,
-  state,
   style,
   animate,
   transition,
-  // ...
 } from '@angular/animations';
 
 @Component({
   templateUrl: './page.component.html',
   entryComponents: [PageViewerComponent],
-
   animations: [
     trigger(
       'enterAnimation', [
@@ -41,7 +38,7 @@ export class PageComponent implements OnInit {
   typeName: string;
   validationName: string;
   showViewer: boolean = false;
-  templateDrivenType: string;
+  templateDrivenType: string = "directives";
   showExample: boolean = true;
   mainType: string;
   constructor(
@@ -53,8 +50,8 @@ export class PageComponent implements OnInit {
     activatedRoute.params.subscribe(t => {
       if (t["typeName"])
         this.typeName = t["typeName"];
-      if (t["templateDrivenType"])
-        this.templateDrivenType = t["templateDrivenType"];
+      // if (t["templateDrivenType"])
+      //   this.templateDrivenType = t["templateDrivenType"];
       this.bind();
     })
     activatedRoute.queryParams.subscribe(params => {

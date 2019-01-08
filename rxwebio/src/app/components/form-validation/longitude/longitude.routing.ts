@@ -5,10 +5,7 @@ const LONGITUDE_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const LONGITUDE_ROUTING: ModuleWithProviders = RouterModule.forChild(LONGITUDE_ROUTES);

@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { OnInit } from "@angular/core";
 import { ReactiveFormConfig } from "@rxweb/reactive-form-validators";
-import { Router } from "@angular/router";
+import { Router, RouterOutlet } from "@angular/router";
 import { NavigationEnd } from "@angular/router";
 import { HostListener } from "@angular/core";
 import { NavigationStart } from "@angular/router";
 import { RxSpinner } from '../../controls/spinner/spinners';
 import { AuthService } from '../../domain/auth.service';
 import { ApplicationBroadcaster } from '../../domain/application-broadcaster';
-
+import {  trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -24,8 +24,6 @@ export class AppComponent implements OnInit {
     });
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        
-        
         if (val.url == "/" || val.url == "/home")
           this.isHome = true;
         else{
@@ -33,7 +31,7 @@ export class AppComponent implements OnInit {
         }
         var t = setTimeout(() => {
           this.showFooter = true;  
-        }, 200);
+        }, 500);
         if(location.host =="rxweb.io"){
          (<any>window).ga('set', 'page', val.urlAfterRedirects);
          (<any>window).ga('send', 'pageview');
@@ -46,6 +44,10 @@ export class AppComponent implements OnInit {
               element.scrollIntoView({behavior: "instant", block: "start", inline: "nearest"});
             }
           }
+          let searchElement = <HTMLElement>document.getElementsByClassName("ais-SearchBox-input")[0];
+          if(searchElement){
+            searchElement.focus();
+          }
         }, 500);
       }
       if (val instanceof NavigationStart) {
@@ -55,7 +57,9 @@ export class AppComponent implements OnInit {
     });
   }
 
-
+  // prepareRoute(outlet: RouterOutlet) {
+  //   return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  // }
 
   ngOnInit() {
     // if (localStorage.getItem('isLoggedIn') === 'true') {
@@ -107,7 +111,7 @@ export class AppComponent implements OnInit {
         "noneOf": "You can not select any option",
         "numeric": "Please enter valid number",
         "odd": "Please enter an odd number",
-        "oneOf": "You can select only one option",
+        "oneOf": "You must select any one option",
         "password": "Input does not match the password requirements",
         "pattern": "Input does not match the pattern requirements",
         "port": "Please enter a valid port number",
@@ -121,7 +125,10 @@ export class AppComponent implements OnInit {
         "extension": "Enter a valid extension.",
         "file": "Enter valid file count",
         "image": "Enter valid file height and width",
-
+        "unique": "Enter unique value in the input",
+        "ip": "Enter correct ip address.",
+        "compose": "Please enter valid value",
+        "composeMessageKey":"Please enter valid inputs",
       }
     });
   }

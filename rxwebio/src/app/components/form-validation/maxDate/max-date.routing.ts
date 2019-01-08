@@ -5,10 +5,7 @@ const MAX_DATE_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const MAX_DATE_ROUTING: ModuleWithProviders = RouterModule.forChild(MAX_DATE_ROUTES);

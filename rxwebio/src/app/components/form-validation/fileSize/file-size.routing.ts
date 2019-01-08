@@ -5,10 +5,7 @@ const FILE_SIZE_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const FILE_SIZE_ROUTING: ModuleWithProviders = RouterModule.forChild(FILE_SIZE_ROUTES);

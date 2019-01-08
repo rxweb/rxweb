@@ -32,14 +32,6 @@ export const MAX_NUMBER_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : MaxNumberAddComponent,
 						edit : MaxNumberEditComponent,
 			  },
-	validators:{
-						complete : MaxNumberCompleteValidatorComponent,
-						value : MaxNumberValueValidatorComponent,
-						conditionalExpression : MaxNumberConditionalExpressionValidatorComponent,
-						message : MaxNumberMessageValidatorComponent,
-						dynamic : MaxNumberDynamicValidatorComponent,
-						add : MaxNumberAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : MaxNumberCompleteTemplateDrivenValidationDirectivesComponent,
 						value : MaxNumberValueTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const MAX_NUMBER_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : MaxNumberConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : MaxNumberMessageTemplateDrivenValidationDecoratorsComponent,
 						add : MaxNumberAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : MaxNumberCompleteValidatorComponent,
+						value : MaxNumberValueValidatorComponent,
+						conditionalExpression : MaxNumberConditionalExpressionValidatorComponent,
+						message : MaxNumberMessageValidatorComponent,
+						dynamic : MaxNumberDynamicValidatorComponent,
+						add : MaxNumberAddValidatorComponent,
 			  },
 }

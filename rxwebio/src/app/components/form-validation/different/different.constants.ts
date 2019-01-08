@@ -27,13 +27,6 @@ export const DIFFERENT_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : DifferentAddComponent,
 						edit : DifferentEditComponent,
 			  },
-	validators:{
-						complete : DifferentCompleteValidatorComponent,
-						fieldName : DifferentFieldNameValidatorComponent,
-						message : DifferentMessageValidatorComponent,
-						dynamic : DifferentDynamicValidatorComponent,
-						add : DifferentAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : DifferentCompleteTemplateDrivenValidationDirectivesComponent,
 						fieldName : DifferentFieldNameTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const DIFFERENT_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						fieldName : DifferentFieldNameTemplateDrivenValidationDecoratorsComponent,
 						message : DifferentMessageTemplateDrivenValidationDecoratorsComponent,
 						add : DifferentAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : DifferentCompleteValidatorComponent,
+						fieldName : DifferentFieldNameValidatorComponent,
+						message : DifferentMessageValidatorComponent,
+						dynamic : DifferentDynamicValidatorComponent,
+						add : DifferentAddValidatorComponent,
 			  },
 }

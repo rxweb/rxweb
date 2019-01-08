@@ -27,13 +27,6 @@ export const REQUIRED_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : RequiredAddComponent,
 						edit : RequiredEditComponent,
 			  },
-	validators:{
-						complete : RequiredCompleteValidatorComponent,
-						conditionalExpression : RequiredConditionalExpressionValidatorComponent,
-						message : RequiredMessageValidatorComponent,
-						dynamic : RequiredDynamicValidatorComponent,
-						add : RequiredAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : RequiredCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : RequiredConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const REQUIRED_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : RequiredConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : RequiredMessageTemplateDrivenValidationDecoratorsComponent,
 						add : RequiredAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : RequiredCompleteValidatorComponent,
+						conditionalExpression : RequiredConditionalExpressionValidatorComponent,
+						message : RequiredMessageValidatorComponent,
+						dynamic : RequiredDynamicValidatorComponent,
+						add : RequiredAddValidatorComponent,
 			  },
 }

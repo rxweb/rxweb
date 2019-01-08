@@ -1,6 +1,6 @@
 
 export class User {
 
-	allocationDate: Date;
+	allocationDate: string;
 
 }

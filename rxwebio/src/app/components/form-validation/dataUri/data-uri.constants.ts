@@ -27,13 +27,6 @@ export const DATA_URI_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : DataUriAddComponent,
 						edit : DataUriEditComponent,
 			  },
-	validators:{
-						complete : DataUriCompleteValidatorComponent,
-						conditionalExpression : DataUriConditionalExpressionValidatorComponent,
-						message : DataUriMessageValidatorComponent,
-						dynamic : DataUriDynamicValidatorComponent,
-						add : DataUriAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : DataUriCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : DataUriConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const DATA_URI_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : DataUriConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : DataUriMessageTemplateDrivenValidationDecoratorsComponent,
 						add : DataUriAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : DataUriCompleteValidatorComponent,
+						conditionalExpression : DataUriConditionalExpressionValidatorComponent,
+						message : DataUriMessageValidatorComponent,
+						dynamic : DataUriDynamicValidatorComponent,
+						add : DataUriAddValidatorComponent,
 			  },
 }

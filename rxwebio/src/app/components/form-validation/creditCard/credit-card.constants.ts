@@ -32,14 +32,6 @@ export const CREDIT_CARD_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : CreditCardAddComponent,
 						edit : CreditCardEditComponent,
 			  },
-	validators:{
-						complete : CreditCardCompleteValidatorComponent,
-						fieldName : CreditCardFieldNameValidatorComponent,
-						conditionalExpression : CreditCardConditionalExpressionValidatorComponent,
-						message : CreditCardMessageValidatorComponent,
-						dynamic : CreditCardDynamicValidatorComponent,
-						add : CreditCardAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : CreditCardCompleteTemplateDrivenValidationDirectivesComponent,
 						fieldName : CreditCardFieldNameTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const CREDIT_CARD_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : CreditCardConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : CreditCardMessageTemplateDrivenValidationDecoratorsComponent,
 						add : CreditCardAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : CreditCardCompleteValidatorComponent,
+						fieldName : CreditCardFieldNameValidatorComponent,
+						conditionalExpression : CreditCardConditionalExpressionValidatorComponent,
+						message : CreditCardMessageValidatorComponent,
+						dynamic : CreditCardDynamicValidatorComponent,
+						add : CreditCardAddValidatorComponent,
 			  },
 }

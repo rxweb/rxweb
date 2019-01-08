@@ -37,15 +37,6 @@ export const RANGE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : RangeAddComponent,
 						edit : RangeEditComponent,
 			  },
-	validators:{
-						complete : RangeCompleteValidatorComponent,
-						minimumNumber : RangeMinimumNumberValidatorComponent,
-						maximumNumber : RangeMaximumNumberValidatorComponent,
-						conditionalExpression : RangeConditionalExpressionValidatorComponent,
-						message : RangeMessageValidatorComponent,
-						dynamic : RangeDynamicValidatorComponent,
-						add : RangeAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : RangeCompleteTemplateDrivenValidationDirectivesComponent,
 						minimumNumber : RangeMinimumNumberTemplateDrivenValidationDirectivesComponent,
@@ -61,5 +52,14 @@ export const RANGE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : RangeConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : RangeMessageTemplateDrivenValidationDecoratorsComponent,
 						add : RangeAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : RangeCompleteValidatorComponent,
+						minimumNumber : RangeMinimumNumberValidatorComponent,
+						maximumNumber : RangeMaximumNumberValidatorComponent,
+						conditionalExpression : RangeConditionalExpressionValidatorComponent,
+						message : RangeMessageValidatorComponent,
+						dynamic : RangeDynamicValidatorComponent,
+						add : RangeAddValidatorComponent,
 			  },
 }

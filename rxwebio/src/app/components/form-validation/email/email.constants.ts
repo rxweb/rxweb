@@ -27,13 +27,6 @@ export const EMAIL_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : EmailAddComponent,
 						edit : EmailEditComponent,
 			  },
-	validators:{
-						complete : EmailCompleteValidatorComponent,
-						conditionalExpression : EmailConditionalExpressionValidatorComponent,
-						message : EmailMessageValidatorComponent,
-						dynamic : EmailDynamicValidatorComponent,
-						add : EmailAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : EmailCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : EmailConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const EMAIL_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : EmailConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : EmailMessageTemplateDrivenValidationDecoratorsComponent,
 						add : EmailAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : EmailCompleteValidatorComponent,
+						conditionalExpression : EmailConditionalExpressionValidatorComponent,
+						message : EmailMessageValidatorComponent,
+						dynamic : EmailDynamicValidatorComponent,
+						add : EmailAddValidatorComponent,
 			  },
 }

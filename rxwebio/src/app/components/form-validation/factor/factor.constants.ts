@@ -37,15 +37,6 @@ export const FACTOR_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : FactorAddComponent,
 						edit : FactorEditComponent,
 			  },
-	validators:{
-						complete : FactorCompleteValidatorComponent,
-						fieldName : FactorFieldNameValidatorComponent,
-						conditionalExpression : FactorConditionalExpressionValidatorComponent,
-						dividend : FactorDividendValidatorComponent,
-						message : FactorMessageValidatorComponent,
-						dynamic : FactorDynamicValidatorComponent,
-						add : FactorAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : FactorCompleteTemplateDrivenValidationDirectivesComponent,
 						fieldName : FactorFieldNameTemplateDrivenValidationDirectivesComponent,
@@ -61,5 +52,14 @@ export const FACTOR_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						dividend : FactorDividendTemplateDrivenValidationDecoratorsComponent,
 						message : FactorMessageTemplateDrivenValidationDecoratorsComponent,
 						add : FactorAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : FactorCompleteValidatorComponent,
+						fieldName : FactorFieldNameValidatorComponent,
+						conditionalExpression : FactorConditionalExpressionValidatorComponent,
+						dividend : FactorDividendValidatorComponent,
+						message : FactorMessageValidatorComponent,
+						dynamic : FactorDynamicValidatorComponent,
+						add : FactorAddValidatorComponent,
 			  },
 }

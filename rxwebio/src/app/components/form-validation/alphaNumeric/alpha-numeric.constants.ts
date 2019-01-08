@@ -32,14 +32,6 @@ export const ALPHA_NUMERIC_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = 
 						add : AlphaNumericAddComponent,
 						edit : AlphaNumericEditComponent,
 			  },
-	validators:{
-						complete : AlphaNumericCompleteValidatorComponent,
-						allowWhiteSpace : AlphaNumericAllowWhiteSpaceValidatorComponent,
-						message : AlphaNumericMessageValidatorComponent,
-						conditionalExpression : AlphaNumericConditionalExpressionValidatorComponent,
-						dynamic : AlphaNumericDynamicValidatorComponent,
-						add : AlphaNumericAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : AlphaNumericCompleteTemplateDrivenValidationDirectivesComponent,
 						allowWhiteSpace : AlphaNumericAllowWhiteSpaceTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const ALPHA_NUMERIC_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = 
 						message : AlphaNumericMessageTemplateDrivenValidationDecoratorsComponent,
 						conditionalExpression : AlphaNumericConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						add : AlphaNumericAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : AlphaNumericCompleteValidatorComponent,
+						allowWhiteSpace : AlphaNumericAllowWhiteSpaceValidatorComponent,
+						message : AlphaNumericMessageValidatorComponent,
+						conditionalExpression : AlphaNumericConditionalExpressionValidatorComponent,
+						dynamic : AlphaNumericDynamicValidatorComponent,
+						add : AlphaNumericAddValidatorComponent,
 			  },
 }

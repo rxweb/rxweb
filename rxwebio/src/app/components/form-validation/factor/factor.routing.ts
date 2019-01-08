@@ -5,10 +5,7 @@ const FACTOR_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const FACTOR_ROUTING: ModuleWithProviders = RouterModule.forChild(FACTOR_ROUTES);

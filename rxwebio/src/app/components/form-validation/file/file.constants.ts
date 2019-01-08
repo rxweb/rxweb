@@ -37,15 +37,6 @@ export const FILE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : FileAddComponent,
 						edit : FileEditComponent,
 			  },
-	validators:{
-						complete : FileCompleteValidatorComponent,
-						maxFiles : FileMaxFilesValidatorComponent,
-						minFiles : FileMinFilesValidatorComponent,
-						conditionalExpression : FileConditionalExpressionValidatorComponent,
-						message : FileMessageValidatorComponent,
-						dynamic : FileDynamicValidatorComponent,
-						add : FileAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : FileCompleteTemplateDrivenValidationDirectivesComponent,
 						maxFiles : FileMaxFilesTemplateDrivenValidationDirectivesComponent,
@@ -61,5 +52,14 @@ export const FILE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : FileConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : FileMessageTemplateDrivenValidationDecoratorsComponent,
 						add : FileAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : FileCompleteValidatorComponent,
+						maxFiles : FileMaxFilesValidatorComponent,
+						minFiles : FileMinFilesValidatorComponent,
+						conditionalExpression : FileConditionalExpressionValidatorComponent,
+						message : FileMessageValidatorComponent,
+						dynamic : FileDynamicValidatorComponent,
+						add : FileAddValidatorComponent,
 			  },
 }

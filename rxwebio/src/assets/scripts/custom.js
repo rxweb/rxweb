@@ -12,3 +12,7 @@ $(window).scroll(function() {
 function scrollTo(section){
     window.location.hash=section;
 }
+
+function hideSearch(){
+	document.getElementById("searchlist-content").style.display = "none";
+}

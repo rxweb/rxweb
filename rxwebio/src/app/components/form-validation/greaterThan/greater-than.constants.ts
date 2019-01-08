@@ -32,14 +32,6 @@ export const GREATER_THAN_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : GreaterThanAddComponent,
 						edit : GreaterThanEditComponent,
 			  },
-	validators:{
-						complete : GreaterThanCompleteValidatorComponent,
-						fieldName : GreaterThanFieldNameValidatorComponent,
-						conditionalExpression : GreaterThanConditionalExpressionValidatorComponent,
-						message : GreaterThanMessageValidatorComponent,
-						dynamic : GreaterThanDynamicValidatorComponent,
-						add : GreaterThanAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : GreaterThanCompleteTemplateDrivenValidationDirectivesComponent,
 						fieldName : GreaterThanFieldNameTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const GREATER_THAN_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : GreaterThanConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : GreaterThanMessageTemplateDrivenValidationDecoratorsComponent,
 						add : GreaterThanAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : GreaterThanCompleteValidatorComponent,
+						fieldName : GreaterThanFieldNameValidatorComponent,
+						conditionalExpression : GreaterThanConditionalExpressionValidatorComponent,
+						message : GreaterThanMessageValidatorComponent,
+						dynamic : GreaterThanDynamicValidatorComponent,
+						add : GreaterThanAddValidatorComponent,
 			  },
 }

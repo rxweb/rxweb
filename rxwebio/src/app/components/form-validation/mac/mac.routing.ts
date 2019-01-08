@@ -5,10 +5,7 @@ const MAC_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const MAC_ROUTING: ModuleWithProviders = RouterModule.forChild(MAC_ROUTES);

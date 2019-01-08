@@ -27,13 +27,6 @@ export const ODD_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : OddAddComponent,
 						edit : OddEditComponent,
 			  },
-	validators:{
-						complete : OddCompleteValidatorComponent,
-						conditionalExpression : OddConditionalExpressionValidatorComponent,
-						message : OddMessageValidatorComponent,
-						dynamic : OddDynamicValidatorComponent,
-						add : OddAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : OddCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : OddConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const ODD_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : OddConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : OddMessageTemplateDrivenValidationDecoratorsComponent,
 						add : OddAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : OddCompleteValidatorComponent,
+						conditionalExpression : OddConditionalExpressionValidatorComponent,
+						message : OddMessageValidatorComponent,
+						dynamic : OddDynamicValidatorComponent,
+						add : OddAddValidatorComponent,
 			  },
 }

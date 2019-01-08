@@ -32,14 +32,6 @@ export const TIME_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : TimeAddComponent,
 						edit : TimeEditComponent,
 			  },
-	validators:{
-						complete : TimeCompleteValidatorComponent,
-						conditionalExpression : TimeConditionalExpressionValidatorComponent,
-						allowSeconds : TimeAllowSecondsValidatorComponent,
-						message : TimeMessageValidatorComponent,
-						dynamic : TimeDynamicValidatorComponent,
-						add : TimeAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : TimeCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : TimeConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const TIME_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						allowSeconds : TimeAllowSecondsTemplateDrivenValidationDecoratorsComponent,
 						message : TimeMessageTemplateDrivenValidationDecoratorsComponent,
 						add : TimeAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : TimeCompleteValidatorComponent,
+						conditionalExpression : TimeConditionalExpressionValidatorComponent,
+						allowSeconds : TimeAllowSecondsValidatorComponent,
+						message : TimeMessageValidatorComponent,
+						dynamic : TimeDynamicValidatorComponent,
+						add : TimeAddValidatorComponent,
 			  },
 }

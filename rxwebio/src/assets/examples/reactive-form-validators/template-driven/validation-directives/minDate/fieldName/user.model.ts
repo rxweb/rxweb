@@ -1,8 +1,8 @@
 
 export class User {
 
-	enrollmentDate: Date;
+	enrollmentDate: string;
 
-	lastRegistrationDate: Date;
+	lastRegistrationDate: string;
 
 }

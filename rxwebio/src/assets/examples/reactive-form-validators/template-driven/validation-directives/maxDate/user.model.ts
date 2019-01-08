@@ -1,6 +1,6 @@
 
 export class User {
 
-	registrationDate: Date;
+	registrationDate: string;
 
 }

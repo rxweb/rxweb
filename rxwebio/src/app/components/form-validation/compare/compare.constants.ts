@@ -27,13 +27,6 @@ export const COMPARE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : CompareAddComponent,
 						edit : CompareEditComponent,
 			  },
-	validators:{
-						complete : CompareCompleteValidatorComponent,
-						fieldName : CompareFieldNameValidatorComponent,
-						message : CompareMessageValidatorComponent,
-						dynamic : CompareDynamicValidatorComponent,
-						add : CompareAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : CompareCompleteTemplateDrivenValidationDirectivesComponent,
 						fieldName : CompareFieldNameTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const COMPARE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						fieldName : CompareFieldNameTemplateDrivenValidationDecoratorsComponent,
 						message : CompareMessageTemplateDrivenValidationDecoratorsComponent,
 						add : CompareAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : CompareCompleteValidatorComponent,
+						fieldName : CompareFieldNameValidatorComponent,
+						message : CompareMessageValidatorComponent,
+						dynamic : CompareDynamicValidatorComponent,
+						add : CompareAddValidatorComponent,
 			  },
 }

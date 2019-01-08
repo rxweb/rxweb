@@ -1,0 +1,43 @@
+<div>
+    <form [formGroup]="employeeFormGroup">
+        <div class="form-group">
+            <h4>Full Name</h4>
+            <input type="text" formControlName="fullName" class="form-control" />
+        </div>
+
+        <h4>Skills</h4>
+        <button class="btn btn-primary" (click)="addSkill()">Add Skill</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Skill Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr [formGroup]="skillGroup" *ngFor="let skillGroup of employeeFormGroup['controls']['skills']['controls'];let i = index;">
+                    <th scope="row">{{i+ 1}}</th>
+                    <td><input type="text" formControlName="skillName" class="form-control" /><small class="form-text text-danger" *ngIf="skillGroup['controls']['skillName']['errors']">{{skillGroup['controls']['skillName']['errors']['unique']['message']}}<br/></small>	</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h4>Hobby Name</h4>
+        <button class="btn btn-primary" (click)="addHobby()">Add Hobby</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Hobby Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr [formGroup]="hobbyGroup" *ngFor="let hobbyGroup of employeeFormGroup['controls']['hobbies']['controls'];let i = index;">
+                    <th scope="row">{{i+ 1}}</th>
+                    <td><input type="text" formControlName="hobbyName" class="form-control" /><small class="form-text text-danger" *ngIf="hobbyGroup['controls']['hobbyName']['errors']">{{hobbyGroup['controls']['hobbyName']['errors']['unique']['message']}}<br/></small></td>
+                </tr>
+            </tbody>
+        </table>
+        <button [disabled]="!employeeFormGroup.valid" class="btn btn-primary">Submit</button>
+    </form>
+</div>

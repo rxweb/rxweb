@@ -1,0 +1,11 @@
+<div>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>IP V4 Custom Message</label>
+      <input type="text" formControlName="ipV4Message" class="form-control"  />
+      <small class="form-text text-muted">This validation allowed ip version 4 it display custom message<br/></small>
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.ipV4Message.errors">{{userFormGroup.controls.ipV4Message.errors.ip?.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

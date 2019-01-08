@@ -27,13 +27,6 @@ export const LATITUDE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : LatitudeAddComponent,
 						edit : LatitudeEditComponent,
 			  },
-	validators:{
-						complete : LatitudeCompleteValidatorComponent,
-						conditionalExpression : LatitudeConditionalExpressionValidatorComponent,
-						message : LatitudeMessageValidatorComponent,
-						dynamic : LatitudeDynamicValidatorComponent,
-						add : LatitudeAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : LatitudeCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : LatitudeConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const LATITUDE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : LatitudeConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : LatitudeMessageTemplateDrivenValidationDecoratorsComponent,
 						add : LatitudeAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : LatitudeCompleteValidatorComponent,
+						conditionalExpression : LatitudeConditionalExpressionValidatorComponent,
+						message : LatitudeMessageValidatorComponent,
+						dynamic : LatitudeDynamicValidatorComponent,
+						add : LatitudeAddValidatorComponent,
 			  },
 }

@@ -27,13 +27,6 @@ export const HEX_COLOR_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : HexColorAddComponent,
 						edit : HexColorEditComponent,
 			  },
-	validators:{
-						complete : HexColorCompleteValidatorComponent,
-						conditionalExpression : HexColorConditionalExpressionValidatorComponent,
-						message : HexColorMessageValidatorComponent,
-						dynamic : HexColorDynamicValidatorComponent,
-						add : HexColorAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : HexColorCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : HexColorConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const HEX_COLOR_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : HexColorConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : HexColorMessageTemplateDrivenValidationDecoratorsComponent,
 						add : HexColorAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : HexColorCompleteValidatorComponent,
+						conditionalExpression : HexColorConditionalExpressionValidatorComponent,
+						message : HexColorMessageValidatorComponent,
+						dynamic : HexColorDynamicValidatorComponent,
+						add : HexColorAddValidatorComponent,
 			  },
 }

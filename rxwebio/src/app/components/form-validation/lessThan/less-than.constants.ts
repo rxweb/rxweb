@@ -32,14 +32,6 @@ export const LESS_THAN_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : LessThanAddComponent,
 						edit : LessThanEditComponent,
 			  },
-	validators:{
-						complete : LessThanCompleteValidatorComponent,
-						fieldName : LessThanFieldNameValidatorComponent,
-						conditionalExpression : LessThanConditionalExpressionValidatorComponent,
-						message : LessThanMessageValidatorComponent,
-						dynamic : LessThanDynamicValidatorComponent,
-						add : LessThanAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : LessThanCompleteTemplateDrivenValidationDirectivesComponent,
 						fieldName : LessThanFieldNameTemplateDrivenValidationDirectivesComponent,
@@ -53,5 +45,13 @@ export const LESS_THAN_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : LessThanConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : LessThanMessageTemplateDrivenValidationDecoratorsComponent,
 						add : LessThanAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : LessThanCompleteValidatorComponent,
+						fieldName : LessThanFieldNameValidatorComponent,
+						conditionalExpression : LessThanConditionalExpressionValidatorComponent,
+						message : LessThanMessageValidatorComponent,
+						dynamic : LessThanDynamicValidatorComponent,
+						add : LessThanAddValidatorComponent,
 			  },
 }

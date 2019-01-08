@@ -15,6 +15,14 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './ascii/ascii.module#AsciiModule',
 },
 {
+	path:'choice',
+	loadChildren: './choice/choice.module#ChoiceModule',
+},
+{
+	path:'compose',
+	loadChildren: './compose/compose.module#ComposeModule',
+},
+{
 	path:'compare',
 	loadChildren: './compare/compare.module#CompareModule',
 },
@@ -77,6 +85,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'hexColor',
 	loadChildren: './hexColor/hex-color.module#HexColorModule',
+},
+{
+	path:'ip',
+	loadChildren: './ip/ip.module#IpModule',
 },
 {
 	path:'image',
@@ -185,6 +197,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'time',
 	loadChildren: './time/time.module#TimeModule',
+},
+{
+	path:'unique',
+	loadChildren: './unique/unique.module#UniqueModule',
 },
 {
 	path:'upperCase',

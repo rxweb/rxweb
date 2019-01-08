@@ -11,8 +11,6 @@ linktitle: unique
 Suppose you want to create a Employee form, which contains fields like fullName, skillName, projectDomain, companyName and hobbies and you want the user to enter unique values which are not previously mentioned in the array. Here depending upon the requirement these scenarios may arise.
 <ol class = 'showHideElement'>
 <li>Apply unique validation on skillName field.</li>
-<li>Apply unique validation based on matched condition in the form, like if the fullName is 'Bharat Patel' then the projectDomain input values must be unique.</li>
-<li>Apply unique validation based on matched condition in the form, like if the fullName is 'Bharat Patel' then the companyName input values must be unique.</li>
 <li>Adding Custom Message on hobbies Field.</li>
 	<data-scope scope="['decorator','validator']">
 		<li>Apply unique validation dynamically based on server rules. </li>
@@ -67,36 +65,10 @@ Below options are not mandatory to use in the `RxwebValidators.unique()` validat
 Below options are not mandatory to use in the `unique` validation. If needed then use the below options.
 </data-scope>
 
-<table class="table table-bordered table-striped showHideElement">
+<table class="table table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a  (click)='scrollTo("#additionalValidation")' title="additionalValidation">additionalValidation</a></td><td>if user wants to validate the colum based on some other values of the row as well, then additional validation comes into the picture</td></tr>
-<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>unique validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
-
-## additionalValidation
-Type :  `Function`
-
-If user wants to validate the colum based on some other values of the row as well, then additional validation comes into the picture
-
-<div component="app-code" key="unique-additionalValidationExample-model"></div> 
-<div component="app-example-runner" ref-component="app-unique-additionalValidation" title="unique {{validatorType}} with additionalValidation" key="additionalValidation"></div>
-
-## conditionalExpression 
-Type :  `Function`  |  `string` 
-
-unique validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
-
-<data-scope scope="['validator','decorator']">
-> Binding `conditionalExpression` with `Function` object.
-<div component="app-code" key="unique-conditionalExpressionExampleFunction-model"></div> 
-</data-scope>
-
-> Binding `conditionalExpression` with `string` object.
-<div component="app-code" key="unique-conditionalExpressionExampleString-model"></div> 
-
-<div component="app-example-runner" ref-component="app-unique-conditionalExpression" title="unique {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message 
 Type :  `string` 
@@ -128,31 +100,3 @@ This Complete Unique example which includes all the BaseConfig properties will f
 <div component="app-code" key="unique-complete-html"></div> 
 # [/Html]
 ***
-
-<data-scope scope="['decorator','validator']">
-# Dynamic Unique Example
-
-This Dynamic unique example which execute based on json passed. conditional expression with function would be not apply in dynamic unique example. 
-
-<div component="app-tabs" key="dynamic"></div>
-
-[!TabGroup]
-# [Example](#tab\dynamicexample)
-<div component="app-example-runner" ref-component="app-unique-dynamic"></div>
-# [/Example]
-<data-scope scope="['decorator']">
-# [Model](#tab\dynamicmodel)
-<div component="app-code" key="unique-dynamic-model"></div>
-# [/Model]
-</data-scope>
-# [Component](#tab\dynamiccomponent)
-<div component="app-code" key="unique-dynamic-component"></div>
-# [/Component]
-# [Json](#tab\dynamicjson)
-<div component="app-code" key="unique-dynamic-json"></div>
-# [/Json]
-# [Html](#tab\dynamichtml)
-<div component="app-code" key="unique-dynamic-html"></div> 
-# [/Html]
-***
-</data-scope>

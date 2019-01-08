@@ -27,13 +27,6 @@ export const JSON_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : JsonAddComponent,
 						edit : JsonEditComponent,
 			  },
-	validators:{
-						complete : JsonCompleteValidatorComponent,
-						message : JsonMessageValidatorComponent,
-						conditionalExpression : JsonConditionalExpressionValidatorComponent,
-						dynamic : JsonDynamicValidatorComponent,
-						add : JsonAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : JsonCompleteTemplateDrivenValidationDirectivesComponent,
 						message : JsonMessageTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const JSON_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						message : JsonMessageTemplateDrivenValidationDecoratorsComponent,
 						conditionalExpression : JsonConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						add : JsonAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : JsonCompleteValidatorComponent,
+						message : JsonMessageValidatorComponent,
+						conditionalExpression : JsonConditionalExpressionValidatorComponent,
+						dynamic : JsonDynamicValidatorComponent,
+						add : JsonAddValidatorComponent,
 			  },
 }

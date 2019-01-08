@@ -11,7 +11,7 @@ export class User {
 
 	//If you want to apply conditional expression of type 'string'
 	@leapYear({conditionalExpression:'x => x.name == "Bharat"' }) 
-	admissionYear: Date;
+	admissionYear: number;
 
 	@leapYear({message:'{{0}} is not a leap year' }) 
 	joiningYear: number;

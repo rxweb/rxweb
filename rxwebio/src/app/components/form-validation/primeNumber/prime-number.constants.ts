@@ -27,13 +27,6 @@ export const PRIME_NUMBER_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : PrimeNumberAddComponent,
 						edit : PrimeNumberEditComponent,
 			  },
-	validators:{
-						complete : PrimeNumberCompleteValidatorComponent,
-						conditionalExpression : PrimeNumberConditionalExpressionValidatorComponent,
-						message : PrimeNumberMessageValidatorComponent,
-						dynamic : PrimeNumberDynamicValidatorComponent,
-						add : PrimeNumberAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : PrimeNumberCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : PrimeNumberConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const PRIME_NUMBER_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : PrimeNumberConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : PrimeNumberMessageTemplateDrivenValidationDecoratorsComponent,
 						add : PrimeNumberAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : PrimeNumberCompleteValidatorComponent,
+						conditionalExpression : PrimeNumberConditionalExpressionValidatorComponent,
+						message : PrimeNumberMessageValidatorComponent,
+						dynamic : PrimeNumberDynamicValidatorComponent,
+						add : PrimeNumberAddValidatorComponent,
 			  },
 }

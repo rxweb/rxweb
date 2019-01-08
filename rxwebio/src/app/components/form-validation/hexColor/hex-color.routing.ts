@@ -5,10 +5,7 @@ const HEX_COLOR_ROUTES: Routes = [
 {
 	path:':typeName',
 	component:PageComponent
-},
-{
-	path:':typeName/:templateDrivenType',
-	component:PageComponent
 }
+
 ];
 export const HEX_COLOR_ROUTING: ModuleWithProviders = RouterModule.forChild(HEX_COLOR_ROUTES);

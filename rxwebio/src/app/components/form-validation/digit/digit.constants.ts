@@ -27,13 +27,6 @@ export const DIGIT_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : DigitAddComponent,
 						edit : DigitEditComponent,
 			  },
-	validators:{
-						complete : DigitCompleteValidatorComponent,
-						conditionalExpression : DigitConditionalExpressionValidatorComponent,
-						message : DigitMessageValidatorComponent,
-						dynamic : DigitDynamicValidatorComponent,
-						add : DigitAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : DigitCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : DigitConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const DIGIT_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : DigitConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : DigitMessageTemplateDrivenValidationDecoratorsComponent,
 						add : DigitAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : DigitCompleteValidatorComponent,
+						conditionalExpression : DigitConditionalExpressionValidatorComponent,
+						message : DigitMessageValidatorComponent,
+						dynamic : DigitDynamicValidatorComponent,
+						add : DigitAddValidatorComponent,
 			  },
 }

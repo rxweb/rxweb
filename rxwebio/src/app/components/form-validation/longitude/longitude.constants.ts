@@ -27,13 +27,6 @@ export const LONGITUDE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : LongitudeAddComponent,
 						edit : LongitudeEditComponent,
 			  },
-	validators:{
-						complete : LongitudeCompleteValidatorComponent,
-						conditionalExpression : LongitudeConditionalExpressionValidatorComponent,
-						message : LongitudeMessageValidatorComponent,
-						dynamic : LongitudeDynamicValidatorComponent,
-						add : LongitudeAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : LongitudeCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : LongitudeConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const LONGITUDE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : LongitudeConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : LongitudeMessageTemplateDrivenValidationDecoratorsComponent,
 						add : LongitudeAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : LongitudeCompleteValidatorComponent,
+						conditionalExpression : LongitudeConditionalExpressionValidatorComponent,
+						message : LongitudeMessageValidatorComponent,
+						dynamic : LongitudeDynamicValidatorComponent,
+						add : LongitudeAddValidatorComponent,
 			  },
 }

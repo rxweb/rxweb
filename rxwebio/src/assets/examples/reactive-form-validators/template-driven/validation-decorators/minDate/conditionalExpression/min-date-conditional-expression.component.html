@@ -11,7 +11,7 @@
       <label>Admission Date</label>
 	    <input type="text" name="admissionDate" [(ngModel)]="user.admissionDate"  class="form-control" />
 
-      <small class="form-text text-muted">To apply the validation of Min Date on 'Admission Date' field, then enter the value 'Bharat' in 'User Name' textbox and you can enter maxDate as 30th july 2018<br/></small>
+      <small class="form-text text-muted">To apply the validation of Min Date on 'Admission Date' field, then enter the value 'Bharat' in 'User Name' textbox and you can enter minDate as 30th july 2018<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls.admissionDate?.errors">{{userForm.controls.admissionDate?.errors.minDate.message}}<br/></small>	
     </div>

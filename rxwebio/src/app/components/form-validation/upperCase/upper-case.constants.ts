@@ -27,13 +27,6 @@ export const UPPER_CASE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : UpperCaseAddComponent,
 						edit : UpperCaseEditComponent,
 			  },
-	validators:{
-						complete : UpperCaseCompleteValidatorComponent,
-						conditionalExpression : UpperCaseConditionalExpressionValidatorComponent,
-						message : UpperCaseMessageValidatorComponent,
-						dynamic : UpperCaseDynamicValidatorComponent,
-						add : UpperCaseAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : UpperCaseCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : UpperCaseConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const UPPER_CASE_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : UpperCaseConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : UpperCaseMessageTemplateDrivenValidationDecoratorsComponent,
 						add : UpperCaseAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : UpperCaseCompleteValidatorComponent,
+						conditionalExpression : UpperCaseConditionalExpressionValidatorComponent,
+						message : UpperCaseMessageValidatorComponent,
+						dynamic : UpperCaseDynamicValidatorComponent,
+						add : UpperCaseAddValidatorComponent,
 			  },
 }

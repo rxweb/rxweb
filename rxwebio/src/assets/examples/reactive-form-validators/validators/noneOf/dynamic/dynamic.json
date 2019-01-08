@@ -1,0 +1,22 @@
+{
+    "department": {
+        "noneOf": false
+    },
+    "projectDomains": {
+        "noneOf": {
+            "matchValues": ["ECommerce", "Banking","Educational","Gaming"]
+        }
+    },
+    "skills": {
+        "noneOf": {
+            "matchValues": ["MVC", "AngularJS","Angular 5","C#","Web Api","SQL Server"],
+            "conditionalExpression": "x => x.department ==\"DotNet\""
+        }
+    },
+    "hobbies": {
+        "noneOf": {
+            "matchValues":["Drawing", "Singing","Dancing","Travelling","Sports"],
+            "message": "Please do not select any hobbies."
+        }
+    }
+}

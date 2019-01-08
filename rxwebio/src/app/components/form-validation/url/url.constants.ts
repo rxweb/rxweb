@@ -27,13 +27,6 @@ export const URL_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						add : UrlAddComponent,
 						edit : UrlEditComponent,
 			  },
-	validators:{
-						complete : UrlCompleteValidatorComponent,
-						conditionalExpression : UrlConditionalExpressionValidatorComponent,
-						message : UrlMessageValidatorComponent,
-						dynamic : UrlDynamicValidatorComponent,
-						add : UrlAddValidatorComponent,
-			  },
 	template_driven_validation_directives:{
 						complete : UrlCompleteTemplateDrivenValidationDirectivesComponent,
 						conditionalExpression : UrlConditionalExpressionTemplateDrivenValidationDirectivesComponent,
@@ -45,5 +38,12 @@ export const URL_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						conditionalExpression : UrlConditionalExpressionTemplateDrivenValidationDecoratorsComponent,
 						message : UrlMessageTemplateDrivenValidationDecoratorsComponent,
 						add : UrlAddTemplateDrivenValidationDecoratorsComponent,
+			  },
+	validators:{
+						complete : UrlCompleteValidatorComponent,
+						conditionalExpression : UrlConditionalExpressionValidatorComponent,
+						message : UrlMessageValidatorComponent,
+						dynamic : UrlDynamicValidatorComponent,
+						add : UrlAddValidatorComponent,
 			  },
 }
