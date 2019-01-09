@@ -21,7 +21,7 @@ export class ChoiceMessageTemplateDrivenValidationDirectivesComponent implements
 
     ngOnInit() {
         this.employeeInfo = new EmployeeInfo();
-        this.http.get("assets/examples/reactive-form-validators/decorators/choice/message/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/message/choice.json").subscribe(response => {
             this.hobbiesArray = response['hobbiesArray'];
         })
 

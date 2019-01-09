@@ -22,7 +22,7 @@ export class ChoiceMaxLengthTemplateDrivenValidationDirectivesComponent implemen
 
     ngOnInit() {
         this.employeeInfo = new EmployeeInfo();
-        this.http.get("assets/examples/reactive-form-validators/decorators/choice/maxLength/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/maxLength/choice.json").subscribe(response => {
             this.hobbiesArray = response['hobbiesArray'];
         })
 

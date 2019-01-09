@@ -6,14 +6,14 @@ export class EmployeeInfo{
     department: string;
     
     @prop()
-    projectDomains: string[];
+    projectDomains: string[] = [];
 
     @prop()
-	qualifications: string[];
+	qualifications: string[] = [];
 
     @prop()
-    skills: string[];
+    skills: string[] = [];
 
     @prop()
-    hobbies: string[];
+    hobbies: string[] = [];
 }

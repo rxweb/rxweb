@@ -6,17 +6,17 @@ export class EmployeeInfo{
     department: string;
     
     @choice({minLength:3})
-    projectDomains: string[];
+    projectDomains: string[] = [];
 
     @choice({maxLength:8})
-	qualifications: string[];
+	qualifications: string[] = [];
 
     @choice({minLength:3, conditionalExpression: (x,y) => x.department == "DotNet" })
-	languages: string[];
+	languages: string[] = [];
 
     @choice({minLength:3, conditionalExpression: "x => x.department =='DotNet'"})
-    skills: string[];
+    skills: string[] = [];
 
     @choice({maxLength:5,message: "Please select upto 5 hobby"})
-    hobbies: string[];
+    hobbies: string[] = [];
 }

@@ -53,3 +53,5 @@ export * from './file.validator';
 export * from './custom.validator';
 export * from './unique.validator';
 export * from './image.validator';
+export * from './notEmpty.validator';
+export * from './ip.validator';

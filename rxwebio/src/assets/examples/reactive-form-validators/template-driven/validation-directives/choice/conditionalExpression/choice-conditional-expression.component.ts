@@ -23,7 +23,7 @@ export class ChoiceConditionalExpressionTemplateDrivenValidationDirectivesCompon
 
     ngOnInit() {
         this.employeeInfo = new EmployeeInfo();
-        this.http.get("assets/examples/reactive-form-validators/decorators/choice/conditionalExpression/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/conditionalExpression/choice.json").subscribe(response => {
             this.qualificationsArray = response['qualificationsArray'];
             this.skillsArray = response['skillsArray'];
         })

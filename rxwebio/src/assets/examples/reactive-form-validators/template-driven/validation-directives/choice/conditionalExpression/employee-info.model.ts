@@ -6,9 +6,9 @@ export class EmployeeInfo{
     department: string;
 
     @choice({minLength:3, conditionalExpression: (x,y) => x.department =='DotNet'})
-	qualifications: string[];
+	qualifications: string[] = [];
 
     @choice({maxLength: 5, conditionalExpression: "x => x.department =='DotNet'"})
-    skills: string[];
+    skills: string[] = [];
 
 }

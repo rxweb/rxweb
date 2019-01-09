@@ -21,7 +21,7 @@ export class ChoiceAddTemplateDrivenValidationDirectivesComponent implements OnI
       
         ngOnInit() {
           this.employeeInfo = new EmployeeInfo();
-          this.http.get("assets/examples/reactive-form-validators/decorators/choice/add/choice.json").subscribe(response => {
+          this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/add/choice.json").subscribe(response => {
             this.projectDomainsArray = response['projectDomainsArray'];
         })
         }

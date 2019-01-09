@@ -30,11 +30,11 @@ export class ChoiceDynamicTemplateDrivenValidationDirectivesComponent implements
     ngOnInit() {
         this.employeeInfo = new EmployeeInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-		this.http.get('assets/examples/reactive-form-validators/decorators/choice/dynamic/dynamic.json').subscribe(dynamic => {
+		this.http.get('assets/examples/reactive-form-validators/template-driven/validation-directives/choice/dynamic/dynamic.json').subscribe(dynamic => {
             formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
         })
 
-        this.http.get("assets/examples/reactive-form-validators/decorators/choice/dynamic/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/dynamic/choice.json").subscribe(response => {
             this.qualificationsArray = response['qualificationsArray'];
             this.skillsArray = response['skillsArray'];
             this.hobbiesArray = response['hobbiesArray'];
