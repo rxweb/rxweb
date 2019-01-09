@@ -12,6 +12,7 @@
         </h4>
       </div>
       <br />
+      <small class="form-text text-muted">You must select atleast 3 option.</small><br>
       <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.projectDomains.errors">{{employeeInfoFormGroup.controls.projectDomains.errors.choice.message}}</small>
       <br />
     </div>
@@ -25,8 +26,7 @@
       <br />
       <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.qualifications.errors">{{employeeInfoFormGroup.controls.qualifications.errors.choice.message}}</small>
       <br />
-      <small class="form-text text-muted">To apply the validation on 'Qualifications' field, enter 'DotNet' in
-        'Department' field</small>
+      <small class="form-text text-muted">To apply the validation on 'Qualifications' field, enter 'DotNet' in 'Department' field</small>
       <br />
     </div>
     <div class="form-group">
@@ -39,8 +39,7 @@
       <br />
       <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.languages.errors">{{employeeInfoFormGroup.controls.languages.errors.choice.message}}</small>
       <br />
-      <small class="form-text text-muted">To apply the validation on 'Qualifications' field, enter 'DotNet' in
-        'Department' field</small><br>
+      <small class="form-text text-muted">To apply the validation on 'Qualifications' field, enter 'DotNet' in 'Department' field</small><br>
     </div>
     <div class="form-group">
       <label>Skills</label><small>( With Conditional Expression )</small><br>
@@ -52,8 +51,7 @@
       <br />
       <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.skills.errors">{{employeeInfoFormGroup.controls.skills.errors.choice.message}}</small>
       <br />
-      <small class="form-text text-muted">To apply the validation on 'Skills' field, enter 'DotNet' in 'Department'
-        field</small><br>
+      <small class="form-text text-muted">To apply the validation on 'Skills' field, enter 'DotNet' in 'Department' field</small><br>
     </div>
     <div class="form-group">
       <label>Hobbies</label>

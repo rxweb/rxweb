@@ -17,7 +17,7 @@ export class ChoiceMaxLengthValidatorComponent implements OnInit {
       
         ngOnInit() {
             this.employeeInfoFormGroup = this.formBuilder.group({
-                projectDomains:['', RxwebValidators.oneOf({matchValues:["ECommerce", "Banking","Educational","Gaming"]})]
+                projectDomains:['', RxwebValidators.choice({maxLength:4})]
                 
             });
           this.http.get("assets/examples/reactive-form-validators/validators/choice/maxLength/choice.json").subscribe(response => {
