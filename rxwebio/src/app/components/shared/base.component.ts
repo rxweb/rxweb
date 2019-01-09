@@ -43,7 +43,7 @@ export abstract class BaseComponentProvider implements OnDestroy {
             return componentView;
     }
 
-    getPramas(element:any,type?:string){
+    getParams(element:any,type?:string){
         let keyName = element.getAttribute("key");
         let refComponentString= element.getAttribute('ref-component');
         let params = {};

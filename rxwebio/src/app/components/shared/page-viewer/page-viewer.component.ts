@@ -45,7 +45,7 @@ export class PageViewerComponent extends BaseComponentProvider implements OnInit
         });
         Array.prototype.slice.call(elements).forEach((element: HTMLDivElement) => {
             let componentName = element.getAttribute("component");
-            var params = this.getPramas(element, componentName);
+            var params = this.getParams(element, componentName);
             switch (componentName) {
                 case "app-code":
                     element.appendChild(this.create(AppCodeComponent, params).rootNode());

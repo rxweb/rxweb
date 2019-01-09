@@ -9,7 +9,7 @@
     },
     "qualifications": {
         "choice": {
-            "maxLength":5
+            "maxLength":4
         }
     },
     "skills": {

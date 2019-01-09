@@ -20,8 +20,8 @@
     },
     "hobbies": {
         "choice": {
-            "maxLength":5,
-            "message": "Please select upto 5 hobby"
+            "maxLength":4,
+            "message": "Please select upto 4 hobby"
         }
     }
 }

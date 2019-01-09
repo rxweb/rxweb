@@ -98,6 +98,7 @@ export class PageComponent implements OnInit {
       document.title = "rxweb " + splitedArray[2] + " : " + titleString;
     }
   
+
       this.http.get(codeUri, this.options).subscribe(response => {
         this.codeContent = JSON.parse(response.toString());
         this.http.get(htmlUri, this.options).subscribe((responseObj: object) => {

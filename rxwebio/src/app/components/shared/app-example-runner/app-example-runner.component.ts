@@ -41,8 +41,17 @@ export class AppExampleRunnerComponent implements OnInit {
         this.tabArray.push({ "tabName": "Model", "tabItem": "model", "content": this.content.model })
       if (this.content.component != null)
         this.tabArray.push({ "tabName": "Component", "tabItem": "component", "content": this.content.component })
-      if (this.content.json != null)
-        this.tabArray.push({ "tabName": "Json", "tabItem": "json", "content": this.content.json })
+      if (JSON.stringify(this.content.json) !== JSON.stringify({}))
+      {
+        var jsonObject = this.content.json;
+        if (jsonObject) {
+          for (var prop in jsonObject) {
+            if (jsonObject.hasOwnProperty(prop)) {
+              this.tabArray.push({ "tabName": prop, "tabItem": prop, "content": jsonObject[prop] })
+            }
+          }
+        }
+      }
       if (this.content.html != null)
         this.tabArray.push({ "tabName": "Html", "tabItem": "html", "content": this.content.html })
       this.activeTab = this.tabArray[0].tabName;
