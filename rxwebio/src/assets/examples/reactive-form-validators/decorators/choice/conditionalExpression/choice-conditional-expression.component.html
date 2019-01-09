@@ -11,7 +11,8 @@
             <input (click)="addQualification($event.target,i)"  type="checkbox" value="{{tag.name}}" /> {{tag.name}}
           </h4>
         </div>
-        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.qualifications.errors">{{employeeInfoFormGroup.controls.qualifications.errors.choice.message}}<br></small><br />
+        <br>
+        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.qualifications.errors">{{employeeInfoFormGroup.controls.qualifications.errors.choice.message}}</small><br />
         <small class="form-text text-muted" >To apply the validation on 'Qualifications' field, enter 'DotNet' in 'Department' field</small><br>
       </div>
       <div class="form-group">
@@ -21,6 +22,7 @@
             <input (click)="addSkill($event.target,i)" type="checkbox" value="{{tag.name}}" /> {{tag.name}}
           </h4>
         </div>
+        <br>
         <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.skills.errors">{{employeeInfoFormGroup.controls.skills.errors.choice.message}}<br></small><br />
         <small class="form-text text-muted" >To apply the validation on 'Skills' field, enter 'DotNet' in 'Department' field</small><br>
       </div>

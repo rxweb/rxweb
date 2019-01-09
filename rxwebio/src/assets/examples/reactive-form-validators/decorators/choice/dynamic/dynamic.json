@@ -4,7 +4,7 @@
     },
     "projectDomains": {
         "choice": {
-            "minLength": 5
+            "minLength": 2
         }
     },
     "qualifications": {

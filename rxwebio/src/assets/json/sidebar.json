@@ -35,13 +35,13 @@
           "isActive": false
         },
         {
-          "title": "compare",
-          "uri": "/form-validations/compare/validators",
+          "title": "choice",
+          "uri": "/form-validations/choice/validators",
           "isActive": false
         },
         {
-          "title": "choice",
-          "uri": "/form-validations/choice/validators",
+          "title": "compare",
+          "uri": "/form-validations/compare/validators",
           "isActive": false
         },
         {
