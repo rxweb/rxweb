@@ -11,7 +11,7 @@ export function specTester(fixture: any, jObject: any, validatorName: string, er
         validateControlName = columnName;
     }
     fixture.detectChanges();
-    tick();
+    tick(3000);
     const form = fixture.debugElement.children[0].injector.get(NgForm);
     const control = form.control.get(validateControlName);
     return control.hasError(validatorName);
