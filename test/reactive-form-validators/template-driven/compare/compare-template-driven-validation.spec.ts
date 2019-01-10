@@ -18,9 +18,9 @@ describe('template-driven forms integration tests', () => {
         
         it('should not error compare with blank value', fakeAsync(() => {
             const fixture = createInstance(CompareValidationComponent);
-            expect(specTester(fixture, {email: 'ushmidave@gmail.com',confirmEmail:'ushmidave@gmail.com'},'[compare]="fieldNameEmail"')).toBe(false);
-            expect(specTester(fixture, {password: 'User@123',confirmPassword:'User@123'},'[compare]="fieldNamePassword"')).toBe(false);
-            expect(specTester(fixture, {password: 'User@123',confirmPassword:'User@123'},'[compare]="comparePassword"')).toBe(false);     
+            expect(specTester(fixture, {email: 'ushmidave@gmail.com',confirmEmail:'ushmidave@gmail.com'},'compare')).toBe(false);
+            expect(specTester(fixture, {password: 'User@123',confirmPassword:'User@123'},'compare')).toBe(false);
+            expect(specTester(fixture, {password: 'User@123',confirmPassword:'User@123'},'compare')).toBe(false);     
     
         }));
 
