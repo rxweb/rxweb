@@ -1,32 +1,37 @@
 <div>
-    <form #employeeInfoForm="ngForm">
-      <div class="form-group">
-        <label>Department</label>
-        <input type="text" [ngModel]="employeeInfo.department" class="form-control" placeholder="Enter any department" [ngModelOptions]="{standalone: true}" />
-      </div>
-      <div class="form-group">
-        <label>Qualifications</label>
-        <div class="form-check" *ngFor="let tag of qualificationsArray; let i = index;">
-          <h4>
-            <input (click)="addQualification($event.target,i)" [ngModel]="employeeInfo.qualifications"  type="checkbox" value="{{tag.name}}" [ngModelOptions]="{standalone: true}" /> {{tag.name}}
-          </h4>
-        </div>
-        <br />
-        <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.qualifications?.errors">{{employeeInfoForm.controls.qualifications?.errors.choice.message}}</small>
-        <br />
-        <small class="form-text text-muted" >To apply the validation on 'Qualifications' field, enter 'DotNet' in 'Department' field</small><br />
-      </div>
-      <div class="form-group">
-        <label>Skills</label><small>( With Conditional Expression )</small><br>
-        <div class="form-check" *ngFor="let tag of skillsArray; let i = index;">
-          <h4>
-            <input (click)="addSkill($event.target,i)" [ngModel]="employeeInfo.skills" type="checkbox" value="{{tag.name}}" [ngModelOptions]="{standalone: true}" /> {{tag.name}}
-          </h4>
-        </div>
-        <br />
-        <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.skills?.errors">{{employeeInfoForm.controls.skills?.errors.choice.message}}<br /></small>
-        <small class="form-text text-muted" >To apply the validation on 'Skills' field, enter 'DotNet' in 'Department' field</small><br />
-      </div>
-      <button [disabled]="!employeeInfoForm.valid" class="btn btn-primary">Submit</button>
-    </form>
+  <form #employeeInfoForm="ngForm" [rxwebForm]="employeeInfoForm">
+    <div class="form-group">
+      <label>Department</label>
+      <input type="text" [ngModel]="employeeInfo.department" class="form-control" placeholder="Enter any department"
+        [ngModelOptions]="{standalone: true}" />
     </div>
+    <div class="form-group">
+      <label>Qualifications</label>
+      <div class="form-check" *ngFor="let tag of qualificationsArray; let i = index;">
+        <h4>
+          <input (click)="addQualification($event.target,i)" [ngModel]="employeeInfo.qualifications" type="checkbox"
+            value="{{tag.name}}" [ngModelOptions]="{standalone: true}" /> {{tag.name}}
+        </h4>
+      </div>
+      <br />
+      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls?.qualifications?.errors">{{employeeInfoForm.controls?.qualifications?.errors?.choice.message}}</small>
+      <br />
+      <small class="form-text text-muted">To apply the validation on 'Qualifications' field, enter 'DotNet' in
+        'Department' field</small><br />
+    </div>
+    <div class="form-group">
+      <label>Skills</label><small>( With Conditional Expression )</small><br>
+      <div class="form-check" *ngFor="let tag of skillsArray; let i = index;">
+        <h4>
+          <input (click)="addSkill($event.target,i)" [ngModel]="employeeInfo.skills" type="checkbox" value="{{tag.name}}"
+            [ngModelOptions]="{standalone: true}" /> {{tag.name}}
+        </h4>
+      </div>
+      <br />
+      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls?.skills?.errors">{{employeeInfoForm.controls?.skills?.errors?.choice.message}}<br /></small>
+      <small class="form-text text-muted">To apply the validation on 'Skills' field, enter 'DotNet' in 'Department'
+        field</small><br />
+    </div>
+    <button [disabled]="!employeeInfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>
