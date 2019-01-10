@@ -13,7 +13,7 @@ describe('template-driven forms integration tests', () => {
 
     describe('basic functionality', () => {
         
-        it('should not error contains with blank value', fakeAsync(() => {
+        it('should not error digit with blank value', fakeAsync(() => {
             const fixture = createInstance(DigitValidationComponent);
             expect(specTester(fixture, {age:21},'digit')).toBe(false);
             expect(specTester(fixture, {age:'+91'},'digit')).toBe(true);

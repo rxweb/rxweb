@@ -14,7 +14,7 @@ describe('template-driven forms integration tests', () => {
 
     describe('basic functionality', () => {
         
-        it('should not error contains with blank value', fakeAsync(() => {
+        it('should not error email with blank value', fakeAsync(() => {
             const fixture = createInstance(EmailValidationComponent);
             expect(specTester(fixture, {email:'ushmidave@gmail.com'},'email')).toBe(false);
             expect(specTester(fixture, {email:'ushmidavegmailcom'},'email')).toBe(true);

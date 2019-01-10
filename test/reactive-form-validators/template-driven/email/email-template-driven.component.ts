@@ -16,7 +16,7 @@ export class User {
 @Component({
     selector: 'app-email',
     template: `
-  <form #userForm = "ngForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm">
     <div class="form-group">
       <label>Email</label>
 	    <input type="text" name="email" [(ngModel)]="user.email"  class="form-control" email/>
