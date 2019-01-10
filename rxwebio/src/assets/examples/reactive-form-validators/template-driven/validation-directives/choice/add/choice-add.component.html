@@ -10,6 +10,7 @@
       <br />
       <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.projectDomains?.errors">{{employeeInfoForm.controls.projectDomains?.errors.choice.message}}</small>
       <br />
+      <small class="form-text text-muted">Select atleast 3 option.</small><br>
     </div>
     <button [disabled]="!employeeInfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

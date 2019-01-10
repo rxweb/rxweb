@@ -10,7 +10,7 @@
       <br />
       <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.hobbies?.errors">{{employeeInfoForm.controls.hobbies?.errors.choice.message}}</small>
       <br />
-      <small class="form-text text-muted">Shows custom message</small>
+      <small class="form-text text-muted">You can select upto 4 options.</small>
     <br />
   </div>
   <button [disabled]="!employeeInfoForm.valid" class="btn btn-primary">Submit</button>
