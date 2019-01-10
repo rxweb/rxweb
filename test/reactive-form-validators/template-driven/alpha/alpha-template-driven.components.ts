@@ -1,46 +1,49 @@
 ﻿import { Component,OnInit } from "@angular/core";
 
-export class Location {
 
-    areaName: string;
+export class AddressInfo {
 
-	flatAddress: string;
-
-	postalAddress: string;
+	countryName: string;
 
 	countryCode: string;
 
-	cityCode: string;
+	cityName: string;
+
+	stateName: string;
+
+	stateCode: string;
 
 }
+
 
 @Component({
     selector: 'app-alpha',
     template: `
-  <form #locationForm="ngForm">
-    <div class="form-group">
-      <label>Area Name</label>
-	    <input type="text" name="areaName" [(ngModel)]="location.areaName"  class="form-control" alphaNumeric/>
-    </div>
-    <div class="form-group">
-      <label>Flat Address</label>
-	    <input type="text" name="flatAddress" [(ngModel)]="location.flatAddress"  class="form-control" [alphaNumeric]="{'allowWhiteSpace':true}"/>
-    </div>
-    <div class="form-group">
-      <label>Postal Address</label>
-	    <input type="text" name="postalAddress" [(ngModel)]="location.postalAddress"  class="form-control" [alphaNumeric]="{'message':'Please enter only alphanumerics, special characters are not allowed.'}"/>
-    </div>
-    <div class="form-group">
-      <label>City Code</label>
-	    <input type="text" name="cityCode" [(ngModel)]="location.cityCode"  class="form-control" [alphaNumeric]="conditionalExpression"/>
-    </div>
-    <button [disabled]="!locationForm.valid" class="btn btn-primary">Submit</button>
-  </form>
+    <form #addressinfoForm = "ngForm"  [rxwebForm]="addressinfoForm">
+      <div class="form-group">
+        <label>Country Name</label>
+        <input type="text" name="countryName" [(ngModel)]="addressinfo.countryName"  class="form-control" alpha/>	
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" name="cityName" [(ngModel)]="addressinfo.cityName"  class="form-control" [alphaNumeric]="conditionalExpression"/>	
+      </div>
+      <div class="form-group">
+        <label>State Name</label>
+        <input type="text" name="stateName" [(ngModel)]="addressinfo.stateName"  class="form-control" [alpha]="{'allowWhiteSpace':true}"/>
+      </div>
+      <div class="form-group">
+        <label>State Code</label>
+        <input type="text" name="stateCode" [(ngModel)]="addressinfo.stateCode"  class="form-control" [alpha]="{'message':'You can enter only alphabets.'}"/>	
+      </div>
+      <button [disabled]="!addressinfoForm.valid" class="btn btn-primary">Submit</button>
+    </form>
+  
     `
   })
   export class AlphaValidationComponent {
-    location: Location = new Location();
-    conditionalExpression: { [key: string]: string } = { 'conditionalExpression': 'x => x.areaName ==\'Delhi\'' }
+    addressinfo: AddressInfo = new AddressInfo();
+    conditionalExpression: { [key: string]: string } = { 'conditionalExpression': 'x => x.countryName ==\'India\'' }
   }
 
   
