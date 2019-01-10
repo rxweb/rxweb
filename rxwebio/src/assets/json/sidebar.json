@@ -323,6 +323,13 @@
           "isActive": false
         }
       ]
+    },
+    {
+      "title": "Form Builder",
+      "uri": "/form-builder",
+      "otherUri":"form-builder",
+      "isOpen": false,
+      "isActive": false
     }
   ]
 }

@@ -1,0 +1,29 @@
+<div id="full-wrapper" *ngIf="showComponent">
+    <div class="content">
+        <div class="title" id="getting-started" [class.sticky]="sticky">
+            <h1>Form Builder</h1>
+        </div>
+        <div class="title-bar">
+            <p>Dynamic Form Builder which accept input from json</p>
+            <hr>
+        </div>
+
+        <div class="bg-white border-radius">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hpanel">
+                        <form [formGroup]="formBuilderFormGroup">
+                            <div class="form-group">
+                                <label>Json</label>
+                                <textarea name="Json" id="Json" cols="30" rows="10" formControlName="Json" class="form-control "></textarea>
+                                <small class="form-text text-muted">Enter Json for form builder.<br /></small>
+                                <small class="form-text text-danger">{{formBuilderFormGroup.controls.Json.error.message}}<br /></small>
+                            </div>
+                            <button [disabled]="!countryFormGroup.valid" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

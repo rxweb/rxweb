@@ -1,18 +1,18 @@
 <div>
-  <form #userForm = "ngForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm">
     <div class="form-group">
       <label>Obtained Marks</label>
 	    <input type="text" name="obtainedMarks" [(ngModel)]="user.obtainedMarks"  class="form-control" />
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Practical Exam Marks' or 'Passing Marks', then Obtained Marks must be less than '35'<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.obtainedMarks?.errors">{{userForm.controls.obtainedMarks?.errors.lessThan.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.obtainedMarks?.errors">{{userForm.controls?.obtainedMarks?.errors?.lessThan.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Other Activity Marks</label>
 	    <input type="text" name="otherActivityMarks" [(ngModel)]="user.otherActivityMarks"  class="form-control" />
 
       <small class="form-text text-muted">Other Activity Marks less than to Obtained marks<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.otherActivityMarks?.errors">{{userForm.controls.otherActivityMarks?.errors.lessThan.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.otherActivityMarks?.errors">{{userForm.controls?.otherActivityMarks?.errors?.lessThan.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

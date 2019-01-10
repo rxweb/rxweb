@@ -1,11 +1,11 @@
 <div>
-  <form #userinfoForm = "ngForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
     <div class="form-group">
       <label>Total Image Files</label>
 	    <input type="file" name="totalImageFiles" multiple [(ngModel)]="userinfo.totalImageFiles"  class="form-control" />
 
       <small class="form-text text-muted">This field allow upto 5 files.<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.totalImageFiles?.errors">{{userinfoForm.controls.totalImageFiles?.errors.file.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.totalImageFiles?.errors">{{userinfoForm.controls?.totalImageFiles?.errors?.file.message}}<br/></small>	
     </div>
     <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

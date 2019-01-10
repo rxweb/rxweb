@@ -1,11 +1,11 @@
 <div>
-  <form #userForm = "ngForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm">
     <div class="form-group">
       <label>Age</label>
 	    <input type="text" name="age" [(ngModel)]="user.age"  class="form-control" digit/>
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Phone Number' or 'Fax Number' then you need to add this input greater than or equal to '25'.<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.age?.errors">{{userForm.controls.age?.errors.digit.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.age?.errors">{{userForm.controls?.age?.errors?.digit.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Fax Number</label>
@@ -13,7 +13,7 @@
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Phone Number' then you need to add 'Age' field greater than or equal to '25'.<br/></small>
       <small class="form-text text-muted">If you want to apply conditional expression of type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.faxNumber?.errors">{{userForm.controls.faxNumber?.errors.digit.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.faxNumber?.errors">{{userForm.controls?.faxNumber?.errors?.digit.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

@@ -1,11 +1,11 @@
 <div>
-  <form #hexcolorinfoForm = "ngForm">
+  <form #hexcolorinfoForm = "ngForm" [rxwebForm]="hexcolorinfoForm">
     <div class="form-group">
       <label>Color Picker</label>
 	    <input type="text" name="color" [(ngModel)]="hexcolorinfo.color"  class="form-control" hexColor/>
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Footer Hexcode' or 'Header Hexcode', then you need to add 'Color Picker' input as '#AFAFAF'<br/></small>
-	   <small class="form-text text-danger" *ngIf="hexcolorinfoForm.controls.color?.errors">{{hexcolorinfoForm.controls.color?.errors.hexColor.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="hexcolorinfoForm.controls?.color?.errors">{{hexcolorinfoForm.controls?.color?.errors?.hexColor.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Header Hexcode</label>
@@ -13,7 +13,7 @@
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Header Hexcode' then you need to add 'Color Picker' input as '#AFAFAF'<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="hexcolorinfoForm.controls.headerHexcolorCode?.errors">{{hexcolorinfoForm.controls.headerHexcolorCode?.errors.hexColor.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="hexcolorinfoForm.controls?.headerHexcolorCode?.errors">{{hexcolorinfoForm.controls?.headerHexcolorCode?.errors?.hexColor.message}}<br/></small>	
     </div>
     <button [disabled]="!hexcolorinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

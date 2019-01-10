@@ -1,18 +1,18 @@
 <div>
-  <form #userForm = "ngForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm">
     <div class="form-group">
       <label>User Name</label>
 	    <input type="text" name="userName" [(ngModel)]="user.userName"  class="form-control" />
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Birth Date' or 'Admission Date', then you need to add 'User Name' input as 'Bharat'<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.userName?.errors">{{userForm.controls.userName?.errors.maxDate.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.userName?.errors">{{userForm.controls?.userName?.errors?.maxDate.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Allocation Date</label>
 	    <input type="text" name="allocationDate" [(ngModel)]="user.allocationDate"  class="form-control" [maxDate]="{'value':'07/30/2018'}"/>
 
       <small class="form-text text-muted">you can enter MaxDate upto 30th july 2018<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.allocationDate?.errors">{{userForm.controls.allocationDate?.errors.maxDate.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.allocationDate?.errors">{{userForm.controls?.allocationDate?.errors?.maxDate.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Admission Date</label>
@@ -20,7 +20,7 @@
 
       <small class="form-text text-muted">To apply the validation of Max Date on 'Admission Date' field, then enter the value 'Bharat' in 'User Name' textbox and you can enter maxDate as 30th july 2018<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.admissionDate?.errors">{{userForm.controls.admissionDate?.errors.maxDate.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.admissionDate?.errors">{{userForm.controls?.admissionDate?.errors?.maxDate.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Registration Date</label>
@@ -28,21 +28,21 @@
 
       <small class="form-text text-muted">you can enter MaxDate upto 30th july 2018<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.registrationDate?.errors">{{userForm.controls.registrationDate?.errors.maxDate.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.registrationDate?.errors">{{userForm.controls?.registrationDate?.errors?.maxDate.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Enrollment Date</label>
 	    <input type="text" name="enrollmentDate" [(ngModel)]="user.enrollmentDate"  class="form-control" />
 
       <small class="form-text text-muted">you can enter MaxDate upto 30th july 2018<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.enrollmentDate?.errors">{{userForm.controls.enrollmentDate?.errors.maxDate.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.enrollmentDate?.errors">{{userForm.controls?.enrollmentDate?.errors?.maxDate.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Last Registration Date</label>
 	    <input type="text" name="lastRegistrationDate" [(ngModel)]="user.lastRegistrationDate"  class="form-control" [maxDate]="{'fieldName':'enrollmentDate'}"/>
 
       <small class="form-text text-muted">you can enter MaxDate upto value mentioned in fieldName<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.lastRegistrationDate?.errors">{{userForm.controls.lastRegistrationDate?.errors.maxDate.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.lastRegistrationDate?.errors">{{userForm.controls?.lastRegistrationDate?.errors?.maxDate.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

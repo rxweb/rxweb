@@ -1,11 +1,11 @@
 <div>
-  <form #userForm = "ngForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm">
     <div class="form-group">
       <label>Other Age</label>
 	    <input type="text" name="otherAge" [(ngModel)]="user.otherAge"  class="form-control" />
 
       <small class="form-text text-muted">Shows custom message<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.otherAge?.errors">{{userForm.controls.otherAge?.errors.greaterThan.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.otherAge?.errors">{{userForm.controls?.otherAge?.errors?.greaterThan.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

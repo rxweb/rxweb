@@ -1,10 +1,10 @@
 <div>
-  <form #userinfoForm = "ngForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
     <div class="form-group">
       <label>Video File</label>
 	    <input type="file" name="videoFile"  [(ngModel)]="userinfo.videoFile"  class="form-control" />
 
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.videoFile?.errors">{{userinfoForm.controls.videoFile?.errors.fileSize.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.videoFile?.errors">{{userinfoForm.controls?.videoFile?.errors?.fileSize.message}}<br/></small>	
     </div>
     <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

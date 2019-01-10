@@ -1,11 +1,11 @@
 <div>
-  <form #addressinfoForm = "ngForm">
+  <form #addressinfoForm = "ngForm" [rxwebForm]="addressinfoForm">
     <div class="form-group">
       <label>State Code</label>
 	    <input type="text" name="stateCode" [(ngModel)]="addressinfo.stateCode"  class="form-control" [alpha]="{'message':'You can enter only alphabets.'}"/>
 
       <small class="form-text text-muted">Shows custom message<br/></small>
-	   <small class="form-text text-danger" *ngIf="addressinfoForm.controls.stateCode?.errors">{{addressinfoForm.controls.stateCode?.errors.alpha.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="addressinfoForm.controls?.stateCode?.errors">{{addressinfoForm.controls?.stateCode?.errors?.alpha.message}}<br/></small>	
     </div>
     <button [disabled]="!addressinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

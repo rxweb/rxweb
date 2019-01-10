@@ -1,12 +1,12 @@
 <div>
-  <form #subjectdetailsForm = "ngForm">
+  <form #subjectdetailsForm = "ngForm" [rxwebForm]="subjectdetailsForm">
     <div class="form-group">
       <label>Practical Marks</label>
 	    <input type="text" name="practicalMarks" [(ngModel)]="subjectdetails.practicalMarks"  class="form-control" [maxNumber]="{'value':70,'message':'Practical Marks exceeds the Maximum marks Limit'}"/>
 
       <small class="form-text text-muted">you can enter MaxNumber upto 70<br/></small>
       <small class="form-text text-muted">Shows custom message<br/></small>
-	   <small class="form-text text-danger" *ngIf="subjectdetailsForm.controls.practicalMarks?.errors">{{subjectdetailsForm.controls.practicalMarks?.errors.maxNumber.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="subjectdetailsForm.controls?.practicalMarks?.errors">{{subjectdetailsForm.controls?.practicalMarks?.errors?.maxNumber.message}}<br/></small>	
     </div>
     <button [disabled]="!subjectdetailsForm.valid" class="btn btn-primary">Submit</button>
   </form>

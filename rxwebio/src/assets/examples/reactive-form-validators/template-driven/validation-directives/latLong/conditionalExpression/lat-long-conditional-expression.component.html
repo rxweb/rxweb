@@ -1,11 +1,11 @@
 <div>
-  <form #countryForm = "ngForm">
+  <form #countryForm = "ngForm" [rxwebForm]="countryForm">
     <div class="form-group">
       <label>Continent</label>
 	    <input type="text" name="continent" [(ngModel)]="country.continent"  class="form-control" />
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Second Country' or 'Third Country', then you need to add 'Continent' input as 'Asia'<br/></small>
-	   <small class="form-text text-danger" *ngIf="countryForm.controls.continent?.errors">{{countryForm.controls.continent?.errors.latLong.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="countryForm.controls?.continent?.errors">{{countryForm.controls?.continent?.errors?.latLong.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Third Country</label>
@@ -13,7 +13,7 @@
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Third Country' then you need to add 'Continent' input as 'Asia'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="countryForm.controls.thirdCountry?.errors">{{countryForm.controls.thirdCountry?.errors.latLong.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="countryForm.controls?.thirdCountry?.errors">{{countryForm.controls?.thirdCountry?.errors?.latLong.message}}<br/></small>	
     </div>
     <button [disabled]="!countryForm.valid" class="btn btn-primary">Submit</button>
   </form>

@@ -1,11 +1,11 @@
 <div>
-  <form #userForm = "ngForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm">
     <div class="form-group">
       <label>Even Number</label>
 	    <input type="text" name="evenNumber" [(ngModel)]="user.evenNumber"  class="form-control" />
 
       <small class="form-text text-muted">you can enter only an even number<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.evenNumber?.errors">{{userForm.controls.evenNumber?.errors.even.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.evenNumber?.errors">{{userForm.controls?.evenNumber?.errors?.even.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

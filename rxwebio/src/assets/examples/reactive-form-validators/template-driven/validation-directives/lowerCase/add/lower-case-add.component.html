@@ -1,10 +1,10 @@
 <div>
-  <form #userinfoForm = "ngForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
     <div class="form-group">
       <label>Username</label>
 	    <input type="text" name="username" [(ngModel)]="userinfo.username"  class="form-control" lowerCase/>
 
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.username?.errors">{{userinfoForm.controls.username?.errors.lowerCase.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.username?.errors">{{userinfoForm.controls?.username?.errors?.lowerCase.message}}<br/></small>	
     </div>
     <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

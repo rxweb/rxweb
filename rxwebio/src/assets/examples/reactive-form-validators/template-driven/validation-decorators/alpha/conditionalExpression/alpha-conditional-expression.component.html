@@ -1,11 +1,11 @@
 <div>
-  <form #addressinfoForm = "ngForm">
+  <form #addressinfoForm = "ngForm" [rxwebForm]="addressinfoForm">
     <div class="form-group">
       <label>Country Name</label>
 	    <input type="text" name="countryName" [(ngModel)]="addressinfo.countryName"  class="form-control" />
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Country Code' or 'City' then you need to add this input as 'India'.<br/></small>
-	   <small class="form-text text-danger" *ngIf="addressinfoForm.controls.countryName?.errors">{{addressinfoForm.controls.countryName?.errors.alpha.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="addressinfoForm.controls?.countryName?.errors">{{addressinfoForm.controls?.countryName?.errors?.alpha.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>City</label>
@@ -13,7 +13,7 @@
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'City' then you need to add 'Country Name' input as 'India'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="addressinfoForm.controls.cityName?.errors">{{addressinfoForm.controls.cityName?.errors.alpha.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="addressinfoForm.controls?.cityName?.errors">{{addressinfoForm.controls?.cityName?.errors?.alpha.message}}<br/></small>	
     </div>
     <button [disabled]="!addressinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

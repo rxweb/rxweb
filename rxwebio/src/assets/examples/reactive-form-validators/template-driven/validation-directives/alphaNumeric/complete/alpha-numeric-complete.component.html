@@ -1,25 +1,25 @@
 <div>
-  <form #locationForm = "ngForm">
+  <form #locationForm = "ngForm" [rxwebForm]="locationForm">
     <div class="form-group">
       <label>Area Name</label>
 	    <input type="text" name="areaName" [(ngModel)]="location.areaName"  class="form-control" alphaNumeric/>
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'City Code'  or 'Country Code' then you need to add this input as 'Delhi'.<br/></small>
-	   <small class="form-text text-danger" *ngIf="locationForm.controls.areaName?.errors">{{locationForm.controls.areaName?.errors.alphaNumeric.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="locationForm.controls?.areaName?.errors">{{locationForm.controls?.areaName?.errors?.alphaNumeric.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Flat Address</label>
 	    <input type="text" name="flatAddress" [(ngModel)]="location.flatAddress"  class="form-control" [alphaNumeric]="{'allowWhiteSpace':true}"/>
 
       <small class="form-text text-muted">This allowed whitespace in alpha Numeric validation<br/></small>
-	   <small class="form-text text-danger" *ngIf="locationForm.controls.flatAddress?.errors">{{locationForm.controls.flatAddress?.errors.alphaNumeric.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="locationForm.controls?.flatAddress?.errors">{{locationForm.controls?.flatAddress?.errors?.alphaNumeric.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Postal Address</label>
 	    <input type="text" name="postalAddress" [(ngModel)]="location.postalAddress"  class="form-control" [alphaNumeric]="{'message':'Please enter only alphanumerics, special characters are not allowed.'}"/>
 
       <small class="form-text text-muted">Shows custom message<br/></small>
-	   <small class="form-text text-danger" *ngIf="locationForm.controls.postalAddress?.errors">{{locationForm.controls.postalAddress?.errors.alphaNumeric.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="locationForm.controls?.postalAddress?.errors">{{locationForm.controls?.postalAddress?.errors?.alphaNumeric.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>City Code</label>
@@ -27,7 +27,7 @@
 
       <small class="form-text text-muted">If you want to apply conditional validation on this field then you need to add 'areaName' input as 'Delhi'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="locationForm.controls.cityCode?.errors">{{locationForm.controls.cityCode?.errors.alphaNumeric.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="locationForm.controls?.cityCode?.errors">{{locationForm.controls?.cityCode?.errors?.alphaNumeric.message}}<br/></small>	
     </div>
     <button [disabled]="!locationForm.valid" class="btn btn-primary">Submit</button>
   </form>
