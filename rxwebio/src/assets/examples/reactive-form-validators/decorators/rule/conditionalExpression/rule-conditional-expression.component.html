@@ -1,5 +1,10 @@
 <div>
   <form  [formGroup]="addressInfoFormGroup">
+      <div class="form-group">
+          <label>Zipcode</label>
+          <input type="text" formControlName="zipcode" class="form-control"  />
+       <small class="form-text text-danger" *ngIf="addressInfoFormGroup.controls.zipcode.errors">{{addressInfoFormGroup.controls.zipcode.errors.required.message}}<br/></small>	
+        </div>
     <div class="form-group">
       <label>Country Name</label>
       <input type="text" formControlName="countryName" class="form-control"  />
