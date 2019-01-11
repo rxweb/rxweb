@@ -47,15 +47,15 @@ Type :  `number`
 The Maximum Number of files that can be uploaded
 
 <div component="app-code" key="file-maxFilesExample-model"></div> 
-<div component="app-example-runner" ref-component="app-file-max-files" title="file {{validatorType}} with maxFiles" key="maxFiles"></div>
+<div component="app-example-runner" ref-component="app-file-maxFiles" title="file {{validatorType}} with maxFiles" key="maxFiles"></div>
 
-## maxFiles
+## minFiles
 Type :  `number` 
 
 The Minimum Number of files that can be uploaded
 
 <div component="app-code" key="file-minFilesExample-model"></div> 
-<div component="app-example-runner" ref-component="app-file-min-files" title="file {{validatorType}} with minFiles" key="minFiles"></div>
+<div component="app-example-runner" ref-component="app-file-minFiles" title="file {{validatorType}} with minFiles" key="minFiles"></div>
 
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
