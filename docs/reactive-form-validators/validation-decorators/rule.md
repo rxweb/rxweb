@@ -13,7 +13,6 @@ Suppose you want to create an Address Info form, which contains fields like Zipc
   <li>Allow colonyName which is based on the custom rules.</li>
   <li>Apply rule validation on stateNAme field based on matched condition in the form, like if the Zipcode is '4000', then the stateName must be a according to the rule (Used as a function).</li>
   <li>Apply rule validation on cityNAme field based on matched condition in the form, like if the Zipcode is '4000', then the cityName must be a according to the rule (Used as a function).</li>
-  <li>Apply rule validation dynamically based on server rules.</li>
 </ol>
 Let's see how rule {{validatorType}} fulfil the need.
 

@@ -261,7 +261,7 @@
         },
         {
           "title": "rule",
-          "uri": "/form-validations/rule/validators",
+          "uri": "/form-validations/rule/decorators",
           "isActive": false
         },
         {
