@@ -116,7 +116,7 @@ To override the global configuration message and set the custom message on respe
 <div component="app-example-runner" ref-component="app-minDate-message" title="minDate {{validatorType}} with message" key="message"></div>
 
 ## value 
-Type :  `Date` 
+Type :  `Date` | `string`
 
 Enter date value which you want to restrict in the property. 
 

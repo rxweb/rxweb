@@ -260,6 +260,11 @@
           "isActive": false
         },
         {
+          "title": "rule",
+          "uri": "/form-validations/rule/validators",
+          "isActive": false
+        },
+        {
           "title": "startsWith",
           "uri": "/form-validations/startsWith/validators",
           "isActive": false

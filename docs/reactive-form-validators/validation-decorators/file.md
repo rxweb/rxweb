@@ -42,7 +42,7 @@ Below options are not mandatory to use in the `file` validation. If needed then 
 </table>
 
 ## maxFiles
-Type :  `string` 
+Type :  `number` 
 
 The Maximum Number of files that can be uploaded
 
@@ -50,7 +50,7 @@ The Maximum Number of files that can be uploaded
 <div component="app-example-runner" ref-component="app-file-max-files" title="file {{validatorType}} with maxFiles" key="maxFiles"></div>
 
 ## maxFiles
-Type :  `string` 
+Type :  `number` 
 
 The Minimum Number of files that can be uploaded
 

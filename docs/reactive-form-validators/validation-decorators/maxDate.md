@@ -87,7 +87,7 @@ Below options are not mandatory to use in the `maxDate` validation. If needed th
 </table>
 
 ## value 
-Type :  `number` 
+Type :  `Date` | `string` 
 Enter date value which you want to restrict in the property. 
 
 <div component="app-code" key="maxDate-valueExample-model"></div> 

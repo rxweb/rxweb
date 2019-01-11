@@ -2,10 +2,10 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const FORM_VALIDATION_ROUTES: Routes = [
-	{
-		path:'allOf',
-		loadChildren: './allOf/all-of.module#AllOfModule',
-	},
+{
+	path:'allOf',
+	loadChildren: './allOf/all-of.module#AllOfModule',
+},
 {
 	path:'alpha',
 	loadChildren: './alpha/alpha.module#AlphaModule',
@@ -21,6 +21,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'choice',
 	loadChildren: './choice/choice.module#ChoiceModule',
+},
+{
+	path:'compose',
+	loadChildren: './compose/compose.module#ComposeModule',
 },
 {
 	path:'compare',
@@ -193,6 +197,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'required',
 	loadChildren: './required/required.module#RequiredModule',
+},
+{
+	path:'rule',
+	loadChildren: './rule/rule.module#RuleModule',
 },
 {
 	path:'fileSize',
