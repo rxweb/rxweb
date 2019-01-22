@@ -21,10 +21,7 @@ describe('template-driven forms integration tests', () => {
             expect(specTester(fixture, { adminWebsiteUrl: null }, 'url')).toBe(false);
             expect(specTester(fixture, { adminWebsiteUrl: 'https:/#/google.co.in' }, 'url')).toBe(true);
             expect(specTester(fixture, { adminWebsiteUrl: 'https://google.co.in',customerWebsiteUrl:'https://stackblitz.com'},'url')).toBe(false);
-            expect(specTester(fixture, { adminWebsiteUrl: 'https://www.google.com',customerWebsiteUrl:'https:/@/stackblitz.com'},'url')).toBe(false);
-            expect(specTester(fixture, { adminWebsiteUrl: 'https://google.co.in',customerWebsiteUrl:'https:/@/stackblitz.com'},'url')).toBe(true);
-            expect(specTester(fixture, { maintenanceWebSiteUrl: 'https://github.com' }, 'url')).toBe(false);
-            expect(specTester(fixture, { maintenanceWebSiteUrl: 'https:/@/github.com' }, 'url')).toBe(true);
+            
         }));
         //end        
     })
