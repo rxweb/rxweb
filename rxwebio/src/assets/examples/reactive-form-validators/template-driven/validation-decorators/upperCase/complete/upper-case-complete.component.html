@@ -1,11 +1,11 @@
 <div>
-  <form #locationForm = "ngForm">
+  <form #locationForm = "ngForm" [rxwebForm]="locationForm">
     <div class="form-group">
       <label>Country Name</label>
 	    <input type="text" name="countryName" [(ngModel)]="location.countryName"  class="form-control" />
 
       <small class="form-text text-muted">Enter the 'INDIA' in 'Country Name' or 'City Name' text box to see the validation in 'State Name' text box.<br/></small>
-	   <small class="form-text text-danger" *ngIf="locationForm.controls.countryName?.errors">{{locationForm.controls.countryName?.errors.upperCase.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="locationForm.controls?.countryName?.errors">{{locationForm.controls?.countryName?.errors?.upperCase.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>City Name</label>
@@ -13,13 +13,13 @@
 
       <small class="form-text text-muted">To apply the validation of upperCase on 'City Name' field, then enter the value of 'INDIA' in 'Country Name' textbox.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="locationForm.controls.cityName?.errors">{{locationForm.controls.cityName?.errors.upperCase.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="locationForm.controls?.cityName?.errors">{{locationForm.controls?.cityName?.errors?.upperCase.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Colony Name</label>
 	    <input type="text" name="colonyName" [(ngModel)]="location.colonyName"  class="form-control" />
 
-	   <small class="form-text text-danger" *ngIf="locationForm.controls.colonyName?.errors">{{locationForm.controls.colonyName?.errors.upperCase.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="locationForm.controls?.colonyName?.errors">{{locationForm.controls?.colonyName?.errors?.upperCase.message}}<br/></small>	
     </div>
     <button [disabled]="!locationForm.valid" class="btn btn-primary">Submit</button>
   </form>

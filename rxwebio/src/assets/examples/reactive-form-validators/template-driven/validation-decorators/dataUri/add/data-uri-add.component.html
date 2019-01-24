@@ -1,11 +1,11 @@
 <div>
-  <form #userForm = "ngForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm">
     <div class="form-group">
       <label>Video Data Uri</label>
 	    <input type="text" name="videoDataUri" [(ngModel)]="user.videoDataUri"  class="form-control" />
 
       <small class="form-text text-muted">You must enter a data URI<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.videoDataUri?.errors">{{userForm.controls.videoDataUri?.errors.dataUri.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.videoDataUri?.errors">{{userForm.controls?.videoDataUri?.errors?.dataUri.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

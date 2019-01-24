@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
     <div class="form-group">
       <label>Image Type</label>
       <select name="imageType" [(ngModel)]="userinfo.imageType"  class="form-control" >
@@ -7,38 +7,38 @@
       </select>
 
       <small class="form-text text-muted">Based on selection of file type conditional validation is applied<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.imageType?.errors">{{userinfoForm.controls.imageType?.errors.image.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.imageType?.errors">{{userinfoForm.controls?.imageType?.errors?.image.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Profile Photo</label>
 	    <input type="file" name="profilePhoto"  [(ngModel)]="userinfo.profilePhoto"  class="form-control" />
 
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.profilePhoto?.errors">{{userinfoForm.controls.profilePhoto?.errors.image.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.profilePhoto?.errors">{{userinfoForm.controls?.profilePhoto?.errors?.image.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Signature</label>
 	    <input type="file" name="signature"  [(ngModel)]="userinfo.signature"  class="form-control" />
 
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.signature?.errors">{{userinfoForm.controls.signature?.errors.image.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.signature?.errors">{{userinfoForm.controls?.signature?.errors?.image.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Identity Card</label>
 	    <input type="file" name="identityCard"  [(ngModel)]="userinfo.identityCard"  class="form-control" />
 
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.identityCard?.errors">{{userinfoForm.controls.identityCard?.errors.image.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.identityCard?.errors">{{userinfoForm.controls?.identityCard?.errors?.image.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Driving License</label>
 	    <input type="file" name="drivinglicense"  [(ngModel)]="userinfo.drivinglicense"  class="form-control" />
 
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.drivinglicense?.errors">{{userinfoForm.controls.drivinglicense?.errors.image.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.drivinglicense?.errors">{{userinfoForm.controls?.drivinglicense?.errors?.image.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Aadhar Card</label>
 	    <input type="file" name="aadharCard"  [(ngModel)]="userinfo.aadharCard"  class="form-control" />
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Aadhar Card' then you need to add 'Image Type' input as 'IdentityCard'.<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.aadharCard?.errors">{{userinfoForm.controls.aadharCard?.errors.image.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.aadharCard?.errors">{{userinfoForm.controls?.aadharCard?.errors?.image.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Residence Proof</label>
@@ -46,7 +46,7 @@
 
       <small class="form-text text-muted">Invalid Image height or width.<br/></small>
       <small class="form-text text-muted">It shows custom message<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.residenceProof?.errors">{{userinfoForm.controls.residenceProof?.errors.image.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.residenceProof?.errors">{{userinfoForm.controls?.residenceProof?.errors?.image.message}}<br/></small>	
     </div>
     <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

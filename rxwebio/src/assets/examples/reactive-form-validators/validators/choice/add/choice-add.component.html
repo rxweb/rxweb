@@ -10,7 +10,7 @@
         <br />
         <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.projectDomains.errors">{{employeeInfoFormGroup.controls.projectDomains.errors.choice.message}}</small>
         <br />
-        <small class="form-text text-muted">Enter input length minimum 3</small>
+        <small class="form-text text-muted">You must select atleast 3 option.</small><br>
         <br />
       </div>
       <button [disabled]="!employeeInfoFormGroup.valid" class="btn btn-primary">Submit</button>

@@ -20,9 +20,9 @@ export class ChoiceMessageValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.employeeInfoFormGroup = this.formBuilder.group({
-            hobbies:['',RxwebValidators.choice({maxLength:4,message: "Please select upto 5 hobby"})]
+            hobbies:['',RxwebValidators.choice({maxLength:4,message: "Please select upto 4 hobby"})]
         });
-        this.http.get("assets/examples/reactive-form-validators/decorators/choice/message/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/validators/choice/message/choice.json").subscribe(response => {
             this.hobbiesArray = response['hobbiesArray'];
         })
     }

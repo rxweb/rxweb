@@ -15,6 +15,10 @@
         {
             "name":"Gaming",
             "checked":false
+        },
+        {
+            "name":"Financial",
+            "checked":false
         }
     ]
 }

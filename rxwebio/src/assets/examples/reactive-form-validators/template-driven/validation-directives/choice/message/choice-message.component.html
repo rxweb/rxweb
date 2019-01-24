@@ -1,5 +1,5 @@
 <div>
-<form #employeeInfoForm="ngForm">
+<form #employeeInfoForm="ngForm" [rxwebForm]="employeeInfoForm">
   <div class="form-group">
     <label>Hobbies</label>
     <div class="form-check" *ngFor="let tag of hobbiesArray; let i = index;">
@@ -8,7 +8,7 @@
         </h4>
       </div>
       <br />
-      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.hobbies?.errors">{{employeeInfoForm.controls.hobbies?.errors.choice.message}}</small>
+      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls?.hobbies?.errors">{{employeeInfoForm.controls?.hobbies?.errors?.choice.message}}</small>
       <br />
       <small class="form-text text-muted">Shows custom message</small>
       <br />

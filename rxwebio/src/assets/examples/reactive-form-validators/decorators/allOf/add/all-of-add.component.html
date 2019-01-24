@@ -7,6 +7,8 @@
           <input (click)="addProjectDomain($event.target,i)"  type="checkbox" value="{{tag.name}}" /> {{tag.name}}
         </h4>
       </div>
+      <br>
+      <small class="form-text text-muted">You must select all values.</small><br>
       <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.projectDomains.errors">{{employeeInfoFormGroup.controls.projectDomains.errors.allOf.message}}<br></small>
     </div>
     <button [disabled]="!employeeInfoFormGroup.valid" class="btn btn-primary">Submit</button>

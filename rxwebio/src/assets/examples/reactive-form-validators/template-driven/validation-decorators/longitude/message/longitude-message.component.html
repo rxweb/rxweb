@@ -1,12 +1,12 @@
 <div>
-  <form #countryForm = "ngForm">
+  <form #countryForm = "ngForm" [rxwebForm]="countryForm">
     <div class="form-group">
       <label>First Country Longitude</label>
 	    <input type="text" name="firstCountryLongitude" [(ngModel)]="country.firstCountryLongitude"  class="form-control" />
 
       <small class="form-text text-muted">You can enter only longitude<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
-	   <small class="form-text text-danger" *ngIf="countryForm.controls.firstCountryLongitude?.errors">{{countryForm.controls.firstCountryLongitude?.errors.longitude.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="countryForm.controls?.firstCountryLongitude?.errors">{{countryForm.controls?.firstCountryLongitude?.errors?.longitude.message}}<br/></small>	
     </div>
     <button [disabled]="!countryForm.valid" class="btn btn-primary">Submit</button>
   </form>

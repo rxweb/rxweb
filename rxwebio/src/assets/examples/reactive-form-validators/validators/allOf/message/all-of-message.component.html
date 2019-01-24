@@ -7,7 +7,8 @@
               <input (click)="addHobby($event.target,i)" type="checkbox" value="{{tag.name}}" /> {{tag.name}}
             </h4>
           </div>
-          <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.hobbies.errors">{{employeeInfoFormGroup.controls.hobbies.errors.allOf.message}}<br></small>
+          <br>
+          <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.hobbies.errors">{{employeeInfoFormGroup.controls.hobbies.errors.allOf.message}}</small><br>
         <small class="form-text text-muted">Shows custom message</small><br>
       </div>
       <button [disabled]="!employeeInfoFormGroup.valid" class="btn btn-primary">Submit</button>

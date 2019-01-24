@@ -2,6 +2,6 @@ import {  choice  } from "@rxweb/reactive-form-validators"
 
 export class EmployeeInfo{
 
-    @choice({maxLength:8})
+    @choice({maxLength:4})
     hobbies: string[] = [];
 }

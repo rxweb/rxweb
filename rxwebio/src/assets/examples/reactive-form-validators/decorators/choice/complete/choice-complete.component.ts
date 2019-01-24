@@ -42,7 +42,7 @@ export class ChoiceCompleteComponent implements OnInit {
 
     addProjectDomain(element: any, index: number) {
         element.checked ? this.selectedProjectDomains.push(element.value) : this.selectedProjectDomains.splice(index, 1);
-        this.employeeInfoFormGroup.controls.projects.setValue(this.selectedProjectDomains);
+        this.employeeInfoFormGroup.controls.projectDomains.setValue(this.selectedProjectDomains);
     }
 
     addQualification(element: any, index: number) {

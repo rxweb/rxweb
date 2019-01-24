@@ -1,12 +1,12 @@
 <div>
-  <form #accountinfoForm = "ngForm">
+  <form #accountinfoForm = "ngForm" [rxwebForm]="accountinfoForm">
     <div class="form-group">
       <label>Middle Name</label>
 	    <input type="text" name="middleName" [(ngModel)]="accountinfo.middleName"  class="form-control" />
 
       <small class="form-text text-muted">Middle Name and First Name must be different<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
-	   <small class="form-text text-danger" *ngIf="accountinfoForm.controls.middleName?.errors">{{accountinfoForm.controls.middleName?.errors.different.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="accountinfoForm.controls?.middleName?.errors">{{accountinfoForm.controls?.middleName?.errors?.different.message}}<br/></small>	
     </div>
     <button [disabled]="!accountinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

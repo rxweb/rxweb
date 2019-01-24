@@ -30,11 +30,12 @@ import { HomeComponent } from './home/home.component';
 import { ApplicationBroadcaster } from '../domain/application-broadcaster';
 import { BasicExamplesExtendedModule } from 'src/assets/examples/reactive-form-validators/basic-examples/basic-examples-extended.module';
 import { NgAisModule } from 'angular-instantsearch';
+import { FormBuilderComponent } from './form-builder/form-builder.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FilterPipe,GettingStartedComponent,ReactiveFormConfigComponent,HomeComponent
+    AppComponent, SideBarComponent, TopBarComponent, DashboardComponent,FilterPipe,GettingStartedComponent,ReactiveFormConfigComponent,HomeComponent,FormBuilderComponent
   ],
   imports: [BrowserModule, FormsModule,RxReactiveFormsModule, ReactiveFormsModule, HttpModule,HttpClientModule , RouterModule, APP_LAZY_ROUTING,RightSideBarSharedModule,DisqusSharedModule,BasicExamplesExtendedModule,ControlModule,FooterSharedModule,
     HighlightModule.forRoot({ theme: 'default' }), ClipboardModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),NgAisModule.forRoot(),

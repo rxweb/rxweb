@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
     <div class="form-group">
       <label>File Type</label>
       <select name="fileType" [(ngModel)]="userinfo.fileType"  class="form-control" >
@@ -7,35 +7,35 @@
       </select>
 
       <small class="form-text text-muted">Based on selection of file type conditional validation is applied<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.fileType?.errors">{{userinfoForm.controls.fileType?.errors.file.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.fileType?.errors">{{userinfoForm.controls?.fileType?.errors?.file.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Total Image Files</label>
 	    <input type="file" name="totalImageFiles" multiple [(ngModel)]="userinfo.totalImageFiles"  class="form-control" />
 
       <small class="form-text text-muted">This field allow upto 5 files.<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.totalImageFiles?.errors">{{userinfoForm.controls.totalImageFiles?.errors.file.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.totalImageFiles?.errors">{{userinfoForm.controls?.totalImageFiles?.errors?.file.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Total Document Files</label>
 	    <input type="file" name="totalDocumentFiles" multiple [(ngModel)]="userinfo.totalDocumentFiles"  class="form-control" />
 
       <small class="form-text text-muted">This field allow minmum 5 files.<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.totalDocumentFiles?.errors">{{userinfoForm.controls.totalDocumentFiles?.errors.file.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.totalDocumentFiles?.errors">{{userinfoForm.controls?.totalDocumentFiles?.errors?.file.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>MinimumFiles</label>
 	    <input type="file" name="minimumFiles" multiple [(ngModel)]="userinfo.minimumFiles"  class="form-control" />
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'MinimumFiles' then you need to add 'File Type' input as 'Picture'. we can add minimum 5 files<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.minimumFiles?.errors">{{userinfoForm.controls.minimumFiles?.errors.file.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.minimumFiles?.errors">{{userinfoForm.controls?.minimumFiles?.errors?.file.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>MinMaxFiles</label>
 	    <input type="file" name="minMaxFiles" multiple [(ngModel)]="userinfo.minMaxFiles"  class="form-control" />
 
       <small class="form-text text-muted">It shows custom message<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.minMaxFiles?.errors">{{userinfoForm.controls.minMaxFiles?.errors.file.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.minMaxFiles?.errors">{{userinfoForm.controls?.minMaxFiles?.errors?.file.message}}<br/></small>	
     </div>
     <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

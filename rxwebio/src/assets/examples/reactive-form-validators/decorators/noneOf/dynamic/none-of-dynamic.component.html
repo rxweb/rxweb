@@ -11,7 +11,8 @@
             <input (click)="addProjectDomain($event.target,i)" type="checkbox" value="{{tag.name}}" /> {{tag.name}}
           </h4>
         </div>
-        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.projectDomains.errors">{{employeeInfoFormGroup.controls.projectDomains.errors.noneOf.message}}<br></small>
+        <br>
+        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.projectDomains.errors">{{employeeInfoFormGroup.controls.projectDomains.errors.noneOf.message}}</small><br>
     </div>
     <div class="form-group">
       <label>Skills</label><small>( With Conditional Expression )</small><br>
@@ -20,7 +21,8 @@
           <input (click)="addSkill($event.target,i)" type="checkbox" value="{{tag.name}}" /> {{tag.name}}
         </h4>
       </div>
-      <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.skills.errors">{{employeeInfoFormGroup.controls.skills.errors.noneOf.message}}<br></small>
+      <br>
+      <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.skills.errors">{{employeeInfoFormGroup.controls.skills.errors.noneOf.message}}</small><br>
       <small class="form-text text-muted" >To apply the validation on 'Skills' field, enter 'DotNet' in 'Department' field</small><br>
     </div>
     <div class="form-group">
@@ -30,7 +32,8 @@
             <input (click)="addHobby($event.target,i)" type="checkbox" value="{{tag.name}}" /> {{tag.name}}
           </h4>
         </div>
-        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.hobbies.errors">{{employeeInfoFormGroup.controls.hobbies.errors.noneOf.message}}<br></small>
+        <br>
+        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.hobbies.errors">{{employeeInfoFormGroup.controls.hobbies.errors.noneOf.message}}</small><br>
       <small class="form-text text-muted">Shows custom message</small><br>
     </div>
     <button [disabled]="!employeeInfoFormGroup.valid" class="btn btn-primary">Submit</button>
