@@ -17,7 +17,7 @@ import { ContributionComponent } from '../disqus/contribution/contribution.compo
 @Component({
     selector: 'page-viewer',
     templateUrl: './page-viewer.component.html',
-})
+}) 
 
 export class PageViewerComponent extends BaseComponentProvider implements OnInit {
     @Input() content: string;
@@ -47,7 +47,7 @@ export class PageViewerComponent extends BaseComponentProvider implements OnInit
             let componentName = element.getAttribute("component");
             var params = this.getParams(element, componentName);
             switch (componentName) {
-                case "app-code":
+                     case "app-code":
                     element.appendChild(this.create(AppCodeComponent, params).rootNode());
                     break;
                 case "app-example-runner":
