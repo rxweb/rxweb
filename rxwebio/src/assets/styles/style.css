@@ -5680,9 +5680,8 @@ input.ng-invalid{
     background-color: #007dc5 !important;
 }
  select.ng-invalid{
-    background-color:#DA5235;
-    color:white;
-  }
+    border-color:#DA5235 !important;
+}
 
   .fade.show {
     opacity: 1;
@@ -6657,4 +6656,20 @@ body.hide-sidebar #menu .header-link {
 .form-check.ng-star-inserted h4{
     font-size: 14px;
     font-weight: normal
+}
+.validator-box{
+    padding: 15px 10px 10px 10px;
+}
+.content-form-builder{
+    padding: 0 20px
+}
+.ngx-json-viewer{
+    border:  1px solid black;
+    max-height: 135px;
+    min-height: 135px;
+    overflow: auto !important;
+}
+.center-align
+{
+    text-align: center;
 }

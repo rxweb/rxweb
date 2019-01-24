@@ -5,10 +5,9 @@ import { Router, RouterOutlet } from "@angular/router";
 import { NavigationEnd } from "@angular/router";
 import { HostListener } from "@angular/core";
 import { NavigationStart } from "@angular/router";
-import { RxSpinner } from '../../controls/spinner/spinners';
 import { AuthService } from '../../domain/auth.service';
-import { ApplicationBroadcaster } from '../../domain/application-broadcaster';
 import {  trigger, style, animate, transition } from '@angular/animations';
+import { ApplicationBroadcaster } from '@rx/core';
 
 @Component({
   selector: 'app-root',
@@ -18,13 +17,13 @@ export class AppComponent implements OnInit {
   title = 'rx.web.io';
   isHome = false;
   showFooter = false;
-  constructor(private router: Router,private spinner:RxSpinner,private applicationBroadCast:ApplicationBroadcaster,private auth:AuthService) {
+  constructor(private router: Router,private applicationBroadCast:ApplicationBroadcaster,private auth:AuthService) {
     this.applicationBroadCast.urlSubscriber.subscribe(t => {
       this.homeInit(t)
     });
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        if (val.url == "/" || val.url == "/home")
+        if (val.url == "/" || val.url == "/home" || val.url == "/form-builder")
           this.isHome = true;
         else{
           this.isHome = false;

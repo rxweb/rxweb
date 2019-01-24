@@ -1,4 +1,4 @@
-<div id="full-wrapper" *ngIf="showComponent">
+<div *ngIf="showComponent">
     <div class="content">
         <div class="title" id="getting-started" [class.sticky]="sticky">
             <h1>Form Builder</h1>
@@ -7,21 +7,111 @@
             <p>Dynamic Form Builder which accept input from json</p>
             <hr>
         </div>
-
-        <div class="bg-white border-radius">
+        <div class="bg-white border-radius content-form-builder">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="hpanel">
-                        <form [formGroup]="formBuilderFormGroup">
-                            <div class="form-group">
-                                <label>Json</label>
-                                <textarea name="Json" id="Json" cols="30" rows="10" formControlName="Json" class="form-control "></textarea>
-                                <small class="form-text text-muted">Enter Json for form builder.<br /></small>
-                                <small class="form-text text-danger">{{formBuilderFormGroup.controls.Json.error.message}}<br /></small>
+                        <div>
+                            <form [formGroup]="formBuilderFormGroup">
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label>Json</label>
+                                        <textarea name="Json" id="Json" cols="5" rows="5" formControlName="Json" class="form-control"
+                                            (change)="changeJson()"></textarea>
+                                        <small class="form-text text-muted">Enter Json for form builder.<br /></small>
+                                        <!-- <small class="form-text text-danger" *ngIf="formBuilderFormGroup.controls.Json.errorMessage">{{formBuilderFormGroup.controls.Json.errorMessage}}<br /></small> -->
+                                    </div>
+                                    <div class="form-group col-lg-6" *ngIf="isCorrectJson">
+                                        <label>Json Viewer</label>
+                                        <ngx-json-viewer [json]="parseJson"></ngx-json-viewer>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Property Name</th>
+                                                        <th>Validators</th>
+                                                    </tr>
+                                                    <tr [formGroup]="propertyData" *ngFor="let propertyData of formBuilderFormGroup.controls.properties.controls;let i = index">
+                                                        <td>{{i+1}}</td>
+                                                        <td>{{propertyData.value.propertyName}}</td>
+                                                        <td>
+                                                            <rx-tag [(source)]="validatorList" (added)="addValidator($event,propertyData.value,i)" (removed)="removedValidator($event,propertyData.value,i)" formControlName="validatorName"
+                                                                mainClass="form-control" [keyValueProps]="['validatorName','validatorName']"></rx-tag>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- <div>
+                            <div class="col-md-12">
+                                <ul class="nav nav-tabs">
+                                    <li class="active" [class.active]="formBuilderTab=='json'" (click)="formBuilderTab='json'"><a>Json</a></li>
+                                    <li *ngIf="formBuilderFormGroup.value.validatorType!='Validators'" [class.active]="formBuilderTab=='model'" (click)="formBuilderTab='model'"><a>Model</a></li>
+                                    <li [class.active]="formBuilderTab=='html'" (click)="formBuilderTab='html'"><a>Html</a></li>
+                                    <li [class.active]="formBuilderTab=='component'" (click)="formBuilderTab='component'"><a>Component</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" [class.active]="formBuilderTab=='json'">
+                                        <div>
+                                            <div class="code">
+                                                <a class="float-right copy-icon" ngxClipboard [cbContent]="example.Json"
+                                                    (cbOnSuccess)="example.JsonCopied = true" [class.copied]="example.JsonCopied"><i
+                                                        class="fa fa-files-o" aria-hidden="true"></i></a>
+                                                <div highlight="pre code">
+                                                    <pre><code [textContent]="example.Json"></code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" [class.active]="formBuilderTab=='model'" *ngIf="formBuilderFormGroup.value.validatorType!='Validators'">
+                                        <div>
+                                            <div class="code">
+                                                <a class="float-right copy-icon" ngxClipboard [cbContent]="example.Model"
+                                                    (cbOnSuccess)="example.ModelCopied = true" [class.copied]="example.ModelCopied"><i
+                                                        class="fa fa-files-o" aria-hidden="true"></i></a>
+                                                <div highlight="pre code">
+                                                    <pre><code [textContent]="example.Model"></code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" [class.active]="formBuilderTab=='html'">
+                                        <div>
+                                            <div class="code">
+                                                <a class="float-right copy-icon" ngxClipboard [cbContent]="example.Html"
+                                                    (cbOnSuccess)="example.HtmlCopied = true" [class.copied]="example.HtmlCopied"><i
+                                                        class="fa fa-files-o" aria-hidden="true"></i></a>
+                                                <div highlight="pre code">
+                                                    <pre><code [textContent]="example.Html"></code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" [class.active]="formBuilderTab=='component'">
+                                        <div>
+                                            <div class="code">
+                                                <a class="float-right copy-icon" ngxClipboard [cbContent]="example.Component"
+                                                    (cbOnSuccess)="example.ComponentCopied = true" [class.copied]="example.ComponentCopied"><i
+                                                        class="fa fa-files-o" aria-hidden="true"></i></a>
+                                                <div highlight="pre code">
+                                                    <pre><code [textContent]="example.Component"></code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                            <button [disabled]="!countryFormGroup.valid" class="btn btn-primary">Submit</button>
-                        </form>
+                        </div> -->
                     </div>
+
                 </div>
             </div>
         </div>

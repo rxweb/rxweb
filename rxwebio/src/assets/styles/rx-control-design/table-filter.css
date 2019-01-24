@@ -1,0 +1,153 @@
+.table {
+  font-size: 14px;
+}
+  .table thead th {
+    white-space:nowrap;
+  }
+.table .filter {
+    position: relative;
+    display: inline-block;
+  }
+
+.filter a, .filter a:not([href]):not([tabindex]) {
+  color: #fff;
+  margin-right: 4px;
+}
+.filter.active a {
+  color: #ee1e1e;
+}
+.table .filter .fltrcntnt {
+  position: absolute;
+  left: -2px;
+  z-index: 999;
+  width: 350px;
+  background: #eeeeee;
+  -webkit-transform: scale(0,0);
+  -moz-transform: scale(0,0);
+  -ms-transform: scale(0,0);
+  -o-transform: scale(0,0);
+  transform: scale(0,0);
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  margin-top: 0.5rem;
+  transform-origin: left top;
+  -webkit-box-shadow: 0 1px 8px 0px #ccc;
+  -moz-box-shadow: 0 1px 8px 0px #ccc;
+  box-shadow: 0 1px 8px 0px #ccc;
+}
+.table .filter.show .fltrcntnt {
+  -webkit-transform: scale(1,1);
+  -moz-transform: scale(1,1);
+  -ms-transform: scale(1,1);
+  -o-transform: scale(1,1);
+  transform: scale(1,1);
+}
+.table .filter .fltrcntnt::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid #eeeeee;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  top: -7px;
+  z-index: 9991;
+  left: 0px;
+}
+.table .filter .fltrcntnt .filterheader {
+  background: #eeeeee;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #cccccc;
+}
+  .table .filter .fltrcntnt .filterheader h6 {
+    font-size: 18px;
+    color: #333;
+    margin: 0rem;
+    padding: 0rem;
+    font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  }
+.table .filter .fltrcntnt .filterbody {
+  background: #ffffff;
+  color: #000046;
+  border: 1px solid #cccccc;
+  border-top: none;
+  padding: 0.5rem 0.7rem;
+}
+.table .filter .fltrcntnt .filterfotoer {
+  margin: 15px 0 5px;
+}
+.table .filter.left .fltrcntnt {
+  right: 0;
+  left: auto;
+}
+  .table .filter.left .fltrcntnt::before {
+    left: auto;
+    right: 0;
+  }
+
+.table .filter.left .fltrcntnt {
+  transform-origin: right top;
+  right: 0px;
+  left: auto;
+}
+.table-hover tbody tr.row-selected {
+  background-color: rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
+.pagination .page-link {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+}
+
+.pagination .page-item .page-link {
+  padding: 0.5rem 1rem;
+}
+
+.pagination .page-item.active .page-link {
+  background: transparent;
+  color: #0071c1;
+  border-bottom: 1px solid #0071c1;
+}
+
+
+  
+
+a.page-link > i {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+
+ul.pagination li.disabled a i.fa {
+  color: #ccc;
+}
+
+
+.rws-pr-pg {
+  font-family: "ralewayregular", sans-serif;
+  font-size: 13px;
+  color: #7a878e;
+}
+  .rws-pr-pg select {
+    background-color: #fff;
+    border-color: rgba(0,0,0,0.07) !important;
+    color: #7a878e;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    line-height: 26px;
+    vertical-align: middle;
+    transition: all 0.25s;
+    cursor: pointer;
+    position: relative;
+    margin: 0 5px;
+  }
+    .rws-pr-pg select:focus {
+      border: 1px solid rgba(0,0,0,1);
+      border-radius: 3px;
+      outline: none;
+      background: #ededed;
+      color: #0e70c1;
+    }

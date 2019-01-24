@@ -7,3 +7,14 @@
 @import url('../src/assets/styles/spinner.css');
 /* @import url('../src/assets/styles/default.min.css'); */
 
+@import url("/assets/styles/rx-control-design/datepicker.css");
+@import url("/assets/styles/rx-control-design/dialog.css");
+@import url("/assets/styles/rx-control-design/popup.css");
+@import url("/assets/styles/rx-control-design/select.css");
+@import url("/assets/styles/rx-control-design/spinner.css");
+@import url("/assets/styles/rx-control-design/tag.css");
+@import url("/assets/styles/rx-control-design/toast.css");
+@import url("/assets/styles/rx-control-design/table-filter.css");
+@import url("/assets/styles/rx-control-design/time.css");
+@import url("/assets/styles/rx-control-design/tooltip.css");
+@import url("/assets/styles/rx-control-design/common.css");

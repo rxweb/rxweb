@@ -10,7 +10,7 @@ import { PageModule } from "src/app/components/page/page.module";
 
 
 @NgModule({
-  imports: [NONE_OF_ROUTING ,NoneOfDecoratorsExtendedModule , NoneOfValidatorsExtendedModule ,PageModule],
+  imports: [NONE_OF_ROUTING ,NoneOfDecoratorsExtendedModule , NoneOfValidatorsExtendedModule  ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: NONE_OF_COMPONENT_EXAMPLE_CONSTANT }]
   })

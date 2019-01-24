@@ -1,0 +1,52 @@
+<div class="mainOverlayout alertbox fade {{layoutClass}}" *ngIf="bindHtml" [class.show]="showDialog" >
+    <div class="modal-dialog {{dialogStyle.main}}">
+        <div class="modal-content ">
+            <div class="modal-header {{dialogStyle.header}}">
+                <!--<button type="button" class="close" ><span aria-hidden="true">&times;</span></button>-->
+            <h5 class="modal-title ">{{dialogData.title}}</h5>
+            <button type="button" class="close"  (click)="cancelClick($event)" >
+              <span >&times; </span>
+            </button>
+            </div>
+            <div class="modal-body {{dialogStyle.body}}">
+                <p *ngIf="!validationMessages || validationMessages.length == 0">{{dialogData.message}}</p>
+                <!--
+            <div class="status-sum">
+              <p class="bold mb-2">Status Summary</p>
+              <p><i class="fa fa-times-circle-o mr-2 text-danger"></i>Add User</p>
+            </div>
+            <table class="table table-hover ">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Status</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>aaaa</td>
+                  <td><i class="fa fa-times-circle-o mr-2 text-danger"></i>Add User</td>
+                  <td>Given email address 'aaaa' is invalid</td>
+                </tr>
+                <tr>
+                  <td>aaaa</td>
+                  <td><i class="fa fa-times-circle-o mr-2 text-danger"></i>Add User</td>
+                  <td>Given email address 'aaaa' is invalid</td>
+                </tr>
+              </tbody>
+            </table>
+            -->
+              <ul *ngFor="let message of validationMessages;">
+                <li>{{message}}</li>
+              </ul>
+            </div>
+            <div class="modal-footer {{dialogStyle.footer}}">
+                <button type="button" (click)="primaryClick($event)" *ngIf="dialogData.showPrimaryOk"  class="btn btn-primary px-4 rounded-0 {{dialogStyle.okClick}}">{{dialogData.primaryOkText}}</button>
+                <button type="button" (click)="secondaryClick($event)" *ngIf="dialogData.showSecondaryOk" class="btn btn-primary px-4 rounded-0 {{dialogStyle.cancelClick}}">{{dialogData.secondaryOkText}}</button>
+                <button type="button" (click)="cancelClick($event)" *ngIf="dialogData.showCancel" class="btn btn-default px-4 rounded-0 {{dialogStyle.secondaryClick}}" >{{dialogData.cancelText}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+

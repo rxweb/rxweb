@@ -1,0 +1,11 @@
+<div class="toast-container {{position}}" style="z-index:65252;">
+   <div *ngFor="let message of messages;" style="visibility:hidden;" class="{{message.status}} toast-card mdl-shadow--16dp " [class.show]="message.isShow">
+<i *ngIf="message.status == 'success'" class="fa fa-check icon"></i>
+<i *ngIf="message.status == 'info'" class="fa fa-info-circle icon"></i>
+<i *ngIf="message.status == 'error'" class="fa fa-exclamation-circle icon"></i>
+        <i *ngIf="message.status == 'warning'" class="fa fa-exclamation-triangle icon"></i>
+        <span class="toast-message">{{message.message}} </span>
+        
+         <span class="close" (click)="hide(message)">X</span> 
+  </div>
+</div>

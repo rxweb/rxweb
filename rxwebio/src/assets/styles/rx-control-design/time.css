@@ -1,0 +1,4 @@
+rx-time{display:block;position:relative;}
+  rx-time .input-group-append .input-group-text {
+    font-size: 14px !important;
+  }

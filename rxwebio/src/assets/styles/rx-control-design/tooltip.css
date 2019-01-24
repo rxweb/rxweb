@@ -1,0 +1,10 @@
+.tooltip-inner {
+  padding: .5rem .5rem;
+  text-align: center;
+  font-family: Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 2px;
+  max-width: 250px;
+  background: rgba(97,97,97,.9);
+}

@@ -1,11 +1,11 @@
 import {NgModule, ModuleWithProviders, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { MergeDashPipe } from "src/app/pipes/merge-dash.pipe";
+import { KeysPipe } from "./key.pipe";
 
 @NgModule({
     declarations: [
-        MergeDashPipe
+        KeysPipe
     ],
-    exports: [MergeDashPipe],
+    exports: [KeysPipe],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PipeCommonModule {

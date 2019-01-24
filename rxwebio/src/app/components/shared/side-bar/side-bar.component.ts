@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
-import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
+import { ApplicationBroadcaster } from "@rx/core";
 import { AuthService } from 'src/app/domain/auth.service';
 
 @Component({
