@@ -1,5 +1,5 @@
 <div>
-<form #employeeInfoForm="ngForm">
+<form #employeeInfoForm="ngForm" [rxwebForm]="employeeInfoForm">
   <div class="form-group">
     <label>Qualifications</label>
     <div class="form-check" *ngFor="let tag of qualificationsArray; let i = index;">
@@ -8,9 +8,9 @@
         </h4>
       </div>
       <br />
-      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.qualifications?.errors">{{employeeInfoForm.controls.qualifications?.errors.choice.message}}</small>
+      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls?.qualifications?.errors">{{employeeInfoForm.controls?.qualifications?.errors?.choice.message}}</small>
       <br />
-      <small class="form-text text-muted">Shows custom message</small>
+      <small class="form-text text-muted">You can select upto 3 options.</small>
       <br />
   </div>
   <button [disabled]="!employeeInfoForm.valid" class="btn btn-primary">Submit</button>

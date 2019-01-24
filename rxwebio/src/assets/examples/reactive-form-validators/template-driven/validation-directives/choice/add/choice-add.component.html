@@ -1,5 +1,5 @@
 <div>
-  <form #employeeInfoForm = "ngForm">
+  <form #employeeInfoForm = "ngForm" [rxwebForm]="employeeInfoForm">
     <div class="form-group">
       <label>Project Domains</label>
       <div class="form-check" *ngFor="let tag of projectDomainsArray; let i = index;">
@@ -8,8 +8,9 @@
         </h4>
       </div>
       <br />
-      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.projectDomains?.errors">{{employeeInfoForm.controls.projectDomains?.errors.choice.message}}</small>
+      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls?.projectDomains?.errors">{{employeeInfoForm.controls?.projectDomains?.errors?.choice.message}}</small>
       <br />
+      <small class="form-text text-muted">Select atleast 3 option.</small><br>
     </div>
     <button [disabled]="!employeeInfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

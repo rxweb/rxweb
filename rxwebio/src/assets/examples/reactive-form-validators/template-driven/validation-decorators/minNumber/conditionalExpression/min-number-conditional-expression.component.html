@@ -1,11 +1,11 @@
 <div>
-  <form #resultinfoForm = "ngForm">
+  <form #resultinfoForm = "ngForm" [rxwebForm]="resultinfoForm">
     <div class="form-group">
       <label>Maths</label>
 	    <input type="text" name="maths" [(ngModel)]="resultinfo.maths"  class="form-control" />
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'English' or 'Statstics', then you need to add 'Maths' input as '50'<br/></small>
-	   <small class="form-text text-danger" *ngIf="resultinfoForm.controls.maths?.errors">{{resultinfoForm.controls.maths?.errors.minNumber.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="resultinfoForm.controls?.maths?.errors">{{resultinfoForm.controls?.maths?.errors?.minNumber.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Statstics</label>
@@ -14,7 +14,7 @@
       <small class="form-text text-muted">Conditional validation will be applied if the 'Maths' field have value of '50'<br/></small>
       <small class="form-text text-muted">you can enter min number upto 35<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="resultinfoForm.controls.statstics?.errors">{{resultinfoForm.controls.statstics?.errors.minNumber.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="resultinfoForm.controls?.statstics?.errors">{{resultinfoForm.controls?.statstics?.errors?.minNumber.message}}<br/></small>	
     </div>
     <button [disabled]="!resultinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

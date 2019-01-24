@@ -1,11 +1,11 @@
 <div>
-  <form #subjectdetailsForm = "ngForm">
+  <form #subjectdetailsForm = "ngForm" [rxwebForm]="subjectdetailsForm">
     <div class="form-group">
       <label>Subject Code</label>
 	    <input type="text" name="subjectCode" [(ngModel)]="subjectdetails.subjectCode"  class="form-control" />
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Maximum Marks' or 'Obtained Marks', then you need to add 'Type' input as '8CS5A'<br/></small>
-	   <small class="form-text text-danger" *ngIf="subjectdetailsForm.controls.subjectCode?.errors">{{subjectdetailsForm.controls.subjectCode?.errors.maxNumber.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="subjectdetailsForm.controls?.subjectCode?.errors">{{subjectdetailsForm.controls?.subjectCode?.errors?.maxNumber.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Obtained Marks for above subject code</label>
@@ -13,7 +13,7 @@
 
       <small class="form-text text-muted">To apply the validation of Max Number on 'Obtained Marks' field, then enter the value '8CS5A' in 'Subject Code' textbox and you can enter maxNumber upto 100<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="subjectdetailsForm.controls.obtainedMarks?.errors">{{subjectdetailsForm.controls.obtainedMarks?.errors.maxNumber.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="subjectdetailsForm.controls?.obtainedMarks?.errors">{{subjectdetailsForm.controls?.obtainedMarks?.errors?.maxNumber.message}}<br/></small>	
     </div>
     <button [disabled]="!subjectdetailsForm.valid" class="btn btn-primary">Submit</button>
   </form>

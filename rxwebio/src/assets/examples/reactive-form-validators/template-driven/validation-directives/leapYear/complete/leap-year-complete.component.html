@@ -1,11 +1,11 @@
 <div>
-  <form #userForm = "ngForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm">
     <div class="form-group">
       <label>Name</label>
 	    <input type="text" name="name" [(ngModel)]="user.name"  class="form-control" />
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Birth Year' or 'Admission Date', then you need to add 'Name' input as 'Bharat'<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.name?.errors">{{userForm.controls.name?.errors.leapYear.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.name?.errors">{{userForm.controls?.name?.errors?.leapYear.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Admission Year</label>
@@ -13,7 +13,7 @@
 
       <small class="form-text text-muted">To apply the validation of leap on 'Admission Year' field, then enter the value 'Bharat' in 'Name' textbox<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.admissionYear?.errors">{{userForm.controls.admissionYear?.errors.leapYear.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.admissionYear?.errors">{{userForm.controls?.admissionYear?.errors?.leapYear.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Joining Year</label>
@@ -21,7 +21,7 @@
 
       <small class="form-text text-muted">you can enter only a leap year<br/></small>
       <small class="form-text text-muted">Shows custom message.<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.joiningYear?.errors">{{userForm.controls.joiningYear?.errors.leapYear.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.joiningYear?.errors">{{userForm.controls?.joiningYear?.errors?.leapYear.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

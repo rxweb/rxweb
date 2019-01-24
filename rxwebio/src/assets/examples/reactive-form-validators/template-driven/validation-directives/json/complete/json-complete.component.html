@@ -1,11 +1,11 @@
 <div>
-  <form #jsoninfoForm = "ngForm">
+  <form #jsoninfoForm = "ngForm" [rxwebForm]="jsoninfoForm">
     <div class="form-group">
       <label>Location</label>
 	    <input type="text" name="location" [(ngModel)]="jsoninfo.location"  class="form-control" />
 
       <small class="form-text text-muted">'To apply the validation of JSON on 'addressJson' or 'locationJson' field, then enter the value of location is &#123;CountryName:India&#125; in Location textbox.<br/></small>
-	   <small class="form-text text-danger" *ngIf="jsoninfoForm.controls.location?.errors">{{jsoninfoForm.controls.location?.errors.json.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="jsoninfoForm.controls?.location?.errors">{{jsoninfoForm.controls?.location?.errors?.json.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Location Json</label>
@@ -13,14 +13,14 @@
 
       <small class="form-text text-muted">If you want to apply conditional validation on 'Location Json' then you need to add 'Location' input as &#123;CountryName:India&#125;.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	   <small class="form-text text-danger" *ngIf="jsoninfoForm.controls.locationJson?.errors">{{jsoninfoForm.controls.locationJson?.errors.json.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="jsoninfoForm.controls?.locationJson?.errors">{{jsoninfoForm.controls?.locationJson?.errors?.json.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Contact Json</label>
 	    <input type="text" name="contactJson" [(ngModel)]="jsoninfo.contactJson"  class="form-control" [json]="{'message':'Enter only JSON type data'}"/>
 
       <small class="form-text text-muted">Shows custom message<br/></small>
-	   <small class="form-text text-danger" *ngIf="jsoninfoForm.controls.contactJson?.errors">{{jsoninfoForm.controls.contactJson?.errors.json.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="jsoninfoForm.controls?.contactJson?.errors">{{jsoninfoForm.controls?.contactJson?.errors?.json.message}}<br/></small>	
     </div>
     <button [disabled]="!jsoninfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

@@ -71,6 +71,7 @@ Type :  `number`
 minLength  is to define a minLength of field which is in form of array
 
 <div component="app-code" key="choice-minLengthExample-model"></div> 
+
 <div component="app-example-runner" ref-component="app-choice-minLength" title="choice {{validatorType}} with minLength" key="minLength"></div>
 
 ## maxLength 
@@ -78,6 +79,7 @@ Type :  `number`
 maxLength number is for define a maxLength number of range
 
 <div component="app-code" key="choice-maxLengthExample-model"></div> 
+
 <div component="app-example-runner" ref-component="app-choice-maxLength" title="choice {{validatorType}} with maxLength" key="maxLength"></div>
 
 ## conditionalExpression 

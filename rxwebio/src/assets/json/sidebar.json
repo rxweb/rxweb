@@ -35,13 +35,13 @@
           "isActive": false
         },
         {
-          "title": "compare",
-          "uri": "/form-validations/compare/validators",
+          "title": "choice",
+          "uri": "/form-validations/choice/validators",
           "isActive": false
         },
         {
-          "title": "choice",
-          "uri": "/form-validations/choice/validators",
+          "title": "compare",
+          "uri": "/form-validations/compare/validators",
           "isActive": false
         },
         {
@@ -260,6 +260,11 @@
           "isActive": false
         },
         {
+          "title": "rule",
+          "uri": "/form-validations/rule/decorators",
+          "isActive": false
+        },
+        {
           "title": "startsWith",
           "uri": "/form-validations/startsWith/validators",
           "isActive": false
@@ -320,6 +325,27 @@
         {
           "title":"propObject",
           "uri":"/decorators/propObject/decorators",
+          "isActive": false
+        }
+      ]
+    },
+    {
+      "title": "Form Builder",
+      "uri": "/form-builder",
+      "otherUri":"form-builder",
+      "isOpen": false,
+      "isActive": false
+    },
+    {
+      "title": "Advance Form Validation",
+      "uri": null,
+      "otherUri":"advance-form-validation",
+      "isOpen": false,
+      "isActive": false,
+      "childrens":[
+        {
+          "title":"Conditional Validation",
+          "uri":"advance-form-validation/conditionalValidation/validators",
           "isActive": false
         }
       ]

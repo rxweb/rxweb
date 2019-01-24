@@ -12,7 +12,8 @@
           </h4>
         </div>
         <br />
-        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.projectDomains.errors">{{employeeInfoFormGroup.controls.projectDomains.errors.choice.message}}<br></small>
+        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.projectDomains.errors">{{employeeInfoFormGroup.controls.projectDomains.errors.choice.message}}</small><br>
+        <small class="form-text text-muted">You must select atleast 3 option.</small><br>
     </div>
     <div class="form-group">
       <label>Qualifications</label>
@@ -24,7 +25,7 @@
       <br />
       <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.qualifications.errors">{{employeeInfoFormGroup.controls.qualifications.errors.choice.message}}</small>
       <br />
-      <small class="form-text text-muted" >To apply the validation on 'Qualifications' field, enter 'DotNet' in 'Department' field</small>
+      <small class="form-text text-muted" >You must select atmost 4 option</small>
       <br />
     </div>
     <div class="form-group">

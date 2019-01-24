@@ -1,11 +1,11 @@
 <div>
-  <form #userinfoForm = "ngForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
     <div class="form-group">
       <label>MinMaxFiles</label>
 	    <input type="file" name="minMaxFiles" multiple [(ngModel)]="userinfo.minMaxFiles"  class="form-control" [file]="{'minFiles':5,'maxFiles':10,'message':'You can upload minimum 5 and maximum 10 files.'}"/>
 
       <small class="form-text text-muted">It shows custom message<br/></small>
-	   <small class="form-text text-danger" *ngIf="userinfoForm.controls.minMaxFiles?.errors">{{userinfoForm.controls.minMaxFiles?.errors.file.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.minMaxFiles?.errors">{{userinfoForm.controls?.minMaxFiles?.errors?.file.message}}<br/></small>	
     </div>
     <button [disabled]="!userinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

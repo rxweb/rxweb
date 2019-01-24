@@ -1,4 +1,4 @@
-import {  oneOf,prop, choice  } from "@rxweb/reactive-form-validators"
+import {  prop, choice  } from "@rxweb/reactive-form-validators"
 
 export class EmployeeInfo{
 

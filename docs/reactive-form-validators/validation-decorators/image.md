@@ -87,7 +87,7 @@ Below options are not mandatory to use in the `image` validation. If needed then
 </table>
 
 ## maxWidth
-Type :  `string` 
+Type :  `number` 
 
 To set the maximum Width of the Image.
 
@@ -95,7 +95,7 @@ To set the maximum Width of the Image.
 <div component="app-example-runner" ref-component="app-image-maxWidth" title="image {{validatorType}} with maxWidth" key="maxWidth"></div>
 
 ## maxHeight
-Type :  `string` 
+Type :  `number` 
 
 To set the maximum Height of the Image.
 
@@ -103,7 +103,7 @@ To set the maximum Height of the Image.
 <div component="app-example-runner" ref-component="app-image-maxHeight" title="image {{validatorType}} with maxHeight" key="maxHeight"></div>
 
 ## minWidth
-Type :  `string` 
+Type :  `number` 
 
 To set the minimum Width of the Image.
 
@@ -111,7 +111,7 @@ To set the minimum Width of the Image.
 <div component="app-example-runner" ref-component="app-image-minWidth" title="image {{validatorType}} with minWidth" key="minWidth"></div>
 
 ## minHeight
-Type :  `string` 
+Type :  `number` 
 
 To set the minimum Height of the Image.
 

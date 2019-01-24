@@ -1,5 +1,5 @@
 <div>
-  <form #employeeInfoForm="ngForm">
+  <form #employeeInfoForm="ngForm" [rxwebForm]="employeeInfoForm">
     <div class="form-group">
       <label>Department</label>
       <input type="text" name="department" [ngModel]="employeeInfo.department" class="form-control" placeholder="Enter any department" />
@@ -13,7 +13,8 @@
         </h4>
       </div>
       <br />
-      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.projectDomains?.errors">{{employeeInfoForm.controls.projectDomains?.errors.choice.message}}</small>
+      <small class="form-text text-muted">Select atleast 3 option.</small><br>
+      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls?.projectDomains?.errors">{{employeeInfoForm.controls?.projectDomains?.errors?.choice.message}}</small>
       <br />
     </div>
     <div class="form-group">
@@ -25,7 +26,7 @@
         </h4>
       </div>
       <br />
-      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.qualifications?.errors">{{employeeInfoForm.controls.qualifications?.errors.choice.message}}</small>
+      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls?.qualifications?.errors">{{employeeInfoForm.controls?.qualifications?.errors?.choice.message}}</small>
       <br />
       <small class="form-text text-muted">To apply the validation on 'Qualifications' field, enter 'DotNet' in
         'Department' field</small><br />
@@ -39,7 +40,7 @@
         </h4>
       </div>
       <br />
-      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.languages?.errors">{{employeeInfoForm.controls.languages?.errors.choice.message}}</small>
+      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls?.languages?.errors">{{employeeInfoForm.controls?.languages?.errors?.choice.message}}</small>
       <br />
       <small class="form-text text-muted">To apply the validation on 'Qualifications' field, enter 'DotNet' in
         'Department' field</small><br>
@@ -53,7 +54,7 @@
         </h4>
       </div>
       <br />
-      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.skills?.errors">{{employeeInfoForm.controls.skills?.errors.choice.message}}</small>
+      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls?.skills?.errors">{{employeeInfoForm.controls?.skills?.errors?.choice.message}}</small>
       <br />
       <small class="form-text text-muted">To apply the validation on 'Skills' field, enter 'DotNet' in 'Department'
         field</small><br>
@@ -67,7 +68,7 @@
         </h4>
       </div>
       <br />
-      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls.hobbies?.errors">{{employeeInfoForm.controls.hobbies?.errors.choice.message}}</small>
+      <small class="form-text text-danger" *ngIf="employeeInfoForm.controls?.hobbies?.errors">{{employeeInfoForm.controls?.hobbies?.errors?.choice.message}}</small>
       <br />
       <small class="form-text text-muted">Shows custom message</small><br />
     </div>

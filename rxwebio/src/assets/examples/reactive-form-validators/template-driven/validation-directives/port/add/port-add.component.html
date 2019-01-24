@@ -1,11 +1,11 @@
 <div>
-  <form #userForm = "ngForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm">
     <div class="form-group">
       <label>Educational Website Port</label>
 	    <input type="text" name="educationalWebsitePort" [(ngModel)]="user.educationalWebsitePort"  class="form-control" port/>
 
       <small class="form-text text-muted">You must enter a proper port number<br/></small>
-	   <small class="form-text text-danger" *ngIf="userForm.controls.educationalWebsitePort?.errors">{{userForm.controls.educationalWebsitePort?.errors.port.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.educationalWebsitePort?.errors">{{userForm.controls?.educationalWebsitePort?.errors?.port.message}}<br/></small>	
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

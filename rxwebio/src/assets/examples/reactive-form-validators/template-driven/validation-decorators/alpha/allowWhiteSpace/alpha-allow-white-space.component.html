@@ -1,11 +1,11 @@
 <div>
-  <form #addressinfoForm = "ngForm">
+  <form #addressinfoForm = "ngForm" [rxwebForm]="addressinfoForm">
     <div class="form-group">
       <label>State Name</label>
 	    <input type="text" name="stateName" [(ngModel)]="addressinfo.stateName"  class="form-control" />
 
       <small class="form-text text-muted">This allowed whitespace in alpha validation<br/></small>
-	   <small class="form-text text-danger" *ngIf="addressinfoForm.controls.stateName?.errors">{{addressinfoForm.controls.stateName?.errors.alpha.message}}<br/></small>	
+	   <small class="form-text text-danger" *ngIf="addressinfoForm.controls?.stateName?.errors">{{addressinfoForm.controls?.stateName?.errors?.alpha.message}}<br/></small>	
     </div>
     <button [disabled]="!addressinfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

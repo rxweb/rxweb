@@ -4,13 +4,13 @@
     <h1><span>{{title}}</span><a title="Link to this heading" class="link-header" href="{{linkHref}}#{{title}}"><i class="fa fa-link"></i></a>
         <div class="hpanel">
                 <ul class="nav nav-tabs page-tabs" *ngIf="mainType !== 'community'">
-                    <li [class.active]="activeTab == 'validators'" *ngIf="mainType == 'form-validations'">
+                    <li [class.active]="activeTab == 'validators'" *ngIf="mainType == 'form-validations' && validationName !== 'rule'">
                         <a (click)="route('validators')">Validator</a>
                     </li>
-                    <li [class.active]="activeTab == 'template-driven'" *ngIf="mainType == 'form-validations' && (validationName !== 'pattern' && validationName !== 'unique'  && validationName !== 'ip' && validationName !== 'compose')">
+                    <li [class.active]="activeTab == 'template-driven'" *ngIf="mainType == 'form-validations' && (validationName !== 'pattern' && validationName !== 'unique'  && validationName !== 'ip' && validationName !== 'compose' && validationName !== 'allOf' && validationName !== 'oneOf' && validationName !== 'noneOf' && validationName !== 'rule' && validationName !== 'conditionalValidation')">
                         <a (click)="route('template-driven')">Template Driven</a>
                     </li>
-                    <li [class.active]="activeTab == 'decorators'" *ngIf="validationName !== 'ip' && validationName !== 'compose'">
+                    <li [class.active]="activeTab == 'decorators'" *ngIf="validationName !== 'ip' && validationName !== 'compose'  && validationName !== 'conditionalValidation'">
                         <a (click)="route('decorators')">Decorator</a>
                     </li>
                 </ul>

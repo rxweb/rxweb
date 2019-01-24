@@ -26,7 +26,7 @@ export class ChoiceCompleteValidatorComponent implements OnInit {
             qualifications:['',RxwebValidators.choice({maxLength:4})],
             languages:['',RxwebValidators.choice({minLength:3, conditionalExpression: (x,y) => x.department == "DotNet" })],
             skills:['',RxwebValidators.choice({minLength:3, conditionalExpression: "x => x.department =='DotNet'"})],
-            hobbies:['',RxwebValidators.choice({maxLength:4,message: "Please select upto 5 hobby"})]
+            hobbies:['',RxwebValidators.choice({maxLength:4,message: "Please select upto 4 hobby"})]
         });
         this.http.get("assets/examples/reactive-form-validators/validators/choice/complete/choice.json").subscribe(response => {
             this.qualificationsArray = response['qualificationsArray'];

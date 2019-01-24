@@ -7,7 +7,10 @@
             <input (click)="addProjectDomain($event.target,i)"  type="checkbox" value="{{tag.name}}" /> {{tag.name}}
           </h4>
         </div>
-        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.projectDomains.errors">{{employeeInfoFormGroup.controls.projectDomains.errors.noneOf.message}}<br></small>
+        <br>
+        <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.projectDomains.errors">{{employeeInfoFormGroup.controls.projectDomains.errors.noneOf.message}}</small>
+        <br>
+        <small class="form-text text-muted">noneOf validation based on matchValues.</small>
       </div>
       <button [disabled]="!employeeInfoFormGroup.valid" class="btn btn-primary">Submit</button>
     </form>
