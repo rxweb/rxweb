@@ -21,7 +21,7 @@ import { PasswordConfig } from "./config/password-config";
 import { TimeConfig } from "./config/time-config";
 import { ExtensionConfig } from "./config/extension-config";
 import { SizeConfig } from "./config/size-config";
-import { ValidatorFn } from "@angular/forms";
+import { ValidatorFn, AsyncValidatorFn } from "@angular/forms";
 
 export interface PropValidationConfig {
     allOf?:ArrayConfig;
@@ -56,7 +56,7 @@ export interface PropValidationConfig {
     alphaNumeric?: AlphaConfig | boolean;
     email?: EmailConfig | boolean;
     lowerCase?: MessageConfig | boolean;
-    maxDate?: DateConfig;
+    maxDate?: DateConfig;   
     maxNumber?: NumberConfig;
     minDate?: DateConfig;
     minNumber?: NumberConfig;
@@ -73,5 +73,6 @@ export interface PropValidationConfig {
     startsWith?:DefaultConfig | boolean;
     primeNumber?:BaseConfig | boolean;
     latitude?:BaseConfig | boolean;
-    longitude?:BaseConfig | boolean;
+    longitude?: BaseConfig | boolean;
+    async?: AsyncValidatorFn[];
 }

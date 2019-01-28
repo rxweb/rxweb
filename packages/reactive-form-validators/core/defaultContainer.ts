@@ -10,7 +10,7 @@ export const defaultContainer:
         addInstanceContainer(instanceFunc: any): void,
         addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void,
         addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]): void,
-        init(target: any,parameterIndex:any,propertyKey:string, annotationType:string, config:any) : void,
+        init(target: any,parameterIndex:any,propertyKey:string, annotationType:string, config:any,isAsync:boolean) : void,
         initPropertyObject(name:string,propertyType:string,entity:any,target) : void,
         modelIncrementCount:number,
         clearInstance(instance:any):void,
@@ -24,12 +24,13 @@ export const defaultContainer:
         }
 
 
-        init(target:any,parameterIndex: any, propertyKey: string, annotationType: string, config: any): void {
+        init(target:any,parameterIndex: any, propertyKey: string, annotationType: string, config: any,isAsync:boolean): void {
           var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,
             propertyName: propertyKey,
             annotationType: annotationType,
-            config: config
+            config: config,
+            isAsync:isAsync
           }
           let isPropertyKey = (propertyKey != undefined);
           this.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);  

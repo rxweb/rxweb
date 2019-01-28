@@ -8,7 +8,7 @@ import { ApplicationUtil } from '../util/app-util';
 export function baseValidator(config: any, type: any, validator: Function): ValidatorFn {
   var rxwebValidator = (control: any, target?: object): { [key: string]: any } => {
     if (typeof control == STRING)
-      defaultContainer.init(target, 0, control, type, config);
+      defaultContainer.init(target, 0, control, type, config,false);
     else
       return ApplicationUtil.configureControl(control, config, type), validator(control);
     return null

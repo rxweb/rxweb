@@ -12,7 +12,8 @@ export interface DecoratorConfiguration {
     propertyIndex: number;
     target?: any;
     propertyConstructor?: any;
-    config?: any
+    config?: any;
+    isAsync:boolean;
 }
 
 export interface InstanceContainer {
