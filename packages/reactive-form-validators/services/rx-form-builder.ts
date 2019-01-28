@@ -36,8 +36,8 @@ export class RxFormBuilder extends BaseFormBuilder {
 
     
 
-    private getInstanceContainer(instanceFunc: any): InstanceContainer {
-        return defaultContainer.get(instanceFunc);
+    private getInstanceContainer(instanceFunc: any,entityObject:any): InstanceContainer {
+            return this.instaceProvider(instanceFunc, entityObject);
     }
 
     private setValue(formGroup: FormGroup, object: any): void {
@@ -109,7 +109,7 @@ export class RxFormBuilder extends BaseFormBuilder {
     private checkObjectPropAdditionalValidation<T>(instanceContainer: InstanceContainer, object: T) {
         var props = instanceContainer.properties.filter(t => t.propertyType == OBJECT_PROPERTY || t.propertyType == ARRAY_PROPERTY)
         props.forEach(t => {
-            let instance = this.getInstanceContainer(t.entity);
+            let instance = this.getInstanceContainer(t.entity,null);
             if (instance.conditionalValidationProps) {
                 for (var key in instance.conditionalValidationProps) {
                     var prop = instanceContainer.properties.filter(t => t.name == key)[0];
@@ -329,7 +329,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         formBuilderConfiguration = json.formBuilderConfiguration;
         if (formBuilderConfiguration)
             this.extractExpressions(formBuilderConfiguration);
-        let instanceContainer: InstanceContainer = this.getInstanceContainer(model);
+        let instanceContainer: InstanceContainer = this.getInstanceContainer(model,entityObject);
         this.checkObjectPropAdditionalValidation(instanceContainer, entityObject);
         let formGroupObject = {};
         let formChildGroup = undefined;
