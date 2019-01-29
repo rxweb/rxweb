@@ -17,7 +17,7 @@ const NGMODEL_BINDING: any = {
     multi: true
 };
 
-const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required', 'notEmpty', 'alpha', 'alphaNumeric', 'ascii', 'dataUri', 'digit', 'email', 'even', 'hexColor', 'json', 'latitude', 'latLong', 'leapYear', 'longitude', 'lowerCase', 'mac', 'odd', 'port', 'primeNumber', 'time', 'upperCase', 'url', 'unique'];
+const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required', 'notEmpty', 'alpha', 'alphaNumeric', 'ascii', 'dataUri', 'digit', 'email', 'even', 'hexColor', 'json', 'latitude', 'latLong', 'leapYear', 'longitude', 'lowerCase', 'mac', 'odd', 'port', 'primeNumber', 'time', 'upperCase', 'url', 'unique','cusip'];
 
 @Directive({
     selector: '[ngModel],[formControlName],[formControl]',
@@ -87,6 +87,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     @Input() url: DefaultConfig;
     @Input() unique: UniqueConfig;
     @Input() notEmpty: BaseConfig;
+    @Input() cusip:BaseConfig;
 
 
 
