@@ -23,7 +23,8 @@ import {
   imageValidatorExtension,
   notEmptyValidatorExtension,
   ipValidatorExtension,
-    cusipValidatorExtension
+  cusipValidatorExtension,
+    gridValidatorExtension
 } from './index'
 
 export class RxwebValidators {
@@ -84,5 +85,6 @@ export class RxwebValidators {
   static readonly image = imageValidatorExtension;
   static readonly notEmpty = notEmptyValidatorExtension;
   static readonly ip = ipValidatorExtension;
-    static readonly cusip = cusipValidatorExtension;
+  static readonly cusip = cusipValidatorExtension;
+  static readonly grid = gridValidatorExtension;
 }

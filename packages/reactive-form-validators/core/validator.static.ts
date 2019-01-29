@@ -59,5 +59,6 @@ export const AnnotationTypes: { [key: string]: string } = {
   unique: "unique",
   notEmpty: "notEmpty",
   ip: "ip",
-  cusip:"cusip"
+  cusip: "cusip",
+  grid:"grid"
 }

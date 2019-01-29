@@ -15,7 +15,8 @@ import {
   startsWithValidator,
   primeNumberValidator,
   latitudeValidator,
-  longitudeValidator, composeValidator, ruleValidator, fileValidator, uniqueValidator, imageValidator, notEmptyValidator,ipValidator,cusipValidator
+  longitudeValidator, composeValidator, ruleValidator, fileValidator, uniqueValidator, imageValidator, notEmptyValidator, ipValidator, cusipValidator
+  , gridValidator
 } from '../reactive-form-validators/index';
 
 export const APP_VALIDATORS: { [key: string]: Function } = {
@@ -75,5 +76,6 @@ export const APP_VALIDATORS: { [key: string]: Function } = {
   "image": imageValidator,
   "notEmpty": notEmptyValidator,
   "ip": ipValidator,
-    "cusip":cusipValidator
+  "cusip": cusipValidator,
+    "grid":gridValidator
 }
