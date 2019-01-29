@@ -67,3 +67,4 @@ Thumbs.db
 
 /rxwebio/.vs/config
 *.user
+/node_modules_build
