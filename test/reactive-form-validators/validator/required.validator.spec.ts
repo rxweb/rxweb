@@ -109,6 +109,15 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
         });
 
 
+        it("Should not error, FormControl value is '0'",
+        () => { 
+          expect(RxwebValidators.required()(new FormControl(0))).toBeNull(); 
+        });
+
+        it("Should not error, FormControl value is 'false'",
+        () => { 
+          expect(RxwebValidators.required()(new FormControl(false))).toBeNull(); 
+        });
 
 
 	//end
