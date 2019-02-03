@@ -10,7 +10,8 @@ export function prop(config?:PropConfig) {
         var propertyInfo: PropertyInfo = {
             name : propertyKey,
             propertyType: PROPERTY,
-            dataPropertyName: config ? config.name : undefined
+            dataPropertyName: config ? config.name : undefined,
+            defaultValue:config ? config.defaultValue : undefined
         }
         defaultContainer.addProperty(target.constructor, propertyInfo);
     }

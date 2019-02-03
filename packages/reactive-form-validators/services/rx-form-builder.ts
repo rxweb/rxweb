@@ -362,10 +362,10 @@ export class RxFormBuilder extends BaseFormBuilder {
                     case PROPERTY:
                         if (!(entityObject[property.name] instanceof FormControl || entityObject[property.name] instanceof RxFormControl)) {
                             var propertyValidators = instanceContainer.propertyAnnotations.filter(t => t.propertyName == property.name);
-                            formGroupObject[property.name] = new RxFormControl(entityObject[property.name], this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject), this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]), json.entityObject, Object.assign({}, json.entityObject), property.name);
+                            formGroupObject[property.name] = new RxFormControl(super.getDefaultValue(property,entityObject[property.name]), this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject), this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]), json.entityObject, Object.assign({}, json.entityObject), property.name);
                             this.isNested = false;
                         } else
-                            formGroupObject[property.name] = entityObject[property.name];
+                            formGroupObject[property.name] = super.getDefaultValue(property,entityObject[property.name]);
                         break;
                     case OBJECT_PROPERTY:
                         let objectValue = entityObject[property.name];

@@ -57,10 +57,10 @@ export const defaultContainer:
         }
 
 
-        addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void {
+        addProperty(instanceFunc: any, propertyInfo: PropertyInfo,isFromAnnotation:boolean = false): void {
             let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
             if (instance) {
-                this.addPropertyInfo(instance, propertyInfo);
+                this.addPropertyInfo(instance, propertyInfo,!isFromAnnotation);
             }
             else {
                 instance = this.addInstanceContainer(instanceFunc);
@@ -68,14 +68,16 @@ export const defaultContainer:
             }
         }
 
-        addPropertyInfo(instance: InstanceContainer, propertyInfo: PropertyInfo) {
-            var property = instance.properties.filter(t => t.name == propertyInfo.name)[0]
+        addPropertyInfo(instance: InstanceContainer, propertyInfo: PropertyInfo,isAddProperty:boolean = false) {
+            var property = this.getProperty(instance,propertyInfo);
             if (!property)
                 instance.properties.push(propertyInfo);
+            else if(isAddProperty)
+                this.updateProperty(property,propertyInfo);
         }
 
         addAnnotation(instanceFunc: any, decoratorConfiguration: DecoratorConfiguration): void {
-            this.addProperty(instanceFunc, { propertyType: PROPERTY, name: decoratorConfiguration.propertyName });
+            this.addProperty(instanceFunc, { propertyType: PROPERTY, name: decoratorConfiguration.propertyName },true);
             let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
             if (instance)
                 instance.propertyAnnotations.push(decoratorConfiguration);
@@ -129,5 +131,14 @@ export const defaultContainer:
         let indexOf = this.instances.indexOf(instance);
         this.instances.splice(indexOf,1);
         }
+      }
+
+      getProperty(instance: InstanceContainer, propertyInfo: PropertyInfo) {
+        return instance.properties.filter(t => t.name == propertyInfo.name)[0]
+      }
+
+      updateProperty(property:PropertyInfo,currentProperty:PropertyInfo){
+        property.dataPropertyName = currentProperty.dataPropertyName;
+        property.defaultValue = currentProperty.defaultValue;
       }
     })();

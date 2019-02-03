@@ -1,3 +1,4 @@
 export interface PropConfig {
-  name: string;
+  name?: string;
+  defaultValue?:any;
 }

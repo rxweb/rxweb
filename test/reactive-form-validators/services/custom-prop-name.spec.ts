@@ -2,7 +2,7 @@
 import {  RxFormBuilder } from '../../../packages/reactive-form-validators';
 
 
-import { prop, propObject, propArray } from '../../../packages/reactive-form-validators';
+import { prop, propObject, propArray,alpha } from '../../../packages/reactive-form-validators';
 
 export class Address{
     @prop()
@@ -17,6 +17,10 @@ export class User {
 
     @prop({name:'first_name'})
     firstName: string;
+
+    @alpha()
+    @prop({defaultValue:"Hi!"})
+    message:string;
 
     @propObject(Address,{name:'user_address'})
     address:Address
@@ -39,7 +43,6 @@ export class User {
                 let user = {
                     first_name:'Jhon',
                 };
-                debugger;
                 let userFormGroup = formBuilder.formGroup(User,user);
                 expect(userFormGroup.controls.firstName.value).toEqual(user.first_name);
 
@@ -67,6 +70,20 @@ export class User {
                 let userFormGroup = formBuilder.formGroup(User,user);
                 expect(userFormGroup.controls.hobbies.value).toEqual(user.user_hobbies);
 
+            });
+
+            it('default value should set in FormControl.',
+            () => {
+                let user = new User();
+                let userFormGroup = formBuilder.formGroup(user);
+                expect(userFormGroup.controls.message.value).toEqual("Hi!");
+            });
+
+            it('Should error, default value should set in FormControl and control should be invalid.',
+            () => {
+                let user = new User();
+                let userFormGroup = formBuilder.formGroup(user);
+                expect(userFormGroup.controls.message.invalid).toEqual(true);
             });
             
 

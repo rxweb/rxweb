@@ -29,5 +29,6 @@ export interface PropertyInfo {
     propertyType: string;
     entity?: any;
     dataPropertyName?:string;
+    defaultValue?:any;
 }
 

@@ -4,6 +4,7 @@ import { defaultContainer } from '../core/defaultContainer';
 import { InstanceContainer,PropertyInfo} from '../core/validator.interface';
 import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY } from "../const"
 import { EntityService } from './entity.service';
+import { RegexValidator } from '../util/regex-validator';
 export class BaseFormBuilder {
     private entityService: EntityService;
     constructor() {
@@ -103,8 +104,14 @@ export class BaseFormBuilder {
         return classInstance;
     }
 
-    private getValue(entityObject:{[key:string]:any},propertyInfo:PropertyInfo){
-        return (propertyInfo.dataPropertyName) ? entityObject[propertyInfo.dataPropertyName] : entityObject[propertyInfo.name];
+    protected getDefaultValue(propertyInfo:PropertyInfo,value:any){
+        return (propertyInfo.defaultValue != undefined && !RegexValidator.isNotBlank(value)) ?
+            propertyInfo.defaultValue:
+            value;
     }
 
+    private getValue(entityObject:{[key:string]:any},propertyInfo:PropertyInfo){
+        let propValue = (propertyInfo.dataPropertyName) ? entityObject[propertyInfo.dataPropertyName] : entityObject[propertyInfo.name];
+        return this.getDefaultValue(propertyInfo,propValue);
+    }
 }
