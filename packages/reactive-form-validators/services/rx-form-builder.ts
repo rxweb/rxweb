@@ -333,7 +333,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         return props;
     }
 
-    formGroup<T>(model: Type<T> | { [key: string]: any }, entityObject?: { [key: string]: any } | FormBuilderConfiguration, formBuilderConfiguration?: FormBuilderConfiguration): RxFormGroup | FormGroup {
+     formGroup<T>(model: Type<T> | { [key: string]: any }, entityObject?: { [key: string]: any } | FormBuilderConfiguration, formBuilderConfiguration?: FormBuilderConfiguration): RxFormGroup | FormGroup {
         let json = this.getObject(model, entityObject, formBuilderConfiguration);
         model = json.model;
         entityObject = json.entityObject;
@@ -365,10 +365,11 @@ export class RxFormBuilder extends BaseFormBuilder {
                             formGroupObject[property.name] = new RxFormControl(entityObject[property.name], this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject), this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]), json.entityObject, Object.assign({}, json.entityObject), property.name);
                             this.isNested = false;
                         } else
-                            formGroupObject[property.name] = entityObject[property.name]
+                            formGroupObject[property.name] = entityObject[property.name];
                         break;
                     case OBJECT_PROPERTY:
-                        if (entityObject[property.name] && entityObject[property.name] instanceof Object && !(entityObject[property.name] instanceof FormGroup || entityObject[property.name] instanceof RxFormGroup)) {
+                        let objectValue = entityObject[property.name];
+                        if (objectValue && objectValue instanceof Object && !(objectValue instanceof FormGroup || objectValue instanceof RxFormGroup)) {
                             this.isNested = true;
                             if (instanceContainer && instanceContainer.conditionalObjectProps)
                                 this.conditionalObjectProps = instanceContainer.conditionalObjectProps.filter(t => t.objectPropName == property.name)
@@ -376,20 +377,21 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 this.builderConfigurationConditionalObjectProps = this.conditionalValidationInstance.conditionalObjectProps.filter(t => t.objectPropName == property.name);
                             if (this.formGroupPropOtherValidator[property.name])
                                 this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator[property.name];
-                            let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, entityObject[property.name], `${property.name}.`)
-                            formGroupObject[property.name] = this.formGroup(property.entity, entityObject[property.name], objectValidationConfig);
+                            let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, objectValue, `${property.name}.`)
+                            formGroupObject[property.name] = this.formGroup(property.entity, objectValue, objectValidationConfig);
                             this.conditionalObjectProps = [];
                             this.builderConfigurationConditionalObjectProps = [];
                             this.isNested = false;
-                        } else if (entityObject[property.name] instanceof FormGroup || entityObject[property.name] instanceof RxFormGroup)
-                            formGroupObject[property.name] = entityObject[property.name];
+                        } else if (objectValue instanceof FormGroup || objectValue instanceof RxFormGroup)
+                            formGroupObject[property.name] = objectValue;
                         break;
                     case ARRAY_PROPERTY:
-                        if (entityObject[property.name] && entityObject[property.name] instanceof Array && !(entityObject[property.name] instanceof FormArray)) {
+                        let arrayObjectValue = entityObject[property.name];
+                        if (arrayObjectValue && arrayObjectValue instanceof Array && !(arrayObjectValue instanceof FormArray)) {
                             this.isNested = true;
                             var formArrayGroup = [];
                             let index = 0;
-                            for (let subObject of entityObject[property.name]) {
+                            for (let subObject of arrayObjectValue) {
                                 if (instanceContainer && instanceContainer.conditionalObjectProps)
                                     this.conditionalObjectProps = instanceContainer.conditionalObjectProps.filter(t => t.objectPropName == property.name && t.arrayIndex == index)
                                 if (this.conditionalValidationInstance && this.conditionalValidationInstance.conditionalObjectProps)
@@ -404,10 +406,10 @@ export class RxFormBuilder extends BaseFormBuilder {
                             }
                             let formBuilder = new FormBuilder();
 
-                            formGroupObject[property.name] = new RxFormArray(entityObject[property.name], formArrayGroup);
+                            formGroupObject[property.name] = new RxFormArray(arrayObjectValue, formArrayGroup);
                             this.isNested = false;
-                        } else if (entityObject[property.name] instanceof FormArray)
-                            formGroupObject[property.name] = entityObject[property.name];
+                        } else if (arrayObjectValue instanceof FormArray)
+                            formGroupObject[property.name] = arrayObjectValue;
                         break;
                 }
             }

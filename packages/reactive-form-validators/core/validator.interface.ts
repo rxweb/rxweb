@@ -28,5 +28,6 @@ export interface PropertyInfo {
     name: string;
     propertyType: string;
     entity?: any;
+    dataPropertyName?:string;
 }
 

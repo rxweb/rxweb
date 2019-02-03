@@ -11,7 +11,7 @@ export const defaultContainer:
         addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void,
         addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]): void,
         init(target: any,parameterIndex:any,propertyKey:string, annotationType:string, config:any,isAsync:boolean) : void,
-        initPropertyObject(name:string,propertyType:string,entity:any,target) : void,
+        initPropertyObject(name:string,propertyType:string,entity:any,target:any,config?:any) : void,
         modelIncrementCount:number,
         clearInstance(instance:any):void,
         setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string):void
@@ -36,11 +36,12 @@ export const defaultContainer:
           this.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);  
         }
 
-        initPropertyObject(name:string,propertyType:string,entity:any,target){
+        initPropertyObject(name:string,propertyType:string,entity:any,target:any,config?:any){
             var propertyInfo: PropertyInfo = {
                 name: name,
                 propertyType: propertyType,
-                entity: entity
+                entity: entity,
+                dataPropertyName: config ? config.name : undefined
             }
             defaultContainer.addProperty(target.constructor, propertyInfo);
         }

@@ -1,7 +1,7 @@
 import { FormBuilderConfiguration } from '../models/form-builder-configuration'
 import { AutoInstanceConfig } from '../models/interface/auto-instance-config.interface'
 import { defaultContainer } from '../core/defaultContainer';
-import { InstanceContainer} from '../core/validator.interface';
+import { InstanceContainer,PropertyInfo} from '../core/validator.interface';
 import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY } from "../const"
 import { EntityService } from './entity.service';
 export class BaseFormBuilder {
@@ -54,16 +54,18 @@ export class BaseFormBuilder {
             instanceContainer.properties.forEach(t => {
                 switch (t.propertyType) {
                     case PROPERTY:
-                        classInstance[t.name] = entityObject[t.name]
+                        classInstance[t.name] = this.getValue(entityObject,t)
                         break;
                     case OBJECT_PROPERTY:
-                        if (entityObject[t.name])
-                            classInstance[t.name] = this.updateObject(t.entity, entityObject[t.name])
+                        let objectValue = this.getValue(entityObject,t);
+                        if (objectValue)
+                            classInstance[t.name] = this.updateObject(t.entity,objectValue)
                         break;
                     case ARRAY_PROPERTY:
-                        if (entityObject[t.name] && Array.isArray(entityObject[t.name])) {
+                        let arrayObjectValue = this.getValue(entityObject,t);
+                        if (arrayObjectValue && Array.isArray(arrayObjectValue)) {
                             classInstance[t.name] = [];
-                            for (let row of entityObject[t.name]) {
+                            for (let row of arrayObjectValue) {
                                 let instanceObject = this.updateObject(t.entity, row)
                                 classInstance[t.name].push(instanceObject);
                             }
@@ -99,6 +101,10 @@ export class BaseFormBuilder {
         let classInstance = Object.create(model.prototype)
         model.apply(classInstance, objectArguments);
         return classInstance;
+    }
+
+    private getValue(entityObject:{[key:string]:any},propertyInfo:PropertyInfo){
+        return (propertyInfo.dataPropertyName) ? entityObject[propertyInfo.dataPropertyName] : entityObject[propertyInfo.name];
     }
 
 }
