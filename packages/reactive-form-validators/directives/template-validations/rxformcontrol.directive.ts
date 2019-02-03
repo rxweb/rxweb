@@ -89,7 +89,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     @Input() notEmpty: BaseConfig;
     @Input() cusip: BaseConfig;
     @Input() grid: BaseConfig;
-
+    @Input() date:BaseConfig;
 
 
 

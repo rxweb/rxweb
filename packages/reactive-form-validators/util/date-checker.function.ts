@@ -23,3 +23,16 @@ export function dateChecker(control: AbstractControl,config:any,operationType:st
     }
     return ObjectMaker.null();
 }
+
+export function validateDate(control: AbstractControl,config:any,operationType:string): { [key: string]: any } {
+    config = ApplicationUtil.getConfigObject(config);
+    var dateProvider = new DateProvider();
+      if (FormProvider.ProcessRule(control,config)) {
+        if (RegexValidator.isNotBlank(control.value)) {
+            if (!dateProvider.isValid(control.value)) {
+                return ObjectMaker.toJson(operationType, config, [control.value])
+        }
+    }
+}
+    return ObjectMaker.null();
+}

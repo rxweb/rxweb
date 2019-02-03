@@ -60,3 +60,4 @@ export * from './notEmpty.decorator';
 export * from './async.decorator';
 export * from './cusip.decorator';
 export * from './grid.decorator';
+export * from './date.decorator';

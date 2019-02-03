@@ -55,4 +55,5 @@ export * from './image-validator.extension';
 export * from './notEmpty-validator.extension';
 export * from './ip-validator.extension';
 export * from './cusip-validator.extension';
-export * from './grid-validator.extension'
+export * from './grid-validator.extension';
+export * from './date-validator.extension';
