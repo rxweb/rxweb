@@ -128,6 +128,7 @@ export class AppComponent implements OnInit {
         "ip": "Enter correct ip address.",
         "compose": "Please enter valid value",
         "composeMessageKey":"Please enter valid inputs",
+        "cusip": "Enter a valid cusip code"
       }
     });
   }

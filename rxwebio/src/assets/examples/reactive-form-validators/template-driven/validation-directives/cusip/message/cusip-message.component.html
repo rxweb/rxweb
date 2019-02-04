@@ -1,0 +1,13 @@
+<div>
+  <form #companyinfoForm = "ngForm" [rxwebForm]="companyinfoForm">
+    <div class="form-group">
+      <label>Apple Inc Cusip Code</label>
+	    <input type="text" name="appleIncCusipCode" [(ngModel)]="companyinfo.appleIncCusipCode"  class="form-control" [cusip]="{'message':'Apple Inc Cusip Code is not a valid cusip Code'}"/>
+
+      <small class="form-text text-muted">enter 9-character alphanumeric cusip Code only<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	   <small class="form-text text-danger" *ngIf="companyinfoForm.controls?.appleIncCusipCode?.errors">{{companyinfoForm.controls?.appleIncCusipCode?.errors?.cusip.message}}<br/></small>	
+    </div>
+    <button [disabled]="!companyinfoForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

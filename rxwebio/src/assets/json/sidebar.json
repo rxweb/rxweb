@@ -60,6 +60,11 @@
           "isActive": false
         },
         {
+          "title": "cusip",
+          "uri": "/form-validations/cusip/validators",
+          "isActive": false
+        },
+        {
           "title": "dataUri",
           "uri": "/form-validations/dataUri/validators",
           "isActive": false
