@@ -120,6 +120,11 @@
           "isActive": false
         },
         {
+          "title": "grid",
+          "uri": "/form-validations/grid/validators",
+          "isActive": false
+        },
+        {
           "title": "hexColor",
           "uri": "/form-validations/hexColor/validators",
           "isActive": false

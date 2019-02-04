@@ -1,0 +1,11 @@
+<div>
+  <form  [formGroup]="digitalInfoFormGroup">
+    <div class="form-group">
+      <label>GraphicImage GRid</label>
+      <input type="text" formControlName="graphicImageGrid" class="form-control"  />
+      <small class="form-text text-muted">Shows custom message<br/></small>
+	 <small class="form-text text-danger" *ngIf="digitalInfoFormGroup.controls.graphicImageGrid.errors">{{digitalInfoFormGroup.controls.graphicImageGrid.errors.grid?.message}}<br/></small>	
+    </div>
+    <button [disabled]="!digitalInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

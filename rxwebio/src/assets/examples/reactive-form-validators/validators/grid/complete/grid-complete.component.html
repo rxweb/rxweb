@@ -1,0 +1,31 @@
+<div>
+  <form  [formGroup]="digitalInfoFormGroup">
+    <div class="form-group">
+      <label>SoundRecording GRid</label>
+      <input type="text" formControlName="soundRecordingGrid" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'AudioVisualRecording GRid' or 'Photograph GRid' then you need to add this input to 'A12425GABC1234002M'.<br/></small>
+	 <small class="form-text text-danger" *ngIf="digitalInfoFormGroup.controls.soundRecordingGrid.errors">{{digitalInfoFormGroup.controls.soundRecordingGrid.errors.grid?.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>AudioVisualRecording GRid</label>
+      <input type="text" formControlName="audioVisualRecordingGrid" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'AudioVisualRecording GRid' then you need to add 'SoundRecording GRid' field input to 'A12425GABC1234002M'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
+	 <small class="form-text text-danger" *ngIf="digitalInfoFormGroup.controls.audioVisualRecordingGrid.errors">{{digitalInfoFormGroup.controls.audioVisualRecordingGrid.errors.grid?.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Photograph GRid</label>
+      <input type="text" formControlName="photographGrid" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Photograph GRid' then you need to add 'SoundRecording GRid' field input to 'A12425GABC1234002M'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+	 <small class="form-text text-danger" *ngIf="digitalInfoFormGroup.controls.photographGrid.errors">{{digitalInfoFormGroup.controls.photographGrid.errors.grid?.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>GraphicImage GRid</label>
+      <input type="text" formControlName="graphicImageGrid" class="form-control"  />
+      <small class="form-text text-muted">Shows custom message<br/></small>
+	 <small class="form-text text-danger" *ngIf="digitalInfoFormGroup.controls.graphicImageGrid.errors">{{digitalInfoFormGroup.controls.graphicImageGrid.errors.grid?.message}}<br/></small>	
+    </div>
+    <button [disabled]="!digitalInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>
