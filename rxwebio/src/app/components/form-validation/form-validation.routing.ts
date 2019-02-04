@@ -39,6 +39,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './creditCard/credit-card.module#CreditCardModule',
 },
 {
+	path:'cusip',
+	loadChildren: './cusip/cusip.module#CusipModule',
+},
+{
 	path:'dataUri',
 	loadChildren: './dataUri/data-uri.module#DataUriModule',
 },
@@ -197,6 +201,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'required',
 	loadChildren: './required/required.module#RequiredModule',
+},
+{
+	path:'rule',
+	loadChildren: './rule/rule.module#RuleModule',
 },
 {
 	path:'fileSize',

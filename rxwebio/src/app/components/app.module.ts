@@ -37,12 +37,12 @@ import { GettingStartedComponent } from './getting-started/getting-started.compo
 import { DisqusSharedModule } from './shared/disqus/disqus-shared.module';
 import { RightSideBarSharedModule } from './shared/right-sidebar/right-sidebar-shared.module';
 import { HomeComponent } from './home/home.component';
-import { BasicExamplesExtendedModule } from 'src/assets/examples/reactive-form-validators/basic-examples/basic-examples-extended.module';
 import { PipeCommonModule } from '../pipes';
 import { ApplicationBroadcaster } from '@rx/core';
 import { APP_VERSION } from '@rx/http';
 import { ApplicationRequestHeaders } from '../domain/application-request-headers';
 import { ApplicationResponse } from '../domain/application-response';
+import { BasicExamplesExtendedModule } from 'src/assets/examples/reactive-form-validators/basic-examples/basic-examples-extended.module';
 export const API_HOST_URI: string = 'API_URL';
 
 
