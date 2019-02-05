@@ -10,6 +10,7 @@ export class AppCodeComponent implements OnInit {
   allContents:any[] = [];
   type:string;
   ngOnInit(){
+ 
     this.type = typeof this.content;
     this.allContents = [];
     if(this.type == "object")

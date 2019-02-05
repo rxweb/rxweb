@@ -3,10 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 const FORM_VALIDATION_ROUTES: Routes = [
 {
-	path:'allOf',
-	loadChildren: './allOf/all-of.module#AllOfModule',
-},
-{
 	path:'alpha',
 	loadChildren: './alpha/alpha.module#AlphaModule',
 },
@@ -17,10 +13,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'ascii',
 	loadChildren: './ascii/ascii.module#AsciiModule',
-},
-{
-	path:'choice',
-	loadChildren: './choice/choice.module#ChoiceModule',
 },
 {
 	path:'compose',
@@ -37,10 +29,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'creditCard',
 	loadChildren: './creditCard/credit-card.module#CreditCardModule',
-},
-{
-	path:'cusip',
-	loadChildren: './cusip/cusip.module#CusipModule',
 },
 {
 	path:'dataUri',
@@ -89,6 +77,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'greaterThan',
 	loadChildren: './greaterThan/greater-than.module#GreaterThanModule',
+},
+{
+	path:'grid',
+	loadChildren: './grid/grid.module#GridModule',
 },
 {
 	path:'hexColor',
@@ -163,20 +155,12 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './minNumber/min-number.module#MinNumberModule',
 },
 {
-	path:'noneOf',
-	loadChildren: './noneOf/none-of.module#NoneOfModule',
-},
-{
 	path:'numeric',
 	loadChildren: './numeric/numeric.module#NumericModule',
 },
 {
 	path:'odd',
 	loadChildren: './odd/odd.module#OddModule',
-},
-{
-	path:'oneOf',
-	loadChildren: './oneOf/one-of.module#OneOfModule',
 },
 {
 	path:'password',
@@ -201,10 +185,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'required',
 	loadChildren: './required/required.module#RequiredModule',
-},
-{
-	path:'rule',
-	loadChildren: './rule/rule.module#RuleModule',
 },
 {
 	path:'fileSize',
