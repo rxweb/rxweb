@@ -1,0 +1,10 @@
+<div>
+  <form  *ngIf="userFormGroup"  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>SoundRecording Grid</label>
+      <input type="text" formControlName="soundRecordingGrid" class="form-control"  />
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.soundRecordingGrid.errors">{{userFormGroup.controls.soundRecordingGrid.errors.grid?.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

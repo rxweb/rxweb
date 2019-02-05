@@ -1,0 +1,10 @@
+<div>
+  <form  [formGroup]="digitalInfoFormGroup">
+    <div class="form-group">
+      <label>SoundRecording Grid</label>
+      <input type="text" formControlName="soundRecordingGrid" class="form-control"  />
+	 <small class="form-text text-danger" *ngIf="digitalInfoFormGroup.controls.soundRecordingGrid.errors">{{digitalInfoFormGroup.controls.soundRecordingGrid.errors.grid?.message}}<br/></small>	
+    </div>
+    <button [disabled]="!digitalInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>
