@@ -2,7 +2,9 @@
   <form #companyinfoForm = "ngForm" [rxwebForm]="companyinfoForm">
     <div class="form-group">
       <label>Company Name</label>
-	    <input type="text" name="companyName" [(ngModel)]="companyinfo.companyName"  class="form-control" />
+      <select name="companyName" [(ngModel)]="companyinfo.companyName"  class="form-control" >
+		<option [value]="item" *ngFor="let item of companyNames">{{item}}</option>
+      </select>
 
 	   <small class="form-text text-danger" *ngIf="companyinfoForm.controls?.companyName?.errors">{{companyinfoForm.controls?.companyName?.errors?.cusip.message}}<br/></small>	
     </div>

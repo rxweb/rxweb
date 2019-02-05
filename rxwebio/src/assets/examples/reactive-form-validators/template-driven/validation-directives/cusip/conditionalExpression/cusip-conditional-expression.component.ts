@@ -8,7 +8,8 @@ import { CompanyInfo } from './company-info.model';
 })
 export class CusipConditionalExpressionTemplateDrivenValidationDirectivesComponent implements OnInit {
     companyinfo: CompanyInfo
-	
+					companyNames = [ "Google", "Microsoft",];
+
     constructor(
     ) { }
 

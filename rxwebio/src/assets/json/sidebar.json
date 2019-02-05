@@ -70,6 +70,11 @@
           "isActive": false
         },
         {
+          "title": "date",
+          "uri": "/form-validations/date/validators",
+          "isActive": false
+        },
+        {
           "title": "different",
           "uri": "/form-validations/different/validators",
           "isActive": false

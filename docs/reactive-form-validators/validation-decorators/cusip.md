@@ -1,6 +1,6 @@
 ---
 title: cusip
-description: CUSIP validation {{validatorType}} will allow user to enter only nine-character cusipnumeric cusip code. CUSIP numbers are used to identify non-american finatial securities.
+description: CUSIP validation {{validatorType}} will allow user to enter only nine-character alpha-numeric cusip code. CUSIP numbers are used to identify North-American finantial securities.
 author: rxcontributortwo
 category: form-validations
 type:tabs
@@ -12,9 +12,9 @@ Suppose you want to create a CompanyInfo form, which contains fields like Compan
 
 <ol class='showHideElement'>
     <li>Allow user to enter only cusip code in `OracleCorporationCusipCode`.</li>
-    <li>Apply cusip validation based on matched condition in the form, like if the CompanyName is `Google` then the GoogleIncCusipCode value should be a cusip code (conditional validation with function).</li>
-    <li>Apply cusip validation based on matched condition in the form, like if the CompanyName is `Microsoft` then the MicrosoftCorporationCusipCode value should be a cusip code (conditional validation with string).</li>
-    <li>Apply custom message on AppleIncCusipCode Field.</li>
+    <li>Apply cusip validation based on matched condition in the form, like if the `CompanyName` is `Google` then the `GoogleIncCusipCode` value should be a cusip code (conditional validation with function).</li>
+    <li>Apply cusip validation based on matched condition in the form, like if the `CompanyName` is `Microsoft` then the `MicrosoftCorporationCusipCode` value should be a cusip code (conditional validation with string).</li>
+    <li>Apply custom message on `AppleIncCusipCode` Field.</li>
     	<data-scope scope="['decorator','validator']">
 		<li>Apply cusip validation dynamically based on server rules. </li>
 	</data-scope>

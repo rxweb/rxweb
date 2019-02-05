@@ -2,7 +2,9 @@
   <form  [formGroup]="companyInfoFormGroup">
     <div class="form-group">
       <label>Company Name</label>
-      <input type="text" formControlName="companyName" class="form-control"  />
+      <select formControlName="companyName" class="form-control">
+		<option [value]="item" *ngFor="let item of companyNames">{{item}}</option>
+      </select>
 	 <small class="form-text text-danger" *ngIf="companyInfoFormGroup.controls.companyName.errors">{{companyInfoFormGroup.controls.companyName.errors.cusip?.message}}<br/></small>	
     </div>
     <div class="form-group">
