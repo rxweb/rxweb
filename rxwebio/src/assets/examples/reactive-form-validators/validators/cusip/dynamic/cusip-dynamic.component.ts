@@ -11,6 +11,12 @@ import { FormBuilderConfiguration,RxFormBuilder} from '@rxweb/reactive-form-vali
 export class CusipDynamicValidatorComponent implements OnInit {
     companyInfoFormGroup: FormGroup
 
+				companyNames = [ "Google", "Microsoft",];
+	
+	
+	
+	
+	
 	constructor(
         private formBuilder: RxFormBuilder , private http: HttpClient )
 	{ }

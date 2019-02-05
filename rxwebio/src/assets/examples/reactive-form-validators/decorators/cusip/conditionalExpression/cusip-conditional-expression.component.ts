@@ -10,6 +10,7 @@ import { CompanyInfo } from './company-info.model';
 })
 export class CusipConditionalExpressionComponent implements OnInit {
     companyInfoFormGroup: FormGroup
+				companyNames = [ "Google", "Microsoft",];
 
     constructor(
         private formBuilder: RxFormBuilder    ) { }

@@ -9,6 +9,12 @@ import { RxwebValidators } from '@rxweb/reactive-form-validators';
 export class CusipCompleteValidatorComponent implements OnInit {
     companyInfoFormGroup: FormGroup
 
+				companyNames = [ "Google", "Microsoft",];
+	
+	
+	
+	
+	
 	constructor(
         private formBuilder: FormBuilder )
 	{ }

@@ -15,6 +15,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './ascii/ascii.module#AsciiModule',
 },
 {
+	path:'async',
+	loadChildren: './async/async.module#AsyncModule',
+},
+{
 	path:'compose',
 	loadChildren: './compose/compose.module#ComposeModule',
 },
@@ -31,8 +35,16 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './creditCard/credit-card.module#CreditCardModule',
 },
 {
+	path:'cusip',
+	loadChildren: './cusip/cusip.module#CusipModule',
+},
+{
 	path:'dataUri',
 	loadChildren: './dataUri/data-uri.module#DataUriModule',
+},
+{
+	path:'date',
+	loadChildren: './date/date.module#DateModule',
 },
 {
 	path:'different',
@@ -79,16 +91,8 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './greaterThan/greater-than.module#GreaterThanModule',
 },
 {
-	path:'grid',
-	loadChildren: './grid/grid.module#GridModule',
-},
-{
 	path:'hexColor',
 	loadChildren: './hexColor/hex-color.module#HexColorModule',
-},
-{
-	path:'ip',
-	loadChildren: './ip/ip.module#IpModule',
 },
 {
 	path:'image',

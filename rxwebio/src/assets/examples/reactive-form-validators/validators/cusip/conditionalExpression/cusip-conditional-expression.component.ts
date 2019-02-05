@@ -9,6 +9,10 @@ import { RxwebValidators } from '@rxweb/reactive-form-validators';
 export class CusipConditionalExpressionValidatorComponent implements OnInit {
     companyInfoFormGroup: FormGroup
 
+				companyNames = [ "Google", "Microsoft",];
+	
+	
+	
 	constructor(
         private formBuilder: FormBuilder )
 	{ }
