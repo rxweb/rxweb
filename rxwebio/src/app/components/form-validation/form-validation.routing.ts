@@ -15,6 +15,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './ascii/ascii.module#AsciiModule',
 },
 {
+	path:'async',
+	loadChildren: './async/async.module#AsyncModule',
+},
+{
 	path:'compose',
 	loadChildren: './compose/compose.module#ComposeModule',
 },

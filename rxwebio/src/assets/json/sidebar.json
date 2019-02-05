@@ -35,6 +35,11 @@
           "isActive": false
         },
         {
+          "title": "async",
+          "uri": "/form-validations/async/decorators",
+          "isActive": false
+        },
+        {
           "title": "choice",
           "uri": "/form-validations/choice/validators",
           "isActive": false

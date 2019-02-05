@@ -129,7 +129,8 @@ export class AppComponent implements OnInit {
         "compose": "Please enter valid value",
         "composeMessageKey":"Please enter valid inputs",
         "cusip": "Enter a valid cusip code",
-        "date": "Please enter a valid date."
+        "date": "Please enter a valid date.",
+        "async": "Enter valid value"
       }
     });
   }
