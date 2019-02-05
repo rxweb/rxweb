@@ -91,6 +91,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './greaterThan/greater-than.module#GreaterThanModule',
 },
 {
+	path:'grid',
+	loadChildren: './grid/grid.module#GridModule',
+},
+{
 	path:'hexColor',
 	loadChildren: './hexColor/hex-color.module#HexColorModule',
 },
