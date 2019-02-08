@@ -102,4 +102,8 @@ export class ApplicationUtil{
           } else
             control.validatorConfig[type] = config;
     }
+
+    static lowerCaseWithTrim(value:string) {
+        return typeof value === "string" ? value.toLowerCase().trim() : String(value).toLowerCase().trim();
+    }
 }
