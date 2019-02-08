@@ -350,13 +350,6 @@
       ]
     },
     {
-      "title": "Form Builder",
-      "uri": "/form-builder",
-      "otherUri":"form-builder",
-      "isOpen": false,
-      "isActive": false
-    },
-    {
       "title": "Advance Form Validation",
       "uri": null,
       "otherUri":"advance-form-validation",

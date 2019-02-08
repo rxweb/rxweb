@@ -2,6 +2,10 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const FORM_VALIDATION_ROUTES: Routes = [
+	{
+		path:'allOf',
+		loadChildren: './allOf/all-of.module#AllOfModule',
+	},
 {
 	path:'alpha',
 	loadChildren: './alpha/alpha.module#AlphaModule',
@@ -17,6 +21,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'async',
 	loadChildren: './async/async.module#AsyncModule',
+},
+{
+	path:'choice',
+	loadChildren: './choice/choice.module#ChoiceModule',
 },
 {
 	path:'compose',
@@ -99,6 +107,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './hexColor/hex-color.module#HexColorModule',
 },
 {
+	path:'ip',
+	loadChildren: './ip/ip.module#IpModule',
+},
+{
 	path:'image',
 	loadChildren: './image/image.module#ImageModule',
 },
@@ -163,12 +175,20 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './minNumber/min-number.module#MinNumberModule',
 },
 {
+	path:'noneOf',
+	loadChildren: './noneOf/none-of.module#NoneOfModule',
+},
+{
 	path:'numeric',
 	loadChildren: './numeric/numeric.module#NumericModule',
 },
 {
 	path:'odd',
 	loadChildren: './odd/odd.module#OddModule',
+},
+{
+	path:'oneOf',
+	loadChildren: './oneOf/one-of.module#OneOfModule',
 },
 {
 	path:'password',
@@ -197,6 +217,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'fileSize',
 	loadChildren: './fileSize/file-size.module#FileSizeModule',
+},
+{
+	path:'rule',
+	loadChildren: './rule/rule.module#RuleModule',
 },
 {
 	path:'startsWith',
