@@ -34,6 +34,7 @@
     "ngx-clipboard": "^11.1.9",
     "ngx-highlightjs": "^2.1.1",
     "ngx-json-viewer": "^2.4.0",
+    "ngx-monaco-editor": "^6.0.0",
     "ngx-slimscroll": "^5.2.2",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.3.3",

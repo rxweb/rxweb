@@ -121,7 +121,7 @@ Array.prototype.aggregate = function <U, T>(accumulator: (accum: U, value?: T, i
 }
 
 Array.prototype.groupBy = function <T>(grouper: (key: T) => any, mapper: (element: T) => any): any {
-    return this.Aggregate
+    return this.aggregate
         ((ac, v) => ((<any>ac)[grouper(v)] ? (<any>ac)[grouper(v)].push(mapper(v)) : (<any>ac)[grouper(v)] = [mapper(v)], ac), {});
 }
 

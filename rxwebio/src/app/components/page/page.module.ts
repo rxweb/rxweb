@@ -15,7 +15,7 @@ import { CommonSharedModule } from '../shared/common/common-shared.module';
 
 @NgModule({
   imports: [
-    RouterModule,CommonModule, FormsModule, ReactiveFormsModule, ClipboardModule, RightSideBarSharedModule, ClipboardModule, HighlightModule, CommonSharedModule
+    RouterModule,CommonModule, FormsModule, ReactiveFormsModule, RightSideBarSharedModule, ClipboardModule, HighlightModule, CommonSharedModule
   ],
   declarations: [PageComponent],
   exports: [RouterModule],

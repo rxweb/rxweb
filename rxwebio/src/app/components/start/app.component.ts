@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     });
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        if (val.url == "/" || val.url == "/home" || val.url == "/form-builder")
+        if (val.url == "/" || val.url == "/home" || val.url == "/form-builder" || val.url == "/dynamic-form-builder")
           this.isHome = true;
         else{
           this.isHome = false;

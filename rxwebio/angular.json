@@ -21,7 +21,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              { "glob": "**/*", "input": "../node_modules/ngx-monaco-editor/assets/monaco", "output": "./assets/monaco/" }
             ],
             "styles": [
               "src/styles.css"
@@ -34,7 +35,8 @@
               "src/assets/scripts/lock.min.js",
               "src/assets/scripts/highlight.pack.js",
               "src/assets/scripts/moment.js",
-              "src/assets/scripts/showdown.js",
+              "src/assets/scripts/showdown.js"
+              
             ]
           },
           "configurations": {

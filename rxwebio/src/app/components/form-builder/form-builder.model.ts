@@ -1,4 +1,4 @@
-import { required, json, propArray, prop, IpVersion, NumericValueType, RxFormGroup, password } from "@rxweb/reactive-form-validators";
+import { required, json, propArray, prop, IpVersion, NumericValueType, RxFormGroup, password, alpha } from "@rxweb/reactive-form-validators";
 import { FormGroup } from "@angular/forms";
 
 
@@ -34,6 +34,10 @@ export class Properties{
   @required()
   propertyName:string
 
+  
+  @prop()
+  propertyValue:string
+
   @propArray(Validators)
   validators:Validators[]=[]
   
@@ -59,7 +63,20 @@ export class FormBuilderModel {
   Json:string;
 
   @required()
-  validatorType:string = "Validators";
+  @alpha()
+  modelName:string;
+
+  @prop()
+  compoenentName:string
+
+  @prop()
+  selectorName:string
+
+  @prop()
+  templateUrl:string
+
+  @prop()
+  validatorType:string = "Validators"
 
   @propArray(Properties)
   properties:Properties[] = [];

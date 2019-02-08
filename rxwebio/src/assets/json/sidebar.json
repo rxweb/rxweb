@@ -362,7 +362,14 @@
           "isActive": false
         }
       ]
-    }
+    },
+    {
+      "title": "Dynamic Form Builder",
+      "uri": "/dynamic-form-builder",
+      "otherUri":"dynamic-form-builder",
+      "isOpen": false,
+      "isActive": false
+    } 
    
   ]
 }

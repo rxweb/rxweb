@@ -45,6 +45,10 @@ import { ApplicationResponse } from '../domain/application-response';
 import { BasicExamplesExtendedModule } from 'src/assets/examples/reactive-form-validators/basic-examples/basic-examples-extended.module';
 export const API_HOST_URI: string = 'API_URL';
 
+import { MonacoEditorModule,NgxMonacoEditorConfig } from 'ngx-monaco-editor'
+const monacoConfig: NgxMonacoEditorConfig = {
+  baseUrl: '/assets'
+};
 
 
 @NgModule({
@@ -56,6 +60,7 @@ export const API_HOST_URI: string = 'API_URL';
     NgxJsonViewerModule,
     RxSecurityModule, CommonModule,
       RxFormsModule, RxViewModule, RxStorageModule, RxViewServiceModule,
+      MonacoEditorModule.forRoot(monacoConfig)
   ],
 providers: [RxValidation, ApplicationBroadcaster,
   {

@@ -9,9 +9,12 @@ import { FORM_BUILDER_ROUTING } from './form-builder.routing';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { RxFormsModule } from '@rx/forms';
 import { RxViewModule } from '@rx/view';
+import { HighlightModule } from 'ngx-highlightjs';
+import { ClipboardModule } from 'ngx-clipboard';
+import { MonacoEditorModule } from 'ngx-monaco-editor'
 
 @NgModule({
- imports:      [FORM_BUILDER_ROUTING, CommonModule ,FormsModule, ReactiveFormsModule,RouterModule,NgxJsonViewerModule,RxFormsModule, RxViewModule],
+ imports:      [FORM_BUILDER_ROUTING, CommonModule ,FormsModule, ReactiveFormsModule,RouterModule,NgxJsonViewerModule,RxFormsModule, RxViewModule,ClipboardModule, HighlightModule ,MonacoEditorModule ],
  declarations: [ ParameterItemsComponent,FormBuilderComponent ],
  exports:      [ ParameterItemsComponent,FormBuilderComponent,RouterModule ]
 })

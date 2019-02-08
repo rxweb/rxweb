@@ -46,6 +46,10 @@ const APP_LAZY_ROUTES: Routes = [
     loadChildren: 'src/app/components/form-builder/form-builder-shared.module#FormBuilderSharedModule',
   },
   {
+    path: 'dynamic-form-builder',
+    loadChildren: 'src/app/components/dynamic-form-builder/dynamic-form-builder.module#DynamicFormBuilderModule',
+  },
+  {
     path: '**', 
     redirectTo:'home',
     pathMatch: 'full'

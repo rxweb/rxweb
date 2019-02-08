@@ -1,0 +1,101 @@
+<div *ngIf="showComponent">
+    <div class="content">
+        <div class="title" id="getting-started" [class.sticky]="sticky">
+            <h1>Form Builder</h1>
+        </div>
+        <div class="title-bar">
+            <p>Dynamic Form Builder which accept input from json</p>
+            <hr>
+        </div>
+        <div class="bg-white border-radius content-form-builder">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hpanel">
+                        <div>
+                            <form [formGroup]="dynamicFormBuilderFormGroup">
+                                <div class="row">
+                                    <div class="form-group col-lg-12">
+                                        <label>Json</label>
+                                        <ngx-monaco-editor (change)="changeJson()" [options]="editorOptions"
+                                            formControlName="json"></ngx-monaco-editor>
+                                        <small class="form-text text-muted">Enter Json for form builder.<br /></small>
+                                    </div>
+                                </div>
+                                <div class="table table-responsive">
+                                    <table class="table">
+                                        <tr [formGroup]="propertyName" *ngFor="let propertyName of dynamicFormBuilderFormGroup.controls.keyList.controls;let i = index">
+                                            <td>
+                                                <button class="btn btn-circle" [ngClass]="{'btn-danger': propertyName.value.isRemoved,'btn-success': !propertyName.value.isRemoved}"
+                                                    (click)="markedAsRemove(i)"><i class="glyphicon" [ngClass]="{'glyphicon-minus': propertyName.value.isRemoved,'glyphicon-plus': !propertyName.value.isRemoved}"></i></button>
+                                            </td>
+                                            <td>
+                                                {{propertyName.value.propertyName}}
+                                            </td>
+                                            <td>
+                                                {{propertyName.value.propertyValue}}
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary" (click)="applyValidation(i)">Validation</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-12" *ngIf="exampleContent.jsonObj?.length > 0">
+                            <ul class="nav nav-tabs">
+                                <li [class.active]="formBuilderTab=='example'" (click)="formBuilderTab='example'"><a>Example</a></li>
+                                <li [class.active]="formBuilderTab=='json'" (click)="formBuilderTab='json'"><a>Json</a></li>
+                                <li [class.active]="formBuilderTab=='model'" (click)="formBuilderTab='model'"><a>Model</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane row" [class.active]="formBuilderTab=='example'">
+                                    <form *ngIf="builderGroup" class="col-lg-12" [formGroup]="builderGroup">
+                                        <div class="col-lg-12" *ngFor="let propertyData of JsonObj | keyvalue ;let i = index">
+                                            <div class="form-group">
+                                                <label>{{propertyData.key}}</label>
+                                                <input type="text" class="form-control" [formControlName]="propertyData.key"
+                                                    [id]="propertyData.key" />
+                                                <small class="form-text text-danger" *ngIf="builderGroup['controls'][propertyData.key].errors">
+                                                    <span *ngFor="let validatorData of propertyData.value | keyvalue">
+                                                        {{builderGroup.controls['firstName']['errors'][validatorData.key]?.message}}
+                                                    </span>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane" [class.active]="formBuilderTab=='json'">
+                                    <div>
+                                        <div class="code">
+                                            <a class="float-right copy-icon" ngxClipboard [cbContent]="exampleContent.jsonObj"
+                                                (cbOnSuccess)="exampleContent.jsonObjCopied = true"
+                                                [class.copied]="exampleContent.jsonObjCopied"><i class="fa fa-files-o"
+                                                    aria-hidden="true"></i></a>
+                                            <div highlight="pre code">
+                                                <pre><code [textContent]="exampleContent.jsonObj"></code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" [class.active]="formBuilderTab=='model'">
+                                        <div>
+                                            <div class="code">
+                                                <a class="float-right copy-icon" ngxClipboard [cbContent]="exampleContent.decoratorModelString"
+                                                    (cbOnSuccess)="exampleContent.decoratorModelStringCopied = true"
+                                                    [class.copied]="exampleContent.decoratorModelStringCopied"><i class="fa fa-files-o"
+                                                        aria-hidden="true"></i></a>
+                                                <div highlight="pre code">
+                                                    <pre><code [textContent]="exampleContent.decoratorModelString"></code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

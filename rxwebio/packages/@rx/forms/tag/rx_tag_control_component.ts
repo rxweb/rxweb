@@ -262,7 +262,7 @@ export class RxTagComponent extends Multilingual implements AfterContentInit, On
     if (!this.tagDisabled) {
       this.removed.emit(tag);
       var indexOf = this.selectedTags.indexOf(tag);
-      this.selectedTags.splice(indexOf, 1);
+      this.selectedTags.removeAt(indexOf);
       if (!tag.isRecordInvactive && tag.id != -1)
         if (this.isServerCalled || !this.lookup)
           this.dropSource.push(tag);
@@ -309,7 +309,7 @@ export class RxTagComponent extends Multilingual implements AfterContentInit, On
         if (this.dropSource.length > 0) {
           var indexOf = this.dropSource.indexOf(t);
           if (indexOf != -1)
-            this.dropSource.splice(indexOf, 1);
+            this.dropSource.removeAt(indexOf);
         }
       });
       this.setActiveTabClass();
@@ -385,7 +385,7 @@ export class RxTagComponent extends Multilingual implements AfterContentInit, On
     this.added.emit(tag);
     tag.active = false;
     var indexOf = this.dropSource.indexOf(tag);
-    this.dropSource.splice(indexOf, 1);
+    this.dropSource.removeAt(indexOf);
     this.selectedTags.push(tag);
     this.clearActiveTabClass();
     if (!this.isCalledFromWriteValue)
