@@ -24,6 +24,5 @@ export class FormProvider{
                     break;
                 }
         }
-        return parentObject;
     }
 }
