@@ -89,7 +89,6 @@ import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-
               "seperator": "/"
           }
           });
-         debugger;
           expect(RxwebValidators.date()(new FormControl('2018/16/16'))).toEqual({'date':{ message: 'enter correct date.', refValues: [ '2018/16/16' ] } }); 
         });
         it("Should error, invalid date format in mdy",
