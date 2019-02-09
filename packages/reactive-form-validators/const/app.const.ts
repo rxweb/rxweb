@@ -13,3 +13,9 @@ export const NUMBER:string = "number";
 export const BOOLEAN:string = "boolean";
 
 export const CUSTOM:string = "custom";
+
+export const TEMPLATE_VALIDATION_CONFIG:string = "template-validation-config"; 
+
+export const CONDITIONAL_VALIDATOR:string = "conditionalValidator"
+
+export const VALIDATOR_CONFIG :string = "validatorConfig";
