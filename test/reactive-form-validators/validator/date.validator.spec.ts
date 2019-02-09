@@ -43,8 +43,84 @@ import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-
         () => { 
           expect(RxwebValidators.date()(new FormControl('2018/02/31'))).toEqual({'date':{ message: 'enter correct date.', refValues: [ '2018/02/31' ] } }); 
         });
-  
+        it("Should not error, valid date format in ymd",
+        () => { 
+          ReactiveFormConfig.set({
+            "baseConfig": {
+              "dateFormat": "ymd",
+              "seperator": "/"
+          }
+          });
+         
+          expect(RxwebValidators.date()(new FormControl('2018/02/16'))).toBeNull(); 
+        });
+        it("Should not error, valid date format in mdy",
+        () => { 
+          ReactiveFormConfig.set({
+            "baseConfig": {
+              "dateFormat": "mdy",
+              "seperator": "/"
+          }
+          });
+         
+          expect(RxwebValidators.date()(new FormControl('02/16/2018'))).toBeNull(); 
+        });
         
+        it("Should not error, valid date format in dmy",
+        () => { 
+          ReactiveFormConfig.set({
+            "baseConfig": {
+              "dateFormat": "dmy",
+              "seperator": "/"
+          }
+          });
+         
+          expect(RxwebValidators.date()(new FormControl('16/02/2018'))).toBeNull(); 
+        });
+
+        it("Should error, invalid date format in ymd",
+        () => { 
+          ReactiveFormConfig.set({
+            "validationMessage": {
+              "date": "enter correct date.",
+            },
+            "baseConfig": {
+              "dateFormat": "ymd",
+              "seperator": "/"
+          }
+          });
+         debugger;
+          expect(RxwebValidators.date()(new FormControl('2018/16/16'))).toEqual({'date':{ message: 'enter correct date.', refValues: [ '2018/16/16' ] } }); 
+        });
+        it("Should error, invalid date format in mdy",
+        () => { 
+          ReactiveFormConfig.set({
+            "validationMessage": {
+              "date": "enter correct date.",
+            },
+            "baseConfig": {
+              "dateFormat": "mdy",
+              "seperator": "/"
+          }
+          });
+         
+          expect(RxwebValidators.date()(new FormControl('02/32/2018'))).toEqual({'date':{ message: 'enter correct date.', refValues: [ '02/32/2018' ] } }); 
+        });
+        
+        it("Should error, invalid date format in dmy",
+        () => { 
+          ReactiveFormConfig.set({
+            "validationMessage": {
+              "date": "enter correct date.",
+            },
+            "baseConfig": {
+              "dateFormat": "dmy",
+              "seperator": "/"
+          }
+          });
+         
+          expect(RxwebValidators.date()(new FormControl('16/20/2018'))).toEqual({'date':{ message: 'enter correct date.', refValues: [ '16/20/2018' ] } }); 
+        });
 
       //end
     });
