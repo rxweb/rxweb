@@ -124,6 +124,25 @@ import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-
           expect(RxwebValidators.maxDate({ fieldName:'enrollmentDate' })(formGroup.controls.lastRegistrationDate)).toEqual({ 'maxDate': { message: 'Maximum Date is not matched', refValues: ['11/31/2018'] } }); 
         });
 
+        it("Should error, enrollmentDate should be lessThan lastRegistrationDate",
+        () => {
+          let formBuilder = new FormBuilder();
+          let formGroup = formBuilder.group({
+            'enrollmentDate': '08/31/2018',
+            'lastRegistrationDate': '08/31/2018'
+          });
+          expect(RxwebValidators.maxDate({ fieldName:'enrollmentDate',operator:"<" })(formGroup.controls.lastRegistrationDate)).toEqual({ 'maxDate': { message: 'Maximum Date is not matched', refValues: ['08/31/2018'] } }); 
+        });
+
+        it("Should not error, enrollmentDate should be lessThanEqualTo lastRegistrationDate",
+        () => {
+          let formBuilder = new FormBuilder();
+          let formGroup = formBuilder.group({
+            'enrollmentDate': '08/31/2018',
+            'lastRegistrationDate': '08/31/2018'
+          });
+          expect(RxwebValidators.maxDate({ fieldName:'enrollmentDate' })(formGroup.controls.lastRegistrationDate)).toBeNull(); 
+        });
 
       //end
     });
