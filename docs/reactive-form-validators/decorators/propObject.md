@@ -3,7 +3,7 @@ title: propObject
 description: It is used to define an object of thes property of a field in the model class.
 author: rxcontributorone
 category: decorators
-type:decorators
+type: decorators
 linktitle: propObject
 ---
 # When to use

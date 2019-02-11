@@ -3,7 +3,7 @@ title: propArray
 description: PropArray is used to define an array of the instances of a class.
 author: rxcontributortwo 
 category: decorators
-type:decorators
+type: decorators
 linktitle: propArray
 ---
 
