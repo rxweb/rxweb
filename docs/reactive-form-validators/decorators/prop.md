@@ -3,7 +3,7 @@ title: prop
 description: It is used to define a property of a field in the model class.
 author: rxcontributorone
 category: decorators
-type:decorators
+type: decorators
 linktitle: prop
 ---
 # When to use
