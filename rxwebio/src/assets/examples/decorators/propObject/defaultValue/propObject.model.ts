@@ -10,7 +10,7 @@ export class Address {
   
   export class User {
   
-    @prop({defaultValue:'abc@gmail.com'})
+    @prop({defaultValue:'bharat.patel@gmail.com'})
     emailAddress: string;
     
     @propObject(Address)

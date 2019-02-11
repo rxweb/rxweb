@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
-import { RxFormBuilder } from '@rxweb/reactive-form-validators';
+import { RxFormBuilder, FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
 
 import { User,Address } from './propObject.model';
 
@@ -20,6 +20,13 @@ export class PropObjectServerComponent implements OnInit {
     ngOnInit() {
         let user = new User();
         user.address = new Address();
+        let formBuilderConfiguration = new FormBuilderConfiguration();
+        let userData = {
+            City:'Ahmedabad',
+            Country:'India',
+            email_Address:'bharat.patel@gmail.com',
+        };
+        formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(userData));
         this.userFormGroup = this.formBuilder.formGroup(user);
     }
 }
