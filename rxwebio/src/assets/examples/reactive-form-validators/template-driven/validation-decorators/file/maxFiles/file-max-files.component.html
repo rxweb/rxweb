@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>Total Image Files</label>
 	    <input type="file" name="totalImageFiles" multiple [(ngModel)]="userinfo.totalImageFiles"  class="form-control" />

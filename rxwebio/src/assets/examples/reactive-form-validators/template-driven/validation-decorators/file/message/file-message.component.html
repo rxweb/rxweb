@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>MinMaxFiles</label>
 	    <input type="file" name="minMaxFiles" multiple [(ngModel)]="userinfo.minMaxFiles"  class="form-control" />

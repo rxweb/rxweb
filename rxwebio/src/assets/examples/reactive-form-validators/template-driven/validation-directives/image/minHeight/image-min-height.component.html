@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>Identity Card</label>
 	    <input type="file" name="identityCard"  [(ngModel)]="userinfo.identityCard"  class="form-control" [image]="{'minHeight':10,'maxHeight':100,'maxWidth':100}"/>

@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>Video File</label>
 	    <input type="file" name="videoFile"  [(ngModel)]="userinfo.videoFile"  class="form-control" />

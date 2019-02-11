@@ -4,15 +4,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-
-import { AsyncCompleteComponent } from './complete/async-complete.component';
+import { AsyncComponentBasedComponent } from './componentFunctionBased/async-component.component';
+import {  AsyncGlobalBasedComponent } from './globalFunctionBased/async-global.component';
 
 @NgModule({
   declarations: [
-	AsyncCompleteComponent,
+    AsyncComponentBasedComponent,AsyncGlobalBasedComponent
   ],
 entryComponents: [
-	AsyncCompleteComponent,
+	AsyncComponentBasedComponent,AsyncGlobalBasedComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -21,7 +21,7 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-	AsyncCompleteComponent,
+    AsyncComponentBasedComponent,AsyncGlobalBasedComponent
   ],
 
 })

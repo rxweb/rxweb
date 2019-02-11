@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>Positive Number</label>
 	    <input type="text" name="positiveNumber" [(ngModel)]="userinfo.positiveNumber"  class="form-control" [numeric]="{'message':'Positive Number is not a positive number'}"/>

@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Registration Date</label>
 	    <input type="text" name="registrationDate" [(ngModel)]="user.registrationDate"  class="form-control" [minDate]="{'value':'07/30/2018','message':'Registration Date exceeds the Minimum Date Limit'}"/>

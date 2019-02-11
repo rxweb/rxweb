@@ -3,7 +3,7 @@ title: async
 description: Async validation {{validatorType}} will allow the field to validate the unique value from server for that particular field. This async validation can be customized according to the need.
 author: rxcontributortwo
 category: form-validations
-type:tabs
+type: tabs
 linktitle: async
 ---
 
@@ -16,22 +16,14 @@ Suppose you want to create a user form, which contains field like userName and e
 </ol>
 Let's see how async {{validatorType}} fulfil the need.
 
-# Complete Async Example
+# Global Function Based Async Example
 
-This Complete Async example will fulfil the requirement of above scenario.
+When you want to use async validator function globally in multiple components, you can use Global based Async Function. 
 
-<div component="app-tabs" key="complete"></div>
-[!TabGroup]
-# [Example](#tab\completeexample)
-<div component="app-example-runner" ref-component="app-async-complete"></div>
-# [/Example]
-# [Model](#tab\completemodel)
-<div component="app-code" key="async-complete-model"></div> 
-# [/Model]
-# [Component](#tab\completecomponent)
-<div component="app-code" key="async-complete-component"></div> 
-# [/Component]
-# [Html](#tab\completehtml)
-<div component="app-code" key="async-complete-html"></div> 
-# [/Html]
-***
+<div component="app-example-runner" ref-component="app-async-global" title="Global Function Based with prop" key="global"></div>
+
+# Component Function Based Async Example
+
+When you want to use async validator function within your component, you can use Component based Async Function.
+
+<div component="app-example-runner" ref-component="app-async-component" title="Component Function Based with prop" key="component"></div>

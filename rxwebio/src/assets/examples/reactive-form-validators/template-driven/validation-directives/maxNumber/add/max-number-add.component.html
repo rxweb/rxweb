@@ -1,5 +1,5 @@
 <div>
-  <form #subjectdetailsForm = "ngForm" [rxwebForm]="subjectdetailsForm">
+  <form #subjectdetailsForm = "ngForm" [rxwebForm]="subjectdetailsForm" [model]="subjectdetails">
     <div class="form-group">
       <label>Passing Marks</label>
 	    <input type="text" name="passingMarks" [(ngModel)]="subjectdetails.passingMarks"  class="form-control" [maxNumber]="{'value':50}"/>

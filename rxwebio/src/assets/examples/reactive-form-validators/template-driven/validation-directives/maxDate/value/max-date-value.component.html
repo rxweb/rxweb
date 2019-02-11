@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Allocation Date</label>
 	    <input type="text" name="allocationDate" [(ngModel)]="user.allocationDate"  class="form-control" [maxDate]="{'value':'07/30/2018'}"/>

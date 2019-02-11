@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Zip Code</label>
 	    <input type="text" name="zipCode" [(ngModel)]="user.zipCode"  class="form-control" [pattern]="{'expression':{'zipCode':'/^[0-9]{5}(?:-[0-9]{4})?$/' },'message':'Zip code should match 12345 or 12345-6789'}"/>

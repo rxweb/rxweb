@@ -14,7 +14,9 @@ export class TitleComponent implements OnInit {
   @Input() validationTypeTitle?:string;
   @Input() mainType?:string;
   @Input() validationName?:string;
+  @Input() templateDrivenType?:string;
   @Input() activeTab?:string;
+  templateDrivenTab:string;
   showComponent: boolean = false;
   linkHref:string = "";
   sticky: boolean = false;
@@ -35,7 +37,10 @@ export class TitleComponent implements OnInit {
 
   route(typeName: string, templateDrivenType?: string) {
     if (templateDrivenType)
+    {
       this.router.navigate(['/', this.mainType, this.validationName, typeName, templateDrivenType])
+      this.templateDrivenType = templateDrivenType;  
+    }
     else
       this.router.navigate(['/', this.mainType, this.validationName, typeName])
   }

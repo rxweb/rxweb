@@ -1,5 +1,5 @@
 <div>
-  <form #employeeinfoForm = "ngForm" [rxwebForm]="employeeinfoForm">
+  <form #employeeinfoForm = "ngForm" [rxwebForm]="employeeinfoForm" [model]="employeeinfo">
     <div class="form-group">
       <label>Employee Age</label>
 	    <input type="text" name="age" [(ngModel)]="employeeinfo.age"  class="form-control" />
