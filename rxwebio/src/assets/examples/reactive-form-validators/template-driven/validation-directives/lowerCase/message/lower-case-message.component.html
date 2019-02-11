@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Last name</label>
 	    <input type="text" name="lastName" [(ngModel)]="user.lastName"  class="form-control" [lowerCase]="{'message':'You can enter only lowerCase letters.'}"/>

@@ -1,5 +1,5 @@
 <div>
-  <form #attandancedetailForm = "ngForm" [rxwebForm]="attandancedetailForm">
+  <form #attandancedetailForm = "ngForm" [rxwebForm]="attandancedetailForm" [model]="attandancedetail">
     <div class="form-group">
       <label>Exit Time</label>
 	    <input type="text" name="exitTime" [(ngModel)]="attandancedetail.exitTime"  class="form-control" [time]="{'message':'You can enter only time format data'}"/>

@@ -50,8 +50,8 @@ export class PageComponent implements OnInit {
     activatedRoute.params.subscribe(t => {
       if (t["typeName"])
         this.typeName = t["typeName"];
-      // if (t["templateDrivenType"])
-      //   this.templateDrivenType = t["templateDrivenType"];
+      if (t["templateDrivenType"])
+        this.templateDrivenType = t["templateDrivenType"];
       this.bind();
     })
     activatedRoute.queryParams.subscribe(params => {

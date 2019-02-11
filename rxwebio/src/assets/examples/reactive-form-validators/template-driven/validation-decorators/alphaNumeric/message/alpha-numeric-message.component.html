@@ -1,5 +1,5 @@
 <div>
-  <form #locationForm = "ngForm" [rxwebForm]="locationForm">
+  <form #locationForm = "ngForm" [rxwebForm]="locationForm" [model]="location">
     <div class="form-group">
       <label>Postal Address</label>
 	    <input type="text" name="postalAddress" [(ngModel)]="location.postalAddress"  class="form-control" />

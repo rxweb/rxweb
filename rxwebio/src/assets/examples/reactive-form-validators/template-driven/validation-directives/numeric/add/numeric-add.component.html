@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>Integer Number</label>
 	    <input type="text" name="integerNumber" [(ngModel)]="userinfo.integerNumber"  class="form-control" [numeric]="{'acceptValue':1,'allowDecimal':false}"/>

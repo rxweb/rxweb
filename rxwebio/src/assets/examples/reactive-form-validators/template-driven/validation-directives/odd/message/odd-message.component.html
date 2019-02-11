@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Multiples of Odd Number</label>
 	    <input type="text" name="multiplesOfOddNumber" [(ngModel)]="user.multiplesOfOddNumber"  class="form-control" [odd]="{'message':'Multiples of Odd Number is not an odd number'}"/>

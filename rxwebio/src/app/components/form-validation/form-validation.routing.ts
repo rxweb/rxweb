@@ -2,10 +2,10 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const FORM_VALIDATION_ROUTES: Routes = [
-	{
-		path:'allOf',
-		loadChildren: './allOf/all-of.module#AllOfModule',
-	},
+{
+	path:'allOf',
+	loadChildren: './allOf/all-of.module#AllOfModule',
+},
 {
 	path:'alpha',
 	loadChildren: './alpha/alpha.module#AlphaModule',
@@ -17,10 +17,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'ascii',
 	loadChildren: './ascii/ascii.module#AsciiModule',
-},
-{
-	path:'async',
-	loadChildren: './async/async.module#AsyncModule',
 },
 {
 	path:'choice',
@@ -43,16 +39,8 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './creditCard/credit-card.module#CreditCardModule',
 },
 {
-	path:'cusip',
-	loadChildren: './cusip/cusip.module#CusipModule',
-},
-{
 	path:'dataUri',
 	loadChildren: './dataUri/data-uri.module#DataUriModule',
-},
-{
-	path:'date',
-	loadChildren: './date/date.module#DateModule',
 },
 {
 	path:'different',
@@ -97,10 +85,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'greaterThan',
 	loadChildren: './greaterThan/greater-than.module#GreaterThanModule',
-},
-{
-	path:'grid',
-	loadChildren: './grid/grid.module#GridModule',
 },
 {
 	path:'hexColor',
@@ -217,10 +201,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'fileSize',
 	loadChildren: './fileSize/file-size.module#FileSizeModule',
-},
-{
-	path:'rule',
-	loadChildren: './rule/rule.module#RuleModule',
 },
 {
 	path:'startsWith',

@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>File Type</label>
       <select name="fileType" [(ngModel)]="userinfo.fileType"  class="form-control"  >

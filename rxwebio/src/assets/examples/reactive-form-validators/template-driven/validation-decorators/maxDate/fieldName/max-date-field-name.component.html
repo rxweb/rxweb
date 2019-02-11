@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Enrollment Date</label>
 	    <input type="text" name="enrollmentDate" [(ngModel)]="user.enrollmentDate"  class="form-control" />

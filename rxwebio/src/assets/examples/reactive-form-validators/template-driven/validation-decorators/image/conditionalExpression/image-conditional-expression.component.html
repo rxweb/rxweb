@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>Aadhar Card</label>
 	    <input type="file" name="aadharCard"  [(ngModel)]="userinfo.aadharCard"  class="form-control" />

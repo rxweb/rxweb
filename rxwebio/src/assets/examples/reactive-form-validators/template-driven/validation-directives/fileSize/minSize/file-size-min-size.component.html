@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>Audio File</label>
 	    <input type="file" name="audioFile"  [(ngModel)]="userinfo.audioFile"  class="form-control" [fileSize]="{'minSize':3,'maxSize':100}"/>

@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Sixth Number</label>
 	    <input type="text" name="sixthNumber" [(ngModel)]="user.sixthNumber"  class="form-control" [factor]="{'dividend':30,'message':'Sixth Number is not a factor of 50'}"/>
