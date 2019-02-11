@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormArray } from "@angular/forms"
 
-import { RxFormBuilder } from '@rxweb/reactive-form-validators';
+import { RxFormBuilder, FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
 
 import { User,Address } from './propArray.model';
 
@@ -22,7 +22,14 @@ export class PropArrayServerComponent implements OnInit {
         user.addresses = new Array<Address>();
         let address = new Address();
         user.addresses.push(address);
-        this.userFormGroup = this.formBuilder.formGroup(user);
+        let formBuilderConfiguration = new FormBuilderConfiguration();
+        let userData = {
+            City:'Ahmedabad',
+            Country:'India',
+            email_Address:'bharat.patel@gmail.com',
+        };
+        formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(userData));
+        this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
         }
 
     addAddress(){

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 
-import { RxFormBuilder } from '@rxweb/reactive-form-validators';
+import { RxFormBuilder, FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
 
 import { User } from './user.model';
 
@@ -19,6 +19,11 @@ export class PropServerComponent implements OnInit {
 
     ngOnInit() {
         let user = new User();
-        this.userFormGroup = this.formBuilder.formGroup(user);
+        let formBuilderConfiguration = new FormBuilderConfiguration();
+        let userData = {
+            email_Address:'bharat.patel@gmail.com',
+        };
+        formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(userData));
+        this.userFormGroup = this.formBuilder.formGroup(user,formBuilderConfiguration);
     }
 }

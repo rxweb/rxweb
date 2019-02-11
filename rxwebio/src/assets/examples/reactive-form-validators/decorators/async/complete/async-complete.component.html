@@ -1,14 +1,11 @@
+
+
 <div>
   <form  [formGroup]="userFormGroup">
     <div class="form-group">
       <label>Username</label>
       <input type="text" formControlName="userName" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.userName.errors">{{userFormGroup.controls.userName.errors.async?.message}}<br/></small>	
-    </div>
-    <div class="form-group">
-      <label>Email</label>
-      <input type="text" formControlName="email" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.email.errors">{{userFormGroup.controls.email.errors.async?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.userName.errors">{{userFormGroup.controls.userName.errors.async}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

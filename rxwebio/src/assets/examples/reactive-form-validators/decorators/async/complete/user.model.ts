@@ -6,27 +6,14 @@ export class User {
 	@async([ isUniqueUserName ]) 
 	userName: string;
 
-	@async([isUniqueEmail])
-	email: string;
-
 }
  
 function isUniqueUserName(control: FormControl) {
 	const promise = new Promise((resolve, reject) => {
-		if (control.value != null)
+		if (!control.value == false)
 			resolve(null)
 		else
-			resolve({ 'isUniqueUserName': true })
+		resolve({ 'async': 'You must enter a value' })
 	});
 	return promise;
-}
-
-function isUniqueEmail(control: FormControl) {
-    const promise = new Promise((resolve, reject) => {
-        if (control.value != null)
-            resolve(null)
-        else
-            resolve({ 'isUniqueEmail': true })
-    });
-    return promise;
 }
