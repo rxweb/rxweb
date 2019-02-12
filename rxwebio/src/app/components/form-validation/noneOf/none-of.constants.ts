@@ -10,6 +10,8 @@ import { NoneOfMessageValidatorComponent } from "src/assets/examples/reactive-fo
 import { NoneOfMatchValuesValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/noneOf/matchValues/none-of-match-values.component";
 import { NoneOfCompleteValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/noneOf/complete/none-of-complete.component";
 import { NoneOfConditionalExpressionValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/noneOf/conditionalExpression/none-of-conditional-expression.component";
+import { NoneOfNonArrayValueComponent } from "src/assets/examples/reactive-form-validators/decorators/noneOf/nonArrayValue/none-of-non-array-value.component";
+import { NoneOfNonArrayValueValidatorComponent } from "src/assets/examples/reactive-form-validators/validators/noneOf/nonArrayValue/none-of-non-array-value.component";
 
 export const NONE_OF_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 	decorators:{
@@ -19,6 +21,7 @@ export const NONE_OF_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						message : NoneOfMessageComponent,
 						dynamic : NoneOfDynamicComponent,
 						add : NoneOfAddComponent,
+						nonArrayValue : NoneOfNonArrayValueComponent
 			  },
 	template_driven_validation_directives:{
 						// complete : NoneOfCompleteTemplateDrivenValidationDirectivesComponent,
@@ -41,5 +44,6 @@ export const NONE_OF_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 						message : NoneOfMessageValidatorComponent,
 						dynamic : NoneOfDynamicValidatorComponent,
 						add : NoneOfAddValidatorComponent,
+						nonArrayValue : NoneOfNonArrayValueValidatorComponent
 			  },
 }

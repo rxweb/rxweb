@@ -82,6 +82,13 @@ To override the global configuration message and set the custom message on respe
 <div component="app-code" key="noneOf-messageExample-model"></div> 
 <div component="app-example-runner" ref-component="app-noneOf-message" title="noneOf {{validatorType}} with message" key="message"></div>
 
+# Non Array Value
+
+The noneOf validator can also validate the textbox value, which is a non array value. If any user enter the duplicate values, then the formControl should mark it as invalid.
+
+<div component="app-code" key="noneOf-nonArrayValueExample-model"></div> 
+<div component="app-example-runner" ref-component="app-noneOf-nonArrayValue" title="noneOf {{validatorType}} with nonArrayValue" key="nonArrayValue"></div>
+
 # Complete noneOf Example
 
 This Complete noneOf example which includes all the ArrayConfig properties will fulfil the requirement of scenarios 1, 2 and 3.

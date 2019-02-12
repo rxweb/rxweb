@@ -10,10 +10,10 @@
                 <li [class.active]="activeTab == 'decorators'" *ngIf="validationName !== 'ip' && validationName !== 'compose'  && validationName !== 'conditionalValidation'">
                         <a (click)="route('decorators')">Decorator</a>
                 </li>
-                <li [class.active]="activeTab == 'template-driven' && templateDrivenType == 'directives'" *ngIf="mainType == 'form-validations' && (validationName !== 'pattern' && validationName !== 'unique'  && validationName !== 'ip' && validationName !== 'compose' && validationName !== 'allOf' && validationName !== 'oneOf' && validationName !== 'noneOf' && validationName !== 'choice' && validationName !== 'async' )">
+                <li [class.active]="activeTab == 'template-driven' && templateDrivenType == 'directives'" *ngIf="mainType == 'form-validations' && (validationName !== 'pattern' && validationName !== 'unique'  && validationName !== 'ip' && validationName !== 'compose' && validationName !== 'allOf' && validationName !== 'oneOf' && validationName !== 'noneOf' && validationName !== 'choice' && validationName !== 'async' && validationName !== 'rule' )">
                     <a (click)="route('template-driven','directives')">Template Driven</a>
                 </li>
-                <li [class.active]="activeTab == 'template-driven' && templateDrivenType == 'decorators'" *ngIf="mainType == 'form-validations' && (validationName !== 'pattern' && validationName !== 'unique'  && validationName !== 'ip' && validationName !== 'compose' && validationName !== 'allOf' && validationName !== 'oneOf' && validationName !== 'noneOf' && validationName !== 'choice' && validationName !== 'async' )">
+                <li [class.active]="activeTab == 'template-driven' && templateDrivenType == 'decorators'" *ngIf="mainType == 'form-validations' && (validationName !== 'pattern' && validationName !== 'unique'  && validationName !== 'ip' && validationName !== 'compose' && validationName !== 'allOf' && validationName !== 'oneOf' && validationName !== 'noneOf' && validationName !== 'choice' && validationName !== 'async' && validationName !== 'rule')">
                         <a (click)="route('template-driven','decorators')">Template Driven Decorator</a>
                 </li>
                 

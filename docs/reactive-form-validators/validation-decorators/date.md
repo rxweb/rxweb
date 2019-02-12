@@ -21,7 +21,7 @@ Suppose you want to create a UserInfo form, which contains fields like BirthDate
 </ol>
 Let's see how date {{validatorType}} fulfil the need.
 
-To Configure Date format globally in your application, Please refer <a href="/reactive-form-config">`ReactiveFormConfig`</a>
+To Configure Date format globally in your application, Please refer <a href="/api/reactive-form-config">`ReactiveFormConfig`</a>
  
 # Basic Date Validation
 <data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">

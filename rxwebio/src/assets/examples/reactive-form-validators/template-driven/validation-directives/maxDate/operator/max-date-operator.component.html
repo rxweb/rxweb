@@ -1,0 +1,13 @@
+<div>
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
+    <div class="form-group">
+      <label>Confirmation Date</label>
+	    <input type="text" name="confirmationDate" [(ngModel)]="user.confirmationDate"  class="form-control" [maxDate]="{'fieldName':'enrollmentDate','operator':'<'}"/>
+
+      <small class="form-text text-muted">you can enter MaxDate upto value mentioned in fieldName<br/></small>
+      <small class="form-text text-muted">Enterred date must be less than the enrollmentDate<br/></small>
+	   <small class="form-text text-danger" *ngIf="userForm.controls?.confirmationDate?.errors">{{userForm.controls?.confirmationDate?.errors?.maxDate.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>
