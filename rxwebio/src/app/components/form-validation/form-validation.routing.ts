@@ -2,6 +2,10 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const FORM_VALIDATION_ROUTES: Routes = [
+	{
+		path:'allOf',
+		loadChildren: './allOf/all-of.module#AllOfModule',
+	},
 {
 	path:'alpha',
 	loadChildren: './alpha/alpha.module#AlphaModule',
@@ -17,6 +21,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'async',
 	loadChildren: './async/async.module#AsyncModule',
+},
+{
+	path:'choice',
+	loadChildren: './choice/choice.module#ChoiceModule',
 },
 {
 	path:'compose',
@@ -99,6 +107,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './image/image.module#ImageModule',
 },
 {
+	path:'ip',
+	loadChildren: './ip/ip.module#IpModule',
+},
+{
 	path:'json',
 	loadChildren: './json/json.module#JsonModule',
 },
@@ -163,8 +175,16 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './numeric/numeric.module#NumericModule',
 },
 {
+	path:'noneOf',
+	loadChildren: './noneOf/none-of.module#NoneOfModule',
+},
+{
 	path:'odd',
 	loadChildren: './odd/odd.module#OddModule',
+},
+{
+	path:'oneOf',
+	loadChildren: './oneOf/one-of.module#OneOfModule',
 },
 {
 	path:'password',
@@ -189,6 +209,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'required',
 	loadChildren: './required/required.module#RequiredModule',
+},
+{
+	path:'rule',
+	loadChildren: './rule/rule.module#RuleModule',
 },
 {
 	path:'fileSize',

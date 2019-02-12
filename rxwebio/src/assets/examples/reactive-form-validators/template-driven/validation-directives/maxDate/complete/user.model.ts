@@ -1,4 +1,4 @@
-
+ 
 export class User {
 
 	userName: string;
@@ -14,5 +14,7 @@ export class User {
 	enrollmentDate: string;
 
 	lastRegistrationDate: string;
+
+	confirmationDate: string;
 
 }

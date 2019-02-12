@@ -19,7 +19,7 @@ export class MaxDateDynamicValidatorComponent implements OnInit {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
 		this.http.get('assets/examples/reactive-form-validators/validators/maxDate/dynamic/dynamic.json').subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
-			var user = { userName:'', allocationDate:'', birthDate:'', admissionDate:'', registrationDate:'', enrollmentDate:'', lastRegistrationDate:'',  }
+			var user = { userName:'', allocationDate:'', birthDate:'', admissionDate:'', registrationDate:'', enrollmentDate:'', lastRegistrationDate:'', confirmationDate:'',  }
 			this.userFormGroup = this.formBuilder.group(user,formBuilderConfiguration);
 		})
     }

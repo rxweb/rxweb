@@ -62,7 +62,7 @@ Next, we need to write html code.
 <div component="app-example-runner" ref-component="app-minDate-add"></div>
 </data-scope>
 
-# DateConfig 
+# MinDateConfig 
 <data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@minDate()` decorator. If needed then use the below options.
 </data-scope>
@@ -81,13 +81,13 @@ Below options are not mandatory to use in the `minDate` validation. If needed th
 <tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>MinDate validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")'  title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 <tr><td><a (click)='scrollTo("#value")'  title="value">value</a></td><td>Enter date value which you want to restrict in the property. </td></tr>
-<tr><td><a (click)='scrollTo("#operator")' title="operator">Operator</a></td><td>Operator is used to validate date based upon greater than or greater than equal to a particular value, The default validation is based upon greater than equal to.</td></tr>
+<tr><td><a (click)='scrollTo("#operator")' title="operator">operator</a></td><td>operator is used to validate date based upon greater than or greater than equal to a particular value, The default validation is based upon greater than equal to.</td></tr>
 </table>
 
-## Operator
+## operator
 Type :  `string` 
 
-`Operator` is used to validate date based upon greater than or greater than equal to a particular value, The default validation is based upon greater than equal to.
+`operator` is used to validate date based upon greater than or greater than equal to a particular value, The default validation is based upon greater than equal to.
 
 <div component="app-code" key="minDate-operatorExample-model"></div> 
 <div component="app-example-runner" ref-component="app-minDate-operator" title="minDate {{validatorType}} with operator" key="operator"></div>
