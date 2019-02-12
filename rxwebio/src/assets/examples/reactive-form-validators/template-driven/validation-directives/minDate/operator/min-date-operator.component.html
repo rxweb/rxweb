@@ -1,5 +1,6 @@
 <div>
   <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
+    <div class="form-group">
       <label>Confirmation Date</label>
 	    <input type="text" name="confirmationDate" [(ngModel)]="user.confirmationDate"  class="form-control" [minDate]="{'fieldName':'enrollmentDate','operator':'>'}"/>
 
