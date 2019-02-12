@@ -26,7 +26,7 @@ export function dateChecker(control: AbstractControl,config:any,operationType:st
     var dateProvider = new DateProvider();
       if (FormProvider.ProcessRule(control,config)) {
         if (RegexValidator.isNotBlank(control.value)) {
-            if (dateProvider.isValid(control.value)) {
+            if (control.value instanceof Date || dateProvider.isValid(control.value)) {
                 let checkDate = dateProvider.getCompareDate(config,control);
                 let currentControlValue = dateProvider.getDate(control.value);
                 let isValid = operationType == AnnotationTypes.minDate ? runCondition(currentControlValue,checkDate,config.operator || OPERATORS.greaterThanEqualTo): runCondition(checkDate,currentControlValue,config.operator || OPERATORS.lessThanEqualTo)
@@ -44,7 +44,7 @@ export function validateDate(control: AbstractControl,config:any,operationType:s
     var dateProvider = new DateProvider();
       if (FormProvider.ProcessRule(control,config)) {
         if (RegexValidator.isNotBlank(control.value)) {
-            if (!dateProvider.isValid(control.value)) {
+            if (!(control.value instanceof Date) && !dateProvider.isValid(control.value)) {
                 return ObjectMaker.toJson(operationType, config, [control.value])
         }
     }

@@ -39,6 +39,12 @@ import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-
           expect(RxwebValidators.date()(new FormControl('31/08/2018'))).toBeNull(); 
         });
       
+        it("Should not error, valid date value",
+        () => { 
+          expect(RxwebValidators.date()(new FormControl(new Date()))).toBeNull(); 
+        });
+      
+
         it("Should error, invalid date in the FormControl",
         () => { 
           expect(RxwebValidators.date()(new FormControl('2018/02/31'))).toEqual({'date':{ message: 'enter correct date.', refValues: [ '2018/02/31' ] } }); 
