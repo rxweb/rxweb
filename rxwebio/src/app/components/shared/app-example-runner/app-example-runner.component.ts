@@ -36,7 +36,7 @@ export class AppExampleRunnerComponent implements OnInit {
   ngOnInit(): void {
     debugger
     this.showElement = false;
-    if(this.decoratorName == "async" || this.decoratorName == "prop" || this.decoratorName == "propArray" || this.decoratorName == "propOject" )
+    if(this.decoratorName == "async" || this.decoratorName == "prop" || this.decoratorName == "propArray" || this.decoratorName == "propObject" )
     {
       this.showElement = true;
     }
