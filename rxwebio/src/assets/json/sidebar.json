@@ -348,6 +348,20 @@
           "isActive": false
         }
       ]
+    },
+    {
+      "title": "How To",
+      "uri": null,
+      "otherUri":"how-to",
+      "isOpen": false,
+      "isActive": false,
+      "childrens":[
+        {
+          "title":"Best way to show error messages",
+          "uri":"/how-to/errorMessages/validators",
+          "isActive": false
+        }      
+      ]
     }
   ]
 }

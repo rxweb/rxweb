@@ -7,6 +7,7 @@ import { GettingStartedComponent } from "src/app/components/getting-started/gett
 import { ReactiveFormConfigComponent } from "../reactive-form-config/reactive-form-config.component";
 import { FormBuilderComponent } from "../form-builder/form-builder.component";
 import { ConditionalValidationComponent } from "src/assets/examples/advance-form-validations/conditional-validation/conditional-validation.component";
+import { ErrorMessagesComponent } from "src/assets/examples/how-to/errorMessage/complete/errorMessage-component";
 
 
 const APP_LAZY_ROUTES: Routes = [
@@ -24,6 +25,10 @@ const APP_LAZY_ROUTES: Routes = [
   },
   {
     path:'api/reactive-form-config',component:ReactiveFormConfigComponent
+  },
+  {
+    path:'how-to',
+    loadChildren: 'src/app/components/how-to/how-to.module#HowtoModule',
   },
   {
     path: 'advance-form-validation',
