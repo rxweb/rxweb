@@ -3,7 +3,7 @@ title: Best way to show error messages.
 author: rxcontributorone
 category: how-to
 type:decorators
-linktitle: errorMessages.
+linktitle: errorMessages
 ---
 
 As we mostly work on Reactive Forms and showing error messages is little bit clumsy task, when the multiple validators are involved in single FormControl. Usually we put *ngIf in the html and binds the respective validator's error messages. To overcome this problem let's discuss the most appropriate approach for showing the error messages.

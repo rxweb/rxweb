@@ -7,7 +7,7 @@
                 <li [class.active]="activeTab == 'validators'" *ngIf="mainType == 'form-validations' && validationName !== 'rule' && validationName !== 'async'">
                     <a (click)="route('validators')">Validator</a>
                 </li>
-                <li [class.active]="activeTab == 'decorators'" *ngIf="validationName !== 'ip' && validationName !== 'compose'  && validationName !== 'conditionalValidation' && validationName !== 'errorMessages'">
+                <li [class.active]="activeTab == 'decorators'" *ngIf="validationName !== 'ip' && validationName !== 'compose'  && validationName !== 'conditionalValidation' && validationName !== 'errorMessages' &&  validationName !== 'formData'">
                         <a (click)="route('decorators')">Decorator</a>
                 </li>
                 <li [class.active]="activeTab == 'template-driven' && templateDrivenType == 'directives'" *ngIf="mainType == 'form-validations' && (validationName !== 'pattern' && validationName !== 'unique'  && validationName !== 'ip' && validationName !== 'compose' && validationName !== 'allOf' && validationName !== 'oneOf' && validationName !== 'noneOf' && validationName !== 'choice' && validationName !== 'async' && validationName !== 'rule' )">
