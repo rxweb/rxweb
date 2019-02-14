@@ -2,7 +2,7 @@
   <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Confirmation Date</label>
-	    <input type="text" name="confirmationDate" [(ngModel)]="user.confirmationDate"  class="form-control" [minDate]="{'fieldName':'enrollmentDate','operator':'>'}"/>
+	    <input type="text" name="confirmationDate" [(ngModel)]="user.confirmationDate"  class="form-control" [minDate]="{'value':'04/16/1997','operator':'>'}"/>
 
       <small class="form-text text-muted">you can enter MinDate upto value mentioned in fieldName<br/></small>
 	   <small class="form-text text-danger" *ngIf="userForm.controls?.confirmationDate?.errors">{{userForm.controls?.confirmationDate?.errors?.minDate.message}}<br/></small>	
