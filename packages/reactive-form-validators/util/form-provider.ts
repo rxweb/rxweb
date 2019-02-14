@@ -4,6 +4,7 @@ import {
     AbstractControl
 } from "@angular/forms";
 
+import { RxFormGroup } from "../services/rx-form-group"
 
 export class FormProvider{
 
@@ -11,9 +12,12 @@ export class FormProvider{
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         const parentObject = (control.parent) ? control.parent.value : undefined;
+        let modelInstance = undefined;
+        if (control.parent && control.parent instanceof RxFormGroup)
+            modelInstance = (<RxFormGroup>control.parent).modelInstance;
         if(parentObject)
             this.updateFormControlValue(parentObject,control.parent.controls,control);
-        return Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject); 
+        return Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject,modelInstance); 
     }
 
     private static updateFormControlValue(parentObject:{[key:string]:any},controls:any,control:AbstractControl){

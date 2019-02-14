@@ -18,4 +18,6 @@ export const TEMPLATE_VALIDATION_CONFIG:string = "template-validation-config";
 
 export const CONDITIONAL_VALIDATOR:string = "conditionalValidator"
 
-export const VALIDATOR_CONFIG :string = "validatorConfig";
+export const VALIDATOR_CONFIG: string = "validatorConfig";
+
+export const THIS: string = "this";
