@@ -1,0 +1,10 @@
+{
+    "complete": {
+        "notes": [],
+        "component": "import { Component, OnInit } from '@angular/core';\r\nimport { FormGroup, FormBuilder } from \"@angular/forms\"\r\nimport { RxwebValidators,RxFormGroup,RxFormBuilder } from '@rxweb/reactive-form-validators';\r\nimport { HttpClient } from '@angular/common/http';\r\n\r\n@Component({\r\n    selector: 'app-fileObject-validator',\r\n    templateUrl: './file-object.component.html'\r\n})\r\nexport class FileObjectValidatorComponent implements OnInit {\r\n    userInfoFormGroup: RxFormGroup\r\n   api:string = 'api/User'\r\n\tconstructor(\r\n        private formBuilder: RxFormBuilder,private http: HttpClient  )\r\n\t{ }\r\n\r\n    ngOnInit() {\r\n        this.userInfoFormGroup = <RxFormGroup>this.formBuilder.group({\r\n            profilePhoto:['', RxwebValidators.image({maxHeight:500  ,maxWidth:500 })], \r\n        });\r\n    }\r\n      addUser(){\r\n         let formdata = this.userInfoFormGroup.toFormData()\r\n       this.http.post(this.api, formdata); // This is fake uri, This is just for your reference.      \r\n      }\r\n}\r\n",
+        "html": "<div>\r\n  <form  [formGroup]=\"userInfoFormGroup\">\r\n    <div class=\"form-group\">\r\n      <label>Profile Photo</label>\r\n      <input type=\"file\" [writeFile]=\"true\" formControlName=\"profilePhoto\" class=\"form-control\" multiple />\r\n\t <small class=\"form-text text-danger\" *ngIf=\"userInfoFormGroup.controls.profilePhoto.errors\">{{userInfoFormGroup.controls.profilePhoto.errors.image?.message}}<br/></small>\t\r\n    </div>\r\n    <button [disabled]=\"!userInfoFormGroup.valid\" class=\"btn btn-primary\">Submit</button>\r\n  </form>\r\n</div>",
+        "model": null,
+        "modelName": null,
+        "json": {}
+    }
+}

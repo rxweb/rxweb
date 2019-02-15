@@ -10,5 +10,13 @@ const HOWTO_ROUTES: Routes = [
 	path:'formData',
 	loadChildren: './formData/form-data.module#FormDataModule',
 },
+{
+	path:'fileObject',
+	loadChildren: './fileObject/file-object.module#FileObjectModule',
+},
+{
+	path:'dirtyCheck',
+	loadChildren: './dirtyCheck/dirty-check.module#DirtyCheckModule',
+},
 ];
 export const HOWTO_ROUTING: ModuleWithProviders = RouterModule.forChild(HOWTO_ROUTES);

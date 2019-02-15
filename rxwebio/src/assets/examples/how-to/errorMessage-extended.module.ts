@@ -7,15 +7,17 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { ErrorMessagesComponent } from './errorMessage/complete/errorMessage-component';
 import { SingleErrorMessagesComponent } from './errorMessage/single-message/single-errorMessage-component';
 import { FormDataComponent } from './formData/formData/form-data.component';
+import { FileObjectValidatorComponent } from './fileObject/complete/file-object.component';
+import { DirtyCheckComponent } from './dirtyCheck/complete/dirty-check.component';
 
 
 
 @NgModule({
   declarations: [
-    ErrorMessagesComponent,SingleErrorMessagesComponent,FormDataComponent
+    ErrorMessagesComponent,SingleErrorMessagesComponent,FormDataComponent,FileObjectValidatorComponent,DirtyCheckComponent
   ],
 entryComponents: [
-    ErrorMessagesComponent,SingleErrorMessagesComponent,FormDataComponent
+    ErrorMessagesComponent,SingleErrorMessagesComponent,FormDataComponent,FileObjectValidatorComponent,DirtyCheckComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -24,7 +26,7 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
      exports: [
-    ErrorMessagesComponent,SingleErrorMessagesComponent,FormDataComponent
+    ErrorMessagesComponent,SingleErrorMessagesComponent,FormDataComponent,FileObjectValidatorComponent,DirtyCheckComponent
   ],
 
 })

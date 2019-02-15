@@ -365,7 +365,17 @@
           "title":"Post as FormData of Reactive Form value",
           "uri":"/how-to/formData/validators",
           "isActive": false
-        }      
+        },
+        {
+          "title":"Post Image through formData",
+          "uri":"/how-to/fileObject/validators",
+          "isActive": false
+        },
+        {
+          "title":"Dirty Check",
+          "uri":"/how-to/dirtyCheck/validators",
+          "isActive": false
+        }         
       ]
     }
   ]
