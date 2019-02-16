@@ -2,7 +2,7 @@
 title: Post Image through formData
 author: rxcontributorone
 category: how-to
-type:decorators
+type:tabs
 linktitle: Post Image through formData
 ---
 
@@ -14,6 +14,10 @@ That's it. other things can be managed by the framework it self. Let's see the b
 
 To send the formData to server, You have to use RxFormBuilder service to create FormGroup in the component.
 
+<data-scope scope="['decorator']">
+First we need to create a user class and define properties in the model.
+<div component="app-code" key="fileobject-complete-model"></div> 
+</data-scope>
 <div component="app-code" key="fileobject-complete-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="fileobject-complete-html"></div> 

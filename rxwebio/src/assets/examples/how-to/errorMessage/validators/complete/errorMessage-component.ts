@@ -6,7 +6,7 @@ import { RxwebValidators,RxFormBuilder } from '@rxweb/reactive-form-validators';
     selector: 'app-errormessage-complete',
     templateUrl: './errorMessage-component.html'
 })
-export class ErrorMessagesComponent implements OnInit {
+export class ErrormessageSingleComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(

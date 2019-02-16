@@ -2,7 +2,7 @@
 title: Post as FormData of Reactive Form value
 author: rxcontributorone
 category: how-to
-type:decorators
+type:tabs
 linktitle: Post as FormData of Reactive Form value
 ---
 
@@ -16,6 +16,10 @@ Let's create a FormGroup and use the method of 'toFormData' while posting the us
 
 To send the formData to server, You have to use RxFormBuilder service to create FormGroup in the component.
 
+<data-scope scope="['decorator']">
+First we need to create a user class and define properties in the model.
+<div component="app-code" key="formadata-complete-model"></div> 
+</data-scope>
 <div component="app-code" key="formadata-complete-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="formadata-complete-html"></div> 

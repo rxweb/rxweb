@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, } from "@angular/forms"
 import { RxwebValidators,RxFormBuilder } from '@rxweb/reactive-form-validators';
+import {User} from './user.model';
 
 @Component({
-    selector: 'app-errormessage-single',
-    templateUrl: './single-errorMessage-component.html'
+    selector: 'app-errormessage-complete',
+    templateUrl: './errormessage-single.component.html'
 })
 export class SingleErrorMessagesComponent implements OnInit {
     userFormGroup: FormGroup
@@ -14,9 +15,8 @@ export class SingleErrorMessagesComponent implements OnInit {
 	{ }
 
     ngOnInit() {
-        this.userFormGroup = this.formBuilder.group({
-            userName:['', RxwebValidators.required()]
-        });
+        let user = new User();
+        this.userFormGroup = this.formBuilder.formGroup(user);
       
     }
 }

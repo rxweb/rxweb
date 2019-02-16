@@ -2,7 +2,7 @@
 title: Best way to show error messages 
 author: rxcontributorone
 category: how-to
-type:decorators
+type:tabs
 linktitle: Best way to show error messages 
 ---
 
@@ -16,6 +16,10 @@ To Configure message globally in your application, Please refer <a href="/api/re
 
 To use the errorMessage property, You have to use RxFormBuilder service to create FormGroup in the component.
 
+<data-scope scope="['decorator']">
+First we need to create a user class and define properties in the model.
+<div component="app-code" key="error-single-model"></div> 
+</data-scope>
 <div component="app-code" key="error-single-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="error-single-html"></div> 
@@ -25,7 +29,11 @@ Next, we need to write html code.
 
 To use the errorMessage property, You have to use RxFormBuilder service to create FormGroup in the component.
 
+<data-scope scope="['decorator']">
+First we need to create a user class and define properties in the model.
+<div component="app-code" key="error-complete-model"></div> 
+</data-scope>
 <div component="app-code" key="error-complete-component"></div> 
 Next, we need to write html code.
 <div component="app-code" key="error-complete-html"></div> 
-<div component="app-example-runner" ref-component="app-errormessage-complete"></div>
+<div component="app-example-runner" ref-component="app-errormessage-complete"></div>-

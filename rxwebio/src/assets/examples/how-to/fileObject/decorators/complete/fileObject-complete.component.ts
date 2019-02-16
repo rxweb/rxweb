@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators,RxFormGroup,RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
-
+import { User } from './user.model';
 @Component({
     selector: 'app-fileObject-validator',
-    templateUrl: './file-object.component.html'
+    templateUrl: './fileObject-complete.component.html'
 })
-export class FileObjectValidatorComponent implements OnInit {
+export class FileObjectCompleteComponent implements OnInit {
     userInfoFormGroup: RxFormGroup
    api:string = 'api/User'
 	constructor(
@@ -15,9 +15,8 @@ export class FileObjectValidatorComponent implements OnInit {
 	{ }
 
     ngOnInit() {
-        this.userInfoFormGroup = <RxFormGroup>this.formBuilder.group({
-            profilePhoto:['', RxwebValidators.image({maxHeight:500  ,maxWidth:500 })], 
-        });
+        let user = new User();
+        this.userInfoFormGroup = <RxFormGroup>this.formBuilder.formGroup(user);
     }
       addUser(){
          let formdata = this.userInfoFormGroup.toFormData()

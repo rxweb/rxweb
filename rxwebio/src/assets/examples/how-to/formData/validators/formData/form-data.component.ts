@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
     selector: 'app-formadata-complete',
     templateUrl: './form-data.component.html'
 })
-export class FormDataComponent implements OnInit {
+export class FormDataValidatorComponent implements OnInit {
     userFormGroup: RxFormGroup
      api:string = 'api/User'
 	constructor(
