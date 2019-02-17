@@ -35,8 +35,16 @@ export class DateProvider{
   getDate(value:string | Date,isBaseFormat:boolean = false): Date{
     let year,month,day;
     if(!this.isDate(value)){
-      let seperator = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.seperator ? ReactiveFormConfig.json.baseConfig.seperator : "/";
-      let dateFormat = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.dateFormat ? ReactiveFormConfig.json.baseConfig.dateFormat : "mdy";
+      let seperator:string;
+      let dateFormat:string;
+      if(ISO_DATE_REGEX.test(<string>value)){
+        seperator = "-";
+        dateFormat = "ymd"
+      }else{
+        seperator = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.seperator ? ReactiveFormConfig.json.baseConfig.seperator : "/";
+        dateFormat = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.dateFormat ? ReactiveFormConfig.json.baseConfig.dateFormat : "mdy";
+      }
+      
       if(!isBaseFormat && ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.internationalization && ReactiveFormConfig.json.internationalization.dateFormat  && ReactiveFormConfig.json.internationalization.seperator)
       {
         seperator = ReactiveFormConfig.json.internationalization.seperator;
@@ -58,8 +66,10 @@ export class DateProvider{
       return <Date>value;
   }
 
-  isValid(value:string | Date){
+  isValid(value:string | Date) : Boolean{
     if(typeof value == "string"){
+      if(ISO_DATE_REGEX.test(<string>value))
+        return true;
       let seperator = '/'
       if(ReactiveFormConfig.json && ReactiveFormConfig.json.internationalization && ReactiveFormConfig.json.internationalization.seperator)
         seperator = ReactiveFormConfig.json.internationalization.seperator;
