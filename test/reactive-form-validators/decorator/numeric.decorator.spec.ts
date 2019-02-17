@@ -38,6 +38,7 @@ export class UserInfo {
                     "numeric": "Enter a valid numeric digit.",
                 }
             });
+            ReactiveFormConfig.number = { decimalSymbol:".",groupSymbol:"," }
         });
 
         describe('numericDecorator', () => {
@@ -62,6 +63,7 @@ export class UserInfo {
                 () => {
                     let userInfo = new UserInfo();
                     let formGroup = formBuilder.formGroup(userInfo);
+                    debugger;
                     formGroup.controls.decimalNumber.setValue('34.2');
                     expect(formGroup.controls.decimalNumber.errors).toBeNull();
                 });
