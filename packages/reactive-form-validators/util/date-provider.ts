@@ -1,7 +1,11 @@
 import { ReactiveFormConfig } from "./reactive-form-config";
 import {ApplicationUtil } from './app-util'
-
+const ISO_DATE_REGEX = /^(\d{4}-\d{1,2}-\d{1,2})$/;
 export class DateProvider{
+
+  isDate(value: any): Boolean {
+    return value instanceof Date && !isNaN(value.valueOf());
+  }
 
     private getRegex(dateFormat:string) : RegExp{
       var regExp:string;
@@ -28,9 +32,9 @@ export class DateProvider{
       return regExp;
     }
 
-  getDate(value:string | Date,isBaseFormat:boolean = false){
+  getDate(value:string | Date,isBaseFormat:boolean = false): Date{
     let year,month,day;
-    if(!(value instanceof Date)){
+    if(!this.isDate(value)){
       let seperator = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.seperator ? ReactiveFormConfig.json.baseConfig.seperator : "/";
       let dateFormat = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.dateFormat ? ReactiveFormConfig.json.baseConfig.dateFormat : "mdy";
       if(!isBaseFormat && ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.internationalization && ReactiveFormConfig.json.internationalization.dateFormat  && ReactiveFormConfig.json.internationalization.seperator)
@@ -40,26 +44,29 @@ export class DateProvider{
       }
         switch(dateFormat){
             case 'ymd':
-            [year, month, day] = value.split(seperator).map((val: string) => +val);
+            [year, month, day] = (<String>value).split(seperator).map((val: string) => +val);
             break;
             case 'dmy':
-            [day,month,year] = value.split(seperator).map((val: string) => +val);
+            [day,month,year] = (<String>value).split(seperator).map((val: string) => +val);
             break;
             case 'mdy':
-            [month,day,year] = value.split(seperator).map((val: string) => +val);
+            [month,day,year] = (<String>value).split(seperator).map((val: string) => +val);
             break;
       }
         return new Date(year,month-1,day);
     }else
-      return value;
+      return <Date>value;
   }
 
-  isValid(value:string){
-    let seperator = '/'
-    if(ReactiveFormConfig.json && ReactiveFormConfig.json.internationalization && ReactiveFormConfig.json.internationalization.seperator)
-      seperator = ReactiveFormConfig.json.internationalization.seperator;
-    value = value.replace(seperator,'-').replace(seperator,'-');
-    return this.regex().test(value);
+  isValid(value:string | Date){
+    if(typeof value == "string"){
+      let seperator = '/'
+      if(ReactiveFormConfig.json && ReactiveFormConfig.json.internationalization && ReactiveFormConfig.json.internationalization.seperator)
+        seperator = ReactiveFormConfig.json.internationalization.seperator;
+      value = value.replace(seperator,'-').replace(seperator,'-');
+      return this.regex().test(value);
+    }else
+      return this.isDate(value);
   }
 
   getConfigDateValue(config){
