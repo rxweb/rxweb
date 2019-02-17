@@ -77,14 +77,6 @@ class User{
    expect(control.errorMessages).toEqual([]);
 })
 
-it('should bind error once FormControl is dirty', () => {
-    let user = new User();
-   let userFormGroup = formbuilder.formGroup(user);
-   userFormGroup.controls.firstName.setValue("@User");
-   let control = <RxFormControl>userFormGroup.controls.firstName;
-   expect(control.errorMessage).toBe("only alphabets are allowed.");
-   expect(control.errorMessages).toEqual(["only alphabets are allowed."]);
-})
 
 })
 })();
