@@ -39,10 +39,10 @@ export class DisableProvider{
     }
 
     private getDisabledColumns(formGroup:FormGroup,columnName:string,isRoot:Boolean,pathName:string = ""){
-        
-        let instanceContainer = defaultContainer.get(formGroup["modelInstance"].constructor);
-        return this.getChangeDetectionColumns(instanceContainer,columnName,isRoot,pathName)
-
+        if(formGroup["modelInstance"]){
+            let instanceContainer = defaultContainer.get(formGroup["modelInstance"].constructor);
+            return this.getChangeDetectionColumns(instanceContainer,columnName,isRoot,pathName)
+        }return [];
     }
 
     private getChangeDetectionColumns(instanceContainer:InstanceContainer,columnName:string,isRoot:Boolean,pathName:string = ""){
@@ -71,17 +71,19 @@ export class DisableProvider{
 
     childControlDisabledExpression(formGroup:FormGroup,columnName:string,path:string = "") :any[] {
         let disabledColumns = [];
-        let instanceContainer = defaultContainer.get(formGroup["modelInstance"].constructor);
-        if(instanceContainer){
-            this.getChangeDetectionColumns(instanceContainer,columnName,true,path).forEach(t=>disabledColumns.push(t));
-            var props = instanceContainer.properties.filter(t => t.propertyType == OBJECT_PROPERTY)
-        props.forEach(t => {
-            if(formGroup.controls[t.name]){
-                let columns = this.getDisabledColumns(<FormGroup>formGroup.controls[t.name],columnName,true,path ? `${path}.${t.name}` :`${t.name}` )
-                columns.forEach(x=>disabledColumns.push(x));
-                this.childControlDisabledExpression((<FormGroup>formGroup.controls[t.name]),columnName,path ? `${path}.${t.name}` :`${t.name}`).forEach(y=>disabledColumns.push(y))
+        if(formGroup["modelInstance"]){
+            let instanceContainer = defaultContainer.get(formGroup["modelInstance"].constructor);
+            if(instanceContainer){
+                this.getChangeDetectionColumns(instanceContainer,columnName,true,path).forEach(t=>disabledColumns.push(t));
+                var props = instanceContainer.properties.filter(t => t.propertyType == OBJECT_PROPERTY)
+            props.forEach(t => {
+                if(formGroup.controls[t.name]){
+                    let columns = this.getDisabledColumns(<FormGroup>formGroup.controls[t.name],columnName,true,path ? `${path}.${t.name}` :`${t.name}` )
+                    columns.forEach(x=>disabledColumns.push(x));
+                    this.childControlDisabledExpression((<FormGroup>formGroup.controls[t.name]),columnName,path ? `${path}.${t.name}` :`${t.name}`).forEach(y=>disabledColumns.push(y))
+                }
+            })
             }
-        })
         }
         return disabledColumns;
     }

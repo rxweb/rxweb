@@ -422,7 +422,7 @@ export class RxFormBuilder extends BaseFormBuilder {
             this.builderConfigurationConditionalObjectProps = [];
          }
          let formGroup = new RxFormGroup(json.model, json.entityObject, formGroupObject, undefined);
-         if(!this.isNestedBinding)
+         if(!this.isNestedBinding && !this.isGroupCalled)
             formGroup.refreshDisabled();
         return formGroup;
          

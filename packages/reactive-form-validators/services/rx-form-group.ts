@@ -113,10 +113,6 @@ export class RxFormGroup extends FormGroup  {
       Object.keys(this.controls).forEach(columnName=>{
         if(!(this.controls[columnName] instanceof FormArray || this.controls[columnName] instanceof RxFormArray) && !(this.controls[columnName] instanceof FormGroup || this.controls[columnName] instanceof RxFormGroup)) {
               (<RxFormControl>this.controls[columnName]).refreshDisabled();
-        } else if((this.controls[columnName] instanceof FormArray || this.controls[columnName] instanceof RxFormArray)){
-            for(let formGroup of (<FormArray>this.controls[columnName]).controls){
-                (<RxFormGroup>formGroup).refreshDisabled();
-            }
         } else if((this.controls[columnName] instanceof RxFormGroup)){
                   (<RxFormGroup>this.controls[columnName]).refreshDisabled();
         }
