@@ -62,3 +62,4 @@ export * from './cusip.decorator';
 export * from './grid.decorator';
 export * from './date.decorator';
 export * from './non-validation-decorators/disabled.decorator'
+export * from './non-validation-decorators/error.decorator'

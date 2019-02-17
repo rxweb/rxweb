@@ -6,6 +6,12 @@ import { ApplicationUtil } from "../util/app-util";
 import { RXCODE } from "../const/app.const";
 export class DisableProvider{
 
+    constructor(private decoratorType:string){
+
+    }
+
+    
+
     getFormGroupName(currentFormGroup:FormGroup) {
         let keyName = '';
         if (currentFormGroup.parent)
@@ -47,10 +53,10 @@ export class DisableProvider{
 
     private getChangeDetectionColumns(instanceContainer:InstanceContainer,columnName:string,isRoot:Boolean,pathName:string = ""){
         let conditionalDisableControls = [];
-        let columns = instanceContainer.nonValidationDecorators.disabled.changeDetection[columnName]
+        let columns = instanceContainer.nonValidationDecorators[this.decoratorType].changeDetection[columnName]
         if(columns){
             columns.forEach(t=>{
-                conditionalDisableControls.push({controlPath:pathName ? `${pathName}.${t}`: t,conditionalExpression:instanceContainer.nonValidationDecorators.disabled.conditionalExpressions[t],isRoot:isRoot})
+                conditionalDisableControls.push({controlPath:pathName ? `${pathName}.${t}`: t,conditionalExpression:instanceContainer.nonValidationDecorators[this.decoratorType].conditionalExpressions[t],isRoot:isRoot})
             })
         }
         return conditionalDisableControls;

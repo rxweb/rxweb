@@ -23,7 +23,8 @@ export interface InstanceContainer {
     conditionalValidationProps?: { [key: string]: string[] }
     conditionalObjectProps?: { [key: string]: any }
     nonValidationDecorators?: {
-        disabled: DisableControlInfo;
+        disabled: ControlInfo;
+        error:ControlInfo;
     }
 }
 
@@ -35,7 +36,7 @@ export interface PropertyInfo {
     defaultValue?: any;
 }
 
-export interface DisableControlInfo {
+export interface ControlInfo {
     conditionalExpressions?: { [key: string]: Function },
     changeDetection?: { [key: string]: string[] }
 }

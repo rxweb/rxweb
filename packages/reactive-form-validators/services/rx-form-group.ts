@@ -112,12 +112,22 @@ export class RxFormGroup extends FormGroup  {
     refreshDisabled(){
       Object.keys(this.controls).forEach(columnName=>{
         if(!(this.controls[columnName] instanceof FormArray || this.controls[columnName] instanceof RxFormArray) && !(this.controls[columnName] instanceof FormGroup || this.controls[columnName] instanceof RxFormGroup)) {
-              (<RxFormControl>this.controls[columnName]).refreshDisabled();
+              (<RxFormControl>this.controls[columnName]).refresh();
         } else if((this.controls[columnName] instanceof RxFormGroup)){
                   (<RxFormGroup>this.controls[columnName]).refreshDisabled();
         }
     })
 
+    }
+
+    bindErrorMessages(){
+      Object.keys(this.controls).forEach(columnName=>{
+        if(!(this.controls[columnName] instanceof FormArray || this.controls[columnName] instanceof RxFormArray) && !(this.controls[columnName] instanceof FormGroup || this.controls[columnName] instanceof RxFormGroup)) {
+              (<RxFormControl>this.controls[columnName]).bindError();
+        } else if((this.controls[columnName] instanceof RxFormGroup)){
+                  (<RxFormGroup>this.controls[columnName]).bindErrorMessages();
+        }
+    })
     }
     
     get modelInstanceValue() {

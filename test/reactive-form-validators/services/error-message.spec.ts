@@ -3,8 +3,22 @@
 import { ReactiveFormConfig,RxFormBuilder,FormBuilderConfiguration,RxFormGroup, FormGroupExtension} from '../../../packages/reactive-form-validators';
 
 
-import {  prop,propObject,required,propArray,RxwebValidators,RxFormControl } from    '../../../packages/reactive-form-validators'; 
+import {  error,alpha,prop,RxwebValidators,RxFormControl } from    '../../../packages/reactive-form-validators'; 
 import { formControlBinding } from '@angular/forms/src/directives/reactive_directives/form_control_directive';
+
+class User{
+    @error({conditionalExpression:function(control:AbstractControl){return this.type == "user"; }})
+    @alpha()
+    userName:string;
+
+    @error({conditionalExpression:function(control:AbstractControl){return control.dirty; }})
+    @alpha()
+    firstName:string;
+
+    @prop()
+    type:string;
+}
+
 
 (function(){
  describe('error-message',()=>{
@@ -34,6 +48,45 @@ import { formControlBinding } from '@angular/forms/src/directives/reactive_direc
          expect(passwordControl.errorMessage).toBe("Please enter correct password.");
          expect(passwordControl.errorMessages).toEqual(["only alphabets are allowed.","Please enter correct password."]);
      })
+
+     it('should not bind error in userName FormControl', () => {
+         let user = new User();
+         user.userName = "@User";
+        let userFormGroup = formbuilder.formGroup(user);
+        let control = <RxFormControl>userFormGroup.controls.userName;
+        expect(control.errorMessage).toBe(undefined);
+        expect(control.errorMessages).toEqual([]);
+    })
+
+    it('should bind error in userName FormControl', () => {
+        let user = new User();
+        user.userName = "@User";
+        user.type = "user";
+       let userFormGroup = formbuilder.formGroup(user);
+       let control = <RxFormControl>userFormGroup.controls.userName;
+       expect(control.errorMessage).toBe("only alphabets are allowed.");
+       expect(control.errorMessages).toEqual(["only alphabets are allowed."]);
+   })
+
+   it('should not bind error until the FormControl is dirty', () => {
+    let user = new User();
+    user.firstName = "@User";
+   let userFormGroup = formbuilder.formGroup(user);
+   let control = <RxFormControl>userFormGroup.controls.firstName;
+   expect(control.errorMessage).toBe(undefined);
+   expect(control.errorMessages).toEqual([]);
+})
+
+it('should bind error once FormControl is dirty', () => {
+    let user = new User();
+   let userFormGroup = formbuilder.formGroup(user);
+   userFormGroup.controls.firstName.setValue("@User");
+   let control = <RxFormControl>userFormGroup.controls.firstName;
+   expect(control.errorMessage).toBe("only alphabets are allowed.");
+   expect(control.errorMessages).toEqual(["only alphabets are allowed."]);
+})
+
+
 
  })
 })();
