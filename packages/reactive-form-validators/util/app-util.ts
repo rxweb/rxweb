@@ -1,6 +1,8 @@
 import { AbstractControl, FormGroup, FormArray } from "@angular/forms";
 import { RxFormArray } from "../services/rx-form-array";
 import {NumericValueType } from '../enums'
+import { ReactiveFormConfig } from "./reactive-form-config";
+
 export class ApplicationUtil{
     static getParentObjectValue(control: AbstractControl) :{ [key:string]:any} {
         if (control.parent) {
@@ -104,17 +106,27 @@ export class ApplicationUtil{
   }
 
     static numericValidation(allowDecimal:boolean, acceptValue:NumericValueType) {
+      let decimalSymbol:string;
+      let groupSymbol:string; 
+      if(ReactiveFormConfig && ReactiveFormConfig.json.number){
+        decimalSymbol = ReactiveFormConfig.json.number.decimalSymbol;
+        groupSymbol = ReactiveFormConfig.json.number.groupSymbol;
+      }else{
+        decimalSymbol = ".";
+        groupSymbol = ",";
+      }
+        
         acceptValue = (acceptValue == undefined) ? NumericValueType.PositiveNumber : acceptValue;
         let regex = /^[0-9]+$/;
         switch(acceptValue){
             case NumericValueType.PositiveNumber:
-              regex = (!allowDecimal) ? /^[0-9]+$/ : /^[0-9\.]+$/;
+              regex = (!allowDecimal) ? /^[0-9]+$/ : decimalSymbol == "." ? /^[0-9\.]+$/ : /^[0-9\,]+$/;
             break;
             case  NumericValueType.NegativeNumber:
-              regex = (!allowDecimal) ? /^[-][0-9]+$/ : /^[-][0-9\.]+$/;
+              regex = (!allowDecimal) ? /^[-][0-9]+$/ :  decimalSymbol == "." ?  /^[-][0-9\.]+$/ : /^[-][0-9\,]+$/;
             break;
             case NumericValueType.Both :
-              regex = (!allowDecimal) ? /^[-|+]?[0-9]+$/ : /^[-|+]?[0-9\.]+$/;
+              regex = (!allowDecimal) ? /^[-|+]?[0-9]+$/ :   decimalSymbol == "." ?  /^[-|+]?[0-9\.]+$/ : /^[-|+]?[0-9\,]+$/;
             break;
         }
       return regex;

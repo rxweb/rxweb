@@ -10,6 +10,7 @@ import { TEMPLATE_VALIDATION_CONFIG,CONDITIONAL_VALIDATOR,VALIDATOR_CONFIG  } fr
 import { ApplicationUtil } from '../../util/app-util';
 import { DecimalProvider } from "../../domain/element-processor/decimal.provider"
 import { AlphaConfig, ArrayConfig, BaseConfig, ChoiceConfig, CompareConfig, ComposeConfig, ContainsConfig, CreditCardConfig, DateConfig, DefaultConfig, DigitConfig, EmailConfig, ExtensionConfig, FactorConfig, FieldConfig, HexColorConfig, MessageConfig, NumberConfig, NumericConfig, PasswordConfig, PatternConfig, RangeConfig, RequiredConfig, RuleConfig, SizeConfig, TimeConfig, DifferentConfig, RelationalOperatorConfig, UniqueConfig } from '../../models/config'
+import { RegexValidator } from '../../util';
 const COMPOSE: string = 'compose';
 
 const NGMODEL_BINDING: any = {
@@ -27,6 +28,8 @@ const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required', 'notEmpty', 'alpha', 'alphaN
 export class RxFormControlDirective extends BaseValidator implements OnInit, OnDestroy, Validator {
     private eventListeners: any[] = [];
     private isNumericSubscribed: boolean = false;
+    private isFocusCalled:boolean = false;
+    
     set validationControls(value: { [key: string]: FormControl }) {
         this.controls = value;
     }
@@ -118,20 +121,25 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
             this.bindNumericElementEvent();
     }
 
+
+    blurEvent(){
+        if (!(this.formControl && this.formControl.errors && this.formControl.errors.numeric)) {
+            let value = this.decimalProvider.transFormDecimal(this.formControl.value, this.numeric.digitsInfo);
+            this.setValueOnElement(value);
+            this.isFocusCalled = false;
+        }
+    }
+
     bindNumericElementEvent(config?: NumericConfig) {
         if (config)
             this.numeric = config;
-        let listener = this.renderer.listen(this.element, BLUR, (event) => {
-            if (!(this.formControl && this.formControl.errors && this.formControl.errors.numeric)) {
-                let value = this.decimalProvider.transFormDecimal(this.formControl.value, this.numeric.digitsInfo);
-                this.setValueOnElement(value);
-            }
-        });
+        let listener = this.renderer.listen(this.element, BLUR, this.blurEvent.bind(this));
         this.eventListeners.push(listener)
         listener = this.renderer.listen(this.element, FOCUS, (event) => {
             if (!(this.formControl && this.formControl.errors && this.formControl.errors.numeric) && this.formControl.value != null) {
                 let value = this.decimalProvider.replacer(this.formControl.value);
                 this.setValueOnElement(value);
+                this.isFocusCalled = true;
             }
         });
         this.eventListeners.push(listener)
@@ -149,10 +157,16 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     }
 
     subscribeNumericFormatter() {
-        if (this.formControl["validatorConfig"] && this.formControl["validatorConfig"]["numeric"] && this.formControl["validatorConfig"]["numeric"]["isFormat"] && !this.isNumericSubscribed) {
-            this.bindNumericElementEvent(this.formControl["validatorConfig"]["numeric"]);
-            this.isNumericSubscribed = true;
+        if (this.formControl["validatorConfig"] && this.formControl["validatorConfig"]["numeric"] && this.formControl["validatorConfig"]["numeric"]["isFormat"]) {
+            if(!this.isNumericSubscribed){
+                this.bindNumericElementEvent(this.formControl["validatorConfig"]["numeric"]);
+                this.isNumericSubscribed = true;
+            }
+            if(!this.isFocusCalled && RegexValidator.isNotBlank(this.formControl.value)){
+                this.blurEvent();
+            }
         }
+        
     }
 
     private setValueOnElement(value: any) {
@@ -172,7 +186,6 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     private setValidatorConfig(control:AbstractControl){
         if (!this.formControl)
         this.formControl = control;
-    if (!this.isNumericSubscribed)
         this.subscribeNumericFormatter();
     if(control[TEMPLATE_VALIDATION_CONFIG])
         this.setTemplateValidators(control);
