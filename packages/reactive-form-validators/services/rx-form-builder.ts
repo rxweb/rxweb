@@ -18,7 +18,7 @@ import { APP_VALIDATORS } from '../const/app-validators.const'
 import { RxFormControl } from './form-control';
 import { RxFormGroup } from './rx-form-group'
 import { RxFormArray } from './rx-form-array';
-
+    
 
 @Injectable()
 export class RxFormBuilder extends BaseFormBuilder {
@@ -30,8 +30,9 @@ export class RxFormBuilder extends BaseFormBuilder {
     private currentFormGroupPropOtherValidator: { [key: string]: any } = {};
     private isNested: boolean = false;
     private isGroupCalled: boolean = false;
+    private isNestedBinding:boolean = false;
     constructor() {
-        super()
+        super();
     }
 
 
@@ -333,6 +334,8 @@ export class RxFormBuilder extends BaseFormBuilder {
         return props;
     }
 
+    
+
      formGroup<T>(model: Type<T> | { [key: string]: any }, entityObject?: { [key: string]: any } | FormBuilderConfiguration, formBuilderConfiguration?: FormBuilderConfiguration): RxFormGroup | FormGroup {
         let json = this.getObject(model, entityObject, formBuilderConfiguration);
         model = json.model;
@@ -348,7 +351,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         let formGroupObject = {};
         let formChildGroup = undefined;
         let formArrayGroup = undefined;
-        var additionalValidations: { [key: string]: PropValidationConfig } = {};
+         var additionalValidations: { [key: string]: PropValidationConfig } = {};
         instanceContainer.properties.forEach(property => {
             let isIncludeProp = true;
             if (formBuilderConfiguration && formBuilderConfiguration.excludeProps && formBuilderConfiguration.excludeProps.length > 0)
@@ -362,7 +365,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                     case PROPERTY:
                         if (!(entityObject[property.name] instanceof FormControl || entityObject[property.name] instanceof RxFormControl)) {
                             var propertyValidators = instanceContainer.propertyAnnotations.filter(t => t.propertyName == property.name);
-                            formGroupObject[property.name] = new RxFormControl(super.getDefaultValue(property,entityObject[property.name]), this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject), this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]), json.entityObject, Object.assign({}, json.entityObject), property.name);
+                            formGroupObject[property.name] = new RxFormControl(super.getDefaultValue(property, entityObject[property.name]), this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject), this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]), json.entityObject, Object.assign({}, json.entityObject), property.name);
                             this.isNested = false;
                         } else
                             formGroupObject[property.name] = super.getDefaultValue(property,entityObject[property.name]);
@@ -370,7 +373,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                     case OBJECT_PROPERTY:
                         let objectValue = entityObject[property.name];
                         if (objectValue && objectValue instanceof Object && !(objectValue instanceof FormGroup || objectValue instanceof RxFormGroup)) {
-                            this.isNested = true;
+                            this.isNestedBinding  = this.isNested = true;
                             if (instanceContainer && instanceContainer.conditionalObjectProps)
                                 this.conditionalObjectProps = instanceContainer.conditionalObjectProps.filter(t => t.objectPropName == property.name)
                             if (this.conditionalValidationInstance && this.conditionalValidationInstance.conditionalObjectProps)
@@ -381,14 +384,14 @@ export class RxFormBuilder extends BaseFormBuilder {
                             formGroupObject[property.name] = this.formGroup(property.entity, objectValue, objectValidationConfig);
                             this.conditionalObjectProps = [];
                             this.builderConfigurationConditionalObjectProps = [];
-                            this.isNested = false;
+                            this.isNestedBinding  =this.isNested = false;
                         } else if (objectValue instanceof FormGroup || objectValue instanceof RxFormGroup)
                             formGroupObject[property.name] = objectValue;
                         break;
                     case ARRAY_PROPERTY:
                         let arrayObjectValue = entityObject[property.name];
                         if (arrayObjectValue && arrayObjectValue instanceof Array && !(arrayObjectValue instanceof FormArray)) {
-                            this.isNested = true;
+                            this.isNestedBinding  = this.isNested = true;
                             var formArrayGroup = [];
                             let index = 0;
                             for (let subObject of arrayObjectValue) {
@@ -405,9 +408,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 this.builderConfigurationConditionalObjectProps = [];
                             }
                             let formBuilder = new FormBuilder();
-
                             formGroupObject[property.name] = new RxFormArray(arrayObjectValue, formArrayGroup);
-                            this.isNested = false;
+                            this.isNestedBinding  = this.isNested = false;
                         } else if (arrayObjectValue instanceof FormArray)
                             formGroupObject[property.name] = arrayObjectValue;
                         break;
@@ -418,7 +420,11 @@ export class RxFormBuilder extends BaseFormBuilder {
         if (!this.isNested) {
             this.conditionalValidationInstance = {};
             this.builderConfigurationConditionalObjectProps = [];
-        }
-        return new RxFormGroup(json.model, json.entityObject, formGroupObject, undefined)
+         }
+         let formGroup = new RxFormGroup(json.model, json.entityObject, formGroupObject, undefined);
+         if(!this.isNestedBinding)
+            formGroup.refreshDisabled();
+        return formGroup;
+         
     }
 }

@@ -30,7 +30,14 @@ export class Linq {
         return true;
     }
 
-    private static expressionParser(expression: any) {
+    private static getConditionPath(texts:string[]):string{
+        let path = "";
+        for(var i=1;i<texts.length;i++)
+            path += (texts.length -1) == i ? texts[i].trim() : `${texts[i].trim()}.`
+        return path;
+    }
+
+    private static expressionParser(expression: any,isNonValidationExpression : boolean) {
         let splitExpressions = [];
         let columns = [];
         let expressionString = expression.toString();
@@ -38,18 +45,22 @@ export class Linq {
         if (expressionArguments.length > 0) {
             let splitTexts = expressionString.replace(/\s/g, '').replace(new RegExp(/{|}/, "g"), "").split(new RegExp(/return|===|!==|==|!=|>=|>|<=|<|&&/));
             splitTexts.forEach(t => {
-                expressionArguments.forEach(x => {
+                expressionArguments.forEach((x,i) => {
                     t = t.trim();
                     if (t.startsWith(x + '.')) {
                         var splitText = t.split('.');
-                        if (splitText.length == 2)
-                            columns.push({ propName: splitText[1].trim() });
+                        if (splitText.length == 2 || (splitText.length >=2 && isNonValidationExpression) )
+                        if(!isNonValidationExpression)
+                            columns.push({ propName: splitText[1].trim(),argumentIndex:i == 3 ? 0 : i == 2 ? 1 : i });
+                            else
+                            columns.push({ propName: this.getConditionPath(splitText),argumentIndex:i == 3 ? 0 : i == 2 ? 1 : i });
                         else {
                             var arrayProp = splitText[1].split('[');
                             let jObject = {
                                 propName: splitText[splitText.length - 1].trim(),
                                 objectPropName: arrayProp[0],
-                                arrayIndex: arrayProp.length > 1 ? arrayProp[1].replace("]", "") : undefined
+                                arrayIndex: arrayProp.length > 1 ? arrayProp[1].replace("]", "") : undefined,
+                                argumentIndex:i === 3 ? 0 : i === 2 ? 1 : i
                             }
                             columns.push(jObject);
                         }
@@ -67,7 +78,7 @@ export class Linq {
         return expressionArguments;
     }
 
-    static expressionColumns(expression: any) {
+    static expressionColumns(expression: any,isNonValidationExpression : boolean = false) {
         var columns = [];
         let splitExpressions = [];
         if (typeof expression == "string") {
@@ -92,7 +103,7 @@ export class Linq {
             })
         }
         else {
-            columns = Linq.expressionParser(expression);
+            columns = Linq.expressionParser(expression,isNonValidationExpression);
         }
         return columns;
     }

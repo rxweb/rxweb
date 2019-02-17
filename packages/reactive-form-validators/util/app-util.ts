@@ -10,6 +10,21 @@ export class ApplicationUtil{
         return {};
     }
 
+    static getParentModelInstanceValue(control: AbstractControl): { [key: string]: any } {
+        if (control.parent) {
+            let parent = this.parentObjectValue(control.parent)
+            return parent["modelInstanceValue"];
+        }
+        return {};
+    }
+
+    static getRootFormGroup(control:AbstractControl):FormGroup{
+      if (control.parent) {
+        return this.getRootFormGroup(control.parent);
+      }
+      return <FormGroup>control;
+    }
+
     private static getParentControl(control:AbstractControl){
         if (control.parent) {
             let parent = this.parentObjectValue(control.parent)
@@ -43,6 +58,17 @@ export class ApplicationUtil{
         if(value)
           return String(value).toLowerCase();
         return value;
+    }
+
+    static getControl(fieldName:string,formGroup:FormGroup){
+      let splitText = fieldName.split('.');
+      if(splitText.length > 1){
+        var formControl:any = formGroup;
+        splitText.forEach((name,index)=>{ formControl = formControl.controls[name]})
+        return formControl;
+      }else
+      return formGroup.controls[fieldName];
+
     }
 
     static getFormControl(fieldName:string,control:AbstractControl){

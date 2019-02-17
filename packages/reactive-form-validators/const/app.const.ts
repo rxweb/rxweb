@@ -21,3 +21,5 @@ export const CONDITIONAL_VALIDATOR:string = "conditionalValidator"
 export const VALIDATOR_CONFIG: string = "validatorConfig";
 
 export const THIS: string = "this";
+
+export const RXCODE:string = "-rxw-";

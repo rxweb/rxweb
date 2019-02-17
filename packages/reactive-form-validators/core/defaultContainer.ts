@@ -1,7 +1,7 @@
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from './validator.interface';
 import { Linq } from "../util/linq";
 import { AnnotationTypes } from "./validator.static";
-import { PROPERTY,OBJECT_PROPERTY } from "../const";
+import { PROPERTY,OBJECT_PROPERTY,RXCODE } from "../const";
 
 export const defaultContainer:
     {
@@ -14,13 +14,32 @@ export const defaultContainer:
         initPropertyObject(name:string,propertyType:string,entity:any,target:any,config?:any) : void,
         modelIncrementCount:number,
         clearInstance(instance:any):void,
-        setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string):void
+        setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string): void
+        addDisableConfig(target: any, parameterIndex: any, propertyKey: string, config: any):void
     } = new (class {
         private instances: InstanceContainer[] = [];
         modelIncrementCount:number = 0;
         get<T>(instanceFunc: any): InstanceContainer {
             let instance: InstanceContainer = this.instances.filter(instance => instance.instance === instanceFunc)[0];
             return instance;
+        }
+
+        addDisableConfig(target: any, parameterIndex: any, propertyKey: string, config: any): void {
+            let isPropertyKey = (propertyKey != undefined);
+            let instanceFunc = !isPropertyKey ? target : target.constructor
+            let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
+            if (!instance)
+                instance = this.addInstanceContainer(instanceFunc);
+            instance.nonValidationDecorators.disabled.conditionalExpressions[propertyKey] = config.conditionalExpression;
+            let columns = Linq.expressionColumns(config.conditionalExpression,true);
+            columns.forEach(column => {
+                let columnName = (!column.objectPropName) ? `${column.propName}${RXCODE}${column.argumentIndex}` : `${column.objectPropName}.${column.propName}${RXCODE}${column.argumentIndex}`;
+                if (!instance.nonValidationDecorators.disabled.changeDetection[columnName]) 
+                    instance.nonValidationDecorators.disabled.changeDetection[columnName] = [];
+                let disabledColumns = instance.nonValidationDecorators.disabled.changeDetection[columnName];
+                if (disabledColumns.indexOf(columnName) === -1)
+                    disabledColumns.push(propertyKey);
+            })
         }
 
 
@@ -50,7 +69,13 @@ export const defaultContainer:
             let instanceContainer: InstanceContainer = {
                 instance: instanceFunc,
                 propertyAnnotations: [],
-                properties: []
+                properties: [],
+                nonValidationDecorators: {
+                    disabled: {
+                        conditionalExpressions: {},
+                        changeDetection: {}
+                    }
+                }
             }
             this.instances.push(instanceContainer);
             return instanceContainer;
