@@ -423,7 +423,7 @@ export class RxFormBuilder extends BaseFormBuilder {
          }
          let formGroup = new RxFormGroup(json.model, json.entityObject, formGroupObject, undefined);
          if(!this.isNestedBinding && !this.isGroupCalled)
-            formGroup.refreshDisabled();
+            formGroup.refreshDisable();
         return formGroup;
          
     }
