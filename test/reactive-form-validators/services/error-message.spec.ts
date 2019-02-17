@@ -86,7 +86,5 @@ it('should bind error once FormControl is dirty', () => {
    expect(control.errorMessages).toEqual(["only alphabets are allowed."]);
 })
 
-
-
- })
+})
 })();
