@@ -4,7 +4,7 @@ import { AbstractControl } from "@angular/forms"
 import { DecimalPipe } from "@angular/common"
 import { RegexValidator } from '../../util/regex-validator';
 import { BLANK } from "../../const"
-import { ReactiveFormConfig } from "packages/reactive-form-validators/util/reactive-form-config";
+import { ReactiveFormConfig } from "../../util/reactive-form-config";
 
 
 @Injectable()
@@ -23,17 +23,19 @@ export class DecimalProvider {
     }
 
     replacer(value:any): void {
+        value =String(value);
         if(!this.isSetConfig)
             this.bindConfig();
-            value =String(value).split(this.groupSeperator).join(BLANK);
+            value =value.split(this.groupSeperator).join(BLANK);
             if(this.allowDecimalSymbol)
-            value =String(value).replace(this.decimalSeperator,this.allowDecimalSymbol) 
+            value =value.replace(this.decimalSeperator,this.allowDecimalSymbol) 
             var splitValue = value.split(this.decimalSeperator);
             value = (splitValue.length > 1 && splitValue[1] && RegexValidator.isZero(splitValue[1])) ? splitValue[0] : value;
             return value;
     }
     
     transFormDecimal(value:any,digitsInfo:string): string {
+        value = String(value);
             return this.decimalPipe.transform(value.replace(this.decimalSeperator,"."), digitsInfo,this.localeId);
     }
 
