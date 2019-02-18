@@ -3,7 +3,7 @@ title: date
 description: Date validation {{validatorType}} will allow user to enter input which is only in the proper date format. 
 author: rxcontributortwo
 category: form-validations
-type:tabs
+type: tabs
 linktitle: date
 ---
 
@@ -12,8 +12,8 @@ Suppose you want to create a UserInfo form, which contains fields like BirthDate
 
 <ol class='showHideElement'>
     <li>Allow user to enter only date input in `BirthDate`.</li>
-    <li>Apply date validation based on matched condition in the form, like if the BirthDate is `'16/04/1997'` then the AdmissionDate value should be in a date format (conditional validation with function).</li>
-    <li>Apply date validation based on matched condition in the form, like if the BirthDate is `'16/04/1997'` then the EnrollmentDate value should be in a date format (conditional validation with string).</li>
+    <li>Apply date validation based on matched condition in the form, like if the BirthDate is `16/04/1997` then the AdmissionDate value should be in a date format (conditional validation with function).</li>
+    <li>Apply date validation based on matched condition in the form, like if the BirthDate is `16/04/1997` then the EnrollmentDate value should be in a date format (conditional validation with string).</li>
     <li>Apply custom message on AllocationDate Field.</li>
     	<data-scope scope="['decorator','validator']">
 		<li>Apply date validation dynamically based on server rules. </li>
@@ -47,8 +47,9 @@ Next, we need to write html code.
 <div component="app-example-runner" ref-component="app-date-add"></div>
 # [/Add]
 # [Edit](#tab\basicedit)
-<div component="app-code" key="date-edit-component"></div> 
-The below code is `date-info-data.json` for getting data from the server
+<div component="app-code" key="date-edit-component"></div> \
+
+The below default data which is coming from the server in this example of edit form which is set in the `date-info-data.json` in json format like this:
 <div component="app-code" key="date-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="date-edit-html"></div> 
@@ -77,7 +78,7 @@ Below options are not mandatory to use in the `date` validation. If needed then 
 
 <table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a   (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Date validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
+<tr><td><a   (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Date validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")'  title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
@@ -85,7 +86,7 @@ Below options are not mandatory to use in the `date` validation. If needed then 
 Type :  `Function`  |  `string` 
 
 Date validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
 
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object. 
@@ -130,7 +131,7 @@ This Complete Date example which includes all the BaseConfig properties will ful
 <data-scope scope="['decorator','validator']">
 # Dynamic Date Example
 
-This Dynamic Date example which execute based on json passed. conditional expression with function would be not apply in dynamic date example. 
+This Dynamic Date example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic date example. This example will fulfil the requirement of our last point.
 
 <div component="app-tabs" key="dynamic"></div>
 

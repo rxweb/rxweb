@@ -1,23 +1,26 @@
 ---
 title: choice 
-description: choice validation  {{validatorType}}  will check whether the value entered is matching the properties defined.
+description: choice validation {{validatorType}} will check that whether the value entered by user is matching the range defined in the properties.
 author: rxcontributortwo
 category: form-validations
-type:tabs
+type: tabs
 linktitle: choice
 ---
 
 # When to use
-Suppose you want to create a employee form in which you want employee to enter value of a particular choice which contains fields like department, hobbies and skills.Here the field is taken in the form of array and according to that the choice is applied on the property by applying minlength and maxLength. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create an employee form which contains fields like department, projectDomains, qualifications, skills and hobbies. You want user to select a specific range of value for a particular choice. Here the field is taken in the form of array and according to that the choice is applied on the property by applying minlength and maxLength. Here depending upon the requirement these scenarios may arise.
+
 <ol class='showHideElement'>
-    <li>The skills field in which you want the user to enter maximum three skills and minimum of one skill.</li>
-    <li>Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the skills value should be maximum three and minimum one.</li>
-    <li>The Custom Message on Hobbies field.</li>
+    <li>The projectDomains field in which you want the user to enter minimum three domains.</li>
+    <li>The qualifications field in which you want the user to enter maximum four qualifications.</li>
+    <li>Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the user must select minimum 3 languages (Based on function).</li>
+    <li>Apply choice validation based on matched condition in the form, like if the department  is ‘dotnet’ then the user must select minimum 3 skills (Based on string datatype).</li>
+    <li>Adding Custom Message on Hobbies Field.</li>
     <data-scope scope="['decorator','validator']">
-    <li>Apply choice validation dynamically based on server rules.</li>
+        <li>Apply choice validation dynamically based on server rules.</li>
     </data-scope>
 </ol>
-Let’s see how choice  {{validatorType}}  fulfil the need.
+Let’s see how choice {{validatorType}} fulfil the need.
 
 # Basic choice Validation
 <data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
@@ -60,23 +63,25 @@ Below options are not mandatory to use in the `choice` validation. If needed the
 
 <table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a (click)='scrollTo("#minLength")' title="#minLength">minLength</a></td><td>MinLength  is to define a minLength of field which is in form of array</td></tr>
-<tr><td><a (click)='scrollTo("#maxLength")' title="#maxLength">maxLength</a></td><td>MaxLength  is to define a maxLength of field which is in form of array</td></tr>
-<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
+<tr><td><a (click)='scrollTo("#minLength")' title="#minLength">minLength</a></td><td>MinLength is to define a minimum number of values to be selected for a particular field which is in form of array</td></tr>
+<tr><td><a (click)='scrollTo("#maxLength")' title="#maxLength">maxLength</a></td><td>MaxLength  is to define a maximum number of values to be selected for a particular field which is in form of array</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
 ## minLength 
-Type :  `number` 
-minLength  is to define a minLength of field which is in form of array
+Type :  `number`
+
+MinLength is to define a minimum number of values to be selected for a particular field which is in form of array.
 
 <div component="app-code" key="choice-minLengthExample-model"></div> 
 
 <div component="app-example-runner" ref-component="app-choice-minLength" title="choice {{validatorType}} with minLength" key="minLength"></div>
 
 ## maxLength 
-Type :  `number` 
-maxLength number is for define a maxLength number of range
+Type :  `number`
+
+MaxLength  is to define a maximum number of values to be selected for a particular field which is in form of array.
 
 <div component="app-code" key="choice-maxLengthExample-model"></div> 
 
@@ -85,8 +90,8 @@ maxLength number is for define a maxLength number of range
 ## conditionalExpression 
 Type :  `Function`  |  `string` 
 
-choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
+Choice validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
 
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object. 
@@ -99,7 +104,8 @@ If there is need of dynamic validation means it is not fixed in client code, it 
 <div component="app-example-runner" ref-component="app-choice-conditionalExpression" title="choice {{validatorType}} with conditionalExpression" key="conditionalExpression"></div>
 
 ## message
-Type :  `string` 
+Type :  `string`
+
 To override the global configuration message and set the custom error message on respective FormControl
 
 <div component="app-code" key="choice-messageExample-model"></div> 
@@ -107,7 +113,7 @@ To override the global configuration message and set the custom error message on
 
 # Complete choice Example
 
-This Complete choice example which includes all the ChoiceConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+This Complete choice example which includes all the ChoiceConfig properties will fulfil the requirement of scenarios 1, 2, 3, 4 and 5.
 
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
@@ -130,7 +136,7 @@ This Complete choice example which includes all the ChoiceConfig properties will
 <data-scope scope="['decorator','validator']">
 # Dynamic choice Example
 
-This Dynamic Choice example which execute based on json passed. conditional expression with function would be not apply in dynamic choice example. 
+This Dynamic Choice example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic choice example. This example will fulfil the requirement of our last point.
 
 <div component="app-tabs" key="dynamic"></div>
 

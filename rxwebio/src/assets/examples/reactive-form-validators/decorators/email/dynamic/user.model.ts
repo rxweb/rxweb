@@ -1,5 +1,5 @@
-import {  email,prop, } from "@rxweb/reactive-form-validators"
-
+import {  email,prop, } from   "@rxweb/reactive-form-validators"   
+ 
 export class User {
 
 	@prop()
