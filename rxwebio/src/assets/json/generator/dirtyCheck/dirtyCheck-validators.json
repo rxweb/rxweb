@@ -1,0 +1,10 @@
+{
+    "complete": {
+        "notes": [],
+        "component": "import { Component, OnInit } from '@angular/core';\r\nimport { FormGroup,Validators } from \"@angular/forms\"\r\n\r\nimport { RxFormBuilder,FormBuilderConfiguration,FormGroupExtension } from '@rxweb/reactive-form-validators';\r\n\r\n\r\n@Component({\r\n    selector: 'app-dirty-complete',\r\n    templateUrl: './dirty-complete.component.html'\r\n})\r\nexport class DirtyCompleteValidatorComponent implements OnInit {\r\n\r\n   editForm:FormGroup;\r\n\r\n  constructor(private formBuilder:RxFormBuilder){}\r\n  \r\n  ngOnInit(){\r\n\r\n   this.editForm = this.formBuilder.group({\r\n      id:[1],\r\n      name: [\"Bharat\" ],\r\n      designation: [\"Software Engg.\"]\r\n    });\r\n   this.IsDirty();\r\n  }\r\n  IsDirty()\r\n  {\r\n    let isDirty = (<FormGroupExtension>this.editForm).isDirty();\r\n  }\r\n}\r\n",
+        "html": "<div>\r\n    <form [formGroup]=\"editForm\">\r\n    <div class=\"form-group\">\r\n        <label>Id</label>\r\n        <input type=\"text\" formControlName=\"id\" class=\"form-control\"  />\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <label>Name</label>\r\n        <input type=\"text\" formControlName=\"name\" class=\"form-control\"  />\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <label>Designation</label>\r\n        <input type=\"text\" formControlName=\"designation\" class=\"form-control\"  />\r\n    </div>\r\n    <button [disabled]=\"!(editForm['isDirty']())\" (click)=\"IsDirty()\" class=\"btn btn-primary\">Is Form Dirty</button>\r\n    </form> \r\n</div>",
+        "model": null,
+        "modelName": null,
+        "json": {}
+    }
+}

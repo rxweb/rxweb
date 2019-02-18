@@ -1,0 +1,11 @@
+<div>
+    <form  [formGroup]="userInfoFormGroup">
+      <div class="form-group">
+        <label>Profile Photo</label>
+        <input type="file" [writeFile]="true" formControlName="profilePhoto" class="form-control" multiple />
+       <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePhoto.errors">{{userInfoFormGroup.controls.profilePhoto.errors.image?.message}}<br/></small>	
+      </div>
+      <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  
