@@ -18,5 +18,9 @@ const HOWTO_ROUTES: Routes = [
 	path:'dirtyCheck',
 	loadChildren: './dirtyCheck/dirty-check.module#DirtyCheckModule',
 },
+{
+	path:'resetForm',
+	loadChildren: './resetForm/reset-form.module#ResetFormModule',
+},
 ];
 export const HOWTO_ROUTING: ModuleWithProviders = RouterModule.forChild(HOWTO_ROUTES);

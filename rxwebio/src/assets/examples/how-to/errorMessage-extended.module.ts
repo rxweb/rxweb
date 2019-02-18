@@ -21,16 +21,18 @@ import { ErrormessageSingleValidatorComponent } from './errorMessage/validators/
 import { SingleErrorMessagesComponent } from './errorMessage/decorators/single-message/errormessage-single.component';
 import { FileObjectValidatorComponent } from './fileObject/validators/complete/fileObject-complete.component';
 import { FileObjectCompleteComponent } from './fileObject/decorators/complete/fileObject-complete.component';
+import { ResetCompleteComponent } from './resetForm/decorators/reset-complete.component';
+import { ResetCompleteValidatorComponent } from './resetForm/validators/reset-complete.component';
 
 
 
 
 @NgModule({
   declarations: [
-    ErrorMessagesComponent,SingleErrorMessagesComponent,ErrormessageSingleValidatorComponent,ErrormessageSingleComponent,FormDataComponent,FormDataValidatorComponent,FileObjectValidatorComponent,DirtyCompleteValidatorComponent,DirtyCompleteComponent,FileObjectCompleteComponent
+    ErrorMessagesComponent,SingleErrorMessagesComponent,ErrormessageSingleValidatorComponent,ErrormessageSingleComponent,FormDataComponent,FormDataValidatorComponent,FileObjectValidatorComponent,DirtyCompleteValidatorComponent,DirtyCompleteComponent,FileObjectCompleteComponent,ResetCompleteComponent,ResetCompleteValidatorComponent
   ],
 entryComponents: [
-    ErrorMessagesComponent,SingleErrorMessagesComponent,ErrormessageSingleValidatorComponent,ErrormessageSingleComponent,FormDataComponent,FormDataValidatorComponent,FileObjectValidatorComponent,DirtyCompleteValidatorComponent,DirtyCompleteComponent,FileObjectCompleteComponent
+    ErrorMessagesComponent,SingleErrorMessagesComponent,ErrormessageSingleValidatorComponent,ErrormessageSingleComponent,FormDataComponent,FormDataValidatorComponent,FileObjectValidatorComponent,DirtyCompleteValidatorComponent,DirtyCompleteComponent,FileObjectCompleteComponent,ResetCompleteComponent,ResetCompleteValidatorComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -39,7 +41,7 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
      exports: [
-    ErrorMessagesComponent,SingleErrorMessagesComponent,ErrormessageSingleValidatorComponent,ErrormessageSingleComponent,FormDataValidatorComponent,FormDataComponent,FileObjectValidatorComponent,DirtyCompleteValidatorComponent,DirtyCompleteComponent,FileObjectCompleteComponent
+    ErrorMessagesComponent,SingleErrorMessagesComponent,ErrormessageSingleValidatorComponent,ErrormessageSingleComponent,FormDataValidatorComponent,FormDataComponent,FileObjectValidatorComponent,DirtyCompleteValidatorComponent,DirtyCompleteComponent,FileObjectCompleteComponent,ResetCompleteComponent,ResetCompleteValidatorComponent
   ],
 
 })

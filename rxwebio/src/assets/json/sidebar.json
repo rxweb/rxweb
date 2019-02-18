@@ -375,7 +375,12 @@
           "title":"Dirty Check",
           "uri":"/how-to/dirtyCheck/validators",
           "isActive": false
-        }         
+        },
+        {
+          "title":"Reset Form",
+          "uri":"/how-to/resetForm/validators",
+          "isActive": false
+        }          
       ]
     }
   ]
