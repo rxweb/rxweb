@@ -19,6 +19,12 @@ class User{
     @required()
     fullName: string;
 
+    @required()
+    lastName: string;
+
+    @required()
+    cityName: string;
+
     @prop()
     type:string;
 }
@@ -90,13 +96,19 @@ class User{
          expect(control.errorMessages).toEqual([]);
      })
 
-     it('should not bind error until the type FormControl have the value of "user" ', () => {
+     it('should bind error until the type FormControl have the value of "user" ', () => {
          let user = new User();
          user.type = "user";
          let userFormGroup = formbuilder.formGroup(user);
          let control = <RxFormControl>userFormGroup.controls.fullName;
          expect(control.errorMessage).toBe("This field is required.");
          expect(control.errorMessages).toEqual(["This field is required."]);
+     })
+
+     it('should bind error in controlsError object', () => {
+         let user = new User();
+         let userFormGroup = <RxFormGroup>formbuilder.formGroup(user);
+         expect(userFormGroup.controlsError).toEqual({ fullName: "This field is required.", lastName: "This field is required.", cityName: "This field is required." });
      })
 
 

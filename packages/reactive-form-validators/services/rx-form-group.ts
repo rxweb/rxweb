@@ -88,7 +88,7 @@ export class RxFormGroup extends FormGroup  {
               for(let validationName in error)
                 jObject[columnName] = error[validationName].message;
               else
-                jObject[columnName] = error;
+                  jObject[columnName] = error;
               }
           }
         })
@@ -138,7 +138,9 @@ export class RxFormGroup extends FormGroup  {
       return this.entityObject;
     }
 
-    controlsError: { [key: string]: any } = {};
+    get controlsError() : { [key: string]: any } {
+        return this.getErrorSummary(true);
+    }
 
     toFormData(): FormData {
         return this.formDataProvider.convertToFormData(this.value);
