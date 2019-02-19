@@ -3,7 +3,7 @@
 import { ReactiveFormConfig,RxFormBuilder,FormBuilderConfiguration,RxFormGroup, FormGroupExtension} from '../../../packages/reactive-form-validators';
 
 
-import {  error,alpha,prop,RxwebValidators,RxFormControl } from    '../../../packages/reactive-form-validators'; 
+import {  error,alpha,prop,RxwebValidators,RxFormControl,required } from    '../../../packages/reactive-form-validators'; 
 import { formControlBinding } from '@angular/forms/src/directives/reactive_directives/form_control_directive';
 
 class User{
@@ -13,7 +13,11 @@ class User{
 
     @error({conditionalExpression:function(control:AbstractControl){return control.dirty; }})
     @alpha()
-    firstName:string;
+    firstName: string;
+
+    @error({ conditionalExpression: function (control: AbstractControl) { return this.type == "user"; } })
+    @required()
+    fullName: string;
 
     @prop()
     type:string;
@@ -27,7 +31,8 @@ class User{
          ReactiveFormConfig.set({
              "validationMessage": {
                  "alpha": "only alphabets are allowed.",
-                 "password": "Please enter correct password."
+                 "password": "Please enter correct password.",
+                 "required":"This field is required."
              }
          });
      });
@@ -75,7 +80,24 @@ class User{
    let control = <RxFormControl>userFormGroup.controls.firstName;
    expect(control.errorMessage).toBe(undefined);
    expect(control.errorMessages).toEqual([]);
-})
+     })
+
+     it('should not bind error until the type FormControl have the value of "user" ', () => {
+         let user = new User();
+         let userFormGroup = formbuilder.formGroup(user);
+         let control = <RxFormControl>userFormGroup.controls.fullName;
+         expect(control.errorMessage).toBe(undefined);
+         expect(control.errorMessages).toEqual([]);
+     })
+
+     it('should not bind error until the type FormControl have the value of "user" ', () => {
+         let user = new User();
+         user.type = "user";
+         let userFormGroup = formbuilder.formGroup(user);
+         let control = <RxFormControl>userFormGroup.controls.fullName;
+         expect(control.errorMessage).toBe("This field is required.");
+         expect(control.errorMessages).toEqual(["This field is required."]);
+     })
 
 
 })

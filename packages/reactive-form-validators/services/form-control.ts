@@ -20,22 +20,21 @@ export class RxFormControl extends FormControl {
     private _isPassedExpression:Boolean = false;
 
     get errorMessages(): string[] {
-        if(!this._messageExpression)
+        if (!this._messageExpression) {
             if (this._errorMessages.length == 0 && this.errors)
                 this.setControlErrorMessages();
-        else
-            if(this._messageExpression && !this._isPassedExpression)
+        }
+        else if(this._messageExpression && !this._isPassedExpression)
                 return [];
         return this._errorMessages;
     }
 
     get errorMessage(): string {
-        if(!this._messageExpression)
-            if (this._errorMessage == undefined && this.errors) {
+        if (!this._messageExpression) {
+            if (this._errorMessage == undefined && this.errors)
                 this.setControlErrorMessages();
-            }
-        else
-        if(this._messageExpression && !this._isPassedExpression)
+        }
+        else if(this._messageExpression && !this._isPassedExpression)
                 return undefined;
         return this._errorMessage;
     }
