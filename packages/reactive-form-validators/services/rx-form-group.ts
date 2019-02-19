@@ -60,6 +60,31 @@ export class RxFormGroup extends FormGroup  {
     }
 
 
+    patchModelValue(value: {
+        [key: string]: any;
+    }, options?: {
+        onlySelf?: boolean;
+        emitEvent?: boolean;
+        }): void {
+        if (value) {
+            for (let name in this.controls) {
+                if (this.controls instanceof RxFormGroup && value[name])
+                    (<RxFormGroup>this.controls[name]).patchModelValue(value[name],options);
+                else if (this.controls[name] instanceof FormArray && Array.isArray(value[name])) {
+                    let index = 0;
+                    for (let formGroup of (<FormArray>this.controls[name]).controls) {
+                        if (value[name][index])
+                            (<RxFormGroup>formGroup).patchModelValue(value[name][index], options);
+                        index = index + 1;
+                    }
+                } else 
+                    if (value[name] !== undefined)
+                        this.controls[name].patchValue(value[name],options);
+            }
+        }
+    }
+
+
     getErrorSummary(onlyMessage:boolean) : { [key:string] : any }{
       let jObject : {[key:string]:any}  = {};
         Object.keys(this.controls).forEach(columnName=>{
