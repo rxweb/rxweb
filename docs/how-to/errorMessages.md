@@ -14,26 +14,26 @@ To Configure message globally in your application, Please refer <a href="/api/re
 
 # Display Single Message
 
-To use the errorMessage property, You have to use RxFormBuilder service to create FormGroup in the component.
+You have to use RxFormBuilder service to create FormGroup in the component.
 
 <data-scope scope="['decorator']">
 First we need to create a user class and define properties in the model.
 <div component="app-code" key="error-single-model"></div> 
 </data-scope>
 <div component="app-code" key="error-single-component"></div> 
-Next, we need to write html code.
+Next, we need to write html code. For showing error message you have to use 'errorMessage' property.
 <div component="app-code" key="error-single-html"></div> 
 <div component="app-example-runner" ref-component="app-errormessage-single"></div>
 
 # Display Multiple Messages
 
-To use the errorMessage property, You have to use RxFormBuilder service to create FormGroup in the component.
+You have to use RxFormBuilder service to create FormGroup in the component.
 
 <data-scope scope="['decorator']">
 First we need to create a user class and define properties in the model.
 <div component="app-code" key="error-complete-model"></div> 
 </data-scope>
 <div component="app-code" key="error-complete-component"></div> 
-Next, we need to write html code.
+Next, we need to write html code. For showing error message you have to use 'errorMessage' property.
 <div component="app-code" key="error-complete-html"></div> 
-<div component="app-example-runner" ref-component="app-errormessage-complete"></div>-
+<div component="app-example-runner" ref-component="app-errormessage-complete"></div>

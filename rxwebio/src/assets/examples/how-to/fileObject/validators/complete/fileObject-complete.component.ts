@@ -16,7 +16,7 @@ export class FileObjectValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userInfoFormGroup = <RxFormGroup>this.formBuilder.group({
-            profilePhoto:['', RxwebValidators.image({maxHeight:500  ,maxWidth:500 })], 
+            profilePhoto:[''], 
         });
     }
       addUser(){

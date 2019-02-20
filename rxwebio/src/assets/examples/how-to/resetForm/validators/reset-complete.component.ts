@@ -16,10 +16,10 @@ export class ResetCompleteValidatorComponent implements OnInit {
     ngOnInit() {
               
    this.userFormGroup = <RxFormGroup>this.formBuilder.group({
-    firstName:['',RxwebValidators.required()],
-    lastName:['',RxwebValidators.required()],
-    userName:['',RxwebValidators.required()],
-    password:['',RxwebValidators.password({ validation: { maxLength: 10, minLength: 5, digit: true, specialCharacter: true } })]
+    firstName:[''],
+    lastNsame:[''],
+    userName:[''],
+    password:['']
         });
     }
      resetForm(){

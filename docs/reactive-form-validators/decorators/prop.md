@@ -21,7 +21,7 @@ Next, we need to write html code.
 <div component="app-code" key="prop-add-html"></div> 
 <div component="app-example-runner" ref-component="app-prop-add"></div>
 
-# Binding Server Property Name
+# Binding Name of server side property
 If the client property name and server property name is different. Then to bind the server property name to client side.
 
 <div component="app-example-runner" ref-component="app-prop-server" title="Binding server side name with prop" key="server"></div>

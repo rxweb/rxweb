@@ -1,16 +1,16 @@
-import {  required ,password} from "@rxweb/reactive-form-validators"
+import { prop} from "@rxweb/reactive-form-validators"
 export class User {
 
-    @required()
+    @prop()
      firstName:string;
 
-     @required() 
+     @prop() 
      lastName : string;
 
-     @required()
+     @prop()
      userName: string;
 
-     @password({ validation: { maxLength: 10, minLength: 5, digit: true, specialCharacter: true } })
+     @prop()
       password : string;
               
 }
