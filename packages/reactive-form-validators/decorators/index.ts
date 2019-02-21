@@ -66,3 +66,4 @@ export * from './non-validation-decorators/error.decorator';
 export * from './and.decorator';
 export * from './or.decorator';
 export * from './not.decorator';
+export * from './sanitize/trim.decorator';

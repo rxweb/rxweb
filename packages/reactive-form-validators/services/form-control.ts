@@ -6,6 +6,8 @@ import { DisableProvider } from '../domain/disable-provider';
 import { RXCODE } from "../const/app.const"
 import { DECORATORS } from "../const/decorators.const";
 import { defaultContainer } from "../core/defaultContainer";
+import { SANITIZERS } from "../util/sanitizers"
+
 export class RxFormControl extends FormControl {
     private keyName: string;
     private _errorMessage: string;
@@ -17,7 +19,7 @@ export class RxFormControl extends FormControl {
     private _refDisableControls= [];
     private _refMessageControls= [];
     private _messageExpression:Function;
-    private _isPassedExpression:Boolean = false;
+    private _isPassedExpression: Boolean = false;
 
     get errorMessages(): string[] {
         if (!this._messageExpression) {
@@ -38,7 +40,7 @@ export class RxFormControl extends FormControl {
                 return undefined;
         return this._errorMessage;
     }
-    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string) {
+    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string,private _sanitizers:string[]) {
         super(formState, validator, asyncValidator)
         this.keyName = controlName;
     }
@@ -49,6 +51,7 @@ export class RxFormControl extends FormControl {
         onlySelf?: boolean;
         emitEvent?: boolean;
     }): void {
+        value = this.getSanitizedValue(value)
         if (options && options.dirty)
             this.baseObject[this.keyName] = value;
         this.entityObject[this.keyName] = value;
@@ -82,10 +85,19 @@ export class RxFormControl extends FormControl {
     private getMessageExpression(formGroup:FormGroup,keyName:string):Function{
             if(formGroup["modelInstance"]){
                 let instanceContainer = defaultContainer.get(formGroup["modelInstance"].constructor);
-                if(instanceContainer)
+                if(instanceContainer) 
                     return instanceContainer.nonValidationDecorators.error.conditionalExpressions[keyName]
                 }
                 return undefined;
+    }
+
+    private getSanitizedValue(value:any) {
+        if (this._sanitizers) {
+            for (let sanitizeName of this._sanitizers) {
+                value = SANITIZERS[sanitizeName](value);
+            }
+        }
+        return value;
     }
 
     private bindConditionalControls(decoratorType:string,refName:string){

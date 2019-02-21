@@ -5,6 +5,7 @@ import { InstanceContainer,PropertyInfo} from '../core/validator.interface';
 import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY } from "../const"
 import { EntityService } from './entity.service';
 import { RegexValidator } from '../util/regex-validator';
+import { SANITIZERS } from "../util/sanitizers"
 
 export class BaseFormBuilder {
     private entityService: EntityService;
@@ -109,6 +110,14 @@ export class BaseFormBuilder {
         return (propertyInfo.defaultValue != undefined && !RegexValidator.isNotBlank(value)) ?
             propertyInfo.defaultValue:
             value;
+    }
+
+    protected sanitizeValue(instanceContainer:InstanceContainer,propertyName:string,value:any) {
+        if (instanceContainer.sanitizers && instanceContainer.sanitizers[propertyName]) {
+            for (let sanitizeName of instanceContainer.sanitizers[propertyName])
+                value = SANITIZERS[sanitizeName](value);
+        }
+        return value;
     }
 
     private getValue(entityObject:{[key:string]:any},propertyInfo:PropertyInfo){

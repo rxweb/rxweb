@@ -24,8 +24,9 @@ export interface InstanceContainer {
     conditionalObjectProps?: { [key: string]: any }
     nonValidationDecorators?: {
         disabled: ControlInfo;
-        error:ControlInfo;
-    }
+        error: ControlInfo;
+    },
+    sanitizers?: { [key: string]: string[] }
 }
 
 export interface PropertyInfo {

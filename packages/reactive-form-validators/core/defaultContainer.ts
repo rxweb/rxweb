@@ -16,13 +16,32 @@ export const defaultContainer:
         clearInstance(instance:any):void,
         setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string): void,
         addDecoratorConfig(target: any, parameterIndex: any, propertyKey: string, config: any,decoratorType:string):void,
-        setLogicalConditional(instance:any,annotationType:string,fieldName:string,propertyName:string):void
+        setLogicalConditional(instance: any, annotationType: string, fieldName: string, propertyName: string): void,
+        addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string):void
     } = new (class {
         private instances: InstanceContainer[] = [];
         modelIncrementCount:number = 0;
         get<T>(instanceFunc: any): InstanceContainer {
             let instance: InstanceContainer = this.instances.filter(instance => instance.instance === instanceFunc)[0];
             return instance;
+        }
+
+        getInstance(target: any, parameterIndex: any, propertyKey: string, decoratorType: string) {
+            let isPropertyKey = (propertyKey != undefined);
+            let instanceFunc = !isPropertyKey ? target : target.constructor
+            let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
+            if (!instance)
+                instance = this.addInstanceContainer(instanceFunc);
+            return instance;
+        }
+
+        addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string) {
+            let instance = this.getInstance(target, parameterIndex, propertyKey, decoratorType);
+            if (instance) {
+                if (!instance.sanitizers[propertyKey])
+                    instance.sanitizers[propertyKey] = [];
+                instance.sanitizers[propertyKey].push(decoratorType);
+            }
         }
 
         addDecoratorConfig(target: any, parameterIndex: any, propertyKey: string, config: any,decoratorType:string): void {
@@ -79,7 +98,8 @@ export const defaultContainer:
                         conditionalExpressions: {},
                         changeDetection: {}
                     }
-                }
+                },
+                sanitizers: {}
             }
             this.instances.push(instanceContainer);
             return instanceContainer;
