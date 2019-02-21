@@ -15,5 +15,12 @@ export const SANITIZERS: { [key: string]: Function } = {
             if (typeof value === "string")
                 return value.replace(/^\s+/g, '');
         return value;
+    },
+
+    rtrim:(value)=>{
+        if (isNotBlank(value))
+            if (typeof value === "string")
+                return value.replace(/\s+$/g, '');
+        return value;
     }
 }
