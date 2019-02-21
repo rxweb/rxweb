@@ -11,11 +11,12 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { DYNAMIC_FORM_BUILDER_ROUTING } from './dynamic-form-builder.routing';
 import { DynamicFormBuilderComponent } from './dynamic-form-builder.component';
 import { ValidationComponent } from './validation/validation.component';
+import { PipeCommonModule } from 'src/app/pipes';
 
 @NgModule({
- imports:      [ DYNAMIC_FORM_BUILDER_ROUTING, CommonModule ,FormsModule, ReactiveFormsModule,RouterModule,RxFormsModule, RxViewModule,ClipboardModule, HighlightModule ,MonacoEditorModule ],
- declarations: [ DynamicFormBuilderComponent,ValidationComponent ],
+ imports:[DYNAMIC_FORM_BUILDER_ROUTING, CommonModule ,FormsModule, ReactiveFormsModule,RouterModule,RxFormsModule, RxViewModule,ClipboardModule, HighlightModule ,MonacoEditorModule ,PipeCommonModule],
+ declarations:[DynamicFormBuilderComponent,ValidationComponent],
  entryComponents:[ValidationComponent],
- exports:      [ DynamicFormBuilderComponent,RouterModule,ValidationComponent ]
+ exports:[DynamicFormBuilderComponent,RouterModule,ValidationComponent]
 })
 export class DynamicFormBuilderModule { }

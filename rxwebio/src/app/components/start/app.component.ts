@@ -6,17 +6,61 @@ import { NavigationEnd } from "@angular/router";
 import { HostListener } from "@angular/core";
 import { NavigationStart } from "@angular/router";
 import { AuthService } from '../../domain/auth.service';
-import {  trigger, style, animate, transition } from '@angular/animations';
+import {  trigger, style, animate, transition, query } from '@angular/animations';
 import { ApplicationBroadcaster } from '@rx/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  //  animations: [
+  //   trigger('routerAnimation', [
+  //     transition('* <=> *', [
+  //       // Initial state of new route
+  //       query(':enter',
+  //         style({
+  //           // position: 'fixed',
+  //           // width:'100%',
+  //           // transform: 'translateX(-100%)',
+  //           opacity:1
+  //         }),
+  //         // {
+  //         //   optional:true
+  //         // }
+  //       ),
+
+  //       // move page off screen right on leave
+  //       query(':leave',
+  //         animate('500ms ease',
+  //           style({
+  //             // position: 'fixed',
+  //             // width:'100%',
+  //             // transform: 'translateX(100%)'
+  //             opacity:0
+  //           })
+  //         ),
+  //       //{optional:true}
+  //       ),
+
+  //       // move page in screen from left to right
+  //       // query(':enter',
+  //       //   animate('500ms ease',
+  //       //     style({
+  //       //       opacity: 1,
+  //       //       transform: 'translateX(0%)'
+  //       //     })
+  //       //   ),
+  //       // {optional:true}),
+  //     ])
+  //   ])
+  //]
 })
 export class AppComponent implements OnInit {
   title = 'rx.web.io';
   isHome = false;
   showFooter = false;
+  // getRouteAnimation(outlet) {
+  //   return outlet.activatedRouteData.animation
+  // }
   constructor(private router: Router,private applicationBroadCast:ApplicationBroadcaster,private auth:AuthService) {
     this.applicationBroadCast.urlSubscriber.subscribe(t => {
       this.homeInit(t)

@@ -23,10 +23,22 @@
                                 </div>
                                 <div class="table table-responsive">
                                     <table class="table">
-                                        <tr [formGroup]="propertyName" *ngFor="let propertyName of dynamicFormBuilderFormGroup.controls.keyList.controls;let i = index">
+                                        <tr>
+                                            <th>Is Removed</th>
+                                            <th>Property Name</th>
+                                            <th>Property Value</th>
+                                            <th>Control Type</th>
+                                            <th>
+                                                Source
+                                            </th>
+                                        </tr>
+                                        <tr [formGroup]="propertyName"
+                                            *ngFor="let propertyName of dynamicFormBuilderFormGroup.controls.keyList.controls;let i = index">
                                             <td>
-                                                <button class="btn btn-circle" [ngClass]="{'btn-danger': propertyName.value.isRemoved,'btn-success': !propertyName.value.isRemoved}"
-                                                    (click)="markedAsRemove(i)"><i class="glyphicon" [ngClass]="{'glyphicon-minus': propertyName.value.isRemoved,'glyphicon-plus': !propertyName.value.isRemoved}"></i></button>
+                                                <button class="btn btn-circle"
+                                                    [ngClass]="{'btn-danger': propertyName.value.isRemoved,'btn-success': !propertyName.value.isRemoved}"
+                                                    (click)="markedAsRemove(i)"><i class="glyphicon"
+                                                        [ngClass]="{'glyphicon-minus': propertyName.value.isRemoved,'glyphicon-plus': !propertyName.value.isRemoved}"></i></button>
                                             </td>
                                             <td>
                                                 {{propertyName.value.propertyName}}
@@ -35,7 +47,23 @@
                                                 {{propertyName.value.propertyValue}}
                                             </td>
                                             <td>
-                                                <button class="btn btn-primary" (click)="applyValidation(i)">Validation</button>
+                                                <select name="control" class="form-control"
+                                                    formControlName="controlName">
+                                                    <option value="">Please Select</option>
+                                                    <option *ngFor="let control of controlTypeList" [value]="control">
+                                                        {{control}}</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <div
+                                                    *ngIf="(propertyName.value.controlName == 'checkboxlist' || propertyName.value.controlName == 'select' || propertyName.value.controlName == 'multiselect' || propertyName.value.controlName == 'radio')">
+                                                    <rx-tag freeTextEnabled="true" formControlName="dropdownSource"
+                                                        mainClass="form-control"></rx-tag>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary"
+                                                    (click)="applyValidation(i)">Validation</button>
                                             </td>
                                         </tr>
                                     </table>
@@ -44,31 +72,114 @@
                         </div>
                         <div class="col-lg-12" *ngIf="exampleContent.jsonObj?.length > 0">
                             <ul class="nav nav-tabs">
-                                <li [class.active]="formBuilderTab=='example'" (click)="formBuilderTab='example'"><a>Example</a></li>
-                                <li [class.active]="formBuilderTab=='json'" (click)="formBuilderTab='json'"><a>Json</a></li>
-                                <li [class.active]="formBuilderTab=='model'" (click)="formBuilderTab='model'"><a>Model</a></li>
+                                <li [class.active]="formBuilderTab=='example'" (click)="formBuilderTab='example'">
+                                    <a>Example</a></li>
+                                <li [class.active]="formBuilderTab=='json'" (click)="formBuilderTab='json'"><a>Json</a>
+                                </li>
+                                <li [class.active]="formBuilderTab=='model'" (click)="formBuilderTab='model'">
+                                    <a>Model</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane row" [class.active]="formBuilderTab=='example'">
-                                    <form *ngIf="builderGroup" class="col-lg-12" [formGroup]="builderGroup">
-                                        <div class="col-lg-12" *ngFor="let propertyData of JsonObj | keyvalue ;let i = index">
+                                    <!-- <form *ngIf="builderGroup" class="col-lg-12" [formGroup]="builderGroup">
+                                        <div class="col-lg-12"
+                                            *ngFor="let propertyData of JsonObj | keyvalue ;let i = index">
                                             <div class="form-group">
                                                 <label>{{propertyData.key}}</label>
-                                                <input type="text" class="form-control" [formControlName]="propertyData.key"
-                                                    [id]="propertyData.key" />
-                                                <small class="form-text text-danger" *ngIf="builderGroup['controls'][propertyData.key].errors">
+                                                <input type="text" class="form-control"
+                                                    [formControlName]="propertyData.key" [id]="propertyData.key" />
+                                                <small class="form-text text-danger"
+                                                    *ngIf="builderGroup['controls'][propertyData.key].errors">
                                                     <span *ngFor="let validatorData of propertyData.value | keyvalue">
                                                         {{builderGroup.controls['firstName']['errors'][validatorData.key]?.message}}
                                                     </span>
                                                 </small>
                                             </div>
                                         </div>
+                                    </form> -->
+                                    
+                                    <form *ngIf="builderGroup" class="col-lg-12" [formGroup]="builderGroup">
+                                        <div class="col-lg-12"
+                                            *ngFor="let propertyData of dynamicFormBuilderFormGroup.controls.keyList.controls;let i = index">
+                                            <div class="form-group">
+                                                <label
+                                                    *ngIf="propertyData.value.controlName != 'checkbox'">{{propertyData.value.propertyName}}</label>
+                                                <div
+                                                    *ngIf="propertyData.value.controlName == null || propertyData.value.controlName == 'textbox'">
+                                                    <input type="text" class="form-control"
+                                                        [formControlName]="propertyData.value.propertyName"
+                                                        [id]="propertyData.value.propertyName" />
+                                                </div>
+                                                <div *ngIf="propertyData.value.controlName == 'textarea'">
+                                                    <textarea class="form-control"
+                                                        [formControlName]="propertyData.value.propertyName"
+                                                        [id]="propertyData.value.propertyName"></textarea>
+                                                </div>
+                                                <div *ngIf="propertyData.value.controlName == 'checkbox'"
+                                                    class="checkbox">
+                                                    <label><input type="checkbox"
+                                                            [formControlName]="propertyData.value.propertyName"
+                                                            [id]="propertyData.value.propertyName" />{{propertyData.value.propertyName}}</label>
+                                                </div>
+                                                <div *ngIf="propertyData.value.controlName == 'checkboxlist'">
+                                                <div class="form-check ng-star-inserted" *ngFor="let  item of propertyData.value.dropdownSourceList;let k = index">
+                                                    <h4>
+                                                        <input
+                                                            (click)="checkboxListAdd($event.target,propertyData.value.propertyName)"
+                                                             type="checkbox" [value]="item" [checked]="propertyData.value.propertyValue.indexOf(item) !== -1"
+                                                            />{{item}}</h4>
+                                                        </div>
+                                                </div>
+                                                <div *ngIf="propertyData.value.controlName == 'singlefile'">
+                                                    <input type="file" class="form-control"
+                                                        [formControlName]="propertyData.value.propertyName"
+                                                        [id]="propertyData.value.propertyName" />
+                                                </div>
+                                                <div *ngIf="propertyData.value.controlName == 'multiplefile'">
+                                                    <input type="file" class="form-control" multiple
+                                                        [formControlName]="propertyData.value.propertyName"
+                                                        [id]="propertyData.value.propertyName" />
+                                                </div>
+                                                <div *ngIf="propertyData.value.controlName == 'select'">
+                                                    <select name="otherProperty" class="form-control"
+                                                        [formControlName]="propertyData.value.propertyName">
+                                                        <option value="">Please Select</option>
+                                                        <option
+                                                            *ngFor="let source of propertyData.value.dropdownSourceList"
+                                                            [ngValue]="source">
+                                                            {{source}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div *ngIf="propertyData.value.controlName == 'radio'">
+                                                        <div class="form-check ng-star-inserted" *ngFor="let  item of propertyData.value.dropdownSourceList;let k = index">
+                                                            <h4>
+                                                                <input
+                                                                    (click)="radioButtonSetValue($event.target,propertyData.value.propertyName)"
+                                                                     type="radio" [name]="propertyData.value.propertyName" [value]="item" [checked]="propertyData.value.propertyValue === item"
+                                                                    />{{item}}</h4>
+                                                                </div>
+                                                        </div>
+                                                <div *ngIf="propertyData.value.controlName == 'multiselect'">
+                                                        <rx-tag [(source)]="propertyData.value.dropdownSourceList" [formControlName]="propertyData.value.propertyName" mainClass="form-control" [keyValueProps]="['keyName','keyValue']"></rx-tag>
+                                                    </div>
+                                                <small class="form-text text-danger"
+                                                    *ngIf="builderGroup['controls'][propertyData.value.propertyName].errors">
+                                                    <span
+                                                        *ngFor="let validatorData of propertyData.value.validators | filter:isHide:false">
+                                                        {{builderGroup.controls[propertyData.value.propertyName]['errors'][validatorData.validatorName]?.message}}
+                                                    </span>
+                                                </small>
+                                            </div>
+                                        </div>
                                     </form>
+
                                 </div>
                                 <div class="tab-pane" [class.active]="formBuilderTab=='json'">
                                     <div>
                                         <div class="code">
-                                            <a class="float-right copy-icon" ngxClipboard [cbContent]="exampleContent.jsonObj"
+                                            <a class="float-right copy-icon" ngxClipboard
+                                                [cbContent]="exampleContent.jsonObj"
                                                 (cbOnSuccess)="exampleContent.jsonObjCopied = true"
                                                 [class.copied]="exampleContent.jsonObjCopied"><i class="fa fa-files-o"
                                                     aria-hidden="true"></i></a>
@@ -79,18 +190,19 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" [class.active]="formBuilderTab=='model'">
-                                        <div>
-                                            <div class="code">
-                                                <a class="float-right copy-icon" ngxClipboard [cbContent]="exampleContent.decoratorModelString"
-                                                    (cbOnSuccess)="exampleContent.decoratorModelStringCopied = true"
-                                                    [class.copied]="exampleContent.decoratorModelStringCopied"><i class="fa fa-files-o"
-                                                        aria-hidden="true"></i></a>
-                                                <div highlight="pre code">
-                                                    <pre><code [textContent]="exampleContent.decoratorModelString"></code></pre>
-                                                </div>
+                                    <div>
+                                        <div class="code">
+                                            <a class="float-right copy-icon" ngxClipboard
+                                                [cbContent]="exampleContent.decoratorModelString"
+                                                (cbOnSuccess)="exampleContent.decoratorModelStringCopied = true"
+                                                [class.copied]="exampleContent.decoratorModelStringCopied"><i
+                                                    class="fa fa-files-o" aria-hidden="true"></i></a>
+                                            <div highlight="pre code">
+                                                <pre><code [textContent]="exampleContent.decoratorModelString"></code></pre>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                             </div>
                         </div>
                     </div>

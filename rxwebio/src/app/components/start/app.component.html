@@ -7,7 +7,10 @@
   <div *ngIf="!isHome">
     <app-side-bar></app-side-bar>
   </div>
-  <router-outlet></router-outlet>
+  <!-- <div [@routerAnimation]="getRouteAnimation(route)"> -->
+      <router-outlet></router-outlet>
+  <!-- </div> -->
+  
   <div *ngIf="showFooter">
     <app-footer></app-footer>
   </div>

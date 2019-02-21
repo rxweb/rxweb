@@ -28,7 +28,6 @@ export class ParameterItemsComponent implements OnInit {
         this.validators.validatorName = this.validatorName;
         this.validators.parameterItems = this.parameters;
         this.parameterFormGroup = this.formBuilder.formGroup(this.validators);
-        debugger
         this.showComponent = true;
     }
     hideParameterItems(){

@@ -134,7 +134,6 @@ export class StackBlitzService {
           let destinationPath:string =  `assets/${prop}`
           this.addInputElement(form, `files[${exampleJsonFileName}]`, jsonObject[prop]);
           if (obj["component"] != null)
-          debugger
             obj["component"] = obj["component"].replace(sourcePath, destinationPath)
         }
       }

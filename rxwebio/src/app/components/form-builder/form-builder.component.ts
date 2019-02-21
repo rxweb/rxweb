@@ -269,5 +269,4 @@ export class FormBuilderComponent implements OnInit {
     this.formBuilderTab = "decorator"
     this.exampleComponent['Json'] = JSON.stringify(JsonObj);
   }
-
-}
+  }

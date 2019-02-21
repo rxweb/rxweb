@@ -41,6 +41,12 @@ export class PropertyModel{
     propertyValue:string;
     @prop()
     isRemoved:boolean = false;
+    @prop()
+    controlName:string;
+    @prop()
+    dropdownSource:string;
+    @prop()
+    dropdownSourceList:any[] = [];
     @propArray(Validators)
     validators:Validators[] = [];
     @prop()

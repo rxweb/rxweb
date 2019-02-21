@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  appVersion:1,
   auth0: {
     domain: 'rxweb.auth0.com',
     clientId: 'rj7HRxhuhXoiivhbcF6vzG0GeO7mhIKk',
