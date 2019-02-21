@@ -61,5 +61,8 @@ export const AnnotationTypes: { [key: string]: string } = {
   ip: "ip",
   cusip: "cusip",
   grid:"grid",
-  date:'date'
+  date:'date',
+  and:'and',
+  or:'or',
+  not:'not'
 }

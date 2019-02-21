@@ -18,7 +18,11 @@ import { APP_VALIDATORS } from '../const/app-validators.const'
 import { RxFormControl } from './form-control';
 import { RxFormGroup } from './rx-form-group'
 import { RxFormArray } from './rx-form-array';
-    
+import { andValidator } from '../reactive-form-validators/and.validator'
+import { orValidator } from '../reactive-form-validators/or.validator'
+import { notValidator } from '../reactive-form-validators/not.validator'
+
+const LOGICAL_VALIDATORS :{[key:string]:Function} = {and:andValidator,or:orValidator,not:notValidator}
 
 @Injectable()
 export class RxFormBuilder extends BaseFormBuilder {
@@ -103,7 +107,19 @@ export class RxFormBuilder extends BaseFormBuilder {
         }
         for (let propertyValidator of propertyValidators) {
             if (!propertyValidator.isAsync)
-                propertyValidator.annotationType == AnnotationTypes.rule ? validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config, entity)) : validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config))
+            switch(propertyValidator.annotationType){
+                case AnnotationTypes.rule:
+                    validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config, entity))
+                    break;
+                case AnnotationTypes.and:
+                case AnnotationTypes.or:
+                case AnnotationTypes.not:
+                    validators.push(LOGICAL_VALIDATORS[propertyValidator.annotationType](propertyValidator.config))
+                    break;
+                default:
+                    validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config))
+                    break;
+            }
         }
         if (propValidationConfig)
             this.additionalValidation(validators, propValidationConfig);

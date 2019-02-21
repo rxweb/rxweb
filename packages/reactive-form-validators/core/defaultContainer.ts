@@ -14,8 +14,9 @@ export const defaultContainer:
         initPropertyObject(name:string,propertyType:string,entity:any,target:any,config?:any) : void,
         modelIncrementCount:number,
         clearInstance(instance:any):void,
-        setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string): void
-        addDecoratorConfig(target: any, parameterIndex: any, propertyKey: string, config: any,decoratorType:string):void
+        setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string): void,
+        addDecoratorConfig(target: any, parameterIndex: any, propertyKey: string, config: any,decoratorType:string):void,
+        setLogicalConditional(instance:any,annotationType:string,fieldName:string,propertyName:string):void
     } = new (class {
         private instances: InstanceContainer[] = [];
         modelIncrementCount:number = 0;
@@ -117,11 +118,26 @@ export const defaultContainer:
                 let columns = Linq.expressionColumns(decoratorConfiguration.config.conditionalExpression);
                 this.addChangeValidation(instance, decoratorConfiguration.propertyName, columns);
             }
-            if (instance && decoratorConfiguration.config && ((decoratorConfiguration.annotationType == AnnotationTypes.compare || decoratorConfiguration.annotationType == AnnotationTypes.greaterThan || decoratorConfiguration.annotationType == AnnotationTypes.greaterThanEqualTo || decoratorConfiguration.annotationType == AnnotationTypes.lessThan || decoratorConfiguration.annotationType == AnnotationTypes.lessThanEqualTo  || decoratorConfiguration.annotationType == AnnotationTypes.different  || decoratorConfiguration.annotationType == AnnotationTypes.factor) || (decoratorConfiguration.annotationType == AnnotationTypes.creditCard && decoratorConfiguration.config.fieldName) || ((decoratorConfiguration.annotationType == AnnotationTypes.minDate || decoratorConfiguration.annotationType == AnnotationTypes.maxDate) && decoratorConfiguration.config.fieldName))) {
-                this.setConditionalValueProp(instance, decoratorConfiguration.config.fieldName, decoratorConfiguration.propertyName)
+            this.setConditionalColumns(instance,decoratorConfiguration);
+        }
+
+        setConditionalColumns(instance: any, decoratorConfiguration: DecoratorConfiguration){
+            if(instance && decoratorConfiguration.config ){
+                if(decoratorConfiguration.annotationType == AnnotationTypes.and || decoratorConfiguration.annotationType == AnnotationTypes.or || decoratorConfiguration.annotationType == AnnotationTypes.not){
+                    Object.keys(decoratorConfiguration.config.validation).forEach(t=>{
+                        if(typeof decoratorConfiguration.config.validation[t] !== "boolean")
+                            this.setLogicalConditional(instance,t,decoratorConfiguration.config.validation[t].fieldName,decoratorConfiguration.propertyName)
+                    })
+                }else
+                    this.setLogicalConditional(instance,decoratorConfiguration.annotationType,decoratorConfiguration.config.fieldName,decoratorConfiguration.propertyName);
             }
         }
 
+        setLogicalConditional(instance:any,annotationType:string,fieldName:string,propertyName:string){
+            if (instance  && ((annotationType == AnnotationTypes.compare || annotationType == AnnotationTypes.greaterThan || annotationType == AnnotationTypes.greaterThanEqualTo || annotationType == AnnotationTypes.lessThan || annotationType == AnnotationTypes.lessThanEqualTo  || annotationType == AnnotationTypes.different  || annotationType == AnnotationTypes.factor) || (annotationType == AnnotationTypes.creditCard && fieldName) || ((annotationType == AnnotationTypes.minDate || annotationType == AnnotationTypes.maxDate) && fieldName))) {
+                this.setConditionalValueProp(instance, fieldName, propertyName)
+            }
+        }
         setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string) {
             if (!instance.conditionalValidationProps)
                 instance.conditionalValidationProps = {};

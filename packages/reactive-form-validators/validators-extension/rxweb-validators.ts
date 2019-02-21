@@ -25,7 +25,10 @@ import {
   ipValidatorExtension,
   cusipValidatorExtension,
     gridValidatorExtension,
-    dateValidatorExtension
+    dateValidatorExtension,
+    andValidatorExtension,
+    orValidatorExtension,
+    notValidatorExtension
 } from './index'
 
 export class RxwebValidators {
@@ -89,4 +92,7 @@ export class RxwebValidators {
   static readonly cusip = cusipValidatorExtension;
   static readonly grid = gridValidatorExtension;
   static readonly date = dateValidatorExtension;
+  static readonly and = andValidatorExtension;
+  static readonly or = orValidatorExtension;
+  static readonly not = notValidatorExtension;
 }
