@@ -1,0 +1,10 @@
+{
+    "complete": {
+        "notes": [],
+        "component": "import { Component, OnInit } from '@angular/core';\r\nimport { RxFormGroup,RxFormBuilder ,FormGroupExtension} from '@rxweb/reactive-form-validators';\r\nimport { HttpClient } from '@angular/common/http';\r\n\r\n@Component({\r\n    selector: 'app-reset-complete',\r\n    templateUrl: './reset-complete.component.html'\r\n})\r\nexport class ResetCompleteValidatorComponent implements OnInit {\r\n    userFormGroup: RxFormGroup\r\n    \r\n\tconstructor(\r\n        private formBuilder: RxFormBuilder, private http: HttpClient )\r\n\t{ }\r\n\r\n    ngOnInit() {\r\n              \r\n   this.userFormGroup = <RxFormGroup>this.formBuilder.group({\r\n    firstName:[''],\r\n    lastName:[''],\r\n    userName:[''],\r\n    password:['']\r\n        });\r\n    }\r\n     resetForm(){\r\n        this.userFormGroup.resetForm();\r\n       \r\n      }\r\n}\r\n",
+        "html": "<div>\r\n    <form  [formGroup]=\"userFormGroup\">\r\n      <div class=\"form-group\">\r\n        <label>First Name</label>\r\n        <input type=\"text\" formControlName=\"firstName\" class=\"form-control\"  />\r\n      </div>\r\n  \r\n      <div class=\"form-group\">\r\n        <label>Last Name</label>\r\n        <input type=\"text\" formControlName=\"lastName\" class=\"form-control\"  />\r\n      </div>\r\n \r\n      <div class=\"form-group\">\r\n        <label>User Name</label>\r\n        <input type=\"text\" formControlName=\"userName\" class=\"form-control\"  />\r\n      </div>\r\n  \r\n       <div class=\"form-group\">\r\n        <label>Password</label>\r\n        <input type=\"text\" formControlName=\"password\" class=\"form-control\"  />\r\n      </div>\r\n  \r\n      <button [disabled]=\"!userFormGroup.valid\"  class=\"btn btn-primary\">Submit</button>\r\n       <button (click)=\"resetForm()\"  class=\"btn btn-primary\">Reset</button>\r\n    </form>\r\n  </div>\r\n  ",
+        "model": null,
+        "modelName": null,
+        "json": {}
+    }
+}

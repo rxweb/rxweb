@@ -1,11 +1,12 @@
 ---
 title: fileSize
-description: fileSize validation  {{validatorType}}  allows user to enter the input which is in the proper file size format.
+description: fileSize validation {{validatorType}} allows user to enter the input which is in the proper file size format.
 author: rxcontributortwo
 category: form-validations
-type:tabs
+type: tabs
 linktitle: fileSize
 ---
+
 # When to use
 Suppose you want to create a UserInfo form, which contains fields like fileType , profilePhoto, videoFile , audioFile and imageFile, documentFile ,contactFile, profilePicture and you want the user to enter input which is a proper size format. Here depending upon the requirement, these scenarios may arise..
 <ol class='showHideElement'>
@@ -17,7 +18,8 @@ Suppose you want to create a UserInfo form, which contains fields like fileType 
    <li>Apply fileSize validation dynamically based on server rules.</li>
    </data-scope>
 </ol>
-Let's see how fileSize  {{validatorType}}  fulfil the need.
+
+Let's see how fileSize {{validatorType}} fulfil the need.
  
 # Basic fileSize Validation
 <data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
@@ -44,7 +46,8 @@ Next, we need to write html code.
 # [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="fileSize-edit-component"></div>
-The below code is `storage-capacity-data.json` for getting data from the server 
+
+The below default data which is coming from the server in this example of edit form which is set in the `storage-capacity-data.json` in json format like this:
 <div component="app-code" key="fileSize-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="fileSize-edit-html"></div> 
@@ -73,15 +76,15 @@ Below options are not mandatory to use in the `fileSize` validation. If needed t
 
 <table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a (click)='scrollTo("#maxSize")' title="maxSize">maxSize</a></td><td> Maximum file size allowed to be entered.</td></tr>
-<tr><td><a (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>FileSize validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
+<tr><td><a (click)='scrollTo("#maxSize")' title="maxSize">maxSize</a></td><td>maxSize property of the SizeConfig is used to set the maximum file size allowed to be entered.</td></tr>
+<tr><td><a (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>FileSize validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
 ## maxSize
 Type :  `number` 
 
-maxSize parameter is the maximum file size allowed to be entered by the user.
+maxSize property of the SizeConfig is used to set the maximum file size allowed to be entered.
 
 <div component="app-code" key="fileSize-maxSizeExample-model"></div> 
 <div component="app-example-runner" ref-component="app-fileSize-maxSize" title="fileSize {{validatorType}} with maxSize" key="maxSize"></div>
@@ -90,7 +93,7 @@ maxSize parameter is the maximum file size allowed to be entered by the user.
 Type :  `Function`  |  `string` 
 
 fileSize validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
 
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
@@ -112,7 +115,7 @@ To override the global configuration message and set the custom message on respe
 
 # Complete fileSize Example
 
-This Complete fileSize example which includes all the SizeConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+This Complete fileSize example which includes all the SizeConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4.
 
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
@@ -135,7 +138,7 @@ This Complete fileSize example which includes all the SizeConfig properties will
 <data-scope scope="['decorator','validator']">
 # Dynamic fileSize Example
 
-This Dynamic fileSize example which execute based on json passed. conditional expression with function would be not apply in dynamic fileSize example. 
+This Dynamic FileSize example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic fileSize example. This example will fulfil the requirement of our last point.
 
 <div component="app-tabs" key="dynamic"></div>
 

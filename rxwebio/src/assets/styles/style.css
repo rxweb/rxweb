@@ -593,10 +593,10 @@ body div:not(.comment-section) [key="complete"] .nav-tabs>li.active>a:hover {
     padding: 20px;
 }
 .showHideExample .model-ts { margin-top: 0; margin-bottom: 0; }
-.showHideExample .hpanel .tab-content {
+/* .showHideExample .hpanel .tab-content {
     padding: 20px;
     margin-top: 0;
-}
+} */
 body .model-ts.combined {
     position: relative;
     overflow: hidden;
@@ -2394,7 +2394,7 @@ h1, .h1 {
     /*padding: 20px 0;*/
 	/*border-bottom: 1px solid #eaeaea;*/
     /* margin-bottom:10px; */
-    padding: 20px 0;
+    /* padding: 20px 0; */
     border: 1px solid #eaeaea;
     border-top: 0;
 }

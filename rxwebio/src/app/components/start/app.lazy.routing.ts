@@ -9,6 +9,7 @@ import { FormBuilderComponent } from "../form-builder/form-builder.component";
 import { ConditionalValidationComponent } from "src/assets/examples/advance-form-validations/conditional-validation/conditional-validation.component";
 
 
+
 const APP_LAZY_ROUTES: Routes = [
   {
     path: '', redirectTo: 'home', pathMatch: 'full'
@@ -24,6 +25,10 @@ const APP_LAZY_ROUTES: Routes = [
   },
   {
     path:'api/reactive-form-config',component:ReactiveFormConfigComponent
+  },
+  {
+    path:'how-to',
+    loadChildren: 'src/app/components/how-to/how-to.module#HowtoModule',
   },
   {
     path: 'advance-form-validation',

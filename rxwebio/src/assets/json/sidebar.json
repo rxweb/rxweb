@@ -348,6 +348,40 @@
           "isActive": false
         }
       ]
+    },
+    {
+      "title": "How To",
+      "uri": null,
+      "otherUri":"how-to",
+      "isOpen": false,
+      "isActive": false,
+      "childrens":[
+        {
+          "title":"Best way to show error message",
+          "uri":"/how-to/errorMessages/validators",
+          "isActive": false
+        },
+        {
+          "title":"Post as FormData of Reactive Form value",
+          "uri":"/how-to/formData/validators",
+          "isActive": false
+        },
+        {
+          "title":"Post Image through formData",
+          "uri":"/how-to/fileObject/validators",
+          "isActive": false
+        },
+        {
+          "title":"Dirty Check",
+          "uri":"/how-to/dirtyCheck/validators",
+          "isActive": false
+        },
+        {
+          "title":"Reset Form",
+          "uri":"/how-to/resetForm/validators",
+          "isActive": false
+        }          
+      ]
     }
   ]
 }

@@ -1,17 +1,18 @@
 ---
 title: file
-description: file validation  {{validatorType}}  allows user to validate whether how many files can be uploaded . It depends upon maxFiles and minFiles.
+description: file validation {{validatorType}} allows user to validate whether how many files can be uploaded. It depends on maxFiles and minFiles.
 author: rxcontributorone
 category: form-validations
-type:tabs
+type: tabs
 linktitle: file
 ---
+
 # When to use
 Suppose you want to create a User form, which contains fields like totalImageFiles, totalDocumentFiles, minimumFiles,maximumFile,minMaxFiles and you want the user to upload files as per validation format. Here depending upon the requirement these scenarios may arise.
 
 <ol class='showHideElement'>
     <li>Allow file validation on field of totalImageFiles based on maxFiles.</li>
-    <li>Apply  validation based on minFiles on totalDocumentFiles</li>
+    <li>Apply file validation based on minFiles on totalDocumentFiles</li>
     <li>Adding Custom Message on minMaxFiles field.</li>
    <li>Apply validation on maximumFile field based on matched condition in the form, like if the fileType is 'Document', then the maximumFile must be valid file count (Used as a function).</li>
    <li>Apply validation on minMaxFiles field based on matched condition in the form, like if the ImageType is 'Picture', then the minMaxFiles must be a Image format (Used as a string datatype).</li>
@@ -20,7 +21,50 @@ Suppose you want to create a User form, which contains fields like totalImageFil
     </data-scope>
 </ol>
 
-Let’s see how file  {{validatorType}}  fulfil the need.
+Let’s see how file {{validatorType}} fulfil the need.
+
+# Basic file Validation
+
+<data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
+First we need to create a User model and define a property of totalImageFiles and totalDocumentFiles in the model to achieve the functional need of point 1 and 2.
+<div component="app-code" key="file-add-model"></div> 
+</data-scope>
+Through Angular FormBuilder service we create FormGroup in the component.
+<data-scope scope="['decorator']">
+Here we have covered Add and Edit form operations. 
+</data-scope>
+
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
+Here we have covered Add form operations. 
+</data-scope>
+
+<data-scope scope="['decorator']">
+<div component="app-tabs" key="basic-operations"></div>
+[!TabGroup]
+# [Add](#tab\basicadd)
+<div component="app-code" key="file-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="file-add-html"></div> 
+<div component="app-example-runner" ref-component="app-file-add"></div>
+# [/Add]
+# [Edit](#tab\basicedit)
+<div component="app-code" key="file-edit-component"></div>
+
+The below default data which is coming from the server in this example of edit form which is set in the `user-info-data.json` in json format like this:
+<div component="app-code" key="file-edit-json"></div> 
+Next, we need to write html code.
+<div component="app-code" key="file-edit-html"></div> 
+<div component="app-example-runner" ref-component="app-file-edit"></div>
+# [/Edit]
+***
+</data-scope>
+
+<data-scope scope="['validator','template-driven-directives','template-driven-decorators']">
+<div component="app-code" key="file-add-component"></div> 
+Next, we need to write html code.
+<div component="app-code" key="file-add-html"></div> 
+<div component="app-example-runner" ref-component="app-file-add"></div>
+</data-scope>
 
 # fileConfig 
 <data-scope scope="['decorator']">
@@ -37,7 +81,7 @@ Below options are not mandatory to use in the `file` validation. If needed then 
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a  title="maxFiles">maxFiles</a></td><td>The Maximum Number of files that can be uploaded</td></tr>
 <tr><td><a  title="minFiles">minFiles</a></td><td>The Minimum Number of files that can be uploaded</td></tr>
-<tr><td><a  title="conditionalExpression">conditionalExpression</a></td><td>file validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
+<tr><td><a  title="conditionalExpression">conditionalExpression</a></td><td>file validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a  title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
@@ -61,7 +105,7 @@ The Minimum Number of files that can be uploaded
 Type :  `Function`  |  `string` 
 
 file validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
 
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
@@ -106,7 +150,7 @@ This Complete file example which includes all the fileConfig properties will ful
 <data-scope scope="['decorator','validator']">
 # Dynamic file Example
 
-This Dynamic file example which execute based on json passed. conditional expression with function would be not apply in dynamic file example. 
+This Dynamic File example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic file example. This example will fulfil the requirement of our last point.
 
 <div component="app-tabs" key="dynamic"></div>
 

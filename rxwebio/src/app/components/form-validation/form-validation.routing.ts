@@ -2,10 +2,10 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const FORM_VALIDATION_ROUTES: Routes = [
-	{
-		path:'allOf',
-		loadChildren: './allOf/all-of.module#AllOfModule',
-	},
+{
+	path:'allOf',
+	loadChildren: './allOf/all-of.module#AllOfModule',
+},
 {
 	path:'alpha',
 	loadChildren: './alpha/alpha.module#AlphaModule',
@@ -99,6 +99,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './greaterThan/greater-than.module#GreaterThanModule',
 },
 {
+	path:'grid',
+	loadChildren: './grid/grid.module#GridModule',
+},
+{
 	path:'hexColor',
 	loadChildren: './hexColor/hex-color.module#HexColorModule',
 },
@@ -171,12 +175,12 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './minNumber/min-number.module#MinNumberModule',
 },
 {
-	path:'numeric',
-	loadChildren: './numeric/numeric.module#NumericModule',
-},
-{
 	path:'noneOf',
 	loadChildren: './noneOf/none-of.module#NoneOfModule',
+},
+{
+	path:'numeric',
+	loadChildren: './numeric/numeric.module#NumericModule',
 },
 {
 	path:'odd',

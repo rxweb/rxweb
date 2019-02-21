@@ -1,17 +1,19 @@
 ---
 title: email 
-description: Email validation  {{validatorType}}  will only allow user to enter input which is in the correct email format.
+description: Email validation {{validatorType}} will only allow user to enter input which is in the correct email format.
 author: rxcontributortwo
 category: form-validations
-type:tabs
+type: tabs
 linktitle: email
 ---
+
 # When to use
-Suppose you want to create a user form and you have fields like Email, RecoveryEmail, OtherEmailAddress and you want user to enter valid EmailAddress Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a user form and you have fields like Email, RecoveryEmail, Business Email Address, OtherEmailAddress and you want user to enter valid Email Address Here depending upon the requirement these scenarios may arise.
 
 <ol class='showHideElement'>
     <li>Adding email validation on the field named email without any conditional expression.</li>
-    <li>Apply email validation based on matched condition in the form, like if the Email is ‘abc@gmail.com’ then the RecoveryEmailAddress value should be valid email address.</li>
+    <li>Apply email validation based on matched condition in the form, like if the Email is `bharat.patel@gmail.com` then the RecoveryEmailAddress value should be valid email address (conditional expression with function).</li>
+    <li>Apply email validation based on matched condition in the form, like if the Email is `bharat.patel@gmail.com` then the Business Email Address value should be valid email address (conditional expression with string).</li>
     <li>Adding Custom Message on OtherEmailAddress Field.</li>
     <data-scope scope="['decorator','validator']">
     <li>Apply email validation dynamically based on server rules.</li>
@@ -46,7 +48,8 @@ Next, we need to write html code.
 # [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="email-edit-component"></div> 
-The below code is `user-data.json` for getting data from the server
+
+The below default data which is coming from the server in this example of edit form which is set in the `user-data.json` in json format like this:
 <div component="app-code" key="email-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="email-edit-html"></div> 
@@ -76,7 +79,7 @@ Below options are not mandatory to use in the `email` validation. If needed then
 
 <table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
@@ -84,7 +87,7 @@ Below options are not mandatory to use in the `email` validation. If needed then
 Type :  `Function`  |  `string` 
 
 Email validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
 
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
@@ -130,7 +133,7 @@ This Complete Email example which includes all the EmailConfig properties will f
 <data-scope scope="['decorator','validator']">
 # Dynamic Email Example
 
-This Dynamic Email example which execute based on json passed. conditional expression with function would be not apply in dynamic email example. 
+This Dynamic Email example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic email example. This example will fulfil the requirement of our last point.
 
 <div component="app-tabs" key="dynamic"></div>
 

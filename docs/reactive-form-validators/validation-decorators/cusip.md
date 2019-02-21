@@ -3,12 +3,12 @@ title: cusip
 description: CUSIP validation {{validatorType}} will allow user to enter only nine-character alpha-numeric cusip code. CUSIP numbers are used to identify North-American finantial securities.
 author: rxcontributortwo
 category: form-validations
-type:tabs
+type: tabs
 linktitle: cusip
 ---
 
 # When to use
-Suppose you want to create a CompanyInfo form, which contains fields like CompanyName, OracleCorporationCusipCode, GoogleIncCusipCode, MicrosoftCorporationCusipCode and AppleIncCusipCode, and you want the user to enter only CUSIP code. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a CompanyInfo form, which contain fields like CompanyName, OracleCorporationCusipCode, GoogleIncCusipCode, MicrosoftCorporationCusipCode and AppleIncCusipCode, and you want the user to enter a valid 9-character alpha-numeric CUSIP code. Here depending upon the requirement these scenarios may arise.
 
 <ol class='showHideElement'>
     <li>Allow user to enter only cusip code in `OracleCorporationCusipCode`.</li>
@@ -19,6 +19,7 @@ Suppose you want to create a CompanyInfo form, which contains fields like Compan
 		<li>Apply cusip validation dynamically based on server rules. </li>
 	</data-scope>
 </ol>
+
 Let's see how cusip {{validatorType}} fulfil the need.
  
 # Basic Cusip Validation
@@ -46,7 +47,8 @@ Next, we need to write html code.
 # [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="cusip-edit-component"></div> 
-The below code is `company-info-data.json` for getting data from the server
+
+The below default data which is coming from the server in this example of edit form which is set in the `company-info-data.json` in json format like this:
 <div component="app-code" key="cusip-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="cusip-edit-html"></div> 
@@ -75,7 +77,7 @@ Below options are not mandatory to use in the `cusip` validation. If needed then
 
 <table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a   (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Cusip validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
+<tr><td><a   (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Cusip validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")'  title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
@@ -83,7 +85,7 @@ Below options are not mandatory to use in the `cusip` validation. If needed then
 Type :  `Function`  |  `string` 
 
 Cusip validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
 
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object. 
@@ -128,7 +130,7 @@ This Complete Cusip example which includes all the BaseConfig properties will fu
 <data-scope scope="['decorator','validator']">
 # Dynamic Cusip Example
 
-This Dynamic Cusip example which execute based on json passed. conditional expression with function would be not apply in dynamic cusip example. 
+This Dynamic Cusip example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic cusip example. This example will fulfil the requirement of our last point.
 
 <div component="app-tabs" key="dynamic"></div>
 
