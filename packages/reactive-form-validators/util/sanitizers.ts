@@ -8,5 +8,12 @@ export const SANITIZERS: { [key: string]: Function } = {
             if (typeof value === "string")
                 return value.trim();
         return value;
+    },
+
+    ltrim:(value)=>{
+        if (isNotBlank(value))
+            if (typeof value === "string")
+                return value.replace(/^\s+/g, '');
+        return value;
     }
 }
