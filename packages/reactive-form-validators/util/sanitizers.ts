@@ -48,18 +48,20 @@ function toBoolean(value:any,strict:boolean){
 }
 
 function toFloat(value:any){
-    if (isNotBlank(value) && ApplicationUtil.isNumeric(value))
-        return parseFloat(value)
-    return null;
+    if (isNotBlank(value) )
+        if(ApplicationUtil.isNumeric(value))
+            return parseFloat(value)
+    return NaN;
 }
 function toDouble(value:any){
         return toFloat(value)
 }
 
 function toInt(value:any,radix:number){
-    if (isNotBlank(value) && ApplicationUtil.isNumeric(value))
-        return parseInt(value, radix || 10);
-    return null;
+    if (isNotBlank(value))
+        if( ApplicationUtil.isNumeric(value))
+            return parseInt(value, radix || 10);
+    return NaN;
 }
 
 function toString(value:any,radix:number){
