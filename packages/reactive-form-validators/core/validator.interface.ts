@@ -26,7 +26,7 @@ export interface InstanceContainer {
         disabled: ControlInfo;
         error: ControlInfo;
     },
-    sanitizers?: { [key: string]: string[] }
+    sanitizers?: { [key: string]: DataSanitizer[] }
 }
 
 export interface PropertyInfo {
@@ -40,5 +40,10 @@ export interface PropertyInfo {
 export interface ControlInfo {
     conditionalExpressions?: { [key: string]: Function },
     changeDetection?: { [key: string]: string[] }
+}
+
+export interface DataSanitizer{
+    name:string;
+    config:any;
 }
 

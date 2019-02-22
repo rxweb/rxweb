@@ -114,8 +114,8 @@ export class BaseFormBuilder {
 
     protected sanitizeValue(instanceContainer:InstanceContainer,propertyName:string,value:any) {
         if (instanceContainer.sanitizers && instanceContainer.sanitizers[propertyName]) {
-            for (let sanitizeName of instanceContainer.sanitizers[propertyName])
-                value = SANITIZERS[sanitizeName](value);
+            for (let sanitizer of instanceContainer.sanitizers[propertyName])
+                value = SANITIZERS[sanitizer.name](value,sanitizer.config);
         }
         return value;
     }

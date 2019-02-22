@@ -3,5 +3,14 @@ export const DECORATORS:{[key:string]:string} = {
     error: 'error',
     trim:'trim',
     ltrim:'ltrim',
-    rtrim:'rtrim'
+    rtrim:'rtrim',
+    blacklist:'blacklist',
+    stripLow:'stripLow',
+    toBoolean:'toBoolean',
+    toDate:'toDate',
+    toDouble:'toDouble',
+    toFloat:'toFloat',
+    toInt:'toInt',
+    string:'toString',
+    whitelist:'whitelist'
 }

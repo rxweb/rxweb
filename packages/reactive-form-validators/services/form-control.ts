@@ -7,7 +7,7 @@ import { RXCODE } from "../const/app.const"
 import { DECORATORS } from "../const/decorators.const";
 import { defaultContainer } from "../core/defaultContainer";
 import { SANITIZERS } from "../util/sanitizers"
-
+import { DataSanitizer } from '../core/validator.interface'
 export class RxFormControl extends FormControl {
     private keyName: string;
     private _errorMessage: string;
@@ -40,7 +40,7 @@ export class RxFormControl extends FormControl {
                 return undefined;
         return this._errorMessage;
     }
-    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string,private _sanitizers:string[]) {
+    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string,private _sanitizers:DataSanitizer[]) {
         super(formState, validator, asyncValidator)
         this.keyName = controlName;
     }
@@ -93,8 +93,8 @@ export class RxFormControl extends FormControl {
 
     private getSanitizedValue(value:any) {
         if (this._sanitizers) {
-            for (let sanitizeName of this._sanitizers) {
-                value = SANITIZERS[sanitizeName](value);
+            for (let sanitizer of this._sanitizers) {
+                value = SANITIZERS[sanitizer.name](value,sanitizer.config);
             }
         }
         return value;

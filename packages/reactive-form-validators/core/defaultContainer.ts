@@ -17,7 +17,7 @@ export const defaultContainer:
         setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string): void,
         addDecoratorConfig(target: any, parameterIndex: any, propertyKey: string, config: any,decoratorType:string):void,
         setLogicalConditional(instance: any, annotationType: string, fieldName: string, propertyName: string): void,
-        addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string):void
+        addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string,value?:any):void
     } = new (class {
         private instances: InstanceContainer[] = [];
         modelIncrementCount:number = 0;
@@ -35,12 +35,12 @@ export const defaultContainer:
             return instance;
         }
 
-        addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string) {
+        addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string,value?:any) {
             let instance = this.getInstance(target, parameterIndex, propertyKey, decoratorType);
             if (instance) {
                 if (!instance.sanitizers[propertyKey])
                     instance.sanitizers[propertyKey] = [];
-                instance.sanitizers[propertyKey].push(decoratorType);
+                instance.sanitizers[propertyKey].push({name:decoratorType,config:value});
             }
         }
 
