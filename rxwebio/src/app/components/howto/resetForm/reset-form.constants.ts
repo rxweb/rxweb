@@ -1,5 +1,6 @@
-import { ResetCompleteValidatorComponent } from "src/assets/examples/how-to/validators/resetForm/complete/reset-complete.component";
-import { ResetCompleteComponent } from "src/assets/examples/how-to/decorators/resetForm/complete/reset-complete.component";
+import { ResetCompleteValidatorComponent } from "src/assets/examples/howto/validators/resetForm/complete/reset-complete.component";
+import { ResetCompleteComponent } from "src/assets/examples/howto/decorators/resetForm/complete/reset-complete.component";
+
 
 
 

@@ -7,9 +7,9 @@ import { User } from './user.model';
 
 @Component({
     selector: 'app-disable-add',
-    templateUrl: './disableDecorator-add.component.html'
+    templateUrl: './disableControlConditionally-add.component.html'
 })
-export class DisableDecoratorAddComponent implements OnInit {
+export class DisableControlConditionallyDecoratorAddComponent implements OnInit {
     currentMode :string = "View"
     userFormGroup: FormGroup
 

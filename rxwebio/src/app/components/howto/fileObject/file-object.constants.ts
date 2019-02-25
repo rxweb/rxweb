@@ -1,5 +1,5 @@
-import { FileObjectValidatorComponent } from "src/assets/examples/how-to/validators/fileObject/complete/fileObject-complete.component";
-import { FileObjectCompleteComponent } from "src/assets/examples/how-to/decorators/fileObject/complete/fileObject-complete.component";
+import { FileObjectValidatorComponent } from "src/assets/examples/howto/validators/fileObject/complete/fileObject-complete.component";
+import { FileObjectCompleteComponent } from "src/assets/examples/howto/decorators/fileObject/complete/fileObject-complete.component";
 
 
 

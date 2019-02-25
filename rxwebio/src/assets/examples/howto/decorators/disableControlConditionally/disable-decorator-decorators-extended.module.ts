@@ -3,7 +3,8 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { DisableDecoratorAddComponent } from './add/disableDecorator-add.component';
+import { DisableControlConditionallyDecoratorAddComponent } from './add/disableControlConditionally-add.component';
+
 
 
 
@@ -11,10 +12,10 @@ import { DisableDecoratorAddComponent } from './add/disableDecorator-add.compone
 
 @NgModule({
   declarations: [
-    DisableDecoratorAddComponent
+    DisableControlConditionallyDecoratorAddComponent
   ],
 entryComponents: [
-	DisableDecoratorAddComponent
+	DisableControlConditionallyDecoratorAddComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -23,7 +24,7 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-	DisableDecoratorAddComponent
+    DisableControlConditionallyDecoratorAddComponent
   ],
 
 })

@@ -1,5 +1,6 @@
-import { FormDataValidatorComponent } from "src/assets/examples/how-to/validators/formData/complete/form-data.component";
-import { FormDataComponent } from "src/assets/examples/how-to/decorators/formData/complete/form-data.component";
+import { FormDataValidatorComponent } from "src/assets/examples/howto/validators/formData/complete/form-data.component";
+import { FormDataComponent } from "src/assets/examples/howto/decorators/formData/complete/form-data.component";
+
 
 
 
