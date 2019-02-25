@@ -10,9 +10,8 @@ import { MIN_NUMBER_ROUTING } from "src/app/components/form-validation/minNumber
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [MIN_NUMBER_ROUTING ,MinNumberDecoratorsExtendedModule , MinNumberValidatorsExtendedModule ,MinNumberTemplateDrivenValidationDirectivesExtendedModule, MinNumberTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [MIN_NUMBER_ROUTING ,MinNumberDecoratorsExtendedModule , MinNumberValidatorsExtendedModule ,MinNumberTemplateDrivenValidationDirectivesExtendedModule, MinNumberTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: MIN_NUMBER_COMPONENT_EXAMPLE_CONSTANT }]
   })

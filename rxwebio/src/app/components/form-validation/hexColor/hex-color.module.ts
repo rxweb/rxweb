@@ -10,9 +10,8 @@ import { HEX_COLOR_ROUTING } from "src/app/components/form-validation/hexColor/h
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [HEX_COLOR_ROUTING ,HexColorDecoratorsExtendedModule , HexColorValidatorsExtendedModule ,HexColorTemplateDrivenValidationDirectivesExtendedModule, HexColorTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [HEX_COLOR_ROUTING ,HexColorDecoratorsExtendedModule , HexColorValidatorsExtendedModule ,HexColorTemplateDrivenValidationDirectivesExtendedModule, HexColorTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: HEX_COLOR_COMPONENT_EXAMPLE_CONSTANT }]
   })

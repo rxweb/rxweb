@@ -10,9 +10,8 @@ import { ENDS_WITH_ROUTING } from "src/app/components/form-validation/endsWith/e
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [ENDS_WITH_ROUTING ,EndsWithDecoratorsExtendedModule , EndsWithValidatorsExtendedModule ,EndsWithTemplateDrivenValidationDirectivesExtendedModule, EndsWithTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [ENDS_WITH_ROUTING ,EndsWithDecoratorsExtendedModule , EndsWithValidatorsExtendedModule ,EndsWithTemplateDrivenValidationDirectivesExtendedModule, EndsWithTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: ENDS_WITH_COMPONENT_EXAMPLE_CONSTANT }]
   })

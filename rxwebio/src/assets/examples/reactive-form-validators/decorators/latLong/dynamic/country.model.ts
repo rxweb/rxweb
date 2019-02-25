@@ -1,4 +1,4 @@
-import {  latLong,prop, } from "@rxweb/reactive-form-validators"
+import {  latLong,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class Country {
 

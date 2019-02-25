@@ -19,10 +19,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './ascii/ascii.module#AsciiModule',
 },
 {
-	path:'async',
-	loadChildren: './async/async.module#AsyncModule',
-},
-{
 	path:'choice',
 	loadChildren: './choice/choice.module#ChoiceModule',
 },
@@ -43,16 +39,8 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './creditCard/credit-card.module#CreditCardModule',
 },
 {
-	path:'cusip',
-	loadChildren: './cusip/cusip.module#CusipModule',
-},
-{
 	path:'dataUri',
 	loadChildren: './dataUri/data-uri.module#DataUriModule',
-},
-{
-	path:'date',
-	loadChildren: './date/date.module#DateModule',
 },
 {
 	path:'different',
@@ -107,12 +95,12 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './hexColor/hex-color.module#HexColorModule',
 },
 {
-	path:'image',
-	loadChildren: './image/image.module#ImageModule',
-},
-{
 	path:'ip',
 	loadChildren: './ip/ip.module#IpModule',
+},
+{
+	path:'image',
+	loadChildren: './image/image.module#ImageModule',
 },
 {
 	path:'json',
@@ -215,10 +203,6 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './required/required.module#RequiredModule',
 },
 {
-	path:'rule',
-	loadChildren: './rule/rule.module#RuleModule',
-},
-{
 	path:'fileSize',
 	loadChildren: './fileSize/file-size.module#FileSizeModule',
 },
@@ -229,6 +213,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'time',
 	loadChildren: './time/time.module#TimeModule',
+},
+{
+	path:'unique',
+	loadChildren: './unique/unique.module#UniqueModule',
 },
 {
 	path:'upperCase',

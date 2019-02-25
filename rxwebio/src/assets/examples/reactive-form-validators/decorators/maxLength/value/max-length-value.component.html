@@ -4,7 +4,7 @@
       <label>First Name</label>
       <input type="text" formControlName="firstName" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Middle Name' or 'Last name', then you need to add 'First Name' input as 'Bharat'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstName.errors">{{userFormGroup.controls.firstName.errors.maxLength?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstName.errors">{{userFormGroup.controls.firstName.errors.maxLength.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

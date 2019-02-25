@@ -1,4 +1,4 @@
-import {  maxLength,prop, } from "@rxweb/reactive-form-validators"
+import {  maxLength,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 

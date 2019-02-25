@@ -10,9 +10,8 @@ import { LATITUDE_ROUTING } from "src/app/components/form-validation/latitude/la
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [LATITUDE_ROUTING ,LatitudeDecoratorsExtendedModule , LatitudeValidatorsExtendedModule ,LatitudeTemplateDrivenValidationDirectivesExtendedModule, LatitudeTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [LATITUDE_ROUTING ,LatitudeDecoratorsExtendedModule , LatitudeValidatorsExtendedModule ,LatitudeTemplateDrivenValidationDirectivesExtendedModule, LatitudeTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: LATITUDE_COMPONENT_EXAMPLE_CONSTANT }]
   })

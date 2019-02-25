@@ -10,9 +10,8 @@ import { UPPER_CASE_ROUTING } from "src/app/components/form-validation/upperCase
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [UPPER_CASE_ROUTING ,UpperCaseDecoratorsExtendedModule , UpperCaseValidatorsExtendedModule ,UpperCaseTemplateDrivenValidationDirectivesExtendedModule, UpperCaseTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [UPPER_CASE_ROUTING ,UpperCaseDecoratorsExtendedModule , UpperCaseValidatorsExtendedModule ,UpperCaseTemplateDrivenValidationDirectivesExtendedModule, UpperCaseTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: UPPER_CASE_COMPONENT_EXAMPLE_CONSTANT }]
   })

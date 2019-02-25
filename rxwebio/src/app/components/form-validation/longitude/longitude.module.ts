@@ -10,9 +10,8 @@ import { LONGITUDE_ROUTING } from "src/app/components/form-validation/longitude/
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [LONGITUDE_ROUTING ,LongitudeDecoratorsExtendedModule , LongitudeValidatorsExtendedModule ,LongitudeTemplateDrivenValidationDirectivesExtendedModule, LongitudeTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [LONGITUDE_ROUTING ,LongitudeDecoratorsExtendedModule , LongitudeValidatorsExtendedModule ,LongitudeTemplateDrivenValidationDirectivesExtendedModule, LongitudeTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: LONGITUDE_COMPONENT_EXAMPLE_CONSTANT }]
   })

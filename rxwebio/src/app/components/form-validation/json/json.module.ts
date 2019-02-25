@@ -10,9 +10,8 @@ import { JSON_ROUTING } from "src/app/components/form-validation/json/json.routi
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [JSON_ROUTING ,JsonDecoratorsExtendedModule , JsonValidatorsExtendedModule ,JsonTemplateDrivenValidationDirectivesExtendedModule, JsonTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [JSON_ROUTING ,JsonDecoratorsExtendedModule , JsonValidatorsExtendedModule ,JsonTemplateDrivenValidationDirectivesExtendedModule, JsonTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: JSON_COMPONENT_EXAMPLE_CONSTANT }]
   })

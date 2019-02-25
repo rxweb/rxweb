@@ -1,4 +1,4 @@
-import {  even,prop, } from "@rxweb/reactive-form-validators"
+import {  even,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 
@@ -8,9 +8,15 @@ export class User {
 	//If you want to apply conditional expression of type 'string'
 	@even({conditionalExpression:'x => x.type == "Even"' }) 
 	evenNumber: number;
+	
+	
+	
 
 	//If you want to apply conditional expression of type 'function'
 	@even({conditionalExpression:(x,y) => x.type == "Even"  }) 
 	number: number;
+	
+	
+	
 
 }

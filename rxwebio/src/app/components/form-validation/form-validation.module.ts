@@ -4,9 +4,8 @@ import { FORM_VALIDATION_ROUTING } from "src/app/components/form-validation/form
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [FORM_VALIDATION_ROUTING ,PageModule],
+  imports: [FORM_VALIDATION_ROUTING ,PageModule,],
   exports: [RouterModule],
   })
 export class FormValidationModule { }

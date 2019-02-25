@@ -1,4 +1,4 @@
-import {  minNumber,prop, } from "@rxweb/reactive-form-validators"
+import {  minNumber,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class ResultInfo {
 

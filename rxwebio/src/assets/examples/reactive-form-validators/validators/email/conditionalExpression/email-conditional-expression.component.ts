@@ -16,8 +16,8 @@ export class EmailConditionalExpressionValidatorComponent implements OnInit {
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
             email:['', RxwebValidators.email()], 
-            businessEmailAddress:['', RxwebValidators.email({conditionalExpression:'x => x.email =="bharat.patel@gmail.com"' })], 
-            recoveryEmailAddress:['', RxwebValidators.email({conditionalExpression:(x,y) => x.email == "bharat.patel@gmail.com"  })], 
+            businessEmailAddress:['', RxwebValidators.email({conditionalExpression:'x => x.email =="abc@gmail.com"' })], 
+            recoveryEmailAddress:['', RxwebValidators.email({conditionalExpression:(x,y) => x.email == "abc@gmail.com"  })], 
         });
     }
 }

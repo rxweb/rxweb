@@ -1,4 +1,4 @@
-import {  different,prop, } from "@rxweb/reactive-form-validators"
+import {  different,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class AccountInfo {
 

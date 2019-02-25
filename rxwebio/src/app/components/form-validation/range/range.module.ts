@@ -10,9 +10,8 @@ import { RANGE_ROUTING } from "src/app/components/form-validation/range/range.ro
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [RANGE_ROUTING ,RangeDecoratorsExtendedModule , RangeValidatorsExtendedModule ,RangeTemplateDrivenValidationDirectivesExtendedModule, RangeTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [RANGE_ROUTING ,RangeDecoratorsExtendedModule , RangeValidatorsExtendedModule ,RangeTemplateDrivenValidationDirectivesExtendedModule, RangeTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: RANGE_COMPONENT_EXAMPLE_CONSTANT }]
   })

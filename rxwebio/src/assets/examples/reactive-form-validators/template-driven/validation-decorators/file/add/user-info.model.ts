@@ -1,11 +1,17 @@
-import {  file, } from "@rxweb/reactive-form-validators"
+import {  file, } from   "@rxweb/reactive-form-validators"   
 
 export class UserInfo {
 
 	@file({maxFiles:5 }) 
 	totalImageFiles: number;
+	
+	
+	
 
 	@file({minFiles:5 }) 
 	totalDocumentFiles: number;
+	
+	
+	
 
 }

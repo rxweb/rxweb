@@ -10,9 +10,8 @@ import { CONTAINS_ROUTING } from "src/app/components/form-validation/contains/co
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [CONTAINS_ROUTING ,ContainsDecoratorsExtendedModule , ContainsValidatorsExtendedModule ,ContainsTemplateDrivenValidationDirectivesExtendedModule, ContainsTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [CONTAINS_ROUTING ,ContainsDecoratorsExtendedModule , ContainsValidatorsExtendedModule ,ContainsTemplateDrivenValidationDirectivesExtendedModule, ContainsTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: CONTAINS_COMPONENT_EXAMPLE_CONSTANT }]
   })

@@ -4,7 +4,7 @@
       <label>Decimal Number</label>
       <input type="text" formControlName="decimalNumber" class="form-control"  />
       <small class="form-text text-muted">you can enter only a positive decimal number<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.decimalNumber.errors">{{userInfoFormGroup.controls.decimalNumber.errors.numeric?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.decimalNumber.errors">{{userInfoFormGroup.controls.decimalNumber.errors.numeric.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

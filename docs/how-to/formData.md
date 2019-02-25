@@ -3,7 +3,7 @@ title: Post as FormData of Reactive Form value
 author: rxcontributorone
 category: how-to
 type:tabs
-linktitle: Post as FormData of Reactive Form value
+linktitle: formData
 ---
 
 As we are working large enterprise service oriented applications, There may need to post the data object as FormData instead of JSON.

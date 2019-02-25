@@ -1,8 +1,11 @@
-import {  url, } from "@rxweb/reactive-form-validators"
+import {  url, } from   "@rxweb/reactive-form-validators"   
 
 export class WebSiteInfoModel {
 
 	@url() 
 	adminWebsiteUrl: string;
+	
+	
+	
 
 }

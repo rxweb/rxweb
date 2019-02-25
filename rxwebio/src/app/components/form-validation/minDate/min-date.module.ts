@@ -10,9 +10,8 @@ import { MIN_DATE_ROUTING } from "src/app/components/form-validation/minDate/min
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [MIN_DATE_ROUTING ,MinDateDecoratorsExtendedModule , MinDateValidatorsExtendedModule ,MinDateTemplateDrivenValidationDirectivesExtendedModule, MinDateTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [MIN_DATE_ROUTING ,MinDateDecoratorsExtendedModule , MinDateValidatorsExtendedModule ,MinDateTemplateDrivenValidationDirectivesExtendedModule, MinDateTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: MIN_DATE_COMPONENT_EXAMPLE_CONSTANT }]
   })

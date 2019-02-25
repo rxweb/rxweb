@@ -10,9 +10,8 @@ import { DATA_URI_ROUTING } from "src/app/components/form-validation/dataUri/dat
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [DATA_URI_ROUTING ,DataUriDecoratorsExtendedModule , DataUriValidatorsExtendedModule ,DataUriTemplateDrivenValidationDirectivesExtendedModule, DataUriTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [DATA_URI_ROUTING ,DataUriDecoratorsExtendedModule , DataUriValidatorsExtendedModule ,DataUriTemplateDrivenValidationDirectivesExtendedModule, DataUriTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: DATA_URI_COMPONENT_EXAMPLE_CONSTANT }]
   })

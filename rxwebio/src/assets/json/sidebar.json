@@ -382,6 +382,75 @@
           "isActive": false
         }          
       ]
+    },
+    {
+      "title": "Sanitization",
+      "uri": null,
+      "otherUri":"sanitization",
+      "isOpen": false,
+      "isActive": false,
+      "childrens":[
+        {
+          "title":"blacklist",
+          "uri":"/sanitization/blacklist/decorators",
+          "isActive": false
+        },
+        {
+          "title":"ltrim",
+          "uri":"/sanitization/ltrim/decorators",
+          "isActive": false
+        },
+        {
+          "title":"rtrim",
+          "uri":"/sanitization/rtrim/decorators",
+          "isActive": false
+        },
+        {
+          "title":"stripLow",
+          "uri":"/sanitization/stripLow/decorators",
+          "isActive": false
+        },
+        {
+          "title":"toBoolean",
+          "uri":"/sanitization/toBoolean/decorators",
+          "isActive": false
+        },
+        {
+          "title":"toDate",
+          "uri":"/sanitization/toDate/decorators",
+          "isActive": false
+        },
+        {
+          "title":"toDouble",
+          "uri":"/sanitization/toDouble/decorators",
+          "isActive": false
+        },
+        {
+          "title":"toFloat",
+          "uri":"/sanitization/toFloat/decorators",
+          "isActive": false
+        },
+        {
+          "title":"toInt",
+          "uri":"/sanitization/toInt/decorators",
+          "isActive": false
+        },
+        {
+          "title":"toString",
+          "uri":"/sanitization/toString/decorators",
+          "isActive": false
+        },
+        {
+          "title":"trim",
+          "uri":"/sanitization/trim/decorators",
+          "isActive": false
+        },
+        {
+          "title":"whitelist",
+          "uri":"/sanitization/whitelist/decorators",
+          "isActive": false
+        }
+      ]
     }
   ]
 }

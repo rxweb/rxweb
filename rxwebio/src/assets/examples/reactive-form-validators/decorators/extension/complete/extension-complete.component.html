@@ -6,33 +6,33 @@
 		<option [value]="item" *ngFor="let item of fileTypes">{{item}}</option>
       </select>
       <small class="form-text text-muted">Based on selection of file type conditional validation is applied<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.fileType.errors">{{userInfoFormGroup.controls.fileType.errors.extension?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.fileType.errors">{{userInfoFormGroup.controls.fileType.errors.extension.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Profile Picture</label>
       <input type="file" formControlName="profilePicture" class="form-control"  />
       <small class="form-text text-muted">This field only allow file extension as jpg or bmp only.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePicture.errors">{{userInfoFormGroup.controls.profilePicture.errors.extension?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.profilePicture.errors">{{userInfoFormGroup.controls.profilePicture.errors.extension.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Image File</label>
       <input type="file" formControlName="imageFile" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Image File' then you need to add 'File Type' input as 'Picture'.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.imageFile.errors">{{userInfoFormGroup.controls.imageFile.errors.extension?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.imageFile.errors">{{userInfoFormGroup.controls.imageFile.errors.extension.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Document File</label>
       <input type="file" formControlName="documentFile" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Document File' then you need to add 'File Type' input as 'Document'.<br/></small>
       <small class="form-text text-muted">It allow only doc or docx<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.documentFile.errors">{{userInfoFormGroup.controls.documentFile.errors.extension?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.documentFile.errors">{{userInfoFormGroup.controls.documentFile.errors.extension.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Contact File</label>
       <input type="file" formControlName="contactFile" class="form-control"  />
       <small class="form-text text-muted">This field only allow file extension as .vcf files.<br/></small>
       <small class="form-text text-muted">It shows custom message<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.contactFile.errors">{{userInfoFormGroup.controls.contactFile.errors.extension?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.contactFile.errors">{{userInfoFormGroup.controls.contactFile.errors.extension.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

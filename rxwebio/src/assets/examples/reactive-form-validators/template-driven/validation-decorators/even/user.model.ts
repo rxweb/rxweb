@@ -1,8 +1,11 @@
-import {  even, } from "@rxweb/reactive-form-validators"
+import {  even, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 
 	@even() 
 	evenNumber: number;
+	
+	
+	
 
 }

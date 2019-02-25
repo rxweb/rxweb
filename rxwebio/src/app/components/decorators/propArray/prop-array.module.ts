@@ -7,9 +7,8 @@ import { PROP_ARRAY_ROUTING } from "src/app/components/decorators/propArray/prop
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [PROP_ARRAY_ROUTING ,DecoratorsExtendedModule,PageModule],
+  imports: [PROP_ARRAY_ROUTING ,DecoratorsExtendedModule,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: PROP_ARRAY_COMPONENT_EXAMPLE_CONSTANT }]
   })

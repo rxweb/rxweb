@@ -1,4 +1,4 @@
-import {  lessThanEqualTo,prop, } from "@rxweb/reactive-form-validators"
+import {  lessThanEqualTo,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 
@@ -7,5 +7,8 @@ export class User {
 
 	@lessThanEqualTo({fieldName:'totalMarks' }) 
 	marks: number;
+	
+	
+	
 
 }

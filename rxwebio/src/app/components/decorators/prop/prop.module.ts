@@ -7,9 +7,8 @@ import { PROP_ROUTING } from "src/app/components/decorators/prop/prop.routing";
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [PROP_ROUTING ,DecoratorsExtendedModule,PageModule],
+  imports: [PROP_ROUTING ,DecoratorsExtendedModule,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: PROP_COMPONENT_EXAMPLE_CONSTANT }]
   })

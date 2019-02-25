@@ -7,9 +7,8 @@ import { IP_ROUTING } from "src/app/components/form-validation/ip/ip.routing";
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [IP_ROUTING , IpValidatorsExtendedModule ,PageModule],
+  imports: [IP_ROUTING , IpValidatorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: IP_COMPONENT_EXAMPLE_CONSTANT }]
   })

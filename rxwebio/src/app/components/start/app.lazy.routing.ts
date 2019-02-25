@@ -7,6 +7,7 @@ import { GettingStartedComponent } from "src/app/components/getting-started/gett
 import { ReactiveFormConfigComponent } from "../reactive-form-config/reactive-form-config.component";
 import { FormBuilderComponent } from "../form-builder/form-builder.component";
 import { ConditionalValidationComponent } from "src/assets/examples/advance-form-validations/conditional-validation/conditional-validation.component";
+import { TextPageComponent } from "../text-page/text-page.component";
 
 
 
@@ -24,11 +25,15 @@ const APP_LAZY_ROUTES: Routes = [
     path: 'getting-started', component: GettingStartedComponent
   },
   {
+    path: 'changelog', component: TextPageComponent
+    //loadChildren: 'src/app/components/text-page/text-page.module#TextPageModule',
+  },
+  {
     path:'api/reactive-form-config',component:ReactiveFormConfigComponent
   },
   {
     path:'how-to',
-    loadChildren: 'src/app/components/how-to/how-to.module#HowtoModule',
+    loadChildren: 'src/app/components/howto/howto.module#HowtoModule',
   },
   {
     path: 'advance-form-validation',
@@ -53,6 +58,10 @@ const APP_LAZY_ROUTES: Routes = [
   {
     path: 'dynamic-form-builder',
     loadChildren: 'src/app/components/dynamic-form-builder/dynamic-form-builder.module#DynamicFormBuilderModule',
+  },
+  {
+    path:'sanitization',
+    loadChildren: 'src/app/components/sanitization/sanitization.module#SanitizationModule',
   },
   {
     path: '**', 

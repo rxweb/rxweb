@@ -1,4 +1,4 @@
-import {  url,prop, } from "@rxweb/reactive-form-validators"
+import {  url,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 

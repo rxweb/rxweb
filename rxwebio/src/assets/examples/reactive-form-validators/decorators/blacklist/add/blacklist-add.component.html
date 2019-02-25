@@ -1,0 +1,10 @@
+<div>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Free Text</label>
+      <input type="text" formControlName="freeText" class="form-control"  />
+      Transformed Value : {{userFormGroup.value.freeText}}
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,8 +1,11 @@
-import {  lessThanEqualTo, } from "@rxweb/reactive-form-validators"
+import {  lessThanEqualTo, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 
 	@lessThanEqualTo({fieldName:'totalMarks'  ,message:'Please enter number less than 100.' }) 
 	otherMarks: number;
+	
+	
+	
 
 }

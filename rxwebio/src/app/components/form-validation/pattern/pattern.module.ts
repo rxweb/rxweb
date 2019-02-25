@@ -10,9 +10,8 @@ import { PATTERN_ROUTING } from "src/app/components/form-validation/pattern/patt
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [PATTERN_ROUTING ,PatternDecoratorsExtendedModule , PatternValidatorsExtendedModule ,PatternTemplateDrivenValidationDirectivesExtendedModule, PatternTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [PATTERN_ROUTING ,PatternDecoratorsExtendedModule , PatternValidatorsExtendedModule ,PatternTemplateDrivenValidationDirectivesExtendedModule, PatternTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: PATTERN_COMPONENT_EXAMPLE_CONSTANT }]
   })

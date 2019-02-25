@@ -10,9 +10,8 @@ import { REQUIRED_ROUTING } from "src/app/components/form-validation/required/re
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [REQUIRED_ROUTING ,RequiredDecoratorsExtendedModule , RequiredValidatorsExtendedModule ,RequiredTemplateDrivenValidationDirectivesExtendedModule, RequiredTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [REQUIRED_ROUTING ,RequiredDecoratorsExtendedModule , RequiredValidatorsExtendedModule ,RequiredTemplateDrivenValidationDirectivesExtendedModule, RequiredTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: REQUIRED_COMPONENT_EXAMPLE_CONSTANT }]
   })

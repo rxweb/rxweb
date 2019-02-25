@@ -10,9 +10,8 @@ import { URL_ROUTING } from "src/app/components/form-validation/url/url.routing"
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [URL_ROUTING ,UrlDecoratorsExtendedModule , UrlValidatorsExtendedModule ,UrlTemplateDrivenValidationDirectivesExtendedModule, UrlTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [URL_ROUTING ,UrlDecoratorsExtendedModule , UrlValidatorsExtendedModule ,UrlTemplateDrivenValidationDirectivesExtendedModule, UrlTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: URL_COMPONENT_EXAMPLE_CONSTANT }]
   })

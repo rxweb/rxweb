@@ -5,7 +5,7 @@
       <input type="text" formControlName="science" class="form-control"  />
       <small class="form-text text-muted">Shows Custom Validation Message<br/></small>
       <small class="form-text text-muted">you can enter min number upto 35<br/></small>
-	 <small class="form-text text-danger" *ngIf="resultInfoFormGroup.controls.science.errors">{{resultInfoFormGroup.controls.science.errors.minNumber?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="resultInfoFormGroup.controls.science.errors">{{resultInfoFormGroup.controls.science.errors.minNumber.message}}<br/></small>	
     </div>
     <button [disabled]="!resultInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

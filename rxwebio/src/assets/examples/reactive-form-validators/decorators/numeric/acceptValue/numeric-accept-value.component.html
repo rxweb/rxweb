@@ -4,7 +4,7 @@
       <label>Negative Number</label>
       <input type="text" formControlName="negativeNumber" class="form-control"  />
       <small class="form-text text-muted">you can enter only a negative number<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.negativeNumber.errors">{{userInfoFormGroup.controls.negativeNumber.errors.numeric?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.negativeNumber.errors">{{userInfoFormGroup.controls.negativeNumber.errors.numeric.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

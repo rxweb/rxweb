@@ -7,9 +7,8 @@ import { COMPOSE_ROUTING } from "src/app/components/form-validation/compose/comp
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [COMPOSE_ROUTING , ComposeValidatorsExtendedModule ,PageModule],
+  imports: [COMPOSE_ROUTING , ComposeValidatorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: COMPOSE_COMPONENT_EXAMPLE_CONSTANT }]
   })

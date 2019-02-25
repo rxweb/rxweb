@@ -10,9 +10,8 @@ import { LAT_LONG_ROUTING } from "src/app/components/form-validation/latLong/lat
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [LAT_LONG_ROUTING ,LatLongDecoratorsExtendedModule , LatLongValidatorsExtendedModule ,LatLongTemplateDrivenValidationDirectivesExtendedModule, LatLongTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [LAT_LONG_ROUTING ,LatLongDecoratorsExtendedModule , LatLongValidatorsExtendedModule ,LatLongTemplateDrivenValidationDirectivesExtendedModule, LatLongTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: LAT_LONG_COMPONENT_EXAMPLE_CONSTANT }]
   })

@@ -10,9 +10,8 @@ import { DIGIT_ROUTING } from "src/app/components/form-validation/digit/digit.ro
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [DIGIT_ROUTING ,DigitDecoratorsExtendedModule , DigitValidatorsExtendedModule ,DigitTemplateDrivenValidationDirectivesExtendedModule, DigitTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [DIGIT_ROUTING ,DigitDecoratorsExtendedModule , DigitValidatorsExtendedModule ,DigitTemplateDrivenValidationDirectivesExtendedModule, DigitTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: DIGIT_COMPONENT_EXAMPLE_CONSTANT }]
   })

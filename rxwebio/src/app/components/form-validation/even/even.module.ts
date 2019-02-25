@@ -10,9 +10,8 @@ import { EVEN_ROUTING } from "src/app/components/form-validation/even/even.routi
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [EVEN_ROUTING ,EvenDecoratorsExtendedModule , EvenValidatorsExtendedModule ,EvenTemplateDrivenValidationDirectivesExtendedModule, EvenTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [EVEN_ROUTING ,EvenDecoratorsExtendedModule , EvenValidatorsExtendedModule ,EvenTemplateDrivenValidationDirectivesExtendedModule, EvenTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: EVEN_COMPONENT_EXAMPLE_CONSTANT }]
   })

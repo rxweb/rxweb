@@ -10,9 +10,8 @@ import { COMPARE_ROUTING } from "src/app/components/form-validation/compare/comp
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [COMPARE_ROUTING ,CompareDecoratorsExtendedModule , CompareValidatorsExtendedModule ,CompareTemplateDrivenValidationDirectivesExtendedModule, CompareTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [COMPARE_ROUTING ,CompareDecoratorsExtendedModule , CompareValidatorsExtendedModule ,CompareTemplateDrivenValidationDirectivesExtendedModule, CompareTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: COMPARE_COMPONENT_EXAMPLE_CONSTANT }]
   })

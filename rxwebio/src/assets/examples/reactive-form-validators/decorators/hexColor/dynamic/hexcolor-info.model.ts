@@ -1,4 +1,4 @@
-import {  hexColor,prop, } from "@rxweb/reactive-form-validators"
+import {  hexColor,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class HexcolorInfo {
 

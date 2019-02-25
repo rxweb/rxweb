@@ -22,7 +22,6 @@ export class MinDateCompleteValidatorComponent implements OnInit {
             registrationDate:['', RxwebValidators.minDate({value:'07/30/2018'  ,message:'{{0}} exceeds the Minimum Date Limit' })], 
             enrollmentDate:['',], 
             lastRegistrationDate:['', RxwebValidators.minDate({fieldName:'enrollmentDate' })], 
-            confirmationDate:['', RxwebValidators.minDate({fieldName:'enrollmentDate'  ,operator:'>' })], 
         });
     }
 }

@@ -1,4 +1,4 @@
-import {  extension,prop, } from "@rxweb/reactive-form-validators"
+import {  extension,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class UserInfo {
 
@@ -7,14 +7,26 @@ export class UserInfo {
 
 	@extension({extensions:['jpg','bmp'] }) 
 	profilePicture: string;
+	
+	
+	
 
 	@extension({extensions:['jpg','bmp']  ,conditionalExpression:'x => x.fileType == "Picture"' }) 
 	imageFile: string;
+	
+	
+	
 
 	@extension({extensions:['doc','docx']  ,conditionalExpression:'(x,y) => x.fileType == "Document"' }) 
 	documentFile: string;
+	
+	
+	
 
 	@extension({extensions:['vcf']  ,message:'You can upload only .vcf files.' }) 
 	contactFile: string;
+	
+	
+	
 
 }

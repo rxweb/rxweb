@@ -22,7 +22,6 @@ export class MaxDateCompleteValidatorComponent implements OnInit {
             registrationDate:['', RxwebValidators.maxDate({value:'07/30/2018'  ,message:'{{0}} exceeds the Maximum Date Limit' })], 
             enrollmentDate:['',], 
             lastRegistrationDate:['', RxwebValidators.maxDate({fieldName:'enrollmentDate' })], 
-            confirmationDate:['', RxwebValidators.maxDate({fieldName:'enrollmentDate'  ,operator:'<' })], 
         });
     }
 }

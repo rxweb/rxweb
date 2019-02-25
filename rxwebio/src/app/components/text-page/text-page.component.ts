@@ -28,7 +28,10 @@ export class TextPageComponent implements OnInit {
     this.mainType = splitedArray[1];
     this.validationName = splitedArray[2];
     let codeUri = "";
-    codeUri = 'assets/json/generator/' + this.validationName + '/decorators.json';
+    if(this.validationName !== undefined)
+      codeUri = 'assets/json/generator/' + this.validationName + '/decorators.json';
+    else
+      codeUri = 'assets/json/generator/CHANGELOG/decorators.json';
     this.http.get(codeUri, this.options).subscribe(response => {
         this.codeContent = JSON.parse(response.toString());
         var element = document.getElementById("mainContent")

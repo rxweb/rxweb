@@ -3,7 +3,7 @@ title: Post Image through formData
 author: rxcontributorone
 category: how-to
 type:tabs
-linktitle: Post Image through formData
+linktitle: fileObject
 ---
 
 To pass image data through FormData object to the server, Let's see the below steps, First of all we have to create a FormGroup through RxFormBuilder service that provides a `toFormData()` method, which we can use to convert the JSON value into the FormData. But our need is to pass the image data. So passing the image data we have to set  `writeFile="true"` attribute on the HTMLInputFileElement.

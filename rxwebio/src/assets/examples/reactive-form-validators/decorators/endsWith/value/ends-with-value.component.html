@@ -5,7 +5,7 @@
       <input type="text" formControlName="name" class="form-control"  />
       <small class="form-text text-muted">It should ends with 't'<br/></small>
       <small class="form-text text-muted">If you want to apply conditional validation on 'Profession' or 'Task Id', then you need to add 'name' input as 'Bharat'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.name.errors">{{userFormGroup.controls.name.errors.endsWith?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.name.errors">{{userFormGroup.controls.name.errors.endsWith.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

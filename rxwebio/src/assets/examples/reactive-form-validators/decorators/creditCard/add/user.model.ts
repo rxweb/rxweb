@@ -1,4 +1,4 @@
-import {  creditCard,prop, } from "@rxweb/reactive-form-validators"
+import {  creditCard,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 
@@ -7,5 +7,8 @@ export class User {
 
 	@creditCard({fieldName:'cardType' }) 
 	creditCardNumber: string;
+	
+	
+	
 
 }

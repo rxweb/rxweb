@@ -10,9 +10,8 @@ import { PRIME_NUMBER_ROUTING } from "src/app/components/form-validation/primeNu
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [PRIME_NUMBER_ROUTING ,PrimeNumberDecoratorsExtendedModule , PrimeNumberValidatorsExtendedModule ,PrimeNumberTemplateDrivenValidationDirectivesExtendedModule, PrimeNumberTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [PRIME_NUMBER_ROUTING ,PrimeNumberDecoratorsExtendedModule , PrimeNumberValidatorsExtendedModule ,PrimeNumberTemplateDrivenValidationDirectivesExtendedModule, PrimeNumberTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: PRIME_NUMBER_COMPONENT_EXAMPLE_CONSTANT }]
   })

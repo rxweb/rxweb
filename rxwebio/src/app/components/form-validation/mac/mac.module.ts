@@ -10,9 +10,8 @@ import { MAC_ROUTING } from "src/app/components/form-validation/mac/mac.routing"
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [MAC_ROUTING ,MacDecoratorsExtendedModule , MacValidatorsExtendedModule ,MacTemplateDrivenValidationDirectivesExtendedModule, MacTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [MAC_ROUTING ,MacDecoratorsExtendedModule , MacValidatorsExtendedModule ,MacTemplateDrivenValidationDirectivesExtendedModule, MacTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: MAC_COMPONENT_EXAMPLE_CONSTANT }]
   })

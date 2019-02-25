@@ -10,7 +10,6 @@ import { MinDateValueComponent } from './value/min-date-value.component';
 import { MinDateConditionalExpressionComponent } from './conditionalExpression/min-date-conditional-expression.component';
 import { MinDateMessageComponent } from './message/min-date-message.component';
 import { MinDateFieldNameComponent } from './fieldName/min-date-field-name.component';
-import { MinDateOperatorComponent } from './operator/min-date-operator.component';
 import { MinDateDynamicComponent } from './dynamic/min-date-dynamic.component';
 import { MinDateAddComponent } from './add/min-date-add.component';
 import { MinDateEditComponent } from './edit/min-date-edit.component';
@@ -22,7 +21,6 @@ import { MinDateEditComponent } from './edit/min-date-edit.component';
 	MinDateConditionalExpressionComponent,
 	MinDateMessageComponent,
 	MinDateFieldNameComponent,
-	MinDateOperatorComponent,
 	MinDateDynamicComponent,
 	MinDateAddComponent,
 	MinDateEditComponent,
@@ -33,7 +31,6 @@ entryComponents: [
 	MinDateConditionalExpressionComponent,
 	MinDateMessageComponent,
 	MinDateFieldNameComponent,
-	MinDateOperatorComponent,
 	MinDateDynamicComponent,
 	MinDateAddComponent,
 	MinDateEditComponent,
@@ -50,7 +47,6 @@ entryComponents: [
 	MinDateConditionalExpressionComponent,
 	MinDateMessageComponent,
 	MinDateFieldNameComponent,
-	MinDateOperatorComponent,
 	MinDateDynamicComponent,
 	MinDateAddComponent,
 	MinDateEditComponent,

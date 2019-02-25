@@ -10,9 +10,8 @@ import { NUMERIC_ROUTING } from "src/app/components/form-validation/numeric/nume
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [NUMERIC_ROUTING ,NumericDecoratorsExtendedModule , NumericValidatorsExtendedModule ,NumericTemplateDrivenValidationDirectivesExtendedModule, NumericTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [NUMERIC_ROUTING ,NumericDecoratorsExtendedModule , NumericValidatorsExtendedModule ,NumericTemplateDrivenValidationDirectivesExtendedModule, NumericTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: NUMERIC_COMPONENT_EXAMPLE_CONSTANT }]
   })

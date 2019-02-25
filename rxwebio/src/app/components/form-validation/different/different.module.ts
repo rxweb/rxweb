@@ -10,9 +10,8 @@ import { DIFFERENT_ROUTING } from "src/app/components/form-validation/different/
 import { PageModule } from "src/app/components/page/page.module";
 
 
-
 @NgModule({
-  imports: [DIFFERENT_ROUTING ,DifferentDecoratorsExtendedModule , DifferentValidatorsExtendedModule ,DifferentTemplateDrivenValidationDirectivesExtendedModule, DifferentTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [DIFFERENT_ROUTING ,DifferentDecoratorsExtendedModule , DifferentValidatorsExtendedModule ,DifferentTemplateDrivenValidationDirectivesExtendedModule, DifferentTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: DIFFERENT_COMPONENT_EXAMPLE_CONSTANT }]
   })

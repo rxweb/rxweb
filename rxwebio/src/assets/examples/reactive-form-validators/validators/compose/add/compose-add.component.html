@@ -3,7 +3,7 @@
     <div class="form-group">
       <label>First Name</label>
       <input type="text" formControlName="firstName" class="form-control"  />
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstName.errors">{{userFormGroup.controls.firstName.errors.compose?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstName.errors">{{userFormGroup.controls.firstName.errors.compose.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

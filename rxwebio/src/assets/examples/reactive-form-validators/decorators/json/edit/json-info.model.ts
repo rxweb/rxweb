@@ -1,8 +1,11 @@
-import {  json, } from "@rxweb/reactive-form-validators"
+import {  json, } from   "@rxweb/reactive-form-validators"   
 
 export class JsonInfo {
 
 	@json() 
 	locationJson: string;
+	
+	
+	
 
 }
