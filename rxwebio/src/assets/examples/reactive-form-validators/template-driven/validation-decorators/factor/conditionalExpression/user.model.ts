@@ -10,13 +10,9 @@ export class User {
 	thirdNumber: number;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@factor({fieldName:'firstNumber'  ,conditionalExpression:(x,y) =>x.firstNumber == 25  }) 
 	secondNumber: number;
 	
 	
-	
-
 }

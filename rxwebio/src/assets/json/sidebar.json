@@ -380,6 +380,16 @@
           "title":"Reset Form",
           "uri":"/how-to/resetForm/validators",
           "isActive": false
+        },
+        {
+          "title":"Disabled Control Conditionally",
+          "uri":"/how-to/disableControlConditionally/decorators",
+          "isActive": false
+        }, 
+        {
+          "title":"Conditional Error Messages",
+          "uri":"/how-to/conditionalErrorMessages/decorators",
+          "isActive": false
         }          
       ]
     },

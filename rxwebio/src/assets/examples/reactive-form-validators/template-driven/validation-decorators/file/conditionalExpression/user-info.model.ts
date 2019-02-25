@@ -9,12 +9,8 @@ export class UserInfo {
 	minimumFiles: string;
 	
 	
-	
-
 	@file({maxFiles:5  ,conditionalExpression:'(x,y) => x.fileType == "Document"' }) 
 	maximumFile: string;
 	
 	
-	
-
 }

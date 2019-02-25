@@ -10,13 +10,9 @@ export class UserInfo {
 	realNumber: number;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@numeric({acceptValue:NumericValueType.PositiveNumber  ,conditionalExpression:(x,y) => x.dataType == "Integer"  }) 
 	integerNumber: number;
 	
 	
-	
-
 }

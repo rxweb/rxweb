@@ -1,5 +1,5 @@
 <div>
-  <form #companyinfoForm = "ngForm" [rxwebForm]="companyinfoForm">
+  <form #companyinfoForm = "ngForm" [rxwebForm]="companyinfoForm" [model]="companyinfo">
     <div class="form-group">
       <label>Company Name</label>
       <select name="companyName" [(ngModel)]="companyinfo.companyName"  class="form-control" >

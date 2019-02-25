@@ -9,12 +9,8 @@ export class AccountInfo {
 	lastName: string;
 	
 	
-	
-
 	@different({fieldName:'firstName'  ,message:'{{0}} is same as firstName' }) 
 	middleName: string;
 	
 	
-	
-
 }

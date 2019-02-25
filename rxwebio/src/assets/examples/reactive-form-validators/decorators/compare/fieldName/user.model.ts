@@ -9,6 +9,4 @@ export class User {
 	confirmEmail: string;
 	
 	
-	
-
 }

@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>Allocation Date</label>
 	    <input type="text" name="allocationDate" [(ngModel)]="userinfo.allocationDate"  class="form-control" [date]="{'message':'Allocation Date is not a valid date'}"/>

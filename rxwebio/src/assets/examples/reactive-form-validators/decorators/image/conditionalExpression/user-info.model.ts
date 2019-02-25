@@ -6,12 +6,8 @@ export class UserInfo {
 	aadharCard: string;
 	
 	
-	
-
 	@image({maxHeight:100  ,maxWidth:200  ,conditionalExpression:'(x,y) => x.ImageType == "IdentityCard"' }) 
 	panCard: string;
 	
 	
-	
-
 }

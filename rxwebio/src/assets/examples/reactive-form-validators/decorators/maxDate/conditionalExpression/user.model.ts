@@ -10,13 +10,9 @@ export class User {
 	admissionDate: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@maxDate({value:'07/30/2018'  ,conditionalExpression:(x,y) => x.userName == "Bharat"  }) 
 	birthDate: string;
 	
 	
-	
-
 }

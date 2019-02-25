@@ -10,13 +10,9 @@ export class JsonInfo {
 	locationJson: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@json({conditionalExpression:(x,y)=> x.location == "{CountryName:India}"  }) 
 	addressJson: string;
 	
 	
-	
-
 }

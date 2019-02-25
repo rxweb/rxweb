@@ -10,13 +10,9 @@ export class User {
 	memberAge: number;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@greaterThanEqualTo({fieldName:'admissionAge'  ,conditionalExpression:(x,y) => x.admissionAge >= 18  }) 
 	voterAge: number;
 	
 	
-	
-
 }

@@ -17,6 +17,8 @@ import { HttpHeaders } from "@angular/common/http";
 export class RightSideBarComponent implements OnInit {
     public feedbackForm: FormGroup
     sticky:boolean = false;
+    validationName: string;
+    mainType: string;
     httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
     constructor(
         private http: HttpClient,private formBuilder: RxFormBuilder
@@ -25,7 +27,7 @@ export class RightSideBarComponent implements OnInit {
     @Input('sidebarLinks') sidebarLinks: any = {};
     showComponent: boolean = false;
     contributorList: any = [];
-    gitEditUrl: string = "https://github.com/rxweb/rxweb/edit/master/docs/";
+    gitEditUrl: string = "https://github.com/rxweb/rxweb/edit/master/";
     @HostListener('window:scroll', ['$event'])
     handleScroll(){
         const windowScroll = document.documentElement.scrollTop;
@@ -38,32 +40,37 @@ export class RightSideBarComponent implements OnInit {
   
     ngOnInit(): void {
         var splitedArray = location.pathname.split("/");
+        this.mainType = splitedArray[1];
+        this.validationName = splitedArray[2];
         if(splitedArray.length > 0 && splitedArray[1])
         {
             switch(splitedArray[1])
             {
                 case "decorators":
-                    this.gitEditUrl += "reactive-form-validators/decorators/" + splitedArray[2] + ".md"    
+                    this.gitEditUrl += "docs/reactive-form-validators/decorators/" + splitedArray[2] + ".md"    
                     break;
                 case "form-validations":
-                    this.gitEditUrl += "reactive-form-validators/validation-decorators/" + splitedArray[2] + ".md"    
+                    this.gitEditUrl += "docs/reactive-form-validators/validation-decorators/" + splitedArray[2] + ".md"    
                     break;
                 case "api":
-                    this.gitEditUrl += "reactive-form-validators/api/ReactiveFormConfig.md"    
+                    this.gitEditUrl += "docs/reactive-form-validators/api/ReactiveFormConfig.md"    
                     break;
                 case "community":
-                    this.gitEditUrl += "community/" + splitedArray[2] + ".md"
+                    this.gitEditUrl += "docs/community/" + splitedArray[2] + ".md"
                     break;
                 case "getting-started":
-                    this.gitEditUrl += "reactive-form-validators/getting-started.md"    
+                    this.gitEditUrl += "docs/reactive-form-validators/getting-started.md"    
                     break;
                 case "sanitization":
-                    this.gitEditUrl += "reactive-form-validators/sanitization/" + splitedArray[2]+".md"    
+                    this.gitEditUrl += "docs/reactive-form-validators/sanitization/" + splitedArray[2]+".md"    
                     break
                 case "how-to":
-                    this.gitEditUrl += "reactive-form-validators/validation-advance-form/" + splitedArray[2]+".md"    
+                    this.gitEditUrl += "docs/reactive-form-validators/validation-advance-form/" + splitedArray[2]+".md"    
                     break
             }
+        }
+        else if(splitedArray.length > 0 && splitedArray[0]== "changelog"){
+            this.gitEditUrl += "CHANGELOG.md"    
         }
         this.showComponent = true;
     }

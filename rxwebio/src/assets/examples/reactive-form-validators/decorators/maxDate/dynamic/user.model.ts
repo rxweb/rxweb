@@ -20,4 +20,7 @@ export class User {
 	@prop()
 	lastRegistrationDate: string;
 
+	@prop()
+	confirmationDate: string;
+
 }

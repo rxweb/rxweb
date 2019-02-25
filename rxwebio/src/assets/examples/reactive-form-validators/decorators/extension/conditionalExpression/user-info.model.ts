@@ -9,12 +9,8 @@ export class UserInfo {
 	imageFile: string;
 	
 	
-	
-
 	@extension({extensions:['doc','docx']  ,conditionalExpression:'(x,y) => x.fileType == "Document"' }) 
 	documentFile: string;
 	
 	
-	
-
 }

@@ -10,13 +10,9 @@ export class NumberInfo {
 	thirdNumber: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@primeNumber({conditionalExpression:(x,y) => x.numberType == "Prime"  }) 
 	secondNumber: string;
 	
 	
-	
-
 }

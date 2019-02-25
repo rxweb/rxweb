@@ -1,5 +1,5 @@
 import {  date,prop, } from   "@rxweb/reactive-form-validators"   
- 
+
 export class UserInfo {
 
 	@prop()

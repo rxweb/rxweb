@@ -9,6 +9,4 @@ export class User {
 	otherActivityMarks: number;
 	
 	
-	
-
 }

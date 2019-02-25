@@ -7,13 +7,9 @@ export class SubjectDetails {
 	obtainedMarks: number;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@maxNumber({value:100  ,conditionalExpression:(x,y) => x.subjectCode == "8CS5A"  }) 
 	maximumMarks: number;
 	
 	
-	
-
 }

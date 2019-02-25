@@ -10,19 +10,13 @@ export class Country {
 	secondCountryLongitude: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'string'
 	@longitude({conditionalExpression:'x => x.continent =="Asia"' }) 
 	thirdCountryLongitude: string;
 	
 	
-	
-
 	@longitude({message:'{{0}} is not a longitude' }) 
 	firstCountryLongitude: string;
 	
 	
-	
-
 }

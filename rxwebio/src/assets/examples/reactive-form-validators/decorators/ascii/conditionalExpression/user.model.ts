@@ -10,13 +10,9 @@ export class User {
 	alphabetAsciiCode: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@ascii({conditionalExpression:(x,y) => x.language == "Java"  }) 
 	numberAsciiCode: string;
 	
 	
-	
-
 }

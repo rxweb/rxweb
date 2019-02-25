@@ -10,13 +10,9 @@ export class User {
 	shoppingWebsitePort: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@port({conditionalExpression:(x,y) => x.browser == "Chrome"  }) 
 	entertainmentWebsitePort: string;
 	
 	
-	
-
 }

@@ -10,13 +10,9 @@ export class User {
 	audioDataUri: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@dataUri({conditionalExpression:(x,y) => x.scheme == "DataUri"  }) 
 	imageDataUri: string;
 	
 	
-	
-
 }

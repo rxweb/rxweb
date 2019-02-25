@@ -9,8 +9,6 @@ export class User {
 	confirmEmail: string;
 	
 	
-	
-
 	@prop()
 	password: string;
 
@@ -19,6 +17,4 @@ export class User {
 	confirmPassword: string;
 	
 	
-	
-
 }

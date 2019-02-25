@@ -10,13 +10,9 @@ export class MacAddressInfo {
 	localMacAddress: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@mac({conditionalExpression:(x,y) => x.device == "Laptop"  }) 
 	macAddress: string;
 	
 	
-	
-
 }

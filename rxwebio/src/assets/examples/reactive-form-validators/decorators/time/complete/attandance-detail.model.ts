@@ -10,25 +10,17 @@ export class AttandanceDetail {
 	totalIn: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'string'
 	@time({conditionalExpression:'x => x.entryPlace == "Lunch Room"' }) 
 	entryTime: string;
 	
 	
-	
-
 	@time({allowSeconds:true }) 
 	totalOutTime: string;
 	
 	
-	
-
 	@time({message:'You can enter only time format data' }) 
 	exitTime: string;
 	
 	
-	
-
 }

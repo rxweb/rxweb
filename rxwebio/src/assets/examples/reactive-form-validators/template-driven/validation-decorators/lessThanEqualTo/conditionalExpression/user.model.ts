@@ -10,13 +10,9 @@ export class User {
 	practicalExamMarks: number;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@lessThanEqualTo({fieldName:'totalMarks'  ,conditionalExpression:(x,y) => x.totalMarks == 100  }) 
 	obtainedMarks: number;
 	
 	
-	
-
 }

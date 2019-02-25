@@ -1,8 +1,9 @@
 import {  minDate, } from   "@rxweb/reactive-form-validators"   
- 
+
 export class User {
 
-	@minDate({fieldName:'enrollmentDate'  ,operator:'>' }) 
+	@minDate({value:'07/30/2018'  ,operator:'>' }) 
 	confirmationDate: string;
-
+	
+	
 }

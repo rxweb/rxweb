@@ -32,7 +32,7 @@
 </div> -->
 <div id="rightsidebar" class="p-1" [class.sticky] = "sticky">
      
-    <div>
+    <div *ngIf="mainType != 'changelog'">
         <ul class="list-unstyled" id="rightsidebar-items">
             <li class="nav-item" *ngFor="let item of sidebarLinks;let i = index" [class.d-flex]="i == 0" [class.border-none]="i == 0"  [class.sidebar-list]="item.subLink?.length > 0">
                 <a class="nav-link sidebar-link" [class.child-item-list]="item.subLink?.length > 0" href="#{{item.id}}" [class.active]="i == 0" (click)="scrollTo(item.id)">{{item.title}}</a>
@@ -66,6 +66,7 @@
             <li><a routerLink="/community/where_to_start_contributing" routerLinkActive="active" title="Want to Contribute, but ?"><i class="fa fa-question-circle" aria-hidden="true"></i>Want to Contribute, but ?</a></li>
             <li><a routerLink="/community/contributing" title="Contributing" routerLinkActive="active"><i class="fa fa-users"></i>Contributing</a></li>
             <li><a routerLink="/community/maintaining" title="Maintaining" routerLinkActive="active"><i class="fa fa-cogs"></i>Maintaining</a></li>
+            <li><a routerLink="/changelog" routerLinkActive="active"><i class="fa fa-history"></i>Change Log</a></li>
             <li class="new-release"><a href="https://discuss.rxweb.io" target="_blank"><i class="fa fa-comment"></i>Do you have any question Lets Discuss!</a></li>
         </ul>   
     </div>

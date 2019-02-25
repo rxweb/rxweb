@@ -6,12 +6,8 @@ export class UserInfo {
 	totalImageFiles: number;
 	
 	
-	
-
 	@file({minFiles:5 }) 
 	totalDocumentFiles: number;
 	
 	
-	
-
 }

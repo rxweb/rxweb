@@ -10,13 +10,9 @@ export class User {
 	admissionYear: number;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@leapYear({conditionalExpression:(x,y) => x.name == "Bharat"  }) 
 	birthYear: number;
 	
 	
-	
-
 }

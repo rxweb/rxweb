@@ -1,5 +1,5 @@
 <div>
-  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm">
+  <form #userinfoForm = "ngForm" [rxwebForm]="userinfoForm" [model]="userinfo">
     <div class="form-group">
       <label>Birth Date</label>
 	    <input type="text" name="birthDate" [(ngModel)]="userinfo.birthDate"  class="form-control" />

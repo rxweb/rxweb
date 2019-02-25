@@ -10,13 +10,9 @@ export class User {
 	oddNumber: number;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@odd({conditionalExpression:(x,y) => x.type == "Odd"  }) 
 	number: number;
 	
 	
-	
-
 }

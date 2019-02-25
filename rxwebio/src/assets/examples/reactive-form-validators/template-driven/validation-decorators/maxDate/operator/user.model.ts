@@ -1,8 +1,9 @@
 import {  maxDate, } from   "@rxweb/reactive-form-validators"   
- 
+
 export class User {
 
-	@maxDate({fieldName:'enrollmentDate'  ,operator:'<' }) 
+	@maxDate({value:'07/30/2018'  ,operator:'<' }) 
 	confirmationDate: string;
-
+	
+	
 }

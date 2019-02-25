@@ -10,13 +10,9 @@ export class User {
 	evenNumber: number;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@even({conditionalExpression:(x,y) => x.type == "Even"  }) 
 	number: number;
 	
 	
-	
-
 }

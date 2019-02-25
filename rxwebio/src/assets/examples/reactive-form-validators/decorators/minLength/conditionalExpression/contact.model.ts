@@ -10,13 +10,9 @@ export class Contact {
 	stateCode: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@minLength({value:3  ,conditionalExpression:(x,y)=> x.countryName == "India" }) 
 	countryCode: string;
 	
 	
-	
-
 }

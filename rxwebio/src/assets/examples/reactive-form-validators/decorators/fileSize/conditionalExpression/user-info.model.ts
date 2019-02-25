@@ -9,12 +9,8 @@ export class UserInfo {
 	imageFile: string;
 	
 	
-	
-
 	@fileSize({maxSize:10  ,conditionalExpression:'(x,y) => x.fileType == "Document"' }) 
 	documentFile: string;
 	
 	
-	
-
 }

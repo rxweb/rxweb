@@ -10,13 +10,9 @@ export class AttandanceDetail {
 	entryTime: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@time({conditionalExpression:(x,y) => x.entryPlace == "Lunch Room"  }) 
 	totalIn: string;
 	
 	
-	
-
 }

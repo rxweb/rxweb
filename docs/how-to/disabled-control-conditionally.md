@@ -23,5 +23,5 @@ You have to use RxFormBuilder service to create FormGroup in the component.
 <div component="app-code" key="error-conditionalMessage-component"></div> 
 Next, we need to write html code. For showing error message you have to use 'errorMessage' property.
 <div component="app-code" key="error-conditionalMessage-html"></div> 
-<div component="app-example-runner" ref-component="app-conditionalMessage-single"></div>
+<div component="app-example-runner" ref-component="app-disable-add"></div>
 

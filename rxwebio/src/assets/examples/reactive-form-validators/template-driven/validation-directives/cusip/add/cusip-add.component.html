@@ -1,5 +1,5 @@
 <div>
-  <form #companyinfoForm = "ngForm" [rxwebForm]="companyinfoForm">
+  <form #companyinfoForm = "ngForm" [rxwebForm]="companyinfoForm" [model]="companyinfo">
     <div class="form-group">
       <label>Oracle Corporation Cusip Code</label>
 	    <input type="text" name="oracleCorporationCusipCode" [(ngModel)]="companyinfo.oracleCorporationCusipCode"  class="form-control" cusip/>

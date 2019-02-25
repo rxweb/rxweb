@@ -10,13 +10,9 @@ export class Country {
 	thirdCountryLatitude: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@latitude({conditionalExpression:(x,y) => x.continent == "Asia"  }) 
 	secondCountryLatitude: string;
 	
 	
-	
-
 }

@@ -10,13 +10,9 @@ export class Country {
 	thirdCountryLongitude: string;
 	
 	
-	
-
 	//If you want to apply conditional expression of type 'function'
 	@longitude({conditionalExpression:(x,y) => x.continent == "Asia"  }) 
 	secondCountryLongitude: string;
 	
 	
-	
-
 }

@@ -5,7 +5,7 @@ category: how-to
 type:tabs
 linktitle: Best way to show error messages 
 ---
-Showing error messages conditionally is a bit clumsy on the UI. As a standard angular approach, we are putting *ngIf conditional and write the error message. Once the condition is a success, then it will show the error message.
+Showing error messages conditionally is a bit clumsy on the UI. As a standard angular approach, we are putting *ngIf condition and write the error message. Once the condition is a success, then it will show the error message.
 Here, we will manage the error message through the @error decorator. Where we have to set the conditional expressions.
 
 Let's see how to show the error messages conditionally.
@@ -23,5 +23,5 @@ You have to use RxFormBuilder service to create FormGroup in the component.
 <div component="app-code" key="error-conditionalMessage-component"></div> 
 Next, we need to write html code. For showing error message you have to use 'errorMessage' property.
 <div component="app-code" key="error-conditionalMessage-html"></div> 
-<div component="app-example-runner" ref-component="app-conditionalMessage-single"></div>
+<div component="app-example-runner" ref-component="app-conditional-add"></div>
 
