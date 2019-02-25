@@ -51,10 +51,10 @@ export class RxFormControl extends FormControl {
         onlySelf?: boolean;
         emitEvent?: boolean;
     }): void {
-        value = this.getSanitizedValue(value)
+        let parsedValue = this.getSanitizedValue(value)
         if (options && options.dirty)
             this.baseObject[this.keyName] = value;
-        this.entityObject[this.keyName] = value;
+        this.entityObject[this.keyName] = parsedValue;
         super.setValue(value, options);
         this.bindError();
         this.executeExpressions();

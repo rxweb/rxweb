@@ -25,10 +25,10 @@ function rtrim(value:any){
     return value;
 }
 
-function blacklist(value:any,chars){
+function blacklist(value: any, chars) {
     if (isNotBlank(value))
         if (typeof value === "string")
-            return value.replace(new RegExp('[' + chars + ']+'), '');
+            return value.replace(new RegExp('[$' + chars + ']+','g'), '');
     return value;
 };
 
@@ -51,7 +51,7 @@ function toFloat(value:any){
     if (isNotBlank(value) )
         if(ApplicationUtil.isNumeric(value))
             return parseFloat(value)
-    return NaN;
+    return null;
 }
 function toDouble(value:any){
         return toFloat(value)
@@ -61,7 +61,7 @@ function toInt(value:any,radix:number){
     if (isNotBlank(value))
         if( ApplicationUtil.isNumeric(value))
             return parseInt(value, radix || 10);
-    return NaN;
+    return null;
 }
 
 function toString(value:any,radix:number){
