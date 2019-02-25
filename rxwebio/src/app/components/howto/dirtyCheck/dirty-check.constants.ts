@@ -1,6 +1,7 @@
+import { DirtyCompleteValidatorComponent } from "src/assets/examples/how-to/validators/dirtyCheck/complete/dirty-complete.component";
+import { DirtyCompleteComponent } from "src/assets/examples/how-to/decorators/dirtyCheck/complete/dirty-complete.component";
 
-import { DirtyCompleteComponent } from "src/assets/examples/how-to/dirtyCheck/decorators/complete/dirty-complete.component";
-import { DirtyCompleteValidatorComponent } from "src/assets/examples/how-to/dirtyCheck/validators/complete/dirty-complete.component";
+
 
 
 

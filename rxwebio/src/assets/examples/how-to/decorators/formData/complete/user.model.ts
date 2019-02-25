@@ -11,6 +11,6 @@ export class User {
      userName: string;
 
      @prop()
-      password : string;
+     password : string;
               
 }

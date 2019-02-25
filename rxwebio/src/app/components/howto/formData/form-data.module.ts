@@ -4,11 +4,13 @@ import { FORM_DATA_COMPONENT_EXAMPLE_CONSTANT } from "src/app/components/howto/f
 import { COMPONENT_EXAMPLE } from "src/app/domain/application.const";
 import { FORM_DATA_ROUTING } from "src/app/components/howto/formData/form-data.routing";
 import { PageModule } from "src/app/components/page/page.module";
-import { ErrorMessagesComponentExtendedModule } from "src/assets/examples/how-to/errorMessage-extended.module";
+
+import { FormDataDecoratorsExtendedModule } from 'src/assets/examples/how-to/decorators/formData/form-data-decorators-extended.module';
+import { FormDataValidatorsExtendedModule } from 'src/assets/examples/how-to/validators/formData/form-data-validators-extended.module';
 
 
 @NgModule({
-  imports: [FORM_DATA_ROUTING ,PageModule,ErrorMessagesComponentExtendedModule],
+  imports: [FORM_DATA_ROUTING ,PageModule,FormDataDecoratorsExtendedModule,FormDataValidatorsExtendedModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: FORM_DATA_COMPONENT_EXAMPLE_CONSTANT }]
   })
