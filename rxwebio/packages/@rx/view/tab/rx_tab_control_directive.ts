@@ -22,7 +22,7 @@ export class RxTabDirective implements OnDestroy {
             this.setActiveClass(true);
     }
 
-    // this needs to be conditionaly...
+    // this needs to be ...
     @HostListener('click', ['$event']) onClick(e) {
         this.tab.active = true;
         if (this.tab.autoSelection) {

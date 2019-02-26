@@ -10,8 +10,9 @@ import { TO_FLOAT_ROUTING } from "src/app/components/sanitization/toFloat/to-flo
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [TO_FLOAT_ROUTING ,ToFloatDecoratorsExtendedModule ,PageModule,],
+  imports: [TO_FLOAT_ROUTING ,ToFloatDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: TO_FLOAT_COMPONENT_EXAMPLE_CONSTANT }]
   })

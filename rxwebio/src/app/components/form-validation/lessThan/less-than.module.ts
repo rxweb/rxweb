@@ -10,8 +10,9 @@ import { LESS_THAN_ROUTING } from "src/app/components/form-validation/lessThan/l
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [LESS_THAN_ROUTING ,LessThanDecoratorsExtendedModule , LessThanValidatorsExtendedModule ,LessThanTemplateDrivenValidationDirectivesExtendedModule, LessThanTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [LESS_THAN_ROUTING ,LessThanDecoratorsExtendedModule , LessThanValidatorsExtendedModule ,LessThanTemplateDrivenValidationDirectivesExtendedModule, LessThanTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: LESS_THAN_COMPONENT_EXAMPLE_CONSTANT }]
   })

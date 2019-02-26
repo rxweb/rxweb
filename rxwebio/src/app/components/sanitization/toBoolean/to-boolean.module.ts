@@ -10,8 +10,9 @@ import { TO_BOOLEAN_ROUTING } from "src/app/components/sanitization/toBoolean/to
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [TO_BOOLEAN_ROUTING ,ToBooleanDecoratorsExtendedModule ,PageModule,],
+  imports: [TO_BOOLEAN_ROUTING ,ToBooleanDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: TO_BOOLEAN_COMPONENT_EXAMPLE_CONSTANT }]
   })

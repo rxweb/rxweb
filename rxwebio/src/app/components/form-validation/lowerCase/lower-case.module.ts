@@ -10,8 +10,9 @@ import { LOWER_CASE_ROUTING } from "src/app/components/form-validation/lowerCase
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [LOWER_CASE_ROUTING ,LowerCaseDecoratorsExtendedModule , LowerCaseValidatorsExtendedModule ,LowerCaseTemplateDrivenValidationDirectivesExtendedModule, LowerCaseTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [LOWER_CASE_ROUTING ,LowerCaseDecoratorsExtendedModule , LowerCaseValidatorsExtendedModule ,LowerCaseTemplateDrivenValidationDirectivesExtendedModule, LowerCaseTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: LOWER_CASE_COMPONENT_EXAMPLE_CONSTANT }]
   })

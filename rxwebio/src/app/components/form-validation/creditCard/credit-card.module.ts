@@ -10,8 +10,9 @@ import { CREDIT_CARD_ROUTING } from "src/app/components/form-validation/creditCa
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [CREDIT_CARD_ROUTING ,CreditCardDecoratorsExtendedModule , CreditCardValidatorsExtendedModule ,CreditCardTemplateDrivenValidationDirectivesExtendedModule, CreditCardTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [CREDIT_CARD_ROUTING ,CreditCardDecoratorsExtendedModule , CreditCardValidatorsExtendedModule ,CreditCardTemplateDrivenValidationDirectivesExtendedModule, CreditCardTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: CREDIT_CARD_COMPONENT_EXAMPLE_CONSTANT }]
   })

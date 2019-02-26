@@ -10,8 +10,9 @@ import { TO_DATE_ROUTING } from "src/app/components/sanitization/toDate/to-date.
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [TO_DATE_ROUTING ,ToDateDecoratorsExtendedModule ,PageModule,],
+  imports: [TO_DATE_ROUTING ,ToDateDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: TO_DATE_COMPONENT_EXAMPLE_CONSTANT }]
   })

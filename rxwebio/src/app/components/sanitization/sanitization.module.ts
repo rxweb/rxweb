@@ -4,8 +4,9 @@ import { SANITIZATION_ROUTING } from "src/app/components/sanitization/sanitizati
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [SANITIZATION_ROUTING ,PageModule,],
+  imports: [SANITIZATION_ROUTING ,PageModule],
   exports: [RouterModule],
   })
 export class SanitizationModule { }

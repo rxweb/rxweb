@@ -10,8 +10,9 @@ import { FILE_SIZE_ROUTING } from "src/app/components/form-validation/fileSize/f
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [FILE_SIZE_ROUTING ,FileSizeDecoratorsExtendedModule , FileSizeValidatorsExtendedModule ,FileSizeTemplateDrivenValidationDirectivesExtendedModule, FileSizeTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [FILE_SIZE_ROUTING ,FileSizeDecoratorsExtendedModule , FileSizeValidatorsExtendedModule ,FileSizeTemplateDrivenValidationDirectivesExtendedModule, FileSizeTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: FILE_SIZE_COMPONENT_EXAMPLE_CONSTANT }]
   })

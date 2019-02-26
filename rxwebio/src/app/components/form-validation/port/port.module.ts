@@ -10,8 +10,9 @@ import { PORT_ROUTING } from "src/app/components/form-validation/port/port.routi
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [PORT_ROUTING ,PortDecoratorsExtendedModule , PortValidatorsExtendedModule ,PortTemplateDrivenValidationDirectivesExtendedModule, PortTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [PORT_ROUTING ,PortDecoratorsExtendedModule , PortValidatorsExtendedModule ,PortTemplateDrivenValidationDirectivesExtendedModule, PortTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: PORT_COMPONENT_EXAMPLE_CONSTANT }]
   })

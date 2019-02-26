@@ -15,8 +15,7 @@ export class MaxDateOperatorValidatorComponent implements OnInit {
 
     ngOnInit() {
         this.userFormGroup = this.formBuilder.group({
-            enrollmentDate: [''],
-            confirmationDate:['', RxwebValidators.maxDate({fieldName:'enrollmentDate'  ,operator:'<' })], 
+            confirmationDate:['', RxwebValidators.maxDate({value:'07/30/2018'  ,operator:'<' })], 
         });
     }
 }

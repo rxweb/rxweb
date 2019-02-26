@@ -10,8 +10,9 @@ import { TRIM_ROUTING } from "src/app/components/sanitization/trim/trim.routing"
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [TRIM_ROUTING ,TrimDecoratorsExtendedModule ,PageModule,],
+  imports: [TRIM_ROUTING ,TrimDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: TRIM_COMPONENT_EXAMPLE_CONSTANT }]
   })

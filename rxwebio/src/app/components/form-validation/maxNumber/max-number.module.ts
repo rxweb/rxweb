@@ -10,8 +10,9 @@ import { MAX_NUMBER_ROUTING } from "src/app/components/form-validation/maxNumber
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [MAX_NUMBER_ROUTING ,MaxNumberDecoratorsExtendedModule , MaxNumberValidatorsExtendedModule ,MaxNumberTemplateDrivenValidationDirectivesExtendedModule, MaxNumberTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [MAX_NUMBER_ROUTING ,MaxNumberDecoratorsExtendedModule , MaxNumberValidatorsExtendedModule ,MaxNumberTemplateDrivenValidationDirectivesExtendedModule, MaxNumberTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: MAX_NUMBER_COMPONENT_EXAMPLE_CONSTANT }]
   })

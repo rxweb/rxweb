@@ -8,8 +8,9 @@ import { ONE_OF_ROUTING } from "src/app/components/form-validation/oneOf/one-of.
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [ONE_OF_ROUTING ,OneOfDecoratorsExtendedModule , OneOfValidatorsExtendedModule ,PageModule,],
+  imports: [ONE_OF_ROUTING ,OneOfDecoratorsExtendedModule , OneOfValidatorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: ONE_OF_COMPONENT_EXAMPLE_CONSTANT }]
   })

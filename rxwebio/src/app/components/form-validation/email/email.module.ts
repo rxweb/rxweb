@@ -10,8 +10,9 @@ import { EMAIL_ROUTING } from "src/app/components/form-validation/email/email.ro
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [EMAIL_ROUTING ,EmailDecoratorsExtendedModule , EmailValidatorsExtendedModule ,EmailTemplateDrivenValidationDirectivesExtendedModule, EmailTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [EMAIL_ROUTING ,EmailDecoratorsExtendedModule , EmailValidatorsExtendedModule ,EmailTemplateDrivenValidationDirectivesExtendedModule, EmailTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: EMAIL_COMPONENT_EXAMPLE_CONSTANT }]
   })

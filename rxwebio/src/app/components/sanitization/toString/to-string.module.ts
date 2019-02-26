@@ -10,8 +10,9 @@ import { TO_STRING_ROUTING } from "src/app/components/sanitization/toString/to-s
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [TO_STRING_ROUTING ,ToStringDecoratorsExtendedModule ,PageModule,],
+  imports: [TO_STRING_ROUTING ,ToStringDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: TO_STRING_COMPONENT_EXAMPLE_CONSTANT }]
   })

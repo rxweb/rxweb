@@ -10,8 +10,9 @@ import { ODD_ROUTING } from "src/app/components/form-validation/odd/odd.routing"
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [ODD_ROUTING ,OddDecoratorsExtendedModule , OddValidatorsExtendedModule ,OddTemplateDrivenValidationDirectivesExtendedModule, OddTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [ODD_ROUTING ,OddDecoratorsExtendedModule , OddValidatorsExtendedModule ,OddTemplateDrivenValidationDirectivesExtendedModule, OddTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: ODD_COMPONENT_EXAMPLE_CONSTANT }]
   })

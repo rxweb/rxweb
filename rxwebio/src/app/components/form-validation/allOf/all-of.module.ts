@@ -8,8 +8,9 @@ import { ALL_OF_ROUTING } from "src/app/components/form-validation/allOf/all-of.
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [ALL_OF_ROUTING ,AllOfDecoratorsExtendedModule , AllOfValidatorsExtendedModule ,PageModule,],
+  imports: [ALL_OF_ROUTING ,AllOfDecoratorsExtendedModule , AllOfValidatorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: ALL_OF_COMPONENT_EXAMPLE_CONSTANT }]
   })

@@ -10,8 +10,9 @@ import { ASCII_ROUTING } from "src/app/components/form-validation/ascii/ascii.ro
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [ASCII_ROUTING ,AsciiDecoratorsExtendedModule , AsciiValidatorsExtendedModule ,AsciiTemplateDrivenValidationDirectivesExtendedModule, AsciiTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [ASCII_ROUTING ,AsciiDecoratorsExtendedModule , AsciiValidatorsExtendedModule ,AsciiTemplateDrivenValidationDirectivesExtendedModule, AsciiTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: ASCII_COMPONENT_EXAMPLE_CONSTANT }]
   })

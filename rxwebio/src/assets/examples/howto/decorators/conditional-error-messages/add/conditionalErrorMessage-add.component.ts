@@ -9,7 +9,7 @@ import { FormField } from './form.model';
     selector: 'app-conditional-add',
     templateUrl: './conditionalErrorMessage-add.component.html'
 })
-export class conditionalErrorMessageAddComponent implements OnInit {
+export class ConditionalErrorMessageAddComponent implements OnInit {
 errorObject = {}
     userInfoFormGroup: FormGroup
 

@@ -10,8 +10,9 @@ import { FILE_ROUTING } from "src/app/components/form-validation/file/file.routi
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [FILE_ROUTING ,FileDecoratorsExtendedModule , FileValidatorsExtendedModule ,FileTemplateDrivenValidationDirectivesExtendedModule, FileTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [FILE_ROUTING ,FileDecoratorsExtendedModule , FileValidatorsExtendedModule ,FileTemplateDrivenValidationDirectivesExtendedModule, FileTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: FILE_COMPONENT_EXAMPLE_CONSTANT }]
   })

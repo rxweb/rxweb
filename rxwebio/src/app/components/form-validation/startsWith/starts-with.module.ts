@@ -10,8 +10,9 @@ import { STARTS_WITH_ROUTING } from "src/app/components/form-validation/startsWi
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [STARTS_WITH_ROUTING ,StartsWithDecoratorsExtendedModule , StartsWithValidatorsExtendedModule ,StartsWithTemplateDrivenValidationDirectivesExtendedModule, StartsWithTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [STARTS_WITH_ROUTING ,StartsWithDecoratorsExtendedModule , StartsWithValidatorsExtendedModule ,StartsWithTemplateDrivenValidationDirectivesExtendedModule, StartsWithTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: STARTS_WITH_COMPONENT_EXAMPLE_CONSTANT }]
   })

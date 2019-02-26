@@ -10,8 +10,9 @@ import { GRID_ROUTING } from "src/app/components/form-validation/grid/grid.routi
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [GRID_ROUTING ,GridDecoratorsExtendedModule , GridValidatorsExtendedModule ,GridTemplateDrivenValidationDirectivesExtendedModule, GridTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [GRID_ROUTING ,GridDecoratorsExtendedModule , GridValidatorsExtendedModule ,GridTemplateDrivenValidationDirectivesExtendedModule, GridTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: GRID_COMPONENT_EXAMPLE_CONSTANT }]
   })

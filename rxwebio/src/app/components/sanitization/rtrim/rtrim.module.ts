@@ -10,8 +10,9 @@ import { RTRIM_ROUTING } from "src/app/components/sanitization/rtrim/rtrim.routi
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [RTRIM_ROUTING ,RtrimDecoratorsExtendedModule ,PageModule,],
+  imports: [RTRIM_ROUTING ,RtrimDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: RTRIM_COMPONENT_EXAMPLE_CONSTANT }]
   })

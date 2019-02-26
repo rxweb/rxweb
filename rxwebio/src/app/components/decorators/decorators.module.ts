@@ -4,8 +4,9 @@ import { DECORATORS_ROUTING } from "src/app/components/decorators/decorators.rou
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [DECORATORS_ROUTING ,PageModule,],
+  imports: [DECORATORS_ROUTING ,PageModule],
   exports: [RouterModule],
   })
 export class DecoratorsModule { }

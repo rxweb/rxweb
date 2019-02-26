@@ -10,7 +10,7 @@
     <div class="form-group">
       <label>Age</label>
       <input type="text" formControlName="age" class="form-control"  />
-      <small class="form-text text-muted">It checked that age match with digit regex or not and it conditionaly applied when userName is Bharat<br/></small>
+      <small class="form-text text-muted">It checked that age match with digit regex or not and it  applied when userName is Bharat<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
 	<small class="form-text text-danger" *ngIf="userFormGroup.controls.age.errors">{{userFormGroup.controls.age.errors.onlyDigit.message}}<br/></small>	
     </div>

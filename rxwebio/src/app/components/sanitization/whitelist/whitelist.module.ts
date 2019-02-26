@@ -10,8 +10,9 @@ import { WHITELIST_ROUTING } from "src/app/components/sanitization/whitelist/whi
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [WHITELIST_ROUTING ,WhitelistDecoratorsExtendedModule ,PageModule,],
+  imports: [WHITELIST_ROUTING ,WhitelistDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: WHITELIST_COMPONENT_EXAMPLE_CONSTANT }]
   })

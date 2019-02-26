@@ -10,8 +10,9 @@ import { BLACKLIST_ROUTING } from "src/app/components/sanitization/blacklist/bla
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [BLACKLIST_ROUTING ,BlacklistDecoratorsExtendedModule ,PageModule,],
+  imports: [BLACKLIST_ROUTING ,BlacklistDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: BLACKLIST_COMPONENT_EXAMPLE_CONSTANT }]
   })

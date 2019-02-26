@@ -1,6 +1,6 @@
 ---
-title: Show error messages conditionaly
-author: rxcontributorone
+title: Conditional Error Message
+author: rxwebteam
 category: how-to
 type:tabs
 linktitle: Best way to show error messages 

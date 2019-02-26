@@ -10,8 +10,9 @@ import { STRIP_LOW_ROUTING } from "src/app/components/sanitization/stripLow/stri
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [STRIP_LOW_ROUTING ,StripLowDecoratorsExtendedModule ,PageModule,],
+  imports: [STRIP_LOW_ROUTING ,StripLowDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: STRIP_LOW_COMPONENT_EXAMPLE_CONSTANT }]
   })

@@ -3,8 +3,7 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { DisableControlConditionallyDecoratorAddComponent } from './add/disableControlConditionally-add.component';
-
+import { ConditionalErrorMessageAddComponent } from './add/conditionalErrorMessage-add.component';
 
 
 
@@ -12,10 +11,10 @@ import { DisableControlConditionallyDecoratorAddComponent } from './add/disableC
 
 @NgModule({
   declarations: [
-    DisableControlConditionallyDecoratorAddComponent
+    ConditionalErrorMessageAddComponent
   ],
 entryComponents: [
-	DisableControlConditionallyDecoratorAddComponent
+	ConditionalErrorMessageAddComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -24,8 +23,8 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-    DisableControlConditionallyDecoratorAddComponent
+	ConditionalErrorMessageAddComponent
   ],
 
 })
-export class  DisableDecoratorDecoratorsExtendedModule { }
+export class  Conditional_error_messagesDecoratorsExtendedModule { }

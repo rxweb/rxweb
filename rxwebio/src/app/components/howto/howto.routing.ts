@@ -23,12 +23,12 @@ const HOWTO_ROUTES: Routes = [
 	loadChildren: './resetForm/reset-form.module#ResetFormModule',
 },
 {
-	path:'disableControlConditionally',
-	loadChildren: './disableControlConditionally/disable-control-conditionally.module#DisableControlConditionallyModule',
+	path:'disabled-control-conditionally',
+	loadChildren: './disabled-control-conditionally/disabled-control-conditionally.module#Disabled_control_conditionallyModule',
 },
 {
-	path:'conditionalErrorMessages',
-	loadChildren: './conditionalErrorMessages/conditional-error-messages.module#ConditionalErrorMessagesModule',
+	path:'conditional-error-messages',
+	loadChildren: './conditional-error-messages/conditional-error-messages.module#Conditional_error_messagesModule',
 },
 ];
 export const HOWTO_ROUTING: ModuleWithProviders = RouterModule.forChild(HOWTO_ROUTES);

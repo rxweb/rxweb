@@ -10,8 +10,9 @@ import { IMAGE_ROUTING } from "src/app/components/form-validation/image/image.ro
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [IMAGE_ROUTING ,ImageDecoratorsExtendedModule , ImageValidatorsExtendedModule ,ImageTemplateDrivenValidationDirectivesExtendedModule, ImageTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [IMAGE_ROUTING ,ImageDecoratorsExtendedModule , ImageValidatorsExtendedModule ,ImageTemplateDrivenValidationDirectivesExtendedModule, ImageTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: IMAGE_COMPONENT_EXAMPLE_CONSTANT }]
   })

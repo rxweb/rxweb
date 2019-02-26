@@ -10,8 +10,9 @@ import { MIN_LENGTH_ROUTING } from "src/app/components/form-validation/minLength
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [MIN_LENGTH_ROUTING ,MinLengthDecoratorsExtendedModule , MinLengthValidatorsExtendedModule ,MinLengthTemplateDrivenValidationDirectivesExtendedModule, MinLengthTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [MIN_LENGTH_ROUTING ,MinLengthDecoratorsExtendedModule , MinLengthValidatorsExtendedModule ,MinLengthTemplateDrivenValidationDirectivesExtendedModule, MinLengthTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: MIN_LENGTH_COMPONENT_EXAMPLE_CONSTANT }]
   })

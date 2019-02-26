@@ -10,8 +10,9 @@ import { MAX_LENGTH_ROUTING } from "src/app/components/form-validation/maxLength
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [MAX_LENGTH_ROUTING ,MaxLengthDecoratorsExtendedModule , MaxLengthValidatorsExtendedModule ,MaxLengthTemplateDrivenValidationDirectivesExtendedModule, MaxLengthTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [MAX_LENGTH_ROUTING ,MaxLengthDecoratorsExtendedModule , MaxLengthValidatorsExtendedModule ,MaxLengthTemplateDrivenValidationDirectivesExtendedModule, MaxLengthTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: MAX_LENGTH_COMPONENT_EXAMPLE_CONSTANT }]
   })

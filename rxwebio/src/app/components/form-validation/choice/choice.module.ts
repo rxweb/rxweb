@@ -8,8 +8,9 @@ import { CHOICE_ROUTING } from "src/app/components/form-validation/choice/choice
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [CHOICE_ROUTING ,ChoiceDecoratorsExtendedModule , ChoiceValidatorsExtendedModule ,PageModule,],
+  imports: [CHOICE_ROUTING ,ChoiceDecoratorsExtendedModule , ChoiceValidatorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: CHOICE_COMPONENT_EXAMPLE_CONSTANT }]
   })

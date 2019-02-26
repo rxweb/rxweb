@@ -10,8 +10,9 @@ import { TIME_ROUTING } from "src/app/components/form-validation/time/time.routi
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [TIME_ROUTING ,TimeDecoratorsExtendedModule , TimeValidatorsExtendedModule ,TimeTemplateDrivenValidationDirectivesExtendedModule, TimeTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [TIME_ROUTING ,TimeDecoratorsExtendedModule , TimeValidatorsExtendedModule ,TimeTemplateDrivenValidationDirectivesExtendedModule, TimeTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: TIME_COMPONENT_EXAMPLE_CONSTANT }]
   })

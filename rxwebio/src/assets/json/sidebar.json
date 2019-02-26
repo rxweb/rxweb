@@ -383,12 +383,12 @@
         },
         {
           "title":"Disabled Control Conditionally",
-          "uri":"/how-to/disableControlConditionally/decorators",
+          "uri":"/how-to/disabled-control-conditionally/decorators",
           "isActive": false
         }, 
         {
           "title":"Conditional Error Messages",
-          "uri":"/how-to/conditionalErrorMessages/decorators",
+          "uri":"/how-to/conditional-error-messages/decorators",
           "isActive": false
         }          
       ]

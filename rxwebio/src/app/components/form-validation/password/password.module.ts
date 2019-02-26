@@ -10,8 +10,9 @@ import { PASSWORD_ROUTING } from "src/app/components/form-validation/password/pa
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [PASSWORD_ROUTING ,PasswordDecoratorsExtendedModule , PasswordValidatorsExtendedModule ,PasswordTemplateDrivenValidationDirectivesExtendedModule, PasswordTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [PASSWORD_ROUTING ,PasswordDecoratorsExtendedModule , PasswordValidatorsExtendedModule ,PasswordTemplateDrivenValidationDirectivesExtendedModule, PasswordTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: PASSWORD_COMPONENT_EXAMPLE_CONSTANT }]
   })

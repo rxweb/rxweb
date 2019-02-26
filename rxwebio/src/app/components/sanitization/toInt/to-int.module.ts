@@ -10,8 +10,9 @@ import { TO_INT_ROUTING } from "src/app/components/sanitization/toInt/to-int.rou
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [TO_INT_ROUTING ,ToIntDecoratorsExtendedModule ,PageModule,],
+  imports: [TO_INT_ROUTING ,ToIntDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: TO_INT_COMPONENT_EXAMPLE_CONSTANT }]
   })

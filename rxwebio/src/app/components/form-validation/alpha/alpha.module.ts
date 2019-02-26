@@ -10,8 +10,9 @@ import { ALPHA_ROUTING } from "src/app/components/form-validation/alpha/alpha.ro
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [ALPHA_ROUTING ,AlphaDecoratorsExtendedModule , AlphaValidatorsExtendedModule ,AlphaTemplateDrivenValidationDirectivesExtendedModule, AlphaTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [ALPHA_ROUTING ,AlphaDecoratorsExtendedModule , AlphaValidatorsExtendedModule ,AlphaTemplateDrivenValidationDirectivesExtendedModule, AlphaTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: ALPHA_COMPONENT_EXAMPLE_CONSTANT }]
   })

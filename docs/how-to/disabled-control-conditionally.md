@@ -1,5 +1,5 @@
 ---
-title: Show error messages conditionaly
+title: Disabled Control Conditionally
 author: rxcontributorone
 category: how-to
 type:tabs

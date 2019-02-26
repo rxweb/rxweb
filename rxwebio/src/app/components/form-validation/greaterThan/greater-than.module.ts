@@ -10,8 +10,9 @@ import { GREATER_THAN_ROUTING } from "src/app/components/form-validation/greater
 import { PageModule } from "src/app/components/page/page.module";
 
 
+
 @NgModule({
-  imports: [GREATER_THAN_ROUTING ,GreaterThanDecoratorsExtendedModule , GreaterThanValidatorsExtendedModule ,GreaterThanTemplateDrivenValidationDirectivesExtendedModule, GreaterThanTemplateDrivenValidationDecoratorsExtendedModule ,PageModule,],
+  imports: [GREATER_THAN_ROUTING ,GreaterThanDecoratorsExtendedModule , GreaterThanValidatorsExtendedModule ,GreaterThanTemplateDrivenValidationDirectivesExtendedModule, GreaterThanTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: GREATER_THAN_COMPONENT_EXAMPLE_CONSTANT }]
   })
