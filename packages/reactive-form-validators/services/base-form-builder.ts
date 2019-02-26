@@ -112,11 +112,15 @@ export class BaseFormBuilder {
             value;
     }
 
-    protected sanitizeValue(instanceContainer:InstanceContainer,propertyName:string,value:any) {
+    protected sanitizeValue(instanceContainer: InstanceContainer, propertyName: string, value: any, entityObject: any, baseObject: any) {
         if (instanceContainer.sanitizers && instanceContainer.sanitizers[propertyName]) {
             for (let sanitizer of instanceContainer.sanitizers[propertyName])
                 value = SANITIZERS[sanitizer.name](value,sanitizer.config);
         }
+        if (entityObject[propertyName] !== undefined && entityObject[propertyName] !== value)
+            entityObject[propertyName] = value;
+        if (baseObject[propertyName] !== undefined && baseObject[propertyName] !== value)
+            baseObject[propertyName] = value;
         return value;
     }
 

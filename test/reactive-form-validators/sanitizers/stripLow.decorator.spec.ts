@@ -1,5 +1,5 @@
 
-import {  RxFormBuilder, stripLow, prop } from '../../../packages/reactive-form-validators';
+import { RxFormBuilder, stripLow, prop, RxFormGroup } from '../../../packages/reactive-form-validators';
 
 
 
@@ -29,8 +29,8 @@ export class User {
                 () => {
                     let user = new User();
                     user.userName = "monkey\x00";
-                    let formGroup = formBuilder.formGroup(user);
-                    expect(formGroup.controls.userName.value).toEqual("monkey");
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(user);
+                    expect(formGroup.modelInstance.userName).toEqual("monkey");
                 });
 
 
@@ -38,9 +38,9 @@ export class User {
 
             it('should pass with setValue method.',
                 () => {
-                    let formGroup = formBuilder.formGroup(User);
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(User);
                     formGroup.controls.userName.setValue("monkey\x00");
-                    expect(formGroup.controls.userName.value).toEqual("monkey");
+                    expect(formGroup.modelInstance.userName).toEqual("monkey");
                 });
 
             //end

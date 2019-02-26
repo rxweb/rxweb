@@ -1,5 +1,5 @@
 
-import {  RxFormBuilder, whitelist, prop } from '../../../packages/reactive-form-validators';
+import { RxFormBuilder, whitelist, prop, RxFormGroup } from '../../../packages/reactive-form-validators';
 
 
 
@@ -25,8 +25,8 @@ export class User {
                 () => {
                     let user = new User();
                     user.userName = "aaaaaaaabbbbbbbbbbbb";
-                    let formGroup = formBuilder.formGroup(user);
-                    expect(formGroup.controls.userName.value).toEqual("aaaaaaaabbbbbbbbbbbb");
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(user);
+                    expect(formGroup.modelInstance.userName).toEqual("aaaaaaaabbbbbbbbbbbb");
                 });
 
 
@@ -34,15 +34,15 @@ export class User {
                 () => {
                     let user = new User();
                     user.userName = "aaaaaaaaabbbbbbbbbbbbcccccccccccssssssssssxxxxxxxxxxx";
-                    let formGroup = formBuilder.formGroup(user);
-                    expect(formGroup.controls.userName.value).toEqual("aaaaaaaaabbbbbbbbbbbbccccccccccc");
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(user);
+                    expect(formGroup.modelInstance.userName).toEqual("aaaaaaaaabbbbbbbbbbbbccccccccccc");
                 });
 
             it('should pass with setValue method.',
                 () => {
-                    let formGroup = formBuilder.formGroup(User);
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(User);
                     formGroup.controls.userName.setValue("Zullu");
-                    expect(formGroup.controls.userName.value).toEqual("");
+                    expect(formGroup.modelInstance.userName).toEqual("");
                 });
 
             //end

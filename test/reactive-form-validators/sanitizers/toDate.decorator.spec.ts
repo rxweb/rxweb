@@ -1,5 +1,5 @@
 
-import {  RxFormBuilder,ReactiveFormConfig, toDate, prop } from '../../../packages/reactive-form-validators';
+import { RxFormBuilder, ReactiveFormConfig, toDate, prop, RxFormGroup } from '../../../packages/reactive-form-validators';
 
 
 
@@ -35,26 +35,26 @@ export class User {
                 () => {
                     let user = new User();
                     user.dob = "10/10/2019";
-                    let formGroup = formBuilder.formGroup(user);
-                    expect(formGroup.controls.dob.value).toEqual(new Date(2019,10-1,10));
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(user);
+                    expect(formGroup.modelInstance.dob).toEqual(new Date(2019,10-1,10));
                 });
 
                 
             it('should pass with setValue method',
             () => {
                 let user = new User();
-                let formGroup = formBuilder.formGroup(user);
+                let formGroup = <RxFormGroup>formBuilder.formGroup(user);
                 formGroup.controls.dob.setValue("10/10/2019");
-                expect(formGroup.controls.dob.value).toEqual(new Date(2019,10-1,10));
+                expect(formGroup.modelInstance.dob).toEqual(new Date(2019,10-1,10));
             });
 
             
             it('invalid date should not set.',
             () => {
                 let user = new User();
-                let formGroup = formBuilder.formGroup(user);
+                let formGroup = <RxFormGroup>formBuilder.formGroup(user);
                 formGroup.controls.dob.setValue("10");
-                expect(formGroup.controls.dob.value).toEqual(null);
+                expect(formGroup.modelInstance.dob).toEqual(null);
             });
 
             //end

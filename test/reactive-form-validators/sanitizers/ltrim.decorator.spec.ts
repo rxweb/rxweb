@@ -1,5 +1,5 @@
 
-import {  RxFormBuilder, ltrim, prop } from '../../../packages/reactive-form-validators';
+import {  RxFormBuilder,RxFormGroup, ltrim, prop } from '../../../packages/reactive-form-validators';
 
 
 
@@ -25,8 +25,8 @@ export class User {
                 () => {
                     let user = new User();
                     user.userName = "          ajay";
-                    let formGroup = formBuilder.formGroup(user);
-                    expect(formGroup.controls.userName.value).toEqual("ajay");
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(user);
+                    expect(formGroup.modelInstance.userName).toEqual("ajay");
                 });
 
 
@@ -34,15 +34,15 @@ export class User {
                 () => {
                     let user = new User();
                     user.userName = "      ajay          ";
-                    let formGroup = formBuilder.formGroup(user);
-                    expect(formGroup.controls.userName.value).toEqual("ajay          ");
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(user);
+                    expect(formGroup.modelInstance.userName).toEqual("ajay          ");
                 });
 
             it('should pass with setValue method.',
                 () => {
-                    let formGroup = formBuilder.formGroup(User);
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(User);
                     formGroup.controls.userName.setValue("       ajay             ");
-                    expect(formGroup.controls.userName.value).toEqual("ajay             ");
+                    expect(formGroup.modelInstance.userName).toEqual("ajay             ");
                 });
 
             //end

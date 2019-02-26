@@ -1,5 +1,5 @@
 
-import {  RxFormBuilder, toBoolean, prop } from '../../../packages/reactive-form-validators';
+import { RxFormBuilder, toBoolean, prop, RxFormGroup } from '../../../packages/reactive-form-validators';
 
 
 
@@ -42,9 +42,9 @@ export class Product {
                
             it('should pass with setValue method.',
                 () => {
-                    let formGroup = formBuilder.formGroup(Product);
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(Product);
                     formGroup.controls.active.setValue("1");
-                    expect(formGroup.controls.active.value).toEqual(true);
+                    expect(formGroup.modelInstance.active).toEqual(true);
                 });
 
             //end
