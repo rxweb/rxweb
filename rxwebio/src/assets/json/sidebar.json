@@ -346,7 +346,17 @@
           "title":"propObject",
           "uri":"/decorators/propObject/decorators",
           "isActive": false
-        }
+        },
+        {
+          "title":"Disabled Control Conditionally",
+          "uri":"/decorators/disabledControlConditionally/decorators",
+          "isActive": false
+        }, 
+        {
+          "title":"Show Error Messages on Submit",
+          "uri":"/decorators/showErrorMessagesSubmit/decorators",
+          "isActive": false
+        }    
       ]
     },
     {
@@ -380,17 +390,8 @@
           "title":"Reset Form",
           "uri":"/how-to/resetForm/validators",
           "isActive": false
-        },
-        {
-          "title":"Disabled Control Conditionally",
-          "uri":"/how-to/disabled-control-conditionally/decorators",
-          "isActive": false
-        }, 
-        {
-          "title":"Conditional Error Messages",
-          "uri":"/how-to/conditional-error-messages/decorators",
-          "isActive": false
-        }          
+        }
+             
       ]
     },
     {

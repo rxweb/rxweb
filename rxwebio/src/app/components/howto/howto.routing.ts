@@ -22,13 +22,5 @@ const HOWTO_ROUTES: Routes = [
 	path:'resetForm',
 	loadChildren: './resetForm/reset-form.module#ResetFormModule',
 },
-{
-	path:'disabled-control-conditionally',
-	loadChildren: './disabled-control-conditionally/disabled-control-conditionally.module#Disabled_control_conditionallyModule',
-},
-{
-	path:'conditional-error-messages',
-	loadChildren: './conditional-error-messages/conditional-error-messages.module#Conditional_error_messagesModule',
-},
 ];
 export const HOWTO_ROUTING: ModuleWithProviders = RouterModule.forChild(HOWTO_ROUTES);

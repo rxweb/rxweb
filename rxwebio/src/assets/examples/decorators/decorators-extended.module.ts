@@ -15,6 +15,8 @@ import { PropArrayServerComponent } from './propArray/bindingServerProperty/prop
 
 import { PropObjectDefaultComponent } from './propObject/defaultValue/prop-object-default.component';
 import { PropObjectServerComponent } from './propObject/bindingServerProperty/prop-object-server.component';
+import { DisabledControlConditionallyAddComponent } from './disabledControlConditionally/add/disabledControlConditionally-add.component';
+import { ShowErrorMessagesSubmitAddComponent } from './showErrorMessagesSubmit/add/showErrorMessagesSubmit-add.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { PropObjectServerComponent } from './propObject/bindingServerProperty/pr
   PropObjectAddComponent,
   PropObjectDefaultComponent,
   PropObjectServerComponent,
-  PropDefaultComponent
+  PropDefaultComponent,
+  DisabledControlConditionallyAddComponent,
+  ShowErrorMessagesSubmitAddComponent
   ],
 entryComponents: [
   PropAddComponent,
@@ -38,7 +42,9 @@ entryComponents: [
   PropObjectAddComponent,
   PropObjectDefaultComponent,
   PropObjectServerComponent,
-  PropDefaultComponent
+  PropDefaultComponent,
+  DisabledControlConditionallyAddComponent,
+  ShowErrorMessagesSubmitAddComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -49,7 +55,9 @@ entryComponents: [
   exports: [
     PropAddComponent,
     PropArrayAddComponent,
-	PropObjectAddComponent,
+  PropObjectAddComponent,
+  DisabledControlConditionallyAddComponent,
+  ShowErrorMessagesSubmitAddComponent
   ],
 
 })

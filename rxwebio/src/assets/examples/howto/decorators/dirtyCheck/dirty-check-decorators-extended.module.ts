@@ -3,17 +3,17 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { DirtyCompleteComponent } from './complete/dirty-complete.component';
+import { DirtyCheckCompleteComponent } from './complete/dirty-check-complete.component';
 
 
 
 
 @NgModule({
   declarations: [
-    DirtyCompleteComponent
+    DirtyCheckCompleteComponent
   ],
 entryComponents: [
-	DirtyCompleteComponent
+	DirtyCheckCompleteComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -22,7 +22,7 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-	DirtyCompleteComponent
+    DirtyCheckCompleteComponent
   ],
 
 })

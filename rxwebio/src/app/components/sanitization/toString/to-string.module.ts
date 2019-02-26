@@ -1,9 +1,7 @@
 import { NgModule} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToStringDecoratorsExtendedModule } from "src/assets/examples/reactive-form-validators/decorators/toString/to-string-decorators-extended.module";
-import { ToStringTemplateDrivenValidationDirectivesExtendedModule } from "src/assets/examples/reactive-form-validators/template-driven/validation-directives/toString/to-string-validation-directives-extended.module";
-import { ToStringTemplateDrivenValidationDecoratorsExtendedModule } from "src/assets/examples/reactive-form-validators/template-driven/validation-decorators/toString/to-string-validation-decorators-extended.module";
-import { ToStringValidatorsExtendedModule } from "src/assets/examples/reactive-form-validators/validators/toString/to-string-validators-extended.module";
+
 import { TO_STRING_COMPONENT_EXAMPLE_CONSTANT } from "src/app/components/sanitization/toString/to-string.constants";
 import { COMPONENT_EXAMPLE } from "src/app/domain/application.const";
 import { TO_STRING_ROUTING } from "src/app/components/sanitization/toString/to-string.routing";

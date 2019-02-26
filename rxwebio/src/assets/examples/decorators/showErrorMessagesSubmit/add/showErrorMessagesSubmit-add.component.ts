@@ -6,11 +6,11 @@ import { FormField } from './form.model';
 
 
 @Component({
-    selector: 'app-conditional-add',
-    templateUrl: './conditionalErrorMessage-add.component.html'
+    selector: 'app-showErrorMessagesSubmit-add',
+    templateUrl: './showErrorMessagesSubmit-add.component.html'
 })
-export class ConditionalErrorMessageAddComponent implements OnInit {
-errorObject = {}
+export class ShowErrorMessagesSubmitAddComponent implements OnInit {
+    errorObject = {}
     userInfoFormGroup: FormGroup
 
     constructor(

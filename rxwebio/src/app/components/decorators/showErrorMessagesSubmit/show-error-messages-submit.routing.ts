@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageComponent } from "src/app/components/page/page.component";
-const CONDITIONAL_ERROR_MESSAGES_ROUTES: Routes = [
+const SHOW_ERROR_MESSAGES_SUBMIT_ROUTES: Routes = [
 {
 	path:':typeName/:templateDrivenType',
 	component:PageComponent
@@ -12,4 +12,4 @@ const CONDITIONAL_ERROR_MESSAGES_ROUTES: Routes = [
 }
 
 ];
-export const CONDITIONAL_ERROR_MESSAGES_ROUTING: ModuleWithProviders = RouterModule.forChild(CONDITIONAL_ERROR_MESSAGES_ROUTES);
+export const SHOW_ERROR_MESSAGES_SUBMIT_ROUTING: ModuleWithProviders = RouterModule.forChild(SHOW_ERROR_MESSAGES_SUBMIT_ROUTES);

@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { PortDecoratorsExtendedModule } from "src/assets/examples/reactive-form-validators/decorators/port/port-decorators-extended.module";
 import { PortTemplateDrivenValidationDirectivesExtendedModule } from "src/assets/examples/reactive-form-validators/template-driven/validation-directives/port/port-validation-directives-extended.module";
 import { PortTemplateDrivenValidationDecoratorsExtendedModule } from "src/assets/examples/reactive-form-validators/template-driven/validation-decorators/port/port-validation-decorators-extended.module";
+
 import { PortValidatorsExtendedModule } from "src/assets/examples/reactive-form-validators/validators/port/port-validators-extended.module";
 import { PORT_COMPONENT_EXAMPLE_CONSTANT } from "src/app/components/form-validation/port/port.constants";
 import { COMPONENT_EXAMPLE } from "src/app/domain/application.const";
@@ -12,7 +13,7 @@ import { PageModule } from "src/app/components/page/page.module";
 
 
 @NgModule({
-  imports: [PORT_ROUTING ,PortDecoratorsExtendedModule , PortValidatorsExtendedModule ,PortTemplateDrivenValidationDirectivesExtendedModule, PortTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
+  imports: [PORT_ROUTING ,PortDecoratorsExtendedModule ,PortValidatorsExtendedModule,PortTemplateDrivenValidationDirectivesExtendedModule, PortTemplateDrivenValidationDecoratorsExtendedModule ,PageModule],
   exports: [RouterModule],
     providers:[{ provide: COMPONENT_EXAMPLE, useValue: PORT_COMPONENT_EXAMPLE_CONSTANT }]
   })

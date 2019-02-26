@@ -2,26 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,Validators } from "@angular/forms"
 
 import { RxFormBuilder,FormBuilderConfiguration,FormGroupExtension } from '@rxweb/reactive-form-validators';
-import {User} from './user.model'
+
 
 @Component({
-    selector: 'app-dirty-complete',
-    templateUrl: './dirty-complete.component.html'
+    selector: 'app-dirty-check-complete',
+    templateUrl: './dirty-check-complete.component.html'
 })
-export class DirtyCompleteComponent implements OnInit {
+export class DirtyCheckCompleteValidatorComponent implements OnInit {
 
    editForm:FormGroup;
 
   constructor(private formBuilder:RxFormBuilder){}
   
   ngOnInit(){
-   let user = new User();
-   this.editForm = this.formBuilder.formGroup(user);
+
+   this.editForm = this.formBuilder.group({
+      id:[1],
+      name: ["Bharat" ],
+      designation: ["Software Engg."]
+    });
    this.IsDirty();
   }
   IsDirty()
   {
     let isDirty = (<FormGroupExtension>this.editForm).isDirty();
-    
   }
 }
