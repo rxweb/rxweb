@@ -3,8 +3,9 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { ErrorMessagesComponent } from './complete/errorMessage-component';
-import { SingleErrorMessagesComponent } from './single-message/errormessage-single.component';
+
+import { ErrormessageSingleComponent } from './single-message/errormessage-single.component';
+import { ErrormessageCompleteComponent } from './complete/errormessage-complete.component';
 
 
 
@@ -12,10 +13,10 @@ import { SingleErrorMessagesComponent } from './single-message/errormessage-sing
 
 @NgModule({
   declarations: [
-    ErrorMessagesComponent,SingleErrorMessagesComponent
+    ErrormessageCompleteComponent,ErrormessageSingleComponent
   ],
 entryComponents: [
-	ErrorMessagesComponent,SingleErrorMessagesComponent
+	ErrormessageCompleteComponent,ErrormessageSingleComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -24,7 +25,7 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-	ErrorMessagesComponent,SingleErrorMessagesComponent
+    ErrormessageCompleteComponent,ErrormessageSingleComponent
   ],
 
 })

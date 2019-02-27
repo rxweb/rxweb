@@ -4,10 +4,10 @@ import { RxwebValidators,RxFormGroup,RxFormBuilder } from '@rxweb/reactive-form-
 import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
 @Component({
-    selector: 'app-fileObject-validator',
-    templateUrl: './fileObject-complete.component.html'
+    selector: 'app-fileobject-complete',
+    templateUrl: './fileobject-complete.component.html'
 })
-export class FileObjectCompleteComponent implements OnInit {
+export class FileobjectCompleteComponent implements OnInit {
     userInfoFormGroup: RxFormGroup
    api:string = 'api/User'
 	constructor(

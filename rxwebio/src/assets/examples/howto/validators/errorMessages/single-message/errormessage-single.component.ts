@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, } from "@angular/forms"
 import { RxwebValidators,RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 @Component({
-    selector: 'app-errormessage-single',
+    selector: 'app-errormessage-single-validator',
     templateUrl: './errormessage-single.component.html'
 })
 export class ErrormessageSingleValidatorComponent implements OnInit {

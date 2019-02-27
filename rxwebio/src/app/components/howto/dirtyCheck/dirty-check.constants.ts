@@ -1,4 +1,4 @@
-import { DirtyCheckCompleteValidatorComponent } from "src/assets/examples/howto/validators/dirtyCheck/complete/dirty-check-complete.component";
+import {  DirtyCompleteValidatorComponent } from "src/assets/examples/howto/validators/dirtyCheck/complete/dirty-check-complete.component";
 import { DirtyCheckCompleteComponent } from "src/assets/examples/howto/decorators/dirtyCheck/complete/dirty-check-complete.component";
 
 
@@ -7,7 +7,7 @@ import { DirtyCheckCompleteComponent } from "src/assets/examples/howto/decorator
 export const DIRTY_CHECK_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
     validators:
     {
-        complete:DirtyCheckCompleteValidatorComponent,   
+        complete:DirtyCompleteValidatorComponent,   
     },
     decorators:
     {

@@ -3,7 +3,9 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { FormDataValidatorComponent } from './complete/form-data.component';
+import { FormadataCompleteValidatorComponent } from './complete/formadata-complete.component';
+
+
 
 
 
@@ -13,10 +15,10 @@ import { FormDataValidatorComponent } from './complete/form-data.component';
 
 @NgModule({
   declarations: [
-    FormDataValidatorComponent
+    FormadataCompleteValidatorComponent
   ],
 entryComponents: [
-	FormDataValidatorComponent
+	FormadataCompleteValidatorComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -25,7 +27,7 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-	FormDataValidatorComponent
+    FormadataCompleteValidatorComponent
   ],
 
 })

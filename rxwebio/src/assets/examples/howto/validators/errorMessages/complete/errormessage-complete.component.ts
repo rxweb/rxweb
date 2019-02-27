@@ -3,10 +3,10 @@ import { FormGroup, FormBuilder, } from "@angular/forms"
 import { RxwebValidators,RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 @Component({
-    selector: 'app-errormessage-complete',
-    templateUrl: './errorMessage-component.html'
+    selector: 'app-errormessage-complete-validator',
+    templateUrl: './errormessage-complete.component.html'
 })
-export class ErrormessageSingleComponent implements OnInit {
+export class ErrormessageCompleteValidatorComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(

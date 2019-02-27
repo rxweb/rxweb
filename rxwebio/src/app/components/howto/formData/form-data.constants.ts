@@ -1,5 +1,8 @@
-import { FormDataValidatorComponent } from "src/assets/examples/howto/validators/formData/complete/form-data.component";
-import { FormDataComponent } from "src/assets/examples/howto/decorators/formData/complete/form-data.component";
+
+import { FormadataCompleteComponent } from "src/assets/examples/howto/decorators/formData/complete/formadata-complete.component";
+import { FormadataCompleteValidatorComponent } from "src/assets/examples/howto/validators/formData/complete/formadata-complete.component";
+
+
 
 
 
@@ -10,10 +13,10 @@ import { FormDataComponent } from "src/assets/examples/howto/decorators/formData
 export const FORM_DATA_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
     validators:
     {
-        complete:FormDataValidatorComponent
+        complete:FormadataCompleteValidatorComponent
     },
     decorators:
     {
-        complete:FormDataComponent
+        complete:FormadataCompleteComponent
     }
 }

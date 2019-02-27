@@ -1,7 +1,10 @@
-import { ErrorMessagesComponent } from "src/assets/examples/howto/decorators/errorMessages/complete/errorMessage-component";
-import { SingleErrorMessagesComponent } from "src/assets/examples/howto/decorators/errorMessages/single-message/errormessage-single.component";
-import { ErrormessageSingleComponent } from "src/assets/examples/howto/validators/errorMessages/complete/errorMessage-component";
+
+
+
 import { ErrormessageSingleValidatorComponent } from "src/assets/examples/howto/validators/errorMessages/single-message/errormessage-single.component";
+import { ErrormessageSingleComponent } from "src/assets/examples/howto/decorators/errorMessages/single-message/errormessage-single.component";
+import { ErrormessageCompleteComponent } from "src/assets/examples/howto/decorators/errorMessages/complete/errormessage-complete.component";
+import { ErrormessageCompleteValidatorComponent } from "src/assets/examples/howto/validators/errorMessages/complete/errormessage-complete.component";
 
 
 
@@ -11,12 +14,12 @@ import { ErrormessageSingleValidatorComponent } from "src/assets/examples/howto/
 export const ERROR_MESSAGES_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
     decorators:
     {
-        complete:ErrorMessagesComponent,
-        single:SingleErrorMessagesComponent
+        complete:ErrormessageCompleteComponent,
+        single:ErrormessageSingleComponent
     },
     validators:
     {
-        complete:ErrormessageSingleComponent,
+        complete:ErrormessageCompleteValidatorComponent,
         single:ErrormessageSingleValidatorComponent
     }
 }

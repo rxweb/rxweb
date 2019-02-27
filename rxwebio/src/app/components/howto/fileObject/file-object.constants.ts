@@ -1,5 +1,6 @@
-import { FileObjectValidatorComponent } from "src/assets/examples/howto/validators/fileObject/complete/fileObject-complete.component";
-import { FileObjectCompleteComponent } from "src/assets/examples/howto/decorators/fileObject/complete/fileObject-complete.component";
+
+import { FileobjectCompleteValidatorComponent } from "src/assets/examples/howto/validators/fileObject/complete/fileObject-complete.component";
+import { FileobjectCompleteComponent } from "src/assets/examples/howto/decorators/fileObject/complete/fileObject-complete.component";
 
 
 
@@ -9,10 +10,10 @@ import { FileObjectCompleteComponent } from "src/assets/examples/howto/decorator
 export const FILE_OBJECT_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
     validators:
     {
-        complete:FileObjectValidatorComponent
+        complete:FileobjectCompleteValidatorComponent
     },
     decorators:
     {
-        complete:FileObjectCompleteComponent
+        complete:FileobjectCompleteComponent
     }
 }

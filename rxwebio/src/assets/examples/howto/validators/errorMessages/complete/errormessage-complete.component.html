@@ -9,7 +9,7 @@
        <div class="form-group">
         <label>Password</label>
         <input type="text" formControlName="password" class="form-control"  />
-       <small class="form-text text-danger">{{userFormGroup.controls.userName["errorMessage"]}}<br/></small>	
+       <small class="form-text text-danger">{{userFormGroup.controls.password["errorMessage"]}}<br/></small>	
       </div>
   
       <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
