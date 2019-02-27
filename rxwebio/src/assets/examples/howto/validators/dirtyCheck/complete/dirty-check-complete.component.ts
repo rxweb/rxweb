@@ -5,10 +5,10 @@ import { RxFormBuilder,FormBuilderConfiguration,FormGroupExtension } from '@rxwe
 
 
 @Component({
-    selector: 'app-dirty-check-complete',
+    selector: 'app-dirty-complete-validator',
     templateUrl: './dirty-check-complete.component.html'
 })
-export class DirtyCheckCompleteValidatorComponent implements OnInit {
+export class DirtyCompleteValidatorComponent implements OnInit {
 
    editForm:FormGroup;
 

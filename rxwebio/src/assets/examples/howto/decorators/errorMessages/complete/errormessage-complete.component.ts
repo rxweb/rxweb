@@ -6,9 +6,9 @@ import { User } from './user.model';
 
 @Component({
     selector: 'app-errormessage-complete',
-    templateUrl: './errorMessage-component.html'
+    templateUrl: './errormessage-complete.component.html'
 })
-export class ErrorMessagesComponent implements OnInit {
+export class ErrormessageCompleteComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(

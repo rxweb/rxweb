@@ -3,7 +3,7 @@ import { RxwebValidators,RxFormGroup,RxFormBuilder ,FormGroupExtension} from '@r
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-    selector: 'app-reset-complete',
+    selector: 'app-reset-complete-validator',
     templateUrl: './reset-complete.component.html'
 })
 export class ResetCompleteValidatorComponent implements OnInit {

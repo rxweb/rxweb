@@ -4,10 +4,10 @@ import { RxwebValidators,RxFormBuilder } from '@rxweb/reactive-form-validators';
 import {User} from './user.model';
 
 @Component({
-    selector: 'app-errormessage-complete',
+    selector: 'app-errormessage-single',
     templateUrl: './errormessage-single.component.html'
 })
-export class SingleErrorMessagesComponent implements OnInit {
+export class ErrormessageSingleComponent implements OnInit {
     userFormGroup: FormGroup
 
 	constructor(

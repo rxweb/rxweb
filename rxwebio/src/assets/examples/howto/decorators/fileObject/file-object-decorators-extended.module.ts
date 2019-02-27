@@ -3,7 +3,8 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { FileObjectCompleteComponent } from './complete/fileObject-complete.component';
+import { FileobjectCompleteComponent } from './complete/fileObject-complete.component';
+
 
 
 
@@ -11,10 +12,10 @@ import { FileObjectCompleteComponent } from './complete/fileObject-complete.comp
 
 @NgModule({
   declarations: [
-    FileObjectCompleteComponent
+    FileobjectCompleteComponent
   ],
 entryComponents: [
-	FileObjectCompleteComponent
+	FileobjectCompleteComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -23,7 +24,7 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-	FileObjectCompleteComponent
+    FileobjectCompleteComponent
   ],
 
 })
