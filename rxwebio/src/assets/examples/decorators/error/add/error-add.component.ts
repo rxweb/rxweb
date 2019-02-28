@@ -6,10 +6,10 @@ import { FormField } from './form.model';
 
 
 @Component({
-    selector: 'app-showErrorMessagesSubmit-add',
-    templateUrl: './showErrorMessagesSubmit-add.component.html'
+    selector: 'app-error-add',
+    templateUrl: './error-add.component.html'
 })
-export class ShowErrorMessagesSubmitAddComponent implements OnInit {
+export class ErrorAddComponent implements OnInit {
     errorObject = {}
     userInfoFormGroup: FormGroup
 

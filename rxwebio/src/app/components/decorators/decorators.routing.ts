@@ -15,12 +15,12 @@ const DECORATORS_ROUTES: Routes = [
 	loadChildren: './propObject/prop-object.module#PropObjectModule',
 },
 {
-	path:'disabledControlConditionally',
-	loadChildren: './disabledControlConditionally/disabled-control-conditionally.module#DisabledControlConditionallyModule',
+	path:'disable',
+	loadChildren: './disable/disable.module#DisableModule',
 },
 {
-	path:'showErrorMessagesSubmit',
-	loadChildren: './showErrorMessagesSubmit/show-error-messages-submit.module#ShowErrorMessagesSubmitModule',
+	path:'error',
+	loadChildren: './error/error.module#ErrorModule',
 },
 ];
 export const DECORATORS_ROUTING: ModuleWithProviders = RouterModule.forChild(DECORATORS_ROUTES);

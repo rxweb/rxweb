@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageComponent } from "src/app/components/page/page.component";
-const DISABLED_CONTROL_CONDITIONALLY_ROUTES: Routes = [
+const DISABLE_ROUTES: Routes = [
 {
 	path:':typeName/:templateDrivenType',
 	component:PageComponent
@@ -12,4 +12,4 @@ const DISABLED_CONTROL_CONDITIONALLY_ROUTES: Routes = [
 }
 
 ];
-export const DISABLED_CONTROL_CONDITIONALLY_ROUTING: ModuleWithProviders = RouterModule.forChild(DISABLED_CONTROL_CONDITIONALLY_ROUTES);
+export const DISABLE_ROUTING: ModuleWithProviders = RouterModule.forChild(DISABLE_ROUTES);

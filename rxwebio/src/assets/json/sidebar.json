@@ -348,13 +348,13 @@
           "isActive": false
         },
         {
-          "title":"Disabled Control Conditionally",
-          "uri":"/decorators/disabledControlConditionally/decorators",
+          "title":"disable",
+          "uri":"/decorators/disable/decorators",
           "isActive": false
         }, 
         {
-          "title":"Show Error Messages on Submit",
-          "uri":"/decorators/showErrorMessagesSubmit/decorators",
+          "title":"error",
+          "uri":"/decorators/error/decorators",
           "isActive": false
         }    
       ]

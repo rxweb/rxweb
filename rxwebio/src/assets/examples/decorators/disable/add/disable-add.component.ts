@@ -3,10 +3,10 @@ import { FormGroup } from "@angular/forms";
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 @Component({
-    selector: 'app-disabledControlConditionally-add',
-    templateUrl: './disabledControlConditionally-add.component.html'
+    selector: 'app-disable-add',
+    templateUrl: './disable-add.component.html'
 })
-export class DisabledControlConditionallyAddComponent implements OnInit {
+export class DisableAddComponent implements OnInit {
     currentMode: string = "View";
     userFormGroup: FormGroup;
     constructor(private formBuilder: RxFormBuilder) { }
