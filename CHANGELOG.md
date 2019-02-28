@@ -4,6 +4,22 @@ author: ajayojha
 type:simple
 linktitle:changelog
 ---
+# <a name="1.8.2" href="https://github.com/rxweb/rxweb/releases/tag/v1.8.2" target="_blank">1.8.2</a> (02-22-2019)
+
+### Bug Fixes
+<ul>
+<li>controlsError clear once the FormControl is valid.(<a href="https://github.com/rxweb/rxweb/issues/129" target="_blank">#129</a>)</li>
+<li>Conditional error message hide during initialization as per rule.(<a href="https://github.com/rxweb/rxweb/issues/128" target="_blank">#128</a>)</li>
+</ul>
+
+### Features
+<ul>
+<li>New sanitizers added(<a href="https://github.com/rxweb/rxweb/issues/136" target="_blank">#136</a> <a href="https://github.com/rxweb/rxweb/issues/101" target="_blank">#101</a> <a href="https://github.com/rxweb/rxweb/issues/107" target="_blank">#107</a> <a href="https://github.com/rxweb/rxweb/issues/100" target="_blank">#100</a> <a href="https://github.com/rxweb/rxweb/issues/102" target="_blank">#102</a>)</li>
+<li>Message key for custom messages(<a href="https://github.com/rxweb/rxweb/issues/132" target="_blank">#132</a>)</li>
+<li>Logical validators and decorators(<a href="https://github.com/rxweb/rxweb/issues/131" target="_blank">#131</a>)</li>
+<li>`patchModelValue` method in RxFormBuilder( (<a href="https://github.com/rxweb/rxweb/issues/130" target="_blank">#130</a>)</li>
+</ul>
+<hr />
 
 # <a name="1.8.1" href="https://github.com/rxweb/rxweb/releases/tag/v1.8.1" target="_blank">1.8.1</a> (02-18-2019)
 
