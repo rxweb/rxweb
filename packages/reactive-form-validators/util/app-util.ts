@@ -100,8 +100,10 @@ export class ApplicationUtil{
   }
 
   static notEqualTo(primaryValue: any, secondaryValue: any) {
-    let firstValue = (primaryValue == undefined || primaryValue == null) ? "" : primaryValue;
-    let secondValue = (secondaryValue == undefined || secondaryValue == null) ? "" : secondaryValue;
+    let firstValue = (primaryValue === undefined || primaryValue === null) ? "" : primaryValue;
+    let secondValue = (secondaryValue === undefined || secondaryValue === null) ? "" : secondaryValue;
+    if(firstValue instanceof Date && secondValue instanceof Date)
+        return +firstValue != +secondValue;
     return (firstValue != secondValue)
   }
 

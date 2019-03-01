@@ -24,7 +24,7 @@ export class RxFormGroup extends FormGroup  {
           let isDirty:boolean = false;
           for(let name in this.value)
           {
-              let currentValue = this.controls[name].value;
+              let currentValue = this.modelInstance[name];
                if(!(this.controls[name] instanceof FormGroup || this.controls[name] instanceof FormArray)){
                  isDirty = ApplicationUtil.notEqualTo(this.baseObject[name],currentValue);
                 }else if (this.controls[name] instanceof RxFormGroup)
@@ -122,7 +122,7 @@ export class RxFormGroup extends FormGroup  {
 
     valueChangedSync(){
         Object.keys(this.controls).forEach(columnName=>{
-            if(!(this.controls[columnName] instanceof FormArray || this.controls[columnName] instanceof RxFormArray) && !(this.controls[columnName] instanceof FormGroup || this.controls[columnName] instanceof RxFormGroup) && !(this.entityObject[columnName] instanceof FormControl || this.entityObject[columnName] instanceof RxFormControl) && this.controls[columnName].value != this.entityObject[columnName]) {
+            if(!(this.controls[columnName] instanceof FormArray || this.controls[columnName] instanceof RxFormArray) && !(this.controls[columnName] instanceof FormGroup || this.controls[columnName] instanceof RxFormGroup) && !(this.entityObject[columnName] instanceof FormControl || this.entityObject[columnName] instanceof RxFormControl) && ApplicationUtil.notEqualTo(<RxFormControl>this.controls[columnName].getControlValue() , this.entityObject[columnName])) {
                   this.controls[columnName].setValue(this.entityObject[columnName],{updateChanged:true});
             } else if((this.controls[columnName] instanceof FormArray || this.controls[columnName] instanceof RxFormArray)){
                 for(let formGroup of (<FormArray>this.controls[columnName]).controls){

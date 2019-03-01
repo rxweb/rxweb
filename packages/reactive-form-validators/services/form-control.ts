@@ -63,6 +63,10 @@ export class RxFormControl extends FormControl {
         }
     }
 
+    getControlValue(){
+       return this.getSanitizedValue(this.value); 
+    }
+
     bindError(){
         if(this._messageExpression)
             this._isPassedExpression = this.executeExpression(this._messageExpression,this);
