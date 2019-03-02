@@ -9,6 +9,7 @@ import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-
       ReactiveFormConfig.set({
         "validationMessage": {
           "alphaNumeric": "Only alphanumerics are allowed.",
+          "alphaNumericKey":"AlphaNumeric allowed."
         }
       });
     });
@@ -37,6 +38,10 @@ import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-
         it('should error,allowWhiteSpace true.',
         () => {
           expect(RxwebValidators.alphaNumeric({allowWhiteSpace:true})(new FormControl('Victoria@ Park'))).toEqual({ 'alphaNumeric': { message: 'Only alphanumerics are allowed.', refValues: ['Victoria@ Park'] } });
+        });
+        it('should error,allowWhiteSpace true and messageKey is defined.',
+        () => {
+          expect(RxwebValidators.alphaNumeric({allowWhiteSpace:true,messageKey:'alphaNumericKey'})(new FormControl('Victoria@ Park'))).toEqual({ 'alphaNumeric': { message: 'AlphaNumeric allowed.', refValues: ['Victoria@ Park'] } });
         });
 
        it("Should not error, alphaNumeric validator Conditional Expression with type 'function'",

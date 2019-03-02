@@ -1,15 +1,17 @@
 import { defaultContainer } from '../core/defaultContainer';
 import { PropertyInfo } from '../core/validator.interface';
 import { PROPERTY } from "../const"
-
-export function prop() {
+import { PropConfig } from "../models/config/prop-config"
+export function prop(config?:PropConfig) {
     return function (
         target: Object,
         propertyKey: string, parameterIndex?: any
     ) {
         var propertyInfo: PropertyInfo = {
             name : propertyKey,
-            propertyType: PROPERTY
+            propertyType: PROPERTY,
+            dataPropertyName: config ? config.name : undefined,
+            defaultValue:config ? config.defaultValue : undefined
         }
         defaultContainer.addProperty(target.constructor, propertyInfo);
     }

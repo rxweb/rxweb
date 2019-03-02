@@ -1,7 +1,7 @@
 import { baseDecoratorFunction } from "./base-decorator.function"
-import { DateConfig } from "../models/config/date-config";
+import { MinDateConfig } from "../models/config/min-date-config";
 import { AnnotationTypes } from "../core/validator.static";
 
-export function minDate(config:DateConfig) {
+export function minDate(config:MinDateConfig) {
     return baseDecoratorFunction (AnnotationTypes.minDate, config)    
 }

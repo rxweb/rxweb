@@ -58,5 +58,11 @@ export const AnnotationTypes: { [key: string]: string } = {
   image: "image",
   unique: "unique",
   notEmpty: "notEmpty",
-  ip:"ip"
+  ip: "ip",
+  cusip: "cusip",
+  grid:"grid",
+  date:'date',
+  and:'and',
+  or:'or',
+  not:'not'
 }

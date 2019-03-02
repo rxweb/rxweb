@@ -55,3 +55,6 @@ export * from './unique.validator';
 export * from './image.validator';
 export * from './notEmpty.validator';
 export * from './ip.validator';
+export * from './cusip.validator';
+export * from './grid.validator';
+export * from './date.validator';

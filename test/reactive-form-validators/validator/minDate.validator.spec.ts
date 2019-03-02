@@ -124,6 +124,27 @@ import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-
           expect(RxwebValidators.minDate({ fieldName:'enrollmentDate' })(formGroup.controls.lastRegistrationDate)).toEqual({ 'minDate': { message: 'Minimum Date is not matched', refValues: ['05/31/2018'] } }); 
         });
 
+        
+        it("Should error, lastRegistrationDate should be greaterThan enrollmentDate",
+        () => {
+          let formBuilder = new FormBuilder();
+          let formGroup = formBuilder.group({
+            'enrollmentDate': '08/31/2018',
+            'lastRegistrationDate': '08/31/2018'
+          });
+          expect(RxwebValidators.minDate({ fieldName:'enrollmentDate',operator:">" })(formGroup.controls.lastRegistrationDate)).toEqual({ 'minDate': { message: 'Minimum Date is not matched', refValues: ['08/31/2018'] } }); 
+        });
+
+        it("Should not error, lastRegistrationDate should be greaterThanEqualTo enrollmentDate",
+        () => {
+          let formBuilder = new FormBuilder();
+          let formGroup = formBuilder.group({
+            'enrollmentDate': '08/31/2018',
+            'lastRegistrationDate': '08/31/2018'
+          });
+          expect(RxwebValidators.minDate({ fieldName:'enrollmentDate' })(formGroup.controls.lastRegistrationDate)).toBeNull(); 
+        });
+
 
       //end
     });

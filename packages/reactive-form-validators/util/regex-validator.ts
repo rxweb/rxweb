@@ -22,8 +22,8 @@ export class RegexValidator {
 
   static isNotBlank(value: any, isRemoveSpace: boolean = false): boolean {
     return !isRemoveSpace ?
-      (value === 0) || (value != undefined && value != null && value != "") :
-      (value === 0) || (value != undefined && value != null && String(value).trim() != "")
+      (value === 0) || (value !== undefined && value !== null && value !== "") :
+      (value === 0) || (value !== undefined && value !== null && String(value).trim() !== "")
   }
     static isValidPassword(passwordValidation: PasswordValidation, value: string): { [key: string]: any } {
         let isValid = false;

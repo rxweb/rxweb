@@ -106,7 +106,26 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
             });
             employeeFormGroup.controls.hobbies.setValue(["Drawing", "Singing"])
             expect(employeeFormGroup.controls.hobbies.errors).toEqual({'noneOf':{ message: 'Please select no hobbies', refValues: [ ["Drawing", "Singing"] ] } });
-      });
+            });
+
+        it("Should not error with value as string.",
+            () => {
+                let employeeFormGroup = formbuilder.group({
+                    hobbies: ['', RxwebValidators.noneOf({ matchValues: ["Drawing", "Singing", "Dancing", "Travelling", "Sports"], message: "Please select no hobbies" })]
+                });
+                employeeFormGroup.controls.hobbies.setValue("Chess")
+                expect(employeeFormGroup.controls.hobbies.errors).toBeNull();
+            });
+
+        it("Should error with value as string with duplicate value.",
+            () => {
+                let employeeFormGroup = formbuilder.group({
+                    hobbies: ['', RxwebValidators.noneOf({ matchValues: ["Drawing", "Singing", "Dancing", "Travelling", "Sports"]})]
+                });
+                
+                employeeFormGroup.controls.hobbies.setValue("Drawing")
+                expect(employeeFormGroup.controls.hobbies.errors).toEqual({ 'noneOf': { message: 'No field should be selected', refValues: ["Drawing"] } });
+            });
 
     })
 })();

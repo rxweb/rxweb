@@ -1,7 +1,7 @@
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from './validator.interface';
 import { Linq } from "../util/linq";
 import { AnnotationTypes } from "./validator.static";
-import { PROPERTY,OBJECT_PROPERTY } from "../const";
+import { PROPERTY,OBJECT_PROPERTY,RXCODE } from "../const";
 
 export const defaultContainer:
     {
@@ -10,11 +10,14 @@ export const defaultContainer:
         addInstanceContainer(instanceFunc: any): void,
         addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void,
         addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]): void,
-        init(target: any,parameterIndex:any,propertyKey:string, annotationType:string, config:any) : void,
-        initPropertyObject(name:string,propertyType:string,entity:any,target) : void,
+        init(target: any,parameterIndex:any,propertyKey:string, annotationType:string, config:any,isAsync:boolean) : void,
+        initPropertyObject(name:string,propertyType:string,entity:any,target:any,config?:any) : void,
         modelIncrementCount:number,
         clearInstance(instance:any):void,
-        setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string):void
+        setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string): void,
+        addDecoratorConfig(target: any, parameterIndex: any, propertyKey: string, config: any,decoratorType:string):void,
+        setLogicalConditional(instance: any, annotationType: string, fieldName: string, propertyName: string): void,
+        addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string,value?:any):void
     } = new (class {
         private instances: InstanceContainer[] = [];
         modelIncrementCount:number = 0;
@@ -23,23 +26,67 @@ export const defaultContainer:
             return instance;
         }
 
+        getInstance(target: any, parameterIndex: any, propertyKey: string, decoratorType: string) {
+            let isPropertyKey = (propertyKey != undefined);
+            let instanceFunc = !isPropertyKey ? target : target.constructor
+            let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
+            if (!instance)
+                instance = this.addInstanceContainer(instanceFunc);
+            return instance;
+        }
 
-        init(target:any,parameterIndex: any, propertyKey: string, annotationType: string, config: any): void {
+        addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string,value?:any) {
+            let instance = this.getInstance(target, parameterIndex, propertyKey, decoratorType);
+            if (instance) {
+                if (!instance.sanitizers[propertyKey])
+                    instance.sanitizers[propertyKey] = [];
+                instance.sanitizers[propertyKey].push({name:decoratorType,config:value});
+            }
+        }
+
+        addDecoratorConfig(target: any, parameterIndex: any, propertyKey: string, config: any,decoratorType:string): void {
+            let isPropertyKey = (propertyKey != undefined);
+            let instanceFunc = !isPropertyKey ? target : target.constructor
+            let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
+            if (!instance)
+                instance = this.addInstanceContainer(instanceFunc);
+            instance.nonValidationDecorators[decoratorType].conditionalExpressions[propertyKey] = config.conditionalExpression;
+            let columns = Linq.expressionColumns(config.conditionalExpression,true);
+            columns.forEach(column => {
+                if(column.argumentIndex !== -1){
+                    let columnName = (!column.objectPropName) ? `${column.propName}${RXCODE}${column.argumentIndex}` : `${column.objectPropName}.${column.propName}${RXCODE}${column.argumentIndex}`;
+                    if (!instance.nonValidationDecorators[decoratorType].changeDetection[columnName]) 
+                        instance.nonValidationDecorators[decoratorType].changeDetection[columnName] = [];
+                    let disabledColumns = instance.nonValidationDecorators[decoratorType].changeDetection[columnName];
+                    if (disabledColumns.indexOf(columnName) === -1)
+                        disabledColumns.push(propertyKey);
+                }else{
+                    if(!instance.nonValidationDecorators[decoratorType].controlProp[propertyKey])
+                    instance.nonValidationDecorators[decoratorType].controlProp[propertyKey] = {};
+                    instance.nonValidationDecorators[decoratorType].controlProp[propertyKey][column.propName.replace(";","")] = true;
+                }
+            })
+        }
+
+
+        init(target:any,parameterIndex: any, propertyKey: string, annotationType: string, config: any,isAsync:boolean): void {
           var decoratorConfiguration: DecoratorConfiguration = {
             propertyIndex: parameterIndex,
             propertyName: propertyKey,
             annotationType: annotationType,
-            config: config
+            config: config,
+            isAsync:isAsync
           }
           let isPropertyKey = (propertyKey != undefined);
           this.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);  
         }
 
-        initPropertyObject(name:string,propertyType:string,entity:any,target){
+        initPropertyObject(name:string,propertyType:string,entity:any,target:any,config?:any){
             var propertyInfo: PropertyInfo = {
                 name: name,
                 propertyType: propertyType,
-                entity: entity
+                entity: entity,
+                dataPropertyName: config ? config.name : undefined
             }
             defaultContainer.addProperty(target.constructor, propertyInfo);
         }
@@ -48,17 +95,29 @@ export const defaultContainer:
             let instanceContainer: InstanceContainer = {
                 instance: instanceFunc,
                 propertyAnnotations: [],
-                properties: []
+                properties: [],
+                nonValidationDecorators: {
+                    disabled: {
+                        conditionalExpressions: {},
+                        changeDetection: {},
+                        controlProp:{}
+                    },error: {
+                        conditionalExpressions: {},
+                        changeDetection: {},
+                        controlProp:{}
+                    }
+                },
+                sanitizers: {}
             }
             this.instances.push(instanceContainer);
             return instanceContainer;
         }
 
 
-        addProperty(instanceFunc: any, propertyInfo: PropertyInfo): void {
+        addProperty(instanceFunc: any, propertyInfo: PropertyInfo,isFromAnnotation:boolean = false): void {
             let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
             if (instance) {
-                this.addPropertyInfo(instance, propertyInfo);
+                this.addPropertyInfo(instance, propertyInfo,!isFromAnnotation);
             }
             else {
                 instance = this.addInstanceContainer(instanceFunc);
@@ -66,14 +125,16 @@ export const defaultContainer:
             }
         }
 
-        addPropertyInfo(instance: InstanceContainer, propertyInfo: PropertyInfo) {
-            var property = instance.properties.filter(t => t.name == propertyInfo.name)[0]
+        addPropertyInfo(instance: InstanceContainer, propertyInfo: PropertyInfo,isAddProperty:boolean = false) {
+            var property = this.getProperty(instance,propertyInfo);
             if (!property)
                 instance.properties.push(propertyInfo);
+            else if(isAddProperty)
+                this.updateProperty(property,propertyInfo);
         }
 
         addAnnotation(instanceFunc: any, decoratorConfiguration: DecoratorConfiguration): void {
-            this.addProperty(instanceFunc, { propertyType: PROPERTY, name: decoratorConfiguration.propertyName });
+            this.addProperty(instanceFunc, { propertyType: PROPERTY, name: decoratorConfiguration.propertyName },true);
             let instance = this.instances.filter(instance => instance.instance === instanceFunc)[0];
             if (instance)
                 instance.propertyAnnotations.push(decoratorConfiguration);
@@ -85,11 +146,26 @@ export const defaultContainer:
                 let columns = Linq.expressionColumns(decoratorConfiguration.config.conditionalExpression);
                 this.addChangeValidation(instance, decoratorConfiguration.propertyName, columns);
             }
-            if (instance && decoratorConfiguration.config && ((decoratorConfiguration.annotationType == AnnotationTypes.compare || decoratorConfiguration.annotationType == AnnotationTypes.greaterThan || decoratorConfiguration.annotationType == AnnotationTypes.greaterThanEqualTo || decoratorConfiguration.annotationType == AnnotationTypes.lessThan || decoratorConfiguration.annotationType == AnnotationTypes.lessThanEqualTo  || decoratorConfiguration.annotationType == AnnotationTypes.different  || decoratorConfiguration.annotationType == AnnotationTypes.factor) || (decoratorConfiguration.annotationType == AnnotationTypes.creditCard && decoratorConfiguration.config.fieldName) || ((decoratorConfiguration.annotationType == AnnotationTypes.minDate || decoratorConfiguration.annotationType == AnnotationTypes.maxDate) && decoratorConfiguration.config.fieldName))) {
-                this.setConditionalValueProp(instance, decoratorConfiguration.config.fieldName, decoratorConfiguration.propertyName)
+            this.setConditionalColumns(instance,decoratorConfiguration);
+        }
+
+        setConditionalColumns(instance: any, decoratorConfiguration: DecoratorConfiguration){
+            if(instance && decoratorConfiguration.config ){
+                if(decoratorConfiguration.annotationType == AnnotationTypes.and || decoratorConfiguration.annotationType == AnnotationTypes.or || decoratorConfiguration.annotationType == AnnotationTypes.not){
+                    Object.keys(decoratorConfiguration.config.validation).forEach(t=>{
+                        if(typeof decoratorConfiguration.config.validation[t] !== "boolean")
+                            this.setLogicalConditional(instance,t,decoratorConfiguration.config.validation[t].fieldName,decoratorConfiguration.propertyName)
+                    })
+                }else
+                    this.setLogicalConditional(instance,decoratorConfiguration.annotationType,decoratorConfiguration.config.fieldName,decoratorConfiguration.propertyName);
             }
         }
 
+        setLogicalConditional(instance:any,annotationType:string,fieldName:string,propertyName:string){
+            if (instance  && ((annotationType == AnnotationTypes.compare || annotationType == AnnotationTypes.greaterThan || annotationType == AnnotationTypes.greaterThanEqualTo || annotationType == AnnotationTypes.lessThan || annotationType == AnnotationTypes.lessThanEqualTo  || annotationType == AnnotationTypes.different  || annotationType == AnnotationTypes.factor) || (annotationType == AnnotationTypes.creditCard && fieldName) || ((annotationType == AnnotationTypes.minDate || annotationType == AnnotationTypes.maxDate) && fieldName))) {
+                this.setConditionalValueProp(instance, fieldName, propertyName)
+            }
+        }
         setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string) {
             if (!instance.conditionalValidationProps)
                 instance.conditionalValidationProps = {};
@@ -127,5 +203,14 @@ export const defaultContainer:
         let indexOf = this.instances.indexOf(instance);
         this.instances.splice(indexOf,1);
         }
+      }
+
+      getProperty(instance: InstanceContainer, propertyInfo: PropertyInfo) {
+        return instance.properties.filter(t => t.name == propertyInfo.name)[0]
+      }
+
+      updateProperty(property:PropertyInfo,currentProperty:PropertyInfo){
+        property.dataPropertyName = currentProperty.dataPropertyName;
+        property.defaultValue = currentProperty.defaultValue;
       }
     })();

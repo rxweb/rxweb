@@ -1,6 +1,8 @@
 import { AbstractControl, FormGroup, FormArray } from "@angular/forms";
 import { RxFormArray } from "../services/rx-form-array";
 import {NumericValueType } from '../enums'
+import { ReactiveFormConfig } from "./reactive-form-config";
+
 export class ApplicationUtil{
     static getParentObjectValue(control: AbstractControl) :{ [key:string]:any} {
         if (control.parent) {
@@ -8,6 +10,21 @@ export class ApplicationUtil{
             return parent.value;
         }
         return {};
+    }
+
+    static getParentModelInstanceValue(control: AbstractControl): { [key: string]: any } {
+        if (control.parent) {
+            let parent = this.parentObjectValue(control.parent)
+            return parent["modelInstanceValue"];
+        }
+        return {};
+    }
+
+    static getRootFormGroup(control:AbstractControl):FormGroup{
+      if (control.parent) {
+        return this.getRootFormGroup(control.parent);
+      }
+      return <FormGroup>control;
     }
 
     private static getParentControl(control:AbstractControl){
@@ -45,6 +62,17 @@ export class ApplicationUtil{
         return value;
     }
 
+    static getControl(fieldName:string,formGroup:FormGroup){
+      let splitText = fieldName.split('.');
+      if(splitText.length > 1){
+        var formControl:any = formGroup;
+        splitText.forEach((name,index)=>{ formControl = formControl.controls[name]})
+        return formControl;
+      }else
+      return formGroup.controls[fieldName];
+
+    }
+
     static getFormControl(fieldName:string,control:AbstractControl){
         let splitText = fieldName.split('.');
           if(splitText.length > 1 && control.parent){
@@ -72,36 +100,50 @@ export class ApplicationUtil{
   }
 
   static notEqualTo(primaryValue: any, secondaryValue: any) {
-    let firstValue = (primaryValue == undefined || primaryValue == null) ? "" : primaryValue;
-    let secondValue = (secondaryValue == undefined || secondaryValue == null) ? "" : secondaryValue;
+    let firstValue = (primaryValue === undefined || primaryValue === null) ? "" : primaryValue;
+    let secondValue = (secondaryValue === undefined || secondaryValue === null) ? "" : secondaryValue;
+    if(firstValue instanceof Date && secondValue instanceof Date)
+        return +firstValue != +secondValue;
     return (firstValue != secondValue)
   }
 
     static numericValidation(allowDecimal:boolean, acceptValue:NumericValueType) {
+      let decimalSymbol:string;
+      let groupSymbol:string;
+      if(ReactiveFormConfig && ReactiveFormConfig.number){
+        decimalSymbol = (ReactiveFormConfig.json && ReactiveFormConfig.json.allowDecimalSymbol) ? ReactiveFormConfig.json.allowDecimalSymbol :  ReactiveFormConfig.number.decimalSymbol;
+        groupSymbol = ReactiveFormConfig.number.groupSymbol;
+      }else{
+        decimalSymbol = ".";
+        groupSymbol = ",";
+      }
+        
         acceptValue = (acceptValue == undefined) ? NumericValueType.PositiveNumber : acceptValue;
         let regex = /^[0-9]+$/;
         switch(acceptValue){
             case NumericValueType.PositiveNumber:
-              regex = (!allowDecimal) ? /^[0-9]+$/ : /^[0-9\.]+$/;
+              regex = (!allowDecimal) ? /^[0-9]+$/ : decimalSymbol == "." ? /^[0-9\.]+$/ : /^[0-9\,]+$/;
             break;
             case  NumericValueType.NegativeNumber:
-              regex = (!allowDecimal) ? /^[-][0-9]+$/ : /^[-][0-9\.]+$/;
+              regex = (!allowDecimal) ? /^[-][0-9]+$/ :  decimalSymbol == "." ?  /^[-][0-9\.]+$/ : /^[-][0-9\,]+$/;
             break;
             case NumericValueType.Both :
-              regex = (!allowDecimal) ? /^[-|+]?[0-9]+$/ : /^[-|+]?[0-9\.]+$/;
+              regex = (!allowDecimal) ? /^[-|+]?[0-9]+$/ :   decimalSymbol == "." ?  /^[-|+]?[0-9\.]+$/ : /^[-|+]?[0-9\,]+$/;
             break;
         }
       return regex;
     }
 
     static configureControl(control:any,config:any,type:string){
-      if(config){
           if(!control.validatorConfig){
             let jObject= {};
             jObject[type] = config;
             Object.assign(control,{validatorConfig:jObject})
           } else
             control.validatorConfig[type] = config;
-      }
+    }
+
+    static lowerCaseWithTrim(value:string) {
+        return typeof value === "string" ? value.toLowerCase().trim() : String(value).toLowerCase().trim();
     }
 }
