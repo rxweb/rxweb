@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration,RxFormBuilder} from '@rxweb/reactive-form-validators';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-upperCase-dynamic-validator',
@@ -17,7 +18,7 @@ export class UpperCaseDynamicValidatorComponent implements OnInit {
 
     ngOnInit() {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
-		this.http.get('assets/examples/reactive-form-validators/validators/upperCase/dynamic/dynamic.json').subscribe(dynamic => {
+		this.http.get('assets/examples/reactive-form-validators/validators/upperCase/dynamic/dynamic.json?v='+environment.appVersion).subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
 			var location = { countryName:'', stateName:'', cityName:'', colonyName:'',  }
 			this.locationFormGroup = this.formBuilder.group(location,formBuilderConfiguration);

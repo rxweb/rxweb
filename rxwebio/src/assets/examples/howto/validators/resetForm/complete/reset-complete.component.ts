@@ -17,7 +17,7 @@ export class ResetCompleteValidatorComponent implements OnInit {
               
    this.userFormGroup = <RxFormGroup>this.formBuilder.group({
     firstName:[''],
-    lastNsame:[''],
+    lastName:[''],
     userName:[''],
     password:['']
         });

@@ -1,7 +1,20 @@
 
 export class UserInfo {
 
-	profilePicture: string;
-	
-	
+	imageType: string;
+
+	profilePhoto: string;
+
+	signature: string;
+
+	voterId: string;
+
+	identityCard: string;
+
+	drivinglicense: string;
+
+	aadharCard: string;
+
+	residenceProof: string;
+
 }

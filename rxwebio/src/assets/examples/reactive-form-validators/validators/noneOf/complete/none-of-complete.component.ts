@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 @Component({
     selector: 'app-noneOf-complete-validator',
     templateUrl: './none-of-complete.component.html'
@@ -26,7 +26,7 @@ export class NoneOfCompleteValidatorComponent implements OnInit {
             skills:['',RxwebValidators.noneOf({matchValues: ["MVC", "AngularJS","Angular 5","C#","Web Api","SQL Server"], conditionalExpression: "x => x.department =='DotNet'"})],
             hobbies:['',RxwebValidators.noneOf({matchValues:["Drawing", "Singing","Dancing","Travelling","Sports"],message: "Please do not select any hobby"})]
         });
-        this.http.get("assets/examples/reactive-form-validators/validators/noneOf/complete/none-of.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/validators/noneOf/complete/none-of.json?v="+environment.appVersion).subscribe(response => {
             this.qualificationsArray = response['qualificationsArray'];
             this.skillsArray = response['skillsArray'];
             this.hobbiesArray = response['hobbiesArray'];

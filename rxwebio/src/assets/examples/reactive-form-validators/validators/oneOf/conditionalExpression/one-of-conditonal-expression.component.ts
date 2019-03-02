@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 @Component({
     selector: 'app-oneOf-conditionalExpression-validator',
     templateUrl: './one-of-conditional-expression.component.html'
@@ -23,7 +23,7 @@ export class OneOfConditionalExpressionValidatorComponent implements OnInit {
             skills:['',RxwebValidators.oneOf({matchValues: ["MVC", "AngularJS","Angular 5","C#","Web Api","SQL Server"], conditionalExpression: "x => x.department =='DotNet'"})]
             
         });
-        this.http.get("assets/examples/reactive-form-validators/validators/oneOf/conditionalExpression/one-of.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/validators/oneOf/conditionalExpression/one-of.json?v="+environment.appVersion).subscribe(response => {
             this.qualificationsArray = response['qualificationsArray'];
             this.skillsArray = response['skillsArray'];
         })

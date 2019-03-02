@@ -9,6 +9,9 @@ export class UserInfo {
 	signature: string;
 	
 	
+	voterId: string;
+	
+	
 	identityCard: string;
 	
 	

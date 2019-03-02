@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration,RxFormBuilder} from '@rxweb/reactive-form-validators';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-different-dynamic-validator',
@@ -17,7 +18,7 @@ export class DifferentDynamicValidatorComponent implements OnInit {
 
     ngOnInit() {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
-		this.http.get('assets/examples/reactive-form-validators/validators/different/dynamic/dynamic.json').subscribe(dynamic => {
+		this.http.get('assets/examples/reactive-form-validators/validators/different/dynamic/dynamic.json?v='+environment.appVersion).subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
 			var accountInfo = { firstName:'', lastName:'', middleName:'',  }
 			this.accountInfoFormGroup = this.formBuilder.group(accountInfo,formBuilderConfiguration);

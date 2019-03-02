@@ -4,6 +4,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { EmployeeInfo } from './employee-info.model';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-oneOf-matchValues',
@@ -19,7 +20,7 @@ export class OneOfMatchValuesComponent implements OnInit {
       
         ngOnInit() {
           let employeeInfo = new EmployeeInfo();
-          this.http.get("assets/examples/reactive-form-validators/decorators/oneOf/matchValues/one-of.json").subscribe(response => {
+          this.http.get("assets/examples/reactive-form-validators/decorators/oneOf/matchValues/one-of.json?v=" + environment.appVersion).subscribe(response => {
             this.projectDomainsArray = response['projectDomainsArray'];
         })
       

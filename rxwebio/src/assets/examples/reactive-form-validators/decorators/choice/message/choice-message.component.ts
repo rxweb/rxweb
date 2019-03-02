@@ -4,6 +4,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { EmployeeInfo } from './employee-info.model';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
     selector: 'app-choice-message',
@@ -21,7 +22,7 @@ export class ChoiceMessageComponent implements OnInit {
 
     ngOnInit() {
         let employeeInfo = new EmployeeInfo();
-        this.http.get("assets/examples/reactive-form-validators/decorators/choice/message/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/decorators/choice/message/choice.json?v="+environment.appVersion).subscribe(response => {
             this.hobbiesArray = response['hobbiesArray'];
         })
 

@@ -9,6 +9,7 @@ import { ImageCompleteTemplateDrivenValidationDirectivesComponent } from './comp
 import { ImageMaxHeightTemplateDrivenValidationDirectivesComponent } from './maxHeight/image-max-height.component';
 import { ImageMaxWidthTemplateDrivenValidationDirectivesComponent } from './maxWidth/image-max-width.component';
 import { ImageMinHeightTemplateDrivenValidationDirectivesComponent } from './minHeight/image-min-height.component';
+import { ImageMinWidthTemplateDrivenValidationDirectivesComponent } from './minWidth/image-min-width.component';
 import { ImageConditionalExpressionTemplateDrivenValidationDirectivesComponent } from './conditionalExpression/image-conditional-expression.component';
 import { ImageMessageTemplateDrivenValidationDirectivesComponent } from './message/image-message.component';
 import { ImageAddTemplateDrivenValidationDirectivesComponent } from './add/image-add.component';
@@ -19,6 +20,7 @@ import { ImageAddTemplateDrivenValidationDirectivesComponent } from './add/image
 	ImageMaxHeightTemplateDrivenValidationDirectivesComponent,
 	ImageMaxWidthTemplateDrivenValidationDirectivesComponent,
 	ImageMinHeightTemplateDrivenValidationDirectivesComponent,
+	ImageMinWidthTemplateDrivenValidationDirectivesComponent,
 	ImageConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 	ImageMessageTemplateDrivenValidationDirectivesComponent,
 	ImageAddTemplateDrivenValidationDirectivesComponent,
@@ -28,6 +30,7 @@ entryComponents: [
 	ImageMaxHeightTemplateDrivenValidationDirectivesComponent,
 	ImageMaxWidthTemplateDrivenValidationDirectivesComponent,
 	ImageMinHeightTemplateDrivenValidationDirectivesComponent,
+	ImageMinWidthTemplateDrivenValidationDirectivesComponent,
 	ImageConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 	ImageMessageTemplateDrivenValidationDirectivesComponent,
 	ImageAddTemplateDrivenValidationDirectivesComponent,
@@ -43,6 +46,7 @@ entryComponents: [
 	ImageMaxHeightTemplateDrivenValidationDirectivesComponent,
 	ImageMaxWidthTemplateDrivenValidationDirectivesComponent,
 	ImageMinHeightTemplateDrivenValidationDirectivesComponent,
+	ImageMinWidthTemplateDrivenValidationDirectivesComponent,
 	ImageConditionalExpressionTemplateDrivenValidationDirectivesComponent,
 	ImageMessageTemplateDrivenValidationDirectivesComponent,
 	ImageAddTemplateDrivenValidationDirectivesComponent,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 
@@ -19,7 +20,7 @@ export class AlphaDynamicComponent implements OnInit {
     ngOnInit() {
         let addressInfo = new AddressInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-		this.http.get('assets/examples/reactive-form-validators/decorators/alpha/dynamic/dynamic.json').subscribe(dynamic => {
+		this.http.get('assets/examples/reactive-form-validators/decorators/alpha/dynamic/dynamic.json?v=' + environment.appVersion).subscribe(dynamic => {
             formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
 			this.addressInfoFormGroup = this.formBuilder.formGroup(addressInfo,formBuilderConfiguration);
         })

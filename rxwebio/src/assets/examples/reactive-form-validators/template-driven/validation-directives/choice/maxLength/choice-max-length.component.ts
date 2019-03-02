@@ -4,6 +4,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { EmployeeInfo } from './employee-info.model';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-choice-maxLength-template-driven-validation-directives',
@@ -22,7 +23,7 @@ export class ChoiceMaxLengthTemplateDrivenValidationDirectivesComponent implemen
 
     ngOnInit() {
         this.employeeInfo = new EmployeeInfo();
-        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/maxLength/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/maxLength/choice.json?v="+environment.appVersion).subscribe(response => {
             this.hobbiesArray = response['hobbiesArray'];
         })
 

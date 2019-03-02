@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { FormBuilderConfiguration,} from '@rxweb/reactive-form-validators';
 import { EmployeeInfo } from './employee-info.model';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -30,11 +31,11 @@ export class ChoiceDynamicTemplateDrivenValidationDirectivesComponent implements
     ngOnInit() {
         this.employeeInfo = new EmployeeInfo();
         let formBuilderConfiguration = new FormBuilderConfiguration();
-		this.http.get('assets/examples/reactive-form-validators/template-driven/validation-directives/choice/dynamic/dynamic.json').subscribe(dynamic => {
+		this.http.get('assets/examples/reactive-form-validators/template-driven/validation-directives/choice/dynamic/dynamic.json?v='+environment.appVersion).subscribe(dynamic => {
             formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
         })
 
-        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/dynamic/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/dynamic/choice.json?v="+environment.appVersion).subscribe(response => {
             this.qualificationsArray = response['qualificationsArray'];
             this.skillsArray = response['skillsArray'];
             this.hobbiesArray = response['hobbiesArray'];

@@ -5,21 +5,21 @@
       <select formControlName="companyName" class="form-control">
 		<option [value]="item" *ngFor="let item of companyNames">{{item}}</option>
       </select>
-	 <small class="form-text text-danger" *ngIf="companyInfoFormGroup.controls.companyName.errors">{{companyInfoFormGroup.controls.companyName.errors.cusip?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="companyInfoFormGroup.controls.companyName.errors">{{companyInfoFormGroup.controls.companyName.errors.cusip.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Microsoft Corporation Cusip Code</label>
       <input type="text" formControlName="microsoftCorporationCusipCode" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Microsoft Corporation Cusip Code' then you need to add 'Company Name' input as 'Microsoft'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	 <small class="form-text text-danger" *ngIf="companyInfoFormGroup.controls.microsoftCorporationCusipCode.errors">{{companyInfoFormGroup.controls.microsoftCorporationCusipCode.errors.cusip?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="companyInfoFormGroup.controls.microsoftCorporationCusipCode.errors">{{companyInfoFormGroup.controls.microsoftCorporationCusipCode.errors.cusip.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Google Inc. Cusip Code</label>
       <input type="text" formControlName="googleIncCusipCode" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Google Inc. Cusip Code' then you need to add 'Company Name' input as 'Google'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-	 <small class="form-text text-danger" *ngIf="companyInfoFormGroup.controls.googleIncCusipCode.errors">{{companyInfoFormGroup.controls.googleIncCusipCode.errors.cusip?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="companyInfoFormGroup.controls.googleIncCusipCode.errors">{{companyInfoFormGroup.controls.googleIncCusipCode.errors.cusip.message}}<br/></small>	
     </div>
     <button [disabled]="!companyInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

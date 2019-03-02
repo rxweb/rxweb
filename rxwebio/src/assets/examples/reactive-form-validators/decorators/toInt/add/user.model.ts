@@ -7,6 +7,4 @@ export class User {
 	@toInt() 
 	amount: number;
 	
-	
-
 }

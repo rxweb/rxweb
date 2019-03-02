@@ -7,6 +7,4 @@ export class User {
 	@blacklist('abc' ) 
 	freeText: string;
 	
-	
-
 }

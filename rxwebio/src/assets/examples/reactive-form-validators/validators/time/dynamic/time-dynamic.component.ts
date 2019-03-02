@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration,RxFormBuilder} from '@rxweb/reactive-form-validators';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-time-dynamic-validator',
@@ -17,7 +18,7 @@ export class TimeDynamicValidatorComponent implements OnInit {
 
     ngOnInit() {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
-		this.http.get('assets/examples/reactive-form-validators/validators/time/dynamic/dynamic.json').subscribe(dynamic => {
+		this.http.get('assets/examples/reactive-form-validators/validators/time/dynamic/dynamic.json?v='+environment.appVersion).subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
 			var attandanceDetail = { entryPlace:'', totalIn:'', entryTime:'', totalOutTime:'', exitTime:'',  }
 			this.attandanceDetailFormGroup = this.formBuilder.group(attandanceDetail,formBuilderConfiguration);

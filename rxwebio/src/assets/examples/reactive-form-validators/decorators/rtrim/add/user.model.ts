@@ -7,6 +7,4 @@ export class User {
 	@rtrim() 
 	freeText: string;
 	
-	
-
 }

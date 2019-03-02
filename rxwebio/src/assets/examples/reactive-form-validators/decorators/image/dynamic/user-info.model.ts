@@ -12,6 +12,9 @@ export class UserInfo {
 	signature: string;
 
 	@prop()
+	voterId: string;
+
+	@prop()
 	identityCard: string;
 
 	@prop()

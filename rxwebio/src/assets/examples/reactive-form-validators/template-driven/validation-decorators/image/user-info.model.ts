@@ -1,9 +1,29 @@
-import {  image, } from   "@rxweb/reactive-form-validators"   
+import {  image,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class UserInfo {
 
-	@image({maxHeight:100  ,maxWidth:100 }) 
-	profilePicture: string;
-	
-	
+	@prop()
+	imageType: string;
+
+	@prop()
+	profilePhoto: string;
+
+	@prop()
+	signature: string;
+
+	@prop()
+	voterId: string;
+
+	@prop()
+	identityCard: string;
+
+	@prop()
+	drivinglicense: string;
+
+	@prop()
+	aadharCard: string;
+
+	@prop()
+	residenceProof: string;
+
 }

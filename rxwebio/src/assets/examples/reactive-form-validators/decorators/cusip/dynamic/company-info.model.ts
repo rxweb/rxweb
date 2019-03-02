@@ -1,5 +1,5 @@
 import {  cusip,prop, } from   "@rxweb/reactive-form-validators"   
- 
+
 export class CompanyInfo {
 
 	@prop()

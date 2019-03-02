@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { PageViewerComponent } from "src/app/components/shared/page-viewer/page-viewer.component";
 import { ActivatedRoute } from "@angular/router";
+import { environment } from 'src/environments/environment';
 
 @Component({
   templateUrl: './text-page.component.html',
@@ -29,10 +30,10 @@ export class TextPageComponent implements OnInit {
     this.validationName = splitedArray[2];
     let codeUri = "";
     if(this.validationName !== undefined)
-      codeUri = 'assets/json/generator/' + this.validationName + '/decorators.json';
+      codeUri = 'assets/json/generator/' + this.validationName + '/decorators.json?v=' + environment.appVersion;
     else
       if(this.mainType == 'changelog')
-        codeUri = 'assets/json/generator/CHANGELOG/decorators.json';
+        codeUri = 'assets/json/generator/CHANGELOG/decorators.json?v=' + environment.appVersion;
     this.http.get(codeUri, this.options).subscribe(response => {
         this.codeContent = JSON.parse(response.toString());
         var element = document.getElementById("mainContent")
