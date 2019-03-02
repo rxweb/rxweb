@@ -7,7 +7,7 @@ type:decorators
 linktitle: toString
 ---
 # Example  
-Let's create a user model and define a property of 'amount' in the model.
+Let's create a user model and define a property of 'freeText' in the model.
 <div component="app-code" key="toString-add-model"></div> 
 
 Through Angular FormBuilder service we create FormGroup in the component.

@@ -18,7 +18,5 @@ export class ToFloatAddComponent implements OnInit {
         let user = new User();
         this.userFormGroup = this.formBuilder.formGroup(user);
     }
-    checkType(fieldName,typeName){
-        return typeof this.userFormGroup.value[fieldName] == typeName 
-      }
+  
 }

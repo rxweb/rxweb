@@ -5,10 +5,10 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-toDouble-add',
-    templateUrl: './to-double-add.component.html'
+    selector: 'app-toBoolean-strict',
+    templateUrl: './to-boolean-strict.component.html'
 })
-export class ToDoubleAddComponent implements OnInit {
+export class ToBooleanStrictComponent implements OnInit {
     userFormGroup: FormGroup
 
     constructor(
@@ -18,5 +18,4 @@ export class ToDoubleAddComponent implements OnInit {
         let user = new User();
         this.userFormGroup = this.formBuilder.formGroup(user);
     }
-  
 }

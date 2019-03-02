@@ -8,5 +8,8 @@ export class User {
 	active: boolean;
 	
 	
-
+	@prop()
+	@toBoolean(true ) 
+	strictActive: boolean;
+	
 }

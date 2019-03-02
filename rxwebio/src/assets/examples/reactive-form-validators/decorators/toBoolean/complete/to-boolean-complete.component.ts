@@ -5,10 +5,10 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-toBoolean-add',
-    templateUrl: './to-boolean-add.component.html'
+    selector: 'app-toBoolean-complete',
+    templateUrl: './to-boolean-complete.component.html'
 })
-export class ToBooleanAddComponent implements OnInit {
+export class ToBooleanCompleteComponent implements OnInit {
     userFormGroup: FormGroup
 
     constructor(
@@ -17,8 +17,5 @@ export class ToBooleanAddComponent implements OnInit {
     ngOnInit() {
         let user = new User();
         this.userFormGroup = this.formBuilder.formGroup(user);
-    }
-    checkType(fieldName,typeName){
-      return typeof this.userFormGroup.value[fieldName] == typeName 
     }
 }

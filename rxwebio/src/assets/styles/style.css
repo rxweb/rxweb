@@ -6700,3 +6700,6 @@ body.hide-sidebar #menu .header-link {
   .btn-default.btn-off-1.active{background-color: #006FFC;color: white;}
   .btn-default.btn-on.active{background-color: #006FFC;color: white;}
 .btn-default.btn-off.active{background-color: #006FFC;color: white;}
+.green{
+    color: #0e8a16;
+}

@@ -416,11 +416,7 @@
           "uri":"/sanitization/rtrim/decorators",
           "isActive": false
         },
-        {
-          "title":"stripLow",
-          "uri":"/sanitization/stripLow/decorators",
-          "isActive": false
-        },
+       
         {
           "title":"toBoolean",
           "uri":"/sanitization/toBoolean/decorators",
@@ -434,11 +430,6 @@
         {
           "title":"toDouble",
           "uri":"/sanitization/toDouble/decorators",
-          "isActive": false
-        },
-        {
-          "title":"toFloat",
-          "uri":"/sanitization/toFloat/decorators",
           "isActive": false
         },
         {

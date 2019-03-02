@@ -3,7 +3,7 @@
     <div class="form-group">
       <label>Free Text</label>
       <input type="text" formControlName="freeText" class="form-control"  />
-      Transformed Value : LEFTTEXT-{{userFormGroup.value.freeText}}-RIGHTTEXT
+      Transformed Value : LEFTTEXT-{{userFormGroup["modelInstance"]["freeText"]}}-RIGHTTEXT
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

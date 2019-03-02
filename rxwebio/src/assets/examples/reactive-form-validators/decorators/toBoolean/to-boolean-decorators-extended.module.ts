@@ -5,14 +5,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
-import { ToBooleanAddComponent } from './add/to-boolean-add.component';
+import { ToBooleanCompleteComponent } from './complete/to-boolean-complete.component';
+import { ToBooleanStrictComponent } from './strict/to-boolean-strict.component';
 
 @NgModule({
   declarations: [
-	ToBooleanAddComponent,
+	ToBooleanCompleteComponent,
+	ToBooleanStrictComponent,
   ],
 entryComponents: [
-	ToBooleanAddComponent,
+	ToBooleanCompleteComponent,
+	ToBooleanStrictComponent,
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -21,7 +24,8 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-	ToBooleanAddComponent,
+	ToBooleanCompleteComponent,
+	ToBooleanStrictComponent,
   ],
 
 })

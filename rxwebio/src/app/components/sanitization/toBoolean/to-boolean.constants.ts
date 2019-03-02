@@ -1,8 +1,10 @@
-import { ToBooleanAddComponent } from "src/assets/examples/reactive-form-validators/decorators/toBoolean/add/to-boolean-add.component";
+import { ToBooleanCompleteComponent } from "src/assets/examples/reactive-form-validators/decorators/toBoolean/complete/to-boolean-complete.component";
+import { ToBooleanStrictComponent } from "src/assets/examples/reactive-form-validators/decorators/toBoolean/strict/to-boolean-strict.component";
 
 export const TO_BOOLEAN_COMPONENT_EXAMPLE_CONSTANT: { [key: string]: any } = {
 	decorators:{
-						add : ToBooleanAddComponent,
+						complete : ToBooleanCompleteComponent,
+						strict : ToBooleanStrictComponent,
 			  },
 	template_driven_validation_directives:{
 			  },
