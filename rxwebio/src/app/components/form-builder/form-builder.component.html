@@ -1,4 +1,4 @@
-<div id="full-wrapper" *ngIf="showComponent">
+<div *ngIf="showComponent">
     <div class="content">
         <div class="title" id="getting-started" [class.sticky]="sticky">
             <h1>Form Builder</h1>
@@ -7,20 +7,127 @@
             <p>Dynamic Form Builder which accept input from json</p>
             <hr>
         </div>
-
-        <div class="bg-white border-radius">
+        <div class="bg-white border-radius content-form-builder">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="hpanel">
-                        <form [formGroup]="formBuilderFormGroup">
-                            <div class="form-group">
-                                <label>Json</label>
-                                <textarea name="Json" id="Json" cols="30" rows="10" formControlName="Json" class="form-control "></textarea>
-                                <small class="form-text text-muted">Enter Json for form builder.<br /></small>
-                                <small class="form-text text-danger">{{formBuilderFormGroup.controls.Json.error.message}}<br /></small>
+                        <div>
+                            <form [formGroup]="formBuilderFormGroup">
+                                <div class="row">
+                                    <div class="form-group col-lg-3">
+                                        <label>Model Name</label>
+                                        <input type="text" class="form-control" formControlName="modelName" />
+                                        <small class="form-text text-muted">Enter Model Name for form builder.<br /></small>
+                                        <small class="form-text text-danger" *ngIf="formBuilderFormGroup.controls.modelName.errorMessage">{{formBuilderFormGroup.controls.modelName.errorMessage}}<br /></small>
+                                    </div>
+                                    <div class="form-group col-lg-3">
+                                        <label>TemplateUrl</label>
+                                        <input type="text" class="form-control" formControlName="templateUrl" />
+                                        <small class="form-text text-muted">Enter Template Url for form builder.<br /></small>
+                                    </div>
+                                    <div class="form-group col-lg-3">
+                                        <label>Component Name</label>
+                                        <input type="text" class="form-control" formControlName="compoenentName" />
+                                        <small class="form-text text-muted">Enter Template Url for form builder.<br /></small>
+                                    </div>
+                                    <div class="form-group col-lg-3">
+                                        <label>Selector Name</label>
+                                        <input type="text" class="form-control" formControlName="selectorName" />
+                                        <small class="form-text text-muted">Enter Selector name for form builder.<br /></small>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Json</label>
+                                        <ngx-monaco-editor (change)="changeJson()" [options]="editorOptions"
+                                            formControlName="Json"></ngx-monaco-editor>
+                                        <small class="form-text text-muted">Enter Json for form builder.<br /></small>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Validator Type</label>
+                                        <div>
+                                            <label class="radio-inline" *ngFor="let item of validatorType" (click)="setValidatorType(item)">
+                                                <input type="radio" name="validatorType" [attr.checked]="formBuilderFormGroup.value.validatorType == item">{{item}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Property Name</th>
+                                                        <th>Property Value</th>
+                                                        <th>Validators</th>
+                                                    </tr>
+                                                    <tr [formGroup]="propertyData" *ngFor="let propertyData of formBuilderFormGroup.controls.properties.controls;let i = index">
+                                                        <td>{{i+1}}</td>
+                                                        <td>{{propertyData.value.propertyName}}</td>
+                                                        <td>{{propertyData.value.propertyValue}}</td>
+                                                        <td>
+                                                            <rx-tag [(source)]="validatorList" (added)="addValidator($event,propertyData.value,i)"
+                                                                (removed)="removedValidator($event,propertyData.value,i)"
+                                                                formControlName="validatorName" mainClass="form-control"
+                                                                [keyValueProps]="['validatorName','validatorName']"></rx-tag>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-12" *ngIf="exampleComponent.validatorModelString?.length > 0 || exampleComponent.decoratorModelString?.length > 0">
+                            <ul class="nav nav-tabs">
+                                <li [class.active]="formBuilderTab=='example'" (click)="formBuilderTab='example'"><a>Example</a></li>
+                                <li [class.active]="formBuilderTab=='decorator'" (click)="formBuilderTab='decorator'"><a>Decorator</a></li>
+                                <li [class.active]="formBuilderTab=='validator'" (click)="formBuilderTab='validator'"><a>Validator</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane row" [class.active]="formBuilderTab=='example'">
+                                    <form *ngIf="builderGroup" class="col-lg-12" [formGroup]="builderGroup">
+                                        <div class="col-lg-12" *ngFor="let propertyData of formBuilderFormGroup.controls.properties.controls;let i = index">
+                                            <div class="form-group">
+                                                <label>{{propertyData.value.propertyName}}</label>
+                                                <input type="text" class="form-control" [formControlName]="propertyData.value.propertyName"
+                                                    [id]="propertyData.value.propertyName" />
+                                                <small class="form-text text-danger" *ngIf="builderGroup.controls[propertyData.value.propertyName].errors">
+                                                    <span *ngFor="let validatorData of propertyData.value.validators">
+                                                        {{builderGroup.controls[propertyData.value.propertyName]['errors'][validatorData.validatorName]?.message}}
+                                                    </span>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane" [class.active]="formBuilderTab=='decorator'">
+                                    <div>
+                                        <div class="code">
+                                            <a class="float-right copy-icon" ngxClipboard [cbContent]="exampleComponent.validatorModelString"
+                                                (cbOnSuccess)="exampleComponent.validatorModelStringCopied = true"
+                                                [class.copied]="exampleComponent.validatorModelStringCopied"><i class="fa fa-files-o"
+                                                    aria-hidden="true"></i></a>
+                                            <div highlight="pre code">
+                                                <pre><code [textContent]="exampleComponent.validatorModelString"></code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" [class.active]="formBuilderTab=='validator'">
+                                    <div>
+                                        <div class="code">
+                                            <a class="float-right copy-icon" ngxClipboard [cbContent]="exampleComponent.decoratorModelString"
+                                                (cbOnSuccess)="exampleComponent.decoratorModelStringCopied = true"
+                                                [class.copied]="exampleComponent.decoratorModelStringCopied"><i class="fa fa-files-o"
+                                                    aria-hidden="true"></i></a>
+                                            <div highlight="pre code">
+                                                <pre><code [textContent]="exampleComponent.decoratorModelString"></code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <button [disabled]="!countryFormGroup.valid" class="btn btn-primary">Submit</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

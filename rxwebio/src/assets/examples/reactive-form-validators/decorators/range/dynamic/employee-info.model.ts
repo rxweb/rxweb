@@ -1,4 +1,4 @@
-import {  range,prop, } from "@rxweb/reactive-form-validators"
+import {  range,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class EmployeeInfo {
 

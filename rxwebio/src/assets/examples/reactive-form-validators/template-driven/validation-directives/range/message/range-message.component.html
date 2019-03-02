@@ -1,5 +1,5 @@
 <div>
-  <form #employeeinfoForm = "ngForm" [rxwebForm]="employeeinfoForm">
+  <form #employeeinfoForm = "ngForm" [rxwebForm]="employeeinfoForm" [model]="employeeinfo">
     <div class="form-group">
       <label>Salary</label>
 	    <input type="text" name="salary" [(ngModel)]="employeeinfo.salary"  class="form-control" [range]="{'minimumNumber':1000,'maximumNumber':200000,'message':'Your Salary should be between 1000 to 200000.'}"/>

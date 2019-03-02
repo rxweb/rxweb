@@ -1,0 +1,12 @@
+<div>
+  <form  [formGroup]="companyInfoFormGroup">
+    <div class="form-group">
+      <label>Apple Inc Cusip Code</label>
+      <input type="text" formControlName="appleIncCusipCode" class="form-control"  />
+      <small class="form-text text-muted">enter 9-character alphanumeric cusip Code only<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	 <small class="form-text text-danger" *ngIf="companyInfoFormGroup.controls.appleIncCusipCode.errors">{{companyInfoFormGroup.controls.appleIncCusipCode.errors.cusip.message}}<br/></small>	
+    </div>
+    <button [disabled]="!companyInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

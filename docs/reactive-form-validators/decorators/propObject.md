@@ -3,7 +3,7 @@ title: propObject
 description: It is used to define an object of thes property of a field in the model class.
 author: rxcontributorone
 category: decorators
-type:decorators
+type: decorators
 linktitle: propObject
 ---
 # When to use
@@ -21,3 +21,4 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Next, we need to write html code.
 <div component="app-code" key="propObject-add-html"></div> 
 <div component="app-example-runner" ref-component="app-propObject-add"></div>
+

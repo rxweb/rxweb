@@ -1,5 +1,5 @@
 <div>
-  <form #accountinfoForm = "ngForm" [rxwebForm]="accountinfoForm">
+  <form #accountinfoForm = "ngForm" [rxwebForm]="accountinfoForm" [model]="accountinfo">
     <div class="form-group">
       <label>Middle Name</label>
 	    <input type="text" name="middleName" [(ngModel)]="accountinfo.middleName"  class="form-control" [different]="{'fieldName':'firstName','message':'Middle Name is same as firstName'}"/>

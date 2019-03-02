@@ -3,7 +3,7 @@ title: propArray
 description: PropArray is used to define an array of the instances of a class.
 author: rxcontributortwo 
 category: decorators
-type:decorators
+type: decorators
 linktitle: propArray
 ---
 
@@ -25,3 +25,4 @@ Through Angular FormBuilder service we create FormGroup in the component.
 Next, we need to write html code.
 <div component="app-code" key="propArray-add-html"></div> 
 <div component="app-example-runner" ref-component="app-propArray-add"></div>
+

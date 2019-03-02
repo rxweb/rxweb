@@ -1,4 +1,4 @@
-import {  upperCase,prop, } from "@rxweb/reactive-form-validators"
+import {  upperCase,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class Location {
 

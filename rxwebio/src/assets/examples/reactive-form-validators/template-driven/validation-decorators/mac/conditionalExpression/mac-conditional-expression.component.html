@@ -1,5 +1,5 @@
 <div>
-  <form #macaddressinfoForm = "ngForm" [rxwebForm]="macaddressinfoForm">
+  <form #macaddressinfoForm = "ngForm" [rxwebForm]="macaddressinfoForm" [model]="macaddressinfo">
     <div class="form-group">
       <label>Device</label>
 	    <input type="text" name="device" [(ngModel)]="macaddressinfo.device"  class="form-control" />

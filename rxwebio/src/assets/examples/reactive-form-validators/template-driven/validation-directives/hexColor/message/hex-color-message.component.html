@@ -1,5 +1,5 @@
 <div>
-  <form #hexcolorinfoForm = "ngForm" [rxwebForm]="hexcolorinfoForm">
+  <form #hexcolorinfoForm = "ngForm" [rxwebForm]="hexcolorinfoForm" [model]="hexcolorinfo">
     <div class="form-group">
       <label>Body Hexcode</label>
 	    <input type="text" name="bodyHexcolorCode" [(ngModel)]="hexcolorinfo.bodyHexcolorCode"  class="form-control" [hexColor]="{'message':'Please enter the right format of hexcode for body like \'#AFAFAF\''}"/>

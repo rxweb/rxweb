@@ -1,0 +1,2 @@
+<rx-date-picker #datePicker [value]="value" [disableWeekDays]="disableWeekDays" [highlightWeekDays]="highlightWeekDays" [datesDisabled]="datesDisabled" [style.display]="viewMode === 'Date' ? '' : 'none'" [weekStart]="weekStart"></rx-date-picker>
+<rx-month-picker [month]="month" [year]="year" [style.display]="viewMode === 'Month' ? '' : 'none'" (monthClick)="datePicker.show($event)"></rx-month-picker>

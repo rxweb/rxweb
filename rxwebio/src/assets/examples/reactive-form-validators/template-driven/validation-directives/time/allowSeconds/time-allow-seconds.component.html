@@ -1,5 +1,5 @@
 <div>
-  <form #attandancedetailForm = "ngForm" [rxwebForm]="attandancedetailForm">
+  <form #attandancedetailForm = "ngForm" [rxwebForm]="attandancedetailForm" [model]="attandancedetail">
     <div class="form-group">
       <label>Total Time Out</label>
 	    <input type="text" name="totalOutTime" [(ngModel)]="attandancedetail.totalOutTime"  class="form-control" [time]="{'allowSeconds':true}"/>

@@ -1,10 +1,16 @@
 <div>
+  <rx-toast></rx-toast>
+  <rx-dialog></rx-dialog>
+  <rx-popup></rx-popup>
   <rx-spinner></rx-spinner>
   <app-top-bar *ngIf="!isHome"></app-top-bar>
   <div *ngIf="!isHome">
     <app-side-bar></app-side-bar>
   </div>
-  <router-outlet></router-outlet>
+  <!-- <div [@routerAnimation]="getRouteAnimation(route)"> -->
+      <router-outlet></router-outlet>
+  <!-- </div> -->
+  
   <div *ngIf="showFooter">
     <app-footer></app-footer>
   </div>

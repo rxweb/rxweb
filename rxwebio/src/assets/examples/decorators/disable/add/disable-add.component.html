@@ -1,0 +1,12 @@
+<h1 class="bd-title" id="content">Disable FormControl Conditionally</h1>
+<br/>
+<form *ngIf="userFormGroup" [formGroup]="userFormGroup">
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="changeMode()">Change Mode {{currentMode}}</button>
+    
+</div>
+<div class="form-group">
+    <label>Full Name</label>
+    <input type="text" formControlName="fullName" class="form-control"  />
+ </div>  
+</form>

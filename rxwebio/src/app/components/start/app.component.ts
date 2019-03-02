@@ -5,26 +5,69 @@ import { Router, RouterOutlet } from "@angular/router";
 import { NavigationEnd } from "@angular/router";
 import { HostListener } from "@angular/core";
 import { NavigationStart } from "@angular/router";
-import { RxSpinner } from '../../controls/spinner/spinners';
 import { AuthService } from '../../domain/auth.service';
-import { ApplicationBroadcaster } from '../../domain/application-broadcaster';
-import {  trigger, style, animate, transition } from '@angular/animations';
+import {  trigger, style, animate, transition, query } from '@angular/animations';
+import { ApplicationBroadcaster } from '@rx/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  //  animations: [
+  //   trigger('routerAnimation', [
+  //     transition('* <=> *', [
+  //       // Initial state of new route
+  //       query(':enter',
+  //         style({
+  //           // position: 'fixed',
+  //           // width:'100%',
+  //           // transform: 'translateX(-100%)',
+  //           opacity:1
+  //         }),
+  //         // {
+  //         //   optional:true
+  //         // }
+  //       ),
+
+  //       // move page off screen right on leave
+  //       query(':leave',
+  //         animate('500ms ease',
+  //           style({
+  //             // position: 'fixed',
+  //             // width:'100%',
+  //             // transform: 'translateX(100%)'
+  //             opacity:0
+  //           })
+  //         ),
+  //       //{optional:true}
+  //       ),
+
+  //       // move page in screen from left to right
+  //       // query(':enter',
+  //       //   animate('500ms ease',
+  //       //     style({
+  //       //       opacity: 1,
+  //       //       transform: 'translateX(0%)'
+  //       //     })
+  //       //   ),
+  //       // {optional:true}),
+  //     ])
+  //   ])
+  //]
 })
 export class AppComponent implements OnInit {
   title = 'rx.web.io';
   isHome = false;
   showFooter = false;
-  constructor(private router: Router,private spinner:RxSpinner,private applicationBroadCast:ApplicationBroadcaster,private auth:AuthService) {
+  // getRouteAnimation(outlet) {
+  //   return outlet.activatedRouteData.animation
+  // }
+  constructor(private router: Router,private applicationBroadCast:ApplicationBroadcaster,private auth:AuthService) {
     this.applicationBroadCast.urlSubscriber.subscribe(t => {
       this.homeInit(t)
     });
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        if (val.url == "/" || val.url == "/home")
+        if (val.url == "/" || val.url == "/home" || val.url == "/form-builder" || val.url == "/dynamic-form-builder")
           this.isHome = true;
         else{
           this.isHome = false;
@@ -129,6 +172,9 @@ export class AppComponent implements OnInit {
         "ip": "Enter correct ip address.",
         "compose": "Please enter valid value",
         "composeMessageKey":"Please enter valid inputs",
+        "cusip": "Enter a valid cusip code",
+        "date": "Please enter a valid date.",
+        "async": "Enter valid value"
       }
     });
   }

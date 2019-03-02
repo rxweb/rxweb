@@ -1,4 +1,4 @@
-import {  mac,prop, } from "@rxweb/reactive-form-validators"
+import {  mac,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class MacAddressInfo {
 

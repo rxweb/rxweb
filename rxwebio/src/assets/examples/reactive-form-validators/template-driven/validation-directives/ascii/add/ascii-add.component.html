@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Special Character Ascii Code</label>
 	    <input type="text" name="specialCharAsciiCode" [(ngModel)]="user.specialCharAsciiCode"  class="form-control" ascii/>

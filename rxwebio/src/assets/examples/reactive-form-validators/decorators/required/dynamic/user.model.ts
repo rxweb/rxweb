@@ -1,4 +1,4 @@
-import {  required,prop, } from "@rxweb/reactive-form-validators"
+import {  required,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 

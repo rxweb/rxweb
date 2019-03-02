@@ -1,5 +1,5 @@
 <div>
-  <form #macaddressinfoForm = "ngForm" [rxwebForm]="macaddressinfoForm">
+  <form #macaddressinfoForm = "ngForm" [rxwebForm]="macaddressinfoForm" [model]="macaddressinfo">
     <div class="form-group">
       <label>System MAC Address</label>
 	    <input type="text" name="systemMacAddress" [(ngModel)]="macaddressinfo.systemMacAddress"  class="form-control" [mac]="{'message':'System MAC Address is not a MAC address'}"/>

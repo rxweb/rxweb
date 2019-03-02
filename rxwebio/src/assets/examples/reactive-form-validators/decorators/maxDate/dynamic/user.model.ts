@@ -1,4 +1,4 @@
-import {  maxDate,prop, } from "@rxweb/reactive-form-validators"
+import {  maxDate,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 
@@ -19,5 +19,8 @@ export class User {
 
 	@prop()
 	lastRegistrationDate: string;
+
+	@prop()
+	confirmationDate: string;
 
 }

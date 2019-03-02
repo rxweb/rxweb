@@ -1,0 +1,21 @@
+<div class="modal-dialog gen-valid" >
+    <div class="modal-content gen-valid">
+        <div class="modal-header md-bg-red-A700">
+          <h4 class="modal-title">{{validationFailed.title}}</h4>
+        </div>
+        <div class="modal-body p-0">
+          <ul *ngFor="let message of messages;">
+            <li>{{message}}</li>
+          </ul>
+        </div>
+        <!-- modal-content -->
+        <div class="modal-footer">
+            <ul class="list-inline pull-right">
+                <li>
+                    <button class="btn btn-default prev-step" (click)="hide()">{{validationFailed.ok}}</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- modal-dialog -->
+</div>

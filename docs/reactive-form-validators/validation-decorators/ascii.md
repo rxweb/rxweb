@@ -1,22 +1,23 @@
 ---
 title: ascii
-description: ascii validation  {{validatorType}}  allows user to enter the input which is in the proper ascii format.
+description: ascii validation {{validatorType}} allows user to enter the input which is in the proper ascii format.
 author: rxcontributortwo
 category: form-validations
-type:tabs
+type: tabs
 linktitle: ascii
 ---
+
 # When to use
-Suppose you want to create a user form in which you want the user to enter an  input which is in form of valid ascii code. The form contains fields like language, numberAsciiCode, alphabetAsciiCode and specialCharAsciiCode. depending on requirements these scenarios may arise..
+Suppose you want to create a user form in which you want the user to enter an input which is in the form of valid ascii code. The form contains fields like language, numberAsciiCode, alphabetAsciiCode and specialCharAsciiCode. Depending on requirements these scenarios may arise..
 <ol class='showHideElement'>
      <li>Allow valid ascii code input in field of specialCharAsciiCode and add custom error message to it.</li>
-     <li>Apply validation on numberAsciiCode field based on matched condition in the form, like if the language is 'Java', then the numberAsciiCode must be an ascii code (Used as a function).</li>
-     <li>Apply validation on specialCharAsciiCode field validation based on matched condition in the form, like if the language is 'Java', then the alphabetAsciiCode must be an ascii code (Used as a string datatype).</li>
+     <li>Apply validation on numberAsciiCode field based on matched condition in the form, like if the language is 'Java', then the numberAsciiCode input must be an ascii code (Based on function).</li>
+     <li>Apply validation on specialCharAsciiCode field validation based on matched condition in the form, like if the language is 'Java', then the alphabetAsciiCode input must be an ascii code (Based on string datatype).</li>
      <data-scope scope="['decorator','validator']">
           <li>Apply ascii validation dynamically based on server rules.</li>
      </data-scope>
 </ol>
-Let's see how ascii  {{validatorType}}  fulfil the need.
+Let's see how ascii {{validatorType}} fulfil the need.
 
 # Basic Ascii Validation
 <data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
@@ -43,7 +44,8 @@ Next, we need to write html code.
 # [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="ascii-edit-component"></div>
-The below code is `user-data.json` for getting data from the server 
+
+The below default data which is coming from the server in this example of edit form which is set in the `user-data.json` in json format like this:
 <div component="app-code" key="ascii-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="ascii-edit-html"></div> 
@@ -72,7 +74,7 @@ Below options are not mandatory to use in the `ascii` validation. If needed then
 
 <table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a   (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Ascii validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a   (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Ascii validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")'  title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
@@ -80,7 +82,7 @@ Below options are not mandatory to use in the `ascii` validation. If needed then
 Type :  `Function`  |  `string` 
 
 Ascii validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
 
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object. 
@@ -125,7 +127,7 @@ This Complete Ascii example which includes all the DefaultConfig properties will
 <data-scope scope="['decorator','validator']">
 # Dynamic Ascii Example
 
-This Dynamic Ascii example which execute based on json passed. conditional expression with function would be not apply in dynamic Ascii example. 
+This Dynamic Ascii example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic ascii example. This example will fulfil the requirement of our last point.
 
 <div component="app-tabs" key="dynamic"></div>
 

@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Color Picker</label>
 	    <input type="text" name="color" [(ngModel)]="user.color"  class="form-control" hexColor/>

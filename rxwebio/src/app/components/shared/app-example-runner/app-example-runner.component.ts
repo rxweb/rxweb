@@ -35,7 +35,11 @@ export class AppExampleRunnerComponent implements OnInit {
   }
   ngOnInit(): void {
     this.showElement = false;
-    this.tabArray = [];
+    if(this.decoratorName == "async" || this.decoratorName == "prop" || this.decoratorName == "propArray" || this.decoratorName == "propObject" )
+    {
+      this.showElement = true;
+    }
+    this.tabArray = []; 
     if(this.content && this.showTab){
       if (this.content.model != null)
         this.tabArray.push({ "tabName": "Model", "tabItem": "model", "content": this.content.model })

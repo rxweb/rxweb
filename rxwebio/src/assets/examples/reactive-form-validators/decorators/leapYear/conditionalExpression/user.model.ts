@@ -1,4 +1,4 @@
-import {  leapYear,prop, } from "@rxweb/reactive-form-validators"
+import {  leapYear,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 
@@ -8,9 +8,11 @@ export class User {
 	//If you want to apply conditional expression of type 'string'
 	@leapYear({conditionalExpression:'x => x.name == "Bharat"' }) 
 	admissionYear: number;
-
+	
+	
 	//If you want to apply conditional expression of type 'function'
 	@leapYear({conditionalExpression:(x,y) => x.name == "Bharat"  }) 
 	birthYear: number;
-
+	
+	
 }

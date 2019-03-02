@@ -1,5 +1,5 @@
 <div>
-  <form #resultinfoForm = "ngForm" [rxwebForm]="resultinfoForm">
+  <form #resultinfoForm = "ngForm" [rxwebForm]="resultinfoForm" [model]="resultinfo">
     <div class="form-group">
       <label>Maths</label>
 	    <input type="text" name="maths" [(ngModel)]="resultinfo.maths"  class="form-control" [minNumber]="{'value':35}"/>

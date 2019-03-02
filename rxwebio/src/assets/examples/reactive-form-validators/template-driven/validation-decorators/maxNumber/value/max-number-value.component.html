@@ -1,5 +1,5 @@
 <div>
-  <form #subjectdetailsForm = "ngForm" [rxwebForm]="subjectdetailsForm">
+  <form #subjectdetailsForm = "ngForm" [rxwebForm]="subjectdetailsForm" [model]="subjectdetails">
     <div class="form-group">
       <label>Obtained Marks for above subject code</label>
 	    <input type="text" name="obtainedMarks" [(ngModel)]="subjectdetails.obtainedMarks"  class="form-control" />

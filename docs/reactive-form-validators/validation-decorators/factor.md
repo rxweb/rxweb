@@ -1,20 +1,22 @@
 ---
 title: factor 
-description: factor validation {{validatorType}} will allow user to enter factor of a number which is called dividend.
+description: factor validation {{validatorType}} will allow user to enter valid factor of a number which is called dividend.
 author: rxcontributorone
 category: form-validations
-type:tabs
+type: tabs
 linktitle: factor
 ---
+
 # When to use
-Suppose you want to create a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber and fourthNumber. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a user form in which you want user to enter factor of a particular value which contains fields like firstNumber, secondNumber, ThirdNumber, fourthNumber, fifthNumber and sixthNumber. Here depending upon the requirement these scenarios may arise.
 <ol class='showHideElement'>
-   <li>Apply factor validation on firstNumber field by setting  dividend property as 50 so the validation will allow only factors of 50</li>
-   <li>Apply factor validation based on matched condition in the form, like if the firstNumber  is `25` then the Fourthyear value should be factor.</li>
-   <li>The Custom Message on ThirdNumber field.</li>
-   <li>Apply factor validation based of dividend, dividend is the value for which factors are calculated.</li>
+   <li>Apply factor validation on fifthNumber field based on 'firstName', so that input enterred in fifthNumber field must be a factor of the input enterred in firstName.</li>
+   <li>Apply factor validation based on matched condition in the form, like if the firstNumber  is '25' then the `secondNumber` input must be a factor of input enterred in firstNumber (conditional Expression with Function).</li>
+   <li>Apply factor validation based on matched condition in the form, like if the firstNumber  is '25' then the `thirdNumber` input must be a factor of the input enterred in firstNumber (conditional Expression with String).</li>
+   <li>Apply factor validation on `fourthNumber` field based of dividend. dividend is the value for which factors are calculated.</li>
+   <li>Adding the Custom Validation Message on `sixthNumber` field.</li>
    <data-scope scope="['decorator','validator']">
-   <li>Apply factor validation dynamically based on server rules.</li>
+      <li>Apply factor validation dynamically based on server rules.</li>
    </data-scope>
 </ol>
 Let’s see how factor {{validatorType}} fulfil the need.
@@ -22,7 +24,7 @@ Let’s see how factor {{validatorType}} fulfil the need.
 # Basic Factor Validation
 
 <data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
-First we need to create a User Model class and define property of firstNumber and secondNumber in the model to achieve the functional need of point 1.
+First we need to create a User Model class and define property of firstNumber in the model to achieve the basic functional need.
 <div component="app-code" key="factor-add-model"></div> 
 </data-scope>
 Through Angular FormBuilder service we create FormGroup in the component.
@@ -45,7 +47,8 @@ Next, we need to write html code.
 # [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="factor-edit-component"></div> 
-The below code is `user-data.json` for getting data from the server
+
+The below default data which is coming from the server in this example of edit form which is set in the `user-data.json` in json format like this:
 <div component="app-code" key="data-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="factor-edit-html"></div> 
@@ -74,22 +77,24 @@ Below options are not mandatory to use in the `factor` validation. If needed the
 
 <table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a href="#dividend" (click)='scrollTo("#dividend")' title="dividend">dividend</a></td><td>Dividend is the value for which factors are calculated.</td></tr>
-<tr><td><a href="#fieldName" (click)='scrollTo("#fieldName")' title="fieldName">fieldName</a></td><td>Current property is matched with the particular property. so we need to pass particular property name.</td></tr>
-<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Factor validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a href="#dividend" (click)='scrollTo("#dividend")' title="dividend">dividend</a></td><td>dividend property of FactorConfig is used to assign a value whose factors to be enterred as input.</td></tr>
+<tr><td><a href="#fieldName" (click)='scrollTo("#fieldName")' title="fieldName">fieldName</a></td><td>fieldName property is the name of the name of field for which the factors needed to be entered.</td></tr>
+<tr><td><a href="#conditionalExpression" (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Factor validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a href="#message" (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
 ## dividend 
 Type :  `string` 
- Dividend is the value for which factors are calculated.
+
+dividend property of FactorConfig is used to assign a value whose factors to be enterred as input.
 
 <div component="app-code" key="factor-dividendExample-model"></div> 
 <div component="app-example-runner" ref-component="app-factor-dividend" title="factor {{validatorType}} with dividend" key="dividend"></div>
 
 ## fieldName 
 Type :  `string` 
-Current property is matched with the particular property. so we need to pass particular property name.
+
+fieldName property is the name of the name of field for which the factors needed to be entered.
 
 <div component="app-code" key="factor-fieldNameExample-model"></div> 
 <div component="app-example-runner" ref-component="app-factor-fieldName" title="factor {{validatorType}} with fieldName" key="fieldName"></div>
@@ -98,7 +103,7 @@ Current property is matched with the particular property. so we need to pass par
 Type :  `Function`  |  `string` 
 
 factor validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
  
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
@@ -119,7 +124,7 @@ To override the global configuration message and set the custom error message on
 
 # Complete Factor Example
 
-This Complete Factor example which includes all the FactorConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4
+This Complete Factor example which includes all the FactorConfig properties will fulfil the requirement of scenarios 1, 2, 3, 4 and 5.
 
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
@@ -142,7 +147,7 @@ This Complete Factor example which includes all the FactorConfig properties will
 <data-scope scope="['decorator','validator']">
 # Dynamic Factor Example
 
-This Dynamic Factor example which execute based on json passed. conditional expression with function would be not apply in dynamic factor example. 
+This Dynamic Factor example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic factor example. This example will fulfil the requirement of our last point.
 
 <div component="app-tabs" key="dynamic"></div>
 

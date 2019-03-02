@@ -1,0 +1,32 @@
+<div>
+  <form  [formGroup]="userInfoFormGroup">
+    <div class="form-group">
+      <label>Birth Date</label>
+      <input type="text" formControlName="birthDate" class="form-control"  />
+      <small class="form-text text-muted">You must enter a proper date format.<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.birthDate.errors">{{userInfoFormGroup.controls.birthDate.errors.date.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Admission Date</label>
+      <input type="text" formControlName="admissionDate" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Admission Date' then you need to add 'birthDate' input as '16/04/1997'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.admissionDate.errors">{{userInfoFormGroup.controls.admissionDate.errors.date.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Enrollment Date</label>
+      <input type="text" formControlName="enrollmentDate" class="form-control"  />
+      <small class="form-text text-muted">If you want to apply conditional validation on 'Enrollment Date' then you need to add 'birthDate' input as '16/04/1997'.<br/></small>
+      <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.enrollmentDate.errors">{{userInfoFormGroup.controls.enrollmentDate.errors.date.message}}<br/></small>	
+    </div>
+    <div class="form-group">
+      <label>Allocation Date</label>
+      <input type="text" formControlName="allocationDate" class="form-control"  />
+      <small class="form-text text-muted">enter date format only<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.allocationDate.errors">{{userInfoFormGroup.controls.allocationDate.errors.date.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

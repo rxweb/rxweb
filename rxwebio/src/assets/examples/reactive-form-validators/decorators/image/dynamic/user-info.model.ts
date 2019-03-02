@@ -1,4 +1,4 @@
-import {  image,prop, } from "@rxweb/reactive-form-validators"
+import {  image,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class UserInfo {
 

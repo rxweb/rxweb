@@ -1,8 +1,9 @@
-import {  ascii, } from "@rxweb/reactive-form-validators"
+import {  ascii, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 
 	@ascii() 
 	specialCharAsciiCode: string;
-
+	
+	
 }

@@ -1,0 +1,12 @@
+<div>
+  <form  [formGroup]="userInfoFormGroup">
+    <div class="form-group">
+      <label>Allocation Date</label>
+      <input type="text" formControlName="allocationDate" class="form-control"  />
+      <small class="form-text text-muted">enter date format only<br/></small>
+      <small class="form-text text-muted">Shows custom message.<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.allocationDate.errors">{{userInfoFormGroup.controls.allocationDate.errors.date.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,5 +1,5 @@
 <div>
-  <form #numberinfoForm = "ngForm" [rxwebForm]="numberinfoForm">
+  <form #numberinfoForm = "ngForm" [rxwebForm]="numberinfoForm" [model]="numberinfo">
     <div class="form-group">
       <label>First Country Latitude</label>
 	    <input type="text" name="firstCountryLatitude" [(ngModel)]="numberinfo.firstCountryLatitude"  class="form-control" />

@@ -1,0 +1,28 @@
+import { CommonModule } from '@angular/common';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+
+import { TrimAddComponent } from './add/trim-add.component';
+
+@NgModule({
+  declarations: [
+	TrimAddComponent,
+  ],
+entryComponents: [
+	TrimAddComponent,
+  ],
+  imports: [
+    CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
+  ],
+  providers: [],
+  bootstrap: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  exports: [
+	TrimAddComponent,
+  ],
+
+})
+export class  TrimDecoratorsExtendedModule { }

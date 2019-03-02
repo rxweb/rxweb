@@ -1,4 +1,4 @@
-import {  fileSize,prop, } from "@rxweb/reactive-form-validators"
+import {  fileSize,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class UserInfo {
 
@@ -7,8 +7,10 @@ export class UserInfo {
 
 	@fileSize({maxSize:50  ,conditionalExpression:'x => x.fileType == "Picture"' }) 
 	imageFile: string;
-
+	
+	
 	@fileSize({maxSize:10  ,conditionalExpression:'(x,y) => x.fileType == "Document"' }) 
 	documentFile: string;
-
+	
+	
 }

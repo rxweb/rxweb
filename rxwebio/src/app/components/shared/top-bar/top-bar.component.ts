@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges,  Input, Inject, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
+import { ApplicationBroadcaster } from "@rx/core";
 import { Router } from "@angular/router";
 
 @Component({
@@ -34,7 +34,8 @@ export class TopBarComponent {
     setTimeout(() => {
       this.searchInput['searchBox'].nativeElement.value = "";
       this.searchvalue = "";
-      document.getElementById("searchlist-content").style.display = "none";
+      if(document.getElementById("searchlist-content") != undefined)
+        document.getElementById("searchlist-content").style.display = "none";
     },300);
   }
 

@@ -1,4 +1,4 @@
-import {  factor,prop, } from "@rxweb/reactive-form-validators"
+import {  factor,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 
@@ -7,5 +7,6 @@ export class User {
 
 	@factor({fieldName:'firstNumber' }) 
 	fifthNumber: number;
-
+	
+	
 }

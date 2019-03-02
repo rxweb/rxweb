@@ -1,21 +1,25 @@
 ---
 title: contains  
-description: Contains validation  {{validatorType}}  will check that value is in the input, It will not allow to enter input that not contains the predefined value.
+description: Contains validation {{validatorType}} will check whether a particular value is in the input. It will not allow user to enter input that does not contains the predefined value.
 author: rxcontributortwo
 category: form-validations
-type:tabs
+type: tabs
 linktitle: contains
 ---
+
 # When to use
-Suppose you want to create a User form, which contains fields like EmailAddress, RecoveryEmailAddress, OtherEmailAddress and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a User form, which contains fields like Email Address, BusinessEmailAddress RecoveryEmailAddress, OtherEmailAddress and you want the user to enter the input which contains the predefined value. Here depending upon the requirement these scenarios may arise.
+
 <ol class='showHideElement'>
 	<li>Allow input which contains the predefined value in EmailAddress.</li>
-	<li>Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the contains validation must be applied to RecoveryEmailAddress value.</li>
+	<li>Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the contains validation must be applied to BusinessEmailAddress value (Based on function).</li>
+	<li>Apply contains validation based on matched condition in the form, like if the EmailAddress is `abc@gmail.com`, then only the contains validation must be applied to RecoveryEmailAddress value (Based on string datatype).</li>
 	<li>Adding Custom Message on OtherEmailAddress Field.</li>
 	<data-scope scope="['decorator','validator']">
-	<li>Apply contains validation dynamically based on server rules.</li>
+		<li>Apply contains validation dynamically based on server rules.</li>
 	</data-scope>
 </ol>
+
 Let’s see how contains {{validatorType}} fulfil the need.
 
 # Basic Contains Validation
@@ -43,7 +47,8 @@ Next, we need to write html code.
 # [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="contains-edit-component"></div>
-The below code is `user-data.json` for getting data from the server 
+
+The below default data which is coming from the server in this example of edit form which is set in the `user-data.json` in json format like this:
 <div component="app-code" key="contains-edit-json"></div> 
 Next, we need to write html code.
 <div component="app-code" key="contains-edit-html"></div> 
@@ -72,15 +77,15 @@ Below options are not mandatory to use in the `contains` validation. If needed t
 
 <table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
-<tr><td><a (click)='scrollTo("#value")' title="value">value</a></td><td>This is substring value.</td></tr>
-<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Contains validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a (click)='scrollTo("#value")' title="value">value</a></td><td>value property of ContainsConfig is used to assign a value which must be present in the field input.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>Contains validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a   (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
 ## value 
 Type :  `string` 
 
-This is substring value.
+value property of ContainsConfig is used to assign a value which must be present in the field input.
 
 <div component="app-code" key="contains-valueExample-model"></div> 
 <div component="app-example-runner" ref-component="app-contains-value" title="contains {{validatorType}} with value" key="value"></div>
@@ -89,7 +94,7 @@ This is substring value.
 Type :  `Function`  |  `string` 
 
 Contains validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
 
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
@@ -111,7 +116,7 @@ To override the global configuration message and set the custom message on respe
 
 # Complete Contains Example
 
-This Complete Contains example which includes all the ContainsConfig properties will fulfil the requirement of scenarios 1, 2 and 3.
+This Complete Contains example which includes all the ContainsConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4.
 
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
@@ -134,7 +139,7 @@ This Complete Contains example which includes all the ContainsConfig properties 
 <data-scope scope="['decorator','validator']">
 # Dynamic Contains Example
 
-This Dynamic Contains example which execute based on json passed. conditional expression with function would be not apply in dynamic Contains example. 
+This Dynamic Contains example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic contains example. This example will fulfil the requirement of our last point.
 
 <div component="app-tabs" key="dynamic"></div>
 

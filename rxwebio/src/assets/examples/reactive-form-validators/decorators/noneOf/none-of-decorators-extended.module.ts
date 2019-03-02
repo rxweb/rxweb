@@ -11,6 +11,7 @@ import { NoneOfConditionalExpressionComponent } from './conditionalExpression/no
 import { NoneOfMatchValuesComponent } from './matchValues/none-of-match-values.component';
 import { NoneOfDynamicComponent } from './dynamic/none-of-dynamic.component';
 import { NoneOfMessageComponent } from './message/none-of-message.component';
+import { NoneOfNonArrayValueComponent } from './nonArrayValue/none-of-non-array-value.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NoneOfMessageComponent } from './message/none-of-message.component';
 	NoneOfMessageComponent,
 	NoneOfDynamicComponent,
 	NoneOfAddComponent,
+	NoneOfNonArrayValueComponent,
   ],
 entryComponents: [
 	NoneOfCompleteComponent,
@@ -28,6 +30,7 @@ entryComponents: [
 	NoneOfMessageComponent,
 	NoneOfDynamicComponent,
 	NoneOfAddComponent,
+	NoneOfNonArrayValueComponent
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -42,6 +45,7 @@ entryComponents: [
 	NoneOfMessageComponent,
 	NoneOfDynamicComponent,
 	NoneOfAddComponent,
+	NoneOfNonArrayValueComponent
   ],
 
 })

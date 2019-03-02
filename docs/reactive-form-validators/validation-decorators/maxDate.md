@@ -21,7 +21,7 @@ Suppose you want to create a User form, which contains fields like userName, bir
 </ol>
 Let’s see how MaxDate {{validatorType}} fulfil the need.
 
-To Configure Date format globally in your application, Please refer <a href="/reactive-form-config">`ReactiveFormConfig`</a>
+To Configure Date format globally in your application, Please refer <a href="/api/reactive-form-config">`ReactiveFormConfig`</a>
 
 # Basic MaxDate Validation
 
@@ -65,7 +65,7 @@ Next, we need to write html code.
 <div component="app-example-runner" ref-component="app-maxDate-add"></div>
 </data-scope>
 
-# DateConfig
+# MaxDateConfig
 <data-scope scope="['decorator']">
 Below options are not mandatory to use in the `@maxDate()` decorator. If needed then use the below options.
 </data-scope>
@@ -82,9 +82,22 @@ Below options are not mandatory to use in the `maxDate` validation. If needed th
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a (click)='scrollTo("#value")' title="value">value</a></td><td>Enter date value which you want to restrict in the property. </td></tr>
 <tr><td><a (click)='scrollTo("#fieldName")' title="fieldName">fieldName</a></td><td>Field Name for which the maxDate has to be set.</td></tr>
-<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>MaxDate validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>MaxDate validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
+<data-scope scope="['decorator','validator']">
+<tr><td><a (click)='scrollTo("#operator")' title="operator">operator</a></td><td>operator is used to validate date based upon less than or less than equal to a particular value, The default validation is based upon less than equal to.</td></tr>
+</data-scope>
 </table>
+
+<data-scope scope="['decorator','validator']">
+## operator
+Type :  `string` 
+
+`operator` is used to validate date based upon less than or less than equal to a particular value, The default validation is based upon less than equal to.
+
+<div component="app-code" key="maxDate-operatorExample-model"></div> 
+<div component="app-example-runner" ref-component="app-maxDate-operator" title="maxDate {{validatorType}} with operator" key="operator"></div>
+</data-scope>
 
 ## value 
 Type :  `Date` | `string` 
@@ -104,7 +117,7 @@ MaxDate validation should be applied based on the `fieldName` on which the maxDa
 ## conditionalExpression 
 Type :  `Function`  |  `string`
 Max Date validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
 
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.

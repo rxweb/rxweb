@@ -92,5 +92,21 @@
     "json": {
       "none-of.json": "{\r\n    \"projectDomainsArray\": [\r\n        {\r\n            \"name\": \"ECommerce\",\r\n            \"checked\": false\r\n        },\r\n        {\r\n            \"name\": \"Banking\",\r\n            \"checked\": false\r\n        },\r\n        {\r\n            \"name\":\"Educational\",\r\n            \"checked\":false\r\n        },\r\n        {\r\n            \"name\":\"Gaming\",\r\n            \"checked\":false\r\n        }\r\n    ]\r\n}"
     }
-    }
+    },
+    "nonArrayValueExample": {
+      "notes": null,
+      "component": null,
+      "html": null,
+      "model": "    @noneOf({matchValues:[\"HR\", \"Network\", \"Sales\"]})\r\n    department: string;",
+      "modelName": null,
+      "json": null
+      },
+    "nonArrayValue": {
+      "notes": null,
+      "component": "import { Component, OnInit } from '@angular/core';\r\nimport { FormGroup } from \"@angular/forms\"\r\nimport { RxFormBuilder } from '@rxweb/reactive-form-validators';\r\n\r\nimport { EmployeeInfo } from './employee-info.model';\r\nimport { HttpClient } from '@angular/common/http';\r\n\r\n@Component({\r\n    selector: 'app-noneOf-nonArrayValue',\r\n    templateUrl: './none-of-non-array-value.component.html'\r\n})\r\nexport class NoneOfNonArrayValueComponent implements OnInit {\r\n\r\n    constructor(\r\n        private formBuilder: RxFormBuilder, private http: HttpClient) { }\r\n\r\n    \r\n    employeeInfoFormGroup: FormGroup\r\n    ngOnInit() {\r\n        let employeeInfo = new EmployeeInfo();\r\n        this.employeeInfoFormGroup = this.formBuilder.formGroup(employeeInfo);\r\n    }\r\n}",
+      "html": "<div>\r\n    <form [formGroup]=\"employeeInfoFormGroup\">\r\n      <div class=\"form-group\">\r\n        <label>Department</label>\r\n            <input class=\"form-control\" formControlName=\"department\" /> \r\n      </div>\r\n      <button [disabled]=\"!employeeInfoFormGroup.valid\" class=\"btn btn-primary\">Submit</button>\r\n    </form>\r\n    <ul>\r\n      <li *ngFor=\"let item of excludedDepartments\">\r\n        {{item}}\r\n      </li>\r\n    </ul>\r\n  </div>",
+      "model": "import {  noneOf, prop  } from \"@rxweb/reactive-form-validators\"\r\n\r\nexport class EmployeeInfo{\r\n\r\n    @prop()\r\n    excludedDepartments: string[] = [\"HR\", \"Network\", \"Sales\"];\r\n    \r\n    @noneOf({matchValues:this.excludedDepartments})\r\n    department: string;\r\n\r\n}",
+      "modelName": "employee-info.model.ts",
+      "json": null
+      }
   }

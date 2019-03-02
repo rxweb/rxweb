@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from "@rxweb/reactive-form-validators"
 import {User} from "./model/user.model";
 import { FormBuilderConfiguration, RxFormBuilder } from "@rxweb/reactive-form-validators";
-import { ApplicationBroadcaster } from "src/app/domain/application-broadcaster";
+import { ApplicationBroadcaster } from "@rx/core";
 import { AuthService } from 'src/app/domain/auth.service';
 @Component({
   templateUrl: './home.component.html'

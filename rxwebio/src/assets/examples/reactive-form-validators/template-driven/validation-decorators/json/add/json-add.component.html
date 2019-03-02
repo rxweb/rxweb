@@ -1,5 +1,5 @@
 <div>
-  <form #jsoninfoForm = "ngForm" [rxwebForm]="jsoninfoForm">
+  <form #jsoninfoForm = "ngForm" [rxwebForm]="jsoninfoForm" [model]="jsoninfo">
     <div class="form-group">
       <label>Location Json</label>
 	    <input type="text" name="locationJson" [(ngModel)]="jsoninfo.locationJson"  class="form-control" />

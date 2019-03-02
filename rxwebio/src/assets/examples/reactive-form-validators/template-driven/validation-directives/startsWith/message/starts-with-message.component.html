@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Company</label>
 	    <input type="text" name="company" [(ngModel)]="user.company"  class="form-control" [startsWith]="{'value':'R','message':'Company does not starts with `R`'}"/>

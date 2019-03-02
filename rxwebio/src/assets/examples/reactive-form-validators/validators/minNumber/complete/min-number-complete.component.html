@@ -4,21 +4,21 @@
       <label>Maths</label>
       <input type="text" formControlName="maths" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'English' or 'Statstics', then you need to add 'Maths' input as '50'<br/></small>
-	 <small class="form-text text-danger" *ngIf="resultInfoFormGroup.controls.maths.errors">{{resultInfoFormGroup.controls.maths.errors.minNumber?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="resultInfoFormGroup.controls.maths.errors">{{resultInfoFormGroup.controls.maths.errors.minNumber.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Science</label>
       <input type="text" formControlName="science" class="form-control"  />
       <small class="form-text text-muted">Shows Custom Validation Message<br/></small>
       <small class="form-text text-muted">you can enter min number upto 35<br/></small>
-	 <small class="form-text text-danger" *ngIf="resultInfoFormGroup.controls.science.errors">{{resultInfoFormGroup.controls.science.errors.minNumber?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="resultInfoFormGroup.controls.science.errors">{{resultInfoFormGroup.controls.science.errors.minNumber.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>English</label>
       <input type="text" formControlName="english" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'English' then you need to add 'Maths' input as '50'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-	 <small class="form-text text-danger" *ngIf="resultInfoFormGroup.controls.english.errors">{{resultInfoFormGroup.controls.english.errors.minNumber?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="resultInfoFormGroup.controls.english.errors">{{resultInfoFormGroup.controls.english.errors.minNumber.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Statstics</label>
@@ -26,7 +26,7 @@
       <small class="form-text text-muted">Conditional validation will be applied if the 'Maths' field have value of '50'<br/></small>
       <small class="form-text text-muted">you can enter min number upto 35<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	 <small class="form-text text-danger" *ngIf="resultInfoFormGroup.controls.statstics.errors">{{resultInfoFormGroup.controls.statstics.errors.minNumber?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="resultInfoFormGroup.controls.statstics.errors">{{resultInfoFormGroup.controls.statstics.errors.minNumber.message}}<br/></small>	
     </div>
     <button [disabled]="!resultInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

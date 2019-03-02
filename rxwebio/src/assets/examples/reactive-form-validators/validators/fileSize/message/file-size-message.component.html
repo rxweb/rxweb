@@ -5,7 +5,7 @@
       <input type="file" formControlName="contactFile" class="form-control"  />
       <small class="form-text text-muted">Uploaded File must be in the file size range.<br/></small>
       <small class="form-text text-muted">It shows custom message<br/></small>
-	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.contactFile.errors">{{userInfoFormGroup.controls.contactFile.errors.fileSize?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.contactFile.errors">{{userInfoFormGroup.controls.contactFile.errors.fileSize.message}}<br/></small>	
     </div>
     <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

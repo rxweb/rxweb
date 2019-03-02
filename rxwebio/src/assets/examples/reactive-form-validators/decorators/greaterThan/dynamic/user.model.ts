@@ -1,4 +1,4 @@
-import {  greaterThan,prop, } from "@rxweb/reactive-form-validators"
+import {  greaterThan,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 

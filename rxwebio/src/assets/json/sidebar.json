@@ -35,6 +35,11 @@
           "isActive": false
         },
         {
+          "title": "async",
+          "uri": "/form-validations/async/decorators",
+          "isActive": false
+        },
+        {
           "title": "choice",
           "uri": "/form-validations/choice/validators",
           "isActive": false
@@ -60,8 +65,18 @@
           "isActive": false
         },
         {
+          "title": "cusip",
+          "uri": "/form-validations/cusip/validators",
+          "isActive": false
+        },
+        {
           "title": "dataUri",
           "uri": "/form-validations/dataUri/validators",
+          "isActive": false
+        },
+        {
+          "title": "date",
+          "uri": "/form-validations/date/validators",
           "isActive": false
         },
         {
@@ -117,6 +132,11 @@
         {
           "title": "greaterThan",
           "uri": "/form-validations/greaterThan/validators",
+          "isActive": false
+        },
+        {
+          "title": "grid",
+          "uri": "/form-validations/grid/validators",
           "isActive": false
         },
         {
@@ -326,26 +346,110 @@
           "title":"propObject",
           "uri":"/decorators/propObject/decorators",
           "isActive": false
-        }
+        },
+        {
+          "title":"disable",
+          "uri":"/decorators/disable/decorators",
+          "isActive": false
+        }, 
+        {
+          "title":"error",
+          "uri":"/decorators/error/decorators",
+          "isActive": false
+        }    
       ]
     },
     {
-      "title": "Form Builder",
-      "uri": "/form-builder",
-      "otherUri":"form-builder",
-      "isOpen": false,
-      "isActive": false
-    },
-    {
-      "title": "Advance Form Validation",
+      "title": "How To",
       "uri": null,
-      "otherUri":"advance-form-validation",
+      "otherUri":"how-to",
       "isOpen": false,
       "isActive": false,
       "childrens":[
         {
-          "title":"Conditional Validation",
-          "uri":"advance-form-validation/conditionalValidation/validators",
+          "title":"Best way to show error message",
+          "uri":"/how-to/errorMessages/validators",
+          "isActive": false
+        },
+        {
+          "title":"Post as FormData of Reactive Form value",
+          "uri":"/how-to/formData/validators",
+          "isActive": false
+        },
+        {
+          "title":"Post Image through formData",
+          "uri":"/how-to/fileObject/validators",
+          "isActive": false
+        },
+        {
+          "title":"Dirty Check",
+          "uri":"/how-to/dirtyCheck/validators",
+          "isActive": false
+        },
+        {
+          "title":"Reset Form",
+          "uri":"/how-to/resetForm/validators",
+          "isActive": false
+        }
+             
+      ]
+    },
+    {
+      "title": "Sanitization",
+      "uri": null,
+      "otherUri":"sanitization",
+      "isOpen": false,
+      "isActive": false,
+      "childrens":[
+        {
+          "title":"blacklist",
+          "uri":"/sanitization/blacklist/decorators",
+          "isActive": false
+        },
+        {
+          "title":"ltrim",
+          "uri":"/sanitization/ltrim/decorators",
+          "isActive": false
+        },
+        {
+          "title":"rtrim",
+          "uri":"/sanitization/rtrim/decorators",
+          "isActive": false
+        },
+       
+        {
+          "title":"toBoolean",
+          "uri":"/sanitization/toBoolean/decorators",
+          "isActive": false
+        },
+        {
+          "title":"toDate",
+          "uri":"/sanitization/toDate/decorators",
+          "isActive": false
+        },
+        {
+          "title":"toDouble",
+          "uri":"/sanitization/toDouble/decorators",
+          "isActive": false
+        },
+        {
+          "title":"toInt",
+          "uri":"/sanitization/toInt/decorators",
+          "isActive": false
+        },
+        {
+          "title":"toString",
+          "uri":"/sanitization/toString/decorators",
+          "isActive": false
+        },
+        {
+          "title":"trim",
+          "uri":"/sanitization/trim/decorators",
+          "isActive": false
+        },
+        {
+          "title":"whitelist",
+          "uri":"/sanitization/whitelist/decorators",
           "isActive": false
         }
       ]

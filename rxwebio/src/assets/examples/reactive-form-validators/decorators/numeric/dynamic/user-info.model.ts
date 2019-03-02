@@ -1,4 +1,4 @@
-import {  numeric,prop, NumericValueType, } from "@rxweb/reactive-form-validators"
+import {  numeric,prop, NumericValueType, } from   "@rxweb/reactive-form-validators"   
 
 export class UserInfo {
 

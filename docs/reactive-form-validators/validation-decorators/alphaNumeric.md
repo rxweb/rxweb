@@ -1,25 +1,27 @@
 ---
 title: alphaNumeric
-description: Alpha Numeric validation  {{validatorType}}  will allow only alphabets and numbers to be entered, It will not allow any special character. 
+description: Alpha Numeric validation {{validatorType}} will allow only alphabets and numbers to be entered. It will not allow any special character. 
 author: rxcontributortwo
 category: form-validations
-type:tabs
+type: tabs
 linktitle: alphaNumeric
 ---
+
 # When to use
-Suppose you want to create a Location form, which contains fields like AreaName, FlatAddress, PostalAddress, CityCode and you want the user to enter only alphabets and numbers. Here depending upon the requirement these scenarios may arise.
+Suppose you want to create a Location form, which contains fields like AreaName, FlatAddress, PostalAddress, countryCode, CityCode and you want the user to enter only alphabets and numbers. Here depending upon the requirement these scenarios may arise.
 
 <ol class='showHideElement'>
     <li>Allow only alphabets and numbers in AreaName without space.</li>
     <li>Allowing WhiteSpace in FlatAddress.</li>
-    <li>Apply alphaNumeric validation based on matched condition in the form, like if the AreaName is `Boston` then the CityCode value should be in alphabets and numbers.</li>
+    <li>Apply alphaNumeric validation based on matched condition in the form, like if the AreaName is `Delhi` then the countryCode value should be in alphabets and numbers.</li>
+    <li>Apply alphaNumeric validation based on matched condition in the form, like if the AreaName is `Delhi` then the CityCode value should be in alphabets and numbers.</li>
     <li>Adding Custom Message on PostalAddress Field.</li>
     <data-scope scope="['decorator','validator']">
         <li>Apply alphaNumeric validation dynamically based on server rules. </li>
     </data-scope>
 </ol>
 
-Let’s see how alphaNumeric  {{validatorType}}  fulfil the need.
+Let’s see how alphaNumeric {{validatorType}} fulfil the need.
 
 # Basic AlphaNumeric Validation
 <data-scope scope="['decorator','template-driven-directives','template-driven-decorators']">
@@ -46,7 +48,8 @@ Next, we need to write html code.
 # [/Add]
 # [Edit](#tab\basicedit)
 <div component="app-code" key="alphaNumeric-edit-component"></div> 
-The below code is `location-data.json` for getting data from the server
+
+The below default data which is coming from the server in this example of edit form which is set in the `location-data.json` in json format like this:
 <div component="app-code" key="alphaNumeric-edit-json"></div>  
 Next, we need to write html code.
 <div component="app-code" key="alphaNumeric-edit-html"></div> 
@@ -76,7 +79,7 @@ Below options are not mandatory to use in the `alphaNumeric` validation. If need
 <table class="table table-bordered table-striped showHideElement">
 <tr><th>Option</th><th>Description</th></tr>
 <tr><td><a  (click)='scrollTo("#allowwhitespace")' title="allowWhiteSpace">allowWhiteSpace</a></td><td>This will allow whitespace in particular control property. The default value is `false`.</td></tr>
-<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>AlphaNumeric validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.</td></tr>
+<tr><td><a  (click)='scrollTo("#conditionalExpression")' title="conditionalExpression">conditionalExpression</a></td><td>AlphaNumeric validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.</td></tr>
 <tr><td><a  (click)='scrollTo("#message")' title="message">message</a></td><td>To override the global configuration message and set the custom error message on respective FormControl</td></tr>
 </table>
 
@@ -92,7 +95,7 @@ This will allow whitespace in particular FormControl value .The default value is
 Type :  `Function`  |  `string` 
 
 AlphaNumeric validation should be applied if the condition is matched in the `conditionalExpression` function. Validation framework will pass two parameters at the time of `conditionalExpression` check. Those two parameters are current `FormGroup` value and root `FormGroup` value. You can apply the condition on respective object value.
-If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work as same as client function.
+If there is need of dynamic validation means it is not fixed in client code, it will change based on some criterias. In this scenario you can bind the expression based on the expression value is coming from the web server in `string` format. The `conditionalExpression` will work same as client function. For boolean variables, if you want to apply conditionalExpression, you must use `===` instead of `==`.
 
 <data-scope scope="['validator','decorator']">
 > Binding `conditionalExpression` with `Function` object.
@@ -114,7 +117,7 @@ To override the global configuration message and set the custom error message on
 
 # Complete AlphaNumeric Example
 
-This Complete AlphaNumeric example which includes all the AlphaConfig properties will fulfil the requirement of scenarios 1, 2, 3 and 4.
+This Complete AlphaNumeric example which includes all the AlphaConfig properties will fulfil the requirement of scenarios 1, 2, 3, 4 and 5.
 
 <div component="app-tabs" key="complete"></div>
 [!TabGroup]
@@ -137,7 +140,7 @@ This Complete AlphaNumeric example which includes all the AlphaConfig properties
 <data-scope scope="['decorator','validator']">
 # Dynamic AlphaNumeric Example
 
-This Dynamic AlphaNumeric example which execute based on json passed. conditional expression with function would be not apply in dynamic AlphaNumeric example. 
+This Dynamic AlphaNumeric example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic alphaNumeric example. This example will fulfil the requirement of our last point.
 
 <div component="app-tabs" key="dynamic"></div>
 

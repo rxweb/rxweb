@@ -1,4 +1,4 @@
-import {  extension,prop, } from "@rxweb/reactive-form-validators"
+import {  extension,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class UserInfo {
 

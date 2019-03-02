@@ -1,4 +1,4 @@
-import {  greaterThan,prop, } from "@rxweb/reactive-form-validators"
+import {  greaterThan,prop, } from   "@rxweb/reactive-form-validators"   
 
 export class User {
 
@@ -7,5 +7,6 @@ export class User {
 
 	@greaterThan({fieldName:'age' }) 
 	voterAge: number;
-
+	
+	
 }

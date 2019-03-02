@@ -5,7 +5,7 @@
       <input type="text" formControlName="age" class="form-control"  />
       <small class="form-text text-muted">Age Should be between 18 to 60.<br/></small>
       <small class="form-text text-muted">If you want to apply conditional validation on 'Project Duration' or 'Employee Experience', then you need to add 'Employee Age' input greater than 25<br/></small>
-	 <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.age.errors">{{employeeInfoFormGroup.controls.age.errors.range?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="employeeInfoFormGroup.controls.age.errors">{{employeeInfoFormGroup.controls.age.errors.range.message}}<br/></small>	
     </div>
     <button [disabled]="!employeeInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

@@ -1,5 +1,5 @@
 <div>
-  <form #userForm = "ngForm" [rxwebForm]="userForm">
+  <form #userForm = "ngForm" [rxwebForm]="userForm" [model]="user">
     <div class="form-group">
       <label>Odd Number</label>
 	    <input type="text" name="oddNumber" [(ngModel)]="user.oddNumber"  class="form-control" />

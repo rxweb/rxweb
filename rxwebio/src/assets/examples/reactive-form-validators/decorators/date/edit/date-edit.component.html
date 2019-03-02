@@ -1,0 +1,11 @@
+<div>
+  <form  *ngIf="userInfoFormGroup"  [formGroup]="userInfoFormGroup">
+    <div class="form-group">
+      <label>Birth Date</label>
+      <input type="text" formControlName="birthDate" class="form-control"  />
+      <small class="form-text text-muted">You must enter a valid date only<br/></small>
+	 <small class="form-text text-danger" *ngIf="userInfoFormGroup.controls.birthDate.errors">{{userInfoFormGroup.controls.birthDate.errors.date.message}}<br/></small>	
+    </div>
+    <button [disabled]="!userInfoFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

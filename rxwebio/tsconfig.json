@@ -14,6 +14,11 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "paths": {
+      "@rx/*": [
+          "packages/@rx/*",
+      ]
+    },
     "lib": [
       "es2017",
       "dom"

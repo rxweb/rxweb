@@ -10,6 +10,7 @@ import { MaxDateValueComponent } from './value/max-date-value.component';
 import { MaxDateConditionalExpressionComponent } from './conditionalExpression/max-date-conditional-expression.component';
 import { MaxDateMessageComponent } from './message/max-date-message.component';
 import { MaxDateFieldNameComponent } from './fieldName/max-date-field-name.component';
+import { MaxDateOperatorComponent } from './operator/max-date-operator.component';
 import { MaxDateDynamicComponent } from './dynamic/max-date-dynamic.component';
 import { MaxDateAddComponent } from './add/max-date-add.component';
 import { MaxDateEditComponent } from './edit/max-date-edit.component';
@@ -21,6 +22,7 @@ import { MaxDateEditComponent } from './edit/max-date-edit.component';
 	MaxDateConditionalExpressionComponent,
 	MaxDateMessageComponent,
 	MaxDateFieldNameComponent,
+	MaxDateOperatorComponent,
 	MaxDateDynamicComponent,
 	MaxDateAddComponent,
 	MaxDateEditComponent,
@@ -31,6 +33,7 @@ entryComponents: [
 	MaxDateConditionalExpressionComponent,
 	MaxDateMessageComponent,
 	MaxDateFieldNameComponent,
+	MaxDateOperatorComponent,
 	MaxDateDynamicComponent,
 	MaxDateAddComponent,
 	MaxDateEditComponent,
@@ -47,6 +50,7 @@ entryComponents: [
 	MaxDateConditionalExpressionComponent,
 	MaxDateMessageComponent,
 	MaxDateFieldNameComponent,
+	MaxDateOperatorComponent,
 	MaxDateDynamicComponent,
 	MaxDateAddComponent,
 	MaxDateEditComponent,
