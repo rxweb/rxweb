@@ -53,12 +53,18 @@ export const defaultContainer:
             instance.nonValidationDecorators[decoratorType].conditionalExpressions[propertyKey] = config.conditionalExpression;
             let columns = Linq.expressionColumns(config.conditionalExpression,true);
             columns.forEach(column => {
-                let columnName = (!column.objectPropName) ? `${column.propName}${RXCODE}${column.argumentIndex}` : `${column.objectPropName}.${column.propName}${RXCODE}${column.argumentIndex}`;
-                if (!instance.nonValidationDecorators[decoratorType].changeDetection[columnName]) 
-                    instance.nonValidationDecorators[decoratorType].changeDetection[columnName] = [];
-                let disabledColumns = instance.nonValidationDecorators[decoratorType].changeDetection[columnName];
-                if (disabledColumns.indexOf(columnName) === -1)
-                    disabledColumns.push(propertyKey);
+                if(column.argumentIndex !== -1){
+                    let columnName = (!column.objectPropName) ? `${column.propName}${RXCODE}${column.argumentIndex}` : `${column.objectPropName}.${column.propName}${RXCODE}${column.argumentIndex}`;
+                    if (!instance.nonValidationDecorators[decoratorType].changeDetection[columnName]) 
+                        instance.nonValidationDecorators[decoratorType].changeDetection[columnName] = [];
+                    let disabledColumns = instance.nonValidationDecorators[decoratorType].changeDetection[columnName];
+                    if (disabledColumns.indexOf(columnName) === -1)
+                        disabledColumns.push(propertyKey);
+                }else{
+                    if(!instance.nonValidationDecorators[decoratorType].controlProp[propertyKey])
+                    instance.nonValidationDecorators[decoratorType].controlProp[propertyKey] = {};
+                    instance.nonValidationDecorators[decoratorType].controlProp[propertyKey][column.propName.replace(";","")] = true;
+                }
             })
         }
 
@@ -93,10 +99,12 @@ export const defaultContainer:
                 nonValidationDecorators: {
                     disabled: {
                         conditionalExpressions: {},
-                        changeDetection: {}
+                        changeDetection: {},
+                        controlProp:{}
                     },error: {
                         conditionalExpressions: {},
-                        changeDetection: {}
+                        changeDetection: {},
+                        controlProp:{}
                     }
                 },
                 sanitizers: {}

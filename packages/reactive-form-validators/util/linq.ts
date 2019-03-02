@@ -51,9 +51,9 @@ export class Linq {
                         var splitText = t.split('.');
                         if (splitText.length == 2 || (splitText.length >=2 && isNonValidationExpression) )
                         if(!isNonValidationExpression)
-                            columns.push({ propName: splitText[1].trim(),argumentIndex:i == 3 ? 0 : i == 2 ? 1 : i });
+                            columns.push({ propName: splitText[1].trim(),argumentIndex:i == 3 ? 0 : i == 2 ? 1 : i == 1 ? -1:i });
                             else
-                            columns.push({ propName: this.getConditionPath(splitText),argumentIndex:i == 3 ? 0 : i == 2 ? 1 : i });
+                            columns.push({ propName: this.getConditionPath(splitText),argumentIndex:i == 3 ? 0 : i == 2 ? 1 : i == 1 ? -1:i });
                         else {
                             var arrayProp = splitText[1].split('[');
                             let jObject = {

@@ -8,6 +8,13 @@ import { DECORATORS } from "../const/decorators.const";
 import { defaultContainer } from "../core/defaultContainer";
 import { SANITIZERS } from "../util/sanitizers"
 import { DataSanitizer } from '../core/validator.interface'
+
+const DIRTY:string = "dirty";
+const TOUCHED:string = "touched";
+const UNTOUCHED:string = "untouched";
+const PRISTINE:string = "pristine";
+const PENDING:string = "pending";
+
 export class RxFormControl extends FormControl {
     private keyName: string;
     private _errorMessage: string;
@@ -20,7 +27,7 @@ export class RxFormControl extends FormControl {
     private _refMessageControls= [];
     private _messageExpression:Function;
     private _isPassedExpression: Boolean = false;
-
+    private _controlProp:{[key:string]:boolean};
     get errorMessages(): string[] {
         if (!this._messageExpression) {
             if (this._errorMessages.length == 0 && this.errors)
@@ -74,11 +81,66 @@ export class RxFormControl extends FormControl {
     }
 
 
+    markAsTouched(opts?: {
+        onlySelf?: boolean;
+    }): void{
+        let currentState = this.touched;
+        super.markAsTouched(opts);
+        if(currentState != this.touched)
+            this.runControlPropChangeExpression([TOUCHED,UNTOUCHED])
+        
+    }
+
+    markAsUntouched(opts?: {
+        onlySelf?: boolean;
+    }): void{
+        let currentState = this.untouched;
+        super.markAsUntouched(opts);
+        if(currentState != this.untouched)
+            this.runControlPropChangeExpression([UNTOUCHED,TOUCHED])
+    }
+
+    markAsDirty(opts?: {
+        onlySelf?: boolean;
+    }): void{
+        let currentState = this.dirty;
+        super.markAsDirty(opts);
+        if(currentState != this.dirty)
+            this.runControlPropChangeExpression([DIRTY])
+    }
+
+    markAsPristine(opts?: {
+        onlySelf?: boolean;
+    }): void{
+        let currentState = this.pristine;
+        super.markAsDirty(opts);
+        if(currentState != this.pristine)
+            this.runControlPropChangeExpression([PRISTINE])
+    }
+
+    markAsPending(opts?: {
+        onlySelf?: boolean;
+        emitEvent?: boolean;
+    }): void{
+        let currentState = this.pending;
+        super.markAsDirty(opts);
+        if(currentState != this.pending)
+            this.runControlPropChangeExpression([PENDING])
+    }
+
+    runControlPropChangeExpression(propNames:string[]){
+        propNames.forEach(name=>{
+        if(this._controlProp && this._messageExpression && this._controlProp[name])
+            this.bindError();
+        });
+    }
+
     refresh() {
-        this._messageExpression = this.getMessageExpression(<FormGroup>this.parent,this.keyName);
+        this.getMessageExpression(<FormGroup>this.parent,this.keyName);
         this.bindConditionalControls(DECORATORS.disabled,"_refDisableControls");
         this.bindConditionalControls(DECORATORS.error,"_refMessageControls");
-        this.executeExpressions()
+        this.executeExpressions();
+        this.bindError();
     }
 
     private executeExpressions(){
@@ -86,13 +148,15 @@ export class RxFormControl extends FormControl {
         this.processExpression("_refMessageControls","bindError");
     }
 
-    private getMessageExpression(formGroup:FormGroup,keyName:string):Function{
+    private getMessageExpression(formGroup:FormGroup,keyName:string):void{
             if(formGroup["modelInstance"]){
                 let instanceContainer = defaultContainer.get(formGroup["modelInstance"].constructor);
-                if(instanceContainer) 
-                    return instanceContainer.nonValidationDecorators.error.conditionalExpressions[keyName]
+                if(instanceContainer) {
+                    this._messageExpression = instanceContainer.nonValidationDecorators.error.conditionalExpressions[keyName]
+                    this._controlProp = instanceContainer.nonValidationDecorators.error.controlProp[this.keyName];
                 }
-                return undefined;
+                    
+                }
     }
 
     private getSanitizedValue(value:any) {

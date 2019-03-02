@@ -39,7 +39,8 @@ export interface PropertyInfo {
 
 export interface ControlInfo {
     conditionalExpressions?: { [key: string]: Function },
-    changeDetection?: { [key: string]: string[] }
+    changeDetection?: { [key: string]: string[] },
+    controlProp:{[key:string]:{[key:string]:boolean}}
 }
 
 export interface DataSanitizer{
