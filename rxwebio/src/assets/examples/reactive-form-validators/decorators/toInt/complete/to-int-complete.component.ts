@@ -5,10 +5,10 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { User } from './user.model';
 
 @Component({
-    selector: 'app-toInt-add',
-    templateUrl: './to-int-add.component.html'
+    selector: 'app-toInt-complete',
+    templateUrl: './to-int-complete.component.html'
 })
-export class ToIntAddComponent implements OnInit {
+export class ToIntCompleteComponent implements OnInit {
     userFormGroup: FormGroup
 
     constructor(

@@ -1,0 +1,9 @@
+<div>
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <label>Total Amount</label>
+      <input type="text" formControlName="totalAmount" class="form-control"  />
+    </div>
+    <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

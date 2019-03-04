@@ -5,14 +5,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
-import { ToIntAddComponent } from './add/to-int-add.component';
+import { ToIntCompleteComponent } from './complete/to-int-complete.component';
+import { ToIntRadixComponent } from './radix/to-int-radix.component';
 
-@NgModule({
+@NgModule({ 
   declarations: [
-	ToIntAddComponent,
+	ToIntCompleteComponent,
+	ToIntRadixComponent,
   ],
 entryComponents: [
-	ToIntAddComponent,
+	ToIntCompleteComponent,
+	ToIntRadixComponent,
   ],
   imports: [
     CommonModule,HttpClientModule,ReactiveFormsModule,FormsModule,RxReactiveFormsModule
@@ -21,7 +24,8 @@ entryComponents: [
   bootstrap: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-	ToIntAddComponent,
+	ToIntCompleteComponent,
+	ToIntRadixComponent,
   ],
 
 })
