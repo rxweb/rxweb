@@ -4,20 +4,22 @@ import { formatNumber } from "@angular/common"
 import { APP_VALIDATORS } from '../../const/app-validators.const';
 import { BaseValidator } from './base-validator.directive';
 import {
-    INPUT, SELECT, CHECKBOX, TEXTAREA, KEYPRESS, ONCHANGE, ONKEYUP, ONCLICK,
-    RADIO, FILE, ELEMENT_VALUE, BLUR, FOCUS, CHANGE, BLANK
+     ELEMENT_VALUE, BLUR, FOCUS, BLANK
 } from "../../const";
+import { TEMPLATE_VALIDATION_CONFIG,CONDITIONAL_VALIDATOR,VALIDATOR_CONFIG  } from '../../const/app.const'
 import { ApplicationUtil } from '../../util/app-util';
 import { DecimalProvider } from "../../domain/element-processor/decimal.provider"
 import { AlphaConfig, ArrayConfig, BaseConfig, ChoiceConfig, CompareConfig, ComposeConfig, ContainsConfig, CreditCardConfig, DateConfig, DefaultConfig, DigitConfig, EmailConfig, ExtensionConfig, FactorConfig, FieldConfig, HexColorConfig, MessageConfig, NumberConfig, NumericConfig, PasswordConfig, PatternConfig, RangeConfig, RequiredConfig, RuleConfig, SizeConfig, TimeConfig, DifferentConfig, RelationalOperatorConfig, UniqueConfig } from '../../models/config'
+import { RegexValidator } from '../../util';
 const COMPOSE: string = 'compose';
+
 const NGMODEL_BINDING: any = {
     provide: NG_VALIDATORS,
     useExisting: forwardRef(() => RxFormControlDirective),
     multi: true
 };
 
-const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required', 'notEmpty', 'alpha', 'alphaNumeric', 'ascii', 'dataUri', 'digit', 'email', 'even', 'hexColor', 'json', 'latitude', 'latLong', 'leapYear', 'longitude', 'lowerCase', 'mac', 'odd', 'port', 'primeNumber', 'time', 'upperCase', 'url', 'unique'];
+const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required', 'notEmpty', 'alpha', 'alphaNumeric', 'ascii', 'dataUri', 'digit', 'email', 'even', 'hexColor', 'json', 'latitude', 'latLong', 'leapYear', 'longitude', 'lowerCase', 'mac', 'odd', 'port', 'primeNumber', 'time', 'upperCase', 'url', 'unique','cusip','gird'];
 
 @Directive({
     selector: '[ngModel],[formControlName],[formControl]',
@@ -26,6 +28,8 @@ const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required', 'notEmpty', 'alpha', 'alphaN
 export class RxFormControlDirective extends BaseValidator implements OnInit, OnDestroy, Validator {
     private eventListeners: any[] = [];
     private isNumericSubscribed: boolean = false;
+    private isFocusCalled:boolean = false;
+    
     set validationControls(value: { [key: string]: FormControl }) {
         this.controls = value;
     }
@@ -87,7 +91,9 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     @Input() url: DefaultConfig;
     @Input() unique: UniqueConfig;
     @Input() notEmpty: BaseConfig;
-
+    @Input() cusip: BaseConfig;
+    @Input() grid: BaseConfig;
+    @Input() date:BaseConfig;
 
 
 
@@ -115,20 +121,25 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
             this.bindNumericElementEvent();
     }
 
+
+    blurEvent(){
+        if (!(this.formControl && this.formControl.errors && this.formControl.errors.numeric)) {
+            let value = this.decimalProvider.transFormDecimal(this.formControl.value, this.numeric.digitsInfo);
+            this.setValueOnElement(value);
+            this.isFocusCalled = false;
+        }
+    }
+
     bindNumericElementEvent(config?: NumericConfig) {
         if (config)
             this.numeric = config;
-        let listener = this.renderer.listen(this.element, BLUR, (event) => {
-            if (!(this.formControl && this.formControl.errors && this.formControl.errors.numeric)) {
-                let value = this.decimalProvider.transFormDecimal(this.formControl.value, this.numeric.digitsInfo);
-                this.setValueOnElement(value);
-            }
-        });
+        let listener = this.renderer.listen(this.element, BLUR, this.blurEvent.bind(this));
         this.eventListeners.push(listener)
         listener = this.renderer.listen(this.element, FOCUS, (event) => {
             if (!(this.formControl && this.formControl.errors && this.formControl.errors.numeric) && this.formControl.value != null) {
-                let value = this.decimalProvider.replacer(this.formControl.value);
+                let value = this.decimalProvider.replacer(this.element.value);
                 this.setValueOnElement(value);
+                this.isFocusCalled = true;
             }
         });
         this.eventListeners.push(listener)
@@ -146,25 +157,47 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     }
 
     subscribeNumericFormatter() {
-        if (this.formControl["validatorConfig"] && this.formControl["validatorConfig"]["numeric"] && this.formControl["validatorConfig"]["numeric"]["isFormat"] && !this.isNumericSubscribed) {
-            this.bindNumericElementEvent(this.formControl["validatorConfig"]["numeric"]);
-            this.isNumericSubscribed = true;
+        if (this.formControl["validatorConfig"] && this.formControl["validatorConfig"]["numeric"] && this.formControl["validatorConfig"]["numeric"]["isFormat"]) {
+            if(!this.isNumericSubscribed){
+                this.bindNumericElementEvent(this.formControl["validatorConfig"]["numeric"]);
+                this.isNumericSubscribed = true;
+            }
+            if(!this.isFocusCalled && RegexValidator.isNotBlank(this.formControl.value)){
+                this.blurEvent();
+            }
         }
+        
     }
 
     private setValueOnElement(value: any) {
         this.renderer.setElementProperty(this.element, ELEMENT_VALUE, value);
     }
 
-    validate(control: AbstractControl): { [key: string]: any } {
-        if (!this.formControl)
-            this.formControl = control;
-        if (!this.isNumericSubscribed)
-            this.subscribeNumericFormatter();
-        if (control["conditionalValidator"]) {
-            this.conditionalValidator = control["conditionalValidator"];
-            delete control["conditionalValidator"];
+    private setTemplateValidators(control:AbstractControl){
+        for(let validatorName in control[VALIDATOR_CONFIG])
+        {
+            this[validatorName] = control[VALIDATOR_CONFIG][validatorName];
         }
+        delete control[TEMPLATE_VALIDATION_CONFIG];
+        delete control[VALIDATOR_CONFIG]
+        this.ngOnInit();
+    }
+
+    private setValidatorConfig(control:AbstractControl){
+        if (!this.formControl)
+        this.formControl = control;
+        this.subscribeNumericFormatter();
+    if(control[TEMPLATE_VALIDATION_CONFIG])
+        this.setTemplateValidators(control);
+    if (control[CONDITIONAL_VALIDATOR]) {
+        this.conditionalValidator = control[CONDITIONAL_VALIDATOR];
+        delete control[CONDITIONAL_VALIDATOR];
+    }
+
+    }
+
+    validate(control: AbstractControl): { [key: string]: any } {
+        this.setValidatorConfig(control);
         if (this.conditionalValidator)
             this.conditionalValidator(control);
         if (!this.isProcessed)

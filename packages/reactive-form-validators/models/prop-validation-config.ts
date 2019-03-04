@@ -4,7 +4,8 @@ import { CompareConfig } from "./config/compare-config";
 import { AlphaConfig } from "./config/alpha-config";
 import { RangeConfig } from "./config/range-config";
 import { NumberConfig } from "./config/number-config";
-import { DateConfig } from "./config/date-config";
+import { MaxDateConfig } from "./config/max-date-config";
+import { MinDateConfig } from "./config/min-date-config";
 import { DigitConfig } from "./config/digit-config";
 import { EmailConfig } from "./config/email-config";
 import { MessageConfig } from "./config/message-config";
@@ -21,7 +22,7 @@ import { PasswordConfig } from "./config/password-config";
 import { TimeConfig } from "./config/time-config";
 import { ExtensionConfig } from "./config/extension-config";
 import { SizeConfig } from "./config/size-config";
-import { ValidatorFn } from "@angular/forms";
+import { ValidatorFn, AsyncValidatorFn } from "@angular/forms";
 
 export interface PropValidationConfig {
     allOf?:ArrayConfig;
@@ -56,9 +57,9 @@ export interface PropValidationConfig {
     alphaNumeric?: AlphaConfig | boolean;
     email?: EmailConfig | boolean;
     lowerCase?: MessageConfig | boolean;
-    maxDate?: DateConfig;
+    maxDate?: MaxDateConfig;   
     maxNumber?: NumberConfig;
-    minDate?: DateConfig;
+    minDate?: MinDateConfig;
     minNumber?: NumberConfig;
     upperCase?: MessageConfig | boolean;
     range?: RangeConfig;
@@ -73,5 +74,6 @@ export interface PropValidationConfig {
     startsWith?:DefaultConfig | boolean;
     primeNumber?:BaseConfig | boolean;
     latitude?:BaseConfig | boolean;
-    longitude?:BaseConfig | boolean;
+    longitude?: BaseConfig | boolean;
+    async?: AsyncValidatorFn[];
 }

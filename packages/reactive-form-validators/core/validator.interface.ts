@@ -12,7 +12,8 @@ export interface DecoratorConfiguration {
     propertyIndex: number;
     target?: any;
     propertyConstructor?: any;
-    config?: any
+    config?: any;
+    isAsync: boolean;
 }
 
 export interface InstanceContainer {
@@ -20,12 +21,30 @@ export interface InstanceContainer {
     propertyAnnotations: DecoratorConfiguration[];
     properties?: PropertyInfo[]
     conditionalValidationProps?: { [key: string]: string[] }
-    conditionalObjectProps?: {[key:string]:any}
+    conditionalObjectProps?: { [key: string]: any }
+    nonValidationDecorators?: {
+        disabled: ControlInfo;
+        error: ControlInfo;
+    },
+    sanitizers?: { [key: string]: DataSanitizer[] }
 }
 
 export interface PropertyInfo {
     name: string;
     propertyType: string;
     entity?: any;
+    dataPropertyName?: string;
+    defaultValue?: any;
+}
+
+export interface ControlInfo {
+    conditionalExpressions?: { [key: string]: Function },
+    changeDetection?: { [key: string]: string[] },
+    controlProp:{[key:string]:{[key:string]:boolean}}
+}
+
+export interface DataSanitizer{
+    name:string;
+    config:any;
 }
 

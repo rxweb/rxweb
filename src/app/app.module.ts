@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Injectable, Inject, ReflectiveInjector } from "@angular/core"
-import { AppComponent, RxDateComponent } from './app.component';
+import { AppComponent } from './app.component';
 import { RxFormBuilder, RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule, FormBuilder } from "@angular/forms";
@@ -15,7 +15,7 @@ import { CanDeactivate } from "@angular/router";
 
 @NgModule({
   declarations: [
-    AppComponent, RxDateComponent
+    AppComponent
   ],
   imports: [
       BrowserModule, ReactiveFormsModule, FormsModule, RxReactiveFormsModule,

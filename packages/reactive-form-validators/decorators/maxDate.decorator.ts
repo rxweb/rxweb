@@ -1,7 +1,7 @@
 import { baseDecoratorFunction } from "./base-decorator.function"
-import { DateConfig } from "../models/config/date-config";
+import { MaxDateConfig } from "../models/config/max-date-config";
 import { AnnotationTypes } from "../core/validator.static";
 
-export function maxDate(config:DateConfig) {
+export function maxDate(config:MaxDateConfig) {
     return baseDecoratorFunction (AnnotationTypes.maxDate, config)    
 }

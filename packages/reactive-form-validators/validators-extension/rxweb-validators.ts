@@ -22,7 +22,13 @@ import {
   uniqueValidatorExtension,
   imageValidatorExtension,
   notEmptyValidatorExtension,
-  ipValidatorExtension
+  ipValidatorExtension,
+  cusipValidatorExtension,
+    gridValidatorExtension,
+    dateValidatorExtension,
+    andValidatorExtension,
+    orValidatorExtension,
+    notValidatorExtension
 } from './index'
 
 export class RxwebValidators {
@@ -83,4 +89,10 @@ export class RxwebValidators {
   static readonly image = imageValidatorExtension;
   static readonly notEmpty = notEmptyValidatorExtension;
   static readonly ip = ipValidatorExtension;
+  static readonly cusip = cusipValidatorExtension;
+  static readonly grid = gridValidatorExtension;
+  static readonly date = dateValidatorExtension;
+  static readonly and = andValidatorExtension;
+  static readonly or = orValidatorExtension;
+  static readonly not = notValidatorExtension;
 }

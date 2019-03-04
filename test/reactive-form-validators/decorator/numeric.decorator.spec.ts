@@ -38,6 +38,7 @@ export class UserInfo {
                     "numeric": "Enter a valid numeric digit.",
                 }
             });
+            ReactiveFormConfig.number = { decimalSymbol:".",groupSymbol:"," }
         });
 
         describe('numericDecorator', () => {

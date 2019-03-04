@@ -64,4 +64,8 @@ Thumbs.db
 /rxwebio/package-lock.json
 /rxwebio/rxwebio.csproj
 *.csproj
+/src/app
 
+/rxwebio/.vs/config
+*.user
+/node_modules_build
