@@ -36,7 +36,7 @@
 										<a [routerLink]="hit.link"> {{hit.title}}</a>
 									</div>
 									<div class="search-decr"> {{hit.description}}</div>
-									<ul class="list-unstyled see-more-links">
+									<ul class="list-unstyled see-more-links" *ngIf="hits.length == 0">
 										<li class="bold">Go to : </li>
 											<li class="" *ngFor="let item of hit.refLinks">
 												<a [routerLink]="item.url">{{item.title}}</a>

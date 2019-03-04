@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
   templateUrl: './top-bar.component.html',
 })
 
-export class TopBarComponent {
+export class TopBarComponent  {
 
   searchvalue: string
   @ViewChild('search') searchInput: ElementRef;
@@ -20,6 +20,7 @@ export class TopBarComponent {
     else
       body.classList.toggle('hide-sidebar');
   }
+  
   showsearchcontent(event, searchvalue: string) {
     if (event.key == "Escape")
       this.hideSearch();
