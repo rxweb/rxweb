@@ -27,11 +27,11 @@ Next, we need to write html code.
 
 # Complete toInt Example  
 Let's create a user model and define a property of 'amount' in the model.
-<div component="app-code" key="toInt-add-model"></div> 
+<div component="app-code" key="toInt-complete-model"></div> 
 
 Through Angular FormBuilder service we create FormGroup in the component.
 
-<div component="app-code" key="toInt-add-component"></div> 
+<div component="app-code" key="toInt-complete-component"></div> 
 Next, we need to write html code.
-<div component="app-code" key="toInt-add-html"></div> 
-<div component="app-example-runner" ref-component="app-toInt-add"></div>
+<div component="app-code" key="toInt-complete-html"></div> 
+<div component="app-example-runner" ref-component="app-toInt-complete"></div>
