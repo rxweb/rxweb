@@ -4,6 +4,20 @@ author: ajayojha
 type:simple
 linktitle:changelog
 ---
+# <a name="1.8.3" href="https://github.com/rxweb/rxweb/releases/tag/v1.8.3" target="_blank">1.8.3</a> (03-02-2019)
+
+### Bug Fixes
+<ul>
+<li>Improvement in sanitizers</li>
+</ul>
+
+### Features
+<ul>
+<li>`markAs` events support for showing conditional error messages.</li>
+</ul>
+<hr />
+
+
 # <a name="1.8.2" href="https://github.com/rxweb/rxweb/releases/tag/v1.8.2" target="_blank">1.8.2</a> (02-22-2019)
 
 ### Bug Fixes
