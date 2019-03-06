@@ -26,16 +26,20 @@ Reactive Form Validators will work in angular projects.
 * [Installation](#installation)
 * [Import Modules](#import-modules)
 * [Form Validation](#form-validation)
+* [Sanitization](#sanitization)
 * [Important Features](#important-features)
     * [Dynamic Validation](#dynamic-validation)
     * [Conditional Validation](#conditional-validation)
     * [Dirty Check](#dirty-check)
+    * [Post as Form Data of Reactive Form value](#post-as-form-data-of-reactive-form-value)
+    * [Post Image through form Data](#post-image-through-form-data)
+    * [Reset Form](#reset-form)
     * [Compare Password](#compare-password)
     * [Single Error Message](#single-error-message)
 * [Upcoming Form Validations](#upcoming-form-validations)
 * [Goal](#goal)
 * [Contributing](#contributing)
-* [Need Help](#need-help)
+* [Need Help](#need-help) 
 * [Feature Request](#feature-request)
 * [License](#license)
 
@@ -1113,6 +1117,100 @@ Url validation will check that value entered in the property is in the correct u
 @url() adminWebsiteUrl: string;
 ```
 ___
+
+## Sanitization
+1. [blacklist](#blacklist)  
+2. [ltrim](#ltrim)
+3. [rtrim](#rtrim)
+4. [toBoolean](#toboolean)
+5. [toDate](#todate)
+6. [toDouble](#todouble)
+7. [toInt](#toint)
+8. [toString](#tostring)
+9. [trim](#trim)
+10. [whitelist](#whitelist)
+
+## blacklist
+Remove the characters form the user entered value.
+```js
+  @prop()
+  @blacklist('abc' ) 
+  freeText: string;
+```
+___
+## ltrim
+Trim characters from the left-side of the input.
+```js
+  @prop()
+  @ltrim() 
+  freeText: string;
+```
+___
+## rtrim
+Trim characters from the right-side of the input.
+```js
+  @prop()
+  @rtrim() 
+  freeText: string;
+```
+___
+## toBoolean
+Convert the input to a boolean.
+```js
+  @prop()
+  @toBoolean() 
+  Active: boolean;
+```
+___
+## toDate
+Convert the input to a date, or null if the input is not a date.
+```js
+  @prop()
+  @toDate() 
+  dob: Date;
+```
+___
+## toDouble
+Convert the input to a float, or NAN if the input is not a float.
+```js
+  @prop()
+  @toDouble() 
+  amount: number;
+```
+___
+## toInt
+Convert the input to an integer, or NAN if the input is not an integer.
+```js
+  @prop()
+  @toInt() 
+  amount: number;
+```
+___
+## toString
+Convert the input to a string.
+```js
+  @prop()
+  @toString() 
+  freeText: string;
+```
+___
+## trim
+Trim characters from the input.
+```js
+  @prop()
+  @trim() 
+  freeText: string;
+```
+___
+## whitelist
+Remove characters that do not appear in the whitelist.
+```js
+  @prop()
+  @whitelist('abc' ) 
+  freeText: string;
+```
+___
+
 ## Dynamic Validation
 Dynamic validation is used, when the validation rules will come from server side, means there is no static code on client side to manage the validation on reactive form. 
 Scenario : First Name field should accepts alphabets and that is configured on server side.
@@ -1210,7 +1308,53 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 <button [disabled]="!userInfoFormGroup.isDirty()" class="btn btn-primary">Submit</button>
 </form>
 ```
-
+## Post as Form Data of Reactive Form value
+This provides a `toFormData()` method which converts the FormGroup value into the FormData. Here is an example of Post as FormData of Reactive Form value. See the working code example on ***[stackblitz](https://stackblitz.com/angular/nvpxmkolygpx?file=src%2Fapp%2Fformadata-complete.component.ts)***
+> Reactive Form Validation
+```js
+ this.userFormGroup = <RxFormGroup>this.formBuilder.group({
+            firstName:[''], 
+            lastName :[''],
+            userName:[''],
+            password : ['']
+        });     
+	
+     addUser(){
+         let formdata = this.userFormGroup.toFormData()
+       this.http.post(this.api, formdata); // This is fake uri, This is just for your reference.
+      }
+```   
+## Post Image through form Data
+To create fileObject from the input we have to set writeFile="true" attribute on the HTMLInputFileElement. Here is an example of Post Image through formData. See the working code example on ***[stackblitz](https://stackblitz.com/angular/akbreglpmxg?file=src%2Fapp%2Ffileobject-complete.component.ts)***
+> Reactive Form Validation
+```js
+   this.userInfoFormGroup = <RxFormGroup>this.formBuilder.group({
+            profilePhoto:[''], 
+        });
+    
+      addUser(){
+         let formdata = this.userInfoFormGroup.toFormData()
+       this.http.post(this.api, formdata); // This is fake uri, This is just for your reference.      
+      }
+```   
+```html
+ <input type="file" [writeFile]="true" formControlName="profilePhoto" class="form-control" multiple />
+``` 
+## Reset Form
+RxFormBuilder provide a solution for reset form of angular reactive form object. If you want to reset the form as per the value initialized while creating an instance of the formControls, you can use resetForm()method of FormGroupExtension. See the working code example on ***[stackblitz](https://stackblitz.com/angular/rebqdyrxdyn?file=src%2Fapp%2Freset-complete.component.ts)***
+> Reactive Form Validation
+```js
+this.userFormGroup = <RxFormGroup>this.formBuilder.group({
+    firstName:[''],
+    lastName:[''],
+    userName:[''],
+    password:['']
+        });
+    
+     resetForm(){
+        this.userFormGroup.resetForm(); 
+      }
+```   
 ## Compare Password
 Compare validation is used to check whether the value of two formControls are same or not .Here is an example of comparing password.
  field. See the working code example on ***[stackblitz](https://stackblitz.com/angular/nlylepgknjb?file=src%2Fapp%2Fcompare-field-name.component.ts)***
