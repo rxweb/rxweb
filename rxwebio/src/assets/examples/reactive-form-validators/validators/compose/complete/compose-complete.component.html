@@ -4,33 +4,33 @@
       <label>First Name</label>
       <input type="text" formControlName="firstName" class="form-control"  />
       <small class="form-text text-muted">This field is required and in this only alphabets are allowed.<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstName.errors">{{userFormGroup.controls.firstName.errors.compose.message}}<br/></small>	
+     <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstName.errors">{{userFormGroup.controls.firstName.errors.compose.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Last Name</label>
       <input type="text" formControlName="lastName" class="form-control"  />
       <small class="form-text text-muted">validation message based on messageKey<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.lastName.errors">{{userFormGroup.controls.lastName.errors.compose.message}}<br/></small>	
+     <small class="form-text text-danger" *ngIf="userFormGroup.controls.lastName.errors">{{userFormGroup.controls.lastName.errors.composeMessageKey.message}}<br/></small>		
     </div>
     <div class="form-group">
       <label>Age</label>
       <input type="text" formControlName="age" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'Age' then you need to add 'First Name' input as 'Bharat'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'function'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.age.errors">{{userFormGroup.controls.age.errors.compose.message}}<br/></small>	
+     <small class="form-text text-danger" *ngIf="userFormGroup.controls.age.errors">{{userFormGroup.controls.age.errors.compose.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>City</label>
       <input type="text" formControlName="city" class="form-control"  />
       <small class="form-text text-muted">If you want to apply conditional validation on 'City' then you need to add 'First Name' input as 'Bharat'.<br/></small>
       <small class="form-text text-muted">Conditional Expression with type 'string'<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.city.errors">{{userFormGroup.controls.city.errors.compose.message}}<br/></small>	
+     <small class="form-text text-danger" *ngIf="userFormGroup.controls.city.errors">{{userFormGroup.controls.city.errors.compose.message}}<br/></small>	
     </div>
     <div class="form-group">
       <label>Country Name</label>
       <input type="text" formControlName="countryName" class="form-control"  />
       <small class="form-text text-muted"> This allows alphabets in compose validation<br/></small>
-	 <small class="form-text text-danger" *ngIf="userFormGroup.controls.countryName.errors">{{userFormGroup.controls.countryName.errors.compose.message}}<br/></small>	
+     <small class="form-text text-danger" *ngIf="userFormGroup.controls.countryName.errors">{{userFormGroup.controls.countryName.errors.compose.message}}<br/></small>	
     </div>
     <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>
