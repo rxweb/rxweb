@@ -107,30 +107,5 @@ This Complete Compose example which includes all the ComposeConfig properties wi
 # [/Html]
 ***
 
-<data-scope scope="['decorator','validator']">
-# Dynamic Compose Example
 
-This Dynamic Compose example is executed on the basis of json passed in the formBuilderConfiguration which comes under `RxFormBuilder` of reactive-form-validators. `conditionalExpression` with function would not be applied in dynamic compose example. This example will fulfil the requirement of our last point.
 
-<div component="app-tabs" key="dynamic"></div>
-
-[!TabGroup]
-# [Example](#tab\dynamicexample)
-<div component="app-example-runner" ref-component="app-compose-dynamic"></div>
-# [/Example]
-<data-scope scope="['decorator']">
-# [Model](#tab\dynamicmodel)
-<div component="app-code" key="compose-dynamic-model"></div>
-# [/Model]
-</data-scope>
-# [Component](#tab\dynamiccomponent)
-<div component="app-code" key="compose-dynamic-component"></div>
-# [/Component]
-# [Json](#tab\dynamicjson)
-<div component="app-code" key="compose-dynamic-json"></div>
-# [/Json]
-# [Html](#tab\dynamichtml)
-<div component="app-code" key="compose-dynamic-html"></div> 
-# [/Html]
-***
-</data-scope>
