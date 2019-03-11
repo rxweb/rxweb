@@ -107,4 +107,28 @@ export class Linq {
         }
         return columns;
     }
+
+    static dynamicConfigParser(expression: Function, propName: string):any[] {
+            let controlNames = [];
+            let expressionString = expression.toString();
+            let expressionArguments = Linq.extractArguments(expressionString.match(/\(([^)]+)\)/g));
+            expressionArguments.forEach(t => {
+                let splitString = expressionString.replace(new RegExp(/\r?\n|\r|;/g), '').replace(/[{()}]/g, '').split(/ /g);
+                splitString.filter(x => x != `${t}.${propName}` && x.startsWith(`${t}.`)).forEach(x => {
+                    let split = x.split('.');
+                    if (split.length == 2)
+                        controlNames.push({ propName: x.replace(`${t}.`, '') })
+                    else {
+                        var arrayProp = split[1].split('[');
+                        let jObject = {
+                            propName: split[split.length - 1].trim(),
+                            objectPropName: arrayProp[0],
+                            arrayIndex: arrayProp.length > 1 ? arrayProp[1].replace("]", "") : undefined,
+                        }
+                        controlNames.push(jObject);
+                    }
+                });
+        });
+        return controlNames;
+    }
 }

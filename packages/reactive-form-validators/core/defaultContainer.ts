@@ -146,6 +146,10 @@ export const defaultContainer:
                 let columns = Linq.expressionColumns(decoratorConfiguration.config.conditionalExpression);
                 this.addChangeValidation(instance, decoratorConfiguration.propertyName, columns);
             }
+            if (decoratorConfiguration.config && decoratorConfiguration.config.dynamicConfig) {
+                let columns = Linq.dynamicConfigParser(decoratorConfiguration.config.dynamicConfig, decoratorConfiguration.propertyName);
+                this.addChangeValidation(instance, decoratorConfiguration.propertyName, columns);
+            }
             this.setConditionalColumns(instance,decoratorConfiguration);
         }
 
