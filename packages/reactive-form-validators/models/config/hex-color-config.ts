@@ -1,4 +1,4 @@
-import { BaseConfig } from './base-config'
-export interface HexColorConfig extends BaseConfig {
+import { BaseConfigFn } from './base-config-fn';
+export interface HexColorConfig extends BaseConfigFn<HexColorConfig> {
     isStrict?: boolean;
 }

@@ -6,6 +6,7 @@ import { RegexValidator } from "./regex-validator";
 import { ObjectMaker } from "./object-maker";
 import { AnnotationTypes } from "../core/validator.static";
 import {OPERATORS} from "../const/operators.const"
+import {getConfigObject} from "../util/config-provider";
 function runCondition(leftValue:Date,rightValue:Date,operator:string):boolean{
     let result:boolean  = false;
     switch(operator){
@@ -22,7 +23,7 @@ function runCondition(leftValue:Date,rightValue:Date,operator:string):boolean{
 }
 
 export function dateChecker(control: AbstractControl,config:any,operationType:string): { [key: string]: any } {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     var dateProvider = new DateProvider();
       if (FormProvider.ProcessRule(control,config)) {
         if (RegexValidator.isNotBlank(control.value)) {
@@ -40,7 +41,7 @@ export function dateChecker(control: AbstractControl,config:any,operationType:st
 }
 
 export function validateDate(control: AbstractControl,config:any,operationType:string): { [key: string]: any } {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     var dateProvider = new DateProvider();
       if (FormProvider.ProcessRule(control,config)) {
         if (RegexValidator.isNotBlank(control.value)) {

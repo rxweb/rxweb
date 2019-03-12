@@ -1,5 +1,5 @@
-import { BaseConfig } from './base-config'
-export interface ContainsConfig extends BaseConfig{
-    value: string;
+import { BaseConfigFn } from './base-config-fn';
+export interface ContainsConfig extends BaseConfigFn<ContainsConfig>{
+    value?: string;
     
 }

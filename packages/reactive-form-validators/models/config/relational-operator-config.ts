@@ -1,5 +1,5 @@
-import { BaseConfig } from './base-config'
-export interface RelationalOperatorConfig extends BaseConfig{
-    fieldName: string;
+import { BaseConfigFn } from './base-config-fn';
+export interface RelationalOperatorConfig extends BaseConfigFn<RelationalOperatorConfig>{
+    fieldName?: string;
     
 }

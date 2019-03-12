@@ -2,7 +2,6 @@ import { AbstractControl, FormGroup, FormArray } from "@angular/forms";
 import { RxFormArray } from "../services/rx-form-array";
 import {NumericValueType } from '../enums'
 import { ReactiveFormConfig } from "./reactive-form-config";
-
 export class ApplicationUtil{
     static getParentObjectValue(control: AbstractControl) :{ [key:string]:any} {
         if (control.parent) {
@@ -91,9 +90,7 @@ export class ApplicationUtil{
         return control
     }
 
-    static getConfigObject(config: any): any {
-        return (config != undefined && config != true) ? config : {};
-    }
+    
 
     static isNumeric(value:any){
        return (value - parseFloat(value) + 1) >= 0;

@@ -1,5 +1,5 @@
-import { BaseConfig } from './base-config'
-export interface DateConfig extends BaseConfig{
+import { BaseConfigFn } from './base-config-fn';
+export interface DateConfig extends BaseConfigFn<DateConfig>{
     value?: Date | string;
     fieldName?:string;
 }

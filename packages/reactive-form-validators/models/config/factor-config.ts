@@ -1,5 +1,5 @@
-import { BaseConfig } from './base-config'
-export interface FactorConfig extends BaseConfig {
+import { BaseConfigFn } from './base-config-fn';
+export interface FactorConfig extends BaseConfigFn<FactorConfig> {
   dividend?:number;
   fieldName?:string;
 }

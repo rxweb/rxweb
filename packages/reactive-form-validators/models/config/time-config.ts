@@ -1,5 +1,5 @@
-import { BaseConfig } from './base-config'
-export interface TimeConfig extends BaseConfig{
+import { BaseConfigFn } from './base-config-fn';
+export interface TimeConfig extends BaseConfigFn<TimeConfig>{
     allowSeconds?: boolean;
     
 }

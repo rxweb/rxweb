@@ -5,12 +5,12 @@ import {
 
 import { ObjectMaker } from "../util/object-maker";
 import { ChoiceConfig } from "../models/config/choice-config";
-import { ApplicationUtil } from "../util/app-util";
+import { getConfigObject } from "../util/config-provider";
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 export function choiceValidator(config: ChoiceConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (FormProvider.ProcessRule(control, config)) {
       if (control.value instanceof Array) {
         config.minLength = (config.minLength == undefined) ? 0 : config.minLength;

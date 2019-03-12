@@ -4,9 +4,9 @@ import { FormProvider } from "./form-provider";
 import { RegexValidator } from "./regex-validator";
 import { AnnotationTypes } from "../core/validator.static";
 import { ObjectMaker } from "./object-maker";
-
+import {getConfigObject} from "../util/config-provider";
 export function relationalCheck(control:AbstractControl,config:any,relationalOperatorName:string){
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     const matchControl = ApplicationUtil.getFormControl(config.fieldName,control);
     const matchControlValue = (matchControl) ? matchControl.value : '';
     if (FormProvider.ProcessRule(control,config)) {

@@ -1,4 +1,4 @@
-import { BaseConfig } from './base-config'
-export interface FieldConfig extends BaseConfig {
-    fieldName: string;
+import { BaseConfigFn } from './base-config-fn';
+export interface FieldConfig extends BaseConfigFn<FieldConfig> {
+    fieldName?: string;
 }

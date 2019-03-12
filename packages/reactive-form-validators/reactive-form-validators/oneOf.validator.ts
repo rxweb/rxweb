@@ -7,10 +7,10 @@ import { ObjectMaker } from "../util/object-maker";
 import { ArrayConfig } from "../models/config/array-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
-import { ApplicationUtil } from "../util/app-util";
+import {getConfigObject} from "../util/config-provider";
 export function oneOfValidator(config: ArrayConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (ValidatorValueChecker.passArrayValue(control, config)) {
       var testResult = false;
       for (let value of config.matchValues) {

@@ -8,10 +8,10 @@ import { ObjectMaker } from "../util/object-maker";
 import { AnnotationTypes } from "../core/validator.static";
 import { HexColorConfig } from "../models/config/hex-color-config";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
-import { ApplicationUtil } from "../util/app-util";
+import {getConfigObject} from "../util/config-provider";
 export function hexColorValidator(config: HexColorConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (ValidatorValueChecker.pass(control, config)) {
       if (!RegexValidator.isValid(control.value, RegExRule.strictHexColor))
         return ObjectMaker.toJson(AnnotationTypes.hexColor, config, [control.value])

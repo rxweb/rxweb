@@ -1,5 +1,5 @@
-import { BaseConfig } from './base-config';
-export interface ChoiceConfig extends BaseConfig {
+import { BaseConfigFn } from './base-config-fn';
+export interface ChoiceConfig extends BaseConfigFn<ChoiceConfig> {
     minLength?: number;
     maxLength?: number;
 }

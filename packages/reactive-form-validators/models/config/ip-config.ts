@@ -1,6 +1,6 @@
-import { BaseConfig } from './base-config'
+import { BaseConfigFn } from './base-config-fn';
 import { IpVersion } from '../../enums'
-export interface IpConfig extends BaseConfig {
-  version: IpVersion;
+export interface IpConfig extends BaseConfigFn<IpConfig> {
+  version?: IpVersion;
   isCidr?: boolean;
 }

@@ -1,6 +1,5 @@
 import { PasswordValidation } from "../index";
-
-export interface PasswordConfig {
-    validation: PasswordValidation;
-    message?: string;
+import { BaseConfigFn } from './base-config-fn';
+export interface PasswordConfig extends BaseConfigFn<PasswordConfig>  {
+    validation?: PasswordValidation;
 }

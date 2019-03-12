@@ -1,5 +1,5 @@
-import { BaseConfig } from './base-config'
-export interface FileConfig extends BaseConfig {
+import { BaseConfigFn } from './base-config-fn';
+export interface FileConfig extends BaseConfigFn<FileConfig> {
   maxFiles?:number;
   minFiles?:number;
 }

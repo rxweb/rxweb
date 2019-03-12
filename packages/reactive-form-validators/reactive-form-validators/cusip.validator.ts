@@ -9,11 +9,11 @@ import { ObjectMaker } from "../util/object-maker";
 import { BaseConfig } from "../models/config/base-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
-import { ApplicationUtil } from "../util/app-util";
+import {getConfigObject} from "../util/config-provider"
 
 export function cusipValidator(config: BaseConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (ValidatorValueChecker.pass(control, config)) {
         var controlValue = control.value.toUpperCase();
         let isValid = RegexValidator.isValid(controlValue, RegExRule.cusip)

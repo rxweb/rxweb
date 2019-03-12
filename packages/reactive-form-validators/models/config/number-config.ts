@@ -1,11 +1,9 @@
-import { BaseConfig } from './base-config'
-export interface NumberConfig extends BaseConfig{
+import { BaseConfigFn } from './base-config-fn'
+
+export interface NumberConfig extends BaseConfigFn<NumberConfig>{
     value?: number;
-    dynamicConfig?: NumberConfigFn
+    
 }
 
 
-export interface NumberConfigFn {
-    (parent: { [key: string]: any }, root: { [key: string]: any }): NumberConfig;
-}
 

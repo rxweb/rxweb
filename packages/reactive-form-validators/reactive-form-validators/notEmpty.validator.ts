@@ -7,10 +7,10 @@ import { ObjectMaker } from "../util/object-maker";
 import { AnnotationTypes } from "../core/validator.static";
 import { BaseConfig } from "../models/config/base-config";
 import { FormProvider } from '../util/form-provider';
-import { ApplicationUtil } from '../util/app-util';
+import {getConfigObject} from "../util/config-provider";
 export function notEmptyValidator(config: BaseConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (FormProvider.ProcessRule(control, config)) {
       if (!RegexValidator.isNotBlank(control.value,true)) {
         return ObjectMaker.toJson(AnnotationTypes.notEmpty, config, [])

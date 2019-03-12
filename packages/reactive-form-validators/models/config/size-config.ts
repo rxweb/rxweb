@@ -1,5 +1,5 @@
-import { BaseConfig } from './base-config'
-export interface SizeConfig extends BaseConfig {
-  maxSize: number;
+import { BaseConfigFn } from './base-config-fn';
+export interface SizeConfig extends BaseConfigFn<SizeConfig> {
+  maxSize?: number;
   minSize?:number;
 }

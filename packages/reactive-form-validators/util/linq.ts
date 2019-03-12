@@ -21,7 +21,7 @@ export class Linq {
             functionSetter = { accessFunction: new Function(match[1], "return " + match[2]) };
         return functionSetter;
     }
-    static IsPassed(jObject: { [key: string]: any }, expression: any, parentObject: { [key: string]: any }, modelInstance: { [key: string]: any }): boolean {
+    static execute(jObject: { [key: string]: any }, expression: any, parentObject: { [key: string]: any }, modelInstance: { [key: string]: any }): boolean {
         let expressionFunction: Function = expression;
         if (parentObject && typeof expression == "string")
             expressionFunction = Linq.functionCreator(expression);

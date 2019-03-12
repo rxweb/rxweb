@@ -1,4 +1,4 @@
-import { BaseConfig } from './base-config'
-export interface AlphaConfig extends BaseConfig {
+import { BaseConfigFn } from './base-config-fn'
+export interface AlphaConfig extends BaseConfigFn<AlphaConfig> {
   allowWhiteSpace?: boolean;
 }

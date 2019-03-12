@@ -1,5 +1,5 @@
-import { BaseConfig } from './base-config'
-export interface PatternConfig extends BaseConfig{
-    expression: { [key: string]:  RegExp }
+import { BaseConfigFn } from './base-config-fn';
+export interface PatternConfig extends BaseConfigFn<PatternConfig>{
+    expression?: { [key: string]:  RegExp }
    
 }

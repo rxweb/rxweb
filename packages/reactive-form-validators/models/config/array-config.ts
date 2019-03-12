@@ -1,4 +1,4 @@
-import { BaseConfig } from './base-config'
-export interface ArrayConfig extends BaseConfig {
-    matchValues:any[]
+import { BaseConfigFn } from './base-config-fn';
+export interface ArrayConfig extends BaseConfigFn<ArrayConfig> {
+    matchValues?:any[]
 }

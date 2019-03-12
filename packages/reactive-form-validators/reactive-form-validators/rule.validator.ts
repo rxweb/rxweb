@@ -6,11 +6,11 @@ import {
 import { ObjectMaker } from "../util/object-maker";
 import { RuleConfig } from "../models/config/rule-config";
 import { FormProvider } from '../util/form-provider';
-import { ApplicationUtil } from '../util/app-util';
+import {getConfigObject} from "../util/config-provider";
 
 export function ruleValidator(config: RuleConfig, entity: any): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (FormProvider.ProcessRule(control, config)) {
       let result = null;
       for (let rule of config.customRules) {

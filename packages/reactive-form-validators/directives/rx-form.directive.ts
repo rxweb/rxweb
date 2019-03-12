@@ -55,6 +55,10 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
             let columns = Linq.expressionColumns(formControl.validatorConfig[validatorName].conditionalExpression);
             defaultContainer.addChangeValidation(this.validationRule, rootFieldName+fieldName, columns);
           }
+          if(formControl.validatorConfig[validatorName] && formControl.validatorConfig[validatorName].dynamicConfig){
+            let columns = Linq.dynamicConfigParser(formControl.validatorConfig[validatorName].dynamicConfig, fieldName);
+            defaultContainer.addChangeValidation(this.validationRule, rootFieldName+fieldName, columns);
+          }
           if(formControl.validatorConfig[validatorName] && (validatorName == AnnotationTypes.and || validatorName == AnnotationTypes.or || validatorName == AnnotationTypes.not)){
             Object.keys(formControl.validatorConfig[validatorName].validation).forEach(t=>{
                 if(typeof formControl.validatorConfig[validatorName].validation[t] !== "boolean")

@@ -8,9 +8,10 @@ import { FileConfig } from "../models/config/file-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
+import {getConfigObject} from "../util/config-provider";
 export function fileValidator(config: FileConfig): any {
   return (control: AbstractControl, files: FileList): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (!control["validatorConfig"] || !control["validatorConfig"]["file"])
       ApplicationUtil.configureControl(control, config, AnnotationTypes.file);
     if (FormProvider.ProcessRule(control, config)) {

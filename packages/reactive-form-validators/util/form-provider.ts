@@ -8,7 +8,9 @@ import { RxFormGroup } from "../services/rx-form-group"
 
 export class FormProvider{
 
-    static ProcessRule(control:AbstractControl,config:any) : boolean {
+   
+
+    static ProcessRule(control:AbstractControl,config:any,isDynamicConfig:boolean = false) : boolean | {[key:string]:any} {
         const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         const parentObject = (control.parent) ? control.parent.value : undefined;
@@ -17,7 +19,7 @@ export class FormProvider{
             modelInstance = (<RxFormGroup>control.parent).modelInstance;
         if(parentObject)
             this.updateFormControlValue(parentObject,control.parent.controls,control);
-        return Linq.IsPassed(formGroupValue, config.conditionalExpression, parentObject,modelInstance); 
+        return Linq.execute(formGroupValue, isDynamicConfig ? config.dynamicConfig : config.conditionalExpression, parentObject,modelInstance); 
     }
 
     private static updateFormControlValue(parentObject:{[key:string]:any},controls:any,control:AbstractControl){

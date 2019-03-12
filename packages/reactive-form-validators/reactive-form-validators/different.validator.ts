@@ -8,9 +8,10 @@ import { DifferentConfig } from "../models/config/compare-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ApplicationUtil } from "../util/app-util";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
+import {getConfigObject} from "../util/config-provider"
 export function differentValidator(config: DifferentConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (ValidatorValueChecker.pass(control, config)) {
       const differentControl = ApplicationUtil.getFormControl(config.fieldName, control);
       const differentControlValue = (differentControl) ? differentControl.value : '';

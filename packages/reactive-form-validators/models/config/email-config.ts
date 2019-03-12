@@ -1,3 +1,3 @@
-import { BaseConfig } from './base-config'
-export interface EmailConfig extends BaseConfig{
+import { BaseConfigFn } from './base-config-fn';
+export interface EmailConfig extends BaseConfigFn<EmailConfig>{
 }

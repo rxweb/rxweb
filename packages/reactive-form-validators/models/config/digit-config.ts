@@ -1,4 +1,4 @@
-import { BaseConfig } from './base-config'
-export interface DigitConfig extends BaseConfig {
+import { BaseConfigFn } from './base-config-fn';
+export interface DigitConfig extends BaseConfigFn<DigitConfig> {
     
 }

@@ -8,9 +8,10 @@ import { ExtensionConfig } from "../models/config/extension-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
+import {getConfigObject} from "../util/config-provider";
 export function extensionValidator(config: ExtensionConfig): any {
   return (control: AbstractControl, files: FileList): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (!control["validatorConfig"] || !control["validatorConfig"]["extension"])
       ApplicationUtil.configureControl(control, config, AnnotationTypes.extension);
     if (files && FormProvider.ProcessRule(control, config)) {

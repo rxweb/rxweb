@@ -8,9 +8,10 @@ import { ImageConfig } from "../models/config/image-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
+import {getConfigObject} from "../util/config-provider";
 export function imageValidator(config: ImageConfig): any {
   return (control: AbstractControl, files: FileList): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (!control["validatorConfig"] || !control["validatorConfig"]["image"])
       ApplicationUtil.configureControl(control, config, AnnotationTypes.image);
     if (!files)

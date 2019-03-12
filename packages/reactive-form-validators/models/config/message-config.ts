@@ -1,4 +1,4 @@
-import { BaseConfig } from './base-config'
-export interface MessageConfig extends BaseConfig {
+import { BaseConfigFn } from './base-config-fn';
+export interface MessageConfig extends BaseConfigFn<MessageConfig> {
     
 }

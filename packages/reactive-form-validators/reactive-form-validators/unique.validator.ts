@@ -10,6 +10,7 @@ import { UniqueConfig } from "../models/config/unique-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
+import {getConfigObject} from "../util/config-provider";
 export function uniqueValidator(config: UniqueConfig): ValidatorFn {
   var setTimeout = (invalidateControls: AbstractControl[], controlValues: any[]) => {
     let timeOut = window.setTimeout(() => {
@@ -35,7 +36,7 @@ export function uniqueValidator(config: UniqueConfig): ValidatorFn {
 
   }
   return (control: AbstractControl): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (FormProvider.ProcessRule(control, config)) {
       if (RegexValidator.isNotBlank(control.value)) {
         let formArray = ApplicationUtil.getParentFormArray(control);

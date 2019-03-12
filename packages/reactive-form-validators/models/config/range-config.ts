@@ -1,6 +1,6 @@
-import { BaseConfig } from './base-config'
-export interface RangeConfig extends BaseConfig{
-    minimumNumber: number;
-    maximumNumber: number;
+import { BaseConfigFn } from './base-config-fn';
+export interface RangeConfig extends BaseConfigFn<RangeConfig>{
+    minimumNumber?: number;
+    maximumNumber?: number;
     
 }

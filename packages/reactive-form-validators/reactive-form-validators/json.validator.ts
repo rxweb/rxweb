@@ -7,7 +7,7 @@ import { ObjectMaker } from "../util/object-maker";
 import { DefaultConfig } from "../models/config/default-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
-import { ApplicationUtil } from "../util/app-util";
+import {getConfigObject} from "../util/config-provider";
 export function jsonValidator(config: DefaultConfig): ValidatorFn {
   function process(value) {
     var result: boolean = false;
@@ -22,7 +22,7 @@ export function jsonValidator(config: DefaultConfig): ValidatorFn {
   }
 
   return (control: AbstractControl): { [key: string]: any } => {
-    config = ApplicationUtil.getConfigObject(config);
+    config = getConfigObject(config,control);
     if (ValidatorValueChecker.pass(control, config)) {
       if (process(control.value))
         return ObjectMaker.toJson(AnnotationTypes.json, config, [control.value]);

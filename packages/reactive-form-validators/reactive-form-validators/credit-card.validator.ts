@@ -7,7 +7,7 @@ import { RegexValidator } from "../util/regex-validator";
 import { RegExRule } from "../util/regex-rules";
 import { ObjectMaker } from "../util/object-maker";
 import { CreditCardConfig } from "../models/config/credit-card-config";
-import { ApplicationUtil } from "../util/app-util";
+import {getConfigObject} from "../util/config-provider"
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { checkLength } from '../util/check-length'
@@ -35,7 +35,7 @@ export function creditCardValidator(config: CreditCardConfig): ValidatorFn {
 
     return (control: AbstractControl): { [key: string]: any } => {
         const controlValue = control.value;
-        config = ApplicationUtil.getConfigObject(config);
+        config = getConfigObject(config,control);
         const parentObject = (control.parent) ? control.parent.value : undefined;
         if (FormProvider.ProcessRule(control, config)) {
             if (RegexValidator.isNotBlank(controlValue)) {

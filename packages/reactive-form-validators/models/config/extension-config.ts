@@ -1,4 +1,4 @@
-import { BaseConfig } from './base-config'
-export interface ExtensionConfig extends BaseConfig {
+import { BaseConfigFn } from './base-config-fn';
+export interface ExtensionConfig extends BaseConfigFn<ExtensionConfig> {
   extensions?: string[];
 }
