@@ -1,5 +1,5 @@
 import { FormBuilder } from "@angular/forms"
-import { RxwebValidators,ReactiveFormConfig,required,RxFormBuilder} from '../../../packages/reactive-form-validators';
+import { RxwebValidators, ReactiveFormConfig, required,prop,RxFormBuilder} from '../../../packages/reactive-form-validators';
 
 class User {
     @required({ conditionalExpression: function () { return this.countryName == "India"; }})
@@ -7,7 +7,7 @@ class User {
 
     @required({conditionalExpression:(x) => x.countryName == "India"})
     lastName: string;
-
+    @prop()
     countryName: string;
 }
 
@@ -48,6 +48,7 @@ class User {
              let user = new User();
              user.countryName = "India";
              let formGroup = rxFormBuilder.formGroup(user);
+             formGroup.controls.firstName.updateValueAndValidity();
              expect(formGroup.controls.firstName.errors).toEqual({ 'required': { message: 'This field is required.', refValues: [] } });
          });
 
@@ -57,6 +58,7 @@ class User {
              let user = new User();
              user.countryName = "India";
              let formGroup = rxFormBuilder.formGroup(user);
+             formGroup.controls.lastName.updateValueAndValidity();
              expect(formGroup.controls.lastName.errors).toEqual({ 'required': { message: 'This field is required.', refValues: [] } });
          });
 

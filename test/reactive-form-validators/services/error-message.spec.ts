@@ -1,10 +1,11 @@
 ﻿import {AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
 
-import { ReactiveFormConfig,RxFormBuilder,FormBuilderConfiguration,RxFormGroup, FormGroupExtension} from '../../../packages/reactive-form-validators';
+import { ReactiveFormConfig, RxFormBuilder, IFormGroup,RxFormGroup, FormGroupExtension} from '../../../packages/reactive-form-validators';
 
 
 import {  error,alpha,prop,RxwebValidators,RxFormControl,required } from    '../../../packages/reactive-form-validators'; 
 import { formControlBinding } from '@angular/forms/src/directives/reactive_directives/form_control_directive';
+
 
 class User{
     @error({conditionalExpression:function(control:AbstractControl){return this.type == "user"; }})
@@ -26,7 +27,10 @@ class User{
     cityName: string;
 
     @prop()
-    type:string;
+    type: string;
+
+    @required({ conditionalExpression:(x) => x.cityName == "Boston" })
+    countryName: string;
 }
 
 
@@ -109,6 +113,20 @@ class User{
          let user = new User();
          let userFormGroup = <RxFormGroup>formbuilder.formGroup(user);
          expect(userFormGroup.controlsError).toEqual({ fullName: "This field is required.", lastName: "This field is required.", cityName: "This field is required." });
+     })
+
+     it('should blank errorMessage property', () => {
+         let user = new User();
+         let userFormGroup = formbuilder.formGroup(user) as IFormGroup<User>;
+         expect(userFormGroup.controls.countryName.errorMessage).toEqual(undefined);
+     })
+
+     it('should not blank errorMessage property', () => {
+         let user = new User();
+         let userFormGroup = formbuilder.formGroup(user) as IFormGroup<User>;
+         userFormGroup.controls.cityName.setValue("Boston");
+         userFormGroup.controls.countryName.updateValueAndValidity();
+         expect(userFormGroup.controls.countryName.errorMessage).toEqual("This field is required.");
      })
 
 

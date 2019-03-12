@@ -17,8 +17,10 @@ export class FormProvider{
         let modelInstance = undefined;
         if (control.parent && control.parent instanceof RxFormGroup)
             modelInstance = (<RxFormGroup>control.parent).modelInstance;
-        if(parentObject)
-            this.updateFormControlValue(parentObject,control.parent.controls,control);
+        if (parentObject)
+            this.updateFormControlValue(parentObject, control.parent.controls, control);
+        else if (config.conditionalExpression)
+            return false;
         return Linq.execute(formGroupValue, isDynamicConfig ? config.dynamicConfig : config.conditionalExpression, parentObject,modelInstance); 
     }
 

@@ -34,7 +34,9 @@ export class RxFormControl extends FormControl {
                 this.setControlErrorMessages();
         }
         else if(this._messageExpression && !this._isPassedExpression)
-                return [];
+            return [];
+        if (!this.errors && this._errorMessages.length > 0)
+            this.setControlErrorMessages();
         return this._errorMessages;
     }
 
@@ -44,7 +46,9 @@ export class RxFormControl extends FormControl {
                 this.setControlErrorMessages();
         }
         else if(this._messageExpression && !this._isPassedExpression)
-                return undefined;
+            return undefined;
+        if (!this.errors && this._errorMessage)
+            this.setControlErrorMessages();
         return this._errorMessage;
     }
     constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string,private _sanitizers:DataSanitizer[]) {
