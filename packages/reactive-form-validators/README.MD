@@ -1312,7 +1312,7 @@ Check the form is dirty or not. On component side you have to create a FormGroup
 This provides a `toFormData()` method which converts the FormGroup value into the FormData. Here is an example of Post as FormData of Reactive Form value. See the working code example on ***[stackblitz](https://stackblitz.com/angular/nvpxmkolygpx?file=src%2Fapp%2Fformadata-complete.component.ts)***
 > Reactive Form Validation
 ```js
- this.userFormGroup = <RxFormGroup>this.formBuilder.group({
+ this.userFormGroup = this.formBuilder.group({
             firstName:[''], 
             lastName :[''],
             userName:[''],
@@ -1325,15 +1325,15 @@ This provides a `toFormData()` method which converts the FormGroup value into th
       }
 ```   
 ## Post Image through form Data
-To create fileObject from the input we have to set writeFile="true" attribute on the HTMLInputFileElement. Here is an example of Post Image through formData. See the working code example on ***[stackblitz](https://stackblitz.com/angular/akbreglpmxg?file=src%2Fapp%2Ffileobject-complete.component.ts)***
+To create fileObject from the input we have to set writeFile="true" attribute on the HTMLInputFileElement. Here is an example of Post Image through formData. See the working code example on ***[stackblitz](https://stackblitz.com/edit/angular-zzzxd1?file=src/app/fileobject-complete.component.ts)***
 > Reactive Form Validation
 ```js
-   this.userInfoFormGroup = <RxFormGroup>this.formBuilder.group({
+   this.userInfoFormGroup = this.formBuilder.group({
             profilePhoto:[''], 
         });
     
       addUser(){
-         let formdata = this.userInfoFormGroup.toFormData()
+         let formdata = (<FormGroupExtension>this.userInfoFormGroup).toFormData()
        this.http.post(this.api, formdata); // This is fake uri, This is just for your reference.      
       }
 ```   
@@ -1341,10 +1341,10 @@ To create fileObject from the input we have to set writeFile="true" attribute on
  <input type="file" [writeFile]="true" formControlName="profilePhoto" class="form-control" multiple />
 ``` 
 ## Reset Form
-RxFormBuilder provide a solution for reset form of angular reactive form object. If you want to reset the form as per the value initialized while creating an instance of the formControls, you can use resetForm()method of FormGroupExtension. See the working code example on ***[stackblitz](https://stackblitz.com/angular/rebqdyrxdyn?file=src%2Fapp%2Freset-complete.component.ts)***
+RxFormBuilder provide a solution for reset form of angular reactive form object. If you want to reset the form as per the value initialized while creating an instance of the formControls, you can use resetForm()method of FormGroupExtension. See the working code example on ***[stackblitz](https://stackblitz.com/edit/angular-rfjvfk?file=src/app/reset-complete.component.ts)***
 > Reactive Form Validation
 ```js
-this.userFormGroup = <RxFormGroup>this.formBuilder.group({
+this.userFormGroup = this.formBuilder.group({
     firstName:[''],
     lastName:[''],
     userName:[''],
@@ -1352,7 +1352,7 @@ this.userFormGroup = <RxFormGroup>this.formBuilder.group({
         });
     
      resetForm(){
-        this.userFormGroup.resetForm(); 
+      (<FormGroupExtension>this.userFormGroup).resetForm();
       }
 ```   
 ## Compare Password
