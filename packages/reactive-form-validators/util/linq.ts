@@ -113,7 +113,7 @@ export class Linq {
             let expressionString = expression.toString();
             let expressionArguments = Linq.extractArguments(expressionString.match(/\(([^)]+)\)/g));
             expressionArguments.forEach(t => {
-                let splitString = expressionString.replace(new RegExp(/\r?\n|\r|;/g), '').replace(/[{()}]/g, '').split(/ /g);
+                let splitString = expressionString.replace(new RegExp(/\r?\n|\r|;/g), ' ').replace(/[{()}]/g, ' ').split(/ /g);
                 splitString.filter(x => x != `${t}.${propName}` && x.startsWith(`${t}.`)).forEach(x => {
                     let split = x.split('.');
                     if (split.length == 2)
