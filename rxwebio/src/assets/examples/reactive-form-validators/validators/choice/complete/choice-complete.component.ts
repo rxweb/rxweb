@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 @Component({
     selector: 'app-choice-complete-validator',
     templateUrl: './choice-complete.component.html'
@@ -28,7 +28,7 @@ export class ChoiceCompleteValidatorComponent implements OnInit {
             skills:['',RxwebValidators.choice({minLength:3, conditionalExpression: "x => x.department =='DotNet'"})],
             hobbies:['',RxwebValidators.choice({maxLength:4,message: "Please select upto 4 hobby"})]
         });
-        this.http.get("assets/examples/reactive-form-validators/validators/choice/complete/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/validators/choice/complete/choice.json?v="+environment.appVersion).subscribe(response => {
             this.qualificationsArray = response['qualificationsArray'];
             this.skillsArray = response['skillsArray'];
             this.hobbiesArray = response['hobbiesArray'];

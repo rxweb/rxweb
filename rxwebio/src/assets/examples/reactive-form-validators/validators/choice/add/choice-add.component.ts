@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 @Component({
     selector: 'app-choice-add-validator',
     templateUrl: './choice-add.component.html'
@@ -23,7 +23,7 @@ export class ChoiceAddValidatorComponent implements OnInit {
             department: [''],
             projectDomains: ['', RxwebValidators.choice({ minLength: 3 })],
         });
-        this.http.get("assets/examples/reactive-form-validators/validators/choice/add/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/validators/choice/add/choice.json?v="+environment.appVersion).subscribe(response => {
             this.projectDomainsArray = response['projectDomainsArray'];
             this.showComponent = true;
         })

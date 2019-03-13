@@ -4,6 +4,7 @@ import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { EmployeeInfo } from './employee-info.model';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-choice-message-template-driven-validation-directives',
@@ -21,7 +22,7 @@ export class ChoiceMessageTemplateDrivenValidationDirectivesComponent implements
 
     ngOnInit() {
         this.employeeInfo = new EmployeeInfo();
-        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/message/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/template-driven/validation-directives/choice/message/choice.json?v="+environment.appVersion).subscribe(response => {
             this.hobbiesArray = response['hobbiesArray'];
         })
 

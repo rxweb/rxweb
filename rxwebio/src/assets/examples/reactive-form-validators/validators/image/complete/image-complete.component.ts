@@ -18,6 +18,7 @@ export class ImageCompleteValidatorComponent implements OnInit {
 	
 	
 	
+	
 	constructor(
         private formBuilder: FormBuilder )
 	{ }
@@ -27,6 +28,7 @@ export class ImageCompleteValidatorComponent implements OnInit {
             imageType:['',], 
             profilePhoto:['', RxwebValidators.image({maxHeight:100  ,maxWidth:100 })], 
             signature:['', RxwebValidators.image({maxHeight:100  ,maxWidth:100 })], 
+            voterId:['', RxwebValidators.image({minHeight:10  ,maxHeight:100  ,minWidth:10  ,maxWidth:10 })], 
             identityCard:['', RxwebValidators.image({minHeight:10  ,maxHeight:100  ,maxWidth:100 })], 
             drivinglicense:['', RxwebValidators.image({maxHeight:100  ,maxWidth:100 })], 
             aadharCard:['', RxwebValidators.image({maxHeight:50  ,maxWidth:100  ,conditionalExpression:'x => x.ImageType == "IdentityCard"' })], 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 @Component({
     selector: 'app-choice-minLength-validator',
     templateUrl: './choice-min-length.component.html'
@@ -20,7 +20,7 @@ export class ChoiceMinLengthValidatorComponent implements OnInit {
                 projectDomains:['', RxwebValidators.choice({minLength:3})]
                 
             });
-          this.http.get("assets/examples/reactive-form-validators/validators/choice/minLength/choice.json").subscribe(response => {
+          this.http.get("assets/examples/reactive-form-validators/validators/choice/minLength/choice.json?v="+environment.appVersion).subscribe(response => {
             this.projectDomainsArray = response['projectDomainsArray'];
         })
       

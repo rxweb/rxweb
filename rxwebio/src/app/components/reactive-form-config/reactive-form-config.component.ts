@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, HostListener } from '@angular/core';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { Http } from "@angular/http";
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class ReactiveFormConfigComponent implements OnInit {
         ) {
         }
     ngOnInit(): void {
-        this.http.get('assets/json/generator/reactiveFormConfig/reactiveFormConfig.json').subscribe(response => {
+        this.http.get('assets/json/generator/reactiveFormConfig/reactiveFormConfig.json?v=' + environment.appVersion).subscribe(response => {
             this.codeContent = response.json();
         this.showComponent = true;
     });

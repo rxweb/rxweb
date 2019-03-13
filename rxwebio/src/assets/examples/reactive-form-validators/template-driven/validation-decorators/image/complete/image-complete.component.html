@@ -22,6 +22,12 @@
 	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.signature?.errors">{{userinfoForm.controls?.signature?.errors?.image.message}}<br/></small>	
     </div>
     <div class="form-group">
+      <label>Voter Id</label>
+	    <input type="file" name="voterId"  [(ngModel)]="userinfo.voterId"  class="form-control" />
+
+	   <small class="form-text text-danger" *ngIf="userinfoForm.controls?.voterId?.errors">{{userinfoForm.controls?.voterId?.errors?.image.message}}<br/></small>	
+    </div>
+    <div class="form-group">
       <label>Identity Card</label>
 	    <input type="file" name="identityCard"  [(ngModel)]="userinfo.identityCard"  class="form-control" />
 

@@ -15,6 +15,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './alphaNumeric/alpha-numeric.module#AlphaNumericModule',
 },
 {
+	path:'async',
+	loadChildren: './async/async.module#AsyncModule',
+},
+{
 	path:'ascii',
 	loadChildren: './ascii/ascii.module#AsciiModule',
 },
@@ -35,12 +39,20 @@ const FORM_VALIDATION_ROUTES: Routes = [
 	loadChildren: './contains/contains.module#ContainsModule',
 },
 {
+	path:'cusip',
+	loadChildren: './cusip/cusip.module#CusipModule',
+},
+{
 	path:'creditCard',
 	loadChildren: './creditCard/credit-card.module#CreditCardModule',
 },
 {
 	path:'dataUri',
 	loadChildren: './dataUri/data-uri.module#DataUriModule',
+},
+{
+	path:'date',
+	loadChildren: './date/date.module#DateModule',
 },
 {
 	path:'different',
@@ -197,6 +209,10 @@ const FORM_VALIDATION_ROUTES: Routes = [
 {
 	path:'range',
 	loadChildren: './range/range.module#RangeModule',
+},
+{
+	path:'rule',
+	loadChildren: './rule/rule.module#RuleModule',
 },
 {
 	path:'required',

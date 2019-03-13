@@ -62,10 +62,10 @@ export class RightSideBarComponent implements OnInit {
                     this.gitEditUrl += "docs/reactive-form-validators/getting-started.md"    
                     break;
                 case "sanitization":
-                    this.gitEditUrl += "docs/reactive-form-validators/sanitization/" + splitedArray[2]+".md"    
+                    this.gitEditUrl += "docs/sanitization/" + splitedArray[2]+".md"    
                     break
                 case "how-to":
-                    this.gitEditUrl += "docs/reactive-form-validators/validation-advance-form/" + splitedArray[2]+".md"    
+                    this.gitEditUrl += "docs/how-to/" + splitedArray[2]+".md"    
                     break
             }
         }

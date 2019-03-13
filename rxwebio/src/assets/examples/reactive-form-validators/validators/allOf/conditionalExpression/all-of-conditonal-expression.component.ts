@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-allOf-conditionalExpression-validator',
@@ -23,7 +24,7 @@ export class AllOfConditionalExpressionValidatorComponent implements OnInit {
             skills:['',RxwebValidators.allOf({matchValues: ["MVC", "AngularJS","Angular 5","C#","Web Api","SQL Server"], conditionalExpression: "x => x.department =='DotNet'"})]
             
         });
-        this.http.get("assets/examples/reactive-form-validators/validators/allOf/conditionalExpression/all-of.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/validators/allOf/conditionalExpression/all-of.json?v="+environment.appVersion).subscribe(response => {
             this.qualificationsArray = response['qualificationsArray'];
             this.skillsArray = response['skillsArray'];
         })

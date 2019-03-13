@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration,RxFormBuilder} from '@rxweb/reactive-form-validators';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-primeNumber-dynamic-validator',
@@ -17,7 +18,7 @@ export class PrimeNumberDynamicValidatorComponent implements OnInit {
 
     ngOnInit() {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
-		this.http.get('assets/examples/reactive-form-validators/validators/primeNumber/dynamic/dynamic.json').subscribe(dynamic => {
+		this.http.get('assets/examples/reactive-form-validators/validators/primeNumber/dynamic/dynamic.json?v='+environment.appVersion).subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
 			var numberInfo = { numberType:'', secondNumber:'', thirdNumber:'', firstNumber:'',  }
 			this.numberInfoFormGroup = this.formBuilder.group(numberInfo,formBuilderConfiguration);

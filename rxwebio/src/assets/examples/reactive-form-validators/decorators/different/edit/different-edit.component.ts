@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { AccountInfo } from './account-info.model';
@@ -16,7 +17,7 @@ export class DifferentEditComponent implements OnInit {
         private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/reactive-form-validators/decorators/different/edit/account-info-data.json').subscribe(accountInfo => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/different/edit/account-info-data.json?v=' + environment.appVersion).subscribe(accountInfo => {
             this.accountInfoFormGroup = this.formBuilder.formGroup<AccountInfo>(AccountInfo,accountInfo);
         })
     }

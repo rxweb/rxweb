@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, HostListener } from '@angular/core';
 import { HttpClient, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { Http } from "@angular/http";
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class GettingStartedComponent implements OnInit {
   }
 
   ngOnInit(): void {
-       this.http.get('assets/json/generator/getting-started/getting-started.json').subscribe(response => {
+       this.http.get('assets/json/generator/getting-started/getting-started.json?v='+environment.appVersion).subscribe(response => {
            this.codeContent = response.json();
            this.showComponent = true;
        });

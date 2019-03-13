@@ -18,5 +18,4 @@ export class ToDoubleAddComponent implements OnInit {
         let user = new User();
         this.userFormGroup = this.formBuilder.formGroup(user);
     }
-  
 }

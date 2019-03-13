@@ -7,6 +7,7 @@ import {User} from "./model/user.model";
 import { FormBuilderConfiguration, RxFormBuilder } from "@rxweb/reactive-form-validators";
 import { ApplicationBroadcaster } from "@rx/core";
 import { AuthService } from 'src/app/domain/auth.service';
+import { environment } from 'src/environments/environment';
 @Component({
   templateUrl: './home.component.html'
 })
@@ -43,9 +44,9 @@ export class HomeComponent implements OnInit {
     });
     this.user = new User();
     this.userInfoFormGroup = this.rxFormBuilder.formGroup(this.user);
-    this.http.get('assets/json/home.json').subscribe((response:object) => {
+    this.http.get('assets/json/home.json?v='+environment.appVersion).subscribe((response:object) => {
         this.codeContent = response;
-    this.http.get('assets/json/dynamic-validation.json').subscribe((dynamicValidationConfiguration:any) => {
+    this.http.get('assets/json/dynamic-validation.json?v='+environment.appVersion).subscribe((dynamicValidationConfiguration:any) => {
       
         this.userModelFormGroup = this.rxFormBuilder.group({
           firstName:['Bharat']

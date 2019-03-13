@@ -18,5 +18,4 @@ export class ToDateAddComponent implements OnInit {
         let user = new User();
         this.userFormGroup = this.formBuilder.formGroup(user);
     }
- 
 }

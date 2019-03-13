@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
-
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -22,7 +22,7 @@ export class ChoiceMessageValidatorComponent implements OnInit {
         this.employeeInfoFormGroup = this.formBuilder.group({
             hobbies:['',RxwebValidators.choice({maxLength:4,message: "Please select upto 4 hobby"})]
         });
-        this.http.get("assets/examples/reactive-form-validators/validators/choice/message/choice.json").subscribe(response => {
+        this.http.get("assets/examples/reactive-form-validators/validators/choice/message/choice.json?v="+environment.appVersion).subscribe(response => {
             this.hobbiesArray = response['hobbiesArray'];
         })
     }

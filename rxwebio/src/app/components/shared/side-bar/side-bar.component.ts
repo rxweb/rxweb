@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { ApplicationBroadcaster } from "@rx/core";
 import { AuthService } from 'src/app/domain/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-side-bar',
@@ -20,7 +21,7 @@ export class SideBarComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-    this.http.get('assets/json/sidebar.json').subscribe((response: any) => {
+    this.http.get('assets/json/sidebar.json?v=' + environment.appVersion).subscribe((response: any) => {
       this.userProfile = localStorage.getItem("profile") != undefined ? JSON.parse(localStorage.getItem("profile")) : null;
       this.links = response.links;
       var splitedArray = location.pathname.split('#')[0].split('/')

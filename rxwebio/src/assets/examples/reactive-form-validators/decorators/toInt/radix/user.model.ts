@@ -4,9 +4,7 @@ export class User {
 
 	
 	@prop()
-	@toInt() 
-	amount: number;
+	@toInt(10 ) 
+	totalAmount: number;
 	
-	
-
 }

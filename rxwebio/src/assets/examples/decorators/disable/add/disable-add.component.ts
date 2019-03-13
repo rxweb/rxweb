@@ -12,6 +12,7 @@ export class DisableAddComponent implements OnInit {
     constructor(private formBuilder: RxFormBuilder) { }
     ngOnInit() {
         let user = new User();
+        user.modeType = this.currentMode;
         this.userFormGroup = this.formBuilder.formGroup(user);
     }
     changeMode() {

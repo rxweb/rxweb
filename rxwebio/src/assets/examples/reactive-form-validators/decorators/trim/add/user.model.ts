@@ -7,6 +7,4 @@ export class User {
 	@trim() 
 	freeText: string;
 	
-	
-
 }

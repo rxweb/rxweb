@@ -4,7 +4,7 @@
       <label>Oracle Corporation Cusip Code</label>
       <input type="text" formControlName="oracleCorporationCusipCode" class="form-control"  />
       <small class="form-text text-muted">You must enter a valid cusip Code only<br/></small>
-	 <small class="form-text text-danger" *ngIf="companyInfoFormGroup.controls.oracleCorporationCusipCode.errors">{{companyInfoFormGroup.controls.oracleCorporationCusipCode.errors.cusip?.message}}<br/></small>	
+	 <small class="form-text text-danger" *ngIf="companyInfoFormGroup.controls.oracleCorporationCusipCode.errors">{{companyInfoFormGroup.controls.oracleCorporationCusipCode.errors.cusip.message}}<br/></small>	
     </div>
     <button [disabled]="!companyInfoFormGroup.valid" class="btn btn-primary">Submit</button>
   </form>

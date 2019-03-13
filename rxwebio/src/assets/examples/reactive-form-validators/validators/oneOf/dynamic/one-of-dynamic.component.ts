@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration,RxFormBuilder} from '@rxweb/reactive-form-validators';
-
+import { environment } from 'src/environments/environment';
 @Component({
     selector: 'app-oneOf-dynamic-validator',
     templateUrl: './one-of-dynamic.component.html'
@@ -28,13 +28,13 @@ export class OneOfDynamicValidatorComponent implements OnInit {
 
     ngOnInit() {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
-		this.http.get('assets/examples/reactive-form-validators/validators/oneOf/dynamic/dynamic.json').subscribe(dynamic => {
+		this.http.get('assets/examples/reactive-form-validators/validators/oneOf/dynamic/dynamic.json?v='+environment.appVersion).subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
 			var employeeInfo = { department:'', projectDomains:'', skills:'', hobbies:''  }
 			this.employeeInfoFormGroup = this.formBuilder.group(employeeInfo,formBuilderConfiguration);
 		})
 
-		this.http.get("assets/examples/reactive-form-validators/validators/oneOf/dynamic/one-of.json").subscribe(response => {
+		this.http.get("assets/examples/reactive-form-validators/validators/oneOf/dynamic/one-of.json?v="+environment.appVersion).subscribe(response => {
             this.skillsArray = response['skillsArray'];
             this.hobbiesArray = response['hobbiesArray'];
             this.projectDomainsArray = response['projectDomainsArray'];

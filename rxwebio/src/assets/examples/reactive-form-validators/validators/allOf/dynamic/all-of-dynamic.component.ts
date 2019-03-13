@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from "@angular/forms"
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilderConfiguration,RxFormBuilder} from '@rxweb/reactive-form-validators';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-allOf-dynamic-validator',
@@ -28,13 +29,13 @@ export class AllOfDynamicValidatorComponent implements OnInit {
 
     ngOnInit() {
 		let formBuilderConfiguration = new FormBuilderConfiguration();
-		this.http.get('assets/examples/reactive-form-validators/validators/allOf/dynamic/dynamic.json').subscribe(dynamic => {
+		this.http.get('assets/examples/reactive-form-validators/validators/allOf/dynamic/dynamic.json?v='+environment.appVersion).subscribe(dynamic => {
 			formBuilderConfiguration.dynamicValidation = JSON.parse(JSON.stringify(dynamic));
 			var employeeInfo = { department:'', projectDomains:'', skills:'', hobbies:''  }
 			this.employeeInfoFormGroup = this.formBuilder.group(employeeInfo,formBuilderConfiguration);
 		})
 
-		this.http.get("assets/examples/reactive-form-validators/validators/allOf/dynamic/all-of.json").subscribe(response => {
+		this.http.get("assets/examples/reactive-form-validators/validators/allOf/dynamic/all-of.json?v="+environment.appVersion).subscribe(response => {
             this.skillsArray = response['skillsArray'];
             this.hobbiesArray = response['hobbiesArray'];
             this.projectDomainsArray = response['projectDomainsArray'];

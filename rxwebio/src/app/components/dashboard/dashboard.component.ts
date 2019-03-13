@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class DashboardComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.http.get('assets/json/validation.json')
+    this.http.get('assets/json/validation.json?v=' + environment.appVersion)
       .subscribe((response:any) => {
         this.validators = response.routes;
         this.masterList = this.validators.map(x => Object.assign({}, x));

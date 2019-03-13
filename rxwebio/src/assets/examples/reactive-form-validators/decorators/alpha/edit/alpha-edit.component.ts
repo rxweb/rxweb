@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 import { Country } from './country.model';
@@ -16,7 +17,7 @@ export class AlphaEditComponent implements OnInit {
         private formBuilder: RxFormBuilder,private http: HttpClient    ) { }
 
     ngOnInit() {
-        this.http.get('assets/examples/reactive-form-validators/decorators/alpha/edit/country-data.json').subscribe(country => {
+        this.http.get('assets/examples/reactive-form-validators/decorators/alpha/edit/country-data.json?v=' + environment.appVersion).subscribe(country => {
             this.countryFormGroup = this.formBuilder.formGroup<Country>(Country,country);
         })
     }

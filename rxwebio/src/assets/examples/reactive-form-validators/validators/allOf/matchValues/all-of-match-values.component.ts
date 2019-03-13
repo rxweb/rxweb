@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms"
 import { RxFormBuilder, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-allOf-matchValues-validator',
@@ -20,7 +21,7 @@ export class AllOfMatchValuesValidatorComponent implements OnInit {
                 projectDomains:['', RxwebValidators.allOf({matchValues:["ECommerce", "Banking","Educational","Gaming"]})]
                 
             });
-          this.http.get("assets/examples/reactive-form-validators/validators/allOf/matchValues/all-of.json").subscribe(response => {
+          this.http.get("assets/examples/reactive-form-validators/validators/allOf/matchValues/all-of.json?v="+environment.appVersion).subscribe(response => {
             this.projectDomainsArray = response['projectDomainsArray'];
         })
       

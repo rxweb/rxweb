@@ -7,6 +7,4 @@ export class User {
 	@whitelist('abc' ) 
 	freeText: string;
 	
-	
-
 }
