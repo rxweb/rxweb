@@ -10,7 +10,8 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
       ReactiveFormConfig.set({
         "validationMessage": {
           "compose": "multiple validations are failed.",
-          "composeValidationKey":"should allow alphabets and numeric."
+            "composeValidationKey": "should allow alphabets and numeric.",
+          "alpha":"only alphabets are allowed."
         }
       });
     });
@@ -46,10 +47,10 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
         });
 
       it('should error, FormControl value is not alpha.',
-        () => {
+          () => {
           expect(RxwebValidators.compose({
             validators: [RxwebValidators.alpha()]
-          })(new FormControl("India@"))).toEqual({ 'compose': { message: 'multiple validations are failed.', refValues: ['India@'] } })
+          })(new FormControl("India@"))).toEqual({ 'alpha': { message: 'only alphabets are allowed.', refValues: ['India@'] } })
         });
 
       it('should error with custom message key.',
@@ -92,7 +93,7 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
           });
           expect(RxwebValidators.compose({
             validators: [RxwebValidators.alpha()], conditionalExpression: (x, y) => x.countryName == "India"
-          })(formGroup.controls.countryCode)).toEqual({ 'compose': { message: 'multiple validations are failed.', refValues: ['IN@'] } })
+          })(formGroup.controls.countryCode)).toEqual({ 'alpha': { message: 'only alphabets are allowed.', refValues: ['IN@'] } })
         });
 
       it("Should error, Conditional Expression passed and countryCode value is not alphabets. Conditional Expression value type of 'string'",
@@ -104,7 +105,7 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
           });
           expect(RxwebValidators.compose({
             validators: [RxwebValidators.alpha()], conditionalExpression: 'x => x.countryName == "India"'
-          })(formGroup.controls.countryCode)).toEqual({ 'compose': { message: 'multiple validations are failed.', refValues: ['IN@'] } })
+          })(formGroup.controls.countryCode)).toEqual({ 'alpha': { message: 'only alphabets are allowed.', refValues: ['IN@'] } })
         });
 
 

@@ -18,9 +18,9 @@ export function composeValidator(configModel: ComposeConfig): ValidatorFn {
           result = validator(control);
           if (result)
             break;
-        }
-        if (result)
-          return ObjectMaker.toJson(config.messageKey || AnnotationTypes.compose, config, [control.value]);
+          }
+          if (result)
+              return (config.messageKey || config.message) ? ObjectMaker.toJson(config.messageKey || AnnotationTypes.compose, config, [control.value]) : result;
       }
     } return ObjectMaker.null();
   }
