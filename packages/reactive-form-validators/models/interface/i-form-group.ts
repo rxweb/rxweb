@@ -1,7 +1,7 @@
 ﻿import { FormGroup } from "@angular/forms"
 import { IAbstractControl } from "./i-abstract-control"
 export interface IFormGroup<T> extends FormGroup {
-    controls: { [key: string]: IAbstractControl };
+    controls: { [key in keyof T]: IAbstractControl };
 
     isDirty: () => boolean;
 
