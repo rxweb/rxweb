@@ -9,9 +9,9 @@ import { ObjectMaker } from "../util/index";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider"
-export function emailValidator(config: EmailConfig): ValidatorFn {
+export function emailValidator(configModel: EmailConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
       if (!RegexValidator.isValid(control.value, RegExRule.basicEmail))
         return ObjectMaker.toJson(AnnotationTypes.email, config, [control.value])

@@ -1,7 +1,5 @@
 
-export class EntityService {
-
-    clone(jsonObject: { [key: string]: any }) {
+export function clone(jsonObject: { [key: string]: any }) {
         let jObject: any = {};
         for (var columnName in jsonObject) {
             if (Array.isArray(jsonObject[columnName])) {
@@ -17,7 +15,7 @@ export class EntityService {
         return jObject;
     }
 
-    merge(firstObject: { [key: string]: any }, secondObject: { [key: string]: any }) {
+export function merge(firstObject: { [key: string]: any }, secondObject: { [key: string]: any }) {
         for (var columnName in secondObject) {
             if (Array.isArray(secondObject[columnName])) {
                 if (!firstObject[columnName])
@@ -31,5 +29,3 @@ export class EntityService {
         }
         return firstObject;
     }
-
-}

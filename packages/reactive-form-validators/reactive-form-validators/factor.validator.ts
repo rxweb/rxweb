@@ -11,7 +11,7 @@ import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
 import {getConfigObject} from "../util/config-provider";
-export function factorValidator(config: FactorConfig): ValidatorFn {
+export function factorValidator(configModel: FactorConfig): ValidatorFn {
 
   function positiveFactors(dividend, value) {
     let isPositive = false;
@@ -31,7 +31,7 @@ export function factorValidator(config: FactorConfig): ValidatorFn {
   }
 
   return (control: FormGroup): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     const dividendField: any = (control.parent && config.fieldName) ? ApplicationUtil.getFormControl(config.fieldName, control) : undefined
     const dividend = (config.fieldName && dividendField) ? dividendField.value : config.dividend;
     if (FormProvider.ProcessRule(control, config)) {

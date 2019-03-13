@@ -7,9 +7,9 @@ import { ObjectMaker } from "../util/object-maker";
 import { PatternConfig } from "../models/config/pattern-config";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider";
-export function patternValidator(config: PatternConfig): ValidatorFn {
+export function patternValidator(configModel: PatternConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
       for (var pattern in config.expression)
         if (!(RegexValidator.isValid(control.value, config.expression[pattern])))

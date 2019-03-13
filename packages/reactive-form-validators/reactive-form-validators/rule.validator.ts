@@ -8,9 +8,9 @@ import { RuleConfig } from "../models/config/rule-config";
 import { FormProvider } from '../util/form-provider';
 import {getConfigObject} from "../util/config-provider";
 
-export function ruleValidator(config: RuleConfig, entity: any): ValidatorFn {
+export function ruleValidator(configModel: RuleConfig, entity: any): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (FormProvider.ProcessRule(control, config)) {
       let result = null;
       for (let rule of config.customRules) {

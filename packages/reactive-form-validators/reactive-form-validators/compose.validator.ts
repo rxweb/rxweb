@@ -8,9 +8,9 @@ import { ComposeConfig } from "../models/config/compose-config";
 import { FormProvider } from '../util/form-provider';
 import { AnnotationTypes } from "../core/validator.static";
 import {getConfigObject} from "../util/config-provider"
-export function composeValidator(config: ComposeConfig): ValidatorFn {
+export function composeValidator(configModel: ComposeConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (FormProvider.ProcessRule(control, config)) {
       if (config.validators) {
         let result = undefined;

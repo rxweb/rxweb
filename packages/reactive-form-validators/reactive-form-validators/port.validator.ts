@@ -10,9 +10,9 @@ import { BaseConfig } from "../models/config/base-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider";
-export function portValidator(config: BaseConfig): ValidatorFn {
+export function portValidator(configModel: BaseConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
       let isValid = RegexValidator.isValid(control.value, RegExRule.onlyDigit) && (control.value >= 0 && control.value <= 65535);
       if (!isValid)

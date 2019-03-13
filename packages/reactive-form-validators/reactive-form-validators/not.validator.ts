@@ -9,9 +9,9 @@ import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider";
 import { APP_VALIDATORS } from "../const/app-validators.const"
-export function notValidator(config: LogicalOperatorConfig): ValidatorFn {
+export function notValidator(configModel: LogicalOperatorConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
       let validatorNames = Object.keys(config.validation);
       let failed:boolean = false;

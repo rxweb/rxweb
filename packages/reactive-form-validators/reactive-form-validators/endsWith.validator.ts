@@ -8,9 +8,9 @@ import { DefaultConfig } from "../models/config/default-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider";
-export function endsWithValidator(config: DefaultConfig): ValidatorFn {
+export function endsWithValidator(configModel: DefaultConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
       var endString = String(control.value).substr(control.value.length - config.value.length, config.value.length);
       if (endString != config.value)

@@ -21,7 +21,7 @@ export class FormProvider{
             this.updateFormControlValue(parentObject, control.parent.controls, control);
         else if (config.conditionalExpression)
             return false;
-        return Linq.execute(formGroupValue, isDynamicConfig ? config.dynamicConfig : config.conditionalExpression, parentObject,modelInstance); 
+        return Linq.execute(formGroupValue, config, parentObject,modelInstance,isDynamicConfig); 
     }
 
     private static updateFormControlValue(parentObject:{[key:string]:any},controls:any,control:AbstractControl){

@@ -10,9 +10,9 @@ import { BaseConfig } from "../models/config/base-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider";
-export function gridValidator(config: BaseConfig): ValidatorFn {
+export function gridValidator(configModel: BaseConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-        config = getConfigObject(config,control);
+        let config = getConfigObject(configModel,control);
         if (ValidatorValueChecker.pass(control, config)) {
             let controlValue = control.value.toUpperCase();
             var isValid = RegexValidator.isValid(controlValue, RegExRule.grid)

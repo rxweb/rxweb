@@ -9,9 +9,9 @@ import { AnnotationTypes } from "../core/validator.static";
 import { ApplicationUtil } from "../util/app-util";
 import { FormProvider } from "../util/form-provider";
 import {getConfigObject} from "../util/config-provider";
-export function noneOfValidator(config: ArrayConfig): ValidatorFn {
+export function noneOfValidator(configModel: ArrayConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-        config = getConfigObject(config,control);
+        let config = getConfigObject(configModel,control);
         if (FormProvider.ProcessRule(control, config)) {
             var testResult = false; 
             for (let value of config.matchValues) {

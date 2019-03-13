@@ -3,14 +3,12 @@ import { AutoInstanceConfig } from '../models/interface/auto-instance-config.int
 import { defaultContainer } from '../core/defaultContainer';
 import { InstanceContainer,PropertyInfo} from '../core/validator.interface';
 import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY } from "../const"
-import { EntityService } from './entity.service';
+import { clone,merge } from './entity.service';
 import { RegexValidator } from '../util/regex-validator';
 import { SANITIZERS } from "../util/sanitizers"
 
 export class BaseFormBuilder {
-    private entityService: EntityService;
     constructor() {
-        this.entityService = new EntityService();
     }
 
     protected createInstance() {
@@ -90,7 +88,7 @@ export class BaseFormBuilder {
                 isLoop = prototype.__proto__.constructor != Object;
                 if (isLoop) {
                     let extendClassInstance: any = defaultContainer.get(prototype.__proto__.constructor);
-                    instance = this.entityService.merge(this.entityService.clone(instance), this.entityService.clone(extendClassInstance))
+                    instance = merge(clone(instance), clone(extendClassInstance))
                     prototype = prototype.__proto__;
                 }
             } while (isLoop)

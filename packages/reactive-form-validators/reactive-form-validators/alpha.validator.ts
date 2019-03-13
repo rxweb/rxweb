@@ -10,9 +10,9 @@ import { AlphaConfig } from "../models/config/alpha-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import { getConfigObject } from "../util/config-provider";
-export function alphaValidator(config: AlphaConfig): ValidatorFn {
+export function alphaValidator(configModel: AlphaConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
       var isValid = (!config || !config.allowWhiteSpace) ?
         RegexValidator.isValid(control.value, RegExRule.alpha) :

@@ -9,9 +9,9 @@ import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
 import {getConfigObject} from "../util/config-provider"
 
-export function customValidator(config: CustomConfig): ValidatorFn {
+export function customValidator(configModel: CustomConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (FormProvider.ProcessRule(control, config)) {
       const formGroupValue = ApplicationUtil.getParentObjectValue(control);
       const parentObject = (control.parent) ? control.parent.value : undefined;

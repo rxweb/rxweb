@@ -10,9 +10,9 @@ import { DigitConfig } from "../models/config/digit-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider";
-export function digitValidator(config: DigitConfig): ValidatorFn {
+export function digitValidator(configModel: DigitConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
       if (!RegexValidator.isValid(control.value, RegExRule.onlyDigit))
         return ObjectMaker.toJson(AnnotationTypes.digit, config, [control.value])

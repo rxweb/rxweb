@@ -10,9 +10,9 @@ import { BaseConfig } from "../models/config/base-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider";
-export function macValidator(config: BaseConfig): ValidatorFn {
+export function macValidator(configModel: BaseConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
       if (!RegexValidator.isValid(control.value, RegExRule.macId))
         return ObjectMaker.toJson(AnnotationTypes.mac, config, [control.value]);

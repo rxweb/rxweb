@@ -8,9 +8,9 @@ import { ArrayConfig } from "../models/config/array-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import { getConfigObject } from "../util/config-provider";
-export function allOfValidator(config: ArrayConfig): ValidatorFn {
+export function allOfValidator(configModel: ArrayConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.passArrayValue(control, config)) {
       var testResult = false;
       for (let value of config.matchValues) {

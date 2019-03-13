@@ -9,9 +9,9 @@ import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
 import {getConfigObject} from "../util/config-provider";
-export function fileSizeValidator(config: SizeConfig): any {
+export function fileSizeValidator(configModel: SizeConfig): any {
   return (control: AbstractControl, files: FileList): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (!control["validatorConfig"] || !control["validatorConfig"]["fileSize"])
       ApplicationUtil.configureControl(control, config, AnnotationTypes.fileSize);
     if (files && FormProvider.ProcessRule(control, config)) {

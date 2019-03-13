@@ -8,9 +8,9 @@ import { ChoiceConfig } from "../models/config/choice-config";
 import { getConfigObject } from "../util/config-provider";
 import { AnnotationTypes } from "../core/validator.static";
 import { FormProvider } from '../util/form-provider';
-export function choiceValidator(config: ChoiceConfig): ValidatorFn {
+export function choiceValidator(configModel: ChoiceConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (FormProvider.ProcessRule(control, config)) {
       if (control.value instanceof Array) {
         config.minLength = (config.minLength == undefined) ? 0 : config.minLength;

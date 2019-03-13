@@ -10,9 +10,9 @@ import { BaseConfig } from "../models/config/base-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider"
-export function dataUriValidator(config: BaseConfig): ValidatorFn {
+export function dataUriValidator(configModel: BaseConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
       if (!RegexValidator.isValid(control.value, RegExRule.dataUri))
         return ObjectMaker.toJson(AnnotationTypes.dataUri, config, [control.value]);

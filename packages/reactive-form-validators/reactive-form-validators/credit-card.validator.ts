@@ -13,7 +13,7 @@ import { FormProvider } from '../util/form-provider';
 import { checkLength } from '../util/check-length'
 import { calculate } from '../algorithm/luhn-algorithm'
 
-export function creditCardValidator(config: CreditCardConfig): ValidatorFn {
+export function creditCardValidator(configModel: CreditCardConfig): ValidatorFn {
     let cardDigits: { [key: string]: number[] } = {
         AmericanExpress: [15],
         DinersClub: [14, 16, 19],
@@ -35,7 +35,7 @@ export function creditCardValidator(config: CreditCardConfig): ValidatorFn {
 
     return (control: AbstractControl): { [key: string]: any } => {
         const controlValue = control.value;
-        config = getConfigObject(config,control);
+        let config = getConfigObject(configModel,control);
         const parentObject = (control.parent) ? control.parent.value : undefined;
         if (FormProvider.ProcessRule(control, config)) {
             if (RegexValidator.isNotBlank(controlValue)) {

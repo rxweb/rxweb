@@ -12,9 +12,9 @@ import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider";
 import { IpVersion } from '../enums'
 import { checkIpV4, checkIpV6 } from '../util/ip-checker'
-export function ipValidator(config: IpConfig): ValidatorFn {
+export function ipValidator(configModel: IpConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
       let values: string[] = config.isCidr ? control.value.split('/') : [control.value];
       var isValid = (config.version == IpVersion.V4) ?

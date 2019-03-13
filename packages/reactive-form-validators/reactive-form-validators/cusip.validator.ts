@@ -11,9 +11,9 @@ import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider"
 
-export function cusipValidator(config: BaseConfig): ValidatorFn {
+export function cusipValidator(configModel: BaseConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    config = getConfigObject(config,control);
+    let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
         var controlValue = control.value.toUpperCase();
         let isValid = RegexValidator.isValid(controlValue, RegExRule.cusip)

@@ -21,12 +21,13 @@ export class Linq {
             functionSetter = { accessFunction: new Function(match[1], "return " + match[2]) };
         return functionSetter;
     }
-    static execute(jObject: { [key: string]: any }, expression: any, parentObject: { [key: string]: any }, modelInstance: { [key: string]: any }): boolean {
-        let expressionFunction: Function = expression;
-        if (parentObject && typeof expression == "string")
-            expressionFunction = Linq.functionCreator(expression);
-        if (parentObject && expressionFunction )
-            return modelInstance && modelInstance.constructor !== Object ? expressionFunction.call(modelInstance, parentObject, jObject, modelInstance) : expressionFunction(parentObject, jObject, modelInstance);
+    static execute(jObject: { [key: string]: any }, config: any, parentObject: { [key: string]: any }, modelInstance: { [key: string]: any },isDynamicConfig:boolean): boolean {
+        let expressionFunction: Function | string = isDynamicConfig ? config.dynamicConfig : config.conditionalExpression;
+        let lastParam = isDynamicConfig ? config : modelInstance; 
+        if (parentObject && typeof expressionFunction == "string")
+            expressionFunction = Linq.functionCreator(expressionFunction);
+        if (parentObject && expressionFunction)
+            return modelInstance && modelInstance.constructor !== Object ? (<Function>expressionFunction).call(modelInstance, parentObject, jObject, lastParam) : (<Function>expressionFunction)(parentObject, jObject, lastParam);
         return true;
     }
 
@@ -112,6 +113,8 @@ export class Linq {
             let controlNames = [];
             let expressionString = expression.toString();
             let expressionArguments = Linq.extractArguments(expressionString.match(/\(([^)]+)\)/g));
+            if(expressionArguments.length > 3)
+                expressionArguments.splice(expressionArguments.length -1,1)
             expressionArguments.forEach(t => {
                 let splitString = expressionString.replace(new RegExp(/\r?\n|\r|;/g), ' ').replace(/[{()}]/g, ' ').split(/ /g);
                 splitString.filter(x => x != `${t}.${propName}` && x.startsWith(`${t}.`)).forEach(x => {

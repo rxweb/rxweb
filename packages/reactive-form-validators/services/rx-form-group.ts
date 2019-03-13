@@ -1,6 +1,6 @@
 import { FormGroup,FormArray,FormControl ,AbstractControl,ValidatorFn,AsyncValidatorFn } from "@angular/forms";
 import { RxFormControl } from "./form-control";
-import { EntityService } from './entity.service';
+import { clone } from './entity.service';
 import { RegexValidator } from '../util/regex-validator';
 import { ApplicationUtil } from '../util/app-util';
 import { RxFormArray } from './rx-form-array';
@@ -9,14 +9,12 @@ import { FormDataProvider } from "../domain/form-data";
 
 export class RxFormGroup extends FormGroup  {
     private baseObject:{ [key:string] : any}
-    private entityService: EntityService;
     private formDataProvider: FormDataProvider;
     constructor(private model:any,private entityObject:{[key:string]:any},controls: {
         [key: string]: AbstractControl;
     }, validatorOrOpts?: any, asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null){
       super(controls,validatorOrOpts,asyncValidator);
       this.baseObject = Object.assign({}, this.entityObject)
-        this.entityService = new EntityService();
         this.formDataProvider = new FormDataProvider();
     }
 
@@ -156,7 +154,7 @@ export class RxFormGroup extends FormGroup  {
     }
     
     get modelInstanceValue() {
-          return this.entityService.clone(this.entityObject);
+          return clone(this.entityObject);
     }
 
     get modelInstance(){
