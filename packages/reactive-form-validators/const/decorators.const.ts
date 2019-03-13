@@ -12,5 +12,6 @@ export const DECORATORS:{[key:string]:string} = {
     toFloat:'toFloat',
     toInt:'toInt',
     string:'toString',
-    whitelist:'whitelist'
+    whitelist: 'whitelist',
+    escape: 'escape'
 }

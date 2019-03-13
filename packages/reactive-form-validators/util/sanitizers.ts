@@ -86,6 +86,19 @@ function toDate(value:any){
     return null;
 }
 
+function escape(value:string) {
+    if (isNotBlank(value))
+        return (value.replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#x27;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/\//g, '&#x2F;')
+            .replace(/\\/g, '&#x5C;')
+            .replace(/`/g, '&#96;'));
+    return value;
+}
+
 export const SANITIZERS: { [key: string]: Function } = {
 
     trim:trim,
@@ -110,6 +123,8 @@ export const SANITIZERS: { [key: string]: Function } = {
 
     whitelist:whitelist,
 
-    toDate:toDate
+    toDate: toDate,
+
+    escape:escape
 
 }
