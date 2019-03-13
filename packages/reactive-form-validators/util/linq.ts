@@ -21,9 +21,9 @@ export class Linq {
             functionSetter = { accessFunction: new Function(match[1], "return " + match[2]) };
         return functionSetter;
     }
-    static execute(jObject: { [key: string]: any }, config: any, parentObject: { [key: string]: any }, modelInstance: { [key: string]: any },isDynamicConfig:boolean): boolean {
+    static execute(jObject: { [key: string]: any }, config: any, parentObject: { [key: string]: any }, modelInstance: { [key: string]: any }, isDynamicConfig: boolean): boolean {
         let expressionFunction: Function | string = isDynamicConfig ? config.dynamicConfig : config.conditionalExpression;
-        let lastParam = isDynamicConfig ? config : modelInstance; 
+        let lastParam = isDynamicConfig ? config : modelInstance;
         if (parentObject && typeof expressionFunction == "string")
             expressionFunction = Linq.functionCreator(expressionFunction);
         if (parentObject && expressionFunction)
@@ -31,14 +31,14 @@ export class Linq {
         return true;
     }
 
-    private static getConditionPath(texts:string[]):string{
+    private static getConditionPath(texts: string[]): string {
         let path = "";
-        for(var i=1;i<texts.length;i++)
-            path += (texts.length -1) == i ? texts[i].trim() : `${texts[i].trim()}.`
+        for (var i = 1; i < texts.length; i++)
+            path += (texts.length - 1) == i ? texts[i].trim() : `${texts[i].trim()}.`
         return path;
     }
 
-    private static expressionParser(expression: any,isNonValidationExpression : boolean) {
+    private static expressionParser(expression: any, isNonValidationExpression: boolean) {
         let splitExpressions = [];
         let columns = [];
         let expressionString = expression.toString();
@@ -46,22 +46,22 @@ export class Linq {
         if (expressionArguments.length > 0) {
             let splitTexts = expressionString.replace(/\s/g, '').replace(new RegExp(/{|}/, "g"), "").split(new RegExp(/return|===|!==|==|!=|>=|>|<=|<|&&/));
             splitTexts.forEach(t => {
-                expressionArguments.forEach((x,i) => {
+                expressionArguments.forEach((x, i) => {
                     t = t.trim();
                     if (t.startsWith(x + '.')) {
                         var splitText = t.split('.');
-                        if (splitText.length == 2 || (splitText.length >=2 && isNonValidationExpression) )
-                        if(!isNonValidationExpression)
-                            columns.push({ propName: splitText[1].trim(),argumentIndex:i == 3 ? 0 : i == 2 ? 1 : i == 1 ? -1:i });
+                        if (splitText.length == 2 || (splitText.length >= 2 && isNonValidationExpression))
+                            if (!isNonValidationExpression)
+                                columns.push({ propName: splitText[1].trim(), argumentIndex: i == 3 ? 0 : i == 2 ? 1 : i == 1 ? -1 : i });
                             else
-                            columns.push({ propName: this.getConditionPath(splitText),argumentIndex:i == 3 ? 0 : i == 2 ? 1 : i == 1 ? -1:i });
+                                columns.push({ propName: this.getConditionPath(splitText), argumentIndex: i == 3 ? 0 : i == 2 ? 1 : i == 1 ? -1 : i });
                         else {
                             var arrayProp = splitText[1].split('[');
                             let jObject = {
                                 propName: splitText[splitText.length - 1].trim(),
                                 objectPropName: arrayProp[0],
                                 arrayIndex: arrayProp.length > 1 ? arrayProp[1].replace("]", "") : undefined,
-                                argumentIndex:i === 3 ? 0 : i === 2 ? 1 : i
+                                argumentIndex: i === 3 ? 0 : i === 2 ? 1 : i
                             }
                             columns.push(jObject);
                         }
@@ -79,7 +79,7 @@ export class Linq {
         return expressionArguments;
     }
 
-    static expressionColumns(expression: any,isNonValidationExpression : boolean = false) {
+    static expressionColumns(expression: any, isNonValidationExpression: boolean = false) {
         var columns = [];
         let splitExpressions = [];
         if (typeof expression == "string") {
@@ -104,33 +104,33 @@ export class Linq {
             })
         }
         else {
-            columns = Linq.expressionParser(expression,isNonValidationExpression);
+            columns = Linq.expressionParser(expression, isNonValidationExpression);
         }
         return columns;
     }
 
-    static dynamicConfigParser(expression: Function, propName: string):any[] {
-            let controlNames = [];
-            let expressionString = expression.toString();
-            let expressionArguments = Linq.extractArguments(expressionString.match(/\(([^)]+)\)/g));
-            if(expressionArguments.length > 3)
-                expressionArguments.splice(expressionArguments.length -1,1)
-            expressionArguments.forEach(t => {
-                let splitString = expressionString.replace(new RegExp(/\r?\n|\r|;/g), ' ').replace(/[{()}]/g, ' ').split(/ /g);
-                splitString.filter(x => x != `${t}.${propName}` && x.startsWith(`${t}.`)).forEach(x => {
-                    let split = x.split('.');
-                    if (split.length == 2)
-                        controlNames.push({ propName: x.replace(`${t}.`, '') })
-                    else {
-                        var arrayProp = split[1].split('[');
-                        let jObject = {
-                            propName: split[split.length - 1].trim(),
-                            objectPropName: arrayProp[0],
-                            arrayIndex: arrayProp.length > 1 ? arrayProp[1].replace("]", "") : undefined,
-                        }
-                        controlNames.push(jObject);
+    static dynamicConfigParser(expression: Function, propName: string): any[] {
+        let controlNames = [];
+        let expressionString = expression.toString();
+        let expressionArguments = Linq.extractArguments(expressionString.match(/\(([^)]+)\)/g));
+        let splitString: string[] = expressionString.replace(new RegExp(/\r?\n|\r|;/g), ' ').replace(/["%()\{}=\\?´`'#<>|,;:+-]+/g, " ").split(/ /g);
+        if (expressionArguments.length > 3)
+            expressionArguments.splice(expressionArguments.length - 1, 1)
+        expressionArguments.forEach(t => {
+            splitString.filter(x => x != `${t}.${propName}` && x.startsWith(`${t}.`)).forEach(x => {
+                let split = x.split('.');
+                if (split.length == 2)
+                    controlNames.push({ propName: x.replace(`${t}.`, '') })
+                else {
+                    var arrayProp = split[1].split('[');
+                    let jObject = {
+                        propName: split[split.length - 1].trim(),
+                        objectPropName: arrayProp[0],
+                        arrayIndex: arrayProp.length > 1 ? arrayProp[1].replace("]", "") : undefined,
                     }
-                });
+                    controlNames.push(jObject);
+                }
+            });
         });
         return controlNames;
     }
