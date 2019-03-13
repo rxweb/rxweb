@@ -21,7 +21,7 @@ import { RxFormArray } from './rx-form-array';
 import { andValidator } from '../reactive-form-validators/and.validator'
 import { orValidator } from '../reactive-form-validators/or.validator'
 import { notValidator } from '../reactive-form-validators/not.validator'
-import { IFormGroup} from '../models/interface/i-form-group'
+import { AppFormGroup} from '../models/interface/i-form-group'
 const LOGICAL_VALIDATORS :{[key:string]:Function} = {and:andValidator,or:orValidator,not:notValidator}
 
 @Injectable()
@@ -352,7 +352,7 @@ export class RxFormBuilder extends BaseFormBuilder {
 
     
 
-     formGroup<T>(model: Type<T> | { [key: string]: any }, entityObject?: { [key: string]: any } | FormBuilderConfiguration, formBuilderConfiguration?: FormBuilderConfiguration): RxFormGroup | FormGroup | IFormGroup<T> {
+     formGroup<T>(model: Type<T> | { [key: string]: any }, entityObject?: { [key: string]: any } | FormBuilderConfiguration, formBuilderConfiguration?: FormBuilderConfiguration): RxFormGroup | FormGroup | AppFormGroup<T> {
         let json = this.getObject(model, entityObject, formBuilderConfiguration);
         model = json.model;
         entityObject = json.entityObject;
