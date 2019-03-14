@@ -1,1 +1,0 @@
-{"email":{},"confirmEmail":{"compare":{"fieldName":"email"}},"password":{},"confirmPassword":{"compare":{"fieldName":"password","message":"You must enter same password"}}}

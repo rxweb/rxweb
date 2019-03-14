@@ -1,1 +1,0 @@
-{"admissionAge":{},"retiermentAge":{"greaterThanEqualTo":{"fieldName":"admissionAge"}},"memberAge":{"greaterThanEqualTo":{"fieldName":"admissionAge","conditionalExpression":"x => x.admissionAge >= 18 "}},"otherAge":{"greaterThanEqualTo":{"fieldName":"admissionAge","message":"Please enter number greater than or equal to 1."}}}

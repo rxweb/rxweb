@@ -1,1 +1,0 @@
-{"type":{},"evenNumber":{"even":{"conditionalExpression":"x => x.type == \"Even\""}},"multiplesOfEvenNumber":{"even":{"message":"{{0}} is not an even number"}}}

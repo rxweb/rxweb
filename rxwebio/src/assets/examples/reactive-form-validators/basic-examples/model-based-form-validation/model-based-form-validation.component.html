@@ -1,8 +1,0 @@
-<form [formGroup]="countryFormGroup">
-<div class="form-group">
-    <label>Country</label>
-    <input type="text" formControlName="countryName" class="form-control"  />
-    <small class="form-text text-danger" >{{countryFormGroup.controls.countryName["errorMessage"]}}<br/></small>
-</div>
-<button [disabled]="!countryFormGroup.valid" class="btn btn-primary">Submit</button>
-</form>

@@ -1,1 +1,0 @@
-{"countryName":{"alpha":true},"cityName":{"alpha":{"conditionalExpression":"x => x.countryName ==\"India\""}},"stateName":{"alpha":{"allowWhiteSpace":"true"}},"stateCode":{"alpha":{"message":"You can enter only alphabets."}}}

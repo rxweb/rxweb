@@ -1,1 +1,0 @@
-{"firstName":{"maxLength":{"value":"16"}},"lastName":{"maxLength":{"value":"16","conditionalExpression":"x => x.firstName == \"Bharat\""}},"userName":{"maxLength":{"value":"10","message":"Maximum 10 characters are allowed"}}}

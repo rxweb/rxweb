@@ -1,1 +1,0 @@
-{"scheme":{},"audioDataUri":{"dataUri":{"conditionalExpression":"x => x.scheme ==\"DataUri\""}},"videoDataUri":{"dataUri":{"message":"{{0}} is not a proper data URI"}}}

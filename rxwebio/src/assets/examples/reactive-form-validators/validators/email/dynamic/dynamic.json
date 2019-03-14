@@ -1,1 +1,0 @@
-{"email":{"email":true},"businessEmailAddress":{"email":{"conditionalExpression":"x => x.email ==\"abc@gmail.com\""}},"otherEmailAddress":{"email":{"message":"Please enter valid email"}}}

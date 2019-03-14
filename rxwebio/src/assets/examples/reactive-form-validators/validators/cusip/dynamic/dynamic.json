@@ -1,1 +1,0 @@
-{"companyName":{},"oracleCorporationCusipCode":{"cusip":true},"microsoftCorporationCusipCode":{"cusip":{"conditionalExpression":"x => x.companyName ==\"Microsoft\""}},"appleIncCusipCode":{"cusip":{"message":"{{0}} is not a valid cusip Code"}}}

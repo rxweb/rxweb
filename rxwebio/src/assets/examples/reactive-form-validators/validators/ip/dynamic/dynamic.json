@@ -1,1 +1,0 @@
-{"ipType":{},"ipV4":{"ip":{"version":"1"}},"ipV6":{"ip":{"version":"2"}},"anyIPType":{"ip":{"version":"3"}},"ipV4Cidr":{"ip":{"version":"1","isCidr":"true"}},"ipV6Cidr":{"ip":{"version":"2","isCidr":"true"}},"ipV4Conditional":{"ip":{"conditionalExpression":"x => x.ipType == \"V4\"","version":"1"}},"ipV4Message":{"ip":{"version":"1","message":"Please Enter IP V4 type Only"}}}

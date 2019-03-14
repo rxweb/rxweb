@@ -1,1 +1,0 @@
-{"obtainedMarks":{},"otherActivityMarks":{"lessThan":{"fieldName":"obtainedMarks"}},"passingMarks":{"lessThan":{"fieldName":"obtainedMarks","conditionalExpression":"x => x.obtainedMarks < 35"}},"otherMarks":{"lessThan":{"fieldName":"obtainedMarks","message":"Please enter number greater than 100."}}}

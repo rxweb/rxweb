@@ -1,1 +1,0 @@
-{"adminWebsiteUrl":{"url":true},"customerWebsiteUrl":{"url":{"conditionalExpression":"x => x.adminWebsiteUrl == \"https://google.co.in\" "}},"maintenanceWebSiteUrl":{"url":{"message":"{{0}} Is not the correct url pattern."}}}

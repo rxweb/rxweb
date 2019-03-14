@@ -1,1 +1,0 @@
-{"birthDate":{"date":true},"enrollmentDate":{"date":{"conditionalExpression":"x => x.birthDate ==\"16/04/1997\""}},"allocationDate":{"date":{"message":"{{0}} is not a valid date"}}}
