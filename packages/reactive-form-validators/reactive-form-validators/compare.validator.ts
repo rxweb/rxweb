@@ -9,9 +9,10 @@ import { CompareConfig } from "../models/config/compare-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ApplicationUtil } from '../util/app-util';
 import { getConfigObject } from "../util/config-provider"
+import { FIELD_CONFIG } from "../const/config-names.const";
 export function compareValidator(configModel: CompareConfig): ValidatorFn {
   return (control: FormGroup): { [key: string]: any } => {
-    let config = getConfigObject(configModel,control);
+    let config = getConfigObject(configModel,control,FIELD_CONFIG);
     const compareControl: any = ApplicationUtil.getFormControl(config.fieldName, control);
     const controlValue = control.value;
     const compareControlValue = (compareControl) ? compareControl.value : '';

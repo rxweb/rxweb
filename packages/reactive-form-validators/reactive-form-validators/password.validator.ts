@@ -7,9 +7,10 @@ import { PasswordConfig } from "../models/config/password-config";
 import {getConfigObject} from "../util/config-provider";
 import { ObjectMaker } from "../util/object-maker";
 import { AnnotationTypes } from "../core/validator.static";
+import { PASSWORD_CONFIG } from "../const/config-names.const";
 export function passwordValidator(configModel: PasswordConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    let config = getConfigObject(configModel,control);
+    let config = getConfigObject(configModel,control,PASSWORD_CONFIG);
     let controlValue = control.value;
     if (RegexValidator.isNotBlank(controlValue)) {
       let validation = RegexValidator.isValidPassword(config.validation, controlValue);

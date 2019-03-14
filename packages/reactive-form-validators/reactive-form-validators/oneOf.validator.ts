@@ -8,9 +8,10 @@ import { ArrayConfig } from "../models/config/array-config";
 import { AnnotationTypes } from "../core/validator.static";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import {getConfigObject} from "../util/config-provider";
+import { ARRAY_CONFIG } from "../const/config-names.const";
 export function oneOfValidator(configModel: ArrayConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    let config = getConfigObject(configModel,control);
+    let config = getConfigObject(configModel,control,ARRAY_CONFIG);
     if (ValidatorValueChecker.passArrayValue(control, config)) {
       var testResult = false;
       for (let value of config.matchValues) {
