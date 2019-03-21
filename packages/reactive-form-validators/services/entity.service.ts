@@ -5,10 +5,10 @@ export function clone(jsonObject: { [key: string]: any }) {
             if (Array.isArray(jsonObject[columnName])) {
                 jObject[columnName] = [];
                 for (let row of jsonObject[columnName]) {
-                    jObject[columnName].push(this.clone(row))
+                    jObject[columnName].push(clone(row))
                 }
             } else if (typeof jsonObject[columnName] == "object")
-                jObject[columnName] = this.clone(jsonObject[columnName]);
+                jObject[columnName] = clone(jsonObject[columnName]);
             else
                 jObject[columnName] = jsonObject[columnName]
         }
@@ -21,9 +21,9 @@ export function merge(firstObject: { [key: string]: any }, secondObject: { [key:
                 if (!firstObject[columnName])
                     firstObject[columnName] = [];
                 for (let row of secondObject[columnName])
-                    firstObject[columnName].push(this.clone(row))
+                    firstObject[columnName].push(clone(row))
             } else if (typeof firstObject[columnName] == "object")
-                firstObject[columnName] = this.merge(firstObject[columnName], secondObject[columnName])
+                firstObject[columnName] = merge(firstObject[columnName], secondObject[columnName])
             else
                 firstObject[columnName] = secondObject[columnName];
         }
