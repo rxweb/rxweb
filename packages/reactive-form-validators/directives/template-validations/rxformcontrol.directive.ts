@@ -18,6 +18,8 @@ const NGMODEL_BINDING: any = {
 };
 
 const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required', 'notEmpty', 'alpha', 'alphaNumeric', 'ascii', 'dataUri', 'digit', 'email', 'even', 'hexColor', 'json', 'latitude', 'latLong', 'leapYear', 'longitude', 'lowerCase', 'mac', 'odd', 'port', 'primeNumber', 'time', 'upperCase', 'url', 'unique','cusip','gird'];
+const NUMERIC:string = "numeric";
+const IS_FORMAT:string = "isFormat";
 
 @Directive({
     selector: '[ngModel],[formControlName],[formControl]',
@@ -155,9 +157,9 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     }
 
     subscribeNumericFormatter() {
-        if (this.formControl["validatorConfig"] && this.formControl["validatorConfig"]["numeric"] && this.formControl["validatorConfig"]["numeric"]["isFormat"]) {
+        if (this.formControl[VALIDATOR_CONFIG] && this.formControl[VALIDATOR_CONFIG][NUMERIC] && this.formControl[VALIDATOR_CONFIG][NUMERIC][IS_FORMAT]) {
             if(!this.isNumericSubscribed){
-                this.bindNumericElementEvent(this.formControl["validatorConfig"]["numeric"]);
+                this.bindNumericElementEvent(this.formControl[VALIDATOR_CONFIG][NUMERIC]);
                 this.isNumericSubscribed = true;
             }
             if(!this.isFocusCalled && RegexValidator.isNotBlank(this.formControl.value)){

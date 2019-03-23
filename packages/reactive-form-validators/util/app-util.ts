@@ -2,6 +2,7 @@ import { AbstractControl, FormGroup, FormArray } from "@angular/forms";
 import { RxFormArray } from "../services/rx-form-array";
 import {NumericValueType } from '../enums'
 import { ReactiveFormConfig } from "./reactive-form-config";
+const MODEL_INSTANCE_VALUE = "modelInstanceValue";
 export class ApplicationUtil{
     static getParentObjectValue(control: AbstractControl) :{ [key:string]:any} {
         if (control.parent) {
@@ -14,7 +15,7 @@ export class ApplicationUtil{
     static getParentModelInstanceValue(control: AbstractControl): { [key: string]: any } {
         if (control.parent) {
             let parent = this.parentObjectValue(control.parent)
-            return parent["modelInstanceValue"];
+            return parent[MODEL_INSTANCE_VALUE];
         }
         return {};
     }

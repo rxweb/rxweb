@@ -3,7 +3,7 @@ import { defaultContainer } from "../core/defaultContainer";
 import { InstanceContainer } from "../core/validator.interface";
 import { OBJECT_PROPERTY } from "../const/validator.const"
 import { ApplicationUtil } from "../util/app-util";
-import { RXCODE } from "../const/app.const";
+import { RXCODE, MODEL_INSTANCE } from "../const/app.const";
 export class DisableProvider{
 
     constructor(private decoratorType:string){
@@ -45,8 +45,8 @@ export class DisableProvider{
     }
 
     private getDisabledColumns(formGroup:FormGroup,columnName:string,isRoot:Boolean,pathName:string = ""){
-        if(formGroup["modelInstance"]){
-            let instanceContainer = defaultContainer.get(formGroup["modelInstance"].constructor);
+        if(formGroup[MODEL_INSTANCE]){
+            let instanceContainer = defaultContainer.get(formGroup[MODEL_INSTANCE].constructor);
             return this.getChangeDetectionColumns(instanceContainer,columnName,isRoot,pathName)
         }return [];
     }
@@ -77,8 +77,8 @@ export class DisableProvider{
 
     childControlDisabledExpression(formGroup:FormGroup,columnName:string,path:string = "") :any[] {
         let disabledColumns = [];
-        if(formGroup["modelInstance"]){
-            let instanceContainer = defaultContainer.get(formGroup["modelInstance"].constructor);
+        if(formGroup[MODEL_INSTANCE]){
+            let instanceContainer = defaultContainer.get(formGroup[MODEL_INSTANCE].constructor);
             if(instanceContainer){
                 this.getChangeDetectionColumns(instanceContainer,columnName,true,path).forEach(t=>disabledColumns.push(t));
                 var props = instanceContainer.properties.filter(t => t.propertyType == OBJECT_PROPERTY)

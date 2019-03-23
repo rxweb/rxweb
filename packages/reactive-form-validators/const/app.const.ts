@@ -23,3 +23,8 @@ export const VALIDATOR_CONFIG: string = "validatorConfig";
 export const THIS: string = "this";
 
 export const RXCODE:string = "-rxw-";
+
+export const MODEL:string = "model";
+
+export const MODEL_INSTANCE:string = "modelInstance";
+

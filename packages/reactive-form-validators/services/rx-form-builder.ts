@@ -8,7 +8,7 @@ import { defaultContainer } from '../core/defaultContainer';
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from '../core/validator.interface';
 
 import { FormBuilderConfiguration } from "../models"
-import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY, FUNCTION_STRING, OBJECT_STRING, RX_WEB_VALIDATOR, NUMBER, BOOLEAN, STRING} from "../const"
+import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY, FUNCTION_STRING, OBJECT_STRING, RX_WEB_VALIDATOR, NUMBER, BOOLEAN, STRING, MODEL} from "../const"
 import { PropValidationConfig } from "../models/prop-validation-config";
 
 import { AnnotationTypes } from "../core/validator.static";
@@ -23,7 +23,8 @@ import { orValidator } from '../reactive-form-validators/or.validator'
 import { notValidator } from '../reactive-form-validators/not.validator'
 import { AppFormGroup} from '../models/interface/i-form-group'
 const LOGICAL_VALIDATORS :{[key:string]:Function} = {and:andValidator,or:orValidator,not:notValidator}
-
+const  ASYNC:string = "async"
+const ENTITY_OBJECT:string = "entityObject";
 @Injectable()
 export class RxFormBuilder extends BaseFormBuilder {
     private nestedProp: string;
@@ -75,8 +76,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                     propertyValidator.config.forEach(t => { asyncValidators.push(t) });
             }
         }
-        if (propValidationConfig && propValidationConfig["async"]) {
-            propValidationConfig["async"].forEach(t => { asyncValidators.push(t) })
+        if (propValidationConfig && propValidationConfig[ASYNC]) {
+            propValidationConfig[ASYNC].forEach(t => { asyncValidators.push(t) })
         }
         return asyncValidators;
     }
@@ -187,8 +188,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                 json.model = model.constructor;
             json.entityObject = this.createClassObject(json.model, json.formBuilderConfiguration, model)
         } else if (model && (entityObject instanceof FormBuilderConfiguration) && (typeof model == OBJECT_STRING)) {
-            json["model"] = model.constructor;
-            json["entityObject"] = this.createClassObject(json.model, json.formBuilderConfiguration, model)
+            json[MODEL] = model.constructor;
+            json[ENTITY_OBJECT] = this.createClassObject(json.model, json.formBuilderConfiguration, model)
         }
         return json;
     }

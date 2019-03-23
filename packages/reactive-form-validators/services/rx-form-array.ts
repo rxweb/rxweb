@@ -1,4 +1,5 @@
 import { FormArray } from "@angular/forms";
+import { VALUE_CHANGED_SYNC } from "../const/app.const";
 
 
 export class RxFormArray extends FormArray {
@@ -13,7 +14,7 @@ export class RxFormArray extends FormArray {
             if(control.modelInstance)
                 this.arrayObject.push(control.modelInstance);
         super.push(control);
-        if(formGroup["valueChangedSync"])
+        if(formGroup[VALUE_CHANGED_SYNC])
           formGroup.valueChangedSync()  
       }
 
@@ -21,7 +22,7 @@ export class RxFormArray extends FormArray {
         let formGroup:any = this.root;
         this.arrayObject.splice(index,1);
         super.removeAt(index);
-        if(formGroup["valueChangedSync"])
+        if(formGroup[VALUE_CHANGED_SYNC])
           formGroup.valueChangedSync()  
       }
 }

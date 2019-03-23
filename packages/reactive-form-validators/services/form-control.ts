@@ -3,7 +3,7 @@ import { ObjectMaker } from "../util/object-maker";
 import { MESSAGE, CONTROLS_ERROR, VALUE_CHANGED_SYNC } from '../const'
 import { ApplicationUtil } from '../util/app-util'
 import { DisableProvider } from '../domain/disable-provider';
-import { RXCODE } from "../const/app.const"
+import { RXCODE, MODEL_INSTANCE } from "../const/app.const"
 import { DECORATORS } from "../const/decorators.const";
 import { defaultContainer } from "../core/defaultContainer";
 import { SANITIZERS } from "../util/sanitizers"
@@ -153,8 +153,8 @@ export class RxFormControl extends FormControl {
     }
 
     private getMessageExpression(formGroup:FormGroup,keyName:string):void{
-            if(formGroup["modelInstance"]){
-                let instanceContainer = defaultContainer.get(formGroup["modelInstance"].constructor);
+            if(formGroup[MODEL_INSTANCE]){
+                let instanceContainer = defaultContainer.get(formGroup[MODEL_INSTANCE].constructor);
                 if(instanceContainer) {
                     this._messageExpression = instanceContainer.nonValidationDecorators.error.conditionalExpressions[keyName]
                     this._controlProp = instanceContainer.nonValidationDecorators.error.controlProp[this.keyName];
@@ -232,7 +232,7 @@ export class RxFormControl extends FormControl {
     }
 
     private executeExpression(expression:Function,control:AbstractControl):Boolean{
-        return expression.call(control.parent["modelInstance"], control, ApplicationUtil.getParentModelInstanceValue(this), control.parent["modelInstance"])
+        return expression.call(control.parent[MODEL_INSTANCE], control, ApplicationUtil.getParentModelInstanceValue(this), control.parent[MODEL_INSTANCE])
     }
 
 }

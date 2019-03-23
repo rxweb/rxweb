@@ -5,7 +5,7 @@ import { defaultContainer } from "../core/defaultContainer";
 import { BaseDirective } from "./base-directive"
 import { Linq } from "../util/linq";
 import { conditionalChangeValidator } from '../reactive-form-validators/conditional-change.validator';
-import { CONDITIONAL_VALIDATOR  } from '../const/app.const'
+import { CONDITIONAL_VALIDATOR, MODEL  } from '../const/app.const'
 
 @Directive({
   selector: '[formGroup],[rxwebForm]',
@@ -17,7 +17,7 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
   @Input('rxwebForm') ngForm;
 
   ngAfterContentInit(): void {
-    if (this.formGroup && !this.formGroup["model"] && this.formGroup.parent == null) {
+    if (this.formGroup && !this.formGroup[MODEL] && this.formGroup.parent == null) {
       this.expressionProcessor(this.formGroup.controls);
       this.setConditionalValidator(this.formGroup.controls)
     } else if (this.ngForm) {

@@ -1,5 +1,6 @@
 import { Input } from "@angular/core";
 import {  AbstractControl,FormControl,ValidatorFn } from '@angular/forms';
+import { VALIDATOR_CONFIG } from "../../const/app.const";
 
 
 export abstract class ControlExpressionProcess {
@@ -18,7 +19,7 @@ export abstract class ControlExpressionProcess {
     setModelConfig(control: AbstractControl) {
         this.isProcessed = true;
         if (this.controlConfig && this.controlConfig.validatorConfig) {
-            control["validatorConfig"] = this.controlConfig.validatorConfig;
+            control[VALIDATOR_CONFIG] = this.controlConfig.validatorConfig;
             this.controlConfig = undefined;
         }
     }
