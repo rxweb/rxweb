@@ -8,7 +8,7 @@ import { defaultContainer } from '../core/defaultContainer';
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from '../core/validator.interface';
 
 import { FormBuilderConfiguration } from "../models"
-import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY, FUNCTION_STRING, OBJECT_STRING, RX_WEB_VALIDATOR, NUMBER, BOOLEAN, STRING } from "../const"
+import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY, FUNCTION_STRING, OBJECT_STRING, RX_WEB_VALIDATOR, NUMBER, BOOLEAN, STRING} from "../const"
 import { PropValidationConfig } from "../models/prop-validation-config";
 
 import { AnnotationTypes } from "../core/validator.static";
@@ -253,7 +253,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                 if (!propertyAdded)
                     defaultContainer.initPropertyObject(propName, PROPERTY, undefined, typeof modelInstance == OBJECT_STRING ? modelInstance : { constructor: modelInstance });
                 this.applyAllPropValidator(propName, validatorConfig, modelInstance)
-            } else if (typeof prop == STRING || typeof prop == NUMBER || typeof prop == BOOLEAN) {
+            } else if (typeof prop == STRING || typeof prop == NUMBER || typeof prop == BOOLEAN  ||  prop instanceof Date)  {
                 defaultContainer.initPropertyObject(propName, PROPERTY, undefined, typeof modelInstance == OBJECT_STRING ? modelInstance : { constructor: modelInstance });
                 this.applyAllPropValidator(propName, validatorConfig, modelInstance)
             } else if (prop instanceof Array) {
@@ -299,7 +299,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                 }
 
             }
-            if (typeof prop == STRING || typeof prop == NUMBER || typeof prop == BOOLEAN) {
+            if (typeof prop == STRING || typeof prop == NUMBER || typeof prop == BOOLEAN ||  prop instanceof Date) {
                 entityObject[propName] = prop
             }
             else if ((prop && prop.length > 0 && (typeof prop[0] != OBJECT_STRING) && !(prop instanceof FormControl || prop instanceof RxFormControl) && !(prop instanceof FormArray))) {

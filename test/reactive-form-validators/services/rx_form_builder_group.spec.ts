@@ -1,6 +1,6 @@
 import { AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 
-import { RxwebValidators, ReactiveFormConfig ,RxFormBuilder,FormGroupExtension} from '../../../packages/reactive-form-validators';
+import { RxwebValidators, ReactiveFormConfig ,RxFormBuilder,FormGroupExtension, RxFormControl} from '../../../packages/reactive-form-validators';
 
 (function () {
     describe('Validator', () => {
@@ -292,6 +292,16 @@ import { RxwebValidators, ReactiveFormConfig ,RxFormBuilder,FormGroupExtension} 
         let errorObject = (<FormGroupExtension>formGroup).getErrorSummary(true);
         expect(errorObject).toEqual(errorobject);
           })
+
+          it("should defined dob",
+          ()=>{
+           let formBuilder = new RxFormBuilder();
+           let formGroup = formBuilder.group({
+             dob:new Date()
+           })         
+           expect(formGroup.controls.dob instanceof RxFormControl).toBe(true);
+         });
+
         });
     });
 })();
