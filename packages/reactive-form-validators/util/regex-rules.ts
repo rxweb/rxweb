@@ -1,4 +1,3 @@
-import { CreditCardRegex } from './credit-card-regex'
 
 export const RegExRule: { [key: string]: any } = {
 
@@ -45,8 +44,6 @@ export const RegExRule: { [key: string]: any } = {
     timeWithSeconds: /^(00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9]):([0-9]|[0-5][0-9])$/,
 
     url: /^(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})$/,
-
-    creditCard: new CreditCardRegex(),
 
     ascii : /^[\x00-\x7F]+$/,
 
