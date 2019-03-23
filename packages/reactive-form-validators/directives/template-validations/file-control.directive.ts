@@ -1,5 +1,5 @@
 import { Input, Directive, forwardRef, ElementRef } from '@angular/core';
-import { AbstractControl, NG_VALIDATORS, Validator, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { AbstractControl, NG_VALIDATORS, Validator, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ExtensionConfig, SizeConfig, FileConfig } from '../../models/config'
 import { APP_VALIDATORS } from "../../const/app-validators.const";
 const VALIDATOR_CONFIG = "validatorConfig";

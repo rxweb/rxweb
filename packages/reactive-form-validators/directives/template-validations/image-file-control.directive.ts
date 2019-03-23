@@ -1,5 +1,5 @@
 import {Input, Directive ,forwardRef,ElementRef} from '@angular/core';
-import {ValidationErrors, AbstractControl, NG_ASYNC_VALIDATORS,AsyncValidator ,ValidatorFn } from '@angular/forms';
+import {ValidationErrors, AbstractControl, NG_ASYNC_VALIDATORS,AsyncValidator } from '@angular/forms';
 import {ImageConfig} from '../../models/config'
 import { APP_VALIDATORS } from "../../const/app-validators.const";
 const VALIDATOR_CONFIG = "validatorConfig";

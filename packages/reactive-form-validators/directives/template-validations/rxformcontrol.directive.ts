@@ -1,6 +1,5 @@
 import { Directive, Input, ElementRef, Renderer, forwardRef, OnInit, OnDestroy } from '@angular/core';
 import { Validator, NG_VALIDATORS, AbstractControl, FormControl } from '@angular/forms';
-import { formatNumber } from "@angular/common"
 import { APP_VALIDATORS } from '../../const/app-validators.const';
 import { BaseValidator } from './base-validator.directive';
 import {
@@ -9,9 +8,8 @@ import {
 import { TEMPLATE_VALIDATION_CONFIG,CONDITIONAL_VALIDATOR,VALIDATOR_CONFIG  } from '../../const/app.const'
 import { ApplicationUtil } from '../../util/app-util';
 import { DecimalProvider } from "../../domain/element-processor/decimal.provider"
-import { AlphaConfig, ArrayConfig, BaseConfig, ChoiceConfig, CompareConfig, ComposeConfig, ContainsConfig, CreditCardConfig, DateConfig, DefaultConfig, DigitConfig, EmailConfig, ExtensionConfig, FactorConfig, FieldConfig, HexColorConfig, MessageConfig, NumberConfig, NumericConfig, PasswordConfig, PatternConfig, RangeConfig, RequiredConfig, RuleConfig, SizeConfig, TimeConfig, DifferentConfig, RelationalOperatorConfig, UniqueConfig } from '../../models/config'
+import { AlphaConfig, ArrayConfig, BaseConfig, ChoiceConfig, CompareConfig, ComposeConfig, ContainsConfig, CreditCardConfig, DateConfig, DefaultConfig, DigitConfig, EmailConfig, ExtensionConfig, FactorConfig, MessageConfig, NumberConfig, NumericConfig, PasswordConfig, PatternConfig, RangeConfig, RequiredConfig, RuleConfig, SizeConfig, TimeConfig, DifferentConfig, RelationalOperatorConfig, UniqueConfig } from '../../models/config'
 import { RegexValidator } from '../../util';
-const COMPOSE: string = 'compose';
 
 const NGMODEL_BINDING: any = {
     provide: NG_VALIDATORS,

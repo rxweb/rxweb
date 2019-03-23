@@ -1,8 +1,8 @@
 import { Input } from "@angular/core"
-import { Validator, ValidatorFn, AbstractControl, FormControl } from '@angular/forms';
+import {  ValidatorFn, AbstractControl, FormControl } from '@angular/forms';
 import {
-    INPUT, SELECT, CHECKBOX, TEXTAREA, KEYPRESS, ONCHANGE, ONKEYUP, ONCLICK,
-    RADIO, FILE, ELEMENT_VALUE, BLUR, FOCUS, CHANGE, BLANK
+    INPUT, SELECT, CHECKBOX, TEXTAREA, 
+    RADIO, FILE, CHANGE
 } from "../../const";
 
 import { ControlExpressionProcess } from './control-expression-process'
