@@ -4,18 +4,16 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RxFormBuilder } from "./rx-form-builder";
 import { RxwebFormDirective } from "../directives/rx-form.directive";
 import { DecimalProvider } from "../domain/element-processor/decimal.provider"
-import { RxwebDynamicFormComponent} from '../components/rx-web-dynamic-form.component'
-import { RxwebControlComponent } from '../components/rxweb-control.component'
 import { HtmlControlTemplateDirective} from '../directives/html-control-template.directive'
 import { ControlHostDirective} from '../directives/control-host.directive'
 import {RxFormControlDirective  } from "../directives/template-validations/rxformcontrol.directive"
 import {FileControlDirective } from "../directives/template-validations/file-control.directive"
 import {ImageFileControlDirective} from "../directives/template-validations/image-file-control.directive"
 @NgModule({
-    declarations: [RxwebFormDirective, RxwebDynamicFormComponent,HtmlControlTemplateDirective,RxwebControlComponent,ControlHostDirective,RxFormControlDirective,FileControlDirective,ImageFileControlDirective  ],
+    declarations: [RxwebFormDirective, HtmlControlTemplateDirective,ControlHostDirective,RxFormControlDirective,FileControlDirective,ImageFileControlDirective  ],
     imports: [CommonModule,FormsModule, ReactiveFormsModule],
     providers: [RxFormBuilder,DecimalProvider, DecimalPipe],
-    exports:[RxwebFormDirective,RxwebDynamicFormComponent,HtmlControlTemplateDirective,RxwebControlComponent,RxFormControlDirective,FileControlDirective ,ImageFileControlDirective ]
+    exports:[RxwebFormDirective,HtmlControlTemplateDirective,RxFormControlDirective,FileControlDirective ,ImageFileControlDirective ]
 })
 export class RxReactiveFormsModule {
     static forRoot(): ModuleWithProviders { return { ngModule: RxReactiveFormsModule, providers: [] }; }

@@ -11,7 +11,6 @@ export class FormProvider{
    
 
     static ProcessRule(control:AbstractControl,config:any,isDynamicConfig:boolean = false) : boolean | {[key:string]:any} {
-        const controlValue = control.value;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         const parentObject = (control.parent) ? control.parent.value : undefined;
         let modelInstance = undefined;

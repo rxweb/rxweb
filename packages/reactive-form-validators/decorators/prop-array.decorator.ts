@@ -5,7 +5,6 @@ import { Type } from "../util/index";
 import { PropConfig } from "../models/config/prop-config"
 
 export function propArray<T>(entity:Type<T>,config?:PropConfig) {
-    var entityType = entity;
     return function (
         target: Object,
         propertyKey: string, parameterIndex?: any

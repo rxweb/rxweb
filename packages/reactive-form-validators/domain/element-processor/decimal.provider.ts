@@ -1,6 +1,5 @@
 import { Injectable, Inject, LOCALE_ID } from "@angular/core"
 import { getLocaleNumberSymbol, NumberSymbol } from "@angular/common"
-import { AbstractControl } from "@angular/forms"
 import { DecimalPipe } from "@angular/common"
 import { RegexValidator } from '../../util/regex-validator';
 import { BLANK } from "../../const"

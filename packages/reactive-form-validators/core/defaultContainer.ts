@@ -1,7 +1,7 @@
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from './validator.interface';
 import { Linq } from "../util/linq";
 import { AnnotationTypes } from "./validator.static";
-import { PROPERTY,OBJECT_PROPERTY,RXCODE } from "../const";
+import { PROPERTY,RXCODE } from "../const";
 
 export const defaultContainer:
     {

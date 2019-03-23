@@ -4,7 +4,6 @@ import {
 } from "@angular/forms";
 
 import { RegexValidator } from "../util/regex-validator";
-import { RegExRule } from "../util/regex-rules";
 import { ObjectMaker } from "../util/object-maker";
 import { CreditCardConfig } from "../models/config/credit-card-config";
 import {getConfigObject} from "../util/config-provider"
