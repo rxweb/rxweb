@@ -1,6 +1,6 @@
 import { FormGroup } from '@angular/forms';
 
-import { prop, propObject, RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '../../../packages/reactive-form-validators';
+import { prop, propObject, RxFormBuilder, RxFormGroup } from '../../../packages/reactive-form-validators';
 
 export class Address {
     @prop()

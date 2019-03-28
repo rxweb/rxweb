@@ -1,5 +1,5 @@
 
-import { RxFormControl, required, ReactiveFormConfig, RxFormBuilder, IFormGroup, RxFormGroup, FormGroupExtension } from '@rxweb/reactive-form-validators';
+import { RxFormControl, required, RxFormBuilder} from '@rxweb/reactive-form-validators';
 
 
 export class Record {
