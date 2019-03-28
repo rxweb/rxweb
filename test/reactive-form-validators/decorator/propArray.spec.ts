@@ -1,63 +1,58 @@
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, FormArray, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormArray } from '@angular/forms';
 
-import { ReactiveFormConfig,RxFormBuilder,FormBuilderConfiguration,RxFormGroup} from '../../../packages/reactive-form-validators';
+import { prop, required, propArray, RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '../../../packages/reactive-form-validators';
 
-
-import {  prop,propObject,required,propArray,RxwebValidators } from    '../../../packages/reactive-form-validators';  
-
-export class Skill{
+export class Skill {
     @prop()
-    name:string;
-  }
+    name: string;
+}
 export class Person {
-  
+
     @propArray(Skill)
-    skills:Skill[];
+    skills: Skill[];
 
-   @required()    
-    name:string;    
+    @required()
+    name: string;
 }
 
 
-(function() {
-    describe('prop-array', () => {
-      let formBuilder = new RxFormBuilder();
-  
-   describe('prop-array-function-spec', () => {
-it('should not error, create group function object based on propArray',
-() => {
-var formBuilderConfig = new FormBuilderConfiguration();
-  formBuilderConfig.autoInstanceConfig = {
-    arrayPropInstanceConfig:[{
-      propertyName:'skills',
-      rowItems:10
-    }]
-}
-    let formGroup = <RxFormGroup>formBuilder.formGroup(Person,formBuilderConfig);
-    expect(formGroup.modelInstance.constructor).toEqual(Person);  
-    expect(formGroup.modelInstance.skills[0].constructor).toEqual(Skill);
-    expect(formGroup.modelInstance.skills.length).toEqual(10);
+describe('prop-array', () => {
+    let formBuilder = new RxFormBuilder();
+
+    describe('prop-array-function-spec', () => {
+        it('should not error, create group function object based on propArray',
+            () => {
+                var formBuilderConfig = new FormBuilderConfiguration();
+                formBuilderConfig.autoInstanceConfig = {
+                    arrayPropInstanceConfig: [{
+                        propertyName: 'skills',
+                        rowItems: 10
+                    }]
+                }
+                let formGroup = <RxFormGroup>formBuilder.formGroup(Person, formBuilderConfig);
+                expect(formGroup.modelInstance.constructor).toEqual(Person);
+                expect(formGroup.modelInstance.skills[0].constructor).toEqual(Skill);
+                expect(formGroup.modelInstance.skills.length).toEqual(10);
 
 
-   let skillGroup = <FormGroup>formGroup.controls.skills['controls'][0];
-   expect(skillGroup.controls.name.value).toBeNull();
+                let skillGroup = <FormGroup>formGroup.controls.skills['controls'][0];
+                expect(skillGroup.controls.name.value).toBeNull();
 
-   let skillFormGroup = formBuilder.group({
-       skillname : ['Development']
-    
-   })
-    expect(skillFormGroup.controls.skillname.value).toEqual('Development');
-       });
-       it('should not error, add new element to a form with propArray',()=>{
-         let person = new Person();
-         person.skills = new Array<Skill>();
-         let skill = new Skill();
-         person.skills.push(skill)
-         let userFormGroup = formBuilder.formGroup(person);
+                let skillFormGroup = formBuilder.group({
+                    skillname: ['Development']
 
-          let skillFormGroup = userFormGroup.controls.skills as FormArray;
-          expect(skillFormGroup.push(formBuilder.formGroup(Skill)));
-       })
-      });
-    })
-})();
+                })
+                expect(skillFormGroup.controls.skillname.value).toEqual('Development');
+            });
+        it('should not error, add new element to a form with propArray', () => {
+            let person = new Person();
+            person.skills = new Array<Skill>();
+            let skill = new Skill();
+            person.skills.push(skill)
+            let userFormGroup = formBuilder.formGroup(person);
+
+            let skillFormGroup = userFormGroup.controls.skills as FormArray;
+            expect(skillFormGroup.push(formBuilder.formGroup(Skill)));
+        })
+    });
+})

@@ -1,10 +1,4 @@
-
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
-
-import { ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-
-import {  mac,prop, } from    '../../../packages/reactive-form-validators';  
+import { mac, prop,ReactiveFormConfig,RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 export class MacAddressInfo {
 
@@ -27,7 +21,6 @@ export class MacAddressInfo {
 
 
 
-(function() {
   describe('Decorator', () => {
     let formBuilder = new RxFormBuilder();
     beforeEach(() => {
@@ -129,4 +122,3 @@ export class MacAddressInfo {
 	//end
     });
   });
-})();

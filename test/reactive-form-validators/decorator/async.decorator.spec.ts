@@ -1,10 +1,5 @@
-
-import { AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
-
-import { ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration } from '../../../packages/reactive-form-validators';
-
-
-import { async, prop } from '../../../packages/reactive-form-validators';
+import { FormControl} from '@angular/forms';
+import { async, prop, RxFormBuilder, FormBuilderConfiguration } from '@rxweb/reactive-form-validators';
 
 function isUniqueUserName(control: FormControl) {
     const promise = new Promise((resolve, reject) => {
@@ -41,7 +36,6 @@ export class User {
 
 
 
-(function () {
     describe('Decorator', () => {
         let formBuilder = new RxFormBuilder();
 
@@ -74,4 +68,3 @@ export class User {
             //end
         });
     });
-})();

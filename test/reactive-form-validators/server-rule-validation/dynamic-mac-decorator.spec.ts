@@ -1,6 +1,5 @@
-import { ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '../../../packages/reactive-form-validators';
+import { prop, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '@rxweb/reactive-form-validators';
 
-import { mac, prop, } from "../../../packages/reactive-form-validators"
 
 export class MacAddressInfo {
 
@@ -15,7 +14,6 @@ export class MacAddressInfo {
 
 }
 
-(function () {
     describe('Dynamic Validation decorator', () => {
         let formBuilder = new RxFormBuilder();
         beforeEach(() => {
@@ -88,4 +86,3 @@ export class MacAddressInfo {
             //end
         });
     });
-})();

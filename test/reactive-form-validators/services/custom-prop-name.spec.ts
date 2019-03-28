@@ -1,8 +1,5 @@
 
-import {  RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-
-import { prop, propObject, propArray,alpha } from '../../../packages/reactive-form-validators';
+import { RxFormBuilder, prop, propObject, propArray, alpha } from '@rxweb/reactive-form-validators';
 
 export class Address{
     @prop()
@@ -32,7 +29,6 @@ export class User {
 
 
 
-(function () {
     describe('prop-config', () => {
         let formBuilder = new RxFormBuilder();
 
@@ -92,4 +88,3 @@ export class User {
             //end
         });
     });
-})();

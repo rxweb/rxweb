@@ -1,6 +1,4 @@
-import { ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, RxFormGroup, NumericValueType } from '../../../packages/reactive-form-validators';
-
-import { numeric, prop } from '../../../packages/reactive-form-validators';
+import { prop ,ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, RxFormGroup, NumericValueType } from '@rxweb/reactive-form-validators';
 
 export class UserInfo {
 
@@ -22,7 +20,6 @@ export class UserInfo {
 }
 
 
-(function () {
     describe('Dynamic Validation decorator', () => {
         let formBuilder = new RxFormBuilder();
         beforeEach(() => {
@@ -136,4 +133,3 @@ export class UserInfo {
             //end
         });
     });
-})();  

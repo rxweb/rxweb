@@ -1,4 +1,4 @@
-import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '../../../packages/reactive-form-validators';
+import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '@rxweb/reactive-form-validators';
 
 export class User {
 
@@ -15,7 +15,6 @@ export class User {
 	otherAge: number;
 
 }
-(function() {
     describe('Dyanmic-greaterThan-validation-decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -100,4 +99,3 @@ export class User {
 
       })
     })
-})();

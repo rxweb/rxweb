@@ -1,10 +1,5 @@
+import { primeNumber, prop,ReactiveFormConfig,RxFormBuilder } from '@rxweb/reactive-form-validators';
 
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
-
-import { ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-
-import {  primeNumber,prop, } from    '../../../packages/reactive-form-validators';  
 
 export class NumberInfo {
 
@@ -27,7 +22,6 @@ export class NumberInfo {
 
 
 
-(function() {
   describe('Decorator', () => {
     let formBuilder = new RxFormBuilder();
     beforeEach(() => {
@@ -129,4 +123,3 @@ export class NumberInfo {
 	//end
     });
   });
-})();

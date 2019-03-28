@@ -1,6 +1,5 @@
-import { ReactiveFormConfig, RxFormBuilder } from '../../../packages/reactive-form-validators';
+import { rule, prop ,ReactiveFormConfig, RxFormBuilder } from '../../../packages/reactive-form-validators';
 
-import { rule, prop } from '../../../packages/reactive-form-validators';
 
 export class AddressInfo {
 
@@ -24,7 +23,6 @@ export class AddressInfo {
 }
 
 
-(function () {
     describe('Decorator', () => {
         let formBuilder = new RxFormBuilder();
         beforeEach(() => {
@@ -126,4 +124,3 @@ export class AddressInfo {
             //end
         });
     });
-})();

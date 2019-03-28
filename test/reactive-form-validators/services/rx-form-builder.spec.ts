@@ -1,10 +1,7 @@
+import { FormGroup, FormArray} from '@angular/forms';
 
-import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import { prop, propObject, required, propArray, email ,RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '@rxweb/reactive-form-validators';
 
-import { ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '../../../packages/reactive-form-validators';
-
-
-import { prop, propObject, required, propArray, email } from '../../../packages/reactive-form-validators';
 
 export class Skill {
     @prop()
@@ -68,7 +65,6 @@ export class UserModel {
 
 
 
-(function () {
     describe('rx-form-builder', () => {
         let formBuilder = new RxFormBuilder();
 
@@ -129,4 +125,3 @@ export class UserModel {
             //end
         });
     });
-})();

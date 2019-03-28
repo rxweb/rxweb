@@ -1,4 +1,4 @@
-import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '../../../packages/reactive-form-validators';
+import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '@rxweb/reactive-form-validators';
 
 export class User {
 
@@ -12,7 +12,6 @@ export class User {
 	videoDataUri: string;
 
 }
-(function() {
     describe('Decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -74,4 +73,3 @@ export class User {
         });
       });
     });
-})();

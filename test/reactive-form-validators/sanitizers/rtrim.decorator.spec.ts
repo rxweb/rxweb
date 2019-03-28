@@ -1,5 +1,5 @@
 
-import { RxFormBuilder, rtrim, prop, RxFormGroup } from '../../../packages/reactive-form-validators';
+import { RxFormBuilder, rtrim, prop, RxFormGroup } from '@rxweb/reactive-form-validators';
 
 
 

@@ -1,9 +1,4 @@
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
-
-import { ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-
-import { oneOf , prop} from    '../../../packages/reactive-form-validators'; 
+import { oneOf, prop,ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
 
 export class EmployeeInfo{
 
@@ -22,7 +17,6 @@ export class EmployeeInfo{
     @oneOf({matchValues:["Drawing", "Singing","Dancing","Travelling","Sports"],message: "Please select atleast 1 hobby"})
     hobbies: string;
 }
-(function() {
     describe('Decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -113,4 +107,3 @@ expect(formGroup.controls.hobbies.errors).toEqual({'oneOf':{ message: 'Please se
 
     })
   })
-})();

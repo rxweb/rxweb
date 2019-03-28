@@ -1,6 +1,4 @@
-import {  factor ,prop } from   '../../../packages/reactive-form-validators'; 
-
-import { ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
+import { factor, prop ,ReactiveFormConfig,RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 
 export class User {
@@ -27,7 +25,6 @@ export class User {
 
 }
 
-(function() {
     describe('Decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -137,4 +134,3 @@ export class User {
       //end
       });
     });
-})();

@@ -1,10 +1,8 @@
-import { AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
+import {  FormControl} from '@angular/forms';
 
-import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-form-validators';
-import { IpVersion } from "../../../packages/reactive-form-validators"
+import { IpVersion ,RxwebValidators, ReactiveFormConfig } from '@rxweb/reactive-form-validators';
 
 
-(function () {
   describe('Validator', () => {
     beforeEach(() => {
       ReactiveFormConfig.set({
@@ -78,4 +76,3 @@ import { IpVersion } from "../../../packages/reactive-form-validators"
       //end
     });
   });
-})();

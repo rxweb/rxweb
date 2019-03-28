@@ -16,7 +16,6 @@ export class User {
 
 }
 
-(function() {
     describe('Dyanmic-lessThanEqualTo-validation-decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -105,4 +104,3 @@ export class User {
 
       })
     })
-})();

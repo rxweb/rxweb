@@ -1,6 +1,6 @@
-﻿import { Component,OnInit } from "@angular/core";
+﻿import { Component } from "@angular/core";
 
-import {  alpha, } from    '../../../../../packages/reactive-form-validators';  
+import { alpha, } from '@rxweb/reactive-form-validators'; 
 
 export class AddressInfo {
 

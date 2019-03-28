@@ -1,5 +1,4 @@
-import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '../../../packages/reactive-form-validators';
-import { User } from '../decorator/maxLength.decorator.spec';
+import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '@rxweb/reactive-form-validators';
 
 export class HexcolorInfo {
 
@@ -13,7 +12,6 @@ export class HexcolorInfo {
 	bodyHexcolorCode: string;
 
 }
-(function() {
     describe('Dyanmic-hexColor-validation-decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -93,4 +91,3 @@ export class HexcolorInfo {
           });          
       });
     });
-})();

@@ -1,10 +1,4 @@
-
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
-
-import { ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-
-import {  time,prop, } from    '../../../packages/reactive-form-validators';  
+import { time, prop,ReactiveFormConfig,RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 export class AttandanceDetail {
 
@@ -30,7 +24,6 @@ export class AttandanceDetail {
 
 
 
-(function() {
   describe('Decorator', () => {
     let formBuilder = new RxFormBuilder();
     beforeEach(() => {
@@ -157,4 +150,3 @@ export class AttandanceDetail {
 	//end
     });
   });
-})();

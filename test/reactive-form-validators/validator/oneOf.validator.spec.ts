@@ -1,8 +1,7 @@
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 
 import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-form-validators';
 
-(function() {
     describe('Validator', () => {
       let formbuilder = new FormBuilder();
       beforeEach(() => {
@@ -108,4 +107,3 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
             expect(employeeFormGroup.controls.hobbies.errors).toEqual({'oneOf':{ message: 'Please select atleast 1 hobby', refValues: [[]] } });
       });
     })
-})();

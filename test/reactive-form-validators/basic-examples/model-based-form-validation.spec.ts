@@ -1,15 +1,9 @@
-import { AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
-
-import { ReactiveFormConfig, RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-import { alpha } from "../../../packages/reactive-form-validators";
+import { alpha , ReactiveFormConfig, RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 export class Country {
   @alpha()
   countryName: string;
 }
-
-(function () {
 
   describe('model-form-based-validation', () => {
     let formBuilder = new RxFormBuilder();
@@ -51,4 +45,3 @@ export class Country {
         expect(formGroup.controls.countryName.errors).toEqual({ 'alpha': { message: 'Only alphabets are allowed.', refValues: ['United-States-of-America'] } });
       });
   })
-})();

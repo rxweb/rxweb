@@ -1,7 +1,4 @@
-import {RxFormBuilder,FormBuilderConfiguration,RxFormGroup} from '../../../packages/reactive-form-validators';
-
-
-import {  prop} from    '../../../packages/reactive-form-validators'; 
+import {prop,RxFormBuilder,FormBuilderConfiguration,RxFormGroup} from '../../../packages/reactive-form-validators';
 
 export class Employee{
     @prop()
@@ -9,8 +6,6 @@ export class Employee{
 
     email : string;
 }
-
-(function() {
 
     describe('prop', () => {
         let formBuilder = new RxFormBuilder();
@@ -39,4 +34,3 @@ export class Employee{
         expect(formGroup.controls.firstName.value).toEqual("Ushmi");
      });
     });
-})();

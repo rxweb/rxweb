@@ -1,4 +1,4 @@
-import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '../../../packages/reactive-form-validators';
+import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '@rxweb/reactive-form-validators';
 
 export class Country {
 
@@ -13,7 +13,6 @@ export class Country {
 
 }
 
-    (function() {
         describe('Dyanmic-latitude-validation-decorator', () => {
         let formBuilder = new RxFormBuilder();
         beforeEach(() => {
@@ -63,4 +62,3 @@ export class Country {
 
       });
     });
-})();   

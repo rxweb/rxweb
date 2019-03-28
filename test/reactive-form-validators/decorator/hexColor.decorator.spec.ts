@@ -1,10 +1,4 @@
-
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
-
-import { ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-
-import {  hexColor, } from    '../../../packages/reactive-form-validators';  
+import { hexColor,  ReactiveFormConfig,RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 export class HexcolorInfo {
 
@@ -27,7 +21,6 @@ export class HexcolorInfo {
 
 
 
-(function() {
   describe('Decorator', () => {
     let formBuilder = new RxFormBuilder();
     beforeEach(() => {
@@ -143,4 +136,3 @@ export class HexcolorInfo {
 	//end
     });
   });
-})();

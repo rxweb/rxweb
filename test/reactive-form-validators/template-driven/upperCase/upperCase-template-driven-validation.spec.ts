@@ -1,7 +1,4 @@
-import { fakeAsync, tick} from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { NgForm } from "@angular/forms"
-
+import { fakeAsync} from '@angular/core/testing';
 
 import { specTester } from "../spec-tester"
 import { createInstance } from "../component-provider"

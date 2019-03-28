@@ -1,5 +1,5 @@
 
-import { RxFormBuilder, toDouble, prop, RxFormGroup } from '../../../packages/reactive-form-validators';
+import { RxFormBuilder, toDouble, prop, RxFormGroup } from '@rxweb/reactive-form-validators';
 
 
 

@@ -15,7 +15,6 @@ export class Country {
 }
 
 
-(function() {
     describe('Dyanmic-latLong-validation-decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -76,4 +75,3 @@ export class Country {
 
       })
     })
-})();

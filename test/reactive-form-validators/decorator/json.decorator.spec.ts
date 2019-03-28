@@ -1,7 +1,4 @@
-import { ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-
-import {  json,prop } from    '../../../packages/reactive-form-validators';  
+import { json, prop ,ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
 
 export class JsonInfo {
 
@@ -18,7 +15,6 @@ export class JsonInfo {
 	contactJson: string;
 
 }
-(function() {
     describe('Decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -42,4 +38,3 @@ export class JsonInfo {
 
       })
     })
-})();

@@ -1,5 +1,5 @@
 
-import { RxFormBuilder, whitelist, prop, RxFormGroup } from '../../../packages/reactive-form-validators';
+import { RxFormBuilder, whitelist, prop, RxFormGroup } from '@rxweb/reactive-form-validators';
 
 
 

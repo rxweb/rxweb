@@ -1,9 +1,4 @@
-
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
-
-import { ReactiveFormConfig,RxFormBuilder,prop,and } from '../../../packages/reactive-form-validators';
-
-
+import { ReactiveFormConfig, RxFormBuilder, prop, and } from '@rxweb/reactive-form-validators';
 
 export class UserInfo {
   @prop()
@@ -14,10 +9,6 @@ export class UserInfo {
 
 }
 
-
-
-
-(function() {
   describe('Decorator', () => {
     let formBuilder = new RxFormBuilder();
     beforeEach(() => {
@@ -63,4 +54,3 @@ export class UserInfo {
 	//end
     });
   });
-})();

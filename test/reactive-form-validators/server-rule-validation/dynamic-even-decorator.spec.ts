@@ -1,4 +1,4 @@
-import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '../../../packages/reactive-form-validators';
+import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '@rxweb/reactive-form-validators';
 
 
 export class User {
@@ -15,7 +15,6 @@ export class User {
 }
 
 
-(function() {
     describe('Dyanmic-even-validation-decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -76,4 +75,3 @@ export class User {
 
       })
     })
-})();

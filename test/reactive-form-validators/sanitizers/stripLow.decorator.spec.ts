@@ -1,5 +1,5 @@
 
-import { RxFormBuilder, stripLow, prop, RxFormGroup } from '../../../packages/reactive-form-validators';
+import { RxFormBuilder, stripLow, prop, RxFormGroup } from '@rxweb/reactive-form-validators';
 
 
 

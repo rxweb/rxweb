@@ -1,7 +1,4 @@
-import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '../../../packages/reactive-form-validators';
-
-
-import {  password, } from    '../../../packages/reactive-form-validators';  
+import { password,ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '../../../packages/reactive-form-validators';
 
 export class LoginInfo {
 
@@ -13,7 +10,6 @@ export class LoginInfo {
 
 }
 
-(function() {
   describe('Dyanmic-password-validation-decorator', () => {
     let formBuilder = new RxFormBuilder();
     beforeEach(() => {
@@ -64,4 +60,3 @@ export class LoginInfo {
 
         });
     })
-})();

@@ -1,10 +1,5 @@
+import { greaterThanEqualTo, prop,ReactiveFormConfig,RxFormBuilder } from '@rxweb/reactive-form-validators';
 
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
-
-import { ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-
-import {  greaterThanEqualTo,prop, } from    '../../../packages/reactive-form-validators';  
 
 export class User {
 

@@ -8,6 +8,9 @@
       "node"
     ]
   },
+  "paths": {
+    "@rxweb/reactive-form-validators": [ "packages/reactive-form-validators" ]
+  },
   "files": [
     "test.ts",
     "polyfills.ts"

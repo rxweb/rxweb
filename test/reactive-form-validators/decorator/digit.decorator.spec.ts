@@ -1,10 +1,4 @@
-
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
-
-import { ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-
-import {  digit, } from    '../../../packages/reactive-form-validators';  
+import { digit, ReactiveFormConfig,RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 export class User {
 
@@ -24,11 +18,7 @@ export class User {
 
 }
 
-
-
-
-(function() {
-  describe('Decorator', () => {
+describe('Decorator', () => {
     let formBuilder = new RxFormBuilder();
     beforeEach(() => {
       ReactiveFormConfig.set({
@@ -143,4 +133,3 @@ export class User {
 	//end
     });
   });
-})();

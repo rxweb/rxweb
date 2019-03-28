@@ -1,6 +1,4 @@
-import { RxFormBuilder, ReactiveFormConfig } from "packages/reactive-form-validators";
-
-import {  leapYear,prop, } from '../../../packages/reactive-form-validators';  
+import { leapYear, prop,RxFormBuilder, ReactiveFormConfig } from "packages/reactive-form-validators";
 
 export class User {
 
@@ -21,7 +19,6 @@ export class User {
 }
 
 
-(function() {
     describe('Decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -117,4 +114,3 @@ it("Should not error, leapYear decorator  Conditional Expression with type 'stri
 	//end
 });
 });
-})();  

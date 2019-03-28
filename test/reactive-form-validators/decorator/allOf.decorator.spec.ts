@@ -1,9 +1,4 @@
-import {AbstractControl, AsyncValidatorFn, FormBuilder, FormArray, FormControl, Validators} from '@angular/forms';
-
-import { ReactiveFormConfig,RxFormBuilder } from '../../../packages/reactive-form-validators';
-
-
-import {  allOf, prop} from    '../../../packages/reactive-form-validators'; 
+import { allOf, prop, ReactiveFormConfig, RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 export class EmployeeInfo{
 
@@ -23,7 +18,6 @@ export class EmployeeInfo{
     hobbies: string;
 }
 
-(function() {
     describe('Decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -114,4 +108,3 @@ expect(formGroup.controls.hobbies.errors).toEqual({'allOf':{ message: 'Please se
 });
       })
     })
-})();

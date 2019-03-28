@@ -13,7 +13,6 @@ export class Country {
 
 }
 
-(function() {
     describe('Dyanmic-longitude-validation-decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -75,4 +74,3 @@ export class Country {
 
       })
     })
-})();

@@ -1,6 +1,6 @@
 ﻿import {FormGroup, FormArray} from '@angular/forms';
 
-import { RxFormBuilder, RxFormGroup, prop, propObject, propArray } from '../../../packages/reactive-form-validators';
+import { RxFormBuilder, RxFormGroup, prop, propObject, propArray } from '@rxweb/reactive-form-validators';
 
 export class Address {
     @prop()
@@ -23,7 +23,6 @@ export class User {
 }
 
 
-(function(){
  describe('patch-model-value',()=>{
      let formBuilder = new RxFormBuilder();
      beforeEach(() => {});
@@ -71,4 +70,3 @@ export class User {
      
 
 })
-})();

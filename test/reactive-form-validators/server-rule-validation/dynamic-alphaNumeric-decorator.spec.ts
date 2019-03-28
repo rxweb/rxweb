@@ -1,4 +1,4 @@
-import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '../../../packages/reactive-form-validators';
+import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '@rxweb/reactive-form-validators';
 
 	export class Location {
 
@@ -16,7 +16,6 @@ import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup
     
 }
 
-(function() {
     describe('Dyanmic-alphaNumeric-validation-decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -133,4 +132,3 @@ it('should error in postalAddress adding custom message in dynamic alphaNumeric 
  }); 
 
 })
-})();

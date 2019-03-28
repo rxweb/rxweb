@@ -13,7 +13,6 @@ export class User {
 
 }
 
-(function() {
     describe('Dyanmic-leapYear-validation-decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -75,4 +74,3 @@ export class User {
 
       })
     })
-})();

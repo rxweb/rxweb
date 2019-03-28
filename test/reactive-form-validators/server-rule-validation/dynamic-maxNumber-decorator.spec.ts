@@ -1,6 +1,4 @@
-import { ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '../../../packages/reactive-form-validators';
-
-import { maxNumber, prop } from '../../../packages/reactive-form-validators';
+import { prop, ReactiveFormConfig, RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '@rxweb/reactive-form-validators';
 
 export class SubjectDetails {
 
@@ -19,7 +17,6 @@ export class SubjectDetails {
 }
 
 
-(function () {
     describe('Dynamic Validation decorator', () => {
         let formBuilder = new RxFormBuilder();
         beforeEach(() => {
@@ -120,4 +117,3 @@ export class SubjectDetails {
             //end
         });
     });
-})();  

@@ -29,7 +29,6 @@ export class User {
 
 }
 
-(function() {
     describe('Dyanmic-credit-card-validation-decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -344,4 +343,3 @@ expect(formGroup.controls.dinersClubCard.errors).toBeNull();
 ///
       })
     })
-})();

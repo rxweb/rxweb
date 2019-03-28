@@ -1,4 +1,4 @@
-import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '../../../packages/reactive-form-validators';
+import { ReactiveFormConfig,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, prop } from '@rxweb/reactive-form-validators';
 
 export class User {
 
@@ -18,7 +18,6 @@ export class User {
 	sixthNumber: number;
 
 }
-(function() {
     describe('Dyanmic-factor-validation-decorator', () => {
       let formBuilder = new RxFormBuilder();
       beforeEach(() => {
@@ -125,4 +124,3 @@ export class User {
 
       })
     })
-})()
