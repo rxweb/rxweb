@@ -424,7 +424,6 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 this.conditionalObjectProps = [];
                                 this.builderConfigurationConditionalObjectProps = [];
                             }
-                            let formBuilder = new FormBuilder();
                             formGroupObject[property.name] = new RxFormArray(arrayObjectValue, formArrayGroup);
                             this.isNestedBinding  = this.isNested = false;
                         } else if (arrayObjectValue instanceof FormArray)

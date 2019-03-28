@@ -15,8 +15,7 @@ export function factorValidator(configModel: FactorConfig): ValidatorFn {
 
   function positiveFactors(dividend, value) {
     let isPositive = false;
-    let index = 1;
-    for (index = 1; index <= Math.floor(Math.sqrt(dividend)); index += 1) {
+    for (var index = 1; index <= Math.floor(Math.sqrt(dividend)); index += 1) {
       if (dividend % index === 0) {
         if (index == value)
           isPositive = true;

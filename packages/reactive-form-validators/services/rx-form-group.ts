@@ -1,4 +1,4 @@
-import { FormGroup,FormArray,FormControl ,AbstractControl,ValidatorFn,AsyncValidatorFn } from "@angular/forms";
+import { FormGroup,FormArray,FormControl ,AbstractControl,AsyncValidatorFn } from "@angular/forms";
 import { RxFormControl } from "./form-control";
 import { clone } from './entity.service';
 import { RegexValidator } from '../util/regex-validator';

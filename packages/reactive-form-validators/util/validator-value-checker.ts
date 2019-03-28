@@ -1,5 +1,4 @@
 import { AbstractControl } from "@angular/forms";
-import { ApplicationUtil } from "./app-util";
 import { FormProvider } from "./form-provider";
 import { RegexValidator } from "./regex-validator";
 

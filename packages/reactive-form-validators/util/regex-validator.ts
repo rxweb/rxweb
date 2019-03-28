@@ -1,6 +1,5 @@
 import { PasswordValidation } from "../models/password-validation.model";
 import { RegExRule } from "./regex-rules";
-import { ReactiveFormConfig } from "./reactive-form-config";
 
 const ALPHABET: string = "alphabet";
 const DIGIT: string = "digit";

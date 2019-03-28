@@ -1,5 +1,5 @@
 import {
-    ValidatorFn,AbstractControl
+    ValidatorFn
 } from "@angular/forms";
 import { DefaultConfig } from "../models/config/default-config";
 import { jsonValidator  } from '../reactive-form-validators/index'

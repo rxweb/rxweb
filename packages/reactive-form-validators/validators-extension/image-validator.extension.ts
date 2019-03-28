@@ -2,7 +2,6 @@ import {
     ValidatorFn
 } from "@angular/forms";
 import { ImageConfig } from "../models/config/image-config";
-import { imageValidator } from '../reactive-form-validators/index'
 import { AnnotationTypes } from "../core/validator.static"
 import { baseValidator } from "./base-validator.function";
 

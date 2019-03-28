@@ -107,13 +107,10 @@ export class ApplicationUtil{
 
     static numericValidation(allowDecimal:boolean, acceptValue:NumericValueType) {
       let decimalSymbol:string;
-      let groupSymbol:string;
       if(ReactiveFormConfig && ReactiveFormConfig.number){
         decimalSymbol = (ReactiveFormConfig.json && ReactiveFormConfig.json.allowDecimalSymbol) ? ReactiveFormConfig.json.allowDecimalSymbol :  ReactiveFormConfig.number.decimalSymbol;
-        groupSymbol = ReactiveFormConfig.number.groupSymbol;
       }else{
         decimalSymbol = ".";
-        groupSymbol = ",";
       }
         
         acceptValue = (acceptValue == undefined) ? NumericValueType.PositiveNumber : acceptValue;

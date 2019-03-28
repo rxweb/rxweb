@@ -2,7 +2,6 @@ import {
     ValidatorFn
 } from "@angular/forms";
 import { FileConfig } from "../models/config/file-config";
-import { fileValidator } from '../reactive-form-validators/index'
 import { AnnotationTypes } from "../core/validator.static"
 import { baseValidator } from "./base-validator.function";
 

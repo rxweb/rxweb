@@ -43,7 +43,7 @@ export class DecimalProvider {
     }
 
     bindConfig(){
-        if(ReactiveFormConfig.json && ReactiveFormConfig.json){
+        if(ReactiveFormConfig.json){
             if(ReactiveFormConfig.json.localeId)
             this.localeId = ReactiveFormConfig.json.localeId;
             if(ReactiveFormConfig.json.allowDecimalSymbol)

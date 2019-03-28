@@ -1,5 +1,5 @@
 import {
-  ValidatorFn, AbstractControl
+  ValidatorFn
 } from "@angular/forms";
 import { BaseConfig } from "../models/config/base-config";
 import { asciiValidator } from '../reactive-form-validators/index'

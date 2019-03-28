@@ -20,8 +20,6 @@ export function imageValidator(configModel: ImageConfig): any {
     return new Promise((resolve, reject) => {
       if (FormProvider.ProcessRule(control, config)) {
         if (RegexValidator.isNotBlank(control.value)) {
-          let minWidth = config.minWidth ? config.minWidth : 0;
-          let minHeight = config.maxHeight ? config.maxHeight : 0;
           let testResult = false;
           for (var i = 0; i < files.length; i++) {
             let file = files.item(i);

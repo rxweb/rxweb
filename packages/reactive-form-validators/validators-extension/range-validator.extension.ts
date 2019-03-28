@@ -1,5 +1,5 @@
 import {
-    ValidatorFn,AbstractControl
+    ValidatorFn
 } from "@angular/forms";
 import { RangeConfig } from "../models/config/range-config";
 import { rangeValidator  } from '../reactive-form-validators/index'
