@@ -10,12 +10,6 @@ import { alphaValidation } from "../validators-function/alpha-validation.functio
 
 export function alphaNumericValidator(configModel: AlphaConfig): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } => {
-        return alphaValidation(
-            {
-                configModel: configModel,
-                control: control,
-                regExps: [RegExRule.alphaNumeric, RegExRule.alphaNumericWithSpace],
-                key: AnnotationTypes.alphaNumeric
-            });
+        return alphaValidation(configModel,control,[RegExRule.alphaNumeric, RegExRule.alphaNumericWithSpace],AnnotationTypes.alphaNumeric});
   }
 }

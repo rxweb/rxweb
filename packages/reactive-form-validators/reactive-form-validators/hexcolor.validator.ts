@@ -3,19 +3,12 @@ import {
   AbstractControl
 } from "@angular/forms";
 import { RegExRule } from "../util/regex-rules";
-import { RegexValidator } from "../util/regex-validator";
-import { ObjectMaker } from "../util/object-maker";
 import { AnnotationTypes } from "../core/validator.static";
 import { HexColorConfig } from "../models/config/hex-color-config";
-import { ValidatorValueChecker } from "../util/validator-value-checker";
-import {getConfigObject} from "../util/config-provider";
+import { regexValidation } from "../validators-function/regex-validation.function"
+
 export function hexColorValidator(configModel: HexColorConfig): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } => {
-    let config = getConfigObject(configModel,control);
-    if (ValidatorValueChecker.pass(control, config)) {
-      if (!RegexValidator.isValid(control.value, RegExRule.strictHexColor))
-        return ObjectMaker.toJson(AnnotationTypes.hexColor, config, [control.value])
-    }
-    return ObjectMaker.null();
+    return (control: AbstractControl): { [key: string]: any } => {
+        return regexValidation(configModel, control, RegExRule.strictHexColor, AnnotationTypes.hexColor)
   }
 }
