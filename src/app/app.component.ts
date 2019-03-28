@@ -1,7 +1,7 @@
-import { Component, OnInit, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, NG_VALIDATORS, FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl,FormControl } from "@angular/forms";
+import { Component, OnInit} from '@angular/core';
+import { FormBuilder} from "@angular/forms";
 import {
-RxwebValidators,RxFormBuilder ,ReactiveFormConfig
+RxFormBuilder ,ReactiveFormConfig
 } from "@rxweb/reactive-form-validators";
 
 
