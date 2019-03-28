@@ -2,7 +2,6 @@ import {
     ValidatorFn
 } from "@angular/forms";
 import { ExtensionConfig} from "../models/config/extension-config";
-import { extensionValidator } from '../reactive-form-validators/index'
 import { AnnotationTypes } from "../core/validator.static"
 import { baseValidator } from "./base-validator.function";
 
