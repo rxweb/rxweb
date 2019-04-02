@@ -1,4 +1,4 @@
-﻿import { FormArray } from "@angular/forms"
+﻿import { FormArray,FormGroup } from "@angular/forms"
 import { RxFormControl, required, propArray, RxFormBuilder} from '@rxweb/reactive-form-validators';
 
 
@@ -35,7 +35,7 @@ describe('generic class', () => {
         purchase.lineItems.push(new PurchaseOrderLineItem());
         let purchaseFormGroup = formbuilder.formGroup(purchase);
         let lineItemFormArray = <FormArray>purchaseFormGroup.controls.lineItems;
-        let lineItemFormGroup = lineItemFormArray.controls[0];
+        let lineItemFormGroup = <FormGroup>lineItemFormArray.controls[0];
         expect(lineItemFormGroup.controls.unitCost instanceof RxFormControl).toBe(true);
     })
 
@@ -45,7 +45,7 @@ describe('generic class', () => {
         saleOrder.lineItems.push(new SaleOrderLineItem());
         let saleOrderFormGroup = formbuilder.formGroup(saleOrder);
         let lineItemFormArray = <FormArray>saleOrderFormGroup.controls.lineItems;
-        let lineItemFormGroup = lineItemFormArray.controls[0];
+        let lineItemFormGroup = <FormGroup>lineItemFormArray.controls[0];
         expect(lineItemFormGroup.controls.unitPrice instanceof RxFormControl).toBe(true);
     })
 
@@ -58,7 +58,7 @@ describe('generic class', () => {
             genericEntities: { 'lineItems': SaleOrderLineItem }
         })
         let lineItemFormArray = <FormArray>saleOrderFormGroup.controls.lineItems;
-        let lineItemFormGroup = lineItemFormArray.controls[0];
+        let lineItemFormGroup = <FormGroup>lineItemFormArray.controls[0];
         expect(lineItemFormGroup.controls.unitPrice instanceof RxFormControl).toBe(true);
     })
 
