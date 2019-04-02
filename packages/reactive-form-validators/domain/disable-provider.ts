@@ -4,9 +4,11 @@ import { InstanceContainer } from "../core/validator.interface";
 import { OBJECT_PROPERTY } from "../const/validator.const"
 import { ApplicationUtil } from "../util/app-util";
 import { RXCODE, MODEL_INSTANCE } from "../const/app.const";
-export class DisableProvider{
+import { instanceProvider } from "../util/instance-provider.function"
 
-    constructor(private decoratorType:string){
+export class DisableProvider{
+    
+    constructor(private decoratorType: string, private entityObject: {[key:string]:any}){
 
     }
 
@@ -46,7 +48,7 @@ export class DisableProvider{
 
     private getDisabledColumns(formGroup:FormGroup,columnName:string,isRoot:Boolean,pathName:string = ""){
         if(formGroup[MODEL_INSTANCE]){
-            let instanceContainer = defaultContainer.get(formGroup[MODEL_INSTANCE].constructor);
+            let instanceContainer = instanceProvider(formGroup[MODEL_INSTANCE].constructor,this.entityObject);
             return this.getChangeDetectionColumns(instanceContainer,columnName,isRoot,pathName)
         }return [];
     }

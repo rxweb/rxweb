@@ -9,6 +9,8 @@ export class FormBuilderConfiguration{
                 this[column] = formBuilderConfiguration[column];
     }
 
+    genericEntities: { [key: string]: Function };
+
     applyAllProps?:ValidatorFn[];
 
     excludeProps?: string[];

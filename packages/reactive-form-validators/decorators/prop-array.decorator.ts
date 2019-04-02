@@ -4,7 +4,7 @@ import { ARRAY_PROPERTY } from "../const"
 import { Type } from "../util/index";
 import { PropConfig } from "../models/config/prop-config"
 
-export function propArray<T>(entity:Type<T>,config?:PropConfig) {
+export function propArray<T>(entity?:Type<T>,config?:PropConfig) {
     return function (
         target: Object,
         propertyKey: string, parameterIndex?: any

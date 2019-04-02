@@ -3,10 +3,9 @@ import { AutoInstanceConfig } from '../models/interface/auto-instance-config.int
 import { defaultContainer } from '../core/defaultContainer';
 import { InstanceContainer,PropertyInfo} from '../core/validator.interface';
 import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY } from "../const"
-import { clone,merge } from './entity.service';
 import { RegexValidator } from '../util/regex-validator';
 import { SANITIZERS } from "../util/sanitizers"
-
+import { instanceProvider ,getInstance} from "../util/instance-provider.function"
 export class BaseFormBuilder {
     constructor() {
     }
@@ -23,14 +22,14 @@ export class BaseFormBuilder {
         let instanceContainer = defaultContainer.get(model);
         let autoInstanceConfig: AutoInstanceConfig = formBuilderConfiguration ? formBuilderConfiguration.autoInstanceConfig : undefined;
         if (!autoInstanceConfig) {
-            return classInstance && typeof classInstance != "function" ? classInstance : this.getInstance(model, []);
+            return classInstance && typeof classInstance != "function" ? classInstance : getInstance(model, []);
         } else {
-            classInstance = classInstance && typeof classInstance != "function" ? classInstance : this.getInstance(model, autoInstanceConfig.arguments || [])
+            classInstance = classInstance && typeof classInstance != "function" ? classInstance : getInstance(model, autoInstanceConfig.arguments || [])
             if (autoInstanceConfig.objectPropInstanceConfig && autoInstanceConfig.objectPropInstanceConfig.length > 0) {
                 autoInstanceConfig.objectPropInstanceConfig.forEach(t => {
                     let objectProperty = instanceContainer.properties.filter(property => property.name == t.propertyName && property.propertyType == OBJECT_PROPERTY)[0];
                     if (objectProperty)
-                        classInstance[t.propertyName] = this.getInstance(objectProperty.entity, t.arguments || []);
+                        classInstance[t.propertyName] = getInstance(objectProperty.entity, t.arguments || []);
                 })
             }
             if (autoInstanceConfig.arrayPropInstanceConfig && autoInstanceConfig.arrayPropInstanceConfig.length > 0) {
@@ -39,7 +38,7 @@ export class BaseFormBuilder {
                     if (property) {
                         classInstance[t.propertyName] = [];
                         for (var i = 0; i < t.rowItems; i++) {
-                            classInstance[t.propertyName].push(this.getInstance(property.entity, t.arguments || []))
+                            classInstance[t.propertyName].push(getInstance(property.entity, t.arguments || []))
                         }
                     }
                 })
@@ -48,26 +47,27 @@ export class BaseFormBuilder {
         }
     }
 
-    protected updateObject(model: any, entityObject: any) {
-        let instanceContainer = defaultContainer.get(model);
-        let classInstance = this.getInstance(model, []);
+    protected updateObject(model: any, entityObject: any, formBuilderConfiguration: FormBuilderConfiguration) {
+        let instanceContainer = instanceProvider(model);
+        let classInstance = getInstance(model, []);
         if (instanceContainer) {
             instanceContainer.properties.forEach(t => {
+                let entity = ((t.propertyType == OBJECT_PROPERTY || t.propertyType == ARRAY_PROPERTY) && t.entity) ? t.entity: (formBuilderConfiguration && formBuilderConfiguration.genericEntities) ? formBuilderConfiguration.genericEntities[t.name] : undefined;
                 switch (t.propertyType) {
                     case PROPERTY:
                         classInstance[t.name] = this.getValue(entityObject,t)
                         break;
                     case OBJECT_PROPERTY:
-                        let objectValue = this.getValue(entityObject,t);
+                        let objectValue = this.getValue(entityObject, t);
                         if (objectValue)
-                            classInstance[t.name] = this.updateObject(t.entity,objectValue)
+                            classInstance[t.name] = this.updateObject(entity, objectValue, formBuilderConfiguration )
                         break;
                     case ARRAY_PROPERTY:
                         let arrayObjectValue = this.getValue(entityObject,t);
                         if (arrayObjectValue && Array.isArray(arrayObjectValue)) {
                             classInstance[t.name] = [];
                             for (let row of arrayObjectValue) {
-                                let instanceObject = this.updateObject(t.entity, row)
+                                let instanceObject = this.updateObject(entity, row, formBuilderConfiguration )
                                 classInstance[t.name].push(instanceObject);
                             }
                         }
@@ -80,28 +80,7 @@ export class BaseFormBuilder {
 
 
     protected instaceProvider(instanceFunc: any, entityObject: any): InstanceContainer {
-        let instance:any = defaultContainer.get(instanceFunc);
-        let prototype: any = entityObject ? entityObject.__proto__ : this.getInstance(instanceFunc, []).__proto__;
-        if (prototype.__proto__) {
-            let isLoop = false;
-            do {
-                isLoop = prototype.__proto__.constructor != Object;
-                if (isLoop) {
-                    let extendClassInstance: any = defaultContainer.get(prototype.__proto__.constructor);
-                    instance = merge(clone(instance), clone(extendClassInstance))
-                    prototype = prototype.__proto__;
-                }
-            } while (isLoop)
-
-        }
-                return instance;
-    }
-
-
-    private getInstance(model: any, objectArguments: any[]) {
-        let classInstance = Object.create(model.prototype)
-        model.apply(classInstance, objectArguments);
-        return classInstance;
+        return instanceProvider(instanceFunc, entityObject);
     }
 
     protected getDefaultValue(propertyInfo:PropertyInfo,value:any){
