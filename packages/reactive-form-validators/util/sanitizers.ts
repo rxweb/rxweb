@@ -1,24 +1,25 @@
-﻿import {DateProvider} from './date-provider'
+﻿import { DateProvider } from './date-provider'
 import { ApplicationUtil } from './app-util';
+import { SanitizeConfig } from '../models/config/sanitize-config'
 
-function isNotBlank(value:any) {
+function isNotBlank(value: any) {
     return (value !== undefined && value !== null && value !== "");
 }
-function trim(value:any){
+function trim(value: any) {
     if (isNotBlank(value))
         if (typeof value === "string")
             return value.trim();
     return value;
 };
 
-function ltrim(value:any){
+function ltrim(value: any) {
     if (isNotBlank(value))
         if (typeof value === "string")
             return value.replace(/^\s+/g, '');
     return value;
 }
 
-function rtrim(value:any){
+function rtrim(value: any) {
     if (isNotBlank(value))
         if (typeof value === "string")
             return value.replace(/\s+$/g, '');
@@ -28,65 +29,65 @@ function rtrim(value:any){
 function blacklist(value: any, chars) {
     if (isNotBlank(value))
         if (typeof value === "string")
-            return value.replace(new RegExp('[$' + chars + ']+','g'), '');
+            return value.replace(new RegExp('[$' + chars + ']+', 'g'), '');
     return value;
 };
 
-function stripLow(value:any,keepNewLines:boolean){
-    let chars:String = keepNewLines === true ? '\x00-\x09\x0B\x0C\x0E-\x1F\x7F' : '\x00-\x1F\x7F';
-    return blacklist(value,chars);
+function stripLow(value: any, keepNewLines: boolean) {
+    let chars: String = keepNewLines === true ? '\x00-\x09\x0B\x0C\x0E-\x1F\x7F' : '\x00-\x1F\x7F';
+    return blacklist(value, chars);
 }
 
-function toBoolean(value:any,strict:boolean){
-    if (isNotBlank(value)){
+function toBoolean(value: any, strict: boolean) {
+    if (isNotBlank(value)) {
         if (strict) {
             return value === '1' || value === 'true';
-          }
-          return value !== '0' && value !== 'false' && value !== '';
+        }
+        return value !== '0' && value !== 'false' && value !== '';
     }
     return value;
 }
 
-function toFloat(value:any){
-    if (isNotBlank(value) )
-        if(ApplicationUtil.isNumeric(value))
+function toFloat(value: any) {
+    if (isNotBlank(value))
+        if (ApplicationUtil.isNumeric(value))
             return parseFloat(value)
     return null;
 }
-function toDouble(value:any){
-        return toFloat(value)
+function toDouble(value: any) {
+    return toFloat(value)
 }
 
-function toInt(value:any,radix:number){
+function toInt(value: any, radix: number) {
     if (isNotBlank(value))
-        if( ApplicationUtil.isNumeric(value))
+        if (ApplicationUtil.isNumeric(value))
             return parseInt(value, radix || 10);
     return null;
 }
 
-function toString(value:any,radix:number){
+function toString(value: any, radix: number) {
     if (isNotBlank(value))
         return String(value);
     return value;
 }
-function whitelist(value:any,chars:string){
+function whitelist(value: any, chars: string) {
     if (isNotBlank(value))
-    if (typeof value === "string")
-        return value.replace(new RegExp(`[^${chars}]+`, 'g'), '');
+        if (typeof value === "string")
+            return value.replace(new RegExp(`[^${chars}]+`, 'g'), '');
     return value;
 }
 
-function toDate(value:any){
+function toDate(value: any) {
     var dateProvider = new DateProvider();
-    if(isNotBlank(value))
-        if(typeof value === "string" && dateProvider.isValid(value)){
+    if (isNotBlank(value))
+        if (typeof value === "string" && dateProvider.isValid(value)) {
             value = dateProvider.getDate(value);
             return value;
         }
     return null;
 }
 
-function escape(value:string) {
+function escape(value: string) {
     if (isNotBlank(value))
         return (value.replace(/&/g, '&amp;')
             .replace(/"/g, '&quot;')
@@ -99,7 +100,7 @@ function escape(value:string) {
     return value;
 }
 
-function prefix(value: any,text:string) {
+function prefix(value: any, text: string) {
     if (isNotBlank(value))
         return `${text}${value}`;
     return value;
@@ -111,29 +112,33 @@ function suffix(value: any, text: string) {
     return value;
 }
 
+function sanitize(value: any, config: SanitizeConfig) {
+    return config.custom(value)
+}
+
 export const SANITIZERS: { [key: string]: Function } = {
 
-    trim:trim,
+    trim: trim,
 
-    ltrim:ltrim,
+    ltrim: ltrim,
 
-    rtrim:rtrim,
+    rtrim: rtrim,
 
-    blacklist:blacklist,
+    blacklist: blacklist,
 
-    stripLow:stripLow,
+    stripLow: stripLow,
 
-    toBoolean:toBoolean,
+    toBoolean: toBoolean,
 
-    toDouble:toDouble,
+    toDouble: toDouble,
 
-    toFloat:toFloat,
+    toFloat: toFloat,
 
-    toInt:toInt,
+    toInt: toInt,
 
-    'toString':toString,
+    'toString': toString,
 
-    whitelist:whitelist,
+    whitelist: whitelist,
 
     toDate: toDate,
 
@@ -141,6 +146,7 @@ export const SANITIZERS: { [key: string]: Function } = {
 
     prefix: prefix,
 
-    suffix: suffix
+    suffix: suffix,
 
+    sanitize: sanitize
 }
