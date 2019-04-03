@@ -99,6 +99,18 @@ function escape(value:string) {
     return value;
 }
 
+function prefix(value: any,text:string) {
+    if (isNotBlank(value))
+        return `${text}${value}`;
+    return value;
+}
+
+function suffix(value: any, text: string) {
+    if (isNotBlank(value))
+        return `${value}${text}`;
+    return value;
+}
+
 export const SANITIZERS: { [key: string]: Function } = {
 
     trim:trim,
@@ -125,6 +137,10 @@ export const SANITIZERS: { [key: string]: Function } = {
 
     toDate: toDate,
 
-    escape:escape
+    escape: escape,
+
+    prefix: prefix,
+
+    suffix: suffix
 
 }

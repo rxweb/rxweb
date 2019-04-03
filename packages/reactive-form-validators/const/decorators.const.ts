@@ -13,5 +13,7 @@ export const DECORATORS:{[key:string]:string} = {
     toInt:'toInt',
     string:'toString',
     whitelist: 'whitelist',
-    escape: 'escape'
+    escape: 'escape',
+    prefix: 'prefix',
+    suffix: 'suffix'
 }

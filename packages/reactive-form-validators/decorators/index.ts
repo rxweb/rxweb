@@ -79,3 +79,5 @@ export * from './sanitize/toString.decorator';
 export * from './sanitize/whitelist.decorator';
 export * from './sanitize/toDate.decorator';
 export * from './sanitize/escape.decorator';
+export * from './sanitize/prefix.decorator';
+export * from './sanitize/suffix.decorator';
