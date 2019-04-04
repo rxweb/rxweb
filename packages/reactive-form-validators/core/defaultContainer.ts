@@ -2,7 +2,8 @@ import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from './valid
 import { Linq } from "../util/linq";
 import { AnnotationTypes } from "./validator.static";
 import { PROPERTY, RXCODE } from "../const";
-import { PropsValidationConfig } from "../models/config/props-validation-config"
+import { PropsConfig } from "../models/config/props-config"
+import { DECORATORS } from "../const/decorators.const";
 export const defaultContainer:
     {
         get<T>(instanceFunc: any): InstanceContainer,
@@ -18,7 +19,7 @@ export const defaultContainer:
         addDecoratorConfig(target: any, parameterIndex: any, propertyKey: string, config: any, decoratorType: string): void,
         setLogicalConditional(instance: any, annotationType: string, fieldName: string, propertyName: string): void,
         addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string, value?: any): void,
-        addPropsValidation(target: any, configs: PropsValidationConfig[]):void
+        addPropsConfig(target: any, configs: PropsConfig[]):void
     } = new (class {
         private instances: InstanceContainer[] = [];
         modelIncrementCount: number = 0;
@@ -35,24 +36,34 @@ export const defaultContainer:
                 instance = this.addInstanceContainer(instanceFunc);
             return instance;
         }
-        addPropsValidation(target: any, configs: PropsValidationConfig[]) {
+        addPropsConfig(target: any, configs: PropsConfig[]) {
             let instanceContainer = this.instances.filter(instance => instance.instance == target)[0];
             if (instanceContainer)
                 for (let config of configs) {
                     for (let prop of config.propNames) {
                         let propertyInfo = instanceContainer.properties.filter(t => t.name == prop)[0];
                         if (propertyInfo) {
-                            this.addPropValidation(target,[propertyInfo], config)
+                            this.addPropConfig(target,[propertyInfo], config)
                         } else
                             if (prop === ":all:")
-                                this.addPropValidation(target,instanceContainer.properties,config);
+                                this.addPropConfig(target,instanceContainer.properties,config);
                     }
                 }
         }
-        addPropValidation(target:any,properties: PropertyInfo[], config: PropsValidationConfig) {
+        addPropConfig(target:any,properties: PropertyInfo[], config: PropsConfig) {
             for (var propertyInfo of properties) {
-                for (let typeName in config.validation) {
-                    this.init({ constructor: target }, 0, propertyInfo.name, typeName, config.validation[typeName] === true ? undefined : config.validation[typeName], false);
+                let excludeProp: boolean = false;
+                if (config.excludePropNames)
+                    excludeProp = config.excludePropNames.filter(t => t == propertyInfo.name)[0] !== undefined;
+                if (!excludeProp) {
+                    if (config.validationConfig)
+                        for (let typeName in config.validationConfig) {
+                            this.init({ constructor: target }, 0, propertyInfo.name, typeName, config.validationConfig[typeName] === true ? undefined : config.validationConfig[typeName], false);
+                        }
+                    if (config.error)
+                        this.addDecoratorConfig({ constructor: target }, 0, propertyInfo.name, config.error, DECORATORS.error)
+                    if (config.disable)
+                        this.addDecoratorConfig({ constructor: target }, 0, propertyInfo.name, config.error, DECORATORS.disable)
                 }
             }
         }

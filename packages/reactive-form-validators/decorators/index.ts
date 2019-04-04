@@ -81,5 +81,5 @@ export * from './sanitize/toDate.decorator';
 export * from './sanitize/escape.decorator';
 export * from './sanitize/prefix.decorator';
 export * from './sanitize/suffix.decorator';
-export * from './propsValidation.decorator';
+export * from './model.decorator';
 export * from './sanitize/sanitize.decorator';
