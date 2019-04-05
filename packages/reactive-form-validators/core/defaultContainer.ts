@@ -38,17 +38,20 @@ export const defaultContainer:
         }
         addPropsConfig(target: any, configs: PropsConfig[]) {
             let instanceContainer = this.instances.filter(instance => instance.instance == target)[0];
-            if (instanceContainer)
+            if (instanceContainer) {
                 for (let config of configs) {
                     for (let prop of config.propNames) {
                         let propertyInfo = instanceContainer.properties.filter(t => t.name == prop)[0];
                         if (propertyInfo) {
-                            this.addPropConfig(target,[propertyInfo], config)
+                            this.addPropConfig(target, [propertyInfo], config)
                         } else
                             if (prop === ":all:")
-                                this.addPropConfig(target,instanceContainer.properties,config);
+                                this.addPropConfig(target, instanceContainer.properties, config);
                     }
                 }
+            } else if (configs === undefined)
+                this.addInstanceContainer(target);
+            
         }
         addPropConfig(target:any,properties: PropertyInfo[], config: PropsConfig) {
             for (var propertyInfo of properties) {

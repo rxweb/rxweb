@@ -3,7 +3,7 @@ import { OBJECT_PROPERTY } from "../const"
 import { Type } from "../util/type";
 import { PropConfig } from "../models/config/prop-config"
 
-export function propObject<T>(entity: Type<T>,config?:PropConfig) {
+export function propObject<T>(entity?: Type<T>,config?:PropConfig) {
     return function (
         target: Object,
         propertyKey: string, parameterIndex?: any

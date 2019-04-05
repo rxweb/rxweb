@@ -1,5 +1,5 @@
 ﻿import { FormArray,FormGroup } from "@angular/forms"
-import { RxFormControl, required, propArray, RxFormBuilder} from '@rxweb/reactive-form-validators';
+import { RxFormControl, required, propArray,propObject,model, RxFormBuilder} from '@rxweb/reactive-form-validators';
 
 
 export class SaleOrderLineItem {
@@ -13,6 +13,10 @@ export class PurchaseOrderLineItem {
 export abstract class Order<T>  {
     @required() name: string;
     @propArray() lineItems: T[];
+    @propObject() lineItem: T;
+
+    form: FormGroup;
+    formBuilder: RxFormBuilder = new RxFormBuilder();
 }
 
 
@@ -22,6 +26,17 @@ export class PurchaseOrder extends Order<PurchaseOrderLineItem> {
 
 export class SaleOrder extends Order<SaleOrderLineItem> {
 
+}
+
+@model()
+export class ClientOrder extends Order<SaleOrderLineItem> {
+    constructor() {
+        super();
+        this.lineItem = new SaleOrderLineItem();
+        this.lineItems = new Array<SaleOrderLineItem>()
+        this.lineItems.push(new SaleOrderLineItem());
+        this.form = this.formBuilder.formGroup(this);
+    }
 }
 
 
@@ -62,7 +77,29 @@ describe('generic class', () => {
         expect(lineItemFormGroup.controls.unitPrice instanceof RxFormControl).toBe(true);
     })
 
+    it('should pass, lineItems property should be undefined', () => {
+        let jsonObject = {
+            name: 'Samsung',
+        };
+        let saleOrderFormGroup = formbuilder.formGroup<SaleOrder>(SaleOrder, jsonObject)
+        expect(saleOrderFormGroup.controls.lineItems).toBe(undefined);
+    })
 
+    it('should pass, name formcontrol should be defined', () => {
+        let clientOrder = new ClientOrder();
+        expect(clientOrder.form.controls.name instanceof RxFormControl).toBe(true);
+    })
 
-    
+    it('should pass, unitprice should be defined. ', () => {
+        let clientOrder = new ClientOrder();
+        let lineItemFormArray = <FormArray>clientOrder.form.controls.lineItems;
+        let lineItemFormGroup = <FormGroup>lineItemFormArray.controls[0];
+        expect(lineItemFormGroup.controls.unitPrice instanceof RxFormControl).toBe(true);
+    })
+
+    it('should pass, initialize the nested formgroup', () => {
+        let clientOrder = new ClientOrder();
+        let lineItemFormGroup = <FormGroup>clientOrder.form.controls.lineItem;
+        expect(lineItemFormGroup.controls.unitPrice instanceof RxFormControl).toBe(true);
+    })
 })

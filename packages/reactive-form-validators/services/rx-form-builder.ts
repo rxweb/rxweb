@@ -139,34 +139,47 @@ export class RxFormBuilder extends BaseFormBuilder {
         }
     }
 
-    private getEntity<T>(object: T, formBuilderConfiguration: FormBuilderConfiguration, propertyName: string) {
+    private getEntity<T>(object: T, formBuilderConfiguration: FormBuilderConfiguration, propertyName: string,isSameObjectConstructor:boolean = false) {
         if (formBuilderConfiguration && formBuilderConfiguration.genericEntities && formBuilderConfiguration.genericEntities[propertyName])
             return formBuilderConfiguration.genericEntities[propertyName];
-        return object.constructor;
+        return isSameObjectConstructor ? object.constructor : undefined;
     }
 
+    private getObjectPropertyInstance(object: { [key: string]: any }, propertyInfo: PropertyInfo, formBuilderConfiguration: FormBuilderConfiguration) {
+        if (propertyInfo.propertyType == OBJECT_PROPERTY && object[propertyInfo.name])
+            return object[propertyInfo.name].constructor;
+        else if (propertyInfo.propertyType == ARRAY_PROPERTY && object[propertyInfo.name] && object[propertyInfo.name].length > 0)
+            return object[propertyInfo.name][0].constructor;
+        return this.getEntity(object, formBuilderConfiguration, propertyInfo.name)
+
+    }
 
     private checkObjectPropAdditionalValidation<T>(instanceContainer: InstanceContainer, object: T, formBuilderConfiguration: FormBuilderConfiguration) {
         var props = instanceContainer.properties.filter(t => t.propertyType == OBJECT_PROPERTY || t.propertyType == ARRAY_PROPERTY)
         props.forEach(t => {
-            let entity = t.entity ? t.entity : this.getEntity(object, formBuilderConfiguration,t.name);
-            let instance = this.getInstanceContainer(entity, null);
-            if (instance.conditionalValidationProps) {
-                for (var key in instance.conditionalValidationProps) {
-                    var prop = instanceContainer.properties.filter(t => t.name == key)[0];
-                    if (prop) {
-                        if (!instanceContainer.conditionalValidationProps)
-                            instanceContainer.conditionalValidationProps = {};
-                        if (!instanceContainer.conditionalValidationProps[key])
-                            instanceContainer.conditionalValidationProps[key] = [];
-                        instance.conditionalValidationProps[key].forEach(x => {
-                            if (t.propertyType != ARRAY_PROPERTY)
-                                instanceContainer.conditionalValidationProps[key].push([t.name, x].join('.'))
-                            else
-                                instanceContainer.conditionalValidationProps[key].push([t.name, x].join('[]'))
-                        })
+            let entity = t.entity;
+            if (!t.entity)
+                entity = this.getObjectPropertyInstance(object, t, formBuilderConfiguration)
+            if (entity) {
+                let instance = this.getInstanceContainer(entity, null);
+                if (instance.conditionalValidationProps) {
+                    for (var key in instance.conditionalValidationProps) {
+                        var prop = instanceContainer.properties.filter(t => t.name == key)[0];
+                        if (prop) {
+                            if (!instanceContainer.conditionalValidationProps)
+                                instanceContainer.conditionalValidationProps = {};
+                            if (!instanceContainer.conditionalValidationProps[key])
+                                instanceContainer.conditionalValidationProps[key] = [];
+                            instance.conditionalValidationProps[key].forEach(x => {
+                                if (t.propertyType != ARRAY_PROPERTY)
+                                    instanceContainer.conditionalValidationProps[key].push([t.name, x].join('.'))
+                                else
+                                    instanceContainer.conditionalValidationProps[key].push([t.name, x].join('[]'))
+                            })
+                        }
                     }
                 }
+
             }
         })
     }
@@ -406,7 +419,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                             if (this.formGroupPropOtherValidator[property.name])
                                 this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator[property.name];
                             let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, objectValue, `${property.name}.`)
-                            formGroupObject[property.name] = this.formGroup(property.entity, objectValue, objectValidationConfig);
+                            formGroupObject[property.name] = this.formGroup(property.entity || this.getEntity(objectValue, formBuilderConfiguration, property.name, true), objectValue, objectValidationConfig);
                             this.conditionalObjectProps = [];
                             this.builderConfigurationConditionalObjectProps = [];
                             this.isNestedBinding = this.isNested = false;
@@ -427,7 +440,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 if (this.formGroupPropOtherValidator[property.name])
                                     this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator[property.name];
                                 let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, subObject, `${property.name}.`, `${property.name}[${index}].`)
-                                formArrayGroup.push(this.formGroup(property.entity || this.getEntity(subObject, formBuilderConfiguration, property.name), subObject, objectValidationConfig));
+                                formArrayGroup.push(this.formGroup(property.entity || this.getEntity(subObject, formBuilderConfiguration, property.name,true), subObject, objectValidationConfig));
                                 index++;
                                 this.conditionalObjectProps = [];
                                 this.builderConfigurationConditionalObjectProps = [];
