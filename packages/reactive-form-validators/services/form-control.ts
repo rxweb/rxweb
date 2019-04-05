@@ -24,10 +24,16 @@ export class RxFormControl extends FormControl {
     private _childColumns: any = [];
     private _parentColumns: { [key: string]: string[] };
     private _refDisableControls= [];
-    private _refMessageControls= [];
-    private _messageExpression:Function;
+    private _refMessageControls = [];
+    private _refClassNameControls = [];
+    private _messageExpression: Function;
+    private _classNameExpression: Function;
     private _isPassedExpression: Boolean = false;
-    private _controlProp:{[key:string]:boolean};
+    private _controlProp: { [key: string]: boolean };
+    private _classNameControlProp: { [key: string]: boolean };
+
+    updateOnElementClass: boolean | Function;
+
     get errorMessages(): string[] {
         if (!this._messageExpression) {
             if (this._errorMessages.length == 0 && this.errors)
@@ -68,6 +74,7 @@ export class RxFormControl extends FormControl {
         this.entityObject[this.keyName] = parsedValue;
         super.setValue(value, options);
         this.bindError();
+        this.bindClassName();
         this.executeExpressions();
         if (options && !options.updateChanged && this.root[VALUE_CHANGED_SYNC]) {
             this.root[VALUE_CHANGED_SYNC]();
@@ -83,6 +90,16 @@ export class RxFormControl extends FormControl {
             this._isPassedExpression = this.executeExpression(this._messageExpression,this);
         this.setControlErrorMessages();
     }
+
+    bindClassName() {
+        if (this.updateOnElementClass && typeof this.updateOnElementClass === "function") {
+            let className = this.executeExpression(this._classNameExpression, this);
+            let updateElement = this.updateOnElementClass as Function;
+            updateElement(className);
+        }
+    }
+
+    
 
 
     markAsTouched(opts?: {
@@ -135,21 +152,25 @@ export class RxFormControl extends FormControl {
     runControlPropChangeExpression(propNames:string[]){
         propNames.forEach(name=>{
         if(this._controlProp && this._messageExpression && this._controlProp[name])
-            this.bindError();
+                this.bindError();
+        if (this._classNameControlProp && this._classNameControlProp[name])
+            this.bindClassName();
         });
     }
 
     refresh() {
         this.getMessageExpression(<FormGroup>this.parent,this.keyName);
         this.bindConditionalControls(DECORATORS.disabled,"_refDisableControls");
-        this.bindConditionalControls(DECORATORS.error,"_refMessageControls");
+        this.bindConditionalControls(DECORATORS.error, "_refMessageControls");
+        this.bindConditionalControls(DECORATORS.elementClass, "_refClassNameControls");
         this.executeExpressions();
         this.bindError();
     }
 
     private executeExpressions(){
         this.processExpression("_refDisableControls","disabled");
-        this.processExpression("_refMessageControls","bindError");
+        this.processExpression("_refMessageControls", "bindError");
+        this.processExpression("_refClassNameControls", "bindClassName");
     }
 
     private getMessageExpression(formGroup:FormGroup,keyName:string):void{
@@ -158,6 +179,10 @@ export class RxFormControl extends FormControl {
                 if(instanceContainer) {
                     this._messageExpression = instanceContainer.nonValidationDecorators.error.conditionalExpressions[keyName]
                     this._controlProp = instanceContainer.nonValidationDecorators.error.controlProp[this.keyName];
+                    this._classNameExpression = instanceContainer.nonValidationDecorators.elementClass.conditionalExpressions[keyName];
+                    this._classNameControlProp = instanceContainer.nonValidationDecorators.elementClass.controlProp[keyName];
+                    if (this._classNameExpression)
+                        this.updateOnElementClass = true;
                 }
                     
                 }
@@ -213,19 +238,21 @@ export class RxFormControl extends FormControl {
 
     
 
-    private processExpression(propName:string,operationType:string){
+    private processExpression(propName: string, operationType: string) {
         if(this[propName])
         for(var controlInfo of this[propName]){
             let control = controlInfo.isRoot ?ApplicationUtil.getControl(controlInfo.controlPath,ApplicationUtil.getRootFormGroup(this)) : ApplicationUtil.getFormControl(controlInfo.controlPath,this);
             if(control) {
-                if( operationType == "disabled"){
-                    let result = this.executeExpression(controlInfo.conditionalExpression,control);
+                if (operationType == "disabled") {
+                    let result = this.executeExpression(controlInfo.conditionalExpression, control);
                     if (result)
-                        control.disable() 
+                        control.disable()
                     else
-                     control.enable();
-                }else
+                        control.enable();
+                } else if (operationType == "bindError")
                     control.bindError();
+                else if (operationType == "bindClassName")
+                    control.bindClassName();
                 
             }
         }

@@ -16,5 +16,6 @@ export const DECORATORS:{[key:string]:string} = {
     escape: 'escape',
     prefix: 'prefix',
     suffix: 'suffix',
-    sanitize: 'sanitize'
+    sanitize: 'sanitize',
+    elementClass:'elementClass'
 }

@@ -63,7 +63,9 @@ export const defaultContainer:
                     if (config.error)
                         this.addDecoratorConfig({ constructor: target }, 0, propertyInfo.name, config.error, DECORATORS.error)
                     if (config.disable)
-                        this.addDecoratorConfig({ constructor: target }, 0, propertyInfo.name, config.error, DECORATORS.disable)
+                        this.addDecoratorConfig({ constructor: target }, 0, propertyInfo.name, config.disable, DECORATORS.disable)
+                    if (config.elementClass)
+                        this.addDecoratorConfig({ constructor: target }, 0, propertyInfo.name, config.elementClass, DECORATORS.elementClass)
                 }
             }
         }
@@ -134,6 +136,10 @@ export const defaultContainer:
                         changeDetection: {},
                         controlProp: {}
                     }, error: {
+                        conditionalExpressions: {},
+                        changeDetection: {},
+                        controlProp: {}
+                    }, elementClass: {
                         conditionalExpressions: {},
                         changeDetection: {},
                         controlProp: {}

@@ -10,6 +10,7 @@ import { ApplicationUtil } from '../../util/app-util';
 import { DecimalProvider } from "../../domain/element-processor/decimal.provider"
 import { AlphaConfig, ArrayConfig, BaseConfig, ChoiceConfig, CompareConfig, ComposeConfig, ContainsConfig, CreditCardConfig, DateConfig, DefaultConfig, DigitConfig, EmailConfig, ExtensionConfig, FactorConfig, MessageConfig, NumberConfig, NumericConfig, PasswordConfig, PatternConfig, RangeConfig, RequiredConfig, RuleConfig, SizeConfig, TimeConfig, DifferentConfig, RelationalOperatorConfig, UniqueConfig } from '../../models/config'
 import { RegexValidator } from '../../util';
+import { RxFormControl } from "../../services/form-control";
 
 const NGMODEL_BINDING: any = {
     provide: NG_VALIDATORS,
@@ -183,9 +184,25 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
         this.ngOnInit();
     }
 
+    private updateOnElementClass(element: HTMLElement) {
+        var previousClassName: string = '';
+        return function (className: string) {
+            if (previousClassName)
+                element.classList.remove(previousClassName);
+            if (className)
+                element.classList.add(className)
+            previousClassName = className;
+        }
+    }
+
     private setValidatorConfig(control:AbstractControl){
-        if (!this.formControl)
-        this.formControl = control;
+        if (!this.formControl) { 
+            this.formControl = control;
+            let rxFormControl = this.formControl as RxFormControl;
+            if (rxFormControl.updateOnElementClass)
+                rxFormControl.updateOnElementClass = this.updateOnElementClass(this.element);
+        }
+
         this.subscribeNumericFormatter();
     if(control[TEMPLATE_VALIDATION_CONFIG])
         this.setTemplateValidators(control);

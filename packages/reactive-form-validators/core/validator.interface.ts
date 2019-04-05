@@ -17,6 +17,7 @@ export interface InstanceContainer {
     nonValidationDecorators?: {
         disabled: ControlInfo;
         error: ControlInfo;
+        elementClass:ControlInfo
     },
     sanitizers?: { [key: string]: DataSanitizer[] }
 }
