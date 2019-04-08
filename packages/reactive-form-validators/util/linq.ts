@@ -44,7 +44,12 @@ export class Linq {
         let expressionString = expression.toString();
         let expressionArguments = Linq.extractArguments(expressionString.match(/\(([^)]+)\)/g));
         if (expressionArguments.length > 0) {
-            let splitTexts = expressionString.replace(/\s/g, '').replace(new RegExp(/{|}/, "g"), "").split(new RegExp(/return|===|!==|==|!=|>=|>|<=|<|&&/));
+            let splitTexts = [];
+            expressionString.replace(/\s/g, '').replace(new RegExp(/{|}/, "g"), "").split(new RegExp(/return|===|!==|==|!=|>=|>|<=|<|&&/)).forEach(t => {
+                let texts = t.split("||");
+                for (let text of texts)
+                    splitTexts.push(text);
+            });
             splitTexts.forEach(t => {
                 expressionArguments.forEach((x, i) => {
                     t = t.trim();

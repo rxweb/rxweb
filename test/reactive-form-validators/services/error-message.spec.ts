@@ -15,9 +15,11 @@ class User {
     @required()
     fullName: string;
 
+    @error({ conditionalExpression: function (control: AbstractControl) { return control.dirty || control.touched; } })
     @required()
     lastName: string;
 
+    @error({ conditionalExpression: function (control: AbstractControl) { return control.dirty; } })
     @required()
     cityName: string;
 
@@ -121,6 +123,24 @@ describe('error-message', () => {
         userFormGroup.controls.cityName.setValue("Boston");
         userFormGroup.controls.countryName.updateValueAndValidity();
         expect(userFormGroup.controls.countryName.errorMessage).toEqual("This field is required.");
+    })
+
+    it('should bind error once the formcontrol is touched', () => {
+        let user = new User();
+        let userFormGroup = formbuilder.formGroup(user);
+        userFormGroup.controls.lastName.markAsTouched();
+        let control = <RxFormControl>userFormGroup.controls.lastName;
+        expect(control.errorMessage).toBe("This field is required.");
+        expect(control.errorMessages).toEqual(["This field is required."]);
+    })
+
+    it('should bind error once the formcontrol is dirty', () => {
+        let user = new User();
+        let userFormGroup = formbuilder.formGroup(user);
+        userFormGroup.controls.cityName.markAsDirty();
+        let control = <RxFormControl>userFormGroup.controls.cityName;
+        expect(control.errorMessage).toBe("This field is required.");
+        expect(control.errorMessages).toEqual(["This field is required."]);
     })
 
 
