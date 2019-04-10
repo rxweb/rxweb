@@ -46,7 +46,7 @@ export class Linq {
         if (expressionArguments.length > 0) {
             let splitTexts = [];
             expressionString.replace(/\s/g, '').replace(new RegExp(/{|}/, "g"), "").split(new RegExp(/return|===|!==|==|!=|>=|>|<=|<|&&/)).forEach(t => {
-                let texts = t.split("||");
+                let texts = t.replace(/\(|\)/g, "").split("||");
                 for (let text of texts)
                     splitTexts.push(text);
             });
