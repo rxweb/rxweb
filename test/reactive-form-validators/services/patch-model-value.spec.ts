@@ -1,6 +1,6 @@
 ﻿import {FormGroup, FormArray} from '@angular/forms';
 
-import { RxFormBuilder, RxFormGroup, prop, propObject, propArray } from '@rxweb/reactive-form-validators';
+import { RxFormBuilder, RxFormGroup, prop, propObject, propArray, required } from '@rxweb/reactive-form-validators';
 
 export class Address {
     @prop()
@@ -21,6 +21,40 @@ export class User {
     @propArray(Hobby)
     hobbies: Hobby[];
 }
+
+// issue #160
+
+export class SaleType {
+
+    @required()
+    id: number;
+
+    private _name;
+
+    @prop()
+    set name(value) {
+        this._name = value;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    constructor(id = null, name = null) {
+        this.id = id;
+        this.name = name;
+    }
+
+}
+
+export class Sale {
+
+    @propObject(SaleType)
+    saleType: SaleType;
+
+}
+
+
 
 
  describe('patch-model-value',()=>{
@@ -65,6 +99,18 @@ export class User {
          expect(formGroup.controls.name.value).toBe(null);
          userFormGroup.patchModelValue({ hobbies: [{ name: "Chess" }] });
          expect(formGroup.controls.name.value).toEqual('Chess');
+     })
+
+     //issue #160 spec.
+     it('should pass, update the value of nested object of `saleType`', () => {
+         let sale = new Sale();
+         sale.saleType = new SaleType(45678, 'Retail');
+         let formGroup = formBuilder.formGroup(sale) as RxFormGroup;
+         let saleTypeFormGroup = formGroup.controls.saleType as RxFormGroup;
+         expect(saleTypeFormGroup.controls.name.value).toBe("Retail");
+         let saleType = new SaleType(12456, 'Wholesale');
+         formGroup.patchModelValue({ saleType: saleType });
+         expect(saleTypeFormGroup.controls.name.value).toBe("Wholesale");
      })
 
      

@@ -66,7 +66,7 @@ export class RxFormGroup extends FormGroup  {
         }): void {
         if (value) {
             for (let name in this.controls) {
-                if (this.controls instanceof RxFormGroup && value[name])
+                if (this.controls[name] instanceof RxFormGroup && value[name])
                     (<RxFormGroup>this.controls[name]).patchModelValue(value[name],options);
                 else if (this.controls[name] instanceof FormArray && Array.isArray(value[name])) {
                     let index = 0;
