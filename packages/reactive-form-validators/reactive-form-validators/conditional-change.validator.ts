@@ -6,6 +6,7 @@ import {
 } from "@angular/forms";
 
 import { ObjectMaker } from "../util/object-maker";
+import { ApplicationUtil } from "../util/app-util"
 
 export function conditionalChangeValidator(conditionalValidationProps: string[]): ValidatorFn {
   var timeOuts: number[] = [];
@@ -17,7 +18,7 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
     }, 100)
   }
   return (control: AbstractControl): { [key: string]: any } => {
-    const parentFormGroup = control.parent;
+      const parentFormGroup = ApplicationUtil.getRootFormGroup(control);
     let value = control.value;
     if (parentFormGroup && oldValue != value) {
       oldValue = value;
