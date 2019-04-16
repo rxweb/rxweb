@@ -1,7 +1,7 @@
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from './validator.interface';
 import { Linq } from "../util/linq";
 import { AnnotationTypes } from "./validator.static";
-import { PROPERTY, RXCODE } from "../const";
+import { PROPERTY, RXCODE, ARRAY_PROPERTY, OBJECT_PROPERTY } from "../const";
 import { PropsConfig } from "../models/config/props-config"
 import { DECORATORS } from "../const/decorators.const";
 export const defaultContainer:
@@ -41,12 +41,12 @@ export const defaultContainer:
             if (instanceContainer) {
                 for (let config of configs) {
                     for (let prop of config.propNames) {
-                        let propertyInfo = instanceContainer.properties.filter(t => t.name == prop)[0];
+                        let propertyInfo = instanceContainer.properties.filter(t => t.name == prop && (t.propertyType !== OBJECT_PROPERTY && t.propertyType !== ARRAY_PROPERTY))[0];
                         if (propertyInfo) {
                             this.addPropConfig(target, [propertyInfo], config)
                         } else
                             if (prop === ":all:")
-                                this.addPropConfig(target, instanceContainer.properties, config);
+                                this.addPropConfig(target, instanceContainer.properties.filter(t => t.propertyType !== OBJECT_PROPERTY && t.propertyType !== ARRAY_PROPERTY), config);
                     }
                 }
             } else if (configs === undefined)
