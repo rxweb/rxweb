@@ -212,12 +212,18 @@ export const defaultContainer:
             }
         }
         setConditionalValueProp(instance: InstanceContainer, propName: string, refPropName: string) {
-            if (!instance.conditionalValidationProps)
-                instance.conditionalValidationProps = {};
-            if (!instance.conditionalValidationProps[propName])
-                instance.conditionalValidationProps[propName] = [];
-            if (instance.conditionalValidationProps[propName].indexOf(refPropName) == -1)
-                instance.conditionalValidationProps[propName].push(refPropName);
+            if (propName) {
+                let splitProps = propName.split ? propName.split('.') : '';
+                if (splitProps.length < 2) {
+                    if (!instance.conditionalValidationProps)
+                        instance.conditionalValidationProps = {};
+                    if (!instance.conditionalValidationProps[propName])
+                        instance.conditionalValidationProps[propName] = [];
+                    if (instance.conditionalValidationProps[propName].indexOf(refPropName) == -1)
+                        instance.conditionalValidationProps[propName].push(refPropName);
+                } else
+                    this.addChangeValidation(instance, refPropName, [{ argumentIndex: 1, objectPropName: splitProps[0], propName: splitProps[1], referencePropName: refPropName }])
+            }
         }
         addChangeValidation(instance: InstanceContainer, propertyName: string, columns: any[]): void {
             if (instance) {
