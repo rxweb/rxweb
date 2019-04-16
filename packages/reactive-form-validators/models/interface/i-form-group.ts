@@ -31,6 +31,8 @@ export interface AppFormGroup<T> extends FormGroup {
     modelInstance: T;
 
     controlsError: { [key: string]: any };
+
+    submitted: boolean;
 }
 
 export interface IFormGroup<T> extends AppFormGroup<T> {

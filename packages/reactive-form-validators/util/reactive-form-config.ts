@@ -5,4 +5,17 @@ export class ReactiveFormConfig {
         if (jObject)
             ReactiveFormConfig.json = jObject;
     }
+
+    static get(path: string) : any {
+        let jObject: { [key: string]: any };        
+        if (ReactiveFormConfig.json) {
+            let splitPath = path.split('.');
+            for (let columnName of splitPath) {
+                jObject = (!jObject) ? ReactiveFormConfig.json[columnName] : jObject[columnName];
+                if (!jObject)
+                    break;
+            }
+        }
+        return jObject;
+    }
 }

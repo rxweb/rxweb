@@ -8,6 +8,8 @@ import { DECORATORS } from "../const/decorators.const";
 import { defaultContainer } from "../core/defaultContainer";
 import { SANITIZERS } from "../util/sanitizers"
 import { DataSanitizer } from '../core/validator.interface'
+import { ErrorMessageBindingStrategy } from "../enums";
+import { ReactiveFormConfig } from "../util/reactive-form-config";
 
 const DIRTY:string = "dirty";
 const TOUCHED:string = "touched";
@@ -26,6 +28,7 @@ export class RxFormControl extends FormControl {
     private _refDisableControls= [];
     private _refMessageControls = [];
     private _refClassNameControls = [];
+    private _errorMessageBindingStrategy: ErrorMessageBindingStrategy;
     private _messageExpression: Function;
     private _classNameExpression: Function;
     private _isPassedExpression: Boolean = false;
@@ -60,6 +63,7 @@ export class RxFormControl extends FormControl {
     constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string,private _sanitizers:DataSanitizer[]) {
         super(formState, validator, asyncValidator)
         this.keyName = controlName;
+        this._errorMessageBindingStrategy = ReactiveFormConfig.get("reactiveForm.errorMessageBindingStrategy") as ErrorMessageBindingStrategy;
     }
 
     setValue(value: any, options?: {
@@ -150,8 +154,8 @@ export class RxFormControl extends FormControl {
     }
 
     runControlPropChangeExpression(propNames:string[]){
-        propNames.forEach(name=>{
-        if(this._controlProp && this._messageExpression && this._controlProp[name])
+        propNames.forEach(name => {
+            if ((this._controlProp && this._messageExpression && this._controlProp[name]) || (!this._messageExpression && this.checkErrorMessageStrategy()))
                 this.bindError();
         if (this._classNameControlProp && this._classNameControlProp[name])
             this.bindClassName();
@@ -165,6 +169,27 @@ export class RxFormControl extends FormControl {
         this.bindConditionalControls(DECORATORS.elementClass, "_refClassNameControls");
         this.executeExpressions();
         this.bindError();
+    }
+
+    private checkErrorMessageStrategy() {
+        let isBind: boolean = true;
+        switch (this._errorMessageBindingStrategy) {
+            case ErrorMessageBindingStrategy.OnSubmit:
+                isBind = (<any>this.parent).submitted;
+                break;
+            case ErrorMessageBindingStrategy.OnDirty:
+                isBind = this.dirty;
+                break;
+            case ErrorMessageBindingStrategy.OnTouched:
+                isBind = this.touched;
+                break;
+            case ErrorMessageBindingStrategy.OnDirtyOrTouched:
+                isBind = this.dirty || this.touched;
+                break;
+            default:
+                isBind = true;
+        }
+        return isBind;
     }
 
     private executeExpressions(){
@@ -205,8 +230,7 @@ export class RxFormControl extends FormControl {
     }
 
     private setControlErrorMessages() {
-        
-        if(!this._messageExpression || this._isPassedExpression){
+        if ((!this._messageExpression && this.checkErrorMessageStrategy()) || this._isPassedExpression) {
             this._errorMessages = [];
             if (this.errors) {
                 Object.keys(this.errors).forEach(t => {
