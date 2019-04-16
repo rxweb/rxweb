@@ -8,6 +8,7 @@ import {
 import { ObjectMaker } from "../util/object-maker";
 import { ApplicationUtil } from "../util/app-util"
 
+
 export function conditionalChangeValidator(conditionalValidationProps: string[]): ValidatorFn {
   var timeOuts: number[] = [];
   var oldValue: string = undefined;
@@ -18,14 +19,14 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
     }, 100)
   }
   return (control: AbstractControl): { [key: string]: any } => {
-      const parentFormGroup = ApplicationUtil.getRootFormGroup(control);
     let value = control.value;
-    if (parentFormGroup && oldValue != value) {
+    if (control.parent && oldValue != value) {
+        const parentFormGroup = ApplicationUtil.getRootFormGroup(control);
       oldValue = value;
       timeOuts = [];
       conditionalValidationProps.forEach(t => {
         if (t.indexOf("[]") != -1) {
-          var splitText = t.split("[]");
+            var splitText = t.split("[]");
           var formArray = <FormArray>parentFormGroup.get([splitText[0]]);
           if (formArray)
             formArray.controls.forEach(formGroup => {
@@ -35,7 +36,7 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
               }
             })
         } else {
-          var control = null;
+            var control = null;
           t.split('.').forEach((name, index) => { control = (index == 0) ? parentFormGroup.controls[name] : control.controls[name]; })
           if (control) {
             setTimeOut(control);
