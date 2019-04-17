@@ -186,6 +186,12 @@ export class RxFormControl extends FormControl {
             case ErrorMessageBindingStrategy.OnDirtyOrTouched:
                 isBind = this.dirty || this.touched;
                 break;
+            case ErrorMessageBindingStrategy.OnDirtyOrSubmit:
+                isBind = this.dirty || (<any>this.parent).submitted;
+                break;
+            case ErrorMessageBindingStrategy.OnTouchedOrSubmit:
+                isBind = this.touched || (<any>this.parent).submitted;
+                break;
             default:
                 isBind = true;
         }
