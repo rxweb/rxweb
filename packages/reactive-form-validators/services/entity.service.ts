@@ -1,6 +1,11 @@
 
+function isObjectType(value:any) {
+    return !(typeof value == "string" || typeof value === "number" || typeof value === "boolean" || value instanceof Date);
+}
+
 export function clone(jsonObject: { [key: string]: any }) {
-        let jObject: any = {};
+    let jObject: any = {};
+    if (isObjectType(jsonObject)) {
         for (var columnName in jsonObject) {
             if (Array.isArray(jsonObject[columnName])) {
                 jObject[columnName] = [];
@@ -13,6 +18,9 @@ export function clone(jsonObject: { [key: string]: any }) {
                 jObject[columnName] = jsonObject[columnName]
         }
         return jObject;
+    }
+    else
+        return jsonObject;
     }
 
 export function merge(firstObject: { [key: string]: any }, secondObject: { [key: string]: any }) {
