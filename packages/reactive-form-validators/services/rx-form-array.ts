@@ -1,5 +1,5 @@
 import { FormArray } from "@angular/forms";
-import { VALUE_CHANGED_SYNC } from "../const/app.const";
+import { VALUE_CHANGED_SYNC,PATCH } from "../const/app.const";
 
 
 export class RxFormArray extends FormArray {
@@ -17,6 +17,13 @@ export class RxFormArray extends FormArray {
         if(formGroup[VALUE_CHANGED_SYNC])
           formGroup.valueChangedSync()  
       }
+
+      patch() {
+          if (this.parent)
+              this.parent[PATCH]();
+      }
+
+
 
       removeAt(index:number){
         let formGroup:any = this.root;

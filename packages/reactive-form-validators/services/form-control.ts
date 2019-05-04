@@ -3,7 +3,7 @@ import { ObjectMaker } from "../util/object-maker";
 import { MESSAGE, CONTROLS_ERROR, VALUE_CHANGED_SYNC } from '../const'
 import { ApplicationUtil } from '../util/app-util'
 import { DisableProvider } from '../domain/disable-provider';
-import { RXCODE, MODEL_INSTANCE } from "../const/app.const"
+import { RXCODE, MODEL_INSTANCE, PATCH } from "../const/app.const"
 import { DECORATORS } from "../const/decorators.const";
 import { defaultContainer } from "../core/defaultContainer";
 import { SANITIZERS } from "../util/sanitizers"
@@ -34,7 +34,8 @@ export class RxFormControl extends FormControl {
     private _isPassedExpression: Boolean = false;
     private _controlProp: { [key: string]: boolean };
     private _classNameControlProp: { [key: string]: boolean };
-
+    private _baseValue: any;
+    private _isModified: boolean;
     updateOnElementClass: boolean | Function;
 
     get errorMessages(): string[] {
@@ -62,8 +63,14 @@ export class RxFormControl extends FormControl {
     }
     constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string,private _sanitizers:DataSanitizer[]) {
         super(formState, validator, asyncValidator)
+        this._baseValue = formState === undefined ? formState : "";
+        this._isModified = false;
         this.keyName = controlName;
         this._errorMessageBindingStrategy = ReactiveFormConfig.get("reactiveForm.errorMessageBindingStrategy") as ErrorMessageBindingStrategy;
+    }
+
+    get isModified() {
+        return this._isModified;
     }
 
     setValue(value: any, options?: {
@@ -80,6 +87,9 @@ export class RxFormControl extends FormControl {
         this.bindError();
         this.bindClassName();
         this.executeExpressions();
+        this._isModified = this.getValue(this._baseValue) != this.getValue(this.value);
+        if (this.parent && this.parent[PATCH])
+            this.parent[PATCH](this.keyName);
         if (options && !options.updateChanged && this.root[VALUE_CHANGED_SYNC]) {
             this.root[VALUE_CHANGED_SYNC]();
         }
@@ -290,6 +300,10 @@ export class RxFormControl extends FormControl {
 
     private executeExpression(expression:Function,control:AbstractControl):Boolean{
         return expression.call(control.parent[MODEL_INSTANCE], control, ApplicationUtil.getParentModelInstanceValue(this), control.parent[MODEL_INSTANCE])
+    }
+
+    private getValue(value: any) {
+        return value !== undefined && value !== null && value !== "" ? value : "";
     }
 
 }

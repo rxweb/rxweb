@@ -26,5 +26,7 @@ export const RXCODE:string = "-rxw-";
 
 export const MODEL:string = "model";
 
-export const MODEL_INSTANCE:string = "modelInstance";
+export const MODEL_INSTANCE: string = "modelInstance";
+
+export const PATCH: string = "patch";
 
