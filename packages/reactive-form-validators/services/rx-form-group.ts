@@ -39,6 +39,8 @@ export class RxFormGroup extends FormGroup {
             this.nestedFormsModification();
         }
         this._isModified = Object.keys(this._modified).length > 0;
+        if (!this._isModified)
+            this.nestedArrayIsModified();
     }
 
     isDirty(): boolean {
@@ -214,25 +216,34 @@ export class RxFormGroup extends FormGroup {
         this._isModified = Object.keys(this._modified).length > 0;
     }
 
-    
+    private nestedArrayIsModified() {
+        for (var controlName in this.controls) {
+            if (this.controls[controlName] instanceof RxFormArray)
+                this._isModified = (<RxFormArray>this.controls[controlName]).isModified;
+            if (this._isModified)
+                break;
+        }
+    }
 
     private nestedFormsModification() {
         for (var controlName in this.controls) {
-            if (this.controls[controlName] instanceof RxFormGroup)
+            if (this.controls[controlName] instanceof RxFormGroup) 
                 this.processModified(controlName, this.controls[controlName]);
             else if (this.controls[controlName] instanceof RxFormArray) {
-                let formGroups = (<RxFormArray>this.controls[controlName]).controls;
-                this._modified[controlName] = [];
-                for (var formGroup of formGroups) {
-                    if ((<RxFormGroup>formGroup).isModified) {
-                        if (!this._modified[controlName])
-                            this._modified[controlName] = [];
-                        this._modified[controlName].push((<RxFormGroup>formGroup).modifiedValue)
-                    }
+                if ((<RxFormArray>this.controls[controlName]).isModified) {
+                    let formGroups = (<RxFormArray>this.controls[controlName]).controls;
+                    this._modified[controlName] = [];
+                    for (var formGroup of formGroups) {
+                        if ((<RxFormGroup>formGroup).isModified) {
+                            if (!this._modified[controlName])
+                                this._modified[controlName] = [];
+                            this._modified[controlName].push((<RxFormGroup>formGroup).modifiedValue)
+                        }
 
+                    }
+                    if (this._modified[controlName].length == 0)
+                        delete this._modified[controlName];
                 }
-                if (this._modified[controlName].length == 0)
-                    delete this._modified[controlName];
             }
         }
     }

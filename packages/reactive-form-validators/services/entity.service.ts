@@ -36,4 +36,21 @@ export function merge(firstObject: { [key: string]: any }, secondObject: { [key:
                 firstObject[columnName] = secondObject[columnName];
         }
         return firstObject;
+}
+
+export function isMatched(jsonObject: { [key: string]: any }, compareObject: { [key: string]: any }) {
+    let isModified: boolean = false;
+    for (var columnName in compareObject) {
+            if (Array.isArray(jsonObject[columnName])) {
+                for (var i = 0; i < jsonObject[columnName].length; i++) {
+                    isModified = isMatched(jsonObject[columnName][i], compareObject[columnName][i])
+                }
+            } else if (typeof jsonObject[columnName] == "object")
+                isModified = isMatched(jsonObject[columnName], compareObject[columnName]);
+            else
+                isModified = !(jsonObject[columnName] == compareObject[columnName]);
+            if (isModified)
+                break;
     }
+        return isModified;
+}
