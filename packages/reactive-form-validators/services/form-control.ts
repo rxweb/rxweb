@@ -87,9 +87,7 @@ export class RxFormControl extends FormControl {
         this.bindError();
         this.bindClassName();
         this.executeExpressions();
-        this._isModified = this.getValue(this._baseValue) != this.getValue(this.value);
-        if (this.parent && this.parent[PATCH])
-            this.parent[PATCH](this.keyName);
+        this.callPatch();
         if (options && !options.updateChanged && this.root[VALUE_CHANGED_SYNC]) {
             this.root[VALUE_CHANGED_SYNC]();
         }
@@ -179,6 +177,19 @@ export class RxFormControl extends FormControl {
         this.bindConditionalControls(DECORATORS.elementClass, "_refClassNameControls");
         this.executeExpressions();
         this.bindError();
+    }
+
+    reset(value?: any) {
+        if (value !== undefined)
+            this.setValue(value);
+        else
+            this.setValue(this._baseValue);
+    }
+
+    private callPatch() {
+        this._isModified = this.getValue(this._baseValue) != this.getValue(this.value);
+        if (this.parent && this.parent[PATCH])
+            this.parent[PATCH](this.keyName);
     }
 
     private checkErrorMessageStrategy() {

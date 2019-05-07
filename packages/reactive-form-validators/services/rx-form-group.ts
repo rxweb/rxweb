@@ -5,7 +5,8 @@ import { RegexValidator } from '../util/regex-validator';
 import { ApplicationUtil } from '../util/app-util';
 import { RxFormArray } from './rx-form-array';
 import { FormDataProvider } from "../domain/form-data";
-
+import { ResetFormType } from "../enums/reset-type";
+import { isResetControl, getNestedOptions } from '../util/reset-form'
 
 export class RxFormGroup extends FormGroup {
     private baseObject: { [key: string]: any }
@@ -62,19 +63,25 @@ export class RxFormGroup extends FormGroup {
         return isDirty;
     };
 
-    resetForm(): void {
+    resetForm(options?: {
+        resetType?: ResetFormType,
+        with?: string[],
+        value?: { [key: string]:any}
+    }): void {
         for (let name in this.controls) {
-            if (this.controls[name] instanceof RxFormGroup)
-                (<RxFormGroup>this.controls[name]).resetForm();
-            else if (this.controls[name] instanceof FormArray) {
-                for (let formGroup of (<FormArray>this.controls[name]).controls) {
-                    (<RxFormGroup>formGroup).resetForm();
+            if (isResetControl(name, this.controls[name], options)) {
+                if (this.controls[name] instanceof FormGroup)
+                    (<RxFormGroup>this.controls[name]).resetForm(getNestedOptions(name,options));
+                else if (this.controls[name] instanceof FormArray) {
+                    for (let formGroup of (<FormArray>this.controls[name]).controls) {
+                        (<RxFormGroup>formGroup).resetForm();
+                    }
+                } else {
+                    if (options && options.value && RegexValidator.isNotBlank(options.value[name]))
+                        this.controls[name].reset(options.value[name]);
+                    else
+                        this.controls[name].reset();
                 }
-            } else {
-                if (RegexValidator.isNotBlank(this.baseObject[name]))
-                    this.controls[name].setValue(this.baseObject[name]);
-                else
-                    this.controls[name].setValue(undefined);
             }
         }
     }
