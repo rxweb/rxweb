@@ -33,6 +33,14 @@ export class RxFormArray extends FormArray {
           
       }
 
+      commit() {
+          this._baseValue = []
+          for (let formGroup of this.controls) {
+              (<any>formGroup).commit();
+              this._baseValue.push(clone(formGroup.value));
+          }
+          this.patch();
+      }
 
 
       removeAt(index:number){

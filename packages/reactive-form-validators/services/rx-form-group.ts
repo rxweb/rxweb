@@ -86,6 +86,18 @@ export class RxFormGroup extends FormGroup {
         }
     }
 
+    commit() {
+        for (let name in this.controls) {
+            if (this.controls[name] instanceof FormGroup)
+                (<RxFormGroup>this.controls[name]).commit();
+            else if (this.controls[name] instanceof FormArray) {
+                (<RxFormArray>this.controls[name]).commit();
+                
+            } else {
+                (<RxFormControl>this.controls[name]).commit();
+            }
+        }
+    }
 
     patchModelValue(value: {
         [key: string]: any;

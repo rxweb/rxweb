@@ -186,6 +186,11 @@ export class RxFormControl extends FormControl {
             this.setValue(this._baseValue);
     }
 
+    commit() {
+        this._baseValue = this.value;
+        this.callPatch();
+    }
+
     private callPatch() {
         this._isModified = this.getValue(this._baseValue) != this.getValue(this.value);
         if (this.parent && this.parent[PATCH])
