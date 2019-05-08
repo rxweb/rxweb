@@ -8,6 +8,7 @@ export function isResetControl(controlName:string,control: any, options?: {
 }) {
     let isReset: boolean = true;
     if (options) {
+        isReset = false;
         if (options.resetType)
         switch (options.resetType) {
             case ResetFormType.ControlsOnly:
@@ -31,6 +32,8 @@ export function isResetControl(controlName:string,control: any, options?: {
             }
         if (!isReset && options.with) 
             isReset = options.with.filter(x => x.split('.')[0] == controlName.split('.')[0])[0] !== undefined;
+        if (!isReset && options.value && (options.resetType === undefined || options.resetType !== ResetFormType.DefinedPropsOnly))
+            isReset = true;
     }
     return isReset;
 }
@@ -40,12 +43,12 @@ export function getNestedOptions(controlName: string, options?: {
     with?: string[],
     value?: { [key: string]: any }
 }) {
-    let jObjectOptions: {
-        resetType?: ResetFormType,
-        with?: string[],
-        value?: { [key: string]: any }
-    } = {};
     if (options) {
+        let jObjectOptions: {
+            resetType?: ResetFormType,
+            with?: string[],
+            value?: { [key: string]: any }
+        } = {};
         if (options.resetType)
             jObjectOptions.resetType = (options.resetType == ResetFormType.FormGroupsOnly || options.resetType == ResetFormType.FormArraysOnly) ? ResetFormType.ControlsOnly : options.resetType;
         if (options.with) {
@@ -57,8 +60,10 @@ export function getNestedOptions(controlName: string, options?: {
             });
             jObjectOptions.with = controlNames;
         }
-        if (options.value)
+        if (options.value && options.value[controlName])
             jObjectOptions.value = options.value[controlName];
+        jObjectOptions = Object.keys(jObjectOptions).length > 0 ? jObjectOptions : undefined;
+        return jObjectOptions;
     }
-    return jObjectOptions;
+    return undefined;
 }

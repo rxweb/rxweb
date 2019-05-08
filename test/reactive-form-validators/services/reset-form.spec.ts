@@ -230,7 +230,7 @@ export class User {
           hobbyFormGroup.controls.name.setValue("Rugby");
           expect(userFormGroup.value).toEqual({ firstName: 'Anne', lastName: 'Hodds', address: { name: "St. Luios Road" }, hobbies: [{ name: "Rugby" }] });
           userFormGroup.resetForm({ with: ["firstName","address.name"] })
-          expect(userFormGroup.value).toEqual({ firstName: 'Ajay', lastName: 'Hodds', address: { name: "St. Road" }, hobbies: [{ name: "Chess" }] });
+          expect(userFormGroup.value).toEqual({ firstName: 'Ajay', lastName: 'Hodds', address: { name: "St. Road" }, hobbies: [{ name: "Rugby" }] });
       })
       
      
