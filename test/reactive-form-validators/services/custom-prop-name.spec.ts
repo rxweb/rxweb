@@ -1,5 +1,5 @@
 
-import { RxFormBuilder, prop, propObject, propArray, alpha } from '@rxweb/reactive-form-validators';
+import { FormBuilderConfiguration,RxFormBuilder, prop, propObject, propArray, alpha } from '@rxweb/reactive-form-validators';
 
 export class Address{
     @prop()
@@ -11,6 +11,9 @@ export class Hobby{
 }
 
 export class User {
+
+    @prop()
+    userName: string;
 
     @prop({name:'first_name'})
     firstName: string;
@@ -81,6 +84,26 @@ export class User {
                 let userFormGroup = formBuilder.formGroup(user);
                 expect(userFormGroup.controls.message.invalid).toEqual(true);
             });
+
+            it('Should pass, should apply default value of "ajai" in userName FormControl.',
+            () => {
+                let formBuilderConfiguration = new FormBuilderConfiguration();
+                formBuilderConfiguration.propsConfig = { userName: { defaultValue: 'ajai' } };
+                let userFormGroup = formBuilder.formGroup(User, formBuilderConfiguration);
+                expect(userFormGroup.controls.userName.value).toEqual('ajai');
+                });
+
+            it('Should pass, should not apply default value of "ajai" in userName FormControl.',
+                () => {
+                    let user = new User();
+                    user.userName = "john";
+                    let formBuilderConfiguration = new FormBuilderConfiguration();
+                    formBuilderConfiguration.propsConfig = { userName: { defaultValue: 'ajai' } };
+                    let userFormGroup = formBuilder.formGroup(user, formBuilderConfiguration);
+                    expect(userFormGroup.controls.userName.value).toEqual('john');
+                });
+
+
             
 
 

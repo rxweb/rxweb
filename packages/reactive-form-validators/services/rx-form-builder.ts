@@ -403,10 +403,10 @@ export class RxFormBuilder extends BaseFormBuilder {
                     case PROPERTY:
                         if (!(entityObject[property.name] instanceof FormControl || entityObject[property.name] instanceof RxFormControl)) {
                             var propertyValidators = instanceContainer.propertyAnnotations.filter(t => t.propertyName == property.name);
-                            formGroupObject[property.name] = new RxFormControl(super.sanitizeValue(instanceContainer, property.name, super.getDefaultValue(property, entityObject[property.name]), json.entityObject, Object.assign({}, json.entityObject)), this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject), this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]), json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
+                            formGroupObject[property.name] = new RxFormControl(super.sanitizeValue(instanceContainer, property.name, super.getDefaultValue(property, entityObject[property.name], formBuilderConfiguration), json.entityObject, Object.assign({}, json.entityObject)), this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject), this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]), json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
                             this.isNested = false;
                         } else
-                            formGroupObject[property.name] = super.getDefaultValue(property, entityObject[property.name]);
+                            formGroupObject[property.name] = super.getDefaultValue(property, entityObject[property.name], formBuilderConfiguration);
                         break;
                     case OBJECT_PROPERTY:
                         let objectValue = entityObject[property.name];
