@@ -54,6 +54,7 @@ export class User {
             expect(userFormGroup.isModified).toBe(true);
             userFormGroup.commit();
             expect(userFormGroup.isModified).toBe(false);
+            expect(userFormGroup.value).toEqual({ firstName: "Anne", lastName: "Hodds" });
      })
 
       it('should pass, commit form nested FormGroup level', () => {
@@ -70,6 +71,7 @@ export class User {
           expect(userFormGroup.isModified).toBe(true);
           userFormGroup.commit();
           expect(userFormGroup.isModified).toBe(false);
+          expect(userFormGroup.value).toEqual({ firstName: "Anne", lastName: "Hodds", address: {name:'St. Luios Road'} });
       })
 
       it('should pass, commit form Nested FormArray level', () => {
@@ -93,5 +95,6 @@ export class User {
           expect(userFormGroup.isModified).toBe(true);
           userFormGroup.commit();
           expect(userFormGroup.isModified).toBe(false);
+          expect(userFormGroup.value).toEqual({ firstName: "Anne", lastName: "Hodds", address: { name: 'St. Luios Road' }, hobbies: [{name:"Rugby"}] });
       })
 })
