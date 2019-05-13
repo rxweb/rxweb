@@ -73,9 +73,7 @@ export class RxFormGroup extends FormGroup {
                 if (this.controls[name] instanceof FormGroup)
                     (<RxFormGroup>this.controls[name]).resetForm(getNestedOptions(name,options));
                 else if (this.controls[name] instanceof FormArray) {
-                    for (let formGroup of (<FormArray>this.controls[name]).controls) {
-                        (<RxFormGroup>formGroup).resetForm();
-                    }
+                    (<RxFormArray>this.controls[name]).resetForm(options && options.value ? options.value[name] : undefined);
                 } else {
                     if (options && options.value && RegexValidator.isNotBlank(options.value[name]))
                         this.controls[name].reset(options.value[name]);

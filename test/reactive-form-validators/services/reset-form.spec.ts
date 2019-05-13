@@ -232,6 +232,56 @@ export class User {
           userFormGroup.resetForm({ with: ["firstName","address.name"] })
           expect(userFormGroup.value).toEqual({ firstName: 'Ajay', lastName: 'Hodds', address: { name: "St. Road" }, hobbies: [{ name: "Rugby" }] });
       })
+
+    it('should pass, reset formarray zero index', () => {
+          let user = new User();
+          user.firstName = "Ajay";
+          user.lastName = "Ojha"
+          user.address = new Address();
+          user.address.name = "St. Road";
+          user.hobbies = new Array<Hobby>();
+          let hobby = new Hobby();
+          hobby.name = "Chess";
+          user.hobbies.push(hobby);
+          let userFormGroup = <RxFormGroup>formBuilder.formGroup(user);
+          let addressFormGroup = <RxFormGroup>userFormGroup.controls.address;
+          userFormGroup.controls.firstName.setValue("Anne");
+          userFormGroup.controls.lastName.setValue("Hodds");
+          addressFormGroup.controls.name.setValue("St. Luios Road");
+          let hobbiesFormArray = userFormGroup.controls.hobbies as RxFormArray;
+          let hobbyFormGroup = hobbiesFormArray.controls[0] as RxFormGroup;
+          hobbyFormGroup.controls.name.setValue("Rugby");
+          expect(userFormGroup.value).toEqual({ firstName: 'Anne', lastName: 'Hodds', address: { name: "St. Luios Road" }, hobbies: [{ name: "Rugby" }] });
+          userFormGroup.resetForm({ value: { hobbies: { index: 0, groupOptions: { resetType: ResetFormType.ControlsOnly } } } })
+          expect(userFormGroup.value).toEqual({ firstName: 'Ajay', lastName: 'Ojha', address: { name: "St. Road" }, hobbies: [{ name: "Chess" }] });
+      })
+
+    it('should pass, reset formarray with previous state', () => {
+        let user = new User();
+        user.firstName = "Ajay";
+        user.lastName = "Ojha"
+        user.address = new Address();
+        user.address.name = "St. Road";
+        user.hobbies = new Array<Hobby>();
+        let hobby = new Hobby();
+        hobby.name = "Chess";
+        let hobby2 = new Hobby();
+        hobby2.name = "Cricket";
+        user.hobbies.push(hobby);
+        user.hobbies.push(hobby2)
+        let userFormGroup = <RxFormGroup>formBuilder.formGroup(user);
+        let addressFormGroup = <RxFormGroup>userFormGroup.controls.address;
+        userFormGroup.controls.firstName.setValue("Anne");
+        userFormGroup.controls.lastName.setValue("Hodds");
+        addressFormGroup.controls.name.setValue("St. Luios Road");
+        let hobbiesFormArray = userFormGroup.controls.hobbies as RxFormArray;
+        let hobbyFormGroup = hobbiesFormArray.controls[0] as RxFormGroup;
+        hobbyFormGroup.controls.name.setValue("Rugby");
+        hobbiesFormArray.removeAt(1);
+        expect(userFormGroup.value).toEqual({ firstName: 'Anne', lastName: 'Hodds', address: { name: "St. Luios Road" }, hobbies: [{ name: "Rugby" }] });
+        userFormGroup.resetForm({ value: { hobbies: { pushFunction: (value) => formBuilder.formGroup(Hobby,value) } } })
+        expect(userFormGroup.value).toEqual({ firstName: 'Ajay', lastName: 'Ojha', address: { name: "St. Road" }, hobbies: [{ name: "Chess" }, { name: "Cricket" }] });
+    })
       
      
 
