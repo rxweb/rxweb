@@ -12,14 +12,14 @@ import { FormProvider } from '../util/form-provider';
 import { ApplicationUtil } from '../util/app-util';
 import {getConfigObject} from "../util/config-provider";
 export function uniqueValidator(configModel: UniqueConfig): ValidatorFn {
-  var setTimeout = (invalidateControls: AbstractControl[], controlValues: any[]) => {
-    let timeOut = window.setTimeout(() => {
+    var setTimeoutFunc = (invalidateControls: AbstractControl[], controlValues: any[]) => {
+    let timeOut = setTimeout(() => {
       invalidateControls.forEach(t => {
         let isMatched = controlValues.filter(x => x == t.value)[0]
         if (!isMatched)
           t.updateValueAndValidity();
       })
-      window.clearTimeout(timeOut);
+      clearTimeout(timeOut);
     }, 200)
   }
   var additionalValidation = (config: UniqueConfig, fieldName: string, formGroup: AbstractControl, formArray: FormArray, currentValue: any) => {
@@ -62,7 +62,7 @@ export function uniqueValidator(configModel: UniqueConfig): ValidatorFn {
               break;
           }
           if (invalidateControls.length > 0)
-            setTimeout(invalidateControls, controlValues);
+            setTimeoutFunc(invalidateControls, controlValues);
 
           let validation = false;
           if (config.additionalValidation) {

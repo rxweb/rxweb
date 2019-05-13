@@ -11,7 +11,7 @@ import { CONDITIONAL_VALIDATOR, MODEL  } from '../const/app.const'
   selector: '[formGroup],[rxwebForm]',
 })
 export class RxwebFormDirective extends BaseDirective implements AfterContentInit, OnDestroy {
-  private clearTimeout: number = 0;
+  private clearTimeoutNumber: any = 0;
   private validationRule: any = {};
   @Input() formGroup: FormGroup;
   @Input('rxwebForm') ngForm;
@@ -26,8 +26,8 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
   }
 
   private configureModelValidations() {
-    this.clearTimeout = window.setTimeout(() => {
-      window.clearTimeout(this.clearTimeout);
+      this.clearTimeoutNumber = setTimeout(() => {
+          clearTimeout(this.clearTimeoutNumber);
       this.applyValidations(this.ngForm.form.controls);
       this.expressionProcessor(this.ngForm.form.controls);
       this.setConditionalValidator(this.ngForm.form.controls)
