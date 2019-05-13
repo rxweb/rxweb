@@ -19,6 +19,9 @@ export class User {
 	@greaterThan({fieldName:'age'  ,message:'Please enter number greater than 0.' }) 
 	otherAge: number;
 
+    @greaterThan({value:18})
+    minimumAge:number;
+
 }
 
 
@@ -121,7 +124,21 @@ export class User {
         expect(formGroup.controls.otherAge.errors).toEqual({'greaterThan':{ message: 'Please enter number greater than 0.', refValues: [ 1,12 ] } });
      });
 
+it("Should not error, minimumAge value is greater than 18.",
+        () => {
+		let user = new User();
+		user.minimumAge = 19;
+        let formGroup = formBuilder.formGroup(user);
+        expect(formGroup.controls.minimumAge.errors).toBeNull();
+     });
 
+it("Should  error, minimumAge value is greater than 18.",
+    () => {
+        let user = new User();
+        user.minimumAge = 17;
+        let formGroup = formBuilder.formGroup(user);
+        expect(formGroup.controls.minimumAge.errors).toEqual({ 'greaterThan': { message: 'value should be greater than field', refValues: [17, 18] } });
+    });
 
 	//end
     });

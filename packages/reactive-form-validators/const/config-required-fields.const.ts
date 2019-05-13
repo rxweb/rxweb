@@ -1,5 +1,5 @@
 import { ARRAY_CONFIG,FIELD_CONFIG,IP_CONFIG,PASSWORD_CONFIG,NUMBER_CONFIG,PATTERN_CONFIG,
-    RANGE_CONFIG,RELATIONAL_OPERATOR_CONFIG
+    RANGE_CONFIG
 } from './config-names.const'
 
 export const CONFIG_REQUIRED_FIELDS :{[key:string]:string[]} = {
@@ -16,8 +16,4 @@ export const CONFIG_REQUIRED_FIELDS :{[key:string]:string[]} = {
     [PATTERN_CONFIG]:["expression"],
 
     [RANGE_CONFIG]:["minimumNumber","maximumNumber"],
-
-    [RELATIONAL_OPERATOR_CONFIG]:["fieldName"],
-
-    
 }
