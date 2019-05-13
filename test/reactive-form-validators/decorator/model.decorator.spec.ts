@@ -12,7 +12,22 @@ export class User {
     password: string;
 }
 
+@model([{
+    propNames: [":all:"],
+    ignore: (x) => x.type == "Master"
+}])
+export class Employee{
+    @prop()
+    type:string
 
+    @prop()
+    firstName:string;
+
+    @prop()
+    lastName:string;
+
+    email : string;
+}
 
 
 describe('Decorator', () => {
@@ -52,7 +67,13 @@ describe('Decorator', () => {
                 let formGroup = formBuilder.formGroup(user);
                 expect(formGroup.controls.userName.errors).toEqual({ 'alpha': { message: 'Only alphabets are allowed.', refValues: ['Indi@'] } });
             });
-
+it('should not error, should not define all properties',
+    () => {
+        var employee = new Employee();
+        employee.type = "Master";
+        let formGroup = formBuilder.formGroup(employee);
+        expect(Object.keys(formGroup.controls).length).toBe(0);
+     });
 
         //end
     });

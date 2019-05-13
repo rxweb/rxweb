@@ -398,6 +398,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                 additionalValidations = formBuilderConfiguration.dynamicValidation;
             if (formBuilderConfiguration && formBuilderConfiguration.includeProps && formBuilderConfiguration.includeProps.length > 0)
                 isIncludeProp = formBuilderConfiguration.includeProps.indexOf(property.name) != -1
+            if (property.ignore)
+                isIncludeProp = !property.ignore.call(json.entityObject, json.entityObject);
             if (isIncludeProp) {
                 switch (property.propertyType) {
                     case PROPERTY:

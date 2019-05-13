@@ -69,6 +69,8 @@ export const defaultContainer:
                         this.addDecoratorConfig({ constructor: target }, 0, propertyInfo.name, config.disable, DECORATORS.disable)
                     if (config.elementClass)
                         this.addDecoratorConfig({ constructor: target }, 0, propertyInfo.name, config.elementClass, DECORATORS.elementClass)
+                    if (config.ignore)
+                        propertyInfo.ignore = config.ignore
                 }
             }
         }
