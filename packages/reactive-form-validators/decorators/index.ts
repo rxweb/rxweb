@@ -84,3 +84,5 @@ export * from './sanitize/suffix.decorator';
 export * from './model.decorator';
 export * from './sanitize/sanitize.decorator';
 export * from './non-validation-decorators/elementClass.decorator';
+export * from './minTime.decorator';
+export * from './maxTime.decorator';

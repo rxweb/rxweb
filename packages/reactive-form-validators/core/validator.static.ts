@@ -64,5 +64,7 @@ export const AnnotationTypes: { [key: string]: string } = {
   date:'date',
   and:'and',
   or:'or',
-  not:'not'
+  not: 'not',
+  minTime: 'minTime',
+  maxTime:'maxTime'
 }

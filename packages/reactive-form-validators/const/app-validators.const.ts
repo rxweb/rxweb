@@ -17,7 +17,9 @@ import {
   latitudeValidator,
   longitudeValidator, composeValidator, ruleValidator, fileValidator, uniqueValidator, imageValidator, notEmptyValidator, ipValidator, cusipValidator
   , gridValidator,
-  dateValidator
+  dateValidator,
+  minTimeValidator,
+  maxTimeValidator
 } from '../reactive-form-validators/index';
 
 export const APP_VALIDATORS: { [key: string]: Function } = {
@@ -79,5 +81,7 @@ export const APP_VALIDATORS: { [key: string]: Function } = {
   "ip": ipValidator,
   "cusip": cusipValidator,
     "grid":gridValidator,
-    "date":dateValidator
+    "date": dateValidator,
+    "minTime": minTimeValidator,
+    "maxTime":maxTimeValidator
 }
