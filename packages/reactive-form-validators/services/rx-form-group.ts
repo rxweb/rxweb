@@ -7,7 +7,7 @@ import { RxFormArray } from './rx-form-array';
 import { FormDataProvider } from "../domain/form-data";
 import { ResetFormType } from "../enums/reset-type";
 import { isResetControl, getNestedOptions } from '../util/reset-form'
-
+import { defaultContainer } from '../core/defaultContainer'
 export class RxFormGroup extends FormGroup {
     private baseObject: { [key: string]: any }
     private formDataProvider: FormDataProvider;
@@ -22,7 +22,34 @@ export class RxFormGroup extends FormGroup {
         this.formDataProvider = new FormDataProvider();
     }
 
+    bindPrimaryKey(modelInstance: any, jObject: { [key: string]: any }) {
+        let instanceContainer = defaultContainer.get(modelInstance.constructor);
+        if (instanceContainer)
+        {
+            let primaryKeyProp = instanceContainer.properties.filter(x => x.isPrimaryKey)[0];
+            if (primaryKeyProp && this.modelInstance[primaryKeyProp.name])
+                jObject[primaryKeyProp.name] = this.modelInstance[primaryKeyProp.name];
+        }
+    }
+
     get modifiedValue(): { [key: string]: any } {
+        let jObject = {};
+        if (Object.keys(this._modified).length > 0) {
+            this.bindPrimaryKey(this.modelInstance, jObject)
+            for (var columnName in this._modified) {
+                if (this.controls[columnName] instanceof RxFormGroup)
+                    jObject[columnName] = (<RxFormGroup>this.controls[columnName]).modifiedValue;
+                else if (this.controls[columnName] instanceof FormArray) {
+                    let formArray = this.controls[columnName] as FormArray;
+                    jObject[columnName] = [];
+                    for (var i = 0; i < this._modified[columnName].length; i++) {
+                        jObject[columnName].push((<RxFormGroup>formArray.controls[i]).modifiedValue)
+                    }
+                } else
+                    jObject[columnName] = this._modified[columnName];
+            }
+            return jObject;
+        }
         return this._modified;
     }
 
