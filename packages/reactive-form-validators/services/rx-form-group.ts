@@ -18,7 +18,9 @@ export class RxFormGroup extends FormGroup {
         [key: string]: AbstractControl;
     }, validatorOrOpts?: any, asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null) {
         super(controls, validatorOrOpts, asyncValidator);
-        this.baseObject = Object.assign({}, this.entityObject)
+        this.baseObject = {}
+        for (var column in this.entityObject)
+            this.baseObject[column] = this.entityObject[column]
         this.formDataProvider = new FormDataProvider();
     }
 

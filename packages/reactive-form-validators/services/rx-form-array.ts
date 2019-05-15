@@ -46,7 +46,6 @@ export class RxFormArray extends FormArray {
         if (options && options.index >= 0 && options.groupOption) {
             (<any>this.controls[options.index]).resetForm(options.groupOption)
         } else {
-            var controlsLength = this._baseValue.length - this.controls.length;
             for (var i = 0; i < this._baseValue.length; i++) {
                 if (this.controls[i] !== undefined)
                     (<any>this.controls[i]).resetForm({ value: this._baseValue[i] });

@@ -1,4 +1,4 @@
-import { choice, prop, ReactiveFormConfig, RxFormBuilder } from '@rxweb/reactive-form-validators';
+import { choice,  ReactiveFormConfig, RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 export class EmployeeInfo {
 

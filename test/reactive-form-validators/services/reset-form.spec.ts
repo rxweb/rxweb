@@ -1,6 +1,6 @@
-﻿import {FormGroup, FormArray} from '@angular/forms';
+﻿
 
-import { RxFormBuilder, RxFormGroup, RxFormControl, RxFormArray, prop, propObject, propArray, ResetFormType } from '@rxweb/reactive-form-validators';
+import { RxFormBuilder, RxFormGroup,  RxFormArray, prop, propObject, propArray, ResetFormType } from '@rxweb/reactive-form-validators';
 
 export class Hobby {
 

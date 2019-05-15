@@ -1,6 +1,6 @@
 ﻿import {FormGroup, FormArray} from '@angular/forms';
 
-import { RxFormBuilder, FormBuilderConfiguration, RxFormGroup, RxFormControl,RxFormArray,prop, propObject, propArray } from '@rxweb/reactive-form-validators';
+import { RxFormBuilder, FormBuilderConfiguration, RxFormGroup,prop, propObject, propArray } from '@rxweb/reactive-form-validators';
 
 export class Item {
 
