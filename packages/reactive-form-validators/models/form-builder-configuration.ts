@@ -17,6 +17,8 @@ export class FormBuilderConfiguration{
 
     includeProps?: string[];
 
+    ignoreUndefinedProps?:string[];
+
     propsConfig?: {[key:string]:PropConfig};
 
     dynamicValidation?: { [key: string]: PropValidationConfig }
