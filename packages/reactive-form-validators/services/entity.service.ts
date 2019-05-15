@@ -1,6 +1,11 @@
 
+function isObjectType(value:any) {
+    return !(typeof value == "string" || typeof value === "number" || typeof value === "boolean" || value instanceof Date);
+}
+
 export function clone(jsonObject: { [key: string]: any }) {
-        let jObject: any = {};
+    let jObject: any = {};
+    if (isObjectType(jsonObject)) {
         for (var columnName in jsonObject) {
             if (Array.isArray(jsonObject[columnName])) {
                 jObject[columnName] = [];
@@ -13,6 +18,9 @@ export function clone(jsonObject: { [key: string]: any }) {
                 jObject[columnName] = jsonObject[columnName]
         }
         return jObject;
+    }
+    else
+        return jsonObject;
     }
 
 export function merge(firstObject: { [key: string]: any }, secondObject: { [key: string]: any }) {
@@ -28,4 +36,21 @@ export function merge(firstObject: { [key: string]: any }, secondObject: { [key:
                 firstObject[columnName] = secondObject[columnName];
         }
         return firstObject;
+}
+
+export function isMatched(jsonObject: { [key: string]: any }, compareObject: { [key: string]: any }) {
+    let isModified: boolean = false;
+    for (var columnName in compareObject) {
+            if (Array.isArray(jsonObject[columnName])) {
+                for (var i = 0; i < jsonObject[columnName].length; i++) {
+                    isModified = isMatched(jsonObject[columnName][i], compareObject[columnName][i])
+                }
+            } else if (typeof jsonObject[columnName] == "object")
+                isModified = isMatched(jsonObject[columnName], compareObject[columnName]);
+            else
+                isModified = !(jsonObject[columnName] == compareObject[columnName]);
+            if (isModified)
+                break;
     }
+        return isModified;
+}

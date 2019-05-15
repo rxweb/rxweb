@@ -16,7 +16,7 @@ export function customChangeValidator(customValidation: any): ValidatorFn {
         }
       }
       if (currentControl) {
-        window.setTimeout(() =>
+        setTimeout(() =>
           currentControl.updateValueAndValidity(), 300);
       }
     }

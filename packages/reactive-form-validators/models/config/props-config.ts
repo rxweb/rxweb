@@ -9,5 +9,6 @@ export interface PropsConfig extends ModelConfig {
     error?: ErrorConfig;
     disable?: DisableConfig;
     elementClass?: ElementClassConfig;
+    ignore?: (x: any) => boolean;
 }
 

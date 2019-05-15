@@ -11,5 +11,6 @@ export * from './services/rx-form-group';
 export * from './validators-extension/rxweb-validators';
 export * from './models/interface/i-form-group';
 export * from './models/interface/i-abstract-control';
+export * from './services/rx-form-array';
 export * from './dynamic';
 

@@ -11,7 +11,7 @@ import { CONDITIONAL_VALIDATOR, MODEL  } from '../const/app.const'
   selector: '[formGroup],[rxwebForm]',
 })
 export class RxwebFormDirective extends BaseDirective implements AfterContentInit, OnDestroy {
-  private clearTimeout: number = 0;
+  private clearTimeoutNumber: any = 0;
   private validationRule: any = {};
   @Input() formGroup: FormGroup;
   @Input('rxwebForm') ngForm;
@@ -26,8 +26,8 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
   }
 
   private configureModelValidations() {
-    this.clearTimeout = window.setTimeout(() => {
-      window.clearTimeout(this.clearTimeout);
+      this.clearTimeoutNumber = setTimeout(() => {
+          clearTimeout(this.clearTimeoutNumber);
       this.applyValidations(this.ngForm.form.controls);
       this.expressionProcessor(this.ngForm.form.controls);
       this.setConditionalValidator(this.ngForm.form.controls)
@@ -64,7 +64,7 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
                 if(typeof formControl.validatorConfig[validatorName].validation[t] !== "boolean")
                 defaultContainer.setLogicalConditional(this.validationRule,t,formControl.validatorConfig[validatorName].validation[t].fieldName,fieldName)
             })
-        }else if (formControl.validatorConfig[validatorName] && ((validatorName == AnnotationTypes.compare || validatorName == AnnotationTypes.greaterThan || validatorName == AnnotationTypes.greaterThanEqualTo || validatorName == AnnotationTypes.lessThan || validatorName == AnnotationTypes.lessThanEqualTo || validatorName == AnnotationTypes.different || validatorName == AnnotationTypes.factor) || (validatorName == AnnotationTypes.creditCard && formControl.validatorConfig[validatorName].fieldName) || ((validatorName == AnnotationTypes.minDate || validatorName == AnnotationTypes.maxDate) && formControl.validatorConfig[validatorName].fieldName))) {
+          }else if (formControl.validatorConfig[validatorName] && ((validatorName == AnnotationTypes.compare || validatorName == AnnotationTypes.greaterThan || validatorName == AnnotationTypes.greaterThanEqualTo || validatorName == AnnotationTypes.lessThan || validatorName == AnnotationTypes.lessThanEqualTo || validatorName == AnnotationTypes.different || validatorName == AnnotationTypes.factor || validatorName == AnnotationTypes.minTime || validatorName == AnnotationTypes.maxTime) || (validatorName == AnnotationTypes.creditCard && formControl.validatorConfig[validatorName].fieldName) || ((validatorName == AnnotationTypes.minDate || validatorName == AnnotationTypes.maxDate) && formControl.validatorConfig[validatorName].fieldName))) {
             defaultContainer.setConditionalValueProp(this.validationRule, formControl.validatorConfig[validatorName].fieldName, fieldName)
           }
         })

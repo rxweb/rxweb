@@ -1,7 +1,7 @@
 import { PropValidationConfig } from "./prop-validation-config";
 import {ValidatorFn } from '@angular/forms'
 import { AutoInstanceConfig } from './interface/auto-instance-config.interface'
-
+import { PropConfig } from "./config/prop-config"
 export class FormBuilderConfiguration{
     constructor(formBuilderConfiguration?: FormBuilderConfiguration) {
         if (formBuilderConfiguration)
@@ -16,6 +16,10 @@ export class FormBuilderConfiguration{
     excludeProps?: string[];
 
     includeProps?: string[];
+
+    ignoreUndefinedProps?:string[];
+
+    propsConfig?: {[key:string]:PropConfig};
 
     dynamicValidation?: { [key: string]: PropValidationConfig }
 

@@ -30,6 +30,8 @@ export interface PropertyInfo {
     entity?: any;
     dataPropertyName?: string;
     defaultValue?: any;
+    ignore?: (x: any) => boolean;
+    isPrimaryKey?: boolean;
 }
 
 export interface ControlInfo {

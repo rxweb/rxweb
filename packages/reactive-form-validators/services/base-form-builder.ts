@@ -55,15 +55,15 @@ export class BaseFormBuilder {
                 let entity = ((t.propertyType == OBJECT_PROPERTY || t.propertyType == ARRAY_PROPERTY) && t.entity) ? t.entity: (formBuilderConfiguration && formBuilderConfiguration.genericEntities) ? formBuilderConfiguration.genericEntities[t.name] : undefined;
                 switch (t.propertyType) {
                     case PROPERTY:
-                        classInstance[t.name] = this.getValue(entityObject,t)
+                        classInstance[t.name] = this.getValue(entityObject, t, formBuilderConfiguration)
                         break;
                     case OBJECT_PROPERTY:
-                        let objectValue = this.getValue(entityObject, t);
+                        let objectValue = this.getValue(entityObject, t, formBuilderConfiguration);
                         if (objectValue)
                             classInstance[t.name] = this.updateObject(entity, objectValue, formBuilderConfiguration )
                         break;
                     case ARRAY_PROPERTY:
-                        let arrayObjectValue = this.getValue(entityObject,t);
+                        let arrayObjectValue = this.getValue(entityObject, t, formBuilderConfiguration);
                         if (arrayObjectValue && Array.isArray(arrayObjectValue)) {
                             classInstance[t.name] = [];
                             for (let row of arrayObjectValue) {
@@ -83,10 +83,11 @@ export class BaseFormBuilder {
         return instanceProvider(instanceFunc, entityObject);
     }
 
-    protected getDefaultValue(propertyInfo:PropertyInfo,value:any){
-        return (propertyInfo.defaultValue != undefined && !RegexValidator.isNotBlank(value)) ?
-            propertyInfo.defaultValue:
-            value;
+    protected getDefaultValue(propertyInfo: PropertyInfo, value: any, formBuilderConfiguration: FormBuilderConfiguration) {
+        let defaultValue = (formBuilderConfiguration && formBuilderConfiguration.propsConfig && formBuilderConfiguration.propsConfig[propertyInfo.name] && formBuilderConfiguration.propsConfig[propertyInfo.name].defaultValue && !RegexValidator.isNotBlank(value)) ? formBuilderConfiguration.propsConfig[propertyInfo.name].defaultValue : (propertyInfo.defaultValue != undefined && !RegexValidator.isNotBlank(value)) ?
+            propertyInfo.defaultValue :
+            value
+        return defaultValue;
     }
 
     protected sanitizeValue(instanceContainer: InstanceContainer, propertyName: string, value: any, entityObject: any, baseObject: any) {
@@ -101,8 +102,8 @@ export class BaseFormBuilder {
         return value;
     }
 
-    private getValue(entityObject:{[key:string]:any},propertyInfo:PropertyInfo){
+    private getValue(entityObject: { [key: string]: any }, propertyInfo: PropertyInfo, formBuilderConfiguration: FormBuilderConfiguration) {
         let propValue = (propertyInfo.dataPropertyName) ? entityObject[propertyInfo.dataPropertyName] : entityObject[propertyInfo.name];
-        return this.getDefaultValue(propertyInfo,propValue);
+        return this.getDefaultValue(propertyInfo,propValue,formBuilderConfiguration);
     }
 }

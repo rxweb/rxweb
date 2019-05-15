@@ -60,3 +60,5 @@ export * from './date-validator.extension';
 export * from './and-validator.extension';
 export * from './or-validator.extension';
 export * from './not-validator.extension';
+export * from './minTime-validator.extension';
+export * from './maxTime-validator.extension';

@@ -1,4 +1,6 @@
 export interface PropConfig {
   name?: string;
-  defaultValue?:any;
+  defaultValue?: any;
+  ignore?: (x: any) => boolean;
+  isPrimaryKey?: boolean;
 }

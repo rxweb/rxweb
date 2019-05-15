@@ -229,6 +229,78 @@ describe('error-message-binding-strategy', () => {
 
     })
 
+ it('"OnDirtyOrSubmit" error message strategy', () => {
+        ReactiveFormConfig.set({
+            "validationMessage": {
+                "required": "This field is required."
+            },
+            "reactiveForm": {
+                "errorMessageBindingStrategy": ErrorMessageBindingStrategy.OnDirtyOrSubmit
+            }
+        });
+        let user = new User();
+        user.address = new Address();
+        user.hobbies = new Array<Hobby>();
+        user.hobbies.push(new Hobby());
+
+        let formGroup = formbuilder.formGroup(user) as RxFormGroup;
+        let addressFormGroup = formGroup.controls.address as FormGroup;
+        let hobbyFormArray = formGroup.controls.hobbies as FormArray;
+        let hobbyFormGroup = hobbyFormArray.controls[0] as FormGroup;
+        expect((<RxFormControl>formGroup.controls.userName).errorMessage).toBe(undefined);
+
+        //applied error decorator on password property
+        expect((<RxFormControl>formGroup.controls.password).errorMessage).toBe(undefined);
+
+        expect((<RxFormControl>addressFormGroup.controls.city).errorMessage).toBe(undefined);
+        expect((<RxFormControl>hobbyFormGroup.controls.name).errorMessage).toBe(undefined);
+
+        formGroup.submitted = true
+
+        expect((<RxFormControl>formGroup.controls.userName).errorMessage).toBe("This field is required.");
+        expect((<RxFormControl>formGroup.controls.password).errorMessage).toBe(undefined);
+        expect((<RxFormControl>addressFormGroup.controls.city).errorMessage).toBe("This field is required.");
+        expect((<RxFormControl>hobbyFormGroup.controls.name).errorMessage).toBe("This field is required.");
+
+    })
+
+it('"OnTouchedOrSubmit" error message strategy', () => {
+        ReactiveFormConfig.set({
+            "validationMessage": {
+                "required": "This field is required."
+            },
+            "reactiveForm": {
+                "errorMessageBindingStrategy": ErrorMessageBindingStrategy.OnTouchedOrSubmit
+            }
+        });
+        let user = new User();
+        user.address = new Address();
+        user.hobbies = new Array<Hobby>();
+        user.hobbies.push(new Hobby());
+
+        let formGroup = formbuilder.formGroup(user) as RxFormGroup;
+        let addressFormGroup = formGroup.controls.address as FormGroup;
+        let hobbyFormArray = formGroup.controls.hobbies as FormArray;
+        let hobbyFormGroup = hobbyFormArray.controls[0] as FormGroup;
+        expect((<RxFormControl>formGroup.controls.userName).errorMessage).toBe(undefined);
+
+        //applied error decorator on password property
+        expect((<RxFormControl>formGroup.controls.password).errorMessage).toBe(undefined);
+
+        expect((<RxFormControl>addressFormGroup.controls.city).errorMessage).toBe(undefined);
+        expect((<RxFormControl>hobbyFormGroup.controls.name).errorMessage).toBe(undefined);
+
+        formGroup.controls.userName.markAsTouched();
+        addressFormGroup.controls.city.markAsTouched();
+        hobbyFormGroup.controls.name.markAsTouched();
+
+        expect((<RxFormControl>formGroup.controls.userName).errorMessage).toBe("This field is required.");
+        expect((<RxFormControl>formGroup.controls.password).errorMessage).toBe(undefined);
+        expect((<RxFormControl>addressFormGroup.controls.city).errorMessage).toBe("This field is required.");
+        expect((<RxFormControl>hobbyFormGroup.controls.name).errorMessage).toBe("This field is required.");
+
+    })
+
     
 
 
