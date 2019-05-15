@@ -10,6 +10,7 @@ import { SANITIZERS } from "../util/sanitizers"
 import { DataSanitizer } from '../core/validator.interface'
 import { ErrorMessageBindingStrategy } from "../enums";
 import { ReactiveFormConfig } from "../util/reactive-form-config";
+import { FormFieldConfig } from "../dynamic/form-field-config";
 
 const DIRTY:string = "dirty";
 const TOUCHED:string = "touched";
@@ -34,7 +35,7 @@ export class RxFormControl extends FormControl {
     private _isPassedExpression: Boolean = false;
     private _controlProp: { [key: string]: boolean };
     private _classNameControlProp: { [key: string]: boolean };
-
+    private formFieldConfig: FormFieldConfig;
     updateOnElementClass: boolean | Function;
 
     get errorMessages(): string[] {
@@ -60,10 +61,11 @@ export class RxFormControl extends FormControl {
             this.setControlErrorMessages();
         return this._errorMessage;
     }
-    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string,private _sanitizers:DataSanitizer[]) {
+    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string, private _sanitizers: DataSanitizer[], _formFieldConfig?: FormFieldConfig) {
         super(formState, validator, asyncValidator)
         this.keyName = controlName;
         this._errorMessageBindingStrategy = ReactiveFormConfig.get("reactiveForm.errorMessageBindingStrategy") as ErrorMessageBindingStrategy;
+        this.formFieldConfig = _formFieldConfig;
     }
 
     setValue(value: any, options?: {
@@ -71,11 +73,18 @@ export class RxFormControl extends FormControl {
         updateChanged?: boolean;
         onlySelf?: boolean;
         emitEvent?: boolean;
+        isThroughDynamic?: boolean;
     }): void {
         let parsedValue = this.getSanitizedValue(value)
         if (options && options.dirty)
             this.baseObject[this.keyName] = value;
         this.entityObject[this.keyName] = parsedValue;
+        if (this.formFieldConfig) {
+            if (!options || (options && !options.isThroughDynamic)) {
+                this.formFieldConfig.setPropertyValue(parsedValue);
+            }
+        }
+
         super.setValue(value, options);
         this.bindError();
         this.bindClassName();
@@ -86,7 +95,7 @@ export class RxFormControl extends FormControl {
     }
 
     getControlValue(){
-       return this.getSanitizedValue(this.value); 
+        return this.getSanitizedValue(this.value);
     }
 
     bindError(){
@@ -103,7 +112,7 @@ export class RxFormControl extends FormControl {
         }
     }
 
-    
+
 
 
     markAsTouched(opts?: {
@@ -113,7 +122,7 @@ export class RxFormControl extends FormControl {
         super.markAsTouched(opts);
         if(currentState != this.touched)
             this.runControlPropChangeExpression([TOUCHED,UNTOUCHED])
-        
+
     }
 
     markAsUntouched(opts?: {
@@ -157,8 +166,8 @@ export class RxFormControl extends FormControl {
         propNames.forEach(name => {
             if ((this._controlProp && this._messageExpression && this._controlProp[name]) || (!this._messageExpression && this.checkErrorMessageStrategy()))
                 this.bindError();
-        if (this._classNameControlProp && this._classNameControlProp[name])
-            this.bindClassName();
+            if (this._classNameControlProp && this._classNameControlProp[name])
+                this.bindClassName();
         });
     }
 
@@ -198,19 +207,19 @@ export class RxFormControl extends FormControl {
         this.processExpression("_refClassNameControls", "bindClassName");
     }
 
-    private getMessageExpression(formGroup:FormGroup,keyName:string):void{
-            if(formGroup[MODEL_INSTANCE]){
-                let instanceContainer = defaultContainer.get(formGroup[MODEL_INSTANCE].constructor);
-                if(instanceContainer) {
-                    this._messageExpression = instanceContainer.nonValidationDecorators.error.conditionalExpressions[keyName]
-                    this._controlProp = instanceContainer.nonValidationDecorators.error.controlProp[this.keyName];
-                    this._classNameExpression = instanceContainer.nonValidationDecorators.elementClass.conditionalExpressions[keyName];
-                    this._classNameControlProp = instanceContainer.nonValidationDecorators.elementClass.controlProp[keyName];
-                    if (this._classNameExpression)
-                        this.updateOnElementClass = true;
-                }
-                    
-                }
+    private getMessageExpression(formGroup: FormGroup, keyName: string): void {
+        if (formGroup[MODEL_INSTANCE]) {
+            let instanceContainer = defaultContainer.get(formGroup[MODEL_INSTANCE].constructor);
+            if(instanceContainer) {
+                this._messageExpression = instanceContainer.nonValidationDecorators.error.conditionalExpressions[keyName]
+                this._controlProp = instanceContainer.nonValidationDecorators.error.controlProp[this.keyName];
+                this._classNameExpression = instanceContainer.nonValidationDecorators.elementClass.conditionalExpressions[keyName];
+                this._classNameControlProp = instanceContainer.nonValidationDecorators.elementClass.controlProp[keyName];
+                if (this._classNameExpression)
+                    this.updateOnElementClass = true;
+            }
+
+        }
     }
 
     private getSanitizedValue(value:any) {
@@ -226,7 +235,7 @@ export class RxFormControl extends FormControl {
         this._disableProvider = new DisableProvider(decoratorType,this.entityObject);
         this[refName] = this._disableProvider.zeroArgumentProcess(this,this.keyName)
         this._disableProvider.oneArgumentProcess(this,`${this.keyName}${RXCODE}1`).forEach(t=>this[refName].push(t))
-        
+
     }
 
     private setControlErrorMessages() {
@@ -246,12 +255,11 @@ export class RxFormControl extends FormControl {
                 this.parent[CONTROLS_ERROR][this.keyName] = undefined
                 delete this.parent[CONTROLS_ERROR][this.keyName];
             }
-        }else
-        {
+        } else {
             this._errorMessages = [];
             this._errorMessage = undefined;
         }
-        
+
     }
 
     private getErrorMessage(errorObject: { [key: string]: string }, keyName: string) {
@@ -260,29 +268,29 @@ export class RxFormControl extends FormControl {
         return;
     }
 
-    
+
 
     private processExpression(propName: string, operationType: string) {
         if(this[propName])
-        for(var controlInfo of this[propName]){
-            let control = controlInfo.isRoot ?ApplicationUtil.getControl(controlInfo.controlPath,ApplicationUtil.getRootFormGroup(this)) : ApplicationUtil.getFormControl(controlInfo.controlPath,this);
-            if(control) {
-                if (operationType == "disabled") {
-                    let result = this.executeExpression(controlInfo.conditionalExpression, control);
-                    if (result)
-                        control.disable()
-                    else
-                        control.enable();
-                } else if (operationType == "bindError")
-                    control.bindError();
-                else if (operationType == "bindClassName")
-                    control.bindClassName();
-                
+            for(var controlInfo of this[propName]){
+                let control = controlInfo.isRoot ?ApplicationUtil.getControl(controlInfo.controlPath,ApplicationUtil.getRootFormGroup(this)) : ApplicationUtil.getFormControl(controlInfo.controlPath,this);
+                if(control) {
+                    if (operationType == "disabled") {
+                        let result = this.executeExpression(controlInfo.conditionalExpression, control);
+                        if (result)
+                            control.disable()
+                        else
+                            control.enable();
+                    } else if (operationType == "bindError")
+                        control.bindError();
+                    else if (operationType == "bindClassName")
+                        control.bindClassName();
+
+                }
             }
-        }
     }
 
-    private executeExpression(expression:Function,control:AbstractControl):Boolean{
+    private executeExpression(expression: Function, control: AbstractControl): Boolean {
         return expression.call(control.parent[MODEL_INSTANCE], control, ApplicationUtil.getParentModelInstanceValue(this), control.parent[MODEL_INSTANCE])
     }
 

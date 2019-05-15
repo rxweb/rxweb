@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { FormGroup, FormArray, FormControl } from "@angular/forms"
+import { FormGroup, FormArray, FormControl, ValidatorFn } from "@angular/forms"
 import { Type } from "../util"
 import { BaseFormBuilder } from './base-form-builder';
 
@@ -7,7 +7,7 @@ import { BaseFormBuilder } from './base-form-builder';
 import { defaultContainer } from '../core/defaultContainer';
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from '../core/validator.interface';
 
-import { FormBuilderConfiguration } from "../models"
+import { FormBuilderConfiguration, DynamicFormConfiguration } from "../models"
 import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY, FUNCTION_STRING, OBJECT_STRING, RX_WEB_VALIDATOR, NUMBER, BOOLEAN, STRING, MODEL } from "../const"
 import { PropValidationConfig } from "../models/prop-validation-config";
 
@@ -22,6 +22,8 @@ import { andValidator } from '../reactive-form-validators/and.validator'
 import { orValidator } from '../reactive-form-validators/or.validator'
 import { notValidator } from '../reactive-form-validators/not.validator'
 import { AppFormGroup } from '../models/interface/i-form-group'
+import { FormFieldConfig } from "../dynamic";
+import { getInstance } from "../util/instance-provider.function";
 const LOGICAL_VALIDATORS: { [key: string]: Function } = { and: andValidator, or: orValidator, not: notValidator }
 const ASYNC: string = "async"
 const ENTITY_OBJECT: string = "entityObject";
@@ -129,7 +131,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         return validators;
     }
 
-    private additionalValidation(validations: any[], propValidationConfig: PropValidationConfig) {
+    private additionalValidation(validations: any[], propValidationConfig: PropValidationConfig | any) {
         for (var col in AnnotationTypes) {
             if (propValidationConfig[AnnotationTypes[col]] && col != "custom") {
                 validations.push(APP_VALIDATORS[AnnotationTypes[col]](propValidationConfig[AnnotationTypes[col]]));
@@ -372,7 +374,29 @@ export class RxFormBuilder extends BaseFormBuilder {
         return props;
     }
 
-
+    dynamicFormGroup(fields: any[], formConfiguration: DynamicFormConfiguration) {
+        let formControls: { [key: string]: RxFormControl } = {};
+        let entityObject: { [key: string]: any } = {};
+        let formFieldConfigs = new Array<FormFieldConfig>();
+        let modelConfig = {};
+        fields.forEach((x,i) => {
+            let configModel = formConfiguration.fieldConfigModels.filter((x) => x.modelName == "default")[0];
+            let modelInstance = getInstance(configModel.model, [x, modelConfig]);
+            modelConfig[x.name] = modelInstance;
+            formFieldConfigs.push(modelInstance)
+            let validators: ValidatorFn[] = [];
+            this.additionalValidation(validators, x.validators);
+            entityObject[x.name] = x.value;
+            let baseObject = {};
+            baseObject[x.name] = x.value;
+            formControls[x.name] = new RxFormControl(x.value, validators, null, entityObject, baseObject, x.name, undefined, modelInstance)
+            modelInstance.formControl = formControls[x.name];
+        });
+        return {
+            fieldConfig: modelConfig,
+            formGroup: new RxFormGroup({}, entityObject, formControls, undefined)
+        };
+    }
 
     formGroup<T>(model: Type<T> | { [key: string]: any }, entityObject?: { [key: string]: any } | FormBuilderConfiguration, formBuilderConfiguration?: FormBuilderConfiguration): RxFormGroup | FormGroup | AppFormGroup<T> {
         let json = this.getObject(model, entityObject, formBuilderConfiguration);
