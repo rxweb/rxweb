@@ -12,7 +12,7 @@ export class FormProvider{
 
     static ProcessRule(control:AbstractControl,config:any,isDynamicConfig:boolean = false) : boolean | {[key:string]:any} {
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
-        const parentObject = (control.parent) ? control.parent.value : undefined;
+        const parentObject = (control.parent) ? ApplicationUtil.cloneValue(control.parent.value) : undefined;
         let modelInstance = undefined;
         if (control.parent && control.parent instanceof RxFormGroup)
             modelInstance = (<RxFormGroup>control.parent).modelInstance;
