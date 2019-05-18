@@ -4,5 +4,10 @@
         model: Function,
         arguments:any[]
     }];
+    sectionConfigs: {
+        [key: string]: {
+
+        }
+    }
     
 }

@@ -1,30 +1,28 @@
-﻿export const DynamicReactiveFormConfig:
+﻿import { ComponentConfig } from "../models/config/component-config"
+export const DynamicReactiveFormConfig:
     {
-        registerComponent(componentConfig: { [key: string]: any }): any[],
+        registerComponent(componentConfig: { [key: string]: ComponentConfig }): any[],
         removeComponent(typeNames: string[]): void,
-        getComponent(typeName: string): any
+        getComponentConfig(typeName: string): any
     } = new (class {
 
-        private componentsConfig: { [key: string]: any };
+        private componentConfigs: { [key: string]: ComponentConfig } = {};
 
-        registerComponent(componentsConfig: { [key: string]: any }):any[] {
+        registerComponent(configs: { [key: string]: ComponentConfig }):any[] {
             let entryComponents = [];
-            if (!this.componentsConfig)
-                this.componentsConfig = {};
-            Object.keys(componentsConfig).forEach(key => {
-                let componentConfig = componentsConfig[key];
-                this.componentsConfig[key] = componentConfig;
-                entryComponents.push(componentConfig.component);
+            Object.keys(configs).forEach(key => {
+                this.componentConfigs[key] = configs[key];
+                entryComponents.push(this.componentConfigs[key].component);
             });
             return entryComponents;
         }
 
         removeComponent(typeNames: string[]): void {
-            typeNames.forEach(name => delete this.componentsConfig[name])
+            typeNames.forEach(name => delete this.componentConfigs[name])
         }
 
-        getComponent(typeName: string):any {
-            let componentConfig = this.componentsConfig[typeName];
+        getComponentConfig(typeName: string):any {
+            let componentConfig = this.componentConfigs[typeName];
             return componentConfig;
         }
 

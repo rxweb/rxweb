@@ -10,7 +10,7 @@ import { SANITIZERS } from "../util/sanitizers"
 import { DataSanitizer } from '../core/validator.interface'
 import { ErrorMessageBindingStrategy } from "../enums";
 import { ReactiveFormConfig } from "../util/reactive-form-config";
-import { FormFieldConfig } from "../dynamic/form-field-config";
+import { FormControlConfig } from "../dynamic/form-control-config";
 
 const DIRTY:string = "dirty";
 const TOUCHED:string = "touched";
@@ -37,8 +37,10 @@ export class RxFormControl extends FormControl {
     private _classNameControlProp: { [key: string]: boolean };
     private _baseValue: any;
     private _isModified: boolean;
-    private formFieldConfig: FormFieldConfig;
+    private controlConfig: FormControlConfig;
     updateOnElementClass: boolean | Function;
+    preHook: Function;
+    postHook: Function;
 
     get errorMessages(): string[] {
         if (!this._messageExpression) {
@@ -63,13 +65,19 @@ export class RxFormControl extends FormControl {
             this.setControlErrorMessages();
         return this._errorMessage;
     }
-    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string, private _sanitizers: DataSanitizer[], _formFieldConfig?: FormFieldConfig) {
+    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string, private _sanitizers: DataSanitizer[], _formControlConfig?: FormControlConfig) {
         super(formState, validator, asyncValidator)
         this._baseValue = formState === undefined ? "" : formState;
         this._isModified = false;
         this.keyName = controlName;
         this._errorMessageBindingStrategy = ReactiveFormConfig.get("reactiveForm.errorMessageBindingStrategy") as ErrorMessageBindingStrategy;
-        this.formFieldConfig = _formFieldConfig;
+        this.controlConfig = _formControlConfig;
+        if (this.controlConfig && this.controlConfig.hooks) {
+            if (this.controlConfig.hooks.preValue)
+                this.preHook = this.controlConfig.hooks.preValue;
+            if (this.controlConfig.hooks.postValue)
+                this.postHook = this.controlConfig.hooks.postValue;
+        }
     }
 
     get isModified() {
@@ -83,23 +91,33 @@ export class RxFormControl extends FormControl {
         emitEvent?: boolean;
         isThroughDynamic?: boolean;
     }): void {
-        let parsedValue = this.getSanitizedValue(value)
-        if (options && options.dirty)
-            this.baseObject[this.keyName] = value;
-        this.entityObject[this.keyName] = parsedValue;
-        if (this.formFieldConfig) {
-            if (!options || (options && !options.isThroughDynamic)) {
-                this.formFieldConfig.setPropertyValue(parsedValue);
+        if (this.preHook && (!options || (options && !options.isThroughDynamic))) {
+            let isPassed = this.preHook.call(this.controlConfig);
+            if (!isPassed) {
+                let previousValue = this.value;
+                let patch: any = { isThroughDynamic: true };
+                super.patchValue(previousValue,patch);
             }
         }
-
-        super.setValue(value, options);
-        this.bindError();
-        this.bindClassName();
-        this.executeExpressions();
-        this.callPatch();
-        if (options && !options.updateChanged && this.root[VALUE_CHANGED_SYNC]) {
-            this.root[VALUE_CHANGED_SYNC]();
+        else {
+            let parsedValue = this.getSanitizedValue(value)
+            if (options && options.dirty)
+                this.baseObject[this.keyName] = value;
+            this.entityObject[this.keyName] = parsedValue;
+            super.setValue(value, options);
+            if (this.controlConfig) {
+                this.controlConfig.value = parsedValue;
+                if (this.postHook)
+                    this.postHook.call(this.controlConfig);
+            }
+            
+            this.bindError();
+            this.bindClassName();
+            this.executeExpressions();
+            this.callPatch();
+            if (options && !options.updateChanged && this.root[VALUE_CHANGED_SYNC]) {
+                this.root[VALUE_CHANGED_SYNC]();
+            }
         }
     }
 

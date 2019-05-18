@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { FormGroup, FormArray, FormControl, ValidatorFn } from "@angular/forms"
+import { FormGroup, FormArray, FormControl, ValidatorFn, AsyncValidatorFn } from "@angular/forms"
 import { Type } from "../util"
 import { BaseFormBuilder } from './base-form-builder';
 
@@ -23,7 +23,7 @@ import { orValidator } from '../reactive-form-validators/or.validator'
 import { notValidator } from '../reactive-form-validators/not.validator'
 import { AppFormGroup } from '../models/interface/i-form-group'
 import { RegexValidator } from "../util/regex-validator";
-import { FormFieldConfig } from "../dynamic";
+import { FormControlConfig } from "../dynamic";
 import { getInstance } from "../util/instance-provider.function";
 const LOGICAL_VALIDATORS: { [key: string]: Function } = { and: andValidator, or: orValidator, not: notValidator }
 const ASYNC: string = "async"
@@ -380,9 +380,9 @@ export class RxFormBuilder extends BaseFormBuilder {
     }
 
     dynamicFormGroup(fields: any[], formConfiguration: DynamicFormConfiguration) {
-        let formControls: { [key: string]: RxFormControl } = {};
+        let formControls: { [key: string]: any } = {};
         let entityObject: { [key: string]: any } = {};
-        let formFieldConfigs = new Array<FormFieldConfig>();
+        let formFieldConfigs = new Array<FormControlConfig>();
         let modelConfig = {};
         fields.forEach((x,i) => {
             let configModel = formConfiguration.fieldConfigModels.filter((x) => x.modelName == "default")[0];
@@ -390,15 +390,33 @@ export class RxFormBuilder extends BaseFormBuilder {
             modelConfig[x.name] = modelInstance;
             formFieldConfigs.push(modelInstance)
             let validators: ValidatorFn[] = [];
-            this.additionalValidation(validators, x.validators);
+            let asyncValidators: AsyncValidatorFn[] = [];
+            if (x.validators)
+                this.additionalValidation(validators, x.validators);
+            if (modelInstance.validator)
+                validators.push(modelInstance.validator.bind(modelInstance));
+            if (modelInstance.asyncValidator)
+                asyncValidators.push(modelInstance.asyncValidator.bind(modelInstance));
+            if(modelInstance)
             entityObject[x.name] = x.value;
             let baseObject = {};
             baseObject[x.name] = x.value;
-            formControls[x.name] = new RxFormControl(x.value, validators, null, entityObject, baseObject, x.name, undefined, modelInstance)
-            modelInstance.formControl = formControls[x.name];
+            let name = x.name.split('.');
+            let formControl = undefined;
+            if (name.length == 1)
+                formControl = formControls[x.name] = new RxFormControl(x.value, validators, asyncValidators, entityObject, baseObject, x.name, undefined, modelInstance)
+            else {
+                if (!formControls[name[0]])
+                    formControls[name[0]] = new RxFormGroup({}, {}, {}, undefined)
+                formControl = new RxFormControl(x.value, validators, asyncValidators, entityObject, baseObject, name[1], undefined, modelInstance)
+                formControls[name[0]].addControl(name[1], formControl);
+            }
+            modelInstance.formControl = formControl;
         });
+        for (var column in modelConfig)
+            modelConfig[column].complete();
         return {
-            fieldConfig: modelConfig,
+            controlsConfig: modelConfig,
             formGroup: new RxFormGroup({}, entityObject, formControls, undefined)
         };
     }

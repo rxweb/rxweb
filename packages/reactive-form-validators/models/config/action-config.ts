@@ -1,12 +1,22 @@
-import { FormGroup,AbstractControl } from "@angular/forms"
+import { ValidatorFn, AsyncValidatorFn } from "@angular/forms"
+export interface ActionFnConfig {
+    label?: () => string;
+    filter?: () => any[] | Promise<any[]>;
+    placeholder?: () => string;
+    hide?: () => boolean;
+    description?: () => string;
+    disable?: () => boolean;
+}
+
+
+export interface Hooks {
+    preValue?: (value: any) => boolean;
+    postValue?: () => void;
+}
 export interface ActionConfig {
     keyName: string;
-    actions: {
-        label?: (config: { [key: string]: any }, control: AbstractControl, formGroup: FormGroup) => string,
-        filter?: (config: { [key: string]: any }, source: any[], control: AbstractControl, formGroup: FormGroup) => any[],
-        placeholder?: (config: { [key: string]: any }, control: AbstractControl, formGroup: FormGroup) => string,
-        hide?: (config: { [key: string]: any }, control: AbstractControl, formGroup: FormGroup) => boolean,
-        description?: (config: { [key: string]: any }, control: AbstractControl, formGroup: FormGroup) => string,
-        disable?: (config: { [key: string]: any }, control: AbstractControl, formGroup: FormGroup) => boolean
-    }
+    actions?: ActionFnConfig;
+    hooks?: Hooks;
+    validator?: ValidatorFn;
+    asyncValidator?: AsyncValidatorFn;
 }
