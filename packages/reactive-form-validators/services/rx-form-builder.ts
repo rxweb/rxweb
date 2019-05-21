@@ -25,6 +25,7 @@ import { AppFormGroup } from '../models/interface/i-form-group'
 import { RegexValidator } from "../util/regex-validator";
 import { FormControlConfig } from "../dynamic";
 import { getInstance } from "../util/instance-provider.function";
+import { DynamicFormBuilder } from '../dynamic/dynamic-form-builder'
 const LOGICAL_VALIDATORS: { [key: string]: Function } = { and: andValidator, or: orValidator, not: notValidator }
 const ASYNC: string = "async"
 const ENTITY_OBJECT: string = "entityObject";
@@ -39,6 +40,7 @@ export class RxFormBuilder extends BaseFormBuilder {
     private isNested: boolean = false;
     private isGroupCalled: boolean = false;
     private isNestedBinding: boolean = false;
+    
     constructor() {
         super();
     }
@@ -373,53 +375,18 @@ export class RxFormBuilder extends BaseFormBuilder {
                     props.push(splitProp);
             }
         }
-        if (isIgnoreProp && properties.filter(x => x == rootPropertyName.replace('.','')).length == 1)
+        if (isIgnoreProp && properties.filter(x => x == rootPropertyName.replace('.', '')).length == 1)
             props.push(':self:');
 
         return props;
     }
 
     dynamicFormGroup(fields: any[], formConfiguration: DynamicFormConfiguration) {
-        let formControls: { [key: string]: any } = {};
-        let entityObject: { [key: string]: any } = {};
-        let formFieldConfigs = new Array<FormControlConfig>();
-        let modelConfig = {};
-        fields.forEach((x,i) => {
-            let configModel = formConfiguration.fieldConfigModels.filter((x) => x.modelName == "default")[0];
-            let modelInstance = getInstance(configModel.model, [x, modelConfig]);
-            modelConfig[x.name] = modelInstance;
-            formFieldConfigs.push(modelInstance)
-            let validators: ValidatorFn[] = [];
-            let asyncValidators: AsyncValidatorFn[] = [];
-            if (x.validators)
-                this.additionalValidation(validators, x.validators);
-            if (modelInstance.validator)
-                validators.push(modelInstance.validator.bind(modelInstance));
-            if (modelInstance.asyncValidator)
-                asyncValidators.push(modelInstance.asyncValidator.bind(modelInstance));
-            if(modelInstance)
-            entityObject[x.name] = x.value;
-            let baseObject = {};
-            baseObject[x.name] = x.value;
-            let name = x.name.split('.');
-            let formControl = undefined;
-            if (name.length == 1)
-                formControl = formControls[x.name] = new RxFormControl(x.value, validators, asyncValidators, entityObject, baseObject, x.name, undefined, modelInstance)
-            else {
-                if (!formControls[name[0]])
-                    formControls[name[0]] = new RxFormGroup({}, {}, {}, undefined)
-                formControl = new RxFormControl(x.value, validators, asyncValidators, entityObject, baseObject, name[1], undefined, modelInstance)
-                formControls[name[0]].addControl(name[1], formControl);
-            }
-            modelInstance.formControl = formControl;
-        });
-        for (var column in modelConfig)
-            modelConfig[column].complete();
-        return {
-            controlsConfig: modelConfig,
-            formGroup: new RxFormGroup({}, entityObject, formControls, undefined)
-        };
+        let dynamicFormBuilder = new DynamicFormBuilder(this.additionalValidation, formConfiguration);
+        return dynamicFormBuilder.dynamicFormGroup(fields, formConfiguration);
     }
+
+    
 
     formGroup<T>(model: Type<T> | { [key: string]: any }, entityObject?: { [key: string]: any } | FormBuilderConfiguration, formBuilderConfiguration?: FormBuilderConfiguration): RxFormGroup | FormGroup | AppFormGroup<T> {
         let json = this.getObject(model, entityObject, formBuilderConfiguration);
@@ -446,12 +413,12 @@ export class RxFormBuilder extends BaseFormBuilder {
                     additionalValidations = formBuilderConfiguration.dynamicValidation;
                 if (formBuilderConfiguration.includeProps)
                     isIncludeProp = formBuilderConfiguration.includeProps.indexOf(property.name) != -1
-                if (formBuilderConfiguration.ignoreUndefinedProps) { 
+                if (formBuilderConfiguration.ignoreUndefinedProps) {
                     isIncludeProp = !(property.propertyType == PROPERTY && !RegexValidator.isNotBlank(json.entityObject[property.name]) && (formBuilderConfiguration.ignoreUndefinedProps.indexOf(property.name) !== -1 || formBuilderConfiguration.ignoreUndefinedProps.indexOf(":self:") !== -1));
                 }
 
             }
-            
+
             if (property.ignore)
                 isIncludeProp = !property.ignore.call(json.entityObject, json.entityObject);
             if (isIncludeProp) {

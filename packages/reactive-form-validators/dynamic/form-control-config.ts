@@ -20,6 +20,7 @@ export abstract class FormControlConfig {
     
     config: { [key: string]: any };
     inputs: any;
+    events:any;
     validator: ValidatorFn;
     asyncValidator: AsyncValidatorFn;
     onHide: () => void;
@@ -102,7 +103,7 @@ export abstract class FormControlConfig {
     complete() {
         for (let action in this.controlNotifications)
             for (let columnName in this.fieldConfigModel) {
-                if (this.fieldConfigModel[columnName].actions[action]) {
+                if (!Array.isArray(this.fieldConfigModel[columnName]) && this.fieldConfigModel[columnName].actions[action]) {
                     let stringFunction = String(this.fieldConfigModel[columnName].actions[action]);
                     if (stringFunction.indexOf(`.${this.config.name}`) != -1 || stringFunction.indexOf(`.${this.config.name};`) != -1) {
                         this.controlNotifications[action].push(columnName);

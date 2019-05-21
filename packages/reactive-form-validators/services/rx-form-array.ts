@@ -9,7 +9,7 @@ export class RxFormArray extends FormArray {
     private _modified: any[] = [];
     constructor(private arrayObject:any[],controls, validatorOrOpts?:any, asyncValidator?:any){
         super(controls, validatorOrOpts, asyncValidator);
-        this.cloneObject(arrayObject);
+        this.cloneObject(arrayObject);        
     }
 
     get isModified() {
