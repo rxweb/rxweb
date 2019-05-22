@@ -1,6 +1,7 @@
-﻿import { AbstractControl,  ValidatorFn, AsyncValidatorFn } from "@angular/forms"
+﻿import { AbstractControl,ValidatorFn, AsyncValidatorFn } from "@angular/forms"
 import { defaultContainer } from '../core/defaultContainer';
-import { ActionFnConfig,Hooks } from "../models/config/action-config"
+import { ActionFnConfig,Hooks,ActionResult } from "../models/config/action-config"
+
 const SOURCE: string = "source";
 const FILTER: string = "filter";
 const HIDE: string = "hide";
@@ -17,7 +18,7 @@ export abstract class FormControlConfig {
         if (!this.actions.filter && this.config.source)
             this.source = this.config.source;
     }
-    
+
     config: { [key: string]: any };
     inputs: any;
     events:any;
@@ -26,6 +27,7 @@ export abstract class FormControlConfig {
     onHide: () => void;
     hooks: Hooks
     actions: ActionFnConfig
+    onAttributeValueChange: Function
 
 
     set formControl(value: AbstractControl) {
@@ -43,10 +45,10 @@ export abstract class FormControlConfig {
             <Promise<any[]>>value.then(x => this._source = x);
     }
 
-    get source()  {
+    get source(){
         return this._source;
     }
-    
+
     set value(value: any) {
         this._value = value;
         this.refresh();
@@ -69,6 +71,7 @@ export abstract class FormControlConfig {
     }
 
     set label(value: string) {
+        this.notifyAttributeValueChange('label', value);
         this._actionResult.label = value;
     }
 
@@ -77,6 +80,7 @@ export abstract class FormControlConfig {
     }
 
     set placeholder(value: string) {
+        this.notifyAttributeValueChange('placeholder', value);
         this._actionResult.placeholder = value;
     }
 
@@ -93,11 +97,39 @@ export abstract class FormControlConfig {
     }
 
     set description(value: string) {
+        this.notifyAttributeValueChange('description', value);
         this._actionResult.description = value;
     }
 
     get description(): string {
         return this._actionResult.description;
+    }
+
+    set focus(value: boolean) {
+        this.notifyAttributeValueChange('focus', value);
+        this._actionResult.focus = value;
+    }
+
+    get focus(): boolean {
+        return this._actionResult.focus;
+    }
+
+    set readonly(value: boolean) {
+        this.notifyAttributeValueChange('readonly', value);
+        this._actionResult.readonly = value;
+    }
+
+    get readonly() {
+        return this._actionResult.readonly;
+    }
+
+    set cssClassNames(value: string[]) {
+        this.notifyAttributeValueChange('cssClassNames', value);
+        this._actionResult.cssClassNames = value;
+    }
+
+    get cssClassNames() {
+        return this._actionResult.cssClassNames;
     }
 
     complete() {
@@ -127,6 +159,29 @@ export abstract class FormControlConfig {
             this.setActionValue(actionName);
     }
 
+    notifyAttributeValueChange(name, value) {
+        if (this.isNotEqual(this._actionResult[name], value) && this.onAttributeValueChange) {
+            if (name == "cssClassNames")
+                value = { oldClassNames: this._actionResult[name], newClassNames: value };
+            this.onAttributeValueChange(name, value);
+        }
+
+    }
+
+    private isNotEqual(leftValue: any, rightValue: any) {
+        if (Array.isArray(leftValue) && Array.isArray(rightValue)) {
+            let isEqual = leftValue.length == rightValue.length;
+            if (isEqual)
+                for (var i = 0; i < leftValue.length; i++) {
+                    isEqual = rightValue.indexOf(leftValue[i]) != -1
+                    if (!isEqual)
+                        break;
+                }
+            return !isEqual
+        }
+        return leftValue != rightValue;
+    }
+
     private setActionValue(actionName:string) {
         this[actionName == FILTER ? SOURCE : actionName] = this.actions[actionName].call(this);
         if (this.onHide && actionName == HIDE)
@@ -135,16 +190,17 @@ export abstract class FormControlConfig {
 
     private updateActionValue() {
         Object.keys(this.controlNotifications).forEach(key => {
-            if (this.config.ui && this.config.ui[key])
-                this[key] = this.config.ui[key];
-            else if (this.actions[key])
+            if (this.actions[key])
                 this[key] = this.actions[key].call(this);
+            else if (this.config.ui && this.config.ui[key])
+                this[key] = this.config.ui[key];
+
         })
     }
-   
+
 
     private setNotifications() {
-        this.controlNotifications = { all: [], filter: [], disable: [], label: [], description: [], hide: [], placeholder: [] }
+        this.controlNotifications = { all: [], filter: [], disable: [], label: [], description: [], hide: [], placeholder: [], readonly: [], focus: [], cssClassNames: [] }
         if (this.config.controlNotifications)
             for (var columnName in this.controlNotifications)
                 if (this.config.controlNotifications[columnName])
@@ -180,21 +236,17 @@ export abstract class FormControlConfig {
 
     }
 
-    private _actionResult: {
-        label: string;
-        placeholder: string;
-        filter: any[];
-        hide: boolean;
-        description: string;
-        disable: boolean;
-    } = {
-            label: '',
-            placeholder: '',
-            filter: [],
-            hide: false,
-            description: '',
-            disable: false
-        };
+    private _actionResult: ActionResult = {
+        label: '',
+        placeholder: '',
+        filter: [],
+        hide: false,
+        description: '',
+        disable: false,
+        focus: false,
+        readonly: false,
+        cssClassNames: []
+    };
 
     private controlNotifications: {
         disable?: string[],
@@ -203,6 +255,9 @@ export abstract class FormControlConfig {
         hide?: string[],
         description?: string[],
         label?: string[],
+        focus?: string[],
+        readonly: string[],
+        cssClassNames: string[],
         all?: string[],
     };
 }
