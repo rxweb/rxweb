@@ -2,7 +2,6 @@
 import { AbstractControl, FormGroup, FormArray } from "@angular/forms"
 import { FormControlConfig } from "./form-control-config";
 import { RxwebActionDirective } from './directives/rxweb-action.directive';
-
 export abstract class AbstractDynamicControl implements AfterViewInit {
     @ViewChildren(RxwebActionDirective) rxwebActions: QueryList<RxwebActionDirective>;
     @Input() formControl: AbstractControl
@@ -12,6 +11,7 @@ export abstract class AbstractDynamicControl implements AfterViewInit {
     @Input() controlConfig: FormControlConfig;
     @Input() sectionConfig: any
     @Input() configs: any
+    @Input() controlTemplates: any;
 
     ngAfterViewInit(): void {
         setTimeout(() => {

@@ -20,7 +20,8 @@ export interface ActionResult {
     disable: boolean;
     readonly: boolean;
     focus: boolean;
-    cssClassNames:string[]
+    cssClassNames: string[];
+    prependText: string;
 }
 
 export interface Hooks {

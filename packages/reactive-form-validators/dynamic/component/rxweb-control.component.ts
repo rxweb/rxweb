@@ -12,7 +12,9 @@ const CONFIGS: string = "configs";
 const FORM_CONTROL: string = "formControl";
 const CONTROL_CONFIG: string = "controlConfig";
 const VALUE: string = "value";
-
+const CONTROL_TEMPLATES: string = "controlTemplates";
+const PREPEND_TEXTBOX: string = "prependTextbox";
+const TEXTBOX: string = "textbox";
 @Component({
     selector: 'rxweb-control',
     template: `
@@ -24,6 +26,19 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
     @Input() formControlConfig: FormControlConfig;
     @Input() sectionConfig: any;
 
+    @Input() set viewMode(value: string) {
+        if (this.viewMode && this.viewMode != value) {
+            this.clear();
+            this._viewMode = value;
+            this.process();
+        }else 
+            this._viewMode = value;
+    }
+
+    get viewMode() {
+        return this._viewMode;
+    }
+
     @Input() name: string;
     @Input() formGroup: FormGroup;
     @Input() formArray: FormArray;
@@ -34,6 +49,7 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
     private isCleared: boolean = false;
     private componentConfig: any;
     private eventSubscriptions: any[];
+    private _viewMode: string;
 
     constructor(public componentFactoryResolver: ComponentFactoryResolver) { }
 
@@ -43,7 +59,7 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
 
     process() {
         if (this.formControlConfig || this.sectionConfig) {
-            let name = this.formControlConfig ? this.formControlConfig.config.type : this.sectionConfig ? this.name : undefined;
+            let name = this.getName();
             this.componentConfig = DynamicReactiveFormConfig.getComponentConfig(name);
             if (!this.componentConfig && this.controlTemplates.length > 0) {
                 let controlTemplate = this.controlTemplates.filter(t => t.type == name)[0];
@@ -52,13 +68,29 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
                 this.componentRef = this.controlContainerRef.createEmbeddedView(controlTemplate.templateRef, jObject);
                 this.overrideValueProp();
                 this.formControlConfig.onHide = this.onHide;
-            }else
+            } else
                 this.createInstance();
-        } 
+        } else if (this.viewMode) {
+            this.componentConfig = DynamicReactiveFormConfig.getComponentConfig(this.viewMode);
+            this.createInstance();
+        }
+            
+    }
+
+    private getName():string {
+        let name = this.formControlConfig ? this.formControlConfig.config.type : this.sectionConfig ? this.name : undefined;
+        if (name == TEXTBOX && this.formControlConfig.prependText && this.formControlConfig.prependText.left)
+            name = PREPEND_TEXTBOX;
+        return name;
     }
 
     private createInstance() {
-        this.componentRef = this.controlContainerRef.createComponent(this.componentFactoryResolver.resolveComponentFactory(this.componentConfig.component))
+        this.componentRef = this.controlContainerRef.createComponent(this.componentFactoryResolver.resolveComponentFactory(this.componentConfig.component));
+        if (this.viewMode)
+        {
+            this.formControlConfig = this.configs.controlsConfig[this.name];
+            this.formControlConfig.viewMode = this.viewMode;
+        }
         if (this.formControlConfig) {
             this.setFieldConfigParams(this.componentRef.instance);
             this.subscribeEvents(this.componentRef.instance);
@@ -67,6 +99,7 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
         }
         if (this.sectionConfig)
             this.setSectionConfigParams();
+
         this.isCleared = false;
     }
 
@@ -94,9 +127,15 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
             this.addParams(instance, param, this.formControlConfig.inputs);
         instance[FORM_CONTROL] = this.formControlConfig.formControl;
         instance[CONTROL_CONFIG] = this.formControlConfig;
+        if (this.viewMode)
+        {
+            instance[CONTROL_TEMPLATES] = this.controlTemplates;
+            instance[CONFIGS] = this.configs;
+        }
     }
 
     overrideValueProp() {
+if(!this.formControlConfig.override){
         let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(this.formControlConfig), VALUE);
         Object.defineProperty(this.formControlConfig, VALUE, {
             get: () => { return descriptor.get.call(this.formControlConfig) },
@@ -110,14 +149,23 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
                 this.formControlConfig.config.value = v;
             }
         })
+        this.formControlConfig.override = true;
+
+}
     }
     onHide = () => {
         if (this.formControlConfig.hide) {
-            this.controlContainerRef.clear();
-            this.isCleared = true;
-        } else if (this.isCleared) {
+            this.clear();
+        } else if (!this.componentRef) {
             this.createInstance();
         }
+    }
+
+    private clear() {
+        this.controlContainerRef.clear();
+        this.componentRef = undefined;
+        this.isCleared = true;
+        this.formControlConfig = undefined;
     }
 
     addParams(instance: any, propName: string, inputs: any) {

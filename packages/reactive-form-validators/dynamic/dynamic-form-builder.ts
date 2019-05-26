@@ -46,8 +46,11 @@ export class DynamicFormBuilder {
         for (var column in modelConfig)
             if (Array.isArray(modelConfig[column]))
                 modelConfig[column].forEach(x => this.completeModelConfig(x));
-            else
+            else {
+                modelConfig[column].isPlainTextMode = this.formConfiguration.isPlainTextMode;
                 modelConfig[column].complete();
+            }
+            
     }
 
     private createFormArray(modelConfig: any, field: { [key: string]: any }, formGroup: RxFormGroup, entityObject: {[key:string]:any}) {

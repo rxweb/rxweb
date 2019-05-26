@@ -9,5 +9,6 @@
 
         }
     }
+    isPlainTextMode: boolean;
     
 }

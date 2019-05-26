@@ -10,7 +10,7 @@ export abstract class FormControlConfig {
     private _value: any;
     private _source: any[];
     private _formControl: AbstractControl;
-
+    private _isPlainTextMode: boolean = false;
     constructor(fieldConfig: { [key: string]: any }, private fieldConfigModel: { [key: string]: FormControlConfig}) {
         this.config = fieldConfig;
         this.setNotifications();
@@ -27,7 +27,11 @@ export abstract class FormControlConfig {
     onHide: () => void;
     hooks: Hooks
     actions: ActionFnConfig
-    onAttributeValueChange: Function
+    override:boolean;
+    attributeChangeSubscriptions: Array<any> = new Array<any>();
+    onAttributeValueChange(names: string[], func: Function) {
+        this.attributeChangeSubscriptions.push({ names: names, func: func });
+    }
 
 
     set formControl(value: AbstractControl) {
@@ -132,6 +136,25 @@ export abstract class FormControlConfig {
         return this._actionResult.cssClassNames;
     }
 
+    set isPlainTextMode(value: boolean) {
+        this._isPlainTextMode = value;
+    } 
+
+    get isPlainTextMode() {
+        return this._isPlainTextMode;
+    }
+
+    viewMode: string;
+    
+    get prependText() {
+        return this.config.ui ? this.config.ui.prependText : '';
+    }
+
+    
+
+
+
+
     complete() {
         for (let action in this.controlNotifications)
             for (let columnName in this.fieldConfigModel) {
@@ -163,7 +186,8 @@ export abstract class FormControlConfig {
         if (this.isNotEqual(this._actionResult[name], value) && this.onAttributeValueChange) {
             if (name == "cssClassNames")
                 value = { oldClassNames: this._actionResult[name], newClassNames: value };
-            this.onAttributeValueChange(name, value);
+            let subscriptions = this.attributeChangeSubscriptions.filter(t => t.names.indexOf(name) != -1);
+            subscriptions.forEach(subscribe => subscribe.func(name, value));
         }
 
     }
@@ -245,7 +269,8 @@ export abstract class FormControlConfig {
         disable: false,
         focus: false,
         readonly: false,
-        cssClassNames: []
+        cssClassNames: [],
+        prependText: ''
     };
 
     private controlNotifications: {
