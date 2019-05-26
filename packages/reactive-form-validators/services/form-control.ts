@@ -67,7 +67,7 @@ export class RxFormControl extends FormControl {
     }
     constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string, private _sanitizers: DataSanitizer[], _formControlConfig?: FormControlConfig) {
         super(formState, validator, asyncValidator)
-        this._baseValue = formState === undefined ? "" : formState;
+        this._baseValue = formState === undefined ? null : formState;
         this._isModified = false;
         this.keyName = controlName;
         this._errorMessageBindingStrategy = ReactiveFormConfig.get("reactiveForm.errorMessageBindingStrategy") as ErrorMessageBindingStrategy;

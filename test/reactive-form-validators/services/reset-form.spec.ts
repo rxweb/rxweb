@@ -282,6 +282,18 @@ export class User {
         userFormGroup.resetForm({ value: { hobbies: { pushFunction: (value) => formBuilder.formGroup(Hobby,value) } } })
         expect(userFormGroup.value).toEqual({ firstName: 'Ajay', lastName: 'Ojha', address: { name: "St. Road" }, hobbies: [{ name: "Chess" }, { name: "Cricket" }] });
     })
+
+     
+    it('should pass, reset form "ControlsOnly" and lastName should null' , () => {
+        let user = new User();
+        user.firstName = "Ajay";
+        let userFormGroup = <RxFormGroup>formBuilder.formGroup(user);
+        userFormGroup.controls.firstName.setValue("Anne");
+        userFormGroup.controls.lastName.setValue("Hodds");
+        expect(userFormGroup.value).toEqual({ firstName: 'Anne', lastName: 'Hodds' });
+        userFormGroup.resetForm({ resetType: ResetFormType.ControlsOnly })
+        expect(userFormGroup.value).toEqual({ firstName: 'Ajay', lastName: null});
+    })
       
      
 
