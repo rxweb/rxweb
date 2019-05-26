@@ -8,7 +8,7 @@ import {
 import { TEMPLATE_VALIDATION_CONFIG,CONDITIONAL_VALIDATOR,VALIDATOR_CONFIG  } from '../../const/app.const'
 import { ApplicationUtil } from '../../util/app-util';
 import { DecimalProvider } from "../../domain/element-processor/decimal.provider"
-import { AlphaConfig, ArrayConfig, BaseConfig, ChoiceConfig, CompareConfig, ComposeConfig, ContainsConfig, CreditCardConfig, DateConfig, DefaultConfig, DigitConfig, EmailConfig, ExtensionConfig, FactorConfig, MessageConfig, NumberConfig, NumericConfig, PasswordConfig, PatternConfig, RangeConfig, RequiredConfig, RuleConfig, SizeConfig, TimeConfig, DifferentConfig, RelationalOperatorConfig, UniqueConfig } from '../../models/config'
+import { AlphaConfig, ArrayConfig, BaseConfig, ChoiceConfig, CompareConfig, ComposeConfig, ContainsConfig, CreditCardConfig, DateConfig, DefaultConfig, DigitConfig, EmailConfig, ExtensionConfig, FactorConfig, MessageConfig, NumberConfig, NumericConfig, PasswordConfig, RangeConfig, RequiredConfig, RuleConfig, SizeConfig, TimeConfig, DifferentConfig, RelationalOperatorConfig, UniqueConfig } from '../../models/config'
 import { RegexValidator } from '../../util';
 import { RxFormControl } from "../../services/form-control";
 
@@ -80,7 +80,6 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     @Input() odd: BaseConfig;
     @Input() oneOf: ArrayConfig;
     @Input() password: PasswordConfig;
-    @Input() pattern: PatternConfig;
     @Input() port: BaseConfig;
     @Input() primeNumber: BaseConfig;
     @Input() required: RequiredConfig;
