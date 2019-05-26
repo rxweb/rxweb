@@ -141,4 +141,18 @@ export class ApplicationUtil{
     static lowerCaseWithTrim(value:string) {
         return typeof value === "string" ? value.toLowerCase().trim() : String(value).toLowerCase().trim();
     }
+
+    /** Check if a value is an object */
+    static isObject(value: any): boolean {
+        return Object.prototype.toString.call(value) === '[object Object]';
+    }
+
+    /** Check if a value is an object */
+    static isArray(value: any): boolean {
+        return Array.isArray(value);
+    }
+
+    static cloneValue(value: any): any {
+        return ApplicationUtil.isObject(value) ? ApplicationUtil.isArray(value) ? [...value] : {...value} : value;
+    }
 }
