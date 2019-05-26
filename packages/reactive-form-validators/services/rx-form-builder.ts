@@ -370,9 +370,13 @@ export class RxFormBuilder extends BaseFormBuilder {
         let props: string[] = [];
         for (let prop of properties) {
             if (prop.indexOf(rootPropertyName) != -1) {
-                let splitProp = prop.split(".")[1];
-                if (splitProp)
-                    props.push(splitProp);
+                let splitProps = prop.split(".");
+                if (splitProps.length == 2) {
+                    props.push(splitProps[1]);
+                } else if (splitProps.length > 2) {
+                    splitProps.splice(0, 1);
+                    props.push(splitProps.join("."))
+                }
             }
         }
         if (isIgnoreProp && properties.filter(x => x == rootPropertyName.replace('.', '')).length == 1)
@@ -407,13 +411,13 @@ export class RxFormBuilder extends BaseFormBuilder {
         instanceContainer.properties.forEach(property => {
             let isIncludeProp = true;
             if (formBuilderConfiguration) {
-                if (formBuilderConfiguration.excludeProps)
+                if (formBuilderConfiguration.excludeProps && formBuilderConfiguration.excludeProps.length > 0)
                     isIncludeProp = formBuilderConfiguration.excludeProps.indexOf(property.name) == -1
                 if (formBuilderConfiguration.dynamicValidation)
                     additionalValidations = formBuilderConfiguration.dynamicValidation;
-                if (formBuilderConfiguration.includeProps)
+                if (formBuilderConfiguration.includeProps  && formBuilderConfiguration.includeProps.length > 0)
                     isIncludeProp = formBuilderConfiguration.includeProps.indexOf(property.name) != -1
-                if (formBuilderConfiguration.ignoreUndefinedProps) {
+                if (formBuilderConfiguration.ignoreUndefinedProps   && formBuilderConfiguration.ignoreUndefinedProps.length > 0 ) {
                     isIncludeProp = !(property.propertyType == PROPERTY && !RegexValidator.isNotBlank(json.entityObject[property.name]) && (formBuilderConfiguration.ignoreUndefinedProps.indexOf(property.name) !== -1 || formBuilderConfiguration.ignoreUndefinedProps.indexOf(":self:") !== -1));
                 }
 
