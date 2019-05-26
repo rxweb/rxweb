@@ -6,6 +6,7 @@ export class ReactiveFormConfig {
     static dynamicForm: DynamicFormUiConfig = {
         uiFramework: {
             bootstrap: {
+                showValidMarkOnControl:false,
                 cssClasses: {
                     defaultControl: 'form-control',
                     description: 'form-text',
@@ -17,7 +18,11 @@ export class ReactiveFormConfig {
                     checkboxAndRadioControlLabel: 'form-check-label',
                     checkboxAndRadioControlInline: 'form-check-inline',
                     horizontalViewLabel: 'col-form-label',
-                    formRow: 'form-row'
+                    formRow: 'form-row',
+                    controlValid:'is-valid',
+                    controlInvalid:'is-invalid',
+                    validMessage:'valid-feedback',
+                    invalidMessage:'invalid-feedback'
                 }
             }
         }

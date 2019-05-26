@@ -10,10 +10,15 @@
     checkboxAndRadioControlInline: string;
     horizontalViewLabel: string;
     formRow: string;
+    controlValid:string;
+    controlInvalid:string;
+    validMessage:string;
+    invalidMessage:string;
 }
 
 export interface BootstrapConfig {
     cssClasses: BootstrapCssClassProp;
+    showValidMarkOnControl: boolean;
 }
 
 export interface UiFramework {

@@ -22,7 +22,7 @@ export class RxwebActionDirective {
         return this._controlConfig;
     }
 
-    constructor(private renderer: Renderer, private elementRef: ElementRef) {
+      constructor(private renderer: Renderer, private elementRef: ElementRef) {
         this.element = this.elementRef.nativeElement as Node
         this._cssConfig = ReactiveFormConfig.activeUiFramework.cssClasses;
         this.setControlClass();
