@@ -105,11 +105,12 @@ export class RxwebActionDirective {
                         let jObject = undefined
                         splitText.forEach(x => {
                             if (!jObject)
-                                jObject = this.controlConfig.config.ui[x];
+                                jObject = this.controlConfig.config.ui ? this.controlConfig.config.ui[x] : undefined;
                             else
                                 jObject = jObject[x];
+                            return jObject != undefined;
                         })
-                        let cssClasses = this.getCssClasses(jObject);
+                        let cssClasses = jObject ? this.getCssClasses(jObject) : [];
                         this.process('cssClassNames', cssClasses);
                     }
                 }

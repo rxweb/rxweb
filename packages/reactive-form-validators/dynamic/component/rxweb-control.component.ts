@@ -8,13 +8,13 @@ const CONTROL_CONTAINER: string = "controlContainer";
 const FORM_ARRAY: string = "formArray";
 const FORM_GROUP: string = "formGroup";
 const SECTION_CONFIG: string = "sectionConfig";
-const CONFIGS: string = "configs";
 const FORM_CONTROL: string = "formControl";
 const CONTROL_CONFIG: string = "controlConfig";
 const VALUE: string = "value";
 const CONTROL_TEMPLATES: string = "controlTemplates";
 const PREPEND_TEXTBOX: string = "prependTextbox";
 const TEXTBOX: string = "textbox";
+const CONTROLS_CONFIG: string = "controlsConfig";
 @Component({
     selector: 'rxweb-control',
     template: `
@@ -42,7 +42,7 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
     @Input() name: string;
     @Input() formGroup: FormGroup;
     @Input() formArray: FormArray;
-    @Input() configs: any;
+    @Input() controlsConfig: any;
     @Input() controlTemplates: QueryList<ControlTemplateDirective>;
 
     private componentRef: any;
@@ -88,7 +88,7 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
         this.componentRef = this.controlContainerRef.createComponent(this.componentFactoryResolver.resolveComponentFactory(this.componentConfig.component));
         if (this.viewMode)
         {
-            this.formControlConfig = this.configs.controlsConfig[this.name];
+            this.formControlConfig = this.controlsConfig[this.name];
             this.formControlConfig.viewMode = this.viewMode;
         }
         if (this.formControlConfig) {
@@ -120,7 +120,7 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
         this.componentRef.instance[FORM_ARRAY] = this.formArray;
         this.componentRef.instance[FORM_GROUP] = this.formGroup;
         this.componentRef.instance[SECTION_CONFIG] = this.sectionConfig;
-        this.componentRef.instance[CONFIGS] = this.configs;
+        this.componentRef.instance[CONTROLS_CONFIG] = this.controlsConfig;
     }
     private setFieldConfigParams(instance: {[key:string]:any}) {
         for (let param in this.formControlConfig.inputs)
@@ -130,7 +130,7 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
         if (this.viewMode)
         {
             instance[CONTROL_TEMPLATES] = this.controlTemplates;
-            instance[CONFIGS] = this.configs;
+            instance[CONTROLS_CONFIG] = this.controlsConfig;
         }
     }
 

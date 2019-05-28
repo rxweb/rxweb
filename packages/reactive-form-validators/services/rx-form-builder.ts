@@ -23,8 +23,8 @@ import { orValidator } from '../reactive-form-validators/or.validator'
 import { notValidator } from '../reactive-form-validators/not.validator'
 import { AppFormGroup } from '../models/interface/i-form-group'
 import { RegexValidator } from "../util/regex-validator";
-import { FormControlConfig } from "../dynamic";
 import { getInstance } from "../util/instance-provider.function";
+import { DynamicFormBuildConfig } from '../models/config/dynamic-form-build-config'
 import { DynamicFormBuilder } from '../dynamic/dynamic-form-builder'
 const LOGICAL_VALIDATORS: { [key: string]: Function } = { and: andValidator, or: orValidator, not: notValidator }
 const ASYNC: string = "async"
@@ -385,7 +385,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         return props;
     }
 
-    dynamicFormGroup(fields: any[], formConfiguration: DynamicFormConfiguration) {
+    dynamicForm(fields: any[], formConfiguration?: DynamicFormConfiguration): DynamicFormBuildConfig {
         let dynamicFormBuilder = new DynamicFormBuilder(this.additionalValidation, formConfiguration);
         return dynamicFormBuilder.dynamicFormGroup(fields, formConfiguration);
     }

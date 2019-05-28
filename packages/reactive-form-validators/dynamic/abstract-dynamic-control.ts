@@ -10,27 +10,27 @@ export abstract class AbstractDynamicControl implements AfterViewInit {
 
     @Input() controlConfig: FormControlConfig;
     @Input() sectionConfig: any
-    @Input() configs: any
+    @Input() controlsConfig: any 
     @Input() controlTemplates: any;
 
     ngAfterViewInit(): void {
-        setTimeout(() => {
+        
             if (this.rxwebActions && this.rxwebActions.length > 0 && this.controlConfig) {
                 this.rxwebActions.forEach(rxwebAction => {
                     rxwebAction.controlConfig = this.controlConfig;
                 })
             }
-            })
+        
     }
 
     addItem() {
-        if (this.configs && this.configs.controlsConfig && Array.isArray(this.configs.controlsConfig))
-            this.configs.controlsConfig.addItem();
+        if (this.controlsConfig && Array.isArray(this.controlsConfig))
+            this.controlsConfig["addItem"]();
     }
 
     removeItem(index: number) {
-        if (this.configs && this.configs.controlsConfig && Array.isArray(this.configs.controlsConfig))
-            this.configs.controlsConfig.removeItem(index)
+        if (this.controlsConfig && Array.isArray(this.controlsConfig))
+            this.controlsConfig["removeItem"](index)
     }
 
 }

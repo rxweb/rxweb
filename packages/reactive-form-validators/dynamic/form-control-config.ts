@@ -11,7 +11,7 @@ export abstract class FormControlConfig {
     private _source: any[];
     private _formControl: AbstractControl;
     private _isPlainTextMode: boolean = false;
-    constructor(fieldConfig: { [key: string]: any }, private fieldConfigModel: { [key: string]: FormControlConfig}) {
+    constructor(fieldConfig: { [key: string]: any }, public controlsConfig: { [key: string]: FormControlConfig}) {
         this.config = fieldConfig;
         this.setNotifications();
         this.setActions();
@@ -157,9 +157,9 @@ export abstract class FormControlConfig {
 
     complete() {
         for (let action in this.controlNotifications)
-            for (let columnName in this.fieldConfigModel) {
-                if (!Array.isArray(this.fieldConfigModel[columnName]) && this.fieldConfigModel[columnName].actions[action]) {
-                    let stringFunction = String(this.fieldConfigModel[columnName].actions[action]);
+            for (let columnName in this.controlsConfig) {
+                if (!Array.isArray(this.controlsConfig[columnName]) && this.controlsConfig[columnName].actions[action]) {
+                    let stringFunction = String(this.controlsConfig[columnName].actions[action]);
                     if (stringFunction.indexOf(`.${this.config.name}`) != -1 || stringFunction.indexOf(`.${this.config.name};`) != -1) {
                         this.controlNotifications[action].push(columnName);
                     }
@@ -173,7 +173,7 @@ export abstract class FormControlConfig {
             if (this.controlNotifications[columnName].length > 0)
                 this.controlNotifications[columnName].forEach(x => {
                     if (x != this.config.name)
-                        this.fieldConfigModel[x].refresh(columnName);
+                        this.controlsConfig[x].refresh(columnName);
                     else
                         this.setActionValue(columnName);
                 })

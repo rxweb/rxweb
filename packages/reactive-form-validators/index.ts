@@ -13,4 +13,5 @@ export * from './models/interface/i-form-group';
 export * from './models/interface/i-abstract-control';
 export * from './services/rx-form-array';
 export * from './dynamic';
+export * from './models/config/dynamic-form-build-config';
 

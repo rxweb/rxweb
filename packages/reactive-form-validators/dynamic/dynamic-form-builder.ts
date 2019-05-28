@@ -6,11 +6,14 @@ import { RxFormControl } from '../services/form-control';
 import { DynamicFormConfiguration } from "../models";
 import { FormControlConfig } from "./";
 import { getInstance } from "../util/instance-provider.function";
+import { DynamicFormBuildConfig } from '../models/config/dynamic-form-build-config'
+import { defaultContainer } from "../core/defaultContainer";
+import { ApplicationUtil } from "../util/app-util"
 const ARRAY: string = "array";
 export class DynamicFormBuilder {
     constructor(private validatorBindings: Function, private formConfiguration: DynamicFormConfiguration) {}
 
-    dynamicFormGroup(fields: any[], formConfiguration: DynamicFormConfiguration) {
+    dynamicFormGroup(fields: any[], formConfiguration: DynamicFormConfiguration): DynamicFormBuildConfig {
         let formControls: { [key: string]: any } = {};
         let entityObject: { [key: string]: any } = {};
         let formFieldConfigs = new Array<FormControlConfig>();
@@ -35,9 +38,9 @@ export class DynamicFormBuilder {
             }
         });
         this.completeModelConfig(modelConfig);
-        return {
+        return  {
             controlsConfig: modelConfig,
-            formGroup: formGroup
+            formGroup: ApplicationUtil.getRootFormGroup(formGroup) as RxFormGroup
         };
     }
 
@@ -47,7 +50,7 @@ export class DynamicFormBuilder {
             if (Array.isArray(modelConfig[column]))
                 modelConfig[column].forEach(x => this.completeModelConfig(x));
             else {
-                modelConfig[column].isPlainTextMode = this.formConfiguration.isPlainTextMode;
+                modelConfig[column].isPlainTextMode = this.formConfiguration  ? this.formConfiguration.isPlainTextMode : false;
                 modelConfig[column].complete();
             }
             
@@ -59,6 +62,7 @@ export class DynamicFormBuilder {
         let formArray = new RxFormArray(entityObject[field.name], []);
         
         if (field.controlConfigs) {
+            if (field.rows)
             field.rows.forEach(row => {
                 formArray.controls.push(this.createDynamicFormGroup(field, modelConfig[field.name], this.getRefObject(entityObject[field.name]), row));
             })
@@ -106,9 +110,21 @@ export class DynamicFormBuilder {
     }
 
     private getDynamicModelInstance(x, modelConfig, entityObject, name) {
-        let modelName = x.modelName ? x.modelName : "default";
-        let configModel = this.formConfiguration.fieldConfigModels.filter((x) => x.modelName == modelName)[0];
-        let modelInstance = getInstance(configModel.model, [x, modelConfig]);
+        let modelName = x.modelName || '';
+        let configModel = (x.modelName) && this.formConfiguration && this.formConfiguration.fieldConfigModels ? this.formConfiguration.fieldConfigModels.filter((y) => y.modelName == x.modelName)[0] : undefined;
+        let modelArguments = [x, modelConfig];
+        let model = undefined;
+        if (x.modelName && configModel && !configModel.model) {
+            let actionContainer = defaultContainer.getActionContainer(x.modelName);
+            if (actionContainer)
+                model = actionContainer.instance;
+        } else if (configModel) {
+            model = configModel.model;
+            if (configModel.arguments)
+                configModel.arguments.forEach(t => modelArguments.push(t));
+        } else
+            model = FormControlConfig;
+        let modelInstance = getInstance(model, modelArguments);
         modelConfig[x.name] = modelInstance;
         let validators: ValidatorFn[] = [];
         let asyncValidators: AsyncValidatorFn[] = [];

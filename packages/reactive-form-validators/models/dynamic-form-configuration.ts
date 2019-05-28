@@ -1,14 +1,8 @@
-﻿export class DynamicFormConfiguration {
+﻿export interface DynamicFormConfiguration {
     fieldConfigModels: [{
         modelName: string,
-        model: Function,
-        arguments:any[]
+        model?: Function,
+        arguments?:any[]
     }];
-    sectionConfigs: {
-        [key: string]: {
-
-        }
-    }
-    isPlainTextMode: boolean;
-    
+    isPlainTextMode?: boolean;
 }

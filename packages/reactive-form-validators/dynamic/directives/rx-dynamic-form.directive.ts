@@ -12,8 +12,10 @@ export class RxDynamicForm implements AfterContentInit {
     @ContentChildren(ControlTemplateDirective) controlTemplates: QueryList<ControlTemplateDirective>;
     @Input('rxDynamicForm') configs: any; 
     @Input('formGroup') formGroup: FormGroup;
+
     ngAfterContentInit(): void {
-        setTimeout(() => {
+        if (!this.formGroup)
+            this.formGroup = this.configs ? this.configs.formGroup : undefined;
             if (this.columnComponents && this.columnComponents.length > 0) {
                 this.columnComponents.forEach(columnComponent => {
                     columnComponent.formControlConfig = this.configs.controlsConfig ? this.configs.controlsConfig[columnComponent.name] : undefined;
@@ -27,8 +29,8 @@ export class RxDynamicForm implements AfterContentInit {
                             controlsConfig = this.configs.controlsConfig[columnComponent.sectionConfig.formName];
                             columnComponent.formArray = formControl as FormArray;
                         }
-
-                        columnComponent.configs = { controlsConfig: controlsConfig, sectionsConfig: columnComponent.sectionConfig.sectionsConfig };
+                        columnComponent.controlsConfig = controlsConfig;
+                        //columnComponent.configs = { controlsConfig: controlsConfig, sectionsConfig: columnComponent.sectionConfig.sectionsConfig };
                     }
                     columnComponent.controlTemplates = this.controlTemplates;
                     columnComponent.process();
@@ -39,6 +41,5 @@ export class RxDynamicForm implements AfterContentInit {
                 })
             }
            
-        })
     }
 }
