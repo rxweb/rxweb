@@ -6,10 +6,13 @@ export function inputProcessor<T>(options: {
     serverData: any,
     tagName: string,
     elementValue?: any,
+    uiBindings?:any
 }) {
     const fixture = createComponentInstance<T>(options.component);
     let instance: any = fixture.componentInstance;
     instance.dynamicFormConfiguration = options.dynamicFormConfiguration;
+    if (options.uiBindings)
+        instance.uiBindings = options.uiBindings;
     instance.serverData = options.serverData;
     fixture.detectChanges();
     const inputElement = fixture.nativeElement.querySelector(options.tagName);
@@ -17,8 +20,8 @@ export function inputProcessor<T>(options: {
         inputElement.value = options.elementValue;
         inputElement.dispatchEvent(new Event(options.tagName));
     }
-    
     return {
-        instance: instance, element: inputElement
+        instance: instance, element: inputElement,
+        nativeElement: fixture.nativeElement
     }
 }

@@ -21,7 +21,7 @@ export class DynamicFormBuilder {
         let formGroup = new RxFormGroup({}, entityObject, {}, undefined);
         fields.forEach((x, i) => {
             if (x.type == ARRAY) {
-                this.createFormArray(modelConfig, x, formGroup, entityObject);
+                this.createFormArray(modelConfig, x, ApplicationUtil.getRootFormGroup(formGroup) as RxFormGroup, entityObject);
             } else {
                 let splitName = x.name.split('.');
                 let name = x.name;
@@ -31,7 +31,7 @@ export class DynamicFormBuilder {
                     formGroup = formGroup.controls[splitName[0]] as RxFormGroup;
                     name = splitName[1];
                 } else
-                    formGroup = formGroup.parent != null ? formGroup.parent as RxFormGroup : formGroup;
+                    formGroup = ApplicationUtil.getRootFormGroup(formGroup) as RxFormGroup;
                 let modelInstance = this.getDynamicModelInstance(x, modelConfig, entityObject, name);
                 formGroup.addControl(name, modelInstance.formControl);
                 formFieldConfigs.push(modelInstance)
@@ -114,7 +114,7 @@ export class DynamicFormBuilder {
         let configModel = (x.modelName) && this.formConfiguration && this.formConfiguration.fieldConfigModels ? this.formConfiguration.fieldConfigModels.filter((y) => y.modelName == x.modelName)[0] : undefined;
         let modelArguments = [x, modelConfig];
         let model = undefined;
-        if (x.modelName && configModel && !configModel.model) {
+        if ((x.modelName && configModel && !configModel.model) || (x.modelName && (!this.formConfiguration || !this.formConfiguration.fieldConfigModels))) {
             let actionContainer = defaultContainer.getActionContainer(x.modelName);
             if (actionContainer)
                 model = actionContainer.instance;

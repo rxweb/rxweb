@@ -8,11 +8,12 @@ const HIDE: string = "hide";
 
 export abstract class FormControlConfig {
     private _value: any;
-    private _source: any[];
+    private _source: any[] = [];
     private _formControl: AbstractControl;
     private _isPlainTextMode: boolean = false;
     constructor(fieldConfig: { [key: string]: any }, public controlsConfig: { [key: string]: FormControlConfig}) {
         this.config = fieldConfig;
+        this.value = fieldConfig.value;
         this.setNotifications();
         this.setActions();
         if (!this.actions.filter && this.config.source)
@@ -55,7 +56,6 @@ export abstract class FormControlConfig {
 
     set value(value: any) {
         this._value = value;
-        this.refresh();
     }
 
     get value() {
@@ -215,9 +215,9 @@ export abstract class FormControlConfig {
     private updateActionValue() {
         Object.keys(this.controlNotifications).forEach(key => {
             if (this.actions[key])
-                this[key] = this.actions[key].call(this);
+                this[key == FILTER ? SOURCE : key] = this.actions[key].call(this);
             else if (this.config.ui && this.config.ui[key])
-                this[key] = this.config.ui[key];
+                this[key == FILTER ? SOURCE : key] = this.config.ui[key];
 
         })
     }

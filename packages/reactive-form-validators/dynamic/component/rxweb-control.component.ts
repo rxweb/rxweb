@@ -95,7 +95,11 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
             this.setFieldConfigParams(this.componentRef.instance);
             this.subscribeEvents(this.componentRef.instance);
             this.overrideValueProp();
-            this.formControlConfig.onHide = this.onHide;
+            if (!this.formControlConfig.onHide) {
+                this.formControlConfig.onHide = this.onHide;
+                if (this.formControlConfig.hide)
+                    this.formControlConfig.onHide();
+            }
         }
         if (this.sectionConfig)
             this.setSectionConfigParams();

@@ -19,8 +19,7 @@ export abstract class AbstractDynamicControl implements AfterViewInit {
                 this.rxwebActions.forEach(rxwebAction => {
                     rxwebAction.controlConfig = this.controlConfig;
                 })
-            }
-        
+        }
     }
 
     addItem() {

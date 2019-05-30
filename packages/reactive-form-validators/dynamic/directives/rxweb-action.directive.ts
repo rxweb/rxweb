@@ -22,7 +22,7 @@ export class RxwebActionDirective {
         return this._controlConfig;
     }
 
-      constructor(private renderer: Renderer, private elementRef: ElementRef) {
+    constructor(private renderer: Renderer, private elementRef: ElementRef) {
         this.element = this.elementRef.nativeElement as Node
         this._cssConfig = ReactiveFormConfig.activeUiFramework.cssClasses;
         this.setControlClass();
@@ -132,7 +132,7 @@ export class RxwebActionDirective {
         this._controlConfig.onAttributeValueChange(this.attributeNames, (name, value) => {
             this.process(name, value);
         })
-        if (this.hideIfNoValue && !this.controlConfig[this.hideIfNoValue])
+        if ((this.hideIfNoValue && !this.controlConfig[this.hideIfNoValue]))
             this.element.style.display = "none";
     }
 
@@ -176,7 +176,7 @@ export class RxwebActionDirective {
     }
 
     createText(text: string) {
-        this.renderer.createText(this.element, text);
+        this.renderer.setElementProperty(this.element, "innerText", text);
     }
 
     invokeMethod(eventName: string, values: string[]) {
@@ -185,7 +185,10 @@ export class RxwebActionDirective {
     }
 
     setOrUpdateAttribute(attributeName: string, value: any) {
-        this.renderer.setElementAttribute(this.element, attributeName, value);
+        if (attributeName == "placeholder" && this.element.nodeName == "OPTION") {
+            this.createText(value);
+        } else
+            this.renderer.setElementAttribute(this.element, attributeName, value);
     }
 
     private _controlConfig: FormControlConfig;

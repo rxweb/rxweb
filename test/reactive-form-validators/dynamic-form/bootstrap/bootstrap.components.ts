@@ -24,8 +24,9 @@ export class BootstrapPrependInputComponent extends AbstractDynamicControl { }
 
 @Component({
     template: ` <select class="form-control" [formControl]="formControl">
-      <option *ngFor="let item of controlConfig.source" [value]="item.value">{{item.key}}</option>
-    </select>'`
+        <option hideIfNoValue="placeholder" [rxwebAction]="['placeholder']" value="null"></option>
+        <option *ngFor="let item of controlConfig.source" [value]="item[controlConfig.config.valuePropName || 'value']">{{item[controlConfig.config.textPropName || 'key']}}</option>
+    </select>`
 })
 export class BootstrapSelectComponent extends AbstractDynamicControl { }
 
@@ -98,7 +99,7 @@ export class BootstrapHorizontalLayoutComponent extends AbstractDynamicControl {
         BootstrapRadioButtonComponent,
         BootstrapBasicLayoutComponent,
         BootstrapHorizontalLayoutComponent],
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, RxDynamicReactiveFormsModule,RxReactiveFormsModule],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, RxDynamicReactiveFormsModule, RxReactiveFormsModule],
     providers: [],
     exports: [BootstrapInputComponent, BootstrapPrependInputComponent,
         BootstrapSelectComponent,
@@ -110,7 +111,7 @@ export class BootstrapHorizontalLayoutComponent extends AbstractDynamicControl {
         BootstrapBasicLayoutComponent,
         BootstrapHorizontalLayoutComponent],
     entryComponents: [
-        DynamicReactiveFormConfig.registerComponent({ 'prependTextbox': { component: BootstrapPrependInputComponent }, "bootstrap-horizontal": { component: BootstrapHorizontalLayoutComponent }, "checkbox": { component: BootstrapCheckboxComponent }, "bootstrap-basic": { component: BootstrapBasicLayoutComponent }, "bootstrap-advance": { component: BootstrapBasicLayoutComponent },'textbox': { component: BootstrapInputComponent }})
+        DynamicReactiveFormConfig.registerComponent({ 'prependTextbox': { component: BootstrapPrependInputComponent }, "bootstrap-horizontal": { component: BootstrapHorizontalLayoutComponent }, "checkbox": { component: BootstrapCheckboxComponent }, "bootstrap-basic": { component: BootstrapBasicLayoutComponent }, "bootstrap-advance": { component: BootstrapBasicLayoutComponent }, 'textbox': { component: BootstrapInputComponent }, 'select': { component: BootstrapSelectComponent } })
 
     ]
 })

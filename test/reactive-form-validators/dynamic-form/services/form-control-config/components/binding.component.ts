@@ -8,7 +8,7 @@ import { RxFormBuilder,DynamicFormBuildConfig, DynamicFormConfiguration } from "
 </form>
     `
 })
-export class InputBindingComponent implements OnInit {
+export class BindingComponent implements OnInit {
     serverData: Array<{ [key: string]: any}> = [];
 
     uiBindings: string[] = ["firstName"];
