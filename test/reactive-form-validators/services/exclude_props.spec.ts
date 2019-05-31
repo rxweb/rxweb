@@ -123,14 +123,14 @@ import { User,Party,Role } from "./models"
       })
 
 
-      fit('should pass, one to many and many to many cases', () => {
+      it('should pass, one to many and many to many cases', () => {
           let user = new User();
           user.party = new Party();
-          user.roles = new Array<Role>();
+          user.party.user = new User();
+          user.party.user.roles = new Array<Role>();
           let role = new Role();
           role.users = new Array<User>();
           role.users.push(new User());
-          user.party.user = new User();
           user.party.user.roles.push(role)
           
           let formBuilderConfiguration = new FormBuilderConfiguration();
