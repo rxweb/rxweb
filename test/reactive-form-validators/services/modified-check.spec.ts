@@ -1,6 +1,31 @@
-﻿
+﻿import { FormArray } from "@angular/forms"
 
 import { RxFormBuilder, RxFormGroup, RxFormControl,RxFormArray,prop, propObject, propArray } from '@rxweb/reactive-form-validators';
+
+export class ContactMechanism {
+    @prop()
+    streetAddress: string;
+
+    @prop()
+    city: string;
+}
+
+
+export class Facility {
+    @prop()
+    id: number;
+
+    @prop()
+    name: string;
+
+    @propArray() facilityContactMechanisms: FacilityContactMechanism[];
+}
+
+
+export class FacilityContactMechanism {
+    @propObject(ContactMechanism) contactMechanism: ContactMechanism;
+}
+
 
 export class Hobby {
 
@@ -114,6 +139,32 @@ export class User {
           hobbiesFormArray.removeAt(1);
           expect((<RxFormArray>hobbiesFormArray).isModified).toBe(true);
           expect((<RxFormGroup>userFormGroup).isModified).toBe(true);
+      })
+
+      //bug fix #180
+      it('should pass blank modified value object', () => {
+          let facility = new Facility();
+          facility.name = "Store 1";
+          facility.facilityContactMechanisms = new Array<FacilityContactMechanism>();
+
+
+          let facilityFormGroup = <RxFormGroup>formBuilder.formGroup(facility);
+
+          let contactMechanism = new ContactMechanism();
+          contactMechanism.streetAddress = "Lincoln In";
+          contactMechanism.city = "New York";
+
+          let facilityContactMechanisms: FormArray = facilityFormGroup.controls.facilityContactMechanisms as FormArray;
+
+          let contactMechanismFormGroup = formBuilder.formGroup(contactMechanism) as RxFormGroup;
+
+          facilityContactMechanisms.push(contactMechanismFormGroup);
+          facilityFormGroup.commit();
+          expect(facilityFormGroup.isModified).toBeFalsy();
+          contactMechanismFormGroup.controls.streetAddress.setValue("Lincoln");
+          expect(facilityFormGroup.isModified).toBeTruthy();
+          contactMechanismFormGroup.controls.streetAddress.setValue("Lincoln In");
+          expect(facilityFormGroup.isModified).toBeFalsy();
       })
      
 

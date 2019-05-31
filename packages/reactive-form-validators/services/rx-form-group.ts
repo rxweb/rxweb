@@ -45,8 +45,12 @@ export class RxFormGroup extends FormGroup {
                     let formArray = this.controls[columnName] as FormArray;
                     jObject[columnName] = [];
                     for (var i = 0; i < this._modified[columnName].length; i++) {
-                        jObject[columnName].push((<RxFormGroup>formArray.controls[i]).modifiedValue)
+                        let modifiedValue = (<RxFormGroup>formArray.controls[i]).modifiedValue
+                        if (Object.keys(modifiedValue).length > 0)
+                            jObject[columnName].push(modifiedValue)
                     }
+                    if (jObject[columnName].length == 0)
+                        delete jObject[columnName];
                 } else
                     jObject[columnName] = this._modified[columnName];
             }
@@ -289,7 +293,8 @@ export class RxFormGroup extends FormGroup {
                     }
                     if (this._modified[controlName].length == 0)
                         delete this._modified[controlName];
-                }
+                } else if (this._modified[controlName])
+                    delete this._modified[controlName];
             }
         }
     }

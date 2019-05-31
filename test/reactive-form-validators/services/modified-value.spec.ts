@@ -1,6 +1,28 @@
-﻿
+﻿import { FormArray  } from "@angular/forms"
 import { RxFormBuilder, RxFormGroup, RxFormArray,prop, propObject, propArray } from '@rxweb/reactive-form-validators';
+export class ContactMechanism {
+    @prop()
+    streetAddress: string;
 
+    @prop()
+    city: string;
+}
+
+
+export class Facility {
+    @prop()
+    id: number;
+
+    @prop()
+    name: string;
+
+    @propArray() facilityContactMechanisms: FacilityContactMechanism[];
+}
+
+
+export class FacilityContactMechanism {
+    @propObject(ContactMechanism) contactMechanism: ContactMechanism;
+}
 export class Hobby {
 
     @prop()
@@ -153,5 +175,33 @@ export class Employee{
           expect((<RxFormGroup>workHistoryformGroup ).modifiedValue).toEqual({id:1, name: "ABC Corp" });
           expect((<RxFormGroup>employeeFormGroup).modifiedValue).toEqual({ workHistory: [{id:1, name: "ABC Corp" }] });
       })
+
+
+     //bug fix #180
+      it('should pass blank modified value object', () => {
+          let facility = new Facility();
+          facility.name = "Store 1";
+          facility.facilityContactMechanisms = new Array<FacilityContactMechanism>();
+
+
+          let facilityFormGroup = <RxFormGroup>formBuilder.formGroup(facility);
+
+          let contactMechanism = new ContactMechanism();
+          contactMechanism.streetAddress = "Lincoln In";
+          contactMechanism.city = "New York";
+
+          let facilityContactMechanisms: FormArray = facilityFormGroup.controls.facilityContactMechanisms as FormArray;
+
+          let contactMechanismFormGroup = formBuilder.formGroup(contactMechanism) as RxFormGroup;
+
+          facilityContactMechanisms.push(contactMechanismFormGroup);
+          facilityFormGroup.commit();
+          expect(facilityFormGroup.modifiedValue).toEqual({});
+          contactMechanismFormGroup.controls.streetAddress.setValue("Lincoln");
+          expect(facilityFormGroup.modifiedValue).toEqual({ facilityContactMechanisms: [{ streetAddress: "Lincoln" }] });
+          contactMechanismFormGroup.controls.streetAddress.setValue("Lincoln In");
+          expect(facilityFormGroup.modifiedValue).toEqual({});
+      })
+
 
 })
