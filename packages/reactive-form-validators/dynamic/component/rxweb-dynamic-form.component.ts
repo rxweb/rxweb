@@ -21,9 +21,10 @@ export class RxwebDynamicFormComponent {
         this.isChangedMode = this.viewMode && this.viewMode != value;
         this._viewMode = value;
         this.formRow = value == "bootstrap-advance" ? 'form-row' : '';
-        if (this.isChangedMode)
+        if (this.isChangedMode) {
             this.uiBindings = this.designRows(this.bindings);
-
+            this.changeSectionViewMode();
+        }
     }
     get viewMode() {
         return this._viewMode;
@@ -58,5 +59,13 @@ export class RxwebDynamicFormComponent {
             rows.push(jObject);
         }
         return rows;
+    }
+
+    changeSectionViewMode() {
+        if (this.sectionsConfig) {
+            Object.keys(this.sectionsConfig).forEach(t => {
+                this.sectionsConfig[t].viewMode = this.viewMode;
+            })
+        }
     }
 }
