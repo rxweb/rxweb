@@ -121,6 +121,42 @@ export class UserModel {
                 });
 
 
+            it('should not error, should map nested object properties value with respective FormControl',
+                () => {
+                    var formBuilderConfig = new FormBuilderConfiguration();
+                    formBuilderConfig.autoInstanceConfig = {
+                        objectPropInstanceConfig: [{
+                            propertyName: 'address'
+                        }],
+                        arrayPropInstanceConfig: [{
+                            propertyName: 'skills',
+                            rowItems: 10
+                        }]
+                    }
+                    let person = new Person();
+                    person.name = "John";
+                    person.address = new Address();
+                    person.address.city = "Boston";
+                    person.skills = new Array<Skill>();
+                    let skill = new Skill();
+                    skill.name = "Angular"
+                    person.skills.push(skill);
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(person, formBuilderConfig);
+                    expect(formGroup.modelInstance.constructor).toEqual(Person);
+                    expect(formGroup.modelInstance.address.constructor).toEqual(Address);
+                    expect(formGroup.modelInstance.skills[0].constructor).toEqual(Skill);
+                    expect(formGroup.modelInstance.skills.length).toEqual(10);
+                    expect(formGroup.controls.address.constructor).toEqual(RxFormGroup);
+                    let addressFormGroup = formGroup.controls.address as RxFormGroup;
+                    let skillsFormArray = formGroup.controls.skills as FormArray;
+                    let zeroIndexFormGroup = skillsFormArray.controls[0] as RxFormGroup;
+                    expect(formGroup.controls.name.value).toEqual("John");
+                    expect(addressFormGroup.controls.city.value).toEqual("Boston");
+                    expect(zeroIndexFormGroup.controls.name.value).toEqual("Angular");
+
+
+                });
+
 
             //end
         });

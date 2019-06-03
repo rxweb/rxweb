@@ -5,7 +5,8 @@ import { InstanceContainer,PropertyInfo} from '../core/validator.interface';
 import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY } from "../const"
 import { RegexValidator } from '../util/regex-validator';
 import { SANITIZERS } from "../util/sanitizers"
-import { instanceProvider ,getInstance} from "../util/instance-provider.function"
+import { instanceProvider, getInstance } from "../util/instance-provider.function"
+
 export class BaseFormBuilder {
     constructor() {
     }
@@ -28,17 +29,25 @@ export class BaseFormBuilder {
             if (autoInstanceConfig.objectPropInstanceConfig && autoInstanceConfig.objectPropInstanceConfig.length > 0) {
                 autoInstanceConfig.objectPropInstanceConfig.forEach(t => {
                     let objectProperty = instanceContainer.properties.filter(property => property.name == t.propertyName && property.propertyType == OBJECT_PROPERTY)[0];
-                    if (objectProperty)
+                    if (objectProperty) {
+                        let data =classInstance[t.propertyName];
                         classInstance[t.propertyName] = getInstance(objectProperty.entity, t.arguments || []);
+                        if (data)
+                            this.setObjectValue(data, classInstance[t.propertyName]);
+                    }
                 })
             }
             if (autoInstanceConfig.arrayPropInstanceConfig && autoInstanceConfig.arrayPropInstanceConfig.length > 0) {
                 autoInstanceConfig.arrayPropInstanceConfig.forEach(t => {
                     let property = instanceContainer.properties.filter(property => property.name == t.propertyName && property.propertyType == ARRAY_PROPERTY)[0];
                     if (property) {
+                        let data = classInstance[t.propertyName];
                         classInstance[t.propertyName] = [];
                         for (var i = 0; i < t.rowItems; i++) {
-                            classInstance[t.propertyName].push(getInstance(property.entity, t.arguments || []))
+                            let instance = getInstance(property.entity, t.arguments || []);
+                            if (data && data[i])
+                                this.setObjectValue(data[i], instance);
+                            classInstance[t.propertyName].push(instance)
                         }
                     }
                 })
@@ -105,5 +114,11 @@ export class BaseFormBuilder {
     private getValue(entityObject: { [key: string]: any }, propertyInfo: PropertyInfo, formBuilderConfiguration: FormBuilderConfiguration) {
         let propValue = (propertyInfo.dataPropertyName) ? entityObject[propertyInfo.dataPropertyName] : entityObject[propertyInfo.name];
         return this.getDefaultValue(propertyInfo,propValue,formBuilderConfiguration);
+    }
+
+    private setObjectValue(entityObject: {[key:string]:any},classInstance:any) {
+        for (var column in entityObject) {
+            classInstance[column] = entityObject[column];
+        }
     }
 }
