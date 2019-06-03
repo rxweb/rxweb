@@ -60,6 +60,23 @@ export class User {
     hobbies:Hobby[]
 }
 
+export class OrderAdjustment {
+    @prop()
+    amount: number;
+
+    @prop()
+    percentage: number;
+}
+
+export class LineItem {
+    @propArray(OrderAdjustment)
+    orderAdjustments: OrderAdjustment[]
+}
+
+export class Order {
+    @propArray(LineItem)
+    lineItems: LineItem[]
+}
 
 
 
@@ -165,7 +182,40 @@ export class User {
           expect(facilityFormGroup.isModified).toBeTruthy();
           contactMechanismFormGroup.controls.streetAddress.setValue("Lincoln In");
           expect(facilityFormGroup.isModified).toBeFalsy();
-      })
+     })
+
+
+     //bug fix #182
+     it('should track the modified state till the root object.', () => {
+         let order = new Order();
+         order.lineItems = new Array<LineItem>();
+         let lineItem = new LineItem();
+         lineItem.orderAdjustments = new Array<OrderAdjustment>();
+         let orderAdjustment = new OrderAdjustment();
+         orderAdjustment.amount = 10;
+         orderAdjustment.percentage = 20;
+         lineItem.orderAdjustments.push(orderAdjustment);
+         order.lineItems.push(lineItem);
+
+
+         let formGroup = formBuilder.formGroup(order) as RxFormGroup;
+         let lineItemsFormArray = formGroup.controls.lineItems as FormArray;
+         let lineItemFormGroup = lineItemsFormArray.controls[0] as RxFormGroup;
+         let orderAdjustmentsFormArray = lineItemFormGroup.controls.orderAdjustments as FormArray;
+         let orderAdjustmentFormGroup = orderAdjustmentsFormArray.controls[0] as RxFormGroup;
+         orderAdjustmentFormGroup.controls.amount.setValue("11");
+
+         expect(orderAdjustmentFormGroup.isModified).toBeTruthy();
+         expect(lineItemFormGroup.isModified).toBeTruthy();
+         expect(formGroup.isModified).toBeTruthy();
+
+         orderAdjustmentFormGroup.controls.amount.setValue("10");
+
+         expect(orderAdjustmentFormGroup.isModified).toBeFalsy();
+         expect(lineItemFormGroup.isModified).toBeFalsy();
+         expect(formGroup.isModified).toBeFalsy();
+
+     })
      
 
 })

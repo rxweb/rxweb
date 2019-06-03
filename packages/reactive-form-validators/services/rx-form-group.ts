@@ -67,14 +67,14 @@ export class RxFormGroup extends FormGroup {
         if (controlName) {
             let control = <RxFormControl>this.controls[controlName];
             this.processModified(controlName, control);
-            if (this.parent)
-                (<RxFormGroup>this.parent).patch();
         } else {
             this.nestedFormsModification();
         }
         this._isModified = Object.keys(this._modified).length > 0;
         if (!this._isModified)
             this.nestedArrayIsModified();
+        if (this.parent)
+            (<RxFormGroup>this.parent).patch();
     }
 
     isDirty(): boolean {

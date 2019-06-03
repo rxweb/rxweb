@@ -88,6 +88,24 @@ export class Employee{
 }
 
 
+export class OrderAdjustment {
+    @prop()
+    amount: number;
+
+    @prop()
+    percentage: number;
+}
+
+export class LineItem {
+    @propArray(OrderAdjustment)
+    orderAdjustments: OrderAdjustment[]
+}
+
+export class Order {
+    @propArray(LineItem)
+    lineItems: LineItem[]
+}
+
 
 
  describe('modified-value',()=>{
@@ -201,7 +219,40 @@ export class Employee{
           expect(facilityFormGroup.modifiedValue).toEqual({ facilityContactMechanisms: [{ streetAddress: "Lincoln" }] });
           contactMechanismFormGroup.controls.streetAddress.setValue("Lincoln In");
           expect(facilityFormGroup.modifiedValue).toEqual({});
-      })
+     })
+
+
+     //bug fix #182
+     it('should track the modified value till the root object.', () => {
+         let order = new Order();
+         order.lineItems = new Array<LineItem>();
+         let lineItem = new LineItem();
+         lineItem.orderAdjustments = new Array<OrderAdjustment>();
+         let orderAdjustment = new OrderAdjustment();
+         orderAdjustment.amount = 10;
+         orderAdjustment.percentage = 20;
+         lineItem.orderAdjustments.push(orderAdjustment);
+         order.lineItems.push(lineItem);
+
+
+         let formGroup = formBuilder.formGroup(order) as RxFormGroup;
+         let lineItemsFormArray = formGroup.controls.lineItems as FormArray;
+         let lineItemFormGroup = lineItemsFormArray.controls[0] as RxFormGroup;
+         let orderAdjustmentsFormArray = lineItemFormGroup.controls.orderAdjustments as FormArray;
+         let orderAdjustmentFormGroup = orderAdjustmentsFormArray.controls[0] as RxFormGroup;
+         orderAdjustmentFormGroup.controls.amount.setValue("11");
+
+         expect(orderAdjustmentFormGroup.modifiedValue).toEqual({ amount: "11" });
+         expect(lineItemFormGroup.modifiedValue).toEqual({ orderAdjustments: [{ amount: "11" }]});
+         expect(formGroup.modifiedValue).toEqual({ lineItems: [{ orderAdjustments: [{ amount: "11" }] }] });
+
+         orderAdjustmentFormGroup.controls.amount.setValue("10");
+
+         expect(orderAdjustmentFormGroup.modifiedValue).toEqual({});
+         expect(lineItemFormGroup.modifiedValue).toEqual({});
+         expect(formGroup.modifiedValue).toEqual({});
+
+     })
 
 
 })
