@@ -6,11 +6,14 @@ export function inputProcessor<T>(options: {
     serverData: any,
     tagName: string,
     elementValue?: any,
-    uiBindings?:any
+    uiBindings?: any,
+    viewMode?:string
 }) {
     const fixture = createComponentInstance<T>(options.component);
     let instance: any = fixture.componentInstance;
     instance.dynamicFormConfiguration = options.dynamicFormConfiguration;
+    if (options.viewMode)
+        instance.viewMode = options.viewMode;
     if (options.uiBindings)
         instance.uiBindings = options.uiBindings;
     instance.serverData = options.serverData;

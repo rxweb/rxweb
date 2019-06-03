@@ -121,7 +121,8 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
     }
 
     private setSectionConfigParams() {
-        this.sectionConfig.viewMode = this.viewMode ;
+        this.sectionConfig.viewMode = this.viewMode;
+        this.componentRef.instance[CONTROL_CONFIG] = this.controlsConfig ? this.controlsConfig[this.sectionConfig.controlConfigName] : undefined;
         this.componentRef.instance[SECTION_CONFIG] = this.sectionConfig;
     }
     private setFieldConfigParams(instance: {[key:string]:any}) {
