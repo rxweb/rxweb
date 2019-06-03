@@ -14,7 +14,6 @@ export abstract class AbstractDynamicControl implements AfterViewInit {
     @Input() controlTemplates: any;
 
     ngAfterViewInit(): void {
-        
             if (this.rxwebActions && this.rxwebActions.length > 0 && this.controlConfig) {
                 this.rxwebActions.forEach(rxwebAction => {
                     rxwebAction.controlConfig = this.controlConfig;
@@ -23,13 +22,14 @@ export abstract class AbstractDynamicControl implements AfterViewInit {
     }
 
     addItem() {
-        if (this.controlsConfig && Array.isArray(this.controlsConfig))
-            this.controlsConfig["addItem"]();
+        if (this.sectionConfig && this.sectionConfig.controlsConfig && Array.isArray(this.sectionConfig.controlsConfig)) {
+            this.sectionConfig.controlsConfig["addItem"]();
+        }
+        
     }
 
     removeItem(index: number) {
-        if (this.controlsConfig && Array.isArray(this.controlsConfig))
-            this.controlsConfig["removeItem"](index)
+        if (this.sectionConfig && this.sectionConfig.controlsConfig && Array.isArray(this.sectionConfig.controlsConfig))
+            this.sectionConfig.controlsConfig["removeItem"](index)
     }
-
 }

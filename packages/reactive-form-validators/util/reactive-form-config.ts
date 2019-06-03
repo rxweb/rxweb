@@ -4,9 +4,10 @@ export class ReactiveFormConfig {
     static number:{[key:string]:any} = {}
     static json: { [key: string]: any } = {};
     static dynamicForm: DynamicFormUiConfig = {
+        showingErrorMessage: true,
         uiFramework: {
             bootstrap: {
-                showValidMarkOnControl:false,
+                showValidMarkOnControl: false,
                 cssClasses: {
                     defaultControl: 'form-control',
                     description: 'form-text',

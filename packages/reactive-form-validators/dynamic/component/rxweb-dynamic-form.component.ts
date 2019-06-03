@@ -5,7 +5,7 @@ import { ControlTemplateDirective } from '../directives/control-template.directi
     selector:'rxweb-dynamic-form',
     template: `
      <div class="{{formRow}}" *ngFor="let row of uiBindings">
-        <rxweb-control *ngFor="let name of row.cols" [viewMode]="viewMode" [name]="name" [controlTemplates]="controlTemplates" [controlsConfig]="controlsConfig"></rxweb-control>
+        <rxweb-control *ngFor="let name of row.cols" [sectionConfig]="sectionsConfig[name]"  [viewMode]="viewMode" [name]="name" [controlTemplates]="controlTemplates" [controlsConfig]="controlsConfig"></rxweb-control>
      </div>        
 `
 })
@@ -15,6 +15,7 @@ export class RxwebDynamicFormComponent {
     private _viewMode: string;
     private formRow: string;
     private isChangedMode: boolean = false;
+    @Input() sectionsConfig: { [key: string]: any };
     @Input() uiFramework: string;
     @Input() set viewMode(value: string) {
         this.isChangedMode = this.viewMode && this.viewMode != value;
@@ -38,7 +39,7 @@ export class RxwebDynamicFormComponent {
     get controlTemplates() {
         return this._controlTemplates;
     }
-
+    
     designRows(bindings: string[]) {
         let rows = [];
         for (var item of bindings) {

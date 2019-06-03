@@ -9,20 +9,23 @@ export class RxwebErrorMessageDirective {
     private _cssConfig: any;
     private element: any;
     private showValidMarkOnControl: boolean = false;
+    private bindingErrorMessage: boolean = true;
     @Input() formControl: any;
 
     @Input('rxwebError') set errorMessage(value: string) {
         if (value) {
-            if (!this.isNodeElement()) {
+            if (!this.isNodeElement() && ReactiveFormConfig.dynamicForm.showingErrorMessage) {
                 this.renderer.setElementProperty(this.element, "innerText", value);
                 this.renderer.setElementStyle(this.element, "display", "");
                 this.element.style.display = "";
             }
+            if (!ReactiveFormConfig.dynamicForm.showingErrorMessage && this.element.nodeName == "SPAN" && this.element.style.display == "")
+                this.renderer.setElementStyle(this.element, "display", "none");
             this.renderer.setElementClass(this.element, this.getClassName(true), false);
             this.renderer.setElementClass(this.element, this.getClassName(false), true);
         }
         else {
-            if (!this.isNodeElement()) {
+            if (!this.isNodeElement() && ReactiveFormConfig.dynamicForm.showingErrorMessage) {
                 this.renderer.setElementProperty(this.element, "innerText", value);
                 this.renderer.setElementStyle(this.element, "display", "none");
             }

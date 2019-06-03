@@ -27,5 +27,6 @@ export interface UiFramework {
 
 export interface DynamicFormUiConfig {
     uiFramework: UiFramework;
+    showingErrorMessage: boolean;
 }
 

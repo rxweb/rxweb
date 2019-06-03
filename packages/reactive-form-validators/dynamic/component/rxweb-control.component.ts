@@ -86,7 +86,7 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
 
     private createInstance() {
         this.componentRef = this.controlContainerRef.createComponent(this.componentFactoryResolver.resolveComponentFactory(this.componentConfig.component));
-        if (this.viewMode)
+        if (this.viewMode && !this.sectionConfig)
         {
             this.formControlConfig = this.controlsConfig[this.name];
             this.formControlConfig.viewMode = this.viewMode;
@@ -121,10 +121,8 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
     }
 
     private setSectionConfigParams() {
-        this.componentRef.instance[FORM_ARRAY] = this.formArray;
-        this.componentRef.instance[FORM_GROUP] = this.formGroup;
+        this.sectionConfig.viewMode = !(this.sectionConfig.viewMode) ? this.viewMode : this.sectionConfig.viewMode;
         this.componentRef.instance[SECTION_CONFIG] = this.sectionConfig;
-        this.componentRef.instance[CONTROLS_CONFIG] = this.controlsConfig;
     }
     private setFieldConfigParams(instance: {[key:string]:any}) {
         for (let param in this.formControlConfig.inputs)
