@@ -94,8 +94,20 @@ export class BootstrapFileComponent extends AbstractDynamicControl { }
 export class BootstrapRangeComponent extends AbstractDynamicControl { }
 
 @Component({
+    template: `<div [rxwebAction]="['checkBoxAndRadioControlRootElement']" >
+                  <input [rxwebAction]="['focus','readonly','cssClassNames']" [formControl]="formControl" type="checkbox" [value]="controlConfig.config[controlConfig.config.valuePropName || 'value']" />
+                  <label [rxwebAction]="['checkboxAndRadioControlLabel']">
+                    {{controlConfig.config[controlConfig.config.textPropName || 'key']}}
+                  </label>
+              </div>
+            <span [rxwebError]="formControl.errorMessage" ></span>
+`
+})
+export class BootstrapCheckboxComponent extends AbstractDynamicControl { }
+
+@Component({
     template: `<div [rxwebAction]="['checkBoxAndRadioControlRootElement']" *ngFor="let item of controlConfig.source">
-                  <input [rxwebAction]="['focus','readonly','cssClassNames']" [formControl]="formControl" type="checkbox" [value]="item[controlConfig.config.valuePropName || 'value']" />
+                  <input [rxwebAction]="['focus','readonly','cssClassNames']" [formControl]="formControl" type="checkbox" [value]="item[controlConfig.config.valuePropName || 'value']" [checked]="item.checked" />
                   <label [rxwebAction]="['checkboxAndRadioControlLabel']">
                     {{item[controlConfig.config.textPropName || 'key']}}
                   </label>
@@ -103,7 +115,7 @@ export class BootstrapRangeComponent extends AbstractDynamicControl { }
             <span [rxwebError]="formControl.errorMessage" ></span>
 `
 })
-export class BootstrapCheckboxComponent extends AbstractDynamicControl { }
+export class BootstrapCheckboxListComponent extends AbstractDynamicControl { }
 
 @Component({
     template: `<div  [rxwebAction]="['checkBoxAndRadioControlRootElement']" *ngFor="let item of controlConfig.source">
@@ -161,7 +173,7 @@ export class SectionComponent extends AbstractDynamicControl { }
         BootstrapCheckboxComponent,
         BootstrapRadioButtonComponent,
         BootstrapBasicLayoutComponent,
-        BootstrapHorizontalLayoutComponent, SectionComponent, BootstrapInputColorComponent, BootstrapInputDateComponent, BootstrapInputEmailComponent, BootstrapInputPasswordComponent, BootstrapInputUrlComponent    ],
+        BootstrapHorizontalLayoutComponent, SectionComponent, BootstrapInputColorComponent, BootstrapInputDateComponent, BootstrapInputEmailComponent, BootstrapInputPasswordComponent, BootstrapInputUrlComponent, BootstrapCheckboxListComponent ],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, RxDynamicReactiveFormsModule, RxReactiveFormsModule],
     providers: [],
     exports: [BootstrapInputComponent, BootstrapPrependLeftInputComponent,
@@ -172,7 +184,7 @@ export class SectionComponent extends AbstractDynamicControl { }
         BootstrapCheckboxComponent,
         BootstrapRadioButtonComponent,
         BootstrapBasicLayoutComponent,
-        BootstrapHorizontalLayoutComponent, SectionComponent, BootstrapInputColorComponent, BootstrapInputDateComponent, BootstrapInputEmailComponent, BootstrapInputPasswordComponent, BootstrapInputUrlComponent   ],
+        BootstrapHorizontalLayoutComponent, SectionComponent, BootstrapInputColorComponent, BootstrapInputDateComponent, BootstrapInputEmailComponent, BootstrapInputPasswordComponent, BootstrapInputUrlComponent, BootstrapCheckboxListComponent ],
     entryComponents: [
         DynamicReactiveFormConfig.registerComponent({
             'file': { component: BootstrapFileComponent },
@@ -190,7 +202,8 @@ export class SectionComponent extends AbstractDynamicControl { }
             'select': { component: BootstrapSelectComponent },
             'section': { component: SectionComponent },
             'textarea': { component: BootstrapTextareaComponent },
-            "range": { component: BootstrapRangeComponent }
+            "range": { component: BootstrapRangeComponent },
+            "checkbox-list": { component: BootstrapCheckboxListComponent }
         })
     ]
 })

@@ -3,7 +3,7 @@ import { BindingComponent } from "./components/binding.component"
 import { ReactiveFormConfig, FormControlConfig, action } from "@rxweb/reactive-form-validators"
 import { inputProcessor } from '../component-processor/input-processor';
 import { hideChecker } from '../component-processor/element-checker';
-@action('hide', [{
+@action([{
     keyName:'onlyHide',
     actions: {
         hide: function () {
@@ -26,25 +26,25 @@ describe('FormControlConfig Properties', () => {
         })    
 
         it('firstName input element should not hide.', fakeAsync(() => {
-            let options = inputProcessor({ component: BindingComponent, serverData: [{ name: "firstName", type: "textbox"}], tagName: 'input' })
+            let options = inputProcessor({ dynamicFormConfiguration: { fieldConfigModels: [{ modelName: 'hide', model: HideModel }] }, component: BindingComponent, serverData: [{ name: "firstName", type: "textbox"}], tagName: 'input' })
             expect(options.instance.dynamicFormBuildConfig.controlsConfig.firstName.hide).toEqual(false);
             hideChecker(options.nativeElement, { count: 1, display: '', index: 0,tagName:"input" });
         }));
 
         it('element should hide.', fakeAsync(() => {
-            let options = inputProcessor({ component: BindingComponent, serverData: [{ name: "firstName", type: "textbox", ui: { hide: true } }], tagName: 'input' })
+            let options = inputProcessor({ dynamicFormConfiguration: { fieldConfigModels: [{ modelName: 'hide', model: HideModel }] }, component: BindingComponent, serverData: [{ name: "firstName", type: "textbox", ui: { hide: true } }], tagName: 'input' })
             expect(options.instance.dynamicFormBuildConfig.controlsConfig.firstName.hide).toBeTruthy();
             hideChecker(options.nativeElement, { count: 0, index: 0, tagName: "input" });
         }));
 
         it('LastName input element should not be hide.', fakeAsync(() => {
-            let options = inputProcessor({ component: BindingComponent, serverData: [{ name: "firstName", type: "textbox" }, { name: "lastName", type: "textbox", actionKeyNames: ["onlyHide"], modelName: 'hide' }], tagName: 'input', uiBindings: ['firstName', 'lastName'] })
+            let options = inputProcessor({ dynamicFormConfiguration: { fieldConfigModels: [{ modelName: 'hide', model: HideModel }] }, component: BindingComponent, serverData: [{ name: "firstName", type: "textbox" }, { name: "lastName", type: "textbox", actionKeyNames: ["onlyHide"], modelName: 'hide' }], tagName: 'input', uiBindings: ['firstName', 'lastName'] })
             expect(options.instance.dynamicFormBuildConfig.controlsConfig.lastName.hide).toBeFalsy()
             hideChecker(options.nativeElement, { count: 2, display: '', index: 1, tagName: "input" });
         }));
 
         it('LastName input element placeholder text should be changed when firstName value is "ajay".', fakeAsync(() => {
-            let options = inputProcessor({ component: BindingComponent, serverData: [{ name: "firstName", type: "textbox" }, { name: "lastName", type: "textbox", actionKeyNames: ["onlyHide"], modelName: 'hide' }], tagName: 'input', uiBindings:['firstName','lastName'] })
+            let options = inputProcessor({ dynamicFormConfiguration: { fieldConfigModels: [{ modelName: 'hide', model: HideModel }] }, component: BindingComponent, serverData: [{ name: "firstName", type: "textbox" }, { name: "lastName", type: "textbox", actionKeyNames: ["onlyHide"], modelName: 'hide' }], tagName: 'input', uiBindings:['firstName','lastName'] })
             expect(options.instance.dynamicFormBuildConfig.controlsConfig.lastName.hide).toBeFalsy();
             hideChecker(options.nativeElement, { count: 2, display: '', index: 1, tagName: "input" });
             options.instance.dynamicFormBuildConfig.controlsConfig.firstName.formControl.setValue("ajay");

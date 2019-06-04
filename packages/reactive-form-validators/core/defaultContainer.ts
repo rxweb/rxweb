@@ -22,7 +22,7 @@ export const defaultContainer:
         setLogicalConditional(instance: any, annotationType: string, fieldName: string, propertyName: string): void,
         addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string, value?: any): void,
         addPropsConfig(target: any, configs: PropsConfig[]): void,
-        initAction(target: any,name:string, configs: ActionConfig[]): void,
+        initAction(target: any,configs: ActionConfig[]): void,
         getActionContainer(target: any, keyName?: string)
     } = new (class {
         private instances: InstanceContainer[] = [];
@@ -33,16 +33,13 @@ export const defaultContainer:
             return instance;
         }
 
-        initAction(target: any,name:string, configs: ActionConfig[]) {
+        initAction(target: any,configs: ActionConfig[]) {
             let actionContainer = this.actions.filter(action => action.instance == target)[0]
             if (!actionContainer)
-                this.actions.push({ instance: target, configs: configs,modelName:name });
+                this.actions.push({ instance: target, configs: configs});
         }
 
         getActionContainer(target: any, keyName?: string) {
-            if (typeof target == "string") {
-                return this.actions.filter(action => action.modelName == target)[0];
-            }
             let actionContainer = this.actions.filter(action => action.instance == target)[0]
             if (actionContainer)
                 return actionContainer.configs.filter(t => t.keyName == keyName)[0];

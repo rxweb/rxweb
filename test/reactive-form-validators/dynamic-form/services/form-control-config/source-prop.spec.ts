@@ -3,7 +3,7 @@ import { BindingComponent } from "./components/binding.component"
 import { ReactiveFormConfig, FormControlConfig, action } from "@rxweb/reactive-form-validators"
 import { inputProcessor } from '../component-processor/input-processor';
 import { selectChecker } from '../component-processor/element-checker';
-@action('source', [
+@action([
     {
         keyName: 'asyncSource',
         actions: {
@@ -92,6 +92,7 @@ describe('FormControlConfig Properties', () => {
             let countrySource = [{ countryId: 1, countryName: "India" }, { countryId: 2, countryName: "Australia" }];
             let stateSource = [{ stateId: 1, stateName: "Gujarat", countryId: 1 }, { stateId: 2, stateName: "Delhi", countryId: 1 },{ stateId: 3, stateName: "Melbourne", countryId: 2 }]
             let options = inputProcessor({
+                dynamicFormConfiguration: { fieldConfigModels: [{ modelName: 'source', model: SourceModel}] },
                 component: BindingComponent,
                 serverData: [
                     {
@@ -121,6 +122,7 @@ describe('FormControlConfig Properties', () => {
             let countrySource = [{ countryId: 1, countryName: "India" }, { countryId: 2, countryName: "Australia" }];
             let stateSource = [{ stateId: 1, stateName: "Gujarat", countryId: 1 }, { stateId: 2, stateName: "Delhi", countryId: 1 }, { stateId: 3, stateName: "Melbourne", countryId: 2 }]
             let options = inputProcessor({
+                dynamicFormConfiguration: { fieldConfigModels: [{ modelName: 'source', model: SourceModel }] },
                 component: BindingComponent,
                 serverData: [
                     {

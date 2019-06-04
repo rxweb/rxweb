@@ -48,6 +48,4 @@ export interface DataSanitizer{
 export interface ActionContainer {
     instance: Function;
     configs: ActionConfig[];
-    modelName: string;
-
 }

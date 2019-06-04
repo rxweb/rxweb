@@ -78,7 +78,7 @@ export class RxWebControlComponent implements OnInit, OnDestroy {
     }
 
     private getName():string {
-        let name = this.formControlConfig ? this.formControlConfig.config.type : this.sectionConfig ? this.name : undefined;
+        let name = this.formControlConfig ? this.formControlConfig.config.type : this.sectionConfig ? this.sectionConfig.sectionName  : undefined;
         if (name == TEXTBOX && this.formControlConfig.prependText && this.formControlConfig.prependText.left)
             name = PREPEND_TEXTBOX;
         return name;
