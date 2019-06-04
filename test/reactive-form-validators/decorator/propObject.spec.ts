@@ -18,6 +18,18 @@ export class User {
     @propObject(Address)
     address: Address;
 }
+export class Telephone {
+    @prop()
+    mobileNumber: number;
+}
+
+export class UserContact {
+    @prop()
+    contactType: string;
+    @propObject(undefined, { entityProvider: function () { return this.contactType == "address" ? Address : Telephone } }) 
+    contact: Telephone | Address
+}
+
 
 describe('propObject', () => {
     let formBuilder = new RxFormBuilder();
@@ -38,4 +50,53 @@ describe('propObject', () => {
             expect(addressformGroup.controls.country.value).toBe('India');
         })
 
+    it('"contact" Nested FormGroup modelInstance should be "Address"',
+        () => {
+            let userFormGroup = <RxFormGroup>formBuilder.formGroup(UserContact, { contactType: 'address', contact: {} });
+            expect(userFormGroup.modelInstance.constructor).toEqual(UserContact);
+            let contactFormGroup = userFormGroup.controls.contact as RxFormGroup;
+            expect(contactFormGroup.modelInstance.constructor).toEqual(Address);
+            expect(contactFormGroup.controls.city).toBeDefined();
+            expect(contactFormGroup.controls.country).toBeDefined();
+            expect(contactFormGroup.controls.mobileNumber).not.toBeDefined();
+        })
+
+
+    it('"contact" Nested FormGroup modelInstance should be "Address" and map the respective properties value',
+        () => {
+            let userFormGroup = <RxFormGroup>formBuilder.formGroup(UserContact, { contactType: 'address', contact: { city:'Boston',country:'USA' } });
+            expect(userFormGroup.modelInstance.constructor).toEqual(UserContact);
+            let contactFormGroup = userFormGroup.controls.contact as RxFormGroup;
+            expect(contactFormGroup.modelInstance.constructor).toEqual(Address);
+            expect(contactFormGroup.controls.city).toBeDefined();
+            expect(contactFormGroup.controls.country).toBeDefined();
+            expect(contactFormGroup.controls.city.value).toEqual("Boston");
+            expect(contactFormGroup.controls.country.value).toEqual("USA");
+            expect(contactFormGroup.controls.mobileNumber).not.toBeDefined();
+        })
+
+    it('"contact" Nested FormGroup modelInstance should be changed to "Address"',
+        () => {
+            let userContact = new UserContact();
+            userContact.contactType = "address";
+            userContact.contact = new Telephone();
+            let userFormGroup = <RxFormGroup>formBuilder.formGroup(userContact);
+            expect(userFormGroup.modelInstance.constructor).toEqual(UserContact);
+            let contactFormGroup = userFormGroup.controls.contact as RxFormGroup;
+            expect(contactFormGroup.modelInstance.constructor).toEqual(Address);
+            expect(contactFormGroup.controls.city).toBeDefined();
+            expect(contactFormGroup.controls.country).toBeDefined();
+            expect(contactFormGroup.controls.mobileNumber).not.toBeDefined();
+        })
+
+    it('"contact" Nested FormGroup modelInstance should be "Telephone"',
+        () => {
+            let userFormGroup = <RxFormGroup>formBuilder.formGroup(UserContact, { contactType: 'telephone', contact: {} });
+            expect(userFormGroup.modelInstance.constructor).toEqual(UserContact);
+            let contactFormGroup = userFormGroup.controls.contact as RxFormGroup;
+            expect(contactFormGroup.modelInstance.constructor).toEqual(Telephone);
+            expect(contactFormGroup.controls.city).not.toBeDefined();
+            expect(contactFormGroup.controls.country).not.toBeDefined();
+            expect(contactFormGroup.controls.mobileNumber).toBeDefined();
+        })
 });

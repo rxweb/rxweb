@@ -32,6 +32,7 @@ export interface PropertyInfo {
     defaultValue?: any;
     ignore?: (x: any) => boolean;
     isPrimaryKey?: boolean;
+    entityProvider?: Function;
 }
 
 export interface ControlInfo {

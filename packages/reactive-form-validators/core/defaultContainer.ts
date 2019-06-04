@@ -146,9 +146,10 @@ export const defaultContainer:
                 name: name,
                 propertyType: propertyType,
                 entity: entity,
-                dataPropertyName: config ? config.name : undefined
+                dataPropertyName: config ? config.name : undefined,
+                entityProvider: config ? config.entityProvider : undefined
             }
-            defaultContainer.addProperty(target.constructor, propertyInfo);
+            defaultContainer.addProperty(target.constructor, propertyInfo); 
         }
 
         addInstanceContainer(instanceFunc: any): InstanceContainer {

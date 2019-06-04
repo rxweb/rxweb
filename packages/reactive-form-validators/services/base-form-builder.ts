@@ -61,22 +61,24 @@ export class BaseFormBuilder {
         let classInstance = getInstance(model, []);
         if (instanceContainer) {
             instanceContainer.properties.forEach(t => {
-                let entity = ((t.propertyType == OBJECT_PROPERTY || t.propertyType == ARRAY_PROPERTY) && t.entity) ? t.entity: (formBuilderConfiguration && formBuilderConfiguration.genericEntities) ? formBuilderConfiguration.genericEntities[t.name] : undefined;
+                let entity = ((t.propertyType == OBJECT_PROPERTY || t.propertyType == ARRAY_PROPERTY) && t.entity) ? t.entity : (formBuilderConfiguration && formBuilderConfiguration.genericEntities) ? formBuilderConfiguration.genericEntities[t.name] : undefined;
+                if (!entity && t.entityProvider)
+                    entity = t.entityProvider.call(entityObject);
                 switch (t.propertyType) {
                     case PROPERTY:
                         classInstance[t.name] = this.getValue(entityObject, t, formBuilderConfiguration)
                         break;
                     case OBJECT_PROPERTY:
                         let objectValue = this.getValue(entityObject, t, formBuilderConfiguration);
-                        if (objectValue)
-                            classInstance[t.name] = this.updateObject(entity, objectValue, formBuilderConfiguration )
+                        if (objectValue) 
+                            classInstance[t.name] = this.updateObject(entity, objectValue, formBuilderConfiguration)
                         break;
                     case ARRAY_PROPERTY:
                         let arrayObjectValue = this.getValue(entityObject, t, formBuilderConfiguration);
                         if (arrayObjectValue && Array.isArray(arrayObjectValue)) {
                             classInstance[t.name] = [];
                             for (let row of arrayObjectValue) {
-                                let instanceObject = this.updateObject(entity, row, formBuilderConfiguration )
+                                let instanceObject = this.updateObject(entity, row, formBuilderConfiguration)
                                 classInstance[t.name].push(instanceObject);
                             }
                         }
@@ -116,7 +118,7 @@ export class BaseFormBuilder {
         return this.getDefaultValue(propertyInfo,propValue,formBuilderConfiguration);
     }
 
-    private setObjectValue(entityObject: {[key:string]:any},classInstance:any) {
+    private setObjectValue(entityObject: { [key: string]: any }, classInstance: any) {
         for (var column in entityObject) {
             classInstance[column] = entityObject[column];
         }
