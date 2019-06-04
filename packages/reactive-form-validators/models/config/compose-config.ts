@@ -1,8 +1,8 @@
 import {
     ValidatorFn
 } from "@angular/forms";
-import { BaseConfig } from './base-config';
+import { BaseConfigFn } from './base-config-fn';
 
-export interface ComposeConfig extends BaseConfig {
+export interface ComposeConfig extends BaseConfigFn<ComposeConfig> {
   validators:ValidatorFn[];
 }
