@@ -43,7 +43,7 @@ describe('Validator', () => {
                 qualifications: ['', RxwebValidators.allOf({ matchValues: ["Secondary", "Senior Secondary", "B.Tech", "M.Tech", "B.C.A.", "M.C.A."], conditionalExpression: (x, y) => x.department == 'DotNet' })],
             });
             employeeFormGroup.controls.department.setValue('DotNet');
-            employeeFormGroup.controls.qualifications.setValue(["Secondary", "Senior Secondary", "B.Tech", "M.Tech", "B.C.A.", "M.C.A."]);
+            employeeFormGroup.controls.qualifications.setValue(["Secondary", "Senior Secondary", "B.Tech.", "M.Tech.", "B.C.A.", "M.C.A."]);
             expect(employeeFormGroup.controls.qualifications.errors).toBeNull();
         });
     it("Should not error, allOf validator Conditional Expression with type 'function'",
