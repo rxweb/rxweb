@@ -86,5 +86,4 @@ export * from './sanitize/sanitize.decorator';
 export * from './non-validation-decorators/elementClass.decorator';
 export * from './minTime.decorator';
 export * from './maxTime.decorator';
-export * from './action.decorator';
 export * from './compose.decorator'

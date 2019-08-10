@@ -7,7 +7,7 @@ import { BaseFormBuilder } from './base-form-builder';
 import { defaultContainer } from '../core/defaultContainer';
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from '../core/validator.interface';
 
-import { FormBuilderConfiguration, DynamicFormConfiguration } from "../models"
+import { FormBuilderConfiguration} from "../models"
 import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY, FUNCTION_STRING, OBJECT_STRING, RX_WEB_VALIDATOR, NUMBER, BOOLEAN, STRING, MODEL } from "../const"
 import { PropValidationConfig } from "../models/prop-validation-config";
 
@@ -24,8 +24,6 @@ import { notValidator } from '../reactive-form-validators/not.validator'
 import { AppFormGroup } from '../models/interface/i-form-group'
 import { RegexValidator } from "../util/regex-validator";
 import { getInstance } from "../util/instance-provider.function";
-import { DynamicFormBuildConfig } from '../models/config/dynamic-form-build-config'
-import { DynamicFormBuilder } from '../dynamic/dynamic-form-builder'
 const LOGICAL_VALIDATORS: { [key: string]: Function } = { and: andValidator, or: orValidator, not: notValidator }
 const ASYNC: string = "async"
 const ENTITY_OBJECT: string = "entityObject";
@@ -384,13 +382,6 @@ export class RxFormBuilder extends BaseFormBuilder {
 
         return props;
     }
-
-    dynamicForm(fields: any[], formConfiguration?: DynamicFormConfiguration): DynamicFormBuildConfig {
-        let dynamicFormBuilder = new DynamicFormBuilder(this.additionalValidation, formConfiguration);
-        return dynamicFormBuilder.dynamicFormGroup(fields, formConfiguration);
-    }
-
-    
 
     formGroup<T>(model: Type<T> | { [key: string]: any }, entityObject?: { [key: string]: any } | FormBuilderConfiguration, formBuilderConfiguration?: FormBuilderConfiguration): RxFormGroup | FormGroup | AppFormGroup<T> {
         let json = this.getObject(model, entityObject, formBuilderConfiguration);

@@ -13,7 +13,8 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@rxweb/reactive-form-validators": [ "packages/reactive-form-validators" ]
+      "@rxweb/reactive-form-validators": [ "packages/reactive-form-validators" ],
+      "@rxweb/reactive-dynamic-forms": ["packages/reactive-dynamic-forms"]
     },
     "lib": [
       "es2017",

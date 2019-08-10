@@ -1,10 +1,9 @@
-import { DecoratorConfiguration, InstanceContainer, PropertyInfo, ActionContainer } from './validator.interface';
+import { DecoratorConfiguration, InstanceContainer, PropertyInfo} from './validator.interface';
 import { Linq } from "../util/linq";
 import { AnnotationTypes } from "./validator.static";
 import { PROPERTY, RXCODE, ARRAY_PROPERTY, OBJECT_PROPERTY } from "../const";
 import { PropsConfig } from "../models/config/props-config"
 import { DECORATORS } from "../const/decorators.const";
-import { ActionConfig } from '../models/config/action-config';
 
 export const defaultContainer:
     {
@@ -22,28 +21,12 @@ export const defaultContainer:
         setLogicalConditional(instance: any, annotationType: string, fieldName: string, propertyName: string): void,
         addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string, value?: any): void,
         addPropsConfig(target: any, configs: PropsConfig[]): void,
-        initAction(target: any,configs: ActionConfig[]): void,
-        getActionContainer(target: any, keyName?: string)
     } = new (class {
         private instances: InstanceContainer[] = [];
-        private actions: ActionContainer[] = [];
         modelIncrementCount: number = 0;
         get<T>(instanceFunc: any): InstanceContainer {
             let instance: InstanceContainer = this.instances.filter(instance => instance.instance === instanceFunc)[0];
             return instance;
-        }
-
-        initAction(target: any,configs: ActionConfig[]) {
-            let actionContainer = this.actions.filter(action => action.instance == target)[0]
-            if (!actionContainer)
-                this.actions.push({ instance: target, configs: configs});
-        }
-
-        getActionContainer(target: any, keyName?: string) {
-            let actionContainer = this.actions.filter(action => action.instance == target)[0]
-            if (actionContainer)
-                return actionContainer.configs.filter(t => t.keyName == keyName)[0];
-            return undefined;
         }
 
         getInstance(target: any, parameterIndex: any, propertyKey: string, decoratorType: string) {

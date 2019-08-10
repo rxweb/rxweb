@@ -1,7 +1,6 @@
 export * from "./services/reactive-form.module";
 export * from './services/rx-form-builder'
 export * from "./models/form-builder-configuration";
-export * from "./models/dynamic-form-configuration";
 export * from "./decorators";
 export * from './util/reactive-form-config';
 export * from './enums'
@@ -12,6 +11,3 @@ export * from './validators-extension/rxweb-validators';
 export * from './models/interface/i-form-group';
 export * from './models/interface/i-abstract-control';
 export * from './services/rx-form-array';
-export * from './dynamic';
-export * from './models/config/dynamic-form-build-config';
-

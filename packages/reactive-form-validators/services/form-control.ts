@@ -10,7 +10,6 @@ import { SANITIZERS } from "../util/sanitizers"
 import { DataSanitizer } from '../core/validator.interface'
 import { ErrorMessageBindingStrategy } from "../enums";
 import { ReactiveFormConfig } from "../util/reactive-form-config";
-import { FormControlConfig } from "../dynamic/form-control-config";
 
 const DIRTY:string = "dirty";
 const TOUCHED:string = "touched";
@@ -37,7 +36,6 @@ export class RxFormControl extends FormControl {
     private _classNameControlProp: { [key: string]: boolean };
     private _baseValue: any;
     private _isModified: boolean;
-    private controlConfig: FormControlConfig;
     updateOnElementClass: boolean | Function;
     preHook: Function;
     postHook: Function;
@@ -65,19 +63,22 @@ export class RxFormControl extends FormControl {
             this.setControlErrorMessages();
         return this._errorMessage;
     }
-    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string, private _sanitizers: DataSanitizer[], _formControlConfig?: FormControlConfig) {
+    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string, private _sanitizers: DataSanitizer[]) {
         super(formState, validator, asyncValidator)
-        this._baseValue = formState === undefined ? null : formState;
+        this._baseValue = formState === undefined ? null : this.getFormState(formState);
         this._isModified = false;
         this.keyName = controlName;
         this._errorMessageBindingStrategy = ReactiveFormConfig.get("reactiveForm.errorMessageBindingStrategy") as ErrorMessageBindingStrategy;
-        this.controlConfig = _formControlConfig;
-        if (this.controlConfig && this.controlConfig.hooks) {
-            if (this.controlConfig.hooks.preValue)
-                this.preHook = this.controlConfig.hooks.preValue;
-            if (this.controlConfig.hooks.postValue)
-                this.postHook = this.controlConfig.hooks.postValue;
+        
+    }
+
+    private getFormState(value) {
+        let baseValue = value
+        if (Array.isArray(value)) {
+            baseValue = [];
+            value.forEach(t => baseValue.push(t));
         }
+        return baseValue;
     }
 
     get isModified() {
@@ -91,25 +92,11 @@ export class RxFormControl extends FormControl {
         emitEvent?: boolean;
         isThroughDynamic?: boolean;
     }): void {
-        if (this.preHook && (!options || (options && !options.isThroughDynamic))) {
-            let isPassed = this.preHook.call(this.controlConfig);
-            if (!isPassed) {
-                let previousValue = this.value;
-                let patch: any = { isThroughDynamic: true };
-                super.patchValue(previousValue,patch);
-            }
-        }
-        else {
             let parsedValue = this.getSanitizedValue(value)
             if (options && options.dirty)
                 this.baseObject[this.keyName] = value;
             this.entityObject[this.keyName] = parsedValue;
             super.setValue(value, options);
-            if (this.controlConfig) {
-                this.controlConfig.value = parsedValue;
-                if (this.postHook)
-                    this.postHook.call(this.controlConfig);
-            }
             
             this.bindError();
             this.bindClassName();
@@ -118,7 +105,6 @@ export class RxFormControl extends FormControl {
             if (options && !options.updateChanged && this.root[VALUE_CHANGED_SYNC]) {
                 this.root[VALUE_CHANGED_SYNC]();
             }
-        }
     }
 
     getControlValue(){
@@ -149,7 +135,7 @@ export class RxFormControl extends FormControl {
         super.markAsTouched(opts);
         if(currentState != this.touched)
             this.runControlPropChangeExpression([TOUCHED,UNTOUCHED])
-
+        
     }
 
     markAsUntouched(opts?: {
@@ -211,7 +197,7 @@ export class RxFormControl extends FormControl {
         if (value !== undefined)
             this.setValue(value);
         else
-            this.setValue(this._baseValue);
+            this.setValue(this.getFormState(this._baseValue));
     }
 
     commit() {

@@ -1,4 +1,3 @@
-import { ActionConfig } from "../models/config/action-config";
 
 export interface DecoratorConfiguration {
     annotationType: string;
@@ -45,7 +44,4 @@ export interface DataSanitizer{
     name:string;
     config:any;
 }
-export interface ActionContainer {
-    instance: Function;
-    configs: ActionConfig[];
-}
+
