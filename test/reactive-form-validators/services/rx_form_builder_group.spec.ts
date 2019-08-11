@@ -1,6 +1,6 @@
-import { FormControl, Validators } from '@angular/forms';
-import { RxwebValidators, ReactiveFormConfig, RxFormBuilder, FormGroupExtension, RxFormControl } from '@rxweb/reactive-form-validators';
-
+import {FormGroup, FormControl, Validators } from '@angular/forms';
+import {NumericValueType, RxwebValidators, ReactiveFormConfig, RxFormBuilder, FormGroupExtension, RxFormControl } from '@rxweb/reactive-form-validators';
+import { tick,fakeAsync } from '@angular/core/testing';
 describe('Validator', () => {
     beforeEach(() => {
         ReactiveFormConfig.set({
@@ -300,5 +300,46 @@ describe('Validator', () => {
                 expect(formGroup.controls.dob instanceof RxFormControl).toBe(true);
             });
 
+//issue : https://github.com/rxweb/rxweb/issues/161
+            it("should validate nested formgroup, formcontrol with conditional expression",
+            fakeAsync( () => {
+                let formBuilder = new RxFormBuilder();
+                let formGroup = formBuilder.group({
+                    nested: formBuilder.group({
+                typeValue:[''],
+                value:['',[
+                   
+                  RxwebValidators.numeric({
+                            conditionalExpression: (x, y) => {
+                                return x.typeValue === '1';
+                            },
+                            acceptValue: NumericValueType.PositiveNumber,
+                            allowDecimal: false,
+                            message: 'Positive Integer'
+                        }),
+                            RxwebValidators.numeric({
+                                conditionalExpression: (x, y) => {
+                                    return x.typeValue === '2';
+                                },
+                                isFormat: true,
+                                digitsInfo: '1.0-2',
+                                allowDecimal: true,
+                            message: 'Positive Decimal',
+                            }),
+                  RxwebValidators.required({
+                            conditionalExpression: (x, y) => {
+                                return y.nested.typeValue === '3';
+                            },  
+                            message: 'Field Required'
+                        })]]
+                    })      
+                }) 
+                let nestedFormGroup = formGroup.controls.nested as FormGroup;
+                expect(nestedFormGroup.controls.value.errors).toBeNull();
+                nestedFormGroup.controls.typeValue.setValue('3');
+                tick(1000);
+                expect(nestedFormGroup.controls.value.errors != null).toBeTruthy();
+                
+            }));
     });
 });

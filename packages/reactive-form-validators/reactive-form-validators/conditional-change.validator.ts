@@ -21,13 +21,16 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
   return (control: AbstractControl): { [key: string]: any } => {
     let value = control.value;
     if (control.parent && oldValue != value) {
-        const parentFormGroup = ApplicationUtil.getRootFormGroup(control);
+        const rootFormGroup = ApplicationUtil.getRootFormGroup(control);
+        const parentFormGroup = control.parent;
+
       oldValue = value;
       timeOuts = [];
       conditionalValidationProps.forEach(t => {
+        let a = control;
         if (t.indexOf("[]") != -1) {
             var splitText = t.split("[]");
-          var formArray = <FormArray>parentFormGroup.get([splitText[0]]);
+          var formArray = <FormArray>rootFormGroup.get([splitText[0]]);
           if (formArray)
             formArray.controls.forEach(formGroup => {
               var abstractControl = formGroup.get(splitText[1]);
@@ -36,8 +39,16 @@ export function conditionalChangeValidator(conditionalValidationProps: string[])
               }
             })
         } else {
-            var control = null;
-          t.split('.').forEach((name, index) => { control = (index == 0) ? parentFormGroup.controls[name] : control.controls[name]; })
+            
+            let splitText = t.split('.');
+            if(splitText.length > 1){
+              var control = null;
+              t.split('.').forEach((name, index) => { control = (index == 0) ? rootFormGroup.controls[name] : control.controls[name]; })
+            }
+          else {
+            control = parentFormGroup.controls[t];
+          }
+          
           if (control) {
             setTimeOut(control);
           }
