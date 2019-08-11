@@ -79,6 +79,27 @@ describe('dynamic-config', () => {
         userFormGroup.controls.amount.setValue(2600);
         expect(userFormGroup.controls.amount.errors).toBeNull();
     })
+//feat : https://github.com/rxweb/rxweb/issues/191
+    it('should error and the error message will be custom message', () => {
+        let appFormBuilder = new FormBuilder();
+        let userFormGroup = appFormBuilder.group({
+            age: '',
+            amount: ['', RxwebValidators.minNumber({
+                dynamicConfig: (x, y) => {
+                    if (x.age > 18)
+                        return { value: 2500 };
+                    else
+                        return { value: 3500 };
+                },
+                message:"Value should be less than 2500."
+            })]
+        })
+        userFormGroup.controls.age.setValue(17);
+        userFormGroup.controls.amount.setValue(2600);
+        expect(userFormGroup.controls.amount.errors).toEqual({ 'minNumber': { message: 'Value should be less than 2500.', refValues: [2600, 3500] } });;
+    })
+
+
 
 
 

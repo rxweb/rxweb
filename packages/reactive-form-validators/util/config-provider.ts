@@ -10,7 +10,12 @@ function configProvider(control:AbstractControl,config:any,configName:string):an
         let currentConfig = FormProvider.ProcessRule(control,clone(config),true)
         if(typeof currentConfig != "boolean"){
                 currentConfig.conditionalExpression = config.conditionalExpression;
-                currentConfig.dynamicConfig = config.dynamicConfig;    
+                currentConfig.dynamicConfig = config.dynamicConfig; 
+                Object.keys(config).forEach(t=>{
+                    if((t != "conditionalExpression" && t != "dynamicConfig") || currentConfig[t]  === undefined){
+                        currentConfig[t] = config[t];
+                    }
+                })   
             return currentConfig;
         }else
             return config;
