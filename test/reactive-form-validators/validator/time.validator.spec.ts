@@ -97,7 +97,11 @@ import { RxwebValidators,ReactiveFormConfig  } from '@rxweb/reactive-form-valida
           expect(RxwebValidators.time({message:'You can enter only time format data'})(new FormControl('10@'))).toEqual({'time':{ message: 'You can enter only time format data', refValues: [ '10@' ] } }); 
         });
 
-
+       //issue https://github.com/rxweb/rxweb/issues/186
+        it("Should not error, time validator allow zero from starts.",
+        () => { 
+          expect(RxwebValidators.time()(new FormControl('01:32'))).toBeNull(); 
+        });
 
 
 	//end
