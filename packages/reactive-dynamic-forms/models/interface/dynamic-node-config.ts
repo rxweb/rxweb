@@ -1,5 +1,5 @@
 ﻿import { Renderer2 } from "@angular/core"
-import { FormControlConfig } from "@rxweb/reactive-dynamic-forms"
+import { FormControlConfig } from "../../services/form-control-config"
 
 export interface DynamicNodeConfig {
     controlConfig: FormControlConfig;

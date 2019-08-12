@@ -69,3 +69,5 @@ Thumbs.db
 /rxwebio/.vs/config
 *.user
 /node_modules_build
+/packages/reactive-dynamic-forms/package-lock.json
+/packages/reactive-dynamic-forms/.ng_build

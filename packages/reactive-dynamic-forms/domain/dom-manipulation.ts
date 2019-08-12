@@ -13,7 +13,7 @@ export class DomManipulation extends OverrideObjectProp {
     eventListeners: any[] = [];
     controlId: number;
     private actionListeners: { [key: string]: any } = {};
-    private elementClasses: [] = [];
+    private elementClasses: any[] = [];
 
     constructor(parentNode: any, elementName: string, dynamicNodeConfig: DynamicNodeConfig) {
         super(dynamicNodeConfig);
