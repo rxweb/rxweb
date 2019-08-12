@@ -163,6 +163,14 @@ export class ControlConfigProcessor {
     private getControlName(name: string) {
         let controlName: string = '';
         switch (name) {
+            case "color":
+            case "date":
+            case "email":
+            case "password":
+            case "tel":
+            case "time":
+            case "url":
+            case "color":
             case RANGE:
             case FILE:
             case TEXT:

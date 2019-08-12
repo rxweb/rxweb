@@ -9,9 +9,9 @@ import { ApplicationUtil } from "../util/application-util";
 
 const ARRAY: string = "array";
 export class RxDynamicFormBuilder {
-    formConfiguration: DynamicFormConfiguration;
-    formGroup(fields: any[], dynamicFormConfig: DynamicFormConfiguration): DynamicFormBuildConfig {
-        this.formConfiguration = dynamicFormConfig;
+    private formConfiguration: DynamicFormConfiguration;
+    formGroup(fields: any[], dynamicFormConfig?: DynamicFormConfiguration): DynamicFormBuildConfig {
+        this.formConfiguration = dynamicFormConfig || {};
         let entityObject: { [key: string]: any } = {};
         let formFieldConfigs = new Array<FormControlConfig>();
         let modelConfig = {};
