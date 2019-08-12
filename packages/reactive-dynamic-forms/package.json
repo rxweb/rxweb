@@ -1,0 +1,29 @@
+{
+  "name": "@rxweb/reactive-dynamic-forms",
+  "version": "0.0.0-0",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/rxweb/rxweb.git"
+    },
+    "license": "MIT",
+    "dest": "../../dist/reactive-dynamic-forms"
+  },
+  "keywords": [
+    "angular dynamic forms",
+    "angular reactive dynamic forms",
+    "reactive dynamic form"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/reactive-dynamic-forms#readme"
+  },
+  "homepage": "https://rxweb.io",
+  "license": "MIT",
+  "devDependencies": {
+    "@rxweb/reactive-form-validators": "^1.9.2"
+  }
+}

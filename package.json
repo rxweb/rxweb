@@ -11,6 +11,7 @@
     "e2e": "ng e2e",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "build:validators": "ng-packagr -p ./packages/reactive-form-validators/package.json",
+    "build:dynamic-forms": "ng-packagr -p ./packages/reactive-dynamic-forms/package.json",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
