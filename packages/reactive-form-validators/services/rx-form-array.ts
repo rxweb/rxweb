@@ -8,7 +8,7 @@ export class RxFormArray extends FormArray {
     private _baseValue: any[];
     private _isModified: boolean = false;
     private _modified: any[] = [];
-    constructor(private arrayObject: any[], controls, validatorOrOpts?: any, asyncValidator?: any, private arrayConfig?: {allowMaxIndex:number,messageKey:string}){
+    constructor(private arrayObject: any[], controls, validatorOrOpts?: any, asyncValidator?: any, private arrayConfig?: {allowMaxIndex?:number,messageKey?:string}){
         super(controls, validatorOrOpts, asyncValidator);
         this.cloneObject(arrayObject);        
     }
@@ -89,7 +89,7 @@ export class RxFormArray extends FormArray {
                 this.setErrors(ObjectMaker.toJson(PROP_ARRAY, this.arrayConfig, [this.length, this.arrayConfig.allowMaxIndex]));
             else if (this.errors && this.errors[PROP_ARRAY])
                 delete this.errors[PROP_ARRAY];
-        }
+        })
     }
 
     private checkModification() {

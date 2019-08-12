@@ -32,8 +32,8 @@ export interface PropertyInfo {
     ignore?: (x: any) => boolean;
     isPrimaryKey?: boolean;
     entityProvider?: Function;
-    arrayConfig: {
-        allowMaxIndex: number;
+    arrayConfig?: {
+        allowMaxIndex?: number;
         messageKey?: string;
     }
 }
