@@ -8,3 +8,8 @@ export interface PropConfig {
 export interface PropObjectConfig extends PropConfig {
     entityProvider?: Function;
 }
+
+export interface PropArrayConfig extends PropObjectConfig {
+    allowMaxIndex?: number;
+    messageKey?: string;
+}

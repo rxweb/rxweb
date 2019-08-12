@@ -2,12 +2,13 @@ import { FormArray } from "@angular/forms";
 import { VALUE_CHANGED_SYNC, PATCH } from "../const/app.const";
 import { isMatched, clone } from './entity.service'
 import { ResetFormType } from "../enums/reset-type";
-
+import { ObjectMaker } from '../util/object-maker'
+const PROP_ARRAY: string = "propArray";
 export class RxFormArray extends FormArray {
     private _baseValue: any[];
     private _isModified: boolean = false;
     private _modified: any[] = [];
-    constructor(private arrayObject:any[],controls, validatorOrOpts?:any, asyncValidator?:any){
+    constructor(private arrayObject: any[], controls, validatorOrOpts?: any, asyncValidator?: any, private arrayConfig?: {allowMaxIndex:number,messageKey:string}){
         super(controls, validatorOrOpts, asyncValidator);
         this.cloneObject(arrayObject);        
     }
@@ -25,6 +26,7 @@ export class RxFormArray extends FormArray {
         if(formGroup[VALUE_CHANGED_SYNC])
             formGroup.valueChangedSync()
         this.patch()
+        this.checkValidation() 
     }
 
     patch() {
@@ -78,6 +80,16 @@ export class RxFormArray extends FormArray {
         if(formGroup[VALUE_CHANGED_SYNC])
             formGroup.valueChangedSync()
         this.patch()
+        this.checkValidation();
+    }
+
+    private checkValidation() {
+        setTimeout(() => {
+            if (this.arrayConfig != undefined && this.arrayConfig.allowMaxIndex && this.length > this.arrayConfig.allowMaxIndex)
+                this.setErrors(ObjectMaker.toJson(PROP_ARRAY, this.arrayConfig, [this.length, this.arrayConfig.allowMaxIndex]));
+            else if (this.errors && this.errors[PROP_ARRAY])
+                delete this.errors[PROP_ARRAY];
+        }
     }
 
     private checkModification() {

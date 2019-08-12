@@ -1,7 +1,7 @@
 import { FormGroup, FormArray } from '@angular/forms';
 
-import { prop, required, propArray, RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '../../../packages/reactive-form-validators';
-
+import { ReactiveFormConfig, prop, required, propArray, RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '../../../packages/reactive-form-validators';
+import { tick, fakeAsync } from '@angular/core/testing';
 export class Skill {
     @prop()
     name: string;
@@ -34,6 +34,26 @@ export class UserContact {
     @propArray(undefined, { entityProvider: function () { return this.contactType == "address" ? Address : Telephone } })
     contacts: Telephone[] | Address[]
 }
+
+export class UserAddress {
+    @prop()
+    city: string;
+
+    @required()
+    country: string;
+}
+
+export class User {
+
+    @prop()
+    emailAddress: string;
+
+    @propArray(UserAddress, { allowMaxIndex: 2, messageKey: 'maxIndex' })
+    addresses: UserAddress[];
+}
+
+
+
 
 
 describe('prop-array', () => {
@@ -111,5 +131,25 @@ describe('prop-array', () => {
                 expect(contactFormGroup.controls.country).not.toBeDefined();
                 expect(contactFormGroup.controls.mobileNumber).toBeDefined();
             })
+
+        it('Nested FormArray "allowMaxIndex" validation',
+            fakeAsync(() => {
+                ReactiveFormConfig.set({
+                    "validationMessage": {
+                        "maxIndex": "this field is required.",
+                    }
+                });
+                let user = new User();
+                user.addresses = new Array<UserAddress>();
+                let address = new UserAddress();
+                user.addresses.push(address);
+                let userFormGroup = formBuilder.formGroup(user);
+                let addresses = userFormGroup.controls.addresses as FormArray;
+                addresses.push(formBuilder.formGroup(Address));
+                expect(userFormGroup.controls.addresses.errors).toBeNull();
+                addresses.push(formBuilder.formGroup(Address));
+                tick(500);
+                expect(userFormGroup.controls.addresses.errors !== null).toBeTruthy();
+            }))
     });
 })
