@@ -13,19 +13,33 @@ export const BOOSTRAP_CLASS_CONFIG: { [key: string]: any } = {
     invalidMessage: 'invalid-feedback',
 }
 
+const PREPEND_TEXT_CLASS_PATH = {
+    class: ['input-group-prepend'],
+    child: {
+        0: { class: ['input-group-text'] }
+    }
+}
+const INPUT_GROUP = ['input-group'];
+
 export const BOOTSTRAP_DESIGN_CONFIG: { [key: string]: any } = {
 
 
     elementClassPath: {
         "prepend-left": {
-            class: ['input-group'],
+            class: INPUT_GROUP,
+            child: PREPEND_TEXT_CLASS_PATH
+        },
+
+        "prepend-right": {
+            class: INPUT_GROUP,
+            child: PREPEND_TEXT_CLASS_PATH
+        },
+
+        "prepend-both": {
+            class: INPUT_GROUP,
             child: {
-                0: {
-                    class: ['input-group-prepend'],
-                    child: {
-                        0: { class: ['input-group-text'] }
-                    }
-                }
+                0: PREPEND_TEXT_CLASS_PATH,
+                2: PREPEND_TEXT_CLASS_PATH
             }
         },
 
@@ -34,7 +48,7 @@ export const BOOTSTRAP_DESIGN_CONFIG: { [key: string]: any } = {
         checkbox: {
             class: [], child: {
                 0: {
-                    class: ['form-check'],
+                    class: ['form-check', inLineRadioAndCheckbox],
                     child: { 0: { class: ['form-check-input'] }, 1: { class: ['form-check-label'] } }
                 }
             }
@@ -43,7 +57,7 @@ export const BOOTSTRAP_DESIGN_CONFIG: { [key: string]: any } = {
         radio: {
             class: [], child: {
                 0: {
-                    class: ['form-check'],
+                    class: ['form-check', inLineRadioAndCheckbox],
                     child: { 0: { class: ['form-check-input'] }, 1: { class: ['form-check-label'] } }
                 }
             }
@@ -120,4 +134,8 @@ function inputElementClassProvider() {
     else if (this.readonly && this.isPlainTextMode)
         elementClass = BOOSTRAP_CLASS_CONFIG.readOnlyPlainText;
     return elementClass;
+}
+
+function inLineRadioAndCheckbox() {
+    return this.config && this.config.inline ? ['form-check-inline'] : [];
 }

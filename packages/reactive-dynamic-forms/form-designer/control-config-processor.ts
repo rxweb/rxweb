@@ -8,11 +8,10 @@ import { DomManipulation } from '../domain/dom-manipulation'
 import { ApplicationUtil } from '../util/application-util';
 import { objectPropValue } from '../functions/object-prop-value.function';
 
-import { SQUARE_ERROR, SQUARE_SMALL, SQUARE_LABEL,SQUARE_CONTROL,ADVANCE, INPUT, TEXT, RANGE, FILE, STRING, CONTROL } from '../const/app.const';
+import { PREPEND_BOTH, PREPEND_LEFT, PREPEND_RIGHT, INPUT_TEXT,SQUARE_ERROR, SQUARE_SMALL, SQUARE_LABEL,SQUARE_CONTROL,ADVANCE, INPUT, TEXT, RANGE, FILE, STRING, CONTROL } from '../const/app.const';
 import { DynamicNodeConfig } from "../models/interface/dynamic-node-config";
 
 export class ControlConfigProcessor {
-    domManipulations: Array<DomManipulation> = new Array<DomManipulation>();
     isBuild: boolean = false;
     _viewMode: any;
     @Input('rxwebDynamicForm') dynamicFormBuildConfig: DynamicFormBuildConfig;
@@ -41,7 +40,7 @@ export class ControlConfigProcessor {
 
     @Input() uiBindings: any[];
 
-    constructor(private element: Node, private renderer) { }
+    constructor(protected element: Node, private renderer) { }
 
 
     build() {
@@ -75,7 +74,6 @@ export class ControlConfigProcessor {
             controlConfig: controlConfig, additionalClasses: elementClassPath, renderer: this.renderer, collections: collections, controlConfigProcessor:this
         }
         let domManipulation = new DomManipulation(parentElement, elementName, dynamicNodeConfig);
-        this.domManipulations.push(domManipulation);
         this.createChildrens(collections, domManipulation, controlConfig, elementClassPath)
         if (controlConfig.config && controlConfig.config.childrens && controlConfig.config.childrens.length > 0) {
             controlConfig.config.childrens.forEach((t, i) => {
@@ -184,6 +182,24 @@ export class ControlConfigProcessor {
     private getName(name: string, controlConfig: FormControlConfig) {
         name = name.replace(new RegExp(/\[/g), '').replace(new RegExp(/\]/g), '');
         name = (name == CONTROL) ? this.getControlName(controlConfig.config.type) : name;
+        switch (name) {
+            case INPUT:
+                name = this.prependControl(name,controlConfig);
+                break;
+            case INPUT_TEXT:
+                name = INPUT;
+                break;
+        }
+        return name;
+    }
+
+    private prependControl(name: string, controlConfig: FormControlConfig) {
+        if (controlConfig.config.ui && controlConfig.config.ui.prependText && controlConfig.config.ui.prependText.right && controlConfig.config.ui.prependText.left)
+            name = PREPEND_BOTH;
+        else if (name == INPUT && controlConfig.config.ui && controlConfig.config.ui.prependText && controlConfig.config.ui.prependText.left)
+            name = PREPEND_LEFT;
+        else if (name == INPUT && controlConfig.config.ui && controlConfig.config.ui.prependText && controlConfig.config.ui.prependText.right)
+            name = PREPEND_RIGHT;
         return name;
     }
 

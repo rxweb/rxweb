@@ -19,7 +19,7 @@ const checkBoxAndRadioDesign = ['div', [{
             return ['div', ['input', [{
                 attr: {
                     type: '{config.type', ...commonAttributes, value: item[this.config.valuePropName || 'value'], checked: item[this.config.valuePropName || 'value'] == this.value,
-                    disabled: ':disabled'
+                    disabled: item.disabled ? item.disabled : ':disabled'
 
                 },
                 events: commonEvents,
@@ -97,9 +97,24 @@ export const DYNAMIC_ELEMENT_DESIGN_TREE: { [key: string]: any } = {
 
     'prepend-left': ["div", [
         "div", [
-            "div", [{ prop: { innerText: '{prependText.left' } }]],
-        '[input]'
+            "div", [{ prop: { innerText: '{config.ui.prependText.left' } }]],
+        '[input-text]'
     ]],
+
+    'prepend-right': ["div", [
+        '[input-text]',
+        "div", [
+            "div", [{ prop: { innerText: '{config.ui.prependText.right' } }]],
+    ]],
+
+    'prepend-both': ["div", [
+        "div", [
+            "div", [{ prop: { innerText: '{config.ui.prependText.left' } }]],
+        '[input-text]',
+        "div", [
+            "div", [{ prop: { innerText: '{config.ui.prependText.right' } }]],
+    ]],
+
 
     textarea: ['textarea', [{ attr: { ...{ rows: '{config.ui.rows', cols: '{config.ui.cols' }, ...commonAttributes }, events: commonEvents }]],
 
@@ -122,7 +137,8 @@ export const DYNAMIC_ELEMENT_DESIGN_TREE: { [key: string]: any } = {
                     {
                         prop: { innerText: item[this.config.textPropName || 'text'] }, attr: {
                             value: item[this.config.valuePropName || 'value'],
-                            selected: Array.isArray(this.value) ? this.value.filter(x => item[this.config.valuePropName || 'value'] == x)[0] != undefined : item[this.config.valuePropName || 'value'] == this.value
+                            selected: Array.isArray(this.value) ? this.value.filter(x => item[this.config.valuePropName || 'value'] == x)[0] != undefined : item[this.config.valuePropName || 'value'] == this.value,
+                            disabled: item.disabled
                         }
                     }
                 ]];

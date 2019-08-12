@@ -81,3 +81,11 @@ export const SQUARE_SMALL: string = "[small]";
 export const SQUARE_ERROR: string = "[error]";
 
 export const FILTER: string = "filter";
+
+export const INPUT_TEXT: string = "input-text";
+
+export const PREPEND_LEFT: string = "prepend-left";
+
+export const PREPEND_RIGHT: string = "prepend-right";
+
+export const PREPEND_BOTH: string = "prepend-both";
