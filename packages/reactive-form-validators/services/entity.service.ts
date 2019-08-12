@@ -1,6 +1,9 @@
-
 function isObjectType(value:any) {
     return !(typeof value == "string" || typeof value === "number" || typeof value === "boolean" || value instanceof Date);
+}
+
+function isObject(value: any): boolean {
+    return Object.prototype.toString.call(value) === '[object Object]';
 }
 
 export function clone(jsonObject: { [key: string]: any }) {
@@ -10,7 +13,10 @@ export function clone(jsonObject: { [key: string]: any }) {
             if (Array.isArray(jsonObject[columnName])) {
                 jObject[columnName] = [];
                 for (let row of jsonObject[columnName]) {
-                    jObject[columnName].push(clone(row))
+                    if (isObject(row))
+                        jObject[columnName].push(clone(row))
+                    else
+                        jObject[columnName].push(row)
                 }
             } else if (typeof jsonObject[columnName] == "object")
                 jObject[columnName] = clone(jsonObject[columnName]);
