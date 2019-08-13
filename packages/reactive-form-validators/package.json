@@ -1,17 +1,6 @@
 {
   "name": "@rxweb/reactive-form-validators",
   "version": "1.5.0",
-  "ngPackage": {
-    "lib": {
-      "entryFile": "index.ts"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/rxweb/rxweb.git"
-    },
-    "license": "MIT",
-    "dest": "../../dist/reactive-form-validators"
-  },
   "keywords": [
     "angular",
     "formgroup",
@@ -39,6 +28,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
   },
   "homepage": "https://rxweb.io",
   "license": "MIT"

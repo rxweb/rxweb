@@ -6,7 +6,6 @@
     "types": []
   },
   "paths": {
-    "@rx/reactive-form-validators": [ "../dist/reactive-form-validators" ]
   },
   "exclude": [
     "src/test.ts",
