@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule} from "@angular/forms";
-import { HttpModule } from "@angular/http";
 import { CommonModule } from "@angular/common";
 
 
@@ -14,7 +13,7 @@ import { CommonModule } from "@angular/common";
   ],
   imports: [
       BrowserModule, ReactiveFormsModule, FormsModule, RxReactiveFormsModule,
-      HttpModule, CommonModule,
+      CommonModule,
      ],
   providers: [],
   bootstrap: [AppComponent]
