@@ -117,13 +117,13 @@ export class ApplicationUtil{
         let regex = /^[0-9]+$/;
         switch(acceptValue){
             case NumericValueType.PositiveNumber:
-              regex = (!allowDecimal) ? /^[0-9]+$/ : decimalSymbol == "." ? /^[0-9\.]+$/ : /^[0-9\,]+$/;
+              regex = (!allowDecimal) ? /^[0-9]+$/ : (decimalSymbol == "."  || decimalSymbol == undefined) ? /^[0-9\.]+$/ : /^[0-9\,]+$/;
             break;
             case  NumericValueType.NegativeNumber:
-              regex = (!allowDecimal) ? /^[-][0-9]+$/ :  decimalSymbol == "." ?  /^[-][0-9\.]+$/ : /^[-][0-9\,]+$/;
+                regex = (!allowDecimal) ? /^[-][0-9]+$/ : (decimalSymbol == "." || decimalSymbol == undefined)?  /^[-][0-9\.]+$/ : /^[-][0-9\,]+$/;
             break;
             case NumericValueType.Both :
-              regex = (!allowDecimal) ? /^[-|+]?[0-9]+$/ :   decimalSymbol == "." ?  /^[-|+]?[0-9\.]+$/ : /^[-|+]?[0-9\,]+$/;
+                regex = (!allowDecimal) ? /^[-|+]?[0-9]+$/ : (decimalSymbol == "." || decimalSymbol == undefined) ?  /^[-|+]?[0-9\.]+$/ : /^[-|+]?[0-9\,]+$/;
             break;
         }
       return regex;

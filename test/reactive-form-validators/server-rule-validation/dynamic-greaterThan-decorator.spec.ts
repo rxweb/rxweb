@@ -92,9 +92,10 @@ export class User {
           formBuilderConfiguration.dynamicValidation = {
          otherAge:{greaterThan:{fieldName:"age",message:"Please enter number greater than 0."}}
         };
-          let userInfoFormGroup = <RxFormGroup>formBuilder.formGroup(user,formBuilderConfiguration);
-          userInfoFormGroup.controls.otherAge.setValue('0');
-          expect(userInfoFormGroup.controls.otherAge.errors).toEqual({'greaterThan':{ message: 'Please enter number greater than 0.', refValues: [ '0','18' ] } });
+            let userInfoFormGroup = <RxFormGroup>formBuilder.formGroup(user, formBuilderConfiguration);
+            userInfoFormGroup.controls.age.setValue(18);
+          userInfoFormGroup.controls.otherAge.setValue(0);
+          expect(userInfoFormGroup.controls.otherAge.errors).toEqual({'greaterThan':{ message: 'Please enter number greater than 0.', refValues: [ 0,18 ] } });
         });
 
       })
