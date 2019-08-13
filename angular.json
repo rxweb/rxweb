@@ -154,7 +154,7 @@
           "options": {
             "main": "test.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "karmaConfig": "packages/reactive-form-validatorskarma.conf.js"
+            "karmaConfig": "karma.conf.js"
           }
         },
         "lint": {
