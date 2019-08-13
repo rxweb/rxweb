@@ -163,6 +163,7 @@ export class ControlConfigProcessor {
     private getControlName(name: string) {
         let controlName: string = '';
         switch (name) {
+            case "number":
             case "color":
             case "date":
             case "email":

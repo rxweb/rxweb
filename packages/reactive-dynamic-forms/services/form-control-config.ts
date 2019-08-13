@@ -13,7 +13,7 @@ export abstract class FormControlConfig extends BaseFormControlConfig {
         this.config = fieldConfig;
         this.value = fieldConfig.value;
         super.checkFilterFunction();
-        this.props = Object.create({});
+        this.props = this.config.props ||  Object.create({});
     }
 
     

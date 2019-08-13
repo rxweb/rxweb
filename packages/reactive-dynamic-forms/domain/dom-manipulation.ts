@@ -28,6 +28,8 @@ export class DomManipulation extends OverrideObjectProp {
     parseObject(jObject: { [key: string]: any }, isSubscribe: boolean) {
         this.domConfig = jObject;
         this.process(jObject, isSubscribe)
+        if (this.controlConfig && this.controlConfig.config && this.controlConfig.config.additionalConfig)
+            this.process(this.controlConfig.config.additionalConfig, isSubscribe);
         this.overrideProp();
         this.subscribeValueChange();
     }
