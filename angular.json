@@ -169,7 +169,8 @@
             ]
           }
         }
-      },
+      }
+    },
       "@rxweb/reactive-dynamic-forms": {
         "root": "packages/reactive-dynamic-forms",
         "sourceRoot": "packages/reactive-dynamic-forms",
