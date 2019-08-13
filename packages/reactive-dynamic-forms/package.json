@@ -1,25 +1,36 @@
 {
   "name": "@rxweb/reactive-dynamic-forms",
-  "version": "0.0.0-0",
-  "ngPackage": {
-    "lib": {
-      "entryFile": "index.ts"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/rxweb/rxweb.git"
-    },
-    "license": "MIT",
-    "dest": "../../dist/reactive-dynamic-forms"
-  },
+  "version": "1.5.0",
   "keywords": [
-    "angular dynamic forms",
-    "angular reactive dynamic forms",
-    "reactive dynamic form"
+    "angular",
+    "formgroup",
+    "formarray",
+    "reactive form validation",
+    "angular2 validation",
+    "angular5 validation",
+    "validators",
+    "conditional form validation",
+    "dynamic form validation",
+    "dynamic reactive form validation",
+    "dynamic template driven form validation",
+    "formcontrol",
+    "dirty check",
+    "reset form",
+    "reset nested form",
+    "model based validation",
+    "angular validators",
+    "angular advanced validators",
+    "pattern based validation",
+    "model based value changes",
+    "alpha validator",
+    "alphaNumeric validator"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rxweb/rxweb/tree/master/packages/reactive-dynamic-forms#readme"
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
   },
   "homepage": "https://rxweb.io",
   "license": "MIT"
