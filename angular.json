@@ -152,8 +152,8 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "packages/reactive-form-validators/test.ts",
-            "tsConfig": "packages/reactive-form-validatorstsconfig.spec.json",
+            "main": "test.ts",
+            "tsConfig": "src/tsconfig.app.json",
             "karmaConfig": "packages/reactive-form-validatorskarma.conf.js"
           }
         },
