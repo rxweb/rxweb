@@ -21,7 +21,7 @@ export class DecimalProvider {
             this.setSymbolInConfig();
     }
 
-    replacer(value:any): void {
+    replacer(value:any): any {
         value =String(value);
         if(!this.isSetConfig)
             this.bindConfig();

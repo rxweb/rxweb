@@ -21,7 +21,7 @@ const NGMODEL_BINDING: any = {
 const ALLOW_VALIDATOR_WITHOUT_CONFIG = ['required', 'notEmpty', 'alpha', 'alphaNumeric', 'ascii', 'dataUri', 'digit', 'email', 'even', 'hexColor', 'json', 'latitude', 'latLong', 'leapYear', 'longitude', 'lowerCase', 'mac', 'odd', 'port', 'primeNumber', 'time', 'upperCase', 'url', 'unique','cusip','gird'];
 const NUMERIC:string = "numeric";
 const IS_FORMAT:string = "isFormat";
-
+const DIGITS_INFO: string = "digitsInfo";
 @Directive({
     selector: '[ngModel],[formControlName],[formControl]',
     providers: [NGMODEL_BINDING],
@@ -117,14 +117,17 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
         })
         if (validators.length > 0)
             this.validators = validators
-        if (this.numeric && this.numeric.isFormat)
+        if (this.numeric && (this.numeric.isFormat || this.numeric.digitsInfo)) {
             this.bindNumericElementEvent();
+        }
+        
     }
 
 
     blurEvent(){
         if (!(this.formControl && this.formControl.errors && this.formControl.errors.numeric)) {
             let value = this.decimalProvider.transFormDecimal(this.formControl.value, this.numeric.digitsInfo);
+            value = (!this.numeric.isFormat) ? this.decimalProvider.replacer(value) : value;
             this.setValueOnElement(value);
             this.isFocusCalled = false;
         }
@@ -157,7 +160,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     }
 
     subscribeNumericFormatter() {
-        if (this.formControl[VALIDATOR_CONFIG] && this.formControl[VALIDATOR_CONFIG][NUMERIC] && this.formControl[VALIDATOR_CONFIG][NUMERIC][IS_FORMAT]) {
+        if (this.formControl[VALIDATOR_CONFIG] && this.formControl[VALIDATOR_CONFIG][NUMERIC] && (this.formControl[VALIDATOR_CONFIG][NUMERIC][IS_FORMAT] || this.formControl[VALIDATOR_CONFIG][NUMERIC][DIGITS_INFO])) {
             if(!this.isNumericSubscribed){
                 this.bindNumericElementEvent(this.formControl[VALIDATOR_CONFIG][NUMERIC]);
                 this.isNumericSubscribed = true;
