@@ -140,7 +140,7 @@
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "packages/reactive-form-validators/tsconfig.lib.json",
+            
             "project": "packages/reactive-form-validators/ng-package.json"
           },
           "configurations": {
@@ -149,14 +149,7 @@
             }
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "test.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js"
-          }
-        },
+        
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -180,7 +173,6 @@
           "build": {
             "builder": "@angular-devkit/build-ng-packagr:build",
             "options": {
-              "tsConfig": "packages/reactive-dynamic-forms/tsconfig.lib.json",
               "project": "packages/reactive-dynamic-forms/ng-package.json"
             },
             "configurations": {
@@ -189,14 +181,7 @@
               }
             }
           },
-          "test": {
-            "builder": "@angular-devkit/build-angular:karma",
-            "options": {
-              "main": "test.ts",
-              "tsConfig": "tsconfig.spec.json",
-              "karmaConfig": "karma.conf.js"
-            }
-          },
+          
           "lint": {
             "builder": "@angular-devkit/build-angular:tslint",
             "options": {
