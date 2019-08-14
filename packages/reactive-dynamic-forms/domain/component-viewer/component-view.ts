@@ -1,6 +1,6 @@
 ﻿import { ViewContainerRef, ComponentFactoryResolver, ComponentRef, EmbeddedViewRef } from "@angular/core"
 import { FormControlConfig } from '../../services/form-control-config'
-import { DynamicFormBuildConfig } from "@rxweb/reactive-dynamic-forms"
+import { DynamicFormBuildConfig } from "../../models/interface/dynamic-form-build-config"
 export interface ComponentType<T> {
     new (...args: any[]): T;
 }
