@@ -7,4 +7,8 @@ export interface DynamicNodeConfig {
     renderer: Renderer2;
     collections: any[];
     controlConfigProcessor: any;
+
+    viewContainerRef?: any;
+    componentFactoryResolver?: any;
+    dynamicFormBuildConfig?: any;
 }

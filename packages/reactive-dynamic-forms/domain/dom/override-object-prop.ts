@@ -1,5 +1,5 @@
 ﻿import { ElementPropsAccessor } from './element-props-accessor';
-import { DynamicNodeConfig } from "../models/interface/dynamic-node-config";
+import { DynamicNodeConfig } from "../../models/interface/dynamic-node-config";
 
 const VALUE: string = "value";
 export abstract class OverrideObjectProp extends ElementPropsAccessor {

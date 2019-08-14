@@ -1,4 +1,4 @@
-﻿import { Renderer2, ElementRef, OnInit, Directive, OnDestroy } from '@angular/core'
+﻿import { Renderer2, ElementRef, OnInit, Directive, OnDestroy, ComponentFactoryResolver, ViewContainerRef } from '@angular/core'
 import { ControlConfigProcessor } from '../form-designer/control-config-processor';
 import { ControlState } from '../statics/control-state';
 
@@ -8,8 +8,8 @@ import { ControlState } from '../statics/control-state';
 export class RxDynamicFormDirective extends ControlConfigProcessor implements OnInit, OnDestroy {
 
 
-    constructor(elementRef: ElementRef, renderer: Renderer2) {
-        super(elementRef.nativeElement as Node, renderer);
+    constructor(elementRef: ElementRef, renderer: Renderer2, componentFactoryResolver: ComponentFactoryResolver, viewContainerRef: ViewContainerRef) {
+        super(elementRef.nativeElement as Node, renderer, componentFactoryResolver, viewContainerRef);
     }
 
 

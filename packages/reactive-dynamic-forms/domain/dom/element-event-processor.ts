@@ -1,6 +1,6 @@
 ﻿import { ElementAccessor } from './element-accessor';
-import { DynamicNodeConfig } from '../models/interface/dynamic-node-config';
-import { BLUR, FOCUS, SELECT, INPUT, CLICK, EVENTS} from '../const/app.const';
+import { DynamicNodeConfig } from '../../models/interface/dynamic-node-config';
+import { BLUR, FOCUS, SELECT, INPUT, CLICK, EVENTS } from '../../const/app.const';
 
 export class ElementEventProcessor extends ElementAccessor{
     eventListeners: any[];

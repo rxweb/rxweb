@@ -6,3 +6,5 @@ export * from './modules/dynamic-form-module';
 export * from './services/form-control-config';
 export * from './const/bootstrap-design-config.const';
 export * from './const/dynamic-element-design-tree.const';
+export * from './decorators';
+export * from './models/abstract-form-control-config';

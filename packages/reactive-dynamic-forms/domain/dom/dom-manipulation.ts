@@ -1,9 +1,10 @@
-﻿import { SOURCE,SELECT, ADDITIONAL_CLASS, PROP, ATTR, EVENTS, INPUT, TEXTAREA, READONLY } from '../const/app.const';
-import { ControlState } from '../statics/control-state';
+﻿import { SOURCE, SELECT, ADDITIONAL_CLASS, PROP, ATTR, EVENTS, INPUT, TEXTAREA, READONLY } from '../../const/app.const';
+import { ControlState } from '../../statics/control-state';
 import { OverrideObjectProp } from "./override-object-prop";
-import { DynamicNodeConfig } from "../models/interface/dynamic-node-config";
+import { DynamicNodeConfig } from "../../models/interface/dynamic-node-config";
 
 export class DomManipulation extends OverrideObjectProp {
+    isComponentView: boolean = false;
     subscribers: string[] = [];
     elementIndex: number = 0;
     commentNode: any;
@@ -36,7 +37,7 @@ export class DomManipulation extends OverrideObjectProp {
 
     private subscribeValueChange() {
         if (Object.keys(this.subscribeProps).length > 0)
-            this.controlConfig.onPropValueChanged(this.controlId,this.subscribeProps, (x, y) => {
+            this.controlConfig.onPropValueChanged(this.controlId, this.subscribeProps, (x, y) => {
                 this.process(x, false)
             })
     }
@@ -56,8 +57,8 @@ export class DomManipulation extends OverrideObjectProp {
                     if (!isSubscribe) {
                         while (this.element.firstElementChild)
                             this.removeChildren(this.element.firstElementChild);
-                        this.dynamicNodeConfig.controlConfigProcessor.createChildrens(this.dynamicNodeConfig.collections, this, this.controlConfig, this.dynamicNodeConfig.additionalClasses,false);
-                    }else
+                        this.dynamicNodeConfig.controlConfigProcessor.createChildrens(this.dynamicNodeConfig.collections, this, this.controlConfig, this.dynamicNodeConfig.additionalClasses, false);
+                    } else
                         this.setPropSubscription(SOURCE, SOURCE, SOURCE);
                     break;
             }
@@ -93,7 +94,10 @@ export class DomManipulation extends OverrideObjectProp {
         }
         this.eventListeners = [];
         this.element.onClick = null;
-        this.element.parentElement.removeChild(this.element)
+        if (this.componentView)
+            this.componentView.destroy();
+        else
+            this.element.parentElement.removeChild(this.element)
         this.controlConfig.destroy(this.controlId);
     }
 }

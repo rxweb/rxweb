@@ -1,7 +1,7 @@
-﻿import { COLON, BLANK, STRING, SQUARE} from '../const/app.const';
-import { DynamicNodeConfig } from '../models/interface/dynamic-node-config'
-import { objectPropValue } from '../functions/object-prop-value.function'
-import { FormControlConfig } from "../services/form-control-config"
+﻿import { COLON, BLANK, STRING, SQUARE} from '../../const/app.const';
+import { DynamicNodeConfig } from '../../models/interface/dynamic-node-config'
+import { objectPropValue } from '../../functions/object-prop-value.function'
+import { FormControlConfig } from "../../services/form-control-config"
 
 const PROPS: string = ":props.";
 const GLOBAL_MATCH: string = "g";

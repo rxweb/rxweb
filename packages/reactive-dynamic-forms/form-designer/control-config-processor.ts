@@ -1,10 +1,9 @@
-﻿import { Input } from "@angular/core";
+﻿import { Input, ComponentFactoryResolver, ViewContainerRef } from "@angular/core";
 import { FormControlConfig, ControlConfig } from "../services/form-control-config"
 import { DynamicFormBuildConfig } from "../models/interface/dynamic-form-build-config";
-
 import { DYNAMIC_ELEMENT_DESIGN_TREE } from '../const/dynamic-element-design-tree.const';
 import { BOOTSTRAP_DESIGN_CONFIG } from '../const/bootstrap-design-config.const';
-import { DomManipulation } from '../domain/dom-manipulation'
+import { DomManipulation } from '../domain/dom/dom-manipulation'
 import { ApplicationUtil } from '../util/application-util';
 import { objectPropValue } from '../functions/object-prop-value.function';
 
@@ -40,7 +39,7 @@ export class ControlConfigProcessor {
 
     @Input() uiBindings: any[];
 
-    constructor(protected element: Node, private renderer) { }
+    constructor(protected element: Node, private renderer, private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef) { }
 
 
     build() {
@@ -69,21 +68,30 @@ export class ControlConfigProcessor {
 
 
     createElement(elementName: string, collections: any[], parentElement: any, controlConfig: FormControlConfig, elementClassPath: any) {
-        elementClassPath = elementClassPath ? elementClassPath : {};
+        if (!elementName.startsWith("#")) {
+            elementClassPath = elementClassPath ? elementClassPath : {};
+            let domManipulation = this.createDomManipulation(elementName, collections, parentElement, controlConfig, elementClassPath);
+            this.createChildrens(collections, domManipulation, controlConfig, elementClassPath)
+            if (controlConfig.config && controlConfig.config.childrens && controlConfig.config.childrens.length > 0) {
+                controlConfig.config.childrens.forEach((t, i) => {
+                    let childrenControlConfig = undefined;
+                    if (!(typeof t == STRING) && !Array.isArray(t))
+                        childrenControlConfig = new ControlConfig({ ...t, ...{ skipDefaultView: true } }, {});
+                    this.designForm(t, domManipulation.element, this.currentViewMode[0], this.currentViewMode[1], BOOTSTRAP_DESIGN_CONFIG.elementClassPath.viewMode[this.viewMode], childrenControlConfig);
+                })
+            }
+            return domManipulation;
+        } else
+            this.createDomManipulation(elementName, collections, parentElement, controlConfig, elementClassPath,true);//this.createComponentView(controlConfig, parentElement);
+    }
+
+    private createDomManipulation(elementName: string, collections: any[], parentElement: any, controlConfig: FormControlConfig, elementClassPath: any, isComponentView: boolean = false) {
         let dynamicNodeConfig: DynamicNodeConfig = {
-            controlConfig: controlConfig, additionalClasses: elementClassPath, renderer: this.renderer, collections: collections, controlConfigProcessor:this
+            controlConfig: controlConfig, additionalClasses: elementClassPath, renderer: this.renderer, collections: collections, controlConfigProcessor: this,
+            viewContainerRef: isComponentView ? this.viewContainerRef : undefined,
+            componentFactoryResolver: isComponentView ? this.componentFactoryResolver : undefined
         }
-        let domManipulation = new DomManipulation(parentElement, elementName, dynamicNodeConfig);
-        this.createChildrens(collections, domManipulation, controlConfig, elementClassPath)
-        if (controlConfig.config && controlConfig.config.childrens && controlConfig.config.childrens.length > 0) {
-            controlConfig.config.childrens.forEach((t, i) => {
-                let childrenControlConfig = undefined;
-                if (!(typeof t == STRING) && !Array.isArray(t))
-                    childrenControlConfig = new ControlConfig({ ...t, ...{ skipDefaultView: true } }, {});
-                this.designForm(t, domManipulation.element, this.currentViewMode[0], this.currentViewMode[1], BOOTSTRAP_DESIGN_CONFIG.elementClassPath.viewMode[this.viewMode], childrenControlConfig);
-            })
-        }
-        return domManipulation;
+        return new DomManipulation(parentElement, elementName, dynamicNodeConfig);
     }
 
     createChildrens(collections, domManipulation, controlConfig, elementClassPath,isSubscribe:boolean = true) {
@@ -99,9 +107,13 @@ export class ControlConfigProcessor {
                             this.createChildNodes(collections, childControlConfig, childElementsClassConfig, elementCount, i, domManipulation);
                         })
                     } else {
-                        let isIncrease = this.createChildNodes(collections, controlConfig, childElementsClassConfig, elementCount, i, domManipulation);
-                        if (isIncrease)
-                            i = i + 1;
+                        if (collection == SQUARE_CONTROL && controlConfig.config.type.startsWith("#"))
+                            this.createDomManipulation(controlConfig.config.type, [], domManipulation.element, controlConfig,[],true)
+                        else {
+                            let isIncrease = this.createChildNodes(collections, controlConfig, childElementsClassConfig, elementCount, i, domManipulation);
+                            if (isIncrease)
+                                i = i + 1;
+                        }
                     }
                 }
                 elementCount++;

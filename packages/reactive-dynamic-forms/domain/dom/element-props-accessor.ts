@@ -1,6 +1,6 @@
 ﻿import { ElementEventProcessor } from './element-event-processor';
-import { DynamicNodeConfig } from '../models/interface/dynamic-node-config';
-import { ADDITIONAL_CLASS, BOOLEAN, NONE, BLANK, DISPLAY, FUNCTION, STRING, ATTR, PROP, CLASS, STYLE } from '../const/app.const';
+import { DynamicNodeConfig } from '../../models/interface/dynamic-node-config';
+import { ADDITIONAL_CLASS, BOOLEAN, NONE, BLANK, DISPLAY, FUNCTION, STRING, ATTR, PROP, CLASS, STYLE } from '../../const/app.const';
 
 export abstract class ElementPropsAccessor extends ElementEventProcessor {
     private oldAdditionalClasses: string[] = [];

@@ -1,17 +1,30 @@
-﻿import { DynamicNodeConfig } from "../models/interface/dynamic-node-config";
+﻿import { DynamicNodeConfig } from "../../models/interface/dynamic-node-config";
 import { BaseObjectAccessor } from './base-object-accessor';
-import { CHECKBOX, SELECT_MULTIPLE, RADIO,RXWEB_ID_STRING } from '../const/app.const'
-import { ControlState } from '../statics/control-state';
+import { CHECKBOX, SELECT_MULTIPLE, RADIO,RXWEB_ID_STRING } from '../../const/app.const'
+import { ControlState } from '../../statics/control-state';
+import { dynamicContainer } from "../../core/dynamicContainer";
+import { ComponentView } from "../component-viewer/component-view";
+
 export abstract class ElementAccessor extends BaseObjectAccessor{
     element: any;
+    protected componentView: any;
 
     constructor(dynamicNodeConfig: DynamicNodeConfig) {
         super(dynamicNodeConfig)
     }
 
     createNodeElement(parentElement: any, name: string) {
-        this.element = this.dynamicNodeConfig.renderer.createElement(name);
+        this.element = name.startsWith("#") ? this.createComponentView(this.dynamicNodeConfig.controlConfig) : this.dynamicNodeConfig.renderer.createElement(name);
         this.dynamicNodeConfig.renderer.appendChild(parentElement, this.element);
+    }
+
+    private createComponentView(controlConfig: any) {
+        let container = dynamicContainer.getComponent(controlConfig.config.type.replace("#", ""));
+        if (container) {
+            this.componentView = new ComponentView(container.instance, this.dynamicNodeConfig.viewContainerRef, this.dynamicNodeConfig.componentFactoryResolver, controlConfig, this.dynamicNodeConfig.dynamicFormBuildConfig);
+            this.componentView.create();
+            return this.componentView.rootNode();
+        }
     }
 
 
