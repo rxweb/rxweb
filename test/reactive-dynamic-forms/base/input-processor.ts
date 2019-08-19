@@ -1,8 +1,8 @@
 ﻿import { createComponentInstance } from "./component-provider"
-import { DynamicFormBuildConfig } from "@rxweb/reactive-dynamic-forms";
+import { DynamicFormConfiguration } from "@rxweb/reactive-dynamic-forms";
 import { tick } from '@angular/core/testing';
 export function inputProcessor<T>(options: {
-    dynamicFormBuildConfig?: DynamicFormBuildConfig,
+    dynamicFormConfiguration?: DynamicFormConfiguration,
     component:any,
     serverData: any,
     tagName: string,
@@ -12,12 +12,13 @@ export function inputProcessor<T>(options: {
 }) {
     const fixture = createComponentInstance<T>(options.component);
     let instance: any = fixture.componentInstance;
-    instance.dynamicFormBuildConfig = options.dynamicFormBuildConfig;
+    instance.dynamicFormConfiguration = options.dynamicFormConfiguration;
     if (options.viewMode)
         instance.viewMode = options.viewMode;
     if (options.uiBindings)
         instance.uiBindings = options.uiBindings;
     instance.serverData = options.serverData;
+    instance.form
     fixture.detectChanges();
     tick(100); 
     return {

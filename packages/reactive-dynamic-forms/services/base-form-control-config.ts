@@ -82,7 +82,7 @@ export abstract class BaseFormControlConfig extends PropDescriptor {
 
     private _actionResult: ActionResult = {
         label: undefined,
-        placeholder: '',
+        placeholder: undefined,
         source: [],
         filter: [],
         hide: false,

@@ -32,7 +32,7 @@ export abstract class OverrideObjectProp extends ElementPropsAccessor {
         })
         this.overrideFormControlProp();
         if (this.controlConfig.formControl.value)
-            this.resetElementValue(this.controlConfig.formControl.value);
+            setTimeout(() => { this.resetElementValue(this.controlConfig.formControl.value); }, 50)
     }
 
     private overrideFormControlProp() {

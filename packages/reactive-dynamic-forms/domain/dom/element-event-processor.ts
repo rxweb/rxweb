@@ -51,7 +51,7 @@ export class ElementEventProcessor extends ElementAccessor{
         let listen = this.dynamicNodeConfig.renderer.listen(this.element, INPUT, (v) => {
             let isPassed = true;
             if (this.controlConfig.hooks && this.controlConfig.hooks.preValue) {
-                isPassed = this.controlConfig.hooks.preValue.call(this.controlConfig);
+                isPassed = this.controlConfig.hooks.preValue.call(this.controlConfig,v.target.value);
                 if (!isPassed)
                     this.controlConfig.formControl.patchValue(this.controlConfig.formControl.value);
             }
