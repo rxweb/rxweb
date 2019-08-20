@@ -238,7 +238,7 @@ export class ControlConfigProcessor {
                 isCreate = controlConfig.description != undefined;
                 break;
             case SQUARE_ERROR:
-                isCreate = controlConfig.formControl != undefined && controlConfig.formControl.validator != undefined;
+                isCreate = controlConfig.formControl != undefined && (controlConfig.formControl.validator != undefined || controlConfig.formControl.asyncValidator != undefined) ;
                 break;
         }
         return isCreate;

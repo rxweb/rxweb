@@ -60,6 +60,7 @@ export class PropDescriptor extends ValueChangeNotification{
                     oldValue = value;
                 }
             })
+        formControl[ERRORS] = formControl[ERRORS];
     }
 
 

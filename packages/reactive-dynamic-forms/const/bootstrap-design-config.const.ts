@@ -27,12 +27,16 @@ export const BOOTSTRAP_DESIGN_CONFIG: { [key: string]: any } = {
     elementClassPath: {
         "prepend-left": {
             class: INPUT_GROUP,
-            child: PREPEND_TEXT_CLASS_PATH
+            child: {
+                0: PREPEND_TEXT_CLASS_PATH
+            }
         },
 
         "prepend-right": {
             class: INPUT_GROUP,
-            child: PREPEND_TEXT_CLASS_PATH
+            child: {
+                1: PREPEND_TEXT_CLASS_PATH
+            }
         },
 
         "prepend-both": {
@@ -43,7 +47,7 @@ export const BOOTSTRAP_DESIGN_CONFIG: { [key: string]: any } = {
             }
         },
 
-        input: { class: [inputElementClassProvider, function () { let invalidClass = (this.formControl.validator && this.formControl.errorMessage) ? BOOSTRAP_CLASS_CONFIG.controlInvalid : ''; return invalidClass; }],listenerProps:[":errorMessage"] },
+        input: { class: [inputElementClassProvider, function () { let invalidClass = ((this.formControl.validator || this.formControl.asyncValidator) && this.formControl.errorMessage) ? BOOSTRAP_CLASS_CONFIG.controlInvalid : ''; return invalidClass; }],listenerProps:[":errorMessage"] },
 
         checkbox: {
             class: [], child: {
@@ -63,7 +67,7 @@ export const BOOTSTRAP_DESIGN_CONFIG: { [key: string]: any } = {
             }
         },
 
-        'error': { class: [function () { return !(this.formControl.validator && this.formControl.errorMessage) ? BOOSTRAP_CLASS_CONFIG.validMessage : BOOSTRAP_CLASS_CONFIG.invalidMessage }], listenerProps: [":errorMessage"] },
+        'error': { class: [function () { return !((this.formControl.validator || this.formControl.asyncValidator) && this.formControl.errorMessage) ? BOOSTRAP_CLASS_CONFIG.validMessage : BOOSTRAP_CLASS_CONFIG.invalidMessage }], listenerProps: [":errorMessage"] },
 
         button: { class: ['btn'] },
 

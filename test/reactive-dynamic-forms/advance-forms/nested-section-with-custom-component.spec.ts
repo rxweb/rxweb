@@ -9,7 +9,7 @@ describe('FormControlConfig Properties', () => {
 
     describe('nested section-with-custom-component', () => {
 
-        fit('Bind nested section with custom component', fakeAsync(() => {
+        it('Bind nested section with custom component', fakeAsync(() => {
             let dynamicFormConfiguration = {
                 additionalConfig: [
                     {
