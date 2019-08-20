@@ -1,9 +1,11 @@
 ﻿import { ElementAccessor } from './element-accessor';
 import { DynamicNodeConfig } from '../../models/interface/dynamic-node-config';
-import { BLUR, FOCUS, SELECT, INPUT, CLICK, EVENTS } from '../../const/app.const';
+import { CONDITIONAL_VALIDATOR, BLUR, FOCUS, SELECT, INPUT, CLICK, EVENTS } from '../../const/app.const';
+import { ValidatorFn } from '@angular/forms';
 
 export class ElementEventProcessor extends ElementAccessor{
     eventListeners: any[];
+    private conditionalValidator: ValidatorFn;
     constructor(public dynamicNodeConfig: DynamicNodeConfig) { super(dynamicNodeConfig); }
 
     bindEvents(events: { [key: string]: any },isSubscribe:boolean) {
@@ -61,8 +63,17 @@ export class ElementEventProcessor extends ElementAccessor{
                     this.controlConfig.hooks.postValue.call(this.controlConfig);
             }
             this.controlConfig.formControl.markAsDirty();
+            if (this.conditionalValidator)
+                this.conditionalValidator(this.controlConfig.formControl);
         })
         this.eventListeners.push(listen);
+        setTimeout(() => {
+            if (this.controlConfig.formControl[CONDITIONAL_VALIDATOR]) {
+                this.conditionalValidator = this.controlConfig.formControl[CONDITIONAL_VALIDATOR];
+                delete this.controlConfig.formControl[CONDITIONAL_VALIDATOR];
+            }
+        },50)
+        
 
     }
 

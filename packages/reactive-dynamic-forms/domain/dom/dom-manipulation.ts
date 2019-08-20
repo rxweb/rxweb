@@ -29,9 +29,7 @@ export class DomManipulation extends OverrideObjectProp {
     parseObject(jObject: { [key: string]: any }, isSubscribe: boolean) {
         this.domConfig = jObject;
         this.process(jObject, isSubscribe)
-        if (this.controlConfig && this.controlConfig.config && this.controlConfig.config.additionalConfig)
-            this.process(this.controlConfig.config.additionalConfig, isSubscribe);
-        this.overrideProp();
+        this.overrideProp(isSubscribe);
         this.subscribeValueChange();
     }
 
@@ -64,7 +62,7 @@ export class DomManipulation extends OverrideObjectProp {
             }
         })
     }
-    overrideProp() {
+    overrideProp(isSubscribe: boolean) {
         switch (this.nodeName) {
             case INPUT:
             case SELECT:
@@ -72,6 +70,8 @@ export class DomManipulation extends OverrideObjectProp {
                 if (this.domConfig.overrideProp == undefined || this.domConfig.overrideProp)
                     this.overrideValueProp();
                 this.setPropSubscription(READONLY, ATTR, ADDITIONAL_CLASS, ADDITIONAL_CLASS)
+                if (this.controlConfig && this.controlConfig.config && this.controlConfig.config.additionalConfig) 
+                    this.process(this.controlConfig.config.additionalConfig, isSubscribe);
                 break;
         }
     }

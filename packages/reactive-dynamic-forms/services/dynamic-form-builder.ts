@@ -37,9 +37,11 @@ export class RxDynamicFormBuilder {
         if (this.formConfiguration.additionalConfig)
             this.formConfiguration.additionalConfig.forEach(t => this.getModelInstance(t, modelConfig));
         this.completeModelConfig(modelConfig);
+        let rootFormGroup = ApplicationUtil.getRootFormGroup(formGroup) as RxFormGroup;
+        rootFormGroup["model"] = undefined;
         return  {
             controlsConfig: modelConfig,
-            formGroup: ApplicationUtil.getRootFormGroup(formGroup) as RxFormGroup
+            formGroup: rootFormGroup
         };
     }
 
