@@ -36,9 +36,19 @@ export class RxFormControl extends FormControl {
     private _classNameControlProp: { [key: string]: boolean };
     private _baseValue: any;
     private _isModified: boolean;
+    private _errors: any;
     updateOnElementClass: boolean | Function;
     preHook: Function;
     postHook: Function;
+
+    get errors() {
+        return this._errors;
+    }
+
+    set errors(value: any) {
+        this._errors = value;
+    }
+
 
     get errorMessages(): string[] {
         if (!this._messageExpression) {
@@ -115,6 +125,7 @@ export class RxFormControl extends FormControl {
         if(this._messageExpression)
             this._isPassedExpression = this.executeExpression(this._messageExpression,this);
         this.setControlErrorMessages();
+        this.errors = this.errors;
     }
 
     bindClassName() {

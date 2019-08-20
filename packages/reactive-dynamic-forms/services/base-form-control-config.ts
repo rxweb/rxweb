@@ -18,8 +18,8 @@ export abstract class BaseFormControlConfig extends PropDescriptor {
             for (let columnName in this.configs) {
                 if (!Array.isArray(this.configs[columnName])) {
                     let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(this.configs[columnName]), action);
-                    if ((descriptor && descriptor.get) || this.configs[columnName].isFilterFunction) {
-                        let stringFunction = this.configs[columnName].isFilterFunction ? String(this.configs[columnName][FILTER]) : String(descriptor.get);
+                    if ((descriptor && descriptor.get) || this.configs[columnName].isDefinedFilter) {
+                        let stringFunction = this.configs[columnName].isDefinedFilter ? String(this.configs[columnName][FILTER]) : String(descriptor.get);
                         if (stringFunction.indexOf(`.${this.config.name}`) != -1 || stringFunction.indexOf(`.${this.config.name};`) != -1) {
                             this.controlNotifications[action].push(columnName);
                         }
@@ -56,14 +56,14 @@ export abstract class BaseFormControlConfig extends PropDescriptor {
         ["disabled", "label", "placeholder", "hide", "description", "focus", "readonly", "class", "filter", "source"].forEach(key => {
             switch (key) {
                 case FILTER:
+                    if (this.isDefinedFilter && key == FILTER)
+                        this[FILTER]();
+                    if (this.config.filter)
+                        this[FILTER] =this.config.filter;
+                    break;
                 case SOURCE:
                     if (this.config[key])
                         this[key] = this.config[key];
-                    if (this.config.filter) {
-                        this[key] = this[FILTER];
-                    }
-                    if (this.isDefinedFilter && key == FILTER)
-                        this[FILTER]();
                     if (key == SOURCE && !this.source)
                         this[key] = [];
                     break;

@@ -32,7 +32,7 @@ export abstract class ElementAccessor extends BaseObjectAccessor{
         if (element.firstElementChild) {
             this.removeChildren(element.firstElementChild);
         }
-        let controlId = element.getAttribute(RXWEB_ID_STRING);
+        let controlId = element.getAttribute("data-rxwebid");
         if (controlId && ControlState.controls[controlId]) {
             ControlState.controls[controlId].destroy();
             delete ControlState.controls[controlId];
