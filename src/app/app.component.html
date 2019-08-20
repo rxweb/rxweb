@@ -1,1 +1,5 @@
- 
+ <form [formGroup]="dynamicFormBuildConfig.formGroup">
+    <div viewMode="basic" [rxwebDynamicForm]="dynamicFormBuildConfig" [uiBindings]="uiBindings">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

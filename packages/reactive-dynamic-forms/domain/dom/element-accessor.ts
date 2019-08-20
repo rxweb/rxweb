@@ -1,6 +1,6 @@
 ﻿import { DynamicNodeConfig } from "../../models/interface/dynamic-node-config";
 import { BaseObjectAccessor } from './base-object-accessor';
-import { CHECKBOX, SELECT_MULTIPLE, RADIO,RXWEB_ID_STRING } from '../../const/app.const'
+import { CHECKBOX, SELECT_MULTIPLE, RADIO } from '../../const/app.const'
 import { ControlState } from '../../statics/control-state';
 import { dynamicContainer } from "../../core/dynamicContainer";
 import { ComponentView } from "../component-viewer/component-view";

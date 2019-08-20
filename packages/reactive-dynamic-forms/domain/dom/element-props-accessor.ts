@@ -61,7 +61,7 @@ export abstract class ElementPropsAccessor extends ElementEventProcessor {
     setStyleProp(propName: string, value: any) {
         switch (propName) {
             case DISPLAY:
-                value = (typeof value == BOOLEAN) ? value : !(value);
+                value = (typeof value == BOOLEAN || value === undefined) ? value : !(value);
                 value = (value) ? NONE : BLANK;
                 break;
         }

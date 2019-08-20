@@ -18,3 +18,7 @@ export function elementAttributeCheck(element, keyName:string,value:any) {
 export function getElementValue(parentElement, tagName) {
     return parentElement.querySelector(tagName).value;
 }
+
+export function getElementsByClassName(parentElement, className) {
+    return parentElement.getElementsByClassName(className);
+}

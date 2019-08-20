@@ -55,7 +55,10 @@ export class ControlConfigProcessor {
                 this.createElement(viewRoot, viewChild, element, controlConfig, classPath);
             else {
                 let currentView = this.getView(controlConfig.config.type);
-                this.createElement(currentView[0], currentView[1], element, controlConfig, BOOTSTRAP_DESIGN_CONFIG.elementClassPath[controlConfig.config.type]);
+                if (currentView)
+                    this.createElement(currentView[0], currentView[1], element, controlConfig, BOOTSTRAP_DESIGN_CONFIG.elementClassPath[controlConfig.config.type]);
+                else
+                    this.createDomManipulation(controlConfig.config.type, [], element, controlConfig, [], true)
             }
         } else if (this.viewMode == ADVANCE && Array.isArray(controlConfigName)) {
             let config: any = {};
@@ -89,7 +92,8 @@ export class ControlConfigProcessor {
         let dynamicNodeConfig: DynamicNodeConfig = {
             controlConfig: controlConfig, additionalClasses: elementClassPath, renderer: this.renderer, collections: collections, controlConfigProcessor: this,
             viewContainerRef: isComponentView ? this.viewContainerRef : undefined,
-            componentFactoryResolver: isComponentView ? this.componentFactoryResolver : undefined
+            componentFactoryResolver: isComponentView ? this.componentFactoryResolver : undefined,
+            dynamicFormBuildConfig: this.dynamicFormBuildConfig
         }
         return new DomManipulation(parentElement, elementName, dynamicNodeConfig);
     }
