@@ -19,4 +19,12 @@ export abstract class AbstractControlConfig {
     get dynamicFormBuildConfig() {
         return this._dynamicFormBuildConfig;
     }
+
+    addItem() {
+        this.dynamicFormBuildConfig.controlsConfig[this.controlConfig.config.controlConfigName]["addItem"]();
+    }
+
+    removeItem(index: number) {
+        this.dynamicFormBuildConfig.controlsConfig[this.controlConfig.config.controlConfigName]["removeItem"](index);
+    }
 }

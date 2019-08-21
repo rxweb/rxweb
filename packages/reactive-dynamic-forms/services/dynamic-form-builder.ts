@@ -107,6 +107,7 @@ export class RxDynamicFormBuilder {
             let modelInstance = this.getDynamicModelInstance(formControlConfig, jObject, entityObject, key);
             nestedFormGroup.addControl(key, modelInstance.formControl);
         })
+        this.completeModelConfig(jObject);
         return nestedFormGroup;
     }
 
