@@ -37,8 +37,7 @@ export abstract class ElementPropsAccessor extends ElementEventProcessor {
     bindProp(prop: { [key: string]: any }, isSubscribe: boolean) {
         Object.keys(prop).forEach(propName => {
             let value = this.getValue(prop[propName]);
-            if (value !== undefined && value !== null && value !== false)
-                this.setProperty(propName, value)
+            this.setProperty(propName, (value !== undefined && value !== null && value !== false) ? value : "")
             if (isSubscribe && this.isSubscribeProp(prop[propName]))
                 this.setPropSubscription(prop[propName], PROP, propName);
         });

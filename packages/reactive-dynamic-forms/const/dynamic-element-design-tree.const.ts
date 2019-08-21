@@ -25,7 +25,7 @@ const checkBoxAndRadioDesign = ['div', [{
                 events: commonEvents,
                 overrideProp: (index == 0)
             }],
-                'label', [{ prop: { innerText: item[this.config.valuePropName || 'text'] } }]]]
+                'label', [{ prop: { innerText: item[this.config.textPropName || 'text'] } }]]]
         }
     }
 }
@@ -87,7 +87,7 @@ export const DYNAMIC_ELEMENT_DESIGN_TREE: { [key: string]: any } = {
                     },
                     events: commonEvents
                 }],
-                    'label', [{ prop: { innerText: item[this.config.valuePropName || 'text'] } }]]
+                    'label', [{ prop: { innerText: item[this.config.textPropName || 'text'] } }]]
             }
         }
     }

@@ -50,14 +50,16 @@ export class PropDescriptor extends ValueChangeNotification{
 
     protected overrideErrorsProp(formControl: any) {
         let value = formControl.errors;
+        let errorMessage = '';
         let oldValue = formControl.errorMessage;
         Object.defineProperty(formControl, ERRORS,
             {
                 get: () => { return value },
                 set: (v) => {
                     value = v;
-                    this.notifyValueChanged(`errorMessage`, value, oldValue);
-                    oldValue = value;
+                    errorMessage = formControl.errorMessage;
+                    this.notifyValueChanged(`errorMessage`, errorMessage || "", oldValue);
+                    oldValue = formControl.errorMessage;
                 }
             })
         formControl[ERRORS] = formControl[ERRORS];

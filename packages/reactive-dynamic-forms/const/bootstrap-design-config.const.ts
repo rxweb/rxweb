@@ -67,7 +67,7 @@ export const BOOTSTRAP_DESIGN_CONFIG: { [key: string]: any } = {
             }
         },
 
-        'error': { class: [function () { return !((this.formControl.validator || this.formControl.asyncValidator) && this.formControl.errorMessage) ? BOOSTRAP_CLASS_CONFIG.validMessage : BOOSTRAP_CLASS_CONFIG.invalidMessage }], listenerProps: [":errorMessage"] },
+        'error': { class: [function () { return !((this.formControl.validator || this.formControl.asyncValidator) && this.formControl.errorMessage) ? "": BOOSTRAP_CLASS_CONFIG.invalidMessage }], listenerProps: [":errorMessage"] },
 
         button: { class: ['btn'] },
 
