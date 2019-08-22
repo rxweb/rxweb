@@ -25,7 +25,7 @@ export abstract class ElementPropsAccessor extends ElementEventProcessor {
                     })
                     break;
                 default:
-                    this.addOrRemoveAttribute(attributeName, value);
+                    this.addOrRemoveAttribute(attributeName, value, attr[attributeName] === "");
                     break;
             }
             if (isSubscribe && attributeName !== STYLE && this.isSubscribeProp(attr[attributeName]))
@@ -87,8 +87,8 @@ export abstract class ElementPropsAccessor extends ElementEventProcessor {
             this.dynamicNodeConfig.renderer.removeStyle(this.element, styleName);
     }
 
-    addOrRemoveAttribute(attributeName: string, value: any) {
-        if (value)
+    addOrRemoveAttribute(attributeName: string, value: any,isBlank:boolean) {
+        if (value || isBlank)
             this.dynamicNodeConfig.renderer.setAttribute(this.element, attributeName, value);
         else
             this.dynamicNodeConfig.renderer.removeAttribute(this.element, attributeName);

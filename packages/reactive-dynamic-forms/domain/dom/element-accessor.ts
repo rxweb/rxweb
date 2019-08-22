@@ -41,20 +41,21 @@ export abstract class ElementAccessor extends BaseObjectAccessor{
    
 
     setControlConfigValue(targetElement) {
+        let value = targetElement.value === "" ? null : targetElement.value;
         switch (targetElement.type) {
             case CHECKBOX:
                 this.setCheckboxValue(targetElement);
                 break;
             case SELECT_MULTIPLE:
-                let value = [];
+                let values = [];
                 for (let option of this.element.options)
                     if (option.selected && option.value)
-                        value.push(option.value);
-                this.controlConfig.value = value;
+                        values.push(option.value);
+                this.controlConfig.value = values;
                 break;
             default:
-                this.controlConfig.formControl.setValue(targetElement.value);
-                this.controlConfig.value = targetElement.value;
+                this.controlConfig.formControl.setValue(value);
+                this.controlConfig.value = value;
                 break;
         }
     }

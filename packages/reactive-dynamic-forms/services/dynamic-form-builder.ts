@@ -23,9 +23,12 @@ export class RxDynamicFormBuilder {
                 let splitName = x.name.split('.');
                 let name = x.name;
                 if (splitName.length > 1) {
-                    entityObject[splitName[0]] = {};
-                    formGroup.addControl(splitName[0], new RxFormGroup({}, entityObject[splitName[0]], {}, undefined));
-                    formGroup = formGroup.controls[splitName[0]] as RxFormGroup;
+                    if (!entityObject[splitName[0]]) {
+                        entityObject[splitName[0]] = {};
+                        formGroup.addControl(splitName[0], new RxFormGroup({}, entityObject[splitName[0]], {}, undefined));
+                        formGroup = formGroup.controls[splitName[0]] as RxFormGroup;
+                    } else if (formGroup.controls[splitName[0]] != undefined && formGroup.controls[splitName[0]] instanceof RxFormGroup) 
+                        formGroup = formGroup.controls[splitName[0]] as RxFormGroup;
                     name = splitName[1];
                 } else
                     formGroup = ApplicationUtil.getRootFormGroup(formGroup) as RxFormGroup;

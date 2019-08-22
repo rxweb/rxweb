@@ -47,7 +47,7 @@ export const BOOTSTRAP_DESIGN_CONFIG: { [key: string]: any } = {
             }
         },
 
-        input: { class: [inputElementClassProvider, function () { let invalidClass = ((this.formControl.validator || this.formControl.asyncValidator) && this.formControl.errorMessage) ? BOOSTRAP_CLASS_CONFIG.controlInvalid : ''; return invalidClass; }],listenerProps:[":errorMessage"] },
+        input: { class: [inputElementClassProvider, invalidClass ],listenerProps:[":errorMessage"] },
 
         checkbox: {
             class: [], child: {
@@ -110,9 +110,9 @@ export const BOOTSTRAP_DESIGN_CONFIG: { [key: string]: any } = {
         },
         small: { class: ['form-text'] },
 
-        textarea: { class: [BOOSTRAP_CLASS_CONFIG.defaultControl] },
+        textarea: { class: [BOOSTRAP_CLASS_CONFIG.defaultControl, invalidClass], listenerProps: [":errorMessage"]  },
 
-        select: { class: [BOOSTRAP_CLASS_CONFIG.defaultControl] }
+        select: { class: [BOOSTRAP_CLASS_CONFIG.defaultControl, invalidClass], listenerProps: [":errorMessage"]  }
 
     }
 }
@@ -142,4 +142,8 @@ function inputElementClassProvider() {
 
 function inLineRadioAndCheckbox() {
     return this.config && this.config.inline ? ['form-check-inline'] : [];
+}
+
+function invalidClass() {
+    let invalidClass = ((this.formControl.validator || this.formControl.asyncValidator) && this.formControl.errorMessage) ? BOOSTRAP_CLASS_CONFIG.controlInvalid : ''; return invalidClass;
 }

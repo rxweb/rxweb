@@ -129,7 +129,7 @@ export const DYNAMIC_ELEMENT_DESIGN_TREE: { [key: string]: any } = {
         events: commonEvents,
         source: true
     },
-        'option', [{ prop: { innerText: `:placeholder` }, attr: { style: { display: ":placeholder" } } }],
+        'option', [{ prop: { innerText: `:placeholder` }, attr: {value:'', style: { display: ":placeholder" } } }],
     {
         for: {
             source: function (item) {

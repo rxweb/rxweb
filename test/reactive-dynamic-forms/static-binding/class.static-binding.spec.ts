@@ -18,8 +18,7 @@ describe('FormControlConfig Properties', () => {
             let options = inputProcessor({ uiBindings: ["firstName"], component: BindingComponent, serverData: [{ name: "firstName", type: "text", ui: {class:["test-class"]} }], tagName: 'input' })
             expect(options.instance.dynamicFormBuildConfig.controlsConfig.firstName.class).toEqual(["test-class"]);
             let element = getElement(options.nativeElement, "input");
-
-            expect(element.classList[1]).toEqual("test-class");
+            expect(element.classList[0]).toEqual("test-class");
         }));
 
         //end

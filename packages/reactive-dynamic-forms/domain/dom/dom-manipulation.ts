@@ -23,7 +23,7 @@ export class DomManipulation extends OverrideObjectProp {
         this.bindAdditionalClasses();
         this.controlId = ControlState.controlId = ControlState.controlId + 1;
         ControlState.controls[this.controlId] = this;
-        this.addOrRemoveAttribute("data-rxwebid", this.controlId);
+        this.addOrRemoveAttribute("data-rxwebid", this.controlId,false);
     }
 
     parseObject(jObject: { [key: string]: any }, isSubscribe: boolean) {
