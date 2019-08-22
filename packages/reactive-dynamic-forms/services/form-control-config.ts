@@ -8,12 +8,13 @@ import { RxFormControl } from "@rxweb/reactive-form-validators";
 export abstract class FormControlConfig extends BaseFormControlConfig {
     private _formControl: RxFormControl;
 
-    constructor(fieldConfig: { [key: string]: any }, public controlsConfig: { [key: string]: FormControlConfig }) {
-        super(controlsConfig);
+    constructor(fieldConfig: { [key: string]: any }, public controlsConfig: { [key: string]: FormControlConfig },notificationId:number) {
+        super(controlsConfig, notificationId);
         this.config = fieldConfig;
         this.value = fieldConfig.value;
         super.checkFilterFunction();
-        this.props = this.config.props ||  Object.create({});
+        this.props = this.config.props || Object.create({});
+        this.setNotification();
     }
 
     
@@ -58,6 +59,6 @@ export abstract class FormControlConfig extends BaseFormControlConfig {
 
 export class ControlConfig extends FormControlConfig {
     constructor(fieldConfig: { [key: string]: any }, controlsConfig: { [key: string]: FormControlConfig }) {
-        super(fieldConfig, controlsConfig);
+        super(fieldConfig, controlsConfig, 0);
     }
 }

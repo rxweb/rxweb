@@ -1,31 +1,43 @@
 ﻿import { PropDescriptor } from './prop-descriptor'
 import { FILTER, SOURCE } from '../const/app.const'
 import { ActionResult } from "../models/interface/action-config"
+import { Linq } from '../util/linq'
+import { NotificationState } from '../statics/control-state';
 export abstract class BaseFormControlConfig extends PropDescriptor {
     config: { [key: string]: any };
     source: any[];
 
-    constructor(private configs: { [key: string]: any }) {
+    constructor(private configs: { [key: string]: any }, private notificationId: number) {
         super();
+
+    }
+
+    setNotification() {
+        if (NotificationState.notifications[this.notificationId])
+            if (!NotificationState.notifications[this.notificationId][this.config.name])
+                NotificationState.notifications[this.notificationId][this.config.name] =
+                    this.controlNotifications = { filter: [], disabled: [], label: [], description: [], hide: [], placeholder: [], readonly: [], focus: [], class: [] }
+            else
+                this.controlNotifications = NotificationState.notifications[this.notificationId][this.config.name];
+        this.complete();
     }
 
 
 
-
     complete() {
-        this.controlNotifications = {  filter: [], disabled: [], label: [], description: [], hide: [], placeholder: [], readonly: [], focus: [], class: [] }
-        for (let action in this.controlNotifications)
-            for (let columnName in this.configs) {
-                if (!Array.isArray(this.configs[columnName])) {
-                    let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(this.configs[columnName]), action);
-                    if ((descriptor && descriptor.get) || this.configs[columnName].isDefinedFilter) {
-                        let stringFunction = this.configs[columnName].isDefinedFilter ? String(this.configs[columnName][FILTER]) : String(descriptor.get);
-                        if (stringFunction.indexOf(`.${this.config.name}`) != -1 || stringFunction.indexOf(`.${this.config.name};`) != -1) {
-                            this.controlNotifications[action].push(columnName);
-                        }
-                    }
+        for (let action in this.controlNotifications) {
+                let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(this), action);
+                if ((descriptor && descriptor.get) || this.isDefinedFilter) {
+                    let stringFunction = this.isDefinedFilter ? String(this[FILTER]) : String(descriptor.get);
+                    let columnNames = Linq.dynamicConfigParser(stringFunction);
+                    columnNames.forEach(column => {
+                        if (!NotificationState.notifications[this.notificationId][column])
+                            NotificationState.notifications[this.notificationId][column] = { filter: [], disabled: [], label: [], description: [], hide: [], placeholder: [], readonly: [], focus: [], class: [] }
+                        let controlNotifications = NotificationState.notifications[this.notificationId][column];
+                        controlNotifications[action].push(this.config.name)
+                    })
                 }
-            }
+        }
         this.overrideProps();
         this.updateActionValue();
     }
@@ -59,7 +71,7 @@ export abstract class BaseFormControlConfig extends PropDescriptor {
                     if (this.isDefinedFilter && key == FILTER)
                         this[FILTER]();
                     if (this.config.filter)
-                        this[FILTER] =this.config.filter;
+                        this[FILTER] = this.config.filter;
                     break;
                 case SOURCE:
                     if (this.config[key])
