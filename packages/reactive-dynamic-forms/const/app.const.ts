@@ -91,3 +91,5 @@ export const PREPEND_RIGHT: string = "prepend-right";
 export const PREPEND_BOTH: string = "prepend-both";
 
 export const CONDITIONAL_VALIDATOR: string = "conditionalValidator"
+
+export const INLINE = "inline";

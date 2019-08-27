@@ -7,7 +7,7 @@ import { DomManipulation } from '../domain/dom/dom-manipulation'
 import { ApplicationUtil } from '../util/application-util';
 import { objectPropValue } from '../functions/object-prop-value.function';
 
-import { PREPEND_BOTH, PREPEND_LEFT, PREPEND_RIGHT, INPUT_TEXT,SQUARE_ERROR, SQUARE_SMALL, SQUARE_LABEL,SQUARE_CONTROL,ADVANCE, INPUT, TEXT, RANGE, FILE, STRING, CONTROL } from '../const/app.const';
+import { INLINE,PREPEND_BOTH, PREPEND_LEFT, PREPEND_RIGHT, INPUT_TEXT,SQUARE_ERROR, SQUARE_SMALL, SQUARE_LABEL,SQUARE_CONTROL,ADVANCE, INPUT, TEXT, RANGE, FILE, STRING, CONTROL } from '../const/app.const';
 import { DynamicNodeConfig } from "../models/interface/dynamic-node-config";
 
 export class ControlConfigProcessor {
@@ -29,7 +29,9 @@ export class ControlConfigProcessor {
         return DYNAMIC_ELEMENT_DESIGN_TREE.viewMode[this.viewMode];
     }
 
-    getView(name: string) {
+    getView(name: string, controlConfig: FormControlConfig) {
+        if (this.viewMode == INLINE)
+            name = this.getName(name,controlConfig,true);
         return DYNAMIC_ELEMENT_DESIGN_TREE[name];
     }
 
@@ -51,17 +53,17 @@ export class ControlConfigProcessor {
     designForm(controlConfigName, element, viewRoot, viewChild, classPath: any, childrenControlConfig?: FormControlConfig) {
         let controlConfig = childrenControlConfig || this.getControlConfig(controlConfigName);
         if (controlConfig) {
-            if (controlConfig && !controlConfig.config.skipDefaultView)
+            if (this.viewMode != INLINE && controlConfig && !controlConfig.config.skipDefaultView)
                 this.createElement(viewRoot, viewChild, element, controlConfig, classPath);
             else {
-                let currentView = this.getView(controlConfig.config.type);
+                let currentView = this.getView(controlConfig.config.type, controlConfig);
                 if (currentView)
-                    this.createElement(currentView[0], currentView[1], element, controlConfig, BOOTSTRAP_DESIGN_CONFIG.elementClassPath[controlConfig.config.type]);
+                    this.createElement(currentView[0], currentView[1], element, controlConfig, this.getClassPath(controlConfig.config.type, controlConfig, this._viewMode == INLINE));
                 else
                     this.createDomManipulation(controlConfig.config.type, [], element, controlConfig, [], true)
             }
         } else if (this.viewMode == ADVANCE && Array.isArray(controlConfigName)) {
-            let config: any = {};
+            let config: any = new ControlConfig({ }, {});
             let domManipulation = this.createElement(this.currentViewMode[0], [], element, config, BOOTSTRAP_DESIGN_CONFIG.elementClassPath.viewMode[this.viewMode])
             controlConfigName.forEach(t => {
                 this.designForm(t, domManipulation.element, this.currentViewMode[1][0], this.currentViewMode[1][1], BOOTSTRAP_DESIGN_CONFIG.elementClassPath.viewMode[this.viewMode].child["0"])
@@ -136,7 +138,6 @@ export class ControlConfigProcessor {
         let childClasses = this.getAdditionalClasses(collections[i], childElementsClassConfig, elementCount, controlConfig);
         if (!nextCollection) {
             nextCollection = [collections[i], collections[i + 1]];
-            
             isNextCollection = true;
         }
         this.createElement(nextCollection[0], nextCollection[1], domManipulation.element, controlConfig, childClasses);
@@ -204,9 +205,9 @@ export class ControlConfigProcessor {
         return this.dynamicFormBuildConfig.controlsConfig[name];
     }
 
-    private getName(name: string, controlConfig: FormControlConfig) {
+    private getName(name: string, controlConfig: FormControlConfig,isInline:boolean = false) {
         name = name.replace(new RegExp(/\[/g), '').replace(new RegExp(/\]/g), '');
-        name = (name == CONTROL) ? this.getControlName(controlConfig.config.type) : name;
+        name = (name == CONTROL || isInline) ? this.getControlName(controlConfig.config.type) : name;
         switch (name) {
             case INPUT:
                 name = this.prependControl(name,controlConfig);
@@ -242,5 +243,11 @@ export class ControlConfigProcessor {
                 break;
         }
         return isCreate;
+    }
+
+    private getClassPath(name: string,controlConfig:FormControlConfig,isInline:boolean) {
+        if (this.viewMode == INLINE)
+            name = this.getName(name,controlConfig,isInline);
+        return BOOTSTRAP_DESIGN_CONFIG.elementClassPath[name];
     }
 }

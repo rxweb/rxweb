@@ -92,7 +92,8 @@ export const BOOTSTRAP_DESIGN_CONFIG: { [key: string]: any } = {
                     }
                 }
             },
-
+            inline: {
+                class: [], child: {}},
             advance: {
                 class: ['form-row', function () { return this.config && this.config.ui && this.config.ui.viewMode && this.config.ui.viewMode.advance && this.config.ui.viewMode.advance.root_div ? this.config.ui.viewMode.advance.root_div : '' }],
                 child: {

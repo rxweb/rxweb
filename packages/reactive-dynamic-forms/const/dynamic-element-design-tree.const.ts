@@ -171,6 +171,7 @@ export const DYNAMIC_ELEMENT_DESIGN_TREE: { [key: string]: any } = {
             '[label]',
             'div', ['[control]', '[error]', '[small]']
         ]],
+        inline: [],
 
         advance: ['div', [
             'div', [{
