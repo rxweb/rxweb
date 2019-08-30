@@ -1,4 +1,4 @@
-import { Directive, Input, ElementRef, Renderer, forwardRef, OnInit, OnDestroy } from '@angular/core';
+import { Directive, Input, ElementRef, forwardRef, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 import { Validator, NG_VALIDATORS, AbstractControl, FormControl } from '@angular/forms';
 import { APP_VALIDATORS } from '../../const/app-validators.const';
 import { BaseValidator } from './base-validator.directive';
@@ -98,7 +98,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
 
 
     constructor(private elementRef: ElementRef,
-        private renderer: Renderer, private decimalProvider: DecimalProvider) {
+        private renderer: Renderer2, private decimalProvider: DecimalProvider) {
         super();
         this.element = elementRef.nativeElement as Node;
         this.setEventName();
@@ -173,7 +173,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     }
 
     private setValueOnElement(value: any) {
-        this.renderer.setElementProperty(this.element, ELEMENT_VALUE, value);
+        this.renderer.setProperty(this.element, ELEMENT_VALUE, value);
     }
 
     private setTemplateValidators(control:AbstractControl){
