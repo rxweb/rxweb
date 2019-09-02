@@ -39,11 +39,9 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
         return this.controls;
     }
 
-    @Input() allOf: ArrayConfig;
     @Input() alpha: AlphaConfig;
     @Input() alphaNumeric: AlphaConfig;
     @Input() ascii: BaseConfig;
-    @Input() choice: ChoiceConfig;
     @Input() compare: CompareConfig;
     @Input() compose: ComposeConfig;
     @Input() contains: ContainsConfig;
@@ -75,10 +73,8 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     @Input() minDate: DateConfig;
     @Input() minLength: NumberConfig;
     @Input() minNumber: NumberConfig;
-    @Input() noneOf: ArrayConfig;
     @Input() numeric: NumericConfig;
     @Input() odd: BaseConfig;
-    @Input() oneOf: ArrayConfig;
     @Input() password: PasswordConfig;
     @Input() port: BaseConfig;
     @Input() primeNumber: BaseConfig;
