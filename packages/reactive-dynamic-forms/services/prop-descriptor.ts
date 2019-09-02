@@ -22,7 +22,7 @@ export class PropDescriptor extends ValueChangeNotification{
                 get: () => { return value },
                 set: (v) => {
                     value = v;
-                    this.notifyValueChanged(`props.${propName}`, value, oldValue, true);
+                    this.notifyValueChanged(`props.${propName}`, value, oldValue, false);
                     oldValue = value;
                 }
             })

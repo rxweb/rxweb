@@ -32,7 +32,7 @@ const checkBoxAndRadioDesign = ['div', [{
 
 ]];
 
-const configUiText = { innerText: '{config.ui.text' };
+const configUiText = { innerText: ':props.text' };
 const classAttribute = { class: ':class', style: { display: ":hide" } };
 
 export const DYNAMIC_ELEMENT_DESIGN_TREE: { [key: string]: any } = {
@@ -147,7 +147,7 @@ export const DYNAMIC_ELEMENT_DESIGN_TREE: { [key: string]: any } = {
     }
     ]],
 
-    button: ['button', [{ attr: { ...commonAttributes, name: '{config.name', type: '{config.type' }, events: { click: '{config.events.click' }, prop: { innerText: '{config.ui.text' } }]],
+    button: ['button', [{ attr: { ...commonAttributes, name: '{config.name', type: '{config.type' }, events: { click: '{config.events.click' }, prop: { innerText: ':props.text' } }]],
 
     alert: ['div', [{ attr: commonAttributes }]],
 
