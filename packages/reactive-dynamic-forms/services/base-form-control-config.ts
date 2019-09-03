@@ -26,7 +26,7 @@ export abstract class BaseFormControlConfig extends PropDescriptor {
 
     complete() {
         for (let action in this.controlNotifications) {
-                let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(this), action);
+            let descriptor = this.getDescriptor(action);
                 if ((descriptor && descriptor.get) || this.isDefinedFilter) {
                     let stringFunction = this.isDefinedFilter ? String(this[FILTER]) : String(descriptor.get);
                     let columnNames = Linq.dynamicConfigParser(stringFunction);

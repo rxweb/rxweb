@@ -1,4 +1,5 @@
 ﻿import { ValueChangeNotification } from "./value-change-notification";
+import { OverrideConfigProp } from "../models/interface/override-config-prop";
 
 const FILTER: string = "filter";
 const FUNCTION: string = "function";
@@ -13,6 +14,13 @@ export class PropDescriptor extends ValueChangeNotification{
         this.isDefinedFilter = (descriptor && !descriptor.get && !descriptor.set && typeof this[FILTER] == FUNCTION);
     }
 
+   
+    overrideProp(props:OverrideConfigProp){
+        Object.keys(props).forEach(t=>{
+            Object.defineProperty(this,t,props[t]);    
+        })
+
+    }
 
     defineProp(propName: string) {
         let value = this.props[propName];
@@ -31,7 +39,7 @@ export class PropDescriptor extends ValueChangeNotification{
 
     protected overrideProps() {
         ["disabled", "label", "placeholder", "hide", "description", "focus", "readonly", "class", "source"].forEach(t => {
-            let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(this), t);
+           let descriptor = this.getDescriptor(t);
             let value = null;
             let oldValue = null;
             Object.defineProperty(this, t, {
@@ -65,7 +73,13 @@ export class PropDescriptor extends ValueChangeNotification{
         formControl[ERRORS] = formControl[ERRORS];
     }
 
+    protected getDescriptor(propName:string){
 
+        let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(this), propName);
+        if(!descriptor)
+            descriptor = Object.getOwnPropertyDescriptor(this, propName);
+            return descriptor;
+    }
 
 
 

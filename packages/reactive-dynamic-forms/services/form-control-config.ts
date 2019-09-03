@@ -3,6 +3,7 @@ import {  Hooks} from "../models/interface/action-config"
 
 import { BaseFormControlConfig } from './base-form-control-config'
 import { RxFormControl } from "@rxweb/reactive-form-validators";
+import { dynamicContainer } from "../core/dynamicContainer";
 
 
 export abstract class FormControlConfig extends BaseFormControlConfig {
@@ -11,11 +12,23 @@ export abstract class FormControlConfig extends BaseFormControlConfig {
     constructor(fieldConfig: { [key: string]: any }, public controlsConfig: { [key: string]: FormControlConfig },notificationId:number) {
         super(controlsConfig, notificationId);
         this.config = fieldConfig;
+       this.overrideProperty();
         this.value = fieldConfig.value;
         super.checkFilterFunction();
         this.props = this.config.props || Object.create({});
         this.setNotification();
     }
+
+    private overrideProperty(){
+        if(this.config.overrideProps){
+            this.config.overrideProps.forEach(t=>{
+                let propInfo = dynamicContainer.getOverrideProp(t);
+                this.overrideProp(propInfo);
+            })
+        }
+    }
+
+    overrides:any = {};
 
     
     inputs: any;
