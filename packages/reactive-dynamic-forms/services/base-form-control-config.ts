@@ -27,16 +27,16 @@ export abstract class BaseFormControlConfig extends PropDescriptor {
     complete() {
         for (let action in this.controlNotifications) {
             let descriptor = this.getDescriptor(action);
-                if ((descriptor && descriptor.get) || this.isDefinedFilter) {
-                    let stringFunction = this.isDefinedFilter ? String(this[FILTER]) : String(descriptor.get);
-                    let columnNames = Linq.dynamicConfigParser(stringFunction);
-                    columnNames.forEach(column => {
-                        if (!NotificationState.notifications[this.notificationId][column])
-                            NotificationState.notifications[this.notificationId][column] = { filter: [], disabled: [], label: [], description: [], hide: [], placeholder: [], readonly: [], focus: [], class: [] }
-                        let controlNotifications = NotificationState.notifications[this.notificationId][column];
-                        controlNotifications[action].push(this.config.name)
-                    })
-                }
+            if ((descriptor && descriptor.get) || this.isDefinedFilter) {
+                let stringFunction = this.isDefinedFilter ? String(this[FILTER]) : String(descriptor.get);
+                let columnNames = Linq.dynamicConfigParser(stringFunction);
+                columnNames.forEach(column => {
+                    if (!NotificationState.notifications[this.notificationId][column])
+                        NotificationState.notifications[this.notificationId][column] = { filter: [], disabled: [], label: [], description: [], hide: [], placeholder: [], readonly: [], focus: [], class: [] }
+                    let controlNotifications = NotificationState.notifications[this.notificationId][column];
+                    controlNotifications[action].push(this.config.name)
+                })
+            }
         }
         this.overrideProps();
         this.updateActionValue();
@@ -46,6 +46,8 @@ export abstract class BaseFormControlConfig extends PropDescriptor {
         for (var columnName in this.controlNotifications) {
             if (this.controlNotifications[columnName].length > 0)
                 this.controlNotifications[columnName].forEach(x => {
+                    if (columnName == FILTER)
+                        this.configs[x].value = null;
                     if (x != this.config.name)
                         this.configs[x].refresh(columnName);
                     else
