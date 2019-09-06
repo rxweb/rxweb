@@ -84,17 +84,6 @@ describe('prop-array', () => {
                 })
                 expect(skillFormGroup.controls.skillname.value).toEqual('Development');
             });
-        it('should not error, add new element to a form with propArray', () => {
-            let person = new Person();
-            person.skills = new Array<Skill>();
-            let skill = new Skill();
-            person.skills.push(skill)
-            let userFormGroup = formBuilder.formGroup(person);
-
-            let skillFormGroup = userFormGroup.controls.skills as FormArray;
-            expect(skillFormGroup.push(formBuilder.formGroup(Skill)));
-        })
-
 
         it('"contacts" Nested FormArray modelInstance should be "Address"',
             () => {

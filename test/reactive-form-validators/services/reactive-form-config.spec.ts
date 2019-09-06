@@ -15,7 +15,6 @@ describe('Decorator', () => {
     describe('reactive-form-config', () => {
         it("should show global validation message when the input is invalid",
             () => {
-                debugger;
                 let formGroup = formBuilder.group(
                     {
                         'location': ['', RxwebValidators.alpha()]
