@@ -12,12 +12,15 @@ private static extractArguments(splitTexts: string[]): string[] {
         let splitString: string[] = expressionString.replace(new RegExp(/\r?\n|\r|;/g), ' ').replace(/["%()\{}=\\?´`'#<>|,;:+-]+/g, " ").split(/ /g);
         if (expressionArguments.length > 3)
             expressionArguments.splice(expressionArguments.length - 1, 1)
-        splitString = splitString.filter(t => t != "" && t.includes(".controlsConfig."));
-        splitString.forEach(t => {
-            let splitText = t.split("controlsConfig.");
-            if (splitText.length > 1)
-                controlNames.push(splitText[1].split(".")[0]);
-
+        splitString.forEach((t, i) => {
+            if (t) {
+                if (t.includes("controlsConfig.")) {
+                    let splitText = t.split("controlsConfig.");
+                    if (splitText.length > 1)
+                        controlNames.push(splitText[1].split(".")[0]);
+                } else if (t.includes("controlsConfig[")) 
+                    controlNames.push(splitString[i+1]);
+            }
         })
         return controlNames;
     }
