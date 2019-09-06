@@ -13,7 +13,7 @@ const commonEvents = {
 
 
 
-const checkBoxAndRadioDesign = ['div', [{
+const checkBoxAndRadioDesign = ['div', [{source:true},{
     for: {
         source: function (item, index) {
             return ['div', ['input', [{
