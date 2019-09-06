@@ -54,15 +54,17 @@ export class ElementEventProcessor extends ElementAccessor{
             let isPassed = true;
             if (this.controlConfig.hooks && this.controlConfig.hooks.preValue) {
                 isPassed = this.controlConfig.hooks.preValue.call(this.controlConfig,v.target.value);
-                if (!isPassed)
+                if (!isPassed) {
                     this.controlConfig.formControl.patchValue(this.controlConfig.formControl.value);
+                    this.resetElementValue(this.controlConfig.formControl.value);
+                }
             }
             if (isPassed) {
                 this.setControlConfigValue(v.target);
                 if (this.controlConfig.hooks && this.controlConfig.hooks.postValue)
                     this.controlConfig.hooks.postValue.call(this.controlConfig);
+                this.controlConfig.formControl.markAsDirty();
             }
-            this.controlConfig.formControl.markAsDirty();
             if (this.conditionalValidator)
                 this.conditionalValidator(this.controlConfig.formControl);
         })
