@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/@rxweb/http",
+  "deleteDestPath": false,
+  "lib": {
+    "entryFile": "index.ts",
+    "umdModuleIds": {
+      "@rxweb/generics": "@rxweb/generics"
+    }
+  },
+
+  "whitelistedNonPeerDependencies": [
+    "rxjs"
+  ]
+}

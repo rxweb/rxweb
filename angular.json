@@ -140,7 +140,7 @@
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            
+
             "project": "packages/reactive-form-validators/ng-package.json"
           },
           "configurations": {
@@ -149,7 +149,7 @@
             }
           }
         },
-        
+
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -164,38 +164,135 @@
         }
       }
     },
-      "@rxweb/reactive-dynamic-forms": {
-        "root": "packages/reactive-dynamic-forms",
-        "sourceRoot": "packages/reactive-dynamic-forms",
-        "projectType": "library",
-        "prefix": "lib",
-        "architect": {
-          "build": {
-            "builder": "@angular-devkit/build-ng-packagr:build",
-            "options": {
-              "project": "packages/reactive-dynamic-forms/ng-package.json"
-            },
-            "configurations": {
-              "production": {
-                "project": "packages/reactive-dynamic-forms/ng-package.prod.json"
-              }
-            }
+    "@rxweb/reactive-dynamic-forms": {
+      "root": "packages/reactive-dynamic-forms",
+      "sourceRoot": "packages/reactive-dynamic-forms",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/reactive-dynamic-forms/ng-package.json"
           },
-          
-          "lint": {
-            "builder": "@angular-devkit/build-angular:tslint",
-            "options": {
-              "tsConfig": [
-                "packages/reactive-dynamic-forms/tsconfig.lib.json",
-                "packages/reactive-dynamic-forms/tsconfig.spec.json"
-              ],
-              "exclude": [
-                "**/node_modules/**"
-              ]
+          "configurations": {
+            "production": {
+              "project": "packages/reactive-dynamic-forms/ng-package.prod.json"
             }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/reactive-dynamic-forms/tsconfig.lib.json",
+              "packages/reactive-dynamic-forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     },
+    "@rxweb/generics": {
+      "root": "packages/generics",
+      "sourceRoot": "packages/generics",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/generics/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/generics/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/generics/tsconfig.lib.json",
+              "packages/generics/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/sanitizers": {
+      "root": "packages/sanitizers",
+      "sourceRoot": "packages/sanitizers",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/sanitizers/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/sanitizers/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/sanitizers/tsconfig.lib.json",
+              "packages/sanitizers/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/http": {
+      "root": "packages/http",
+      "sourceRoot": "packages/http",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/http/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/http/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/http/tsconfig.lib.json",
+              "packages/http/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+
     "defaultProject": "rxweb"
   }

@@ -14,7 +14,11 @@
     ],
     "paths": {
       "@rxweb/reactive-form-validators": [ "packages/reactive-form-validators" ],
-      "@rxweb/reactive-dynamic-forms": ["packages/reactive-dynamic-forms"]
+      "@rxweb/reactive-dynamic-forms": [ "packages/reactive-dynamic-forms" ],
+      "@rxweb/sanitizers": [ "packages/sanitizers" ],
+      "@rxweb/generics": [ "packages/generics" ],
+      "@rxweb/http": [ "packages/http" ]
+
     },
     "lib": [
       "es2017",
