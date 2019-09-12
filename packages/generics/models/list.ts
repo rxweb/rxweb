@@ -1,41 +1,52 @@
-import { IList } from '../interface';
-import { Enumerator } from './enumerator';
 import { Type } from '../functions/type'
 import { isObject, isEqual } from '../functions/utils'
-export class List<T> extends Array<T>  {
+import { getObject } from "../functions/get-instance";
 
-    constructor(private entities?: any[], private model?: Type<T>) {
-        super();
-        Object.setPrototypeOf(this, Object.create(List.prototype));
-        this.build();
+export class List<T>  {
+    private _entities: T[] = new Array<T>();
+    constructor(values?: T[], private model?: Type<T>) {
+        this.build(values);
     }
 
-    private build() {
-        if (this.entities && this.entities.length > 0) {
-            if (this.model && this.entities[0].constructor != this.model) {
-                let enumerator = new Enumerator<T>(this.model, this.entities);
-                while (enumerator.moveNext())
-                    super.push(enumerator.current);
-            } else
-                this.addRange(this.entities);
+    [Symbol.iterator](): Iterator<T> {
+        let pointer = 0;
+        let entities = this._entities;
+        return {
+            next(): IteratorResult<T> {
+                if (pointer < entities.length) {
+                    let index = pointer++
+                    if (this.model && entities[index].constructor !== this.model)
+                        entities[index] = getObject(this.model, [], this.object[index])
+                    return {
+                        done: false,
+                        value: entities[index]
+                    }
+                } else {
+                    return {
+                        done: true,
+                        value: null
+                    }
+                }
+            }
         }
-
     }
+
 
 
     add(entity: T) {
-        super.push(entity);
+        this._entities.push(this.createObject(entity));
     }
 
     addRange(entities: T[]) {
-        super.push(...entities);
+        for (let entity of entities)
+            this.add(entity);
     }
 
     all(predicate: (value?: T, index?: number, list?: T[]) => boolean): boolean {
-        return super.every(predicate);
+        return this._entities.every(predicate);
     }
     any(predicate: (value?: T, index?: number, list?: T[]) => boolean): boolean {
-        return super.some(predicate);
+        return this._entities.some(predicate);
     }
 
     average(transform?: (value?: T, index?: number, list?: T[]) => any): number {
@@ -43,20 +54,26 @@ export class List<T> extends Array<T>  {
     }
 
     contains(element: T): boolean {
-        return super.some(x => x === element);
+        return this._entities.some(x => x === element);
     }
 
+    concat(items: T[]): List<T> {
+        if (items) {
+            this.addRange(items);
+            return new List<T>(this._entities, this.model);
+        }
+        return undefined;
+    }
 
     count(predicate?: (value?: T, index?: number, list?: T[]) => boolean): number {
-        return predicate ? this.where(predicate).count() : this.length;
+        return predicate ? this.where(predicate).count() : this._entities.length;
     }
 
-    where(predicate: (value?: T, index?: number, list?: T[]) => boolean): IList<T> {
-        let result = super.filter(predicate);
-        return new List<T>(result, this.model);
+    where(predicate: (value?: T, index?: number, list?: T[]) => boolean): List<T> {
+        return new List<T>(this._entities.filter(predicate), this.model);
     }
 
-    distinct(): IList<T> {
+    distinct(): List<T> {
         return this.where((value, index, iter) =>
             (isObject(value)) ?
                 iter.findIndex(t => isEqual(t, value)) == index :
@@ -64,26 +81,26 @@ export class List<T> extends Array<T>  {
         )
     }
 
-    distinctBy(keySelector: (key: T) => string | number): IList<T> {
+    distinctBy(keySelector: (key: T) => string | number): List<T> {
         const entityGroup = this.groupBy(keySelector)
-        return Object.keys(entityGroup).reduce((resource: IList<T>, key) => {
+        return Object.keys(entityGroup).reduce((resource: List<T>, key) => {
             resource.add(entityGroup[key][0])
             return resource
         }, new List<T>())
     }
 
     elementAt(index: number): T {
-        if (this.length > index && index >= 0)
-            return this[index];
+        if (this._entities.length > index && index >= 0)
+            return this._entities[index];
     }
 
-    except(collection: IList<T>): IList<T> {
+    except(collection: List<T>): List<T> {
         return this.where(x => !collection.contains(x))
     }
 
     first(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T | Error {
         if (this.count()) {
-            return predicate ? this.where(predicate).first() : this[0];
+            return predicate ? this.where(predicate).first() : this._entities[0];
         } else {
             throw new Error('No result found.');
         }
@@ -94,12 +111,12 @@ export class List<T> extends Array<T>  {
     }
 
     forEach(action: (value?: T, index?: number, list?: T[]) => any): void {
-        return super.forEach(action)
+        return this._entities.forEach(action)
     }
 
 
     aggregate<U>(accumulator: (accum: U, value?: T, index?: number, list?: T[]) => any, initialValue?: U): any {
-        return super.reduce(accumulator, initialValue);
+        return this._entities.reduce(accumulator, initialValue);
     }
 
     groupBy(grouper: (key: T) => any, mapper?: (element: T) => any): any {
@@ -110,15 +127,19 @@ export class List<T> extends Array<T>  {
     }
 
     insert(index: number, element: T): void | Error {
-        if (index < 0 || index > this.length) {
+        if (index < 0 || index > this._entities.length) {
             throw new Error('Index is out of range.');
         }
-        super.splice(index, 0, element);
+        this._entities.splice(index, 0, this.createObject(element));
+    }
+
+    join(seperator?: string): string {
+        return this._entities ? this._entities.join(seperator) : null;
     }
 
     last(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T | Error {
         if (this.count()) {
-            return predicate ? this.where(predicate).last() : this[this.count() - 1];
+            return predicate ? this.where(predicate).last() : this._entities[this.count() - 1];
         } else {
             throw Error('No result found.');
         }
@@ -128,13 +149,17 @@ export class List<T> extends Array<T>  {
         return this.count() ? this.last(predicate) : undefined;
     }
 
+    get length() {
+        return this._entities ? this._entities.length : 0;
+    }
+
     max(): number
     max(predicate: (value: T, index: number, list: T[]) => number): number
     max(predicate?: (value: T, index: number, list: T[]) => number): number {
         if (!predicate)
             return this.aggregate((x, y) => x > y ? x : y);
         else
-            return Math.max(...super.map(predicate))
+            return Math.max(...this._entities.map(predicate))
     }
 
     maxBy(keySelector: (key: T) => number): T {
@@ -150,7 +175,7 @@ export class List<T> extends Array<T>  {
         if (!predicate)
             return this.aggregate((x, y) => x < y ? x : y);
         else
-            return Math.min(...super.map(predicate))
+            return Math.min(...this._entities.map(predicate))
     }
 
     minBy(keySelector: (key: T) => number): T {
@@ -160,59 +185,73 @@ export class List<T> extends Array<T>  {
         return entityGroup[minKey][0];
     }
 
-    orderBy(predicate: (key: T) => any): IList<T> {
-        return new List<T>(super.sort(this.customSort(predicate, false)));
+    orderBy(predicate: (key: T) => any): List<T> {
+        return new List<T>(this._entities.sort(this.customSort(predicate, false)));
     }
 
-    orderByDescending(predicate: (key: T) => any): IList<T> {
-        return new List<T>(super.sort(this.customSort(predicate, true)));
+    orderByDescending(predicate: (key: T) => any): List<T> {
+        return new List<T>(this._entities.sort(this.customSort(predicate, true)));
     }
 
+    pop(): T | undefined {
+        return this._entities.pop();
+    }
 
     remove(element: T): boolean {
-        return this.indexOf(element) !== -1 ? (this.removeAt(this.indexOf(element)), true) : false;
+        return this._entities.indexOf(element) !== -1 ? (this.removeAt(this._entities.indexOf(element)), true) : false;
     }
-    removeAll(predicate: (value?: T, index?: number, list?: T[]) => boolean): IList<T> {
+    removeAll(predicate: (value?: T, index?: number, list?: T[]) => boolean): List<T> {
         return this.where(this._negate(predicate));
     }
 
     removeAt(index: number): void {
-        super.splice(index, 1);
+        this._entities.splice(index, 1);
+    }
+
+    reverse(): List<T> {
+        return this._entities ? new List<T>(this._entities.reverse(), this.model) : new List<T>();
     }
 
 
     select(mapper: (value?: T, index?: number, list?: T[]) => any): any {
-        return super.map(mapper);
+        return this._entities.map(mapper);
     }
 
-    single(): T | Error {
+    single(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T | Error {
         if (this.count() !== 1) {
             throw new Error('Item does not contain one element.');
         } else {
-            return this.first();
+            return this.first(predicate);
         }
     }
 
-    singleOrDefault(): T | Error {
-        return this.count() ? this.single() : undefined;
+    singleOrDefault(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T | Error {
+        return this.count() ? this.first(predicate) : undefined;
+    }
+
+    shift(): T | undefined {
+        return this._entities ? this._entities.shift() : undefined;
     }
 
     skip(amount: number): T[] {
-        return super.slice(Math.max(0, amount));
+        return this._entities.slice(Math.max(0, amount));
     }
 
     sum(transform?: (value?: T, index?: number, list?: T[]) => number): number {
         return transform ? this.select(transform).sum() : this.aggregate((ac, v) => ac += (+v), 0);
     }
 
-    take(amount: number): IList<T> {
-        return super.slice(0, Math.max(0, amount)) as any;
+    take(amount: number): List<T> {
+        return this._entities.slice(0, Math.max(0, amount)) as any;
     }
 
-    toArray(): IList<T> {
-        return this;
+    get toLocaleString() {
+        return this._entities ? this._entities.toLocaleString() : null;
     }
 
+    get toString() {
+        return this._entities ? this._entities.toString() : null;
+    }
 
     private _negate<T>(predicate: (value?: T, index?: number, list?: T[]) => boolean): () => any {
         return function (): any {
@@ -232,5 +271,17 @@ export class List<T> extends Array<T>  {
                 return 0
             }
         }
+    }
+
+    private build(values: T[]) {
+        if (values && values.length > 0) {
+            this.addRange(values)
+        }
+    }
+
+    private createObject(object) {
+        if (this.model && object.constructor !== this.model)
+            return getObject(this.model, [], object)
+        return object;
     }
 }

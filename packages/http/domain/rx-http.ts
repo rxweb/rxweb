@@ -41,14 +41,22 @@ export class RxHttp {
         return null;
     }
 
-    private request(method: string, config: HttpRequestConfig | HttpRequestBodyConfig): RxHttpResponse {
-        if (!this._baseConfig)
-            this._baseConfig = httpRequestContainer.getConfig();
-        if (!this._serviceContainers)
-            this._serviceContainers = getInstanceContainer(this);
-        let serviceContainer = this._serviceContainers.filter(t => t.type == "http")[0]
-        let request = requestBody(method,this._baseConfig, serviceContainer, config, this);
-        return (request) ? new RxHttpResponse(request, this.getFilters(), this.getInMemoryFilter(), this.onError || this._baseConfig.onError,this.badRequest) : null;
+    private request<T>(method: string, config: HttpRequestConfig | HttpRequestBodyConfig): Observable<T> {
+        return new Observable(subscriber => {
+            if (!this._baseConfig)
+                this._baseConfig = httpRequestContainer.getConfig();
+            if (!this._serviceContainers)
+                this._serviceContainers = getInstanceContainer(this);
+            let serviceContainer = this._serviceContainers.filter(t => t.type == "http")[0]
+            let request = requestBody(method, this._baseConfig, serviceContainer, config, this);
+            if (request) {
+                let response = new RxHttpResponse(request, this.getFilters(), this.getInMemoryFilter(), this.onError || this._baseConfig.onError, this.badRequest);
+                response.process('subscribe', subscriber);
+            } else {
+                subscriber.next(null);
+                subscriber.complete();
+            }
+        })
     }
 
     lookup<T>(configs: LookupHttpRequestConfig[]): Observable<T> {
@@ -57,7 +65,7 @@ export class RxHttp {
             let subscriptions: Subscription[] = [];
             configs.forEach(t => {
                 propNames.push(t.propName);
-                subscriptions.push(this.get(t).send().subscribe());
+                subscriptions.push(this.get(t).subscribe());
             });
             forkJoin(subscriptions).subscribe(t => {
                 let jObject:any = {};
@@ -71,23 +79,23 @@ export class RxHttp {
     }
 
 
-    get(config?: HttpRequestConfig): RxHttpResponse {
+    get<T>(config?: HttpRequestConfig): Observable<T>  {
         return this.request('GET', config);
     }
 
-    post(config: HttpRequestBodyConfig): RxHttpResponse {
+    post<T>(config: HttpRequestBodyConfig): Observable<T>  {
         return this.request('POST', config);
     }
 
-    put(config: HttpRequestBodyConfig): RxHttpResponse {
+    put<T>(config: HttpRequestBodyConfig): Observable<T> {
         return this.request('PUT', config);
     }
 
-    patch(config: HttpRequestBodyConfig): RxHttpResponse {
+    patch<T>(config: HttpRequestBodyConfig): Observable<T>  {
         return this.request('PATCH', config);
     }
 
-    delete(config: HttpRequestBodyConfig): RxHttpResponse {
+    delete<T>(config: HttpRequestBodyConfig): Observable<T>  {
         return this.request('DELETE', config);
     }
 }
