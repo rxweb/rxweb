@@ -28,7 +28,7 @@ export class RxHttpResponse {
     }
 
     private callFilter(filterConfig: XhrFilterConfig) {
-        let modelInstance = createInstance(filterConfig.model, filterConfig.args) as any;
+        let modelInstance = createInstance(filterConfig.model, filterConfig.args || []) as any;
         modelInstance.onRequestExecuting = this.onRequestExecuting()
         this._index++;
         modelInstance.onRequest(new XhrContext(this.request, new HttpResponse()));
