@@ -36,7 +36,7 @@ export class HttpRequest {
     }
 
     get fullPath() {
-        return this._fullPath ? this.fullPath : `${this.host}/${this.path}${createQueryPath({ params: this.params, queryParams: this.queryParams })}`;
+        return this._fullPath ? this._fullPath : `${this.host}/${this.path}${createQueryPath({ params: this.params, queryParams: this.queryParams })}`;
     }
 
     set fullPath(value) {
