@@ -4,36 +4,53 @@ import { HttpRequest, HttpResponse } from '../models'
 import { HttpRequestBodyConfig } from "../interface/http-request-body-config";
 import { BaseHttpClientConfig } from "../interface/base-http-client-config";
 
-export function requestBody(method:string,baseConfig:any,serviceContainer: ServiceContainerConfig, config: HttpRequestConfig | HttpRequestBodyConfig, instance: any): HttpRequest {
-    let uri = getHostUri(baseConfig, serviceContainer, config);
-    let path = (config.path) ? config.path : serviceContainer.config.path;
-    let fullPath = `${uri}/${path}${createFullPath(config)}`;
-    let isHttps = uri.startsWith("https://");
-    return new HttpRequest(
-        config ? (<HttpRequestBodyConfig>config).body : undefined,
-        fullPath,
-        {},
-        uri,
-        isHttps,
-        method,
-        path,
-        config && config.params ? config.params : [],
-        config && config.queryParams ? config.queryParams : {},
-        config ? config.responseType : undefined,
-        isHttps ? 'https' : 'http'
-    );
+export function requestBody(method: string, baseConfig: any, serviceContainer: ServiceContainerConfig, config: HttpRequestConfig | HttpRequestBodyConfig | string, instance: any): HttpRequest {
+        
+    if (!(typeof config == "string")) {
+        let uri = getHostUri(baseConfig, serviceContainer, config);
+        let path = (config && config.path) ? config.path : serviceContainer.config.path;
+        let isHttps = uri.startsWith("https://");
+        return new HttpRequest(
+            config ? (<HttpRequestBodyConfig>config).body : undefined,
+            {},
+            uri,
+            isHttps,
+            method,
+            path,
+            config && config.params ? config.params : [],
+            config && config.queryParams ? config.queryParams : {},
+            config ? config.responseType : undefined,
+            isHttps ? 'https' : 'http',
+        );
+    } else {
+        let isHttps = config.startsWith("https://");
+        return new HttpRequest(
+            undefined,
+            {},
+            config,
+            config.startsWith("https://"),
+            method,
+            config,
+            [],
+            {},
+            undefined,
+            isHttps ? 'https' : 'http',
+            config,
+        )
+    }
+    
 }
 
 function getHostUri(baseConfig: BaseHttpClientConfig, serviceContainer: ServiceContainerConfig, config: HttpRequestConfig) {
     if (config && config.hostUri)
         return config.hostUri;
-    if (serviceContainer.config && serviceContainer.config.hostKey)
+    if (serviceContainer && serviceContainer.config && serviceContainer.config.hostKey)
         return baseConfig.hostURIs.filter(t => t.name == serviceContainer.config.hostKey)[0].uri;
     if (baseConfig.hostURIs)
         return baseConfig.hostURIs.filter(t => t.default == true)[0].uri;
 }
 
-function createFullPath(config: HttpRequestConfig) {
+export function createQueryPath(config: HttpRequestConfig) {
     return  `${getParams(config)}${getQueryParams(config)}`;
 }
 

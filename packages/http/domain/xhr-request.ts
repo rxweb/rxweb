@@ -41,8 +41,7 @@ export class XhrRequest {
             response.statusCode = !!body ? 200 : 0;
 
         let isSuccess = response.statusCode >= 200 && response.statusCode < 300;
-
-        if (this.request.responseType === 'json' && typeof body === 'string') {
+        if (this.request.responseType === 'json' && response.headers["content-type"] && response.headers["content-type"].indexOf("json") != -1 && typeof body === 'string') {
             const originalBody = body;
             body = body.replace(/^\)\]\}',?\n/, '');
             try {
@@ -56,30 +55,36 @@ export class XhrRequest {
             }
         }
         response.body = body;
-        if (isSuccess)
+        if (isSuccess) {
             this.onComplete(response)
+            this.dispose()
+        }
         else
-            this.onRequestError(response);
-        this.dispose();
+            this.onError(response);
+        
     }
 
     onError = (error) => {
         if (this.xhr.status == 400 && this.badRequest)
             this.badRequest(typeof this.xhr.response === 'undefined' ? this.xhr.responseText : this.xhr.response)
-        else
+        else if (this.onRequestError)
             this.onRequestError({
                 responseUrl: this.xhr.responseURL,
                 error: error,
                 statusCode: this.xhr.status || 0,
                 statusText: this.xhr.statusText || 'Unknown Error'
             });
+        else
+            console.error(error);
         this.dispose();
     }
 
 
     dispose() {
-        this.xhr.removeEventListener('load', this.onLoad);
-        this.xhr.removeEventListener('error', this.onError);
+        if (this.xhr) {
+            this.xhr.removeEventListener('load', this.onLoad);
+            this.xhr.removeEventListener('error', this.onError);
+        }
         this.xhr = null;
         this.request = null;
         this.onComplete = null;

@@ -25,7 +25,7 @@ export class RxHttp {
     }
 
     private getFilters() {
-        let filters = this._baseConfig.filters || [];
+        let filters = (this._baseConfig && this._baseConfig.filters) ? this._baseConfig.filters : [];
         let filterService = this._serviceContainers.filter(t => t.type == "filter")[0];
         let requestFilters = [];
         if (filterService)
@@ -36,21 +36,22 @@ export class RxHttp {
 
     private getInMemoryFilter(): XhrFilterConfig {
         let inMemory = this._serviceContainers.filter(t => t.type == "inmemory")[0];
-        if (inMemory)
+        if (inMemory && this._baseConfig && this._baseConfig.filters)
             return this._baseConfig.filters.filter(t => t.isInMemory)[0];
         return null;
     }
 
-    private request<T>(method: string, config: HttpRequestConfig | HttpRequestBodyConfig): Observable<T> {
+    private request<T>(method: string, config: HttpRequestConfig | HttpRequestBodyConfig | string): Observable<T> {
         return new Observable(subscriber => {
             if (!this._baseConfig)
-                this._baseConfig = httpRequestContainer.getConfig();
+                this._baseConfig = httpRequestContainer.getConfig() || {};
             if (!this._serviceContainers)
                 this._serviceContainers = getInstanceContainer(this);
             let serviceContainer = this._serviceContainers.filter(t => t.type == "http")[0]
             let request = requestBody(method, this._baseConfig, serviceContainer, config, this);
             if (request) {
-                let response = new RxHttpResponse(request, this.getFilters(), this.getInMemoryFilter(), this.onError || this._baseConfig.onError, this.badRequest);
+                let error = this._baseConfig ? this._baseConfig.onError : null;
+                let response = new RxHttpResponse(request, this.getFilters(), this.getInMemoryFilter(), this.onError || error, this.badRequest);
                 response.process('subscribe', subscriber);
             } else {
                 subscriber.next(null);
@@ -79,23 +80,23 @@ export class RxHttp {
     }
 
 
-    get<T>(config?: HttpRequestConfig): Observable<T>  {
+    get<T>(config?: HttpRequestConfig | string): Observable<T>  {
         return this.request('GET', config);
     }
 
-    post<T>(config: HttpRequestBodyConfig): Observable<T>  {
+    post<T>(config: HttpRequestBodyConfig | string): Observable<T>  {
         return this.request('POST', config);
     }
 
-    put<T>(config: HttpRequestBodyConfig): Observable<T> {
+    put<T>(config: HttpRequestBodyConfig | string): Observable<T> {
         return this.request('PUT', config);
     }
 
-    patch<T>(config: HttpRequestBodyConfig): Observable<T>  {
+    patch<T>(config: HttpRequestBodyConfig | string): Observable<T>  {
         return this.request('PATCH', config);
     }
 
-    delete<T>(config: HttpRequestBodyConfig): Observable<T>  {
+    delete<T>(config: HttpRequestBodyConfig | string): Observable<T>  {
         return this.request('DELETE', config);
     }
 }

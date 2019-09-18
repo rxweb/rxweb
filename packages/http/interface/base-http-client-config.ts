@@ -5,6 +5,5 @@ import { HostUriConfig } from './host-uri-config'
 export interface BaseHttpClientConfig {
     hostURIs: HostUriConfig[];
     filters?: XhrFilterConfig[];
-    onError: (response: HttpResponse) => void;
-    isProductionEnvironment: boolean;
+    onError?: (response: HttpResponse) => void;
 }

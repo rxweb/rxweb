@@ -1,9 +1,9 @@
 ﻿import { isFormData, isBlob, isArrayBuffer } from "../functions/util";
+import { createQueryPath } from "../functions/request-body";
 
 export class HttpRequest {
     constructor(
         public body: any,
-        public fullPath: string,
         public headers: { [key: string]: any },
         public host: string,
         isHttps: boolean,
@@ -13,12 +13,17 @@ export class HttpRequest {
         public queryParams: { [key: string]: any },
         public responseType: string,
         public scheme: string,
+        fullPath?: string,
     ) {
         if (!responseType)
             this.responseType = 'json';
         this.isHttps = isHttps;
+        if (fullPath)
+            this.fullPath = fullPath;
     }
     private _isHttps: boolean;
+
+    private _fullPath: string;
 
     get isHttps() {
         return this._isHttps;
@@ -28,6 +33,14 @@ export class HttpRequest {
         this._isHttps = value;
         if (value)
             this.fullPath = this.fullPath.replace("http:", "https:");
+    }
+
+    get fullPath() {
+        return this._fullPath ? this.fullPath : `${this.host}/${this.path}${createQueryPath({ params: this.params, queryParams: this.queryParams })}`;
+    }
+
+    set fullPath(value) {
+        this._fullPath = value;
     }
 
     getContentType() {

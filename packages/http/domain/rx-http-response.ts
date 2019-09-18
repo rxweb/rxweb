@@ -28,12 +28,16 @@ export class RxHttpResponse {
     }
 
     private callFilter(filterConfig: XhrFilterConfig) {
-        let modelInstance = createInstance(filterConfig.model, filterConfig.args || []) as any;
-        modelInstance.onRequestExecuting = this.onRequestExecuting()
-        this._index++;
-        modelInstance.onRequest(new XhrContext(this.request, new HttpResponse()));
-        if (modelInstance["onResponse"])
-            this._onResponse.push(modelInstance);
+        if (!filterConfig.runsOn || filterConfig.runsOn.indexOf(this.request.method) != -1) {
+            let modelInstance = createInstance(filterConfig.model, filterConfig.args || []) as any;
+            modelInstance.onRequestExecuting = this.onRequestExecuting()
+            this._index++;
+            modelInstance.onRequest(new XhrContext(this.request, new HttpResponse()));
+            if (modelInstance["onResponse"])
+                this._onResponse.push(modelInstance);
+        } else
+            this._index++;
+        
     }
 
     private onComplete(resultType: string, onSuccess: any) {

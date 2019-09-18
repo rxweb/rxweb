@@ -1,4 +1,4 @@
 export interface HttpConfig {
-    hostKey: string;
+    hostKey?: string;
     path?: string;
 }
