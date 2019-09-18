@@ -1,6 +1,6 @@
 import { ServiceContainerConfig } from "../interface/service-container-config";
-import { HttpRequestConfig} from "../interface/http-request-config";
-import { HttpRequest, HttpResponse } from '../models'
+import { HttpRequestConfig } from "../interface/http-request-config";
+import { HttpRequest} from '../models/http-request'
 import { HttpRequestBodyConfig } from "../interface/http-request-body-config";
 import { BaseHttpClientConfig } from "../interface/base-http-client-config";
 
@@ -50,23 +50,5 @@ function getHostUri(baseConfig: BaseHttpClientConfig, serviceContainer: ServiceC
         return baseConfig.hostURIs.filter(t => t.default == true)[0].uri;
 }
 
-export function createQueryPath(config: HttpRequestConfig) {
-    return  `${getParams(config)}${getQueryParams(config)}`;
-}
 
-function getParams(config: HttpRequestConfig) {
-    let params = '';
-    if (config && config.params)
-        params = `/${config.params.join('/')}`;
-    return params;
-}
-
-function getQueryParams(config:HttpRequestConfig) {
-    let queryParams = '?';
-    if (config && config.queryParams)
-        Object.keys(config.queryParams).forEach(key => {
-            queryParams += `${key}=${config.queryParams[key]}&`
-        })
-    return queryParams.slice(0, queryParams.length - 1);
-}
 

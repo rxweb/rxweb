@@ -1,5 +1,5 @@
 ﻿import { isFormData, isBlob, isArrayBuffer } from "../functions/util";
-import { createQueryPath } from "../functions/request-body";
+import { createQueryPath } from "../functions/create-query-path";
 
 export class HttpRequest {
     constructor(
