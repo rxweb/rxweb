@@ -4,6 +4,6 @@ export interface OverrideConfigProp{
     hide?:PropertyDescriptor;
     disabled?:PropertyDescriptor;
     description?:PropertyDescriptor;
-    readonly?:PropertyDecorator;
-    class?:PropertyDecorator;
+    readonly?: PropertyDescriptor;
+    class?: PropertyDescriptor;
     }
