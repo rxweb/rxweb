@@ -24,7 +24,7 @@ export function jsonValidator(configModel: DefaultConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
     let config = getConfigObject(configModel,control);
     if (ValidatorValueChecker.pass(control, config)) {
-      if (process(control.value))
+      if (!process(control.value))
         return ObjectMaker.toJson(AnnotationTypes.json, config, [control.value]);
     }
     return ObjectMaker.null();
