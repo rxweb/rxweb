@@ -31,9 +31,9 @@ export class JsonInfo {
        () => {
        let jsonInfo = new JsonInfo();
        let formGroup = formBuilder.formGroup(jsonInfo);
-       formGroup.controls.location.setValue("{'CountryName':'India'}");
-       formGroup.controls.addressJson.setValue("{'Country':'India'}");
-       expect(formGroup.controls.addressJson.errors).toBeNull();
+       formGroup.controls.location.setValue('{"CountryName":"India"}');
+       
+           expect(formGroup.controls.location.errors).toBeNull();
       });
 
       })
