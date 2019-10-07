@@ -1,6 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\packages",
+    "\\packages\\reactive-form-validators",
+    "\\packages\\reactive-form-validators\\enums",
+    "\\packages\\reactive-form-validators\\models",
+    "\\packages\\reactive-form-validators\\models\\config",
+    "\\packages\\reactive-form-validators\\reactive-form-validators",
+    "\\packages\\reactive-form-validators\\util",
+    "\\packages\\reactive-form-validators\\validators-function",
+    "\\src"
   ],
+  "SelectedNode": "\\packages\\reactive-form-validators\\reactive-form-validators\\url.validator.ts",
   "PreviewInSolutionExplorer": false
 }
