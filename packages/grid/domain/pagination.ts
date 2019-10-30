@@ -122,9 +122,7 @@ export class Pagination extends Collection {
     private updatePagination() {
         var pageConfigLength = this.paginationConfigs.length;
         var pages = this.getPages();
-        this.paginationConfigs[0].value.disabled = this.currentPage == 1;
         for (var i = 0, j = pages.length; i < j; i++) {
-            
             if (pageConfigLength > i)
                 this.paginationConfigs[i].setValue({ text: pages[i], active: this.currentPage == pages[i] });
             else {
@@ -134,7 +132,7 @@ export class Pagination extends Collection {
             }
         }
         if (pages.length < this.paginationConfigs.length) 
-            this.removeItem(this.paginationConfigs,pages.length, this.paginationConfigs.length - (pages.length-1), "list-item")
+            this.removeItem(this.paginationConfigs,pages.length, this.paginationConfigs.length, "list-item")
     }
 
     protected changeSource() {
