@@ -19,7 +19,7 @@ import { RxwebValidators,ReactiveFormConfig  } from '../../../packages/reactive-
         let formGroup = formBuilder.group({
             location:['',RxwebValidators.json()]
         })
-        formGroup.controls.location.setValue("{'Country':'India'}");
+        formGroup.controls.location.setValue('{"Country":"India"}');
         expect(formGroup.controls.location.errors).toBeNull();
     });
 

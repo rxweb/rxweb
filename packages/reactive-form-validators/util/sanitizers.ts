@@ -1,6 +1,7 @@
 ﻿import { DateProvider } from './date-provider'
 import { ApplicationUtil } from './app-util';
 import { SanitizeConfig } from '../models/config/sanitize-config'
+import { ReactiveFormConfig } from "./reactive-form-config";
 
 function isNotBlank(value: any) {
     return (value !== undefined && value !== null && value !== "");
@@ -49,9 +50,16 @@ function toBoolean(value: any, strict: boolean) {
 }
 
 function toFloat(value: any) {
-    if (isNotBlank(value))
-        if (ApplicationUtil.isNumeric(value))
-            return parseFloat(value)
+    if (isNotBlank(value)) {
+        var decimalSymbol = '.';
+        if (ReactiveFormConfig && ReactiveFormConfig.number) {
+            decimalSymbol = (ReactiveFormConfig.json && ReactiveFormConfig.json.allowDecimalSymbol) ? ReactiveFormConfig.json.allowDecimalSymbol : ReactiveFormConfig.number.decimalSymbol;
+        }
+            if (decimalSymbol == ',' && typeof value == "string")
+                value = value.replace(',', '.');
+            if (ApplicationUtil.isNumeric(value))
+                return parseFloat(value)
+    }
     return null;
 }
 function toDouble(value: any) {

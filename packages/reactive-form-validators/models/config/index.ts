@@ -30,3 +30,4 @@ export * from './image-config';
 export * from './unique-config';
 export * from './disable-config';
 export * from './component-config'
+export * from './url-config'
