@@ -6,7 +6,7 @@ export function customTemplateParser(configuredTemplate: CustomTemplateConfig, c
     var replacers: { [key: string]: any } = { columnName: columnConfig.name };
     if (configuredTemplate.replacers)
         Object.keys(configuredTemplate.replacers).forEach(t => replacers[t] = configuredTemplate.replacers[t]);
-    var template = GridCustomTemplate.get(configuredTemplate.templateName);
+    var template = GridCustomTemplate.getTemplate(configuredTemplate.templateName);
     return template ? parse(template, replacers, columnConfig,true) : undefined;
 }
 

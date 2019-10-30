@@ -5,10 +5,10 @@ export class GridCustomTemplate {
 
     static register(templates: { [key: string]: TemplateConfig }) {
         if(templates)
-            Object.keys(templates).forEach(templateKey => this.customTemplates[templateKey] = templates[templateKey]);
+            Object.keys(templates).forEach(templateKey => GridCustomTemplate.customTemplates[templateKey] = templates[templateKey]);
     }
 
-    static get(templateName: string) {
-        return this.customTemplates[templateName];
+    static getTemplate(templateName: string) {
+        return GridCustomTemplate.customTemplates[templateName];
     }
 }
