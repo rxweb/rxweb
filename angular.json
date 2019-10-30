@@ -291,6 +291,102 @@
           }
         }
       }
+    },
+    "@rxweb/core": {
+      "root": "packages/core",
+      "sourceRoot": "packages/core",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/core/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/core/tsconfig.lib.json",
+              "packages/core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/dom": {
+      "root": "packages/dom",
+      "sourceRoot": "packages/dom",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/dom/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/dom/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/dom/tsconfig.lib.json",
+              "packages/dom/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/grid": {
+      "root": "packages/grid",
+      "sourceRoot": "packages/grid",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/grid/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/grid/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/grid/tsconfig.lib.json",
+              "packages/grid/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
 

@@ -197,6 +197,10 @@ export class List<T>  {
         return this._entities.pop();
     }
 
+    indexOf(element: T) {
+        return this._entities.indexOf(element);
+    }
+
     remove(element: T): boolean {
         return this._entities.indexOf(element) !== -1 ? (this.removeAt(this._entities.indexOf(element)), true) : false;
     }
@@ -242,7 +246,37 @@ export class List<T>  {
     }
 
     take(amount: number): List<T> {
-        return this._entities.slice(0, Math.max(0, amount)) as any;
+        return new List(this._entities.slice(0, Math.max(0, amount)), this.model) as any;
+    }
+
+    search(value:any,filterColumns:string[]):List<T> {
+        var filter = [];
+        this._entities.forEach(t => {
+            if (this.wildcardSearch(t, value, filterColumns))
+                filter.push(t);
+        });
+        return new List<T>(filter, this.model);
+    }
+
+    private wildcardSearch(row: any, prefix: any,filterColumns:string[]): boolean {
+        let isMatched = false;
+            for (var i = 0, j = filterColumns.length; i < j; i++) {
+            var t = filterColumns[i];
+            var columnValue = String(row[t]);
+            if (this.isExist(columnValue, prefix)) {
+                isMatched = true;
+                break;
+            }
+        }
+        return isMatched;
+    }
+
+    private isExist(columnValue: string, prefix: any) {
+
+        if (columnValue == null) {
+            return false;
+        }
+        return String(columnValue).toLowerCase().includes(String(prefix).toLowerCase());
     }
 
     get toLocaleString() {

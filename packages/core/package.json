@@ -1,0 +1,20 @@
+{
+  "name": "@rxweb/dom",
+  "version": "#version",
+  "keywords": [
+    "angular "
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/core#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
+  },
+  "homepage": "https://rxweb.io",
+  "license": "MIT",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

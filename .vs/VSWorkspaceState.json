@@ -1,6 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\packages",
+    "\\packages\\grid",
+    "\\packages\\grid\\interface\\config",
+    "\\packages\\grid\\template\\table",
+    "\\packages\\reactive-dynamic-forms\\form-designer",
+    "\\packages\\reactive-dynamic-forms\\functions",
+    "\\packages\\reactive-dynamic-forms\\models",
+    "\\packages\\reactive-dynamic-forms\\modules",
+    "\\packages\\reactive-dynamic-forms\\services"
   ],
+  "SelectedNode": "\\src\\app",
   "PreviewInSolutionExplorer": false
 }

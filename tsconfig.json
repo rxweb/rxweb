@@ -18,7 +18,10 @@
       "@rxweb/reactive-dynamic-forms": [ "packages/reactive-dynamic-forms" ],
       "@rxweb/sanitizers": [ "packages/sanitizers" ],
       "@rxweb/generics": [ "packages/generics" ],
-      "@rxweb/http": [ "packages/http" ]
+      "@rxweb/http": [ "packages/http" ],
+      "@rxweb/core": [ "packages/core" ],
+      "@rxweb/grid": [ "packages/grid" ],
+      "@rxweb/dom": [ "packages/dom" ]
 
     },
     "lib": [
