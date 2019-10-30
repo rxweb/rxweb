@@ -17,7 +17,7 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
   @Input('rxwebForm') ngForm;
 
   ngAfterContentInit(): void {
-    if (this.formGroup && !this.formGroup[MODEL] && this.formGroup.parent == null) {
+      if (this.formGroup && !this.formGroup[MODEL] && this.formGroup.parent == null) {
       this.expressionProcessor(this.formGroup.controls);
       this.setConditionalValidator(this.formGroup.controls)
     } else if (this.ngForm) {
@@ -83,22 +83,22 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
 
   private setConditionalValidator(controls) {
     Object.keys(controls).forEach(fieldName => {
-      if (this.validationRule.conditionalValidationProps && this.validationRule.conditionalValidationProps[fieldName]) {
-        controls[fieldName][CONDITIONAL_VALIDATOR] = conditionalChangeValidator(this.validationRule.conditionalValidationProps[fieldName]);
-      } else if (controls[fieldName] instanceof FormGroup && this.validationRule.conditionalObjectProps) {
-          var fields = this.validationRule.conditionalObjectProps.filter(t => t.objectPropName == fieldName);
-          let nestedFormGroup = controls[fieldName] as FormGroup;
-          let propWiseConditionalControls: { [key: string]: string[] } = {};
-          fields.forEach(x => {
-              if (!propWiseConditionalControls[x.propName])
-                  propWiseConditionalControls[x.propName] = [];
-              propWiseConditionalControls[x.propName].push(x.referencePropName);
-          });
-          Object.keys(propWiseConditionalControls).forEach(key => {
-              nestedFormGroup.controls[key][CONDITIONAL_VALIDATOR] = conditionalChangeValidator(propWiseConditionalControls[key]);
-          })
+        if (this.validationRule.conditionalValidationProps && this.validationRule.conditionalValidationProps[fieldName]) {
+            controls[fieldName][CONDITIONAL_VALIDATOR] = conditionalChangeValidator(this.validationRule.conditionalValidationProps[fieldName]);
+        } else if (controls[fieldName] instanceof FormGroup && this.validationRule.conditionalObjectProps) {
+            var fields = this.validationRule.conditionalObjectProps.filter(t => t.objectPropName == fieldName);
+            let nestedFormGroup = controls[fieldName] as FormGroup;
+            let propWiseConditionalControls: { [key: string]: string[] } = {};
+            fields.forEach(x => {
+                if (!propWiseConditionalControls[x.propName])
+                    propWiseConditionalControls[x.propName] = [];
+                propWiseConditionalControls[x.propName].push(x.referencePropName);
+            });
+            Object.keys(propWiseConditionalControls).forEach(key => {
+                nestedFormGroup.controls[key][CONDITIONAL_VALIDATOR] = conditionalChangeValidator(propWiseConditionalControls[key]);
+            })
 
-      }
+        } ///bug here
     });
   }
 
