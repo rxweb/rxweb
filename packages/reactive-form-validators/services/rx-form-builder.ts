@@ -317,7 +317,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                         let propModelInstance = super.createInstance();
                         entityObject[propName] = {};
                         entityObject[propName].constructor = propModelInstance.constructor;
-                        defaultContainer.initPropertyObject(propName, OBJECT_PROPERTY, entityObject[propName].constructor, modelInstance);
+                        defaultContainer.initPropertyObject(propName, OBJECT_PROPERTY, entityObject[propName].constructor, modelInstance.constructor == Function ? { constructor: modelInstance } : modelInstance);
                         let objectValidationConfig = this.getValidatorConfig(validatorConfig, groupObject, propName + ".")
                         this.createValidatorFormGroup(groupObject[propName], entityObject[propName], entityObject[propName].constructor, objectValidationConfig);
                     } else entityObject[propName] = groupObject[propName];
