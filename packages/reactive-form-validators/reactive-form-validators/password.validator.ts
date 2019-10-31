@@ -10,12 +10,15 @@ import { AnnotationTypes } from "../core/validator.static";
 import { PASSWORD_CONFIG } from "../const/config-names.const";
 export function passwordValidator(configModel: PasswordConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
-    let config = getConfigObject(configModel,control,PASSWORD_CONFIG);
+      let config = getConfigObject(configModel, control, PASSWORD_CONFIG);
     let controlValue = control.value;
     if (RegexValidator.isNotBlank(controlValue)) {
-      let validation = RegexValidator.isValidPassword(config.validation, controlValue);
+        let validation = RegexValidator.isValidPassword(config.validation, controlValue);
+        let jObject:any = {};
+        jObject.message = (config.message && config.message[validation.keyName]) ? config.message[validation.keyName] : undefined;
+        jObject.messageKey = (config.messageKey && config.messageKey[validation.keyName]) ? config.messageKey[validation.keyName] : undefined;
       if (!validation.isValid)
-        return ObjectMaker.toJson(AnnotationTypes.password, config, [controlValue])
+        return ObjectMaker.toJson(AnnotationTypes.password, jObject, [controlValue])
     }
     return ObjectMaker.null();
 

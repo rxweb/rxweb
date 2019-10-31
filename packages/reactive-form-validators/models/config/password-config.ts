@@ -1,5 +1,12 @@
 import { PasswordValidation } from "../index";
-import { BaseConfigFn } from './base-config-fn';
-export interface PasswordConfig extends BaseConfigFn<PasswordConfig>  {
+import { PasswordValidationMessage } from "../password-validation.model";
+export interface PasswordConfig {
     validation?: PasswordValidation;
+    conditionalExpression?: string | Function;
+    message?: PasswordValidationMessage;
+    messageKey?: PasswordValidationMessage;
+    dynamicConfig?: (
+        parent: { [key: string]: any },
+        root: { [key: string]: any },
+        config: any) => any
 }

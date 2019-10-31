@@ -16,3 +16,21 @@ export interface PasswordValidation {
 
     maxLength?: number;
 }
+export interface PasswordValidationMessage {
+
+    digit?: string;
+
+    alphabet?: string;
+
+    contains?: string;
+
+    lowerCase?: string;
+
+    upperCase?: string;
+
+    specialCharacter?: string;
+
+    minLength?: string;
+
+    maxLength?: string;
+}
