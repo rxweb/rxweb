@@ -8,12 +8,13 @@ import { HtmlControlTemplateDirective} from '../directives/html-control-template
 import { ControlHostDirective} from '../directives/control-host.directive'
 import {RxFormControlDirective  } from "../directives/template-validations/rxformcontrol.directive"
 import {FileControlDirective } from "../directives/template-validations/file-control.directive"
-import {ImageFileControlDirective} from "../directives/template-validations/image-file-control.directive"
+import { ImageFileControlDirective } from "../directives/template-validations/image-file-control.directive"
+import { AsyncValidationDirective } from "../directives/template-validations/async-validation.directive"
 @NgModule({
-    declarations: [RxwebFormDirective, HtmlControlTemplateDirective,ControlHostDirective,RxFormControlDirective,FileControlDirective,ImageFileControlDirective  ],
+    declarations: [RxwebFormDirective, HtmlControlTemplateDirective, ControlHostDirective, RxFormControlDirective, FileControlDirective, ImageFileControlDirective, AsyncValidationDirective  ],
     imports: [CommonModule,FormsModule, ReactiveFormsModule],
     providers: [RxFormBuilder,DecimalProvider, DecimalPipe],
-    exports:[RxwebFormDirective,HtmlControlTemplateDirective,RxFormControlDirective,FileControlDirective ,ImageFileControlDirective ]
+    exports: [AsyncValidationDirective,RxwebFormDirective,HtmlControlTemplateDirective,RxFormControlDirective,FileControlDirective ,ImageFileControlDirective ]
 })
 export class RxReactiveFormsModule {
     static forRoot(): ModuleWithProviders { return { ngModule: RxReactiveFormsModule, providers: [] }; }
