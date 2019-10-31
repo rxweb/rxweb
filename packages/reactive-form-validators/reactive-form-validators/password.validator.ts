@@ -15,8 +15,8 @@ export function passwordValidator(configModel: PasswordConfig): ValidatorFn {
     if (RegexValidator.isNotBlank(controlValue)) {
         let validation = RegexValidator.isValidPassword(config.validation, controlValue);
         let jObject:any = {};
-        jObject.message = (config.message && config.message[validation.keyName]) ? config.message[validation.keyName] : undefined;
-        jObject.messageKey = (config.messageKey && config.messageKey[validation.keyName]) ? config.messageKey[validation.keyName] : undefined;
+        jObject.message = (config.message && config.message[validation.keyName]) ? config.message[validation.keyName] : config.message;
+        jObject.messageKey = (config.messageKey && config.messageKey[validation.keyName]) ? config.messageKey[validation.keyName] : config.messageKey;
       if (!validation.isValid)
         return ObjectMaker.toJson(AnnotationTypes.password, jObject, [controlValue])
     }
