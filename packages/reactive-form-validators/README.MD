@@ -933,17 +933,17 @@ Pattern validation will allow user to enter the input which match the predefined
 > Reactive Form Validation
 ```js
 this.userFormGroup = this.formBuilder.group({
-            userName:['', RxwebValidators.pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} })], 
+            userName:['', RxwebValidators.pattern({expression:{'onlyAlpha': /^[A-Za-z]+$/} })], 
         });
 ```       
 > Template Form Validation
 ```html
  <input id="userName" name="userName" class="form-control"
-         [(ngModel)]="user.userName" [pattern]='{"pattern":{'onlyAlpha': RegExp('/^[A-Za-z]+$/')}}' >
+         [(ngModel)]="user.userName" [pattern]='{"expression":{'onlyAlpha': /^[A-Za-z]+$/}}' >
 ```
 > Decorator Based Validation
 ```js
-	@pattern({pattern:{'onlyAlpha': RegExp('/^[A-Za-z]+$/')} }) userName: string;
+	@pattern({expression:{'onlyAlpha': /^[A-Za-z]+$/} }) userName: string;
 ```
 ___
 ## port
