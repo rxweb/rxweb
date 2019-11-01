@@ -17,7 +17,8 @@
 *.launch
 .settings/
 *.sublime-workspace
-
+/.vs/*
+/.vs/slnx.sqlite-journal
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
