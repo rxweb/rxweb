@@ -12,4 +12,5 @@ export interface PropObjectConfig extends PropConfig {
 export interface PropArrayConfig extends PropObjectConfig {
     allowMaxIndex?: number;
     messageKey?: string;
+    createBlank?: boolean;
 }

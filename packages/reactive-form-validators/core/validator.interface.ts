@@ -35,6 +35,7 @@ export interface PropertyInfo {
     arrayConfig?: {
         allowMaxIndex?: number;
         messageKey?: string;
+        createBlank?: boolean;
     }
 }
 

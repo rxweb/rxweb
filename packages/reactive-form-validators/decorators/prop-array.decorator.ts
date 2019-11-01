@@ -16,7 +16,7 @@ export function propArray<T>(entity?: Type<T>, config?: PropArrayConfig ) {
             dataPropertyName: config ? config.name : undefined,
             entityProvider: config ? config.entityProvider : undefined,
             arrayConfig: config ? {
-                allowMaxIndex: config.allowMaxIndex, messageKey: config.messageKey
+                allowMaxIndex: config.allowMaxIndex, messageKey: config.messageKey, createBlank: config.createBlank
             } : undefined
         }
         defaultContainer.addProperty(target.constructor, propertyInfo);

@@ -472,6 +472,8 @@ export class RxFormBuilder extends BaseFormBuilder {
                             this.isNestedBinding = this.isNested = false;
                         } else if (arrayObjectValue instanceof FormArray)
                             formGroupObject[property.name] = arrayObjectValue;
+                        else if (property.arrayConfig && property.arrayConfig.createBlank)
+                            formGroupObject[property.name] = new RxFormArray([], [], null, null, property.arrayConfig)
                         break;
                 }
             }
