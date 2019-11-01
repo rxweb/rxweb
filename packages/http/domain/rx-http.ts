@@ -63,13 +63,13 @@ export class RxHttp {
     lookup<T>(configs: LookupHttpRequestConfig[]): Observable<T> {
         return new Observable(subscriber => {
             let propNames: string[] = [];
-            let subscriptions: Subscription[] = [];
+            let subscriptions: Observable<T>[] = [];
             configs.forEach(t => {
                 propNames.push(t.propName);
-                subscriptions.push(this.get(t).subscribe());
+                subscriptions.push(this.get(t));
             });
             forkJoin(subscriptions).subscribe(t => {
-                let jObject:any = {};
+                let jObject: any = {};
                 propNames.forEach((x, i) => {
                     jObject[x] = t[i];
                 })
