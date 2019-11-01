@@ -64,7 +64,7 @@ export class Collection {
 
     private sourceKeyValue: { [key: string]: any } = {};
 
-    protected mapWithModel(source: any[]) {
+    protected mapWithModel(source: any[],isDispatchEvent:boolean = true) {
         var gridSourceLength = this._gridSource.length;
         for (var i = 0, j = source.length; i < j; i++) {
             var key = source[i][this.primaryKey];
@@ -86,6 +86,7 @@ export class Collection {
             else {
                 var row = new Item(source[i], this.columns);
                 this._gridSource.push(row);
+                if (isDispatchEvent)
                 this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i, identity:'tbody-id' });
             }
         }

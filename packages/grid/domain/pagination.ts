@@ -11,7 +11,7 @@ export class Pagination extends Collection {
 
     footerDesignClass: FooterDesignClass;
 
-    _maxPerPage: number = 5;
+    private _maxPerPage: number = 5;
 
     maxNavigationPage: number = 5;
 
@@ -21,9 +21,9 @@ export class Pagination extends Collection {
 
     currentPage: number;
 
-    startCount: number = 1;
+    private startCount: number = 1;
 
-    endCount: number = this.maxPerPage;
+    private endCount: number = this.maxPerPage;
 
     private get numberOfPages(): number {
         return Math.ceil(this.bindingSource.length / this.maxPerPage)
@@ -37,7 +37,7 @@ export class Pagination extends Collection {
 
     set maxPerPage(value: number) {
         this._maxPerPage = value;
-        
+        this.updateStartEndCount();       
     }
 
     get maxPerPage() {

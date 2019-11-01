@@ -19,6 +19,7 @@ export class GridDesigner extends GridTemplate {
 
     design(element: HTMLElement) {
         this.element = element;
+       this.bindSource();
         var template = table({
             allowSorting: this.allowSorting,
             classConfig: this.designClass,
