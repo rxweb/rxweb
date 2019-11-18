@@ -8,6 +8,7 @@ import { AlphaConfig } from "../models/config/alpha-config";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import { getConfigObject } from "../util/config-provider";
 import { alphabet, alphaWithWhitespace, alphanumeric, alphanumericWithWitespace } from "../util/alphabet-regex.locale";
+import { ReactiveFormConfig } from "..";
 
 export function alphaValidation(
     configModel: AlphaConfig,
@@ -30,19 +31,20 @@ export function alphaValidation(
 function getRegex(key: string, regExps: RegExp[], config: any) {
     switch (key) {
         case "alpha":
+            var alphaLocale = config.locale ? config.locale : ReactiveFormConfig.json && ReactiveFormConfig.json.defaultValidationLocale && ReactiveFormConfig.json.defaultValidationLocale.alpha ? ReactiveFormConfig.json.defaultValidationLocale.alpha : "";
             return [
-                config.locale && config.locale in alphabet ? alphabet[config.locale] : regExps[0],
-                config.locale && config.locale in alphaWithWhitespace ? alphaWithWhitespace[config.locale] : regExps[1]
+                alphaLocale && alphaLocale in alphabet ? alphabet[alphaLocale] : regExps[0],
+                alphaLocale && alphaLocale in alphaWithWhitespace ? alphaWithWhitespace[alphaLocale] : regExps[1]
             ]
             break;
         case "alphaNumeric":
+            var alphaNumericLocale = config.locale ? config.locale : ReactiveFormConfig.json && ReactiveFormConfig.json.defaultValidationLocale && ReactiveFormConfig.json.defaultValidationLocale.alphaNumeric ? ReactiveFormConfig.json.defaultValidationLocale.alphaNumeric : "";
             return [
-                config.locale && config.locale in alphanumeric ? alphanumeric[config.locale] : regExps[0],
-                config.locale && config.locale in alphanumericWithWitespace ? alphanumericWithWitespace[config.locale] : regExps[1]
+                alphaNumericLocale && alphaNumericLocale in alphanumeric ? alphanumeric[alphaNumericLocale] : regExps[0],
+                alphaNumericLocale && alphaNumericLocale in alphanumericWithWitespace ? alphanumericWithWitespace[alphaNumericLocale] : regExps[1]
             ]
             break;
     }
-
 }
 
 
