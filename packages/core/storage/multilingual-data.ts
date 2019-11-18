@@ -1,17 +1,31 @@
-export class MultiLingualData{
-    private static data: { [key: string]: any } = {};
+export const MultiLingualData:
+    {
+        addOrUpdate(key: string, data: { [key: string]: any }): any,
+        get(path: string): string,
+    } = new (class {
 
-    static current: { [key: string]: any } = {};
+        private data: { [key: string]: any } = {};
 
-    static addOrUpdate(key: string, data: { [key: string]: any }) {
-        this.current = this.data[key] = data;
-    }
+        current: { [key: string]: any } = {};
 
-    static setAsCurrent(key: string) {
-        this.current = this.data[key];
-    }
+        addOrUpdate(key: string, data: { [key: string]: any }) {
+            this.current = this.data[key] = data;
+        }
 
-    static isExits(key:string) {
-        return this.data[key] !== undefined;
-    }
-}
+        isExits(key: string) {
+            return this.data[key] !== undefined;
+        }
+
+
+         get(path: string): string {
+            if (!this.data) return;
+            var currentObject: any = this.data;
+            let props = path.split(".");
+            for (let prop of props) {
+                currentObject = currentObject[prop]
+                if (currentObject === undefined)
+                    break;
+            }
+            return currentObject === undefined ? '' : currentObject;
+        }
+    });

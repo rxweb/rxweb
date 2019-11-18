@@ -9,5 +9,4 @@ export class RxWebConfig {
     static isExitsMultilingualKey(key: string) {
         return MultiLingualData.isExits(key);
     }
-
 }

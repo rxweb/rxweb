@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/@rxweb/js",
+  "deleteDestPath": false,
+  "lib": {
+    "entryFile": "index.ts",
+    "umdModuleIds": {
+      "@rxweb/dom": "@rxweb/dom",
+      "@rxweb/core": "@rxweb/core"
+    }
+  }
+}

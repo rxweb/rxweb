@@ -25,7 +25,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -380,6 +381,70 @@
             "tsConfig": [
               "packages/grid/tsconfig.lib.json",
               "packages/grid/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/js": {
+      "root": "packages/js",
+      "sourceRoot": "packages/js",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/js/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/js/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/js/tsconfig.lib.json",
+              "packages/js/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/framework": {
+      "root": "packages/framework",
+      "sourceRoot": "packages/framework",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/framework/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/framework/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/js/tsconfig.lib.json",
+              "packages/js/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

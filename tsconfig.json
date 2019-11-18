@@ -21,8 +21,9 @@
       "@rxweb/http": [ "packages/http" ],
       "@rxweb/core": [ "packages/core" ],
       "@rxweb/grid": [ "packages/grid" ],
-      "@rxweb/dom": [ "packages/dom" ]
-
+      "@rxweb/dom": [ "packages/dom" ],
+      "@rxweb/framework": [ "packages/framework" ],
+      "@rxweb/js": [ "packages/js" ]
     },
     "lib": [
       "es2017",

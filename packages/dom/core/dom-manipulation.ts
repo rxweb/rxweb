@@ -8,6 +8,7 @@ export class DomManipulation {
 
     element: any;
     controlId: any;
+    private events: { [key: string]: Function } = {};
 
     constructor(parentNode: any, private elementName: string, private config, private modelObject: { [key: string]: any }, index: number, private additionalConfiguration: { [key: string]: any } = null) {
 
@@ -77,16 +78,19 @@ export class DomManipulation {
     setEvent(event: { [key: string]: Function }) {
         Object.keys(event).forEach(t => {
             if (typeof event[t] === "string") {
-                this.element[t] = (e) => {
+                this.events[t] = (e) => {
                     var eventName: any = event[t];
                     if (this.additionalConfiguration && this.additionalConfiguration.actions && this.additionalConfiguration.actions[eventName]) {
                         let actionMethod = this.additionalConfiguration.actions[eventName];
-                        actionMethod.call(this.modelObject.instance, this.modelObject)
+                        actionMethod.call(this.modelObject.instance, this.modelObject, e)
                     }
-                }
+                };
+                this.element.addEventListener(t, this.events[t])
             }
-            else
-                this.element[t] = event[t];
+            else {
+                this.events[t] = event[t];
+                this.element[t].addEventListener(t, event[t]);
+            }
         })
     }
 
@@ -113,7 +117,7 @@ export class DomManipulation {
                 if (classIndex == -1)
                     this.element.classList.remove(className);
                 else
-                    classNames.splice(0, classIndex);
+                    classNames.splice(classIndex,1);
             }
         }
         classNames.forEach(t => {
@@ -201,6 +205,14 @@ export class DomManipulation {
     }
 
     destroy() {
-        this.element.parentElement.removeChild(this.element);
+        try {
+            if (this.element.removeEventListener)
+                Object.keys(this.events).forEach(key => {
+                    this.element.removeEventListener(key, this.events[key], true);
+                    delete this.events[key];
+                });
+            this.element = null;
+        } catch (ex) { }
+        
     }
 }

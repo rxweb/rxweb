@@ -1,8 +1,9 @@
 import { Pagination } from "./pagination";
+import { Item } from "@rxweb/dom";
 import { EVENTS } from '../const/events.const'
 
 export class SortCollection extends Pagination {
-
+    protected headerColumns: Item[];
     constructor(source: any[], model: Function) {
         super(source, model);
     }
@@ -20,6 +21,10 @@ export class SortCollection extends Pagination {
     }
 
     private sortColumn(data) {
+        this.headerColumns.forEach((t:any) => {
+            if (data.name != t.instance.name)
+                t.instance.isAscending = false;
+        })
         data.isAscending = !data.isAscending;
         this.sort(data.name, data.isAscending);
     }

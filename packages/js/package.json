@@ -1,0 +1,21 @@
+{
+  "name": "@rxweb/js",
+  "version": "#version",
+  "keywords": [
+    "angular reactive dynamic forms",
+    "dynamic forms"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/reactive-dynamic-forms#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
+  },
+  "homepage": "https://rxweb.io",
+  "license": "MIT",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

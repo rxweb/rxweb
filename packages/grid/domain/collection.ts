@@ -8,9 +8,12 @@ import { customTemplateParser } from "../static/custom-template-parser";
 
 export class Collection {
 
+    componentId: string;
+     
+
     private model: Function;
 
-    private primaryKey: string;
+    protected primaryKey: string;
     private _source: any[];
     private _gridSource: Item[];
     private gridConfig: ContainerConfig;

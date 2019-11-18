@@ -7,4 +7,6 @@ export interface TableTemplateConfig{
     eventSubscriber: EventSubscriber;
     allowSorting: boolean;
     gridColumns: GridColumnConfig[];
+    multiLingualPath: string;
+    isRowEvent: boolean;
 }

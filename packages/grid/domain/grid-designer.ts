@@ -19,21 +19,35 @@ export class GridDesigner extends GridTemplate {
 
     design(element: HTMLElement) {
         this.element = element;
-       this.bindSource();
+        this.bindSource();
+        var isRowEvent = this.gridConfiguration && this.gridConfiguration.actions && this.gridConfiguration.actions.onRowSelect !== undefined;
+        if (isRowEvent)
+            this.overrideRowSelect();
         var template = table({
             allowSorting: this.allowSorting,
             classConfig: this.designClass,
             eventSubscriber: this.eventSubscriber,
-            gridColumns: this.gridColumns
+            gridColumns: this.gridColumns,
+            multiLingualPath: this.componentId,
+            isRowEvent: isRowEvent
         }, this.gridSource);
         if (!this.isReDesign)
-        this.pagination();
+            this.pagination();
         var footerTemplate = paginator({ onPageChanging: this.onPageChanging.bind(this), designClass: this.footerDesignClass, dropdownOptions: this.pagingSource, eventSubscriber: this.eventSubscriber, onMaxPerPageChanging: this.onMaxPerPageChanging.bind(this), paginatorSource: this.paginationConfigs });
         this.footerTemplate = footerTemplate;
         this.bodyTemplate = template.bodyTemplate;
         this.headerTemplate = template.headerTemplate;
+        this.headerColumns = template.headerColumns;
         this.createElement(element, 'table', this.tableElementConfig, this, 0);
         this.createChildElements(element, [this.footerTemplate], this, 0);
+    }
+
+    private overrideRowSelect() {
+        var onRowSelect = this.gridConfiguration.actions.onRowSelect;
+        this.gridConfiguration.actions.onRowSelect = (x, y) => {
+            if (y.srcElement.id != "action")
+                onRowSelect(x);
+        }
     }
 
     private createElement(parentElement: HTMLElement, elementName: string, elementConfig: ElementConfig, modelObject: Object, index: number) {
@@ -70,7 +84,7 @@ export class GridDesigner extends GridTemplate {
     private removeRows(rowIndex: { [key: string]: number }) {
         for (var i = rowIndex.start, j = rowIndex.end; i < j; i++) {
             var control = ControlState.elements[`${rowIndex.identity}-${i}`];
-            if (control) 
+            if (control)
                 this.removeChildren(control.element);
         }
     }
@@ -94,7 +108,7 @@ export class GridDesigner extends GridTemplate {
         }
     }
 
-    private getChildTemplate(name:string) {
+    private getChildTemplate(name: string) {
         switch (name) {
             case "tbody-id-0":
                 return this.bodyTemplate.tbody.childrens;

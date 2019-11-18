@@ -37,7 +37,7 @@ export class Pagination extends Collection {
 
     set maxPerPage(value: number) {
         this._maxPerPage = value;
-        this.updateStartEndCount();       
+        this.updateStartEndCount();
     }
 
     get maxPerPage() {
@@ -46,12 +46,12 @@ export class Pagination extends Collection {
 
     next() {
         if ((this.currentPage + 1) < this.numberOfPages)
-            this.goTo(this.currentPage +1);
+            this.goTo(this.currentPage + 1);
     }
 
     previous() {
         if ((this.currentPage + 1) < this.numberOfPages)
-            this.goTo(this.currentPage  -1);
+            this.goTo(this.currentPage - 1);
     }
 
     goTo(pageNumber: number) {
@@ -91,7 +91,7 @@ export class Pagination extends Collection {
         }
         let startIndex = (this.currentPage - 1) * this.maxPerPage;
         let endIndex = Math.min(startIndex + this.maxPerPage - 1, this.length - 1);
-        
+
         return Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
     }
 
@@ -112,12 +112,14 @@ export class Pagination extends Collection {
         this.updateStartEndCount();
     }
 
-    protected onPageChanging(element:Event) {
+    protected onPageChanging(element: Event) {
         this.currentPage = parseInt((<HTMLAnchorElement>element.target).innerText);
         this.changeSource();
         this.updatePagination();
         this.updateStartEndCount();
     }
+
+
 
     private updatePagination() {
         var pageConfigLength = this.paginationConfigs.length;
@@ -126,13 +128,24 @@ export class Pagination extends Collection {
             if (pageConfigLength > i)
                 this.paginationConfigs[i].setValue({ text: pages[i], active: this.currentPage == pages[i] });
             else {
-                var row = new Item({ text: pages[i], disabled: true }, ["text", "disabled","active"]);
+                var row = new Item({ text: pages[i], disabled: true }, ["text", "disabled", "active"]);
                 this.paginationConfigs.push(row);
-                this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i,identity:"pagination" });
+                this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i, identity: "pagination" });
             }
         }
-        if (pages.length < this.paginationConfigs.length) 
-            this.removeItem(this.paginationConfigs,pages.length, this.paginationConfigs.length, "list-item")
+        if (pages.length < this.paginationConfigs.length)
+            this.removeItem(this.paginationConfigs, pages.length, this.paginationConfigs.length, "list-item")
+    }
+
+    remove(id: number) {
+        var item = this.bindingSource.filter(t => t[this.primaryKey] == id)[0];
+        var indexOf = this.bindingSource.indexOf(item);
+        if (indexOf != -1) {
+            this.bindingSource.splice(indexOf, 1);
+            this.changeSource();
+            this.updatePagination();
+            this.updateStartEndCount();
+        }
     }
 
     protected changeSource() {
@@ -149,7 +162,7 @@ export class Pagination extends Collection {
             this.startCount = 1;
             endCount = this.maxPerPage > this.length ? this.length : this.maxPerPage;
         } else {
-            this.startCount = (this.maxPerPage * ((this.currentPage - 1)))+1
+            this.startCount = (this.maxPerPage * ((this.currentPage - 1))) + 1
             endCount = this.maxPerPage * this.currentPage;
             endCount = endCount > this.length ? this.length : endCount;
         }
