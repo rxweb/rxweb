@@ -36,7 +36,7 @@ export class DecimalProvider {
         if (!value) {
             return value;
         }
-        return this.decimalPipe.transform(value.replace(this.decimalSeperator, "."), digitsInfo, this.localeId);
+        return this.decimalPipe.transform(value.replace(ReactiveFormConfig.number.groupSymbol,   "").replace(this.decimalSeperator, "."), digitsInfo, this.localeId);
     }
 
     private setSymbolInConfig() {

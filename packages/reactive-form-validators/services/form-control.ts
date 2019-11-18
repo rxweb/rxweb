@@ -79,7 +79,17 @@ export class RxFormControl extends FormControl {
         this._isModified = false;
         this.keyName = controlName;
         this._errorMessageBindingStrategy = ReactiveFormConfig.get("reactiveForm.errorMessageBindingStrategy") as ErrorMessageBindingStrategy;
-        
+        if (this._sanitizers) {
+            var floatSanitizer = this._sanitizers.filter(t => t.name == "toFloat")[0]
+            if (floatSanitizer && this._baseValue && ReactiveFormConfig.number && ReactiveFormConfig.number.decimalSymbol == ",") {
+                let baseValue = String(this._baseValue);
+                if (baseValue.indexOf('.') != -1) {
+                    this._baseValue = baseValue.replace(".", ReactiveFormConfig.number.decimalSymbol);
+                    super.setValue(this._baseValue);
+                }
+                
+            }
+        }
     }
 
     private getFormState(value) {

@@ -135,10 +135,10 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
         let listener = this.renderer.listen(this.element, BLUR, this.blurEvent.bind(this));
         this.eventListeners.push(listener)
         listener = this.renderer.listen(this.element, FOCUS, (event) => {
+            this.isFocusCalled = true;
             if (!(this.formControl && this.formControl.errors && this.formControl.errors.numeric) && this.formControl.value != null) {
                 let value = this.decimalProvider.replacer(this.element.value);
                 this.setValueOnElement(value);
-                this.isFocusCalled = true;
             }
         });
         this.eventListeners.push(listener)

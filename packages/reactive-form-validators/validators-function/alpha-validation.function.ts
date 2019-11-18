@@ -8,7 +8,7 @@ import { AlphaConfig } from "../models/config/alpha-config";
 import { ValidatorValueChecker } from "../util/validator-value-checker";
 import { getConfigObject } from "../util/config-provider";
 import { alphabet, alphaWithWhitespace, alphanumeric, alphanumericWithWitespace } from "../util/alphabet-regex.locale";
-import { ReactiveFormConfig } from "..";
+import { ReactiveFormConfig } from "../util/reactive-form-config";
 
 export function alphaValidation(
     configModel: AlphaConfig,
