@@ -18,7 +18,7 @@ export function clone(jsonObject: { [key: string]: any }) {
                     else
                         jObject[columnName].push(row)
                 }
-            } else if (typeof jsonObject[columnName] == "object")
+            } else if (typeof jsonObject[columnName] == "object" && !(jsonObject[columnName] instanceof RegExp))
                 jObject[columnName] = clone(jsonObject[columnName]);
             else
                 jObject[columnName] = jsonObject[columnName]
@@ -36,7 +36,7 @@ export function merge(firstObject: { [key: string]: any }, secondObject: { [key:
                     firstObject[columnName] = [];
                 for (let row of secondObject[columnName])
                     firstObject[columnName].push(clone(row))
-            } else if (typeof firstObject[columnName] == "object")
+            } else if (typeof firstObject[columnName] == "object" && !(firstObject[columnName] instanceof RegExp))
                 firstObject[columnName] = merge(firstObject[columnName], secondObject[columnName])
             else
                 firstObject[columnName] = secondObject[columnName];
@@ -51,7 +51,7 @@ export function isMatched(jsonObject: { [key: string]: any }, compareObject: { [
                 for (var i = 0; i < jsonObject[columnName].length; i++) {
                     isModified = isMatched(jsonObject[columnName][i], compareObject[columnName][i])
                 }
-            } else if (typeof jsonObject[columnName] == "object")
+            } else if (typeof jsonObject[columnName] == "object" && !(jsonObject[columnName] instanceof RegExp))
                 isModified = isMatched(jsonObject[columnName], compareObject[columnName]);
             else
                 isModified = !(jsonObject[columnName] == compareObject[columnName]);

@@ -19,6 +19,23 @@ export class User {
 
 }
 
+export class BaseModel {
+
+    static fromPlainObject<T>(this: new () => T, plainObject: Partial<T>): T {
+        return Object.assign(new this(), plainObject);
+    }
+
+    toPlainObject(): Partial<this> {
+        return { ...this }
+    }
+}
+
+export class UserInfo extends BaseModel {
+    @pattern({ expression: { 'validPrice': /^\d+(.\d{1,3})?$/ } })
+    totalAmount: number;
+
+}
+
 
     describe('Decorator', () => {
       let formBuilder = new RxFormBuilder();
@@ -127,7 +144,17 @@ export class User {
 						let formGroup = formBuilder.formGroup(user);
 						formGroup.controls.age.setValue('+12');
 						expect(formGroup.controls.age.errors).toEqual({ 'onlyDigit': { message: '', refValues: ['+12'] } });
-				});
+            });
+
+
+          //https://github.com/rxweb/rxweb/issues/240
+          it("Should error, pattern decorator",
+              () => {
+                  let userInfo = new UserInfo();
+                  let formGroup = formBuilder.formGroup(userInfo);
+                  formGroup.controls.totalAmount.setValue("abc");
+                  expect(formGroup.controls.totalAmount.errors).toEqual({ 'validPrice': { message: '', refValues: ['abc'] } });
+              });
 	//end
 });
 });
