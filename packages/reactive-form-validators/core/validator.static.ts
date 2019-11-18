@@ -66,5 +66,6 @@ export const AnnotationTypes: { [key: string]: string } = {
   or:'or',
   not: 'not',
   minTime: 'minTime',
-  maxTime:'maxTime'
+  maxTime: 'maxTime',
+  requiredTrue:'requiredTrue'
 }

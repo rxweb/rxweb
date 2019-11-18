@@ -30,7 +30,8 @@ import {
     orValidatorExtension,
     notValidatorExtension,
     maxTimeValidatorExtension,
-    minTimeValidatorExtension
+    minTimeValidatorExtension,
+    requiredTrueValidatorExtension
 } from './index'
 
 export class RxwebValidators {
@@ -99,4 +100,5 @@ export class RxwebValidators {
   static readonly not = notValidatorExtension;
   static readonly minTime = minTimeValidatorExtension;
   static readonly maxTime = maxTimeValidatorExtension;
+  static readonly requiredTrue = requiredTrueValidatorExtension;
 }

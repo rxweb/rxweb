@@ -19,7 +19,8 @@ import {
   , gridValidator,
   dateValidator,
   minTimeValidator,
-  maxTimeValidator
+    maxTimeValidator,
+    requiredTrueValidator
 } from '../reactive-form-validators/index';
 
 export const APP_VALIDATORS: { [key: string]: Function } = {
@@ -83,5 +84,6 @@ export const APP_VALIDATORS: { [key: string]: Function } = {
     "grid":gridValidator,
     "date": dateValidator,
     "minTime": minTimeValidator,
-    "maxTime":maxTimeValidator
+    "maxTime": maxTimeValidator,
+    "requiredTrue": requiredTrueValidator
 }

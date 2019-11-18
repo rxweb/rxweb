@@ -60,3 +60,4 @@ export * from './grid.validator';
 export * from './date.validator';
 export * from './minTime.validator';
 export * from './maxTime.validator';
+export * from './requiredTrue.validator';
