@@ -3,7 +3,7 @@ export interface ComponentDecoratorConfig{
     decorators: FrameworkDecoratorConfig[];
 }
 
-interface FrameworkDecoratorConfig {
+export interface FrameworkDecoratorConfig {
     type: string;
     config: any;
 }

@@ -4,6 +4,7 @@ import { frameworkContainer } from "./frameworkContainer";
 import { ElementBinder } from "../interface/element-binder";
 import { directiveElement } from "./directive-elements";
 import { DIRECTIVE_MODEL_REFERENCE } from '../const/directive-class-reference'
+import { FrameworkDecoratorConfig } from "../interface/component-decorator-config";
 
 export class CoreComponent extends RxHttp {
     private _componentId: string;
@@ -15,21 +16,48 @@ export class CoreComponent extends RxHttp {
 
     constructor() {
         super()
-        this.languageCode = localStorage.getItem("lcode") || "en";
         var componentPropConfig = frameworkContainer.getDecoratorInfo(this.getConstructor());
         if (componentPropConfig) {
-            var decoratorConfig = componentPropConfig.decorators.filter(t => t.type == "multilingual")[0];
-            if (decoratorConfig)
-                this.componentId = decoratorConfig.config.key;
-        }
-        if (this.componentId) {
-            var data = MultiLingualData.get(`${this.componentId}`)
-            if (!data) {
-                this.httpGetAsync(`assets/localization/${this.componentId}-${this.languageCode}.json`, this.updateMultilingual.bind(this))
+            var multiLingualDecorator = componentPropConfig.decorators.filter(t => t.type == "multilingual")[0];
+            var authorizeDecorator = componentPropConfig.decorators.filter(t => t.type == "authorize")[0];
+            if (authorizeDecorator || multiLingualDecorator) {
                 this.ngOnInitFunc = this["ngOnInit"];
                 this["ngOnInit"] = this.extendNgOnInit.bind(this);
+            }
+            if (authorizeDecorator) {
+                var result = frameworkContainer.authorize.isAuthorize(authorizeDecorator.config);
+                if (typeof result !== "boolean")
+                    result.then(t => {
+                        if (t)
+                            this.callMultilingual(multiLingualDecorator);
+                    });
+                else
+                    if (result && multiLingualDecorator)
+                        this.callMultilingual(multiLingualDecorator);
+                    else if (result)
+                        this.callNgOnInit();
+            } else {
+                this.callMultilingual(multiLingualDecorator);
+            }
+        }
+    }
+
+    private callNgOnInit() {
+        if (this.ngOnInitFunc) {
+            this.ngOnInitFunc();
+        }
+    }
+
+    private callMultilingual(multiLingualDecorator: FrameworkDecoratorConfig) {
+        if (multiLingualDecorator) {
+            this.componentId = multiLingualDecorator.config.key;
+            var result = frameworkContainer.multilingual.load(multiLingualDecorator.config.key);
+            if (typeof result !== "boolean") {
+                result.then(x => {
+                    this.callNgOnInit();
+                })
             } else
-                this.isRequestPassed = true;
+                this.callNgOnInit();
         }
     }
 
@@ -49,39 +77,10 @@ export class CoreComponent extends RxHttp {
         return ctr.__proto__.constructor;
     }
 
-    updateMultilingual(data) {
-        if (data) {
-            try {
-                MultiLingualData.addOrUpdate(this.componentId, JSON.parse(data));
-            } catch (ex) { }
-        }
-            
-        this.isRequestPassed = true;
-        if (this.callOnInit)
-            this.onInit();
-        if (this.ngOnInitFunc) {
-            this.ngOnInitFunc();
-        }
-        
-    }
-
-    httpGetAsync(theUrl, callback) {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-                callback(xmlHttp.responseText);
-            else if (xmlHttp.readyState == 4 && xmlHttp.status == 404)
-                callback();
-        }
-        xmlHttp.open("GET", theUrl, true);
-        xmlHttp.send(null);
-    }
-
     onInit() {
-        var t = setTimeout(() => { 
-        if (this.isRequestPassed) {
+        var t = setTimeout(() => {
             var directiveInfo = directiveElement.get(this.componentId);
-            if (directiveInfo ) {
+            if (directiveInfo) {
                 Object.keys(directiveInfo.directives).forEach(t => {
                     directiveInfo.directives[t].forEach(x => {
                         var model = DIRECTIVE_MODEL_REFERENCE[t];
@@ -93,8 +92,6 @@ export class CoreComponent extends RxHttp {
                     })
                 })
             }
-        } else
-                this.callOnInit = true;
         })
     }
 

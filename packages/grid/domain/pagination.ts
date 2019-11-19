@@ -25,6 +25,16 @@ export class Pagination extends Collection {
 
     private endCount: number = this.maxPerPage;
 
+    private _sourceLength: number;
+
+    private set sourceLength(value: number) {
+        this._sourceLength = value;
+    }
+
+    private get sourceLength() {
+        return this._sourceLength;
+    }
+
     private get numberOfPages(): number {
         return Math.ceil(this.bindingSource.length / this.maxPerPage)
     }
@@ -63,6 +73,7 @@ export class Pagination extends Collection {
         pages.forEach(i => {
             this.paginationConfigs.push(new Item({ text: i, disabled: true, active: this.currentPage == i }, ["text", "disabled", "active"]))
         })
+        this.updateStartEndCount();
     }
 
     private getPages() {
@@ -121,7 +132,7 @@ export class Pagination extends Collection {
 
 
 
-    private updatePagination() {
+    protected updatePagination() {
         var pageConfigLength = this.paginationConfigs.length;
         var pages = this.getPages();
         for (var i = 0, j = pages.length; i < j; i++) {
@@ -140,7 +151,10 @@ export class Pagination extends Collection {
     remove(id: number) {
         var item = this.bindingSource.filter(t => t[this.primaryKey] == id)[0];
         var indexOf = this.bindingSource.indexOf(item);
-        if (indexOf != -1) {
+        var sourceItem = this.source.filter(t => t[this.primaryKey] == id)[0];
+        var itemIndexOf = this.source.indexOf(sourceItem);
+        if (indexOf != -1 && itemIndexOf != -1) {
+            this.source.splice(itemIndexOf, 1);
             this.bindingSource.splice(indexOf, 1);
             this.changeSource();
             this.updatePagination();
@@ -156,16 +170,19 @@ export class Pagination extends Collection {
         this.mapWithModel(source);
     }
 
-    private updateStartEndCount() {
+    protected updateStartEndCount() {
         var endCount = 0;
         if (this.currentPage == 1) {
             this.startCount = 1;
             endCount = this.maxPerPage > this.length ? this.length : this.maxPerPage;
         } else {
             this.startCount = (this.maxPerPage * ((this.currentPage - 1))) + 1
+            if (this.startCount < 0)
+                this.startCount = 0;
             endCount = this.maxPerPage * this.currentPage;
             endCount = endCount > this.length ? this.length : endCount;
         }
         this.endCount = endCount;
+        this.sourceLength = this.bindingSource.length;
     }
 }

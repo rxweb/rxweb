@@ -1,6 +1,6 @@
 import { PaginatorTemplateConfig } from "../interface/config/paginator-template-config";
 import { TemplateConfig } from "..";
-
+import { MultiLingualData } from "@rxweb/core";
 export function paginator(paginatorTemplateConfig: PaginatorTemplateConfig) {
     return {
         div: {
@@ -24,7 +24,7 @@ function paginatorTemplate(paginatorTemplateConfig: PaginatorTemplateConfig) {
                             li: {
                                 id: "list-item",
                                 event: {
-                                    onclick: paginatorTemplateConfig.onPageChanging
+                                    click: paginatorTemplateConfig.onPageChanging
                                 },
                                 class: paginatorTemplateConfig.designClass.paginatorClass.listItemClass,
                                 childrens: [{
@@ -49,7 +49,17 @@ function paginatorTemplate(paginatorTemplateConfig: PaginatorTemplateConfig) {
 
 function textTemplate() {
     return {
-        div: { class: ["col-4"], childrens: [{ text: { text: 'showing ' } }, { text: { text: ':startCount' } }, { text: { text: ' to ' } }, { text: { text: ':endCount' } }, { text: { text: ' of ' } }, { text: { text: ':length' } }, { text: { text: ' entries' }}] }
+        div: {
+            class: ["col-4"],
+            childrens: [
+                { text: { text: MultiLingualData.get(`global.showing_gf`) || 'showing ' } },
+                { text: { text: ':startCount' } },
+                { text: { text: MultiLingualData.get(`global.to_gf`) || ' to ' } },
+                { text: { text: ':endCount' } },
+                { text: { text: MultiLingualData.get(`global.of_gf`) || ' of ' } },
+                { text: { text: ':sourceLength' } },
+                { text: { text: MultiLingualData.get(`global.entries_gf`) || ' entries' } }]
+        }
     };
 }
 
@@ -64,7 +74,7 @@ function dropdownTemplate(paginatorTemplateConfig: PaginatorTemplateConfig) {
                         childrens: [
                             {
                                 text: {
-                                    text: 'Show'
+                                    text: MultiLingualData.get(`global.show_gf`) || 'Show'
                                 }
                             },
                             {
@@ -78,7 +88,7 @@ function dropdownTemplate(paginatorTemplateConfig: PaginatorTemplateConfig) {
                             },
                             {
                                 text: {
-                                    text: 'entries'
+                                    text: MultiLingualData.get(`global.entries_gf`) || 'entries'
                                 }
                             }
                         ]

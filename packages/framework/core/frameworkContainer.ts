@@ -1,21 +1,40 @@
 import { DecoratorConfig, ComponentPropConfig, PropertyInfo } from "../interface/component-prop-config";
 import { ComponentDecoratorConfig } from "../interface/component-decorator-config";
+import { AuthorizeBootstrapConfig } from "../interface/config/authorize-bootstrap-config";
+import { getInstance } from "../functions/get-instance";
+import { IAuthorize } from "../interface/config/i-authorize";
+import { IMultilingual } from "../interface/config/i-multilingual";
 
 export const frameworkContainer:
     {
         get(instanceFunc: any): ComponentPropConfig
         addAnnotation(instanceFunc: any, decoratorConfig: DecoratorConfig): void,
         addDecorator(instance: any, type: string, config: any),
-        getDecoratorInfo(instanceFunc: Function): ComponentDecoratorConfig
+        getDecoratorInfo(instanceFunc: Function): ComponentDecoratorConfig,
+        authorize: IAuthorize,
+        multilingual: IMultilingual
+        setAuthorizeAndMultilingualDecorator(decorators: {
+            authorize?: IAuthorize,
+            multilingual?: IMultilingual
+        }):void
     } = new (class {
         private componentPropConfigs: ComponentPropConfig[] = [];
-        private componentConfigs: ComponentDecoratorConfig[] = []
+        private componentConfigs: ComponentDecoratorConfig[] = [];
+        authorize: IAuthorize;
+        multilingual: IMultilingual;
 
 
+        setAuthorizeAndMultilingualDecorator(decorators: {
+            authorize?: IAuthorize,
+            multilingual?: IMultilingual
+        }) {
+            if (decorators.authorize)
+                this.authorize = getInstance(decorators.authorize, []);
+            if (decorators.multilingual)
+                this.multilingual = getInstance(decorators.multilingual, []);
+        }
 
-
-
-        get(instanceFunc: Function): ComponentPropConfig{
+        get(instanceFunc: Function): ComponentPropConfig {
             let instance: ComponentPropConfig = this.componentPropConfigs.filter(instance => instance.instance === instanceFunc)[0];
             return instance;
         }

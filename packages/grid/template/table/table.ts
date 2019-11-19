@@ -62,7 +62,7 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
                         parameterConfig: { columnConfig: columnConfig },
                         style: columnConfig.style,
                         event: {
-                            onclick: (event) => {
+                            click: (event) => {
                                 templateConfig.eventSubscriber.dispatch(EVENTS.SORTING, headerItem.instance)
                             }
 

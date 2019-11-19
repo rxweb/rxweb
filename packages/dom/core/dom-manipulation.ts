@@ -89,7 +89,7 @@ export class DomManipulation {
             }
             else {
                 this.events[t] = event[t];
-                this.element[t].addEventListener(t, event[t]);
+                this.element.addEventListener(t, event[t]);
             }
         })
     }
@@ -211,6 +211,7 @@ export class DomManipulation {
                     this.element.removeEventListener(key, this.events[key], true);
                     delete this.events[key];
                 });
+            this.element.parentElement.removeChild(this.element);
             this.element = null;
         } catch (ex) { }
         

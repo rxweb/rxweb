@@ -17,9 +17,11 @@ export class FilterCollection extends SortCollection {
     set search(value: any) {
         this._search = value;
         this.searchData(value);
+        this.updatePagination();
+        this.updateStartEndCount();
     }
 
-    private searchData(value: any) {
+    protected searchData(value: any) {
         var filter = [];
         this.source.forEach(t => {
             if (this.wildcardSearch(t, String(value).trim(), this.activeColumns))
@@ -28,7 +30,8 @@ export class FilterCollection extends SortCollection {
         this.bindingSource = filter;
         this.currentPage = 1;
         filter = this.take(this.bindingSource, Math.max(0, this.maxPerPage));
-        this.mapWithModel(filter);``
+        this.mapWithModel(filter);
+        
     }
 
     private wildcardSearch(row: any, prefix: any, filterColumns: string[]): boolean {
