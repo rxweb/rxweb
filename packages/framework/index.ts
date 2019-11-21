@@ -4,3 +4,8 @@ export * from './directives/spinner/spinner.directive';
 export * from './const/rxweb-directives';
 export * from './const/element-custom-properties'
 export * from './core/core-component'
+export * from './interface/config/i-authorize'
+export * from './interface/config/i-multilingual'
+export * from './interface/config/i-filter'
+export * from './interface/config/bootstrap-config'
+export * from './interface/config/authorize-config'

@@ -80,7 +80,7 @@ function dropdownTemplate(paginatorTemplateConfig: PaginatorTemplateConfig) {
                             {
                                 select: {
                                     event: {
-                                        onchange: paginatorTemplateConfig.onMaxPerPageChanging
+                                        change: paginatorTemplateConfig.onMaxPerPageChanging
                                     },
                                     class: paginatorTemplateConfig.designClass.dropDownTemplateClass.controlClass,
                                     childrens: getPagingOptions(paginatorTemplateConfig.dropdownOptions)

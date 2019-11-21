@@ -6,8 +6,8 @@ import { ClassConfig } from "../interface/class-config";
 export abstract class BaseDomProvider {
     protected elements: { [key: number]: DomManipulation } = {};
 
-    createElement(parentElement: HTMLElement, elementName: string, elementConfig: ElementConfig, modelObject: Object, index: number, customEvents: {[key:string]:any}) {
-        var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index);
+    createElement(parentElement: HTMLElement, elementName: string, elementConfig: ElementConfig, modelObject: Object, index: number, customEvents: { [key: string]: any }) {
+        var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, customEvents);
         domManipulation.bind();
         this.elements[domManipulation.controlId] = domManipulation;
         if (elementConfig.sourceItems && elementConfig.childrens)

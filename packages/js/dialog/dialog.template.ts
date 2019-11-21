@@ -20,28 +20,28 @@ export function getDefaultTemplate(dialogClass: DialogClass): TemplateConfig {
                         button: {
                             if: function () { return this.viewMode == DialogViewMode.onlyOk || this.viewMode == DialogViewMode.okWithCancel },
                             class: dialogClass.button.ok,
-                            event: { onclick: 'ok' },
+                            event: { click: 'ok' },
                             childrens: [{ text: { text: ":text.ok" } }]
                         }
                     },
                     {
                         button: {
                             if: function () { return this.viewMode == DialogViewMode.saveAndDontSave },
-                            event: { onclick: 'save' },
+                            event: { click: 'save' },
                             class: dialogClass.button.save, childrens: [{ text: { text: ":text.save" } }]
                         }
                     },
                     {
                         button: {
                             if: function () { return this.viewMode == DialogViewMode.saveAndDontSave },
-                            event: { onclick: 'dontsave' },
+                            event: { click: 'dontsave' },
                             class: dialogClass.button.dontSave, childrens: [{ text: { text: ":text.dontsave" } }]
                         }
                     },
                     {
                         button: {
                             if: function () { return this.viewMode == DialogViewMode.okWithCancel || this.viewMode == DialogViewMode.saveAndDontSave },
-                            event: { onclick: 'cancel' },
+                            event: { click: 'cancel' },
                             class: dialogClass.button.cancel, childrens: [{ text: { text: ":text.cancel" } }]
                         }
                     },

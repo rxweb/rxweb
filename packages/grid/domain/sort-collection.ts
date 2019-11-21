@@ -37,8 +37,10 @@ export class SortCollection extends Pagination {
 
     private customSort(predicate: (key: any) => any, orderByDescending: boolean) {
         return (a: any, b: any) => {
-            const first = predicate(a)
-            const second = predicate(b)
+            let first = predicate(a)
+            let second = predicate(b)
+            first = typeof first == "string" ? first.toLowerCase() : first;
+            second = typeof second == "string" ? second.toLowerCase() : second;
             if (first > second) {
                 return !orderByDescending ? 1 : -1
             } else if (first < second) {

@@ -38,7 +38,7 @@ export abstract class Dialog extends BaseDomProvider {
                 };
             if (this.designClass.overlay.class || this.designClass.overlay.style)
                 this.overLayElement = this.createElement(document.body, 'div', { class: this.designClass.overlay.class, style: this.designClass.overlay.style }, {}, 0, {});
-            this.domManipulation = this.createElement(document.body, 'div', template.div, data, 0, events);
+            this.domManipulation = this.createElement(document.body, 'div', template.div, data, 0, { actions: events });
         });
         return promise;
     }

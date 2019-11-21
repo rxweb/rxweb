@@ -5,11 +5,11 @@ import { Item } from '@rxweb/dom'
 import { EventSubscriber } from "./event-subscriber";
 import { EVENTS } from "../const/events.const";
 import { customTemplateParser } from "../static/custom-template-parser";
-
+import { merge,clone } from '../functions/entity.service'
 export class Collection {
 
     componentId: string;
-     
+
 
     private model: Function;
 
@@ -24,7 +24,7 @@ export class Collection {
     constructor(source: any[], model: Function) {
         this.source = source;
         this.model = model;
-        this.gridConfig = gridContainer.get(this.model);
+        this.gridConfig = this.getInstanceProvider(this.model);
         this.gridConfig.columns.forEach(t => {
             this.columns.push(t.name);
             if (t.visible)
@@ -67,7 +67,7 @@ export class Collection {
 
     private sourceKeyValue: { [key: string]: any } = {};
 
-    protected mapWithModel(source: any[],isDispatchEvent:boolean = true) {
+    protected mapWithModel(source: any[], isDispatchEvent: boolean = true) {
         var gridSourceLength = this._gridSource.length;
         for (var i = 0, j = source.length; i < j; i++) {
             var key = source[i][this.primaryKey];
@@ -90,11 +90,30 @@ export class Collection {
                 var row = new Item(source[i], this.columns);
                 this._gridSource.push(row);
                 if (isDispatchEvent)
-                this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i, identity:'tbody-id' });
+                    this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i, identity: 'tbody-id' });
             }
         }
         if (gridSourceLength > source.length)
-            this.removeItem(this.gridSource, source.length, gridSourceLength,"row-id");
+            this.removeItem(this.gridSource, source.length, gridSourceLength, "row-id");
+    }
+
+
+    private getInstanceProvider(instanceFunc: any): ContainerConfig {
+        let instance: any = gridContainer.get(instanceFunc);
+        let prototype: any = this.getInstance(instanceFunc, []).__proto__;
+        if (prototype.__proto__) {
+            let isLoop = false;
+            do {
+                isLoop = prototype.__proto__.constructor != Object;
+                if (isLoop) {
+                    let extendClassInstance: any = gridContainer.get(prototype.__proto__.constructor);
+                    instance = merge(clone(instance), clone(extendClassInstance))
+                    prototype = prototype.__proto__;
+                }
+            } while (isLoop)
+
+        }
+        return instance;
     }
 
     private getInstance(model: any, objectArguments: any[] = []) {
