@@ -21,12 +21,14 @@ export class SortCollection extends Pagination {
     }
 
     private sortColumn(data) {
-        this.headerColumns.forEach((t:any) => {
-            if (data.name != t.instance.name)
-                t.instance.isAscending = false;
-        })
-        data.isAscending = !data.isAscending;
-        this.sort(data.name, data.isAscending);
+        if (data.allowSorting === undefined || data.allowSorting) {
+            this.headerColumns.forEach((t: any) => {
+                if (data.name != t.instance.name)
+                    t.instance.isAscending = false;
+            })
+            data.isAscending = !data.isAscending;
+            this.sort(data.name, data.isAscending);
+        }
     }
 
 

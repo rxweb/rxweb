@@ -1,7 +1,6 @@
-import { baseDecoratorFunction } from "./base-decorator.function"
 import { AuthorizeConfig } from "../interface/config/authorize-config";
 import { frameworkContainer } from "../core/frameworkContainer";
-export function authorize(config: AuthorizeConfig) {
+export function access(config: AuthorizeConfig) {
     return function (
         target: Object
     ) {

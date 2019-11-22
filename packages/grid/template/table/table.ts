@@ -37,7 +37,6 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
     var _rowHeaderChildrens: TemplateConfig[] = [];
     var headerColumns: Item[] = [];
     templateConfig.gridColumns.forEach(columnConfig => {
-
         if (columnConfig.visible) {
             var headerCellChildrens: TemplateConfig[] = [];
             headerCellChildrens.push({
@@ -47,10 +46,9 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
             });
             if (columnConfig.isAscending === undefined)
                 columnConfig.isAscending = false;
-            var headerItem = new Item({ ...columnConfig}, Object.keys(columnConfig));
+            var headerItem = new Item({ ...columnConfig }, Object.keys(columnConfig));
             headerColumns.push(headerItem);
             var th: TemplateConfig = {};
-            if (templateConfig.allowSorting && columnConfig.allowSorting) {
                 headerCellChildrens.push({
                     i: {
                         parameterConfig: { columnConfig: columnConfig },
@@ -70,10 +68,10 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
                         },
                     }
                 };
-            }
-            th.th.class = templateConfig.classConfig.headerCellClass;
-            th.th.childrens = headerCellChildrens;
-            _rowHeaderChildrens.push(th);
+                th.th.class = templateConfig.classConfig.headerCellClass;
+                th.th.childrens = headerCellChildrens;
+                _rowHeaderChildrens.push(th);
+
             _rowChildrens.push({
                 td: {
                     attributes: { id: columnConfig.name },

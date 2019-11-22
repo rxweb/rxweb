@@ -10,6 +10,7 @@ export class CoreComponent extends RxHttp {
     private _componentId: string;
     private propListners: { [key: string]: any } = {};
     private isRequestPassed: boolean;
+    private isBind: boolean;
     private callOnInit: boolean = false;
     private languageCode: string;
     private ngOnInitFunc: Function;
@@ -78,21 +79,25 @@ export class CoreComponent extends RxHttp {
     }
 
     onInit() {
-        var t = setTimeout(() => {
-            var directiveInfo = directiveElement.get(this.componentId);
-            if (directiveInfo) {
-                Object.keys(directiveInfo.directives).forEach(t => {
-                    directiveInfo.directives[t].forEach(x => {
-                        var model = DIRECTIVE_MODEL_REFERENCE[t];
-                        var instance = this.getInstance(model, [{ ...x, componentId: this.componentId }]);
-                        if (t == "rxSpinner")
-                            this.overrideProp(x.propName, instance);
-                        else
-                            instance.bind();
+        if (!this.isBind) {
+            var t = setTimeout(() => {
+                var directiveInfo = directiveElement.get(this.componentId);
+                if (directiveInfo) {
+                    Object.keys(directiveInfo.directives).forEach(t => {
+                        directiveInfo.directives[t].forEach(x => {
+                            var model = DIRECTIVE_MODEL_REFERENCE[t];
+                            var instance = this.getInstance(model, [{ ...x, componentId: this.componentId }]);
+                            if (t == "rxSpinner")
+                                this.overrideProp(x.propName, instance);
+                            else
+                                instance.bind();
+                        })
                     })
-                })
-            }
-        })
+                }
+                this.isBind = true;
+            })
+        }
+        
     }
 
     private overrideProp(name: string, elementBinder: ElementBinder) {

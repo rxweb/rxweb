@@ -16,7 +16,6 @@ export const MultiLingualData:
             return this.data[key] !== undefined;
         }
 
-
          get(path: string): string {
             if (!this.data) return;
             var currentObject: any = this.data;

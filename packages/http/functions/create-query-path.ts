@@ -5,7 +5,7 @@ export function createQueryPath(config: HttpRequestConfig) {
 
 function getParams(config: HttpRequestConfig) {
     let params = '';
-    if (config && config.params)
+    if (config && config.params && config.params.length > 0)
         params = `/${config.params.join('/')}`;
     return params;
 }
