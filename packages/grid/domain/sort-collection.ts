@@ -10,13 +10,8 @@ export class SortCollection extends Pagination {
 
     protected bindSource() {
         this.gridColumns = this.gridColumns.sort(this.customSort(t => t["columnIndex"], false))
-        var columnConfig = this.gridColumns.filter(t => t.visible && t.allowSorting && t.isAscending)[0];
-        if (columnConfig)
-            this.sort(columnConfig.name, true);
-        else {
-            let source = this.take(this.bindingSource, Math.max(0, this.maxPerPage));
-            this.mapWithModel(source, false);
-        }
+        let source = this.take(this.bindingSource, Math.max(0, this.maxPerPage));
+        this.mapWithModel(source, false);
         this.eventSubscriber.subscribe(EVENTS.SORTING, this.sortColumn.bind(this));
     }
 
@@ -53,7 +48,7 @@ export class SortCollection extends Pagination {
         }
     }
 
-    
+
 
     allowSorting: boolean = true;
 

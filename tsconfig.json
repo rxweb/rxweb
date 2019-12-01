@@ -23,7 +23,9 @@
       "@rxweb/grid": [ "packages/grid" ],
       "@rxweb/dom": [ "packages/dom" ],
       "@rxweb/framework": [ "packages/framework" ],
-      "@rxweb/js": [ "packages/js" ]
+      "@rxweb/js": [ "packages/js" ],
+      "@rxweb/reactive-forms": [ "packages/reactive-forms" ]
+
     },
     "lib": [
       "es2017",

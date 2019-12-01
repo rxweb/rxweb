@@ -452,6 +452,38 @@
           }
         }
       }
+    },
+    "@rxweb/reactive-forms": {
+      "root": "packages/reactive-forms",
+      "sourceRoot": "packages/reactive-forms",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/reactive-forms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/reactive-forms/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/reactive-forms/tsconfig.lib.json",
+              "packages/reactive-forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
 
