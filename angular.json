@@ -484,6 +484,38 @@
           }
         }
       }
+    },
+    "@rxweb/react-forms": {
+      "root": "packages/react-forms",
+      "sourceRoot": "packages/react-forms",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/react-forms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/react-forms/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/react-forms/tsconfig.lib.json",
+              "packages/react-forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
 
