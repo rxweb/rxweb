@@ -79,24 +79,6 @@ export class CoreComponent extends RxHttp {
     }
 
     onInit() {
-        if (!this.isBind) {
-            var t = setTimeout(() => {
-                var directiveInfo = directiveElement.get(this.componentId);
-                if (directiveInfo) {
-                    Object.keys(directiveInfo.directives).forEach(t => {
-                        directiveInfo.directives[t].forEach(x => {
-                            var model = DIRECTIVE_MODEL_REFERENCE[t];
-                            var instance = this.getInstance(model, [{ ...x, componentId: this.componentId }]);
-                            if (t == "rxSpinner")
-                                this.overrideProp(x.propName, instance);
-                            else
-                                instance.bind();
-                        })
-                    })
-                }
-                this.isBind = true;
-            })
-        }
         
     }
 

@@ -516,6 +516,38 @@
           }
         }
       }
+    },
+    "@rxweb/angular": {
+      "root": "packages/angular",
+      "sourceRoot": "packages/angular",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/angular/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/angular/tsconfig.lib.json",
+              "packages/angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
 

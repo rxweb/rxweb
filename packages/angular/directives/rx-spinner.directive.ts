@@ -1,9 +1,9 @@
-import { Directive, AfterViewInit, Input, OnDestroy } from "@angular/core";
+import { ElementRef, Renderer,Directive, AfterViewInit, Input, OnDestroy } from "@angular/core";
 import { BaseDirective } from "./base.directive";
-import { SpinnerDirective } from "@rxweb/framework"
+import { instanceResolver, SpinnerDirective } from "@rxweb/framework"
 
 @Directive({
-    selector: 'rxSpinner',
+    selector: '[rxSpinner]',
 })
 export class RxSpinnerDirective extends BaseDirective implements AfterViewInit, OnDestroy {
     private _spinner: boolean;
@@ -13,19 +13,20 @@ export class RxSpinnerDirective extends BaseDirective implements AfterViewInit, 
         if (this.spinnerDirective)
             this.bind();
     }
+    constructor(renderer: Renderer, elementRef: ElementRef) {
+        super(renderer, elementRef)
+    }
 
     get spinner() {
         return this._spinner;
     }
-
-    @Input() inClass: string[];
 
     private spinnerDirective: SpinnerDirective;
 
 
 
     ngAfterViewInit(): void {
-        this.spinnerDirective = new SpinnerDirective(this.element, this.inClass);
+        this.spinnerDirective = <SpinnerDirective>instanceResolver("rxSpinner", this.element);
         this.bind();
     }
 
