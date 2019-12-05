@@ -1,24 +1,26 @@
-import { Directive, AfterViewInit, ElementRef, Renderer, Input, OnDestroy } from "@angular/core";
+import { Directive, AfterViewInit, Input, OnDestroy } from "@angular/core";
 import { BaseDirective } from "./base.directive";
-
-const FOCUS_EVENT: string = "focus";
+import { FocusDirective } from "@rxweb/framework"
 
 @Directive({
     selector: 'rxFocus',
 })
 export class RxFocusDirective extends BaseDirective implements AfterViewInit, OnDestroy {
-    @Input('rxFocus') focus: any; 
+    private _focus: boolean;
+    @Input('rxFocus') set focus(value: boolean) {
+        this._focus = value;
+            this.focusDirective.bind(this._focus)
+    }; 
 
-    ngAfterViewInit(): void {
-        if (this.focus && this.focus != "false")
-            this.setFocus();
+    get focus() {
+        return this._focus;
     }
 
-    setFocus(): void {
-        var t = setTimeout(() => {
-            this.renderer.invokeElementMethod(
-                this.element, FOCUS_EVENT, []);
-        }, 100);
+    focusDirective: FocusDirective;
+
+    ngAfterViewInit(): void {
+        this.focusDirective = new FocusDirective(this.element);
+        this.focusDirective.bind(this.focus)
     }
 
     ngOnDestroy(): void {

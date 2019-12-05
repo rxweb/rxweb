@@ -42,4 +42,6 @@ export interface AppFormGroup<T> extends AbstractControl {
 
 export interface IFormGroup<T> extends AppFormGroup<T> {
     controls: { [key in keyof T]: IAbstractControl };
+
+    props: { [key in keyof T]: any }
 }

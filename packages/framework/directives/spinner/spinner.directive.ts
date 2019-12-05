@@ -11,9 +11,10 @@ export class SpinnerDirective extends ElementDomProvider implements ElementBinde
 
     inClass: string[];
 
-    constructor(config:any) {
+    constructor(element:any,_inClass:string[]) {
         super();
-        this.element = config.element;
+        this.element = element;
+        this.inClass = _inClass;
         this.designClass = new SpinnerDesignClass();
     }
 

@@ -1,25 +1,21 @@
-import { Directive, AfterViewInit, ElementRef, Renderer, Input, OnDestroy } from "@angular/core";
-import { MultiLingualData } from "@rxweb/core";
+import { Directive, AfterViewInit, Input, OnDestroy } from "@angular/core";
 import { BaseDirective } from "./base.directive";
+import { PlaceholderDirective } from "@rxweb/framework"
 
 @Directive({
     selector: 'rxPlaceholder',
 })
 export class RxPlaceholderDirective extends BaseDirective implements AfterViewInit, OnDestroy {
     @Input('rxPlaceholder') name: string;
-    
+
+    private placeholderDirective: PlaceholderDirective;
 
     ngAfterViewInit(): void {
-        this.bind()
-    }
-
-    bind() {
-        var value = MultiLingualData.get(`${this.componentId}.${this.name}_p`);
-        if (value)
-            this.element.placeholder = value;
+        this.placeholderDirective = new PlaceholderDirective(this.element, this.name, this.componentId);
+        this.placeholderDirective.bind();
     }
 
     ngOnDestroy(): void {
-        this.element = undefined;
+        this.placeholderDirective.destroy();
     }
 }

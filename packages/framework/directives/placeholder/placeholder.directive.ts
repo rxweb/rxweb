@@ -1,20 +1,15 @@
-import { TemplateConfig } from '@rxweb/dom'
-import { ElementBinder } from '../../interface/element-binder'
 import { MultiLingualData } from "@rxweb/core"
+import { BaseDirective } from "../base-directive";
 
 
-export class PlaceholderDirective implements ElementBinder {
-    private element: HTMLInputElement;
-    private name: string;
-    private componentId: string;
-    constructor(config: any) {
-        this.element = config.element;
-        this.name = config.propName;
-        this.componentId = config.componentId;
-    }
+export class PlaceholderDirective extends BaseDirective {
 
-    getTemplate(): TemplateConfig {
-        return null;
+    constructor(private element: HTMLInputElement, private name: string, private componentId: string) {
+        super();
+        this.element = this.element;
+        this.name = this.name;
+        this.componentId = this.componentId;
+        this.subscribe(this.bind.bind(this));
     }
 
     bind() {
@@ -23,12 +18,8 @@ export class PlaceholderDirective implements ElementBinder {
             this.element.placeholder = value;
     }
 
-    valueChange(value: any) {
-        if (value)
-            this.bind();
-    }
-
     destroy() {
-
+        super.destroy();
+        this.element = undefined;
     }
 }

@@ -25,6 +25,7 @@ import { RegexValidator } from "../util/regex-validator";
 import { getInstance } from "../util/instance-provider.function";
 import { RootKeyProvider } from "../core/root-key-provider";
 import { formGroupContainer } from "../core/form-group.state";
+import { ReactiveFormConfig, ClientLibrary } from "../util/reactive-form-config";
 const LOGICAL_VALIDATORS: { [key: string]: Function } = { and: andValidator, or: orValidator, not: notValidator }
 const ASYNC: string = "async"
 const ENTITY_OBJECT: string = "entityObject";
@@ -221,7 +222,7 @@ export class RxFormBuilder extends BaseFormBuilder {
 
 
 
-    group(groupObject: { [key: string]: any }, validatorConfig?: FormBuilderConfiguration): any {
+    private group(groupObject: { [key: string]: any }, validatorConfig?: FormBuilderConfiguration): any {
         let modelInstance = super.createInstance();
         let entityObject = {};
         this.formGroupPropOtherValidator = {};
@@ -479,8 +480,10 @@ export class RxFormBuilder extends BaseFormBuilder {
             this.builderConfigurationConditionalObjectProps = [];
         }
         let formGroup = new RxFormGroup(json.model, json.entityObject, formGroupObject, formBuilderConfiguration);
-        formGroup.path = String(RootKeyProvider.rootId++);
-        formGroupContainer.saveFormGroup(formGroup);
+        if (ReactiveFormConfig.clientLib == ClientLibrary.React) {
+            formGroup.path = String(RootKeyProvider.rootId++);
+            formGroupContainer.saveFormGroup(formGroup);
+        }
         if (!this.isNestedBinding && !this.isGroupCalled) {
             formGroup.refreshDisable();
         }

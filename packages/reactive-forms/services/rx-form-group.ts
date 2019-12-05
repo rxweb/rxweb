@@ -11,6 +11,7 @@ import { AbstractControl } from "../abstract/abstract-control";
 import { FormBuilderConfiguration } from "../models";
 import { forEach } from "@angular-devkit/schematics";
 import { formGroupContainer } from "../core/form-group.state";
+import { ReactiveFormConfig, ClientLibrary } from "../util/reactive-form-config";
 export class RxFormGroup extends AbstractControl {
     private baseObject: { [key: string]: any }
     private formDataProvider: FormDataProvider;
@@ -18,18 +19,22 @@ export class RxFormGroup extends AbstractControl {
     private _modified: { [key: string]: any } = {};
     private _isModified: boolean = false;
     controls: { [key: string]: any };
+    props: { [key: string]: any } = {};
     path: string;
     constructor(private model: any, private entityObject: { [key: string]: any }, controls: {
         [key: string]: AbstractControl;
     }, private formBuilderConfiguration: FormBuilderConfiguration) {
         super([], []);
         this.controls = controls;
-        Object.keys(this.controls).forEach(t => this.controls[t].parent = this);
+        Object.keys(this.controls).forEach(t => {
+            if (ReactiveFormConfig.clientLib == ClientLibrary.Vue && this.controls[t] instanceof RxFormControl)
+                this.defineProperty(t)
+            this.controls[t].parent = this
+        });
         this.baseObject = {}
         for (var column in this.entityObject)
             this.baseObject[column] = this.entityObject[column]
         this.formDataProvider = new FormDataProvider();
-
     }
 
     bindPrimaryKey(modelInstance: any, jObject: { [key: string]: any }) {
@@ -347,5 +352,18 @@ export class RxFormGroup extends AbstractControl {
             }
         }
         return valid;
+    }
+
+    private defineProperty(name: string) {
+        let value = this.controls[name].value;
+        Object.defineProperty(this.props, name, {
+            get: () => {
+                return value;
+            },
+            set: (v) => {
+                value = v;
+                this.controls[name].setValue(v);
+            }
+        })
     }
 }

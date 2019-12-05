@@ -11,7 +11,6 @@ export * from './maxDate.decorator';
 export * from './maxLength.decorator';
 export * from './minDate.decorator';
 export * from './maxNumber.decorator';
-export * from './minDate.decorator';
 export * from './minLength.decorator';
 export * from './minNumber.decorator';
 export * from './password.decorator';

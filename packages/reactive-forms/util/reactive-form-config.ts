@@ -1,7 +1,14 @@
-
+export enum ClientLibrary {
+    React,
+    Vue,
+    Angular,
+    Vanilla,
+    None
+}
 export class ReactiveFormConfig {
     static number:{[key:string]:any} = {}
     static json: { [key: string]: any } = {};
+    static clientLib: ClientLibrary = ClientLibrary.None;
 
     static set(jObject: { [key: string]: any }): void {
         if (jObject)

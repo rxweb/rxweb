@@ -1,6 +1,6 @@
-import { Directive, AfterViewInit, ElementRef, Renderer, Input, OnDestroy } from "@angular/core";
-import { MultiLingualData } from "@rxweb/core";
+import { Directive, AfterViewInit, Input, OnDestroy } from "@angular/core";
 import { BaseDirective } from "./base.directive";
+import { TextDirective } from "@rxweb/framework"
 
 @Directive({
     selector: 'rxText',
@@ -8,24 +8,16 @@ import { BaseDirective } from "./base.directive";
 export class RxTextDirective extends BaseDirective implements AfterViewInit, OnDestroy {
     @Input('rxText') name: string;
 
-    private textNodeElement: any;
+    @Input() text: string;
+
+    textDirective: TextDirective;
 
     ngAfterViewInit(): void {
-        this.bind()
-    }
-
-    bind() {
-        var value = MultiLingualData.get(`${this.componentId}.${this.name}_t`);
-        if (value) {
-            this.textNodeElement = document.createTextNode(value);
-            this.element.appendChild(this.textNodeElement);
-        }
+        this.textDirective = new TextDirective({ element: this.element, name: this.name, componentId: this.componentId,text:this.text });
+        this.textDirective.bind();
     }
 
     ngOnDestroy(): void {
-        if (this.textNodeElement)
-            this.element.parentElement.removeChild(this.textNodeElement);
-        this.textNodeElement = undefined;
-        this.element = undefined;
+        this.textDirective.destroy();
     }
 }
