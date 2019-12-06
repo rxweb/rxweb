@@ -18,6 +18,7 @@ export class TemplateConfig {
     a?: ElementConfig;
     label?: ElementConfig;
     img?: ElementConfig;
+    input?: ElementConfig;
 }
 
 export class ElementConfig {

@@ -88,8 +88,16 @@ export class DomManipulation {
                 this.element.addEventListener(t, this.events[t])
             }
             else {
+                
                 this.events[t] = event[t];
-                this.element.addEventListener(t, event[t]);
+                if (this.config && this.config.parameterConfig) {
+                    this.events[t] = (e) => {
+                        event[t].call(this.modelObject, this.config.parameterConfig, e)
+                    }
+                    this.element.addEventListener(t, this.events[t]);
+                } else {
+                    this.element.addEventListener(t, event[t]);
+                }
             }
         })
     }
@@ -97,8 +105,11 @@ export class DomManipulation {
     addAttributes(attributes: { [key: string]: any }) {
         Object.keys(attributes).forEach(attribute => {
             var table = this.element as HTMLTableElement;
-            if (this.element.setAttribute)
-                this.element.setAttribute(attribute, attributes[attribute]);
+            var value = this.getValue(attributes[attribute]);
+            if (attribute == "value")
+                this.element.value = value;
+            else if (this.element.setAttribute)
+                this.element.setAttribute(attribute, value);
         })
     }
 
