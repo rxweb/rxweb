@@ -1,0 +1,1 @@
+export * from './modules/rx-localization-module'

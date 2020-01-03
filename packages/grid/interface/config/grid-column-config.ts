@@ -18,4 +18,5 @@ export class GridColumnConfig{
     isAscending?: boolean;
     keyColumn?: boolean;
     parameter?: any;
+    preventRowSelect?: boolean; 
 }

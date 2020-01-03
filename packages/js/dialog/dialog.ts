@@ -17,7 +17,7 @@ export abstract class Dialog extends BaseDomProvider {
         super();
         this.designClass = new DialogClass();
         this.designClass.button = new DialogButtonClass();
-        this.defaultConfig = new DialogConfig();
+        this.defaultConfig = new DialogConfig("global.dialog-message");
         this.designClass.overlay = new OverlayDesign();
     }
 

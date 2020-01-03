@@ -1,5 +1,5 @@
 import { Item } from "@rxweb/dom";
-import { MultiLingualData } from "@rxweb/core";
+import { MultiLingualData } from "@rxweb/localization";
 
 import { TemplateConfig } from "../..";
 import { TableTemplateConfig } from "../../interface/config/table-template-config";
@@ -52,7 +52,7 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
                 headerCellChildrens.push({
                     i: {
                         parameterConfig: { columnConfig: columnConfig },
-                        class: [function (y: GridColumnConfig) { return this.isAscending ? templateConfig.classConfig.ascendingClass : '' }, function (y: GridColumnConfig) { return this.isAscending === false ? templateConfig.classConfig.descendingClass : '' }]
+                        class: [function (y: GridColumnConfig) { return this.allowSorting && this.isAscending ? templateConfig.classConfig.ascendingClass : '' }, function (y: GridColumnConfig) { return this.allowSorting &&  this.isAscending === false ? templateConfig.classConfig.descendingClass : '' }]
                     }
                 });
                 th = {
@@ -71,8 +71,7 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
                 th.th.class = templateConfig.classConfig.headerCellClass;
                 th.th.childrens = headerCellChildrens;
                 _rowHeaderChildrens.push(th);
-
-            _rowChildrens.push({
+            let tableData = {
                 td: {
                     attributes: { id: columnConfig.name },
                     parameterConfig: { columnConfig: columnConfig },
@@ -83,7 +82,13 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
                         }
                     }]
                 }
-            })
+            };
+            if (templateConfig.isRowEvent && columnConfig.preventRowSelect === undefined) {
+                tableData.td["event"] = {
+                    click: "onRowSelect"
+                };
+            }
+            _rowChildrens.push(tableData);
         }
     })
     var tableRow = {
@@ -92,17 +97,10 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
         rowTemplateConfg: {
             tr: {
                 class: templateConfig.classConfig.rowClass,
-                id: 'row-id',
+                id: `row-id`,
                 childrens: _rowChildrens
             }
         }
     };
-    if (templateConfig.isRowEvent)
-        tableRow.rowTemplateConfg.tr["event"] = {
-            click: "onRowSelect"
-        }
     return tableRow;
-
-
-
 }

@@ -5,7 +5,7 @@ export class DomManipulation {
     private itemObject: Item;
     private subscribeProps: string[] = [];
     private updating: boolean = false;
-
+    private instanceObject = {};
     element: any;
     controlId: any;
     private events: { [key: string]: Function } = {};
@@ -15,6 +15,7 @@ export class DomManipulation {
         if (modelObject instanceof Item) {
             this.itemObject = modelObject;
             this.modelObject = this.itemObject.value;
+            this.instanceObject = this.itemObject.instance;
         }
         this.createNodeElement(parentNode);
         if (config.id) {
@@ -52,6 +53,7 @@ export class DomManipulation {
                         this.addStyle(this.config[key]);
                         break;
                     case 'event':
+                        if (!this.updating)
                         this.setEvent(this.config[key]);
                         break;
                 }
@@ -82,7 +84,7 @@ export class DomManipulation {
                     var eventName: any = event[t];
                     if (this.additionalConfiguration && this.additionalConfiguration.actions && this.additionalConfiguration.actions[eventName]) {
                         let actionMethod = this.additionalConfiguration.actions[eventName];
-                        actionMethod.call(this.modelObject.instance, this.modelObject, e)
+                       return actionMethod.call(this.modelObject.instance, this.modelObject, e)
                     }
                 };
                 this.element.addEventListener(t, this.events[t])
@@ -92,7 +94,7 @@ export class DomManipulation {
                 this.events[t] = event[t];
                 if (this.config && this.config.parameterConfig) {
                     this.events[t] = (e) => {
-                        event[t].call(this.modelObject, this.config.parameterConfig, e)
+                       return event[t].call(this.instanceObject, this.config.parameterConfig, e)
                     }
                     this.element.addEventListener(t, this.events[t]);
                 } else {
@@ -108,6 +110,13 @@ export class DomManipulation {
             var value = this.getValue(attributes[attribute]);
             if (attribute == "value")
                 this.element.value = value;
+            else if (attribute == "checked")
+            {
+                if (value === true || value === 1 || value === "true")
+                    this.element.setAttribute(attribute, value);
+                else
+                    this.element.removeAttribute(attribute);
+            }
             else if (this.element.setAttribute)
                 this.element.setAttribute(attribute, value);
         })

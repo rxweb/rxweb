@@ -45,7 +45,7 @@ export class Item {
     private overrideInstanceProp(instanceObject, propName: string) {
         let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(instanceObject), propName);
         let value = descriptor ? descriptor.get() : instanceObject[propName];
-        let oldValue = null;
+        let oldValue = value;
         Object.defineProperty(instanceObject, propName, {
             get: () => { return descriptor ? descriptor.get.call(instanceObject) : value },
             set: (v) => {
@@ -63,11 +63,11 @@ export class Item {
     private overrideValueProp(instanceObject, propName: string) {
         let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(instanceObject), propName);
         let value = descriptor ? descriptor.get() : instanceObject[propName];
-        let oldValue = null;
+        let oldValue = value;
         Object.defineProperty(instanceObject, propName, {
             get: () => { return descriptor ? descriptor.get.call(instanceObject) : value },
             set: (v) => {
-                if (oldValue != v) {
+                if (oldValue !== v) {
                     value = v;
                     var propListner = this.propListners.filter(t => t.name == propName)[0];
                     if (propListner)

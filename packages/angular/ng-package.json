@@ -3,9 +3,6 @@
   "dest": "../../dist/@rxweb/angular",
   "deleteDestPath": true,
   "lib": {
-    "entryFile": "index.ts",
-    "umdModuleIds": {
-      "@rxweb/framework": "@rxweb/framework"
-    }
+    "entryFile": "public_api.ts"
   }
 }

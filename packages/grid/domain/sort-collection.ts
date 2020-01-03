@@ -13,23 +13,29 @@ export class SortCollection extends Pagination {
         let source = this.take(this.bindingSource, Math.max(0, this.maxPerPage));
         this.mapWithModel(source, false);
         this.eventSubscriber.subscribe(EVENTS.SORTING, this.sortColumn.bind(this));
+        
     }
 
-    private sortColumn(data) {
+    protected sortColumn(data, isDirect: boolean = false) {
         if (data.allowSorting === undefined || data.allowSorting) {
             this.headerColumns.forEach((t: any) => {
                 if (data.name != t.instance.name)
                     t.instance.isAscending = false;
             })
+            if (!isDirect)
             data.isAscending = !data.isAscending;
-            this.sort(data.name, data.isAscending);
+            this.sort(data.name, !data.isAscending);
         }
     }
 
 
     sort(columnName: string, orderBy: boolean) {
-        this.bindingSource = this.source.sort(this.customSort(t => t[columnName], orderBy));
-        this.changeSource();
+        if (this.storeProcedure && this.storeProcedure.onPageSorting) {
+            this.storeProcedure.onPageSorting(columnName, orderBy, this.currentPage);
+        } else {
+            this.bindingSource = this.bindingSource.sort(this.customSort(t => t[columnName], orderBy));
+            this.changeSource();
+        }
     }
 
     private customSort(predicate: (key: any) => any, orderByDescending: boolean) {

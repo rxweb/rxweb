@@ -38,7 +38,7 @@ export class FilterCollection extends SortCollection {
         let isMatched = false;
         for (var i = 0, j = filterColumns.length; i < j; i++) {
             var t = filterColumns[i];
-            var columnValue = String(row[t]);
+            var columnValue = row[t] === undefined ? undefined : String(row[t]);
             if (this.isExist(columnValue, prefix)) {
                 isMatched = true;
                 break;
@@ -49,7 +49,7 @@ export class FilterCollection extends SortCollection {
 
     private isExist(columnValue: string, prefix: any) {
 
-        if (columnValue == null) {
+        if (columnValue == null || columnValue === undefined) {
             return false;
         }
         return String(columnValue).toLowerCase().includes(String(prefix).toLowerCase());

@@ -1,4 +1,5 @@
 import { DomManipulation, TemplateConfig, ElementConfig } from "@rxweb/dom"
+import { MultiLingualData } from "@rxweb/localization"
 import { BaseDomProvider } from "../core/base-dom-provider";
 import { TemplateCategory } from '../enums/template-category'
 import { ToastrDesignClass, ToastrConfig } from "./toastr-design-class";
@@ -21,10 +22,12 @@ export abstract class Toastr extends BaseDomProvider {
     protected getDefaultTemplate() {
         return getToastrTemplate(this.designClass);
     }
-
+    private getMessage(message: string) {
+        return message.charAt(0) == ':' ? MultiLingualData.get(message.replace(":", "")) : message;
+    }
     show(message: string, messageType: ToastrMessageType, config?: ToastrConfig, customTemplate?: TemplateConfig) {
+        message = this.getMessage(message);
         var toastrConfig = config ? { ...config, ...{ messageType: messageType, message: message } } : { ...this.defaultConfig, ...{ messageType: messageType, message: message } };
-
         var template = customTemplate || this.getDefaultTemplate();
         this.createRoot();
         var domManipulation = this.createElement(this.rootElement.element, 'div', template.div, toastrConfig, 0, {});

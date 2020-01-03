@@ -1,20 +1,22 @@
 {
   "name": "@rxweb/angular",
   "version": "#version",
-  "keywords": [
-    "angular "
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rxweb/rxweb/tree/master/packages/core#readme"
+    "url": "https://github.com/rxweb/rxweb"
   },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rxweb/rxweb/issues"
   },
-  "homepage": "https://rxweb.io",
-  "license": "MIT",
-  "sideEffects": false,
-  "dependencies": {
-    "tslib": "^1.9.0"
+  "peerDependencies": {
+    "@angular/core": "^7.0.0 || ^8.0.0 || ^9.0.0",
+    "@angular/common": "^7.0.0 || ^8.0.0 || ^9.0.0",
+    "@angular/forms": "^7.0.0 || ^8.0.0 || ^9.0.0",
+    "rxjs": "^6.0.0",
+    "zone.js": "^0.9.1"
   }
 }

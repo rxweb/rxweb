@@ -24,7 +24,11 @@
       "@rxweb/dom": [ "packages/dom" ],
       "@rxweb/framework": [ "packages/framework" ],
       "@rxweb/js": [ "packages/js" ],
-      "@rxweb/reactive-forms": [ "packages/reactive-forms" ]
+      "@rxweb/reactive-forms": [ "packages/reactive-forms" ],
+      "@rxweb/angular/*": [ "packages/angular/*/public_api" ],
+      "@rxweb/storage": [ "packages/storage" ],
+      "@rxweb/angular-router": [ "packages/angular-router" ],
+      "@rxweb/localization": [ "packages/localization" ]
 
     },
     "lib": [

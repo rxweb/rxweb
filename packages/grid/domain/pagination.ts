@@ -5,15 +5,17 @@ import { FooterDesignClass } from './footer-design-class';
 import { EVENTS } from "../const/events.const";
 
 
+
 export class Pagination extends Collection {
 
-    private _footerTemplate: TemplateConfig;
-
-    footerDesignClass: FooterDesignClass;
+    
+    
 
     private _maxPerPage: number = 5;
 
     maxNavigationPage: number = 5;
+
+    
 
     pagingSource: number[] = [5, 10, 100, 500, 1000, 50000];
 
@@ -36,12 +38,11 @@ export class Pagination extends Collection {
     }
 
     private get numberOfPages(): number {
-        return Math.ceil(this.bindingSource.length / this.maxPerPage)
+        return this.storeProcedure ? Math.ceil(this.storeProcedure.length / this.maxPerPage) : Math.ceil(this.bindingSource.length / this.maxPerPage)
     }
 
     constructor(source: any[], model: Function) {
         super(source, model);
-        this.footerDesignClass = new FooterDesignClass();
         this.currentPage = 1;
     }
 
@@ -106,28 +107,31 @@ export class Pagination extends Collection {
         return Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
     }
 
-    get footerTemplate() {
-        return this._footerTemplate;
-    }
-
-    set footerTemplate(value: TemplateConfig) {
-        this._footerTemplate = value;
-    }
+    
 
     protected onMaxPerPageChanging(element: Event) {
         this.maxPerPage = parseInt((<HTMLSelectElement>element.currentTarget).value);
-        this.currentPage = 1;
-        let source = this.take(this.bindingSource, this.maxPerPage);
-        this.mapWithModel(source);
-        this.updatePagination();
-        this.updateStartEndCount();
+        if (this.storeProcedure) {
+            this.storeProcedure.onPageChanging(1);
+        } else {
+            this.currentPage = 1;
+            let source = this.take(this.bindingSource, this.maxPerPage);
+            this.mapWithModel(source);
+            this.updatePagination();
+            this.updateStartEndCount();
+        }
     }
 
     protected onPageChanging(element: Event) {
-        this.currentPage = parseInt((<HTMLAnchorElement>element.target).innerText);
-        this.changeSource();
-        this.updatePagination();
-        this.updateStartEndCount();
+        let nextPage = parseInt((<HTMLAnchorElement>element.target).innerText)
+        if (this.storeProcedure) {
+            this.storeProcedure.onPageChanging(nextPage)
+        } else {
+            this.currentPage = nextPage;
+            this.changeSource();
+            this.updatePagination();
+            this.updateStartEndCount();
+        }
     }
 
 
@@ -149,17 +153,19 @@ export class Pagination extends Collection {
     }
 
     remove(id: number) {
-        var item = this.bindingSource.filter(t => t[this.primaryKey] == id)[0];
-        var indexOf = this.bindingSource.indexOf(item);
-        var sourceItem = this.source.filter(t => t[this.primaryKey] == id)[0];
-        var itemIndexOf = this.source.indexOf(sourceItem);
-        if (indexOf != -1 && itemIndexOf != -1) {
-            this.source.splice(itemIndexOf, 1);
-            this.bindingSource.splice(indexOf, 1);
+        var item = this.source.filter(t => t[this.primaryKey] == id)[0];
+        var indexOf = this.source.indexOf(item);
+        if (indexOf != -1 ) {
+            this.source.splice(indexOf, 1);
+            item = this.bindingSource.filter(t => t[this.primaryKey] == id)[0];
+            indexOf = this.bindingSource.indexOf(item);
+            if (indexOf != -1)
+                this.bindingSource.splice(indexOf, 1);
             this.changeSource();
             this.updatePagination();
             this.updateStartEndCount();
         }
+        
     }
 
     protected changeSource() {
@@ -168,6 +174,13 @@ export class Pagination extends Collection {
             source = this.skip(this.bindingSource, Math.max(0, (this.currentPage - 1) * this.maxPerPage));
         source = this.take(source.length > 0 ? source : this.bindingSource, Math.max(0, this.maxPerPage));
         this.mapWithModel(source);
+    }
+
+    updateSource(source: any[]) {
+        this.currentPage = this.storeProcedure.nextPage;
+        this.mapWithModel(source);
+        this.updatePagination();
+        this.updateStartEndCount();
     }
 
     protected updateStartEndCount() {
@@ -183,6 +196,6 @@ export class Pagination extends Collection {
             endCount = endCount > this.length ? this.length : endCount;
         }
         this.endCount = endCount;
-        this.sourceLength = this.bindingSource.length;
+        this.sourceLength = this.storeProcedure ? this.storeProcedure.length : this.bindingSource.length;
     }
 }

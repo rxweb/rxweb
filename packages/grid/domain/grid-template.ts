@@ -1,13 +1,18 @@
 import { DesignClass } from "./design-class";
 import { TemplateConfig, ElementConfig } from "../interface/config/template-config";
 import { FilterCollection } from "./filter-collection";
+import { FooterDesignClass } from './footer-design-class';
 
 export class GridTemplate extends FilterCollection {
-
+    private _footerLeftTemplate: TemplateConfig;
+    private _footerCenterTemplate: TemplateConfig;
+    private _footerRightTemplate: TemplateConfig;
+    footerDesignClass: FooterDesignClass;
 
     constructor(source:any[],model:Function) {
         super(source, model);
         this.designClass = new DesignClass();
+        this.footerDesignClass = new FooterDesignClass();
     }
 	 
 
@@ -35,6 +40,39 @@ export class GridTemplate extends FilterCollection {
         };
     }
 
+
+    get footerTemplate() {
+        return {
+            div: {
+                class: this.footerDesignClass.rootClass,
+                childrens: [this.footerLeftTemplate, this.footerCenterTemplate, this.footerRightTemplate]
+            }
+        }
+    }
+
+    set footerLeftTemplate(value: TemplateConfig) {
+        this._footerLeftTemplate = value;
+    }
+
+    get footerLeftTemplate() {
+        return this._footerLeftTemplate;
+    }
+
+    set footerCenterTemplate(value: TemplateConfig) {
+        this._footerCenterTemplate = value;
+    }
+
+    get footerCenterTemplate() {
+        return this._footerCenterTemplate;
+    }
+
+    set footerRightTemplate(value: TemplateConfig) {
+        this._footerRightTemplate = value;
+    }
+
+    get footerRightTemplate() {
+        return this._footerRightTemplate;
+    }
 
     set pagingDropDownTemplate(value: TemplateConfig) {
         this._dropdownTemplate = value;

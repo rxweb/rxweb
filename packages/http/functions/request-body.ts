@@ -48,6 +48,7 @@ function getHostUri(baseConfig: BaseHttpClientConfig, serviceContainer: ServiceC
         return baseConfig.hostURIs.filter(t => t.name == serviceContainer.config.hostKey)[0].uri;
     if (baseConfig.hostURIs)
         return baseConfig.hostURIs.filter(t => t.default == true)[0].uri;
+    return window.location.origin;
 }
 
 

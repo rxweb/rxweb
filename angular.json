@@ -52,7 +52,7 @@
                   "maximumError": "5mb"
                 }
               ],
-              "serviceWorker": true
+              "serviceWorker": false
             }
           }
         },
@@ -518,19 +518,32 @@
       }
     },
     "@rxweb/angular": {
-      "root": "packages/angular",
-      "sourceRoot": "packages/angular",
+      "root": "packages",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/angular/ng-package.json",
+            "tsConfig": "packages/angular/tsconfig.lib.json"
+          }
+        }
+      }
+    },
+    "@rxweb/angular-router": {
+      "root": "packages/angular-router",
+      "sourceRoot": "packages/angular-router",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "project": "packages/angular/ng-package.json"
+            "project": "packages/angular-router/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "packages/angular/ng-package.prod.json"
+              "project": "packages/angular-router/ng-package.prod.json"
             }
           }
         },
@@ -539,8 +552,104 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "packages/angular/tsconfig.lib.json",
-              "packages/angular/tsconfig.spec.json"
+              "packages/angular-router/tsconfig.lib.json",
+              "packages/angular-router/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/storage": {
+      "root": "packages/storage",
+      "sourceRoot": "packages/storage",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/storage/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/storage/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/storage/tsconfig.lib.json",
+              "packages/storage/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/localization": {
+      "root": "packages/localization",
+      "sourceRoot": "packages/localization",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/localization/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/localization/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/localization/tsconfig.lib.json",
+              "packages/localization/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/angular-localization": {
+      "root": "packages/angular-localization",
+      "sourceRoot": "packages/angular-localization",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/angular-localization/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/angular-localization/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/angular-localization/tsconfig.lib.json",
+              "packages/angular-localization/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

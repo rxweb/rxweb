@@ -5,12 +5,13 @@ import { Item } from '@rxweb/dom'
 import { EventSubscriber } from "./event-subscriber";
 import { EVENTS } from "../const/events.const";
 import { customTemplateParser } from "../static/custom-template-parser";
-import { merge,clone } from '../functions/entity.service'
+import { merge, clone } from '../functions/entity.service'
+import { StoreProcedureConfig } from "../interface/config/store-procedure-config";
 export class Collection {
 
     componentId: string;
 
-
+    storeProcedure: StoreProcedureConfig;
     private model: Function;
 
     protected primaryKey: string;
@@ -60,7 +61,7 @@ export class Collection {
 
 
     protected get length() {
-        return this.bindingSource.length;
+        return this.storeProcedure ? this.storeProcedure.length : this.bindingSource.length;
     }
 
     protected bindingSource: any[];

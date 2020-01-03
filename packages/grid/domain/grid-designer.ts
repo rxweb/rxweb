@@ -1,7 +1,7 @@
 import { DomManipulation } from "@rxweb/dom";
 
 import { TemplateConfig, ElementConfig } from "../interface/config/template-config";
-import { ControlState } from '../static/control-state'
+import { ControlState } from './control-state'
 import { GridTemplate } from './grid-template';
 import { table } from "../template/table/table";
 import { EVENTS } from "../const/events.const";
@@ -11,17 +11,20 @@ import { GridConfig } from "../interface/config/grid-config";
 export class GridDesigner extends GridTemplate {
     private element: HTMLElement;
     private isReDesign: boolean = false;
+    private controlState: ControlState;
+    startNodeName: string = "table"
     constructor(source: any[], model: Function, private gridConfiguration: GridConfig) {
         super(source, model);
         this.eventSubscriber.subscribe(EVENTS.ADD_ROWS, this.addRows.bind(this));
         this.eventSubscriber.subscribe(EVENTS.REMOVE_ROWS, this.removeRows.bind(this));
+        this.controlState = new ControlState();
     }
 
     design(element: HTMLElement) {
         this.element = element;
         this.bindSource();
         var isRowEvent = this.gridConfiguration && this.gridConfiguration.actions && this.gridConfiguration.actions.onRowSelect !== undefined;
-        if (isRowEvent)
+        if (isRowEvent && !this.isReDesign)
             this.overrideRowSelect();
         var template = table({
             allowSorting: this.allowSorting,
@@ -29,17 +32,22 @@ export class GridDesigner extends GridTemplate {
             eventSubscriber: this.eventSubscriber,
             gridColumns: this.gridColumns,
             multiLingualPath: this.componentId,
-            isRowEvent: isRowEvent
+            isRowEvent: isRowEvent,
         }, this.gridSource);
         if (!this.isReDesign)
             this.pagination();
         var footerTemplate = paginator({ onPageChanging: this.onPageChanging.bind(this), designClass: this.footerDesignClass, dropdownOptions: this.pagingSource, eventSubscriber: this.eventSubscriber, onMaxPerPageChanging: this.onMaxPerPageChanging.bind(this), paginatorSource: this.paginationConfigs });
-        this.footerTemplate = footerTemplate;
+        this.footerLeftTemplate = footerTemplate.leftTemplate;
+        this.footerCenterTemplate = footerTemplate.centerTemplate;
+        this.footerRightTemplate = footerTemplate.rightTemplate;
+
         this.bodyTemplate = template.bodyTemplate;
         this.headerTemplate = template.headerTemplate;
         this.headerColumns = template.headerColumns;
-        this.createElement(element, 'table', this.tableElementConfig, this, 0);
+        this.createElement(element, this.startNodeName, this.tableElementConfig, this, 0);
         this.createChildElements(element, [this.footerTemplate], this, 0);
+        var column = this.gridColumns.filter(t => t.isAscending)[0];
+        super.sortColumn(column,true);
     }
 
     private overrideRowSelect() {
@@ -53,7 +61,7 @@ export class GridDesigner extends GridTemplate {
     private createElement(parentElement: HTMLElement, elementName: string, elementConfig: ElementConfig, modelObject: Object, index: number) {
         var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, this.gridConfiguration);
         domManipulation.bind();
-        ControlState.elements[domManipulation.controlId] = domManipulation;
+        this.controlState.elements[domManipulation.controlId] = domManipulation;
         if (elementConfig.sourceItems && elementConfig.childrens)
             elementConfig.sourceItems.forEach((t, index) => {
                 var childrenLength = elementConfig.childrens.length;
@@ -75,7 +83,7 @@ export class GridDesigner extends GridTemplate {
 
     private addRows(dataItem: { [key: string]: any }) {
         var name = `${dataItem.identity}-0`;
-        var domManipulation = ControlState.elements[name];
+        var domManipulation = this.controlState.elements[name];
         this.createChildElements(domManipulation.element, this.getChildTemplate(name), dataItem.row, dataItem.index)
     }
 
@@ -83,7 +91,7 @@ export class GridDesigner extends GridTemplate {
 
     private removeRows(rowIndex: { [key: string]: number }) {
         for (var i = rowIndex.start, j = rowIndex.end; i < j; i++) {
-            var control = ControlState.elements[`${rowIndex.identity}-${i}`];
+            var control = this.controlState.elements[`${rowIndex.identity}-${i}`];
             if (control)
                 this.removeChildren(control.element);
         }
@@ -101,9 +109,9 @@ export class GridDesigner extends GridTemplate {
             this.removeChildren(element.firstElementChild);
         if (isRemoveRoot) {
             let controlId = element.getAttribute("data-rxwebid");
-            if (controlId && ControlState.elements[controlId]) {
-                ControlState.elements[controlId].destroy();
-                delete ControlState.elements[controlId];
+            if (controlId && this.controlState.elements[controlId]) {
+                this.controlState.elements[controlId].destroy();
+                delete this.controlState.elements[controlId];
             }
         }
     }

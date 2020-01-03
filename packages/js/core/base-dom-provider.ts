@@ -37,14 +37,17 @@ export abstract class BaseDomProvider {
     }
 
     removeChildren(element: any, isRemoveRoot: boolean = true) {
-        while (element.firstElementChild)
-            this.removeChildren(element.firstElementChild);
-        if (isRemoveRoot) {
-            let controlId = element.getAttribute("data-rxwebid");
-            if (controlId && this.elements[controlId]) {
-                this.elements[controlId].destroy();
-                delete this.elements[controlId];
+        if (element) {
+            while (element.firstElementChild)
+                this.removeChildren(element.firstElementChild);
+            if (isRemoveRoot) {
+                let controlId = element.getAttribute("data-rxwebid");
+                if (controlId && this.elements[controlId]) {
+                    this.elements[controlId].destroy();
+                    delete this.elements[controlId];
+                }
             }
         }
+        
     }
 }

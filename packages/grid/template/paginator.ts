@@ -1,12 +1,11 @@
 import { PaginatorTemplateConfig } from "../interface/config/paginator-template-config";
 import { TemplateConfig } from "..";
-import { MultiLingualData } from "@rxweb/core";
+import { MultiLingualData } from "@rxweb/localization";
 export function paginator(paginatorTemplateConfig: PaginatorTemplateConfig) {
     return {
-        div: {
-            class: paginatorTemplateConfig.designClass.rootClass,
-            childrens: [dropdownTemplate(paginatorTemplateConfig), textTemplate(), paginatorTemplate(paginatorTemplateConfig)]
-        }
+        leftTemplate: dropdownTemplate(paginatorTemplateConfig),
+        centerTemplate: textTemplate(),
+        rightTemplate: paginatorTemplate(paginatorTemplateConfig)
     };
 }
 

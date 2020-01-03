@@ -60,7 +60,7 @@ export class SpinnerDirective extends ElementDomProvider implements ElementBinde
     }
 
     remove() {
-        if (this.domManipulation) {
+        if (this.domManipulation && this.domManipulation.element) {
             if (this.inClass)
                 this.inClass.forEach(t => {
                     this.element.classList.remove(t);
@@ -71,7 +71,7 @@ export class SpinnerDirective extends ElementDomProvider implements ElementBinde
     }
 
     destroy() {
-        if (this.domManipulation)
+        if (this.domManipulation && this.domManipulation.element)
         this.removeChildren(this.domManipulation.element);
     }
 }

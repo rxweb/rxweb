@@ -1,8 +1,8 @@
-import { MultiLingualData } from "@rxweb/core"
+import { MultiLingualData } from "@rxweb/localization"
 export class DialogConfig {
 
-    constructor() {
-        this.text = new DialogTextConfig();
+    constructor(message:string) {
+        this.text = new DialogTextConfig(message);
     }
 
     showIcon: boolean = false;
@@ -13,13 +13,13 @@ export class DialogConfig {
 
 export class DialogTextConfig {
 
-    constructor() {
+    constructor(message:string) {
         this.ok = MultiLingualData.get("global.dialog-ok");
         this.cancel = MultiLingualData.get("global.dialog-cancel");
         this.save = MultiLingualData.get("global.dialog-save");
         this.dontSave = MultiLingualData.get("global.dialog-dontsave");
         this.heading = MultiLingualData.get("global.dialog-heading");
-        this.message = MultiLingualData.get("global.dialog-message");
+        this.message = message.charAt(0) == ":" ? MultiLingualData.get(message.replace(":", "")) : message;
     }
     heading: string;
     message: string;

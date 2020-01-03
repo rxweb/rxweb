@@ -1,4 +1,6 @@
-﻿export  class ControlState {
+﻿export class ControlState {
+    static gridId: number = 1000;
+
     static controlId: number = 1;
 
     static elements: { [key: string]: any } = {};
