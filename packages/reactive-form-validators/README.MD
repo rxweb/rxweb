@@ -1224,7 +1224,7 @@ Below is the json for validation rule for `firstName` field. See the working cod
 }
 }
 ```
-First of all retrive the validation rules from server and pass it to the group method.
+First of all retrieve the validation rules from server and pass it to the group method.
 > user-info.component.ts
 ```js
 import { Component, OnInit } from '@angular/core';
