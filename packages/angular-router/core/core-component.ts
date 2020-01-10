@@ -5,6 +5,9 @@ import { ClientDataStorage } from "@rxweb/storage"
 import { componentInstanceProvider } from "./component-instance-provider";
 import { routeContainer } from "./route-container";
 import { AuthorizeConfig } from '../interfaces/authorize-config'
+import { ExtendNavigationExtras } from "../interfaces/extend-navigation-extras";
+import { encoder } from "../core/encoder";
+
 export abstract class CoreComponent extends RxHttp implements OnDestroy {
 
     user: { [key: string]: any };
@@ -23,18 +26,19 @@ export abstract class CoreComponent extends RxHttp implements OnDestroy {
     constructor() {
         super();
         let result = componentInstanceProvider.getResult();
-        this.params = result.activatedRouteSnapshot.params;
-        this.queryParams = result.activatedRouteSnapshot.queryParams;
-        this.router = result.router;
-        this.user = routeContainer.getUser();
-        this.data = result.activatedRouteSnapshot.data;
-        this.storage = new ClientDataStorage();
-        this.parentAuthorizeConfig = result.authorizeConfig;
-        let decoratorConfig = routeContainer.getModelDecorator(this.constructor as Function, "access")
-        if (decoratorConfig)
-            this.authorizeConfig = decoratorConfig.functions;
-        console.log(this.authorizeConfig);
-        componentInstanceProvider.add(this.constructor.name, this.instanceProvider.bind(this), this.paramsChange.bind(this), this.queryParamsChange.bind(this));
+        if (result && result.activatedRouteSnapshot) {
+            this.params = result.activatedRouteSnapshot.params;
+            this.queryParams = result.activatedRouteSnapshot.queryParams;
+            this.router = result.router;
+            this.user = routeContainer.getUser();
+            this.data = result.activatedRouteSnapshot.data;
+            this.storage = new ClientDataStorage();
+            this.parentAuthorizeConfig = result.authorizeConfig;
+            let decoratorConfig = routeContainer.getModelDecorator(this.constructor as Function, "access")
+            if (decoratorConfig)
+                this.authorizeConfig = decoratorConfig.functions;
+            componentInstanceProvider.add(this.constructor.name, this.instanceProvider.bind(this), this.paramsChange.bind(this), this.queryParamsChange.bind(this));
+        }
     }
 
     private instanceProvider() {
@@ -46,12 +50,8 @@ export abstract class CoreComponent extends RxHttp implements OnDestroy {
     }
 
 
-    navigateByUrl(url: string | UrlTree, extras?: NavigationExtras): Promise<boolean> {
-        return this.router.navigateByUrl(url, extras);
-    }
-
-    navigate(commands: any[], extras?: NavigationExtras): Promise<boolean> {
-        return this.router.navigate(commands, extras);
+    navigate(commands: any[], extras?: ExtendNavigationExtras): Promise<boolean> {
+        return this.router.navigate(commands.concat(this.getParsedParams(extras)), extras);
     }
 
     ngOnDestroy(): void {
@@ -66,5 +66,17 @@ export abstract class CoreComponent extends RxHttp implements OnDestroy {
     private queryParamsChange(queryParams: { [key: string]: any }) {
         this.queryParams = queryParams;
         this.onQueryParamsChanged();
+    }
+
+    private getParsedParams(extras: ExtendNavigationExtras) {
+        let params = []
+        if (extras && extras.params) {
+            var isEncryption = routeContainer.get().urlEncryption;
+            extras.params.forEach(t => {
+                let encode = isEncryption ? encoder.encode(t) : t;
+                params.push(encode);
+            })
+        }
+        return params
     }
 }

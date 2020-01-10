@@ -9,3 +9,5 @@ export * from './interfaces/i-middleware'
 export * from './interfaces/authorize-config'
 export * from './functions/routes.function'
 export * from './core/core-component';
+export * from './guard/base-can-activate.guard';
+export * from './guard/base-can-deactivate.guard';

@@ -4,7 +4,6 @@ import { authResolver } from "../functions/auth-resolver.function";
 import { authorize } from "../functions/authorize.function";
 import { middleware } from "../functions/middleware.function";
 import { paramsDecryption } from "../functions/params-decryption.function";
-import { multilingual } from "../functions/multilingual.function";
 import { ParamResolver } from "../core/param-resolver.service";
 import { componentInstanceProvider } from "../core/component-instance-provider";
 
