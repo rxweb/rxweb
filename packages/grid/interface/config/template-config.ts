@@ -31,7 +31,8 @@ export class ElementConfig {
     source?: Function;
     event?: { [key: string]: any }
     id?: string;
-    parameterConfig?: ParameterConfig
+    parameterConfig?: ParameterConfig;
+    authorize?: { [key: string]: any };
 }
 
 export class TextConfig {

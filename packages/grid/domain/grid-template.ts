@@ -8,7 +8,6 @@ export class GridTemplate extends FilterCollection {
     private _footerCenterTemplate: TemplateConfig;
     private _footerRightTemplate: TemplateConfig;
     footerDesignClass: FooterDesignClass;
-
     constructor(source:any[],model:Function) {
         super(source, model);
         this.designClass = new DesignClass();

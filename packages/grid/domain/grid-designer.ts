@@ -9,6 +9,7 @@ import { paginator } from '../template/paginator';
 import { GridConfig } from "../interface/config/grid-config";
 
 export class GridDesigner extends GridTemplate {
+    
     private element: HTMLElement;
     private isReDesign: boolean = false;
     private controlState: ControlState;
@@ -59,18 +60,21 @@ export class GridDesigner extends GridTemplate {
     }
 
     private createElement(parentElement: HTMLElement, elementName: string, elementConfig: ElementConfig, modelObject: Object, index: number) {
-        var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, this.gridConfiguration);
-        domManipulation.bind();
-        this.controlState.elements[domManipulation.controlId] = domManipulation;
-        if (elementConfig.sourceItems && elementConfig.childrens)
-            elementConfig.sourceItems.forEach((t, index) => {
-                var childrenLength = elementConfig.childrens.length;
-                this.createChildElements(domManipulation.element, [childrenLength > index ? elementConfig.childrens[index] : elementConfig.childrens[0]], t, index)
-            });
-        else
-            if (elementConfig.childrens)
-                this.createChildElements(domManipulation.element, elementConfig.childrens, modelObject, 0);
-        return domManipulation;
+        let authorizationPassed = (elementConfig && elementConfig.authorize) ? this.authorize(elementConfig.authorize) : true;
+        if (authorizationPassed) {
+            var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, this.gridConfiguration);
+            domManipulation.bind();
+            this.controlState.elements[domManipulation.controlId] = domManipulation;
+            if (elementConfig.sourceItems && elementConfig.childrens)
+                elementConfig.sourceItems.forEach((t, index) => {
+                    var childrenLength = elementConfig.childrens.length;
+                    this.createChildElements(domManipulation.element, [childrenLength > index ? elementConfig.childrens[index] : elementConfig.childrens[0]], t, index)
+                });
+            else
+                if (elementConfig.childrens)
+                    this.createChildElements(domManipulation.element, elementConfig.childrens, modelObject, 0);
+            return domManipulation;
+        }
     }
 
     private createChildElements(element: HTMLElement, childrens: TemplateConfig[], modelObject: object, index: number) {
@@ -125,5 +129,9 @@ export class GridDesigner extends GridTemplate {
                 return this.footerTemplate.div.childrens[2].div.childrens[0].ul.childrens;
                 break;
         }
+    }
+
+    authorize(authorizeConfig: { [key: string]: any }): boolean {
+        return true;
     }
 }
