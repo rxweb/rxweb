@@ -21,6 +21,7 @@ export class XhrRequest {
 
         xhr.addEventListener('load', this.onLoad);
         xhr.addEventListener('error', this.onError);
+        xhr.withCredentials = true;
         xhr.send(request.serializeBody());
 
         this.xhr = xhr;
