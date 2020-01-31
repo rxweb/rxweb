@@ -341,5 +341,17 @@ describe('Validator', () => {
                 expect(nestedFormGroup.controls.value.errors != null).toBeTruthy();
                 
             }));
+
+        //issue : https://github.com/rxweb/rxweb/issues/269
+        it("should defined Date",
+            () => {
+                let date = new Date();
+                let formBuilder = new RxFormBuilder();
+                let formGroup = formBuilder.group({
+                    date: [new Date(), [RxwebValidators.required()]]
+                })
+                expect(formGroup.controls.date instanceof RxFormControl).toBe(true);
+                expect(formGroup.controls.date.value).toEqual(date);
+            });
     });
 });
