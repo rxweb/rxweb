@@ -17,7 +17,7 @@ export abstract class CoreComponent extends RxHttp implements OnDestroy {
     storage: ClientDataStorage;
     parentAuthorizeConfig: AuthorizeConfig;
     authorizeConfig: AuthorizeConfig
-    private router: Router;
+    private navigation: Router;
 
     onQueryParamsChanged() { }
     onParamsChanged() { }
@@ -29,7 +29,7 @@ export abstract class CoreComponent extends RxHttp implements OnDestroy {
         if (result && result.activatedRouteSnapshot) {
             this.params = result.activatedRouteSnapshot.params;
             this.queryParams = result.activatedRouteSnapshot.queryParams;
-            this.router = result.router;
+            this.navigation = result.router;
             this.user = routeContainer.getUser();
             this.data = result.activatedRouteSnapshot.data;
             this.storage = new ClientDataStorage();
@@ -51,7 +51,7 @@ export abstract class CoreComponent extends RxHttp implements OnDestroy {
 
 
     navigate(commands: any[], extras?: ExtendNavigationExtras): Promise<boolean> {
-        return this.router.navigate(commands.concat(this.getParsedParams(extras)), extras);
+        return this.navigation.navigate(commands.concat(this.getParsedParams(extras)), extras);
     }
 
     ngOnDestroy(): void {

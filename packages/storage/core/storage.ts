@@ -5,18 +5,18 @@ export class Storage {
     constructor(name: string) {
         this.storage = window[name];
     }
-    save(keyName: string, value: any): void {
+    save(keyName: string, value: any,isEncryption:boolean = true): void {
         var local = {};
-        local[keyName] = encoder(value,true);
+        local[keyName] = isEncryption ? encoder(value, true) : value;
         value = JSON.stringify(local);
         this.storage.setItem(keyName, value);
     }
 
-    get(keyName: string): any {
+    get(keyName: string, isEncrypted: boolean = true): any {
         var jsonData = this.storage.getItem(keyName);
         if (jsonData) {
             jsonData = JSON.parse(jsonData);
-            return encoder(jsonData[keyName],false);
+            return isEncrypted ? encoder(jsonData[keyName], false) : jsonData[keyName];
         }
         return undefined;
     }

@@ -11,10 +11,15 @@ export class TextDirective extends BaseDirective {
     }
 
     bind() {
-        var decoratorConfig = localizationContainer.getModelDecorator(this.config.target, 'multilingual');
+        var decoratorConfig:any = localizationContainer.getModelDecorator(this.config.target, 'multilingual');
+        if (typeof this.config.target == "string") 
+            decoratorConfig = { config: this.config.target };
+        if (decoratorConfig == undefined)
+            decoratorConfig = { config: this.config.element.getAttribute("component-id") };
+
         if (decoratorConfig) {
             var componentId = decoratorConfig.config;
-            var value = MultiLingualData.get(this.config.name.indexOf("_") != -1 ? `${componentId}.${this.config.text}` : `${componentId}.${this.config.name}_t`);
+            var value = MultiLingualData.get(this.config.text &&  this.config.text.indexOf("_") != -1 ? `${componentId}.${this.config.text}` : `${componentId}.${this.config.name}_t`);
             if (value) {
                 this.textNodeElement = document.createTextNode(value);
                 this.config.element.appendChild(this.textNodeElement);

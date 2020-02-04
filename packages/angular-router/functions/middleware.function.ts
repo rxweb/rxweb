@@ -34,7 +34,7 @@ function callFunction(user: { [key: string]: any }, injector: Injector, route: A
         } else
             if (result && middlewareModels.length > (count + 1))
                 callFunction(user, injector, route,complete, middlewareModels, count)
-            else (result)
+            else
                 complete(result)
     } else
         complete(true);
