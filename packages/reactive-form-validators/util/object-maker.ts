@@ -19,4 +19,9 @@ export class ObjectMaker{
     static null() {
         return null;
     }
+
+    static getPasswordMessage() {
+        let messageKey = "password";
+        return (ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.validationMessage && ReactiveFormConfig.json.validationMessage[messageKey]) ? ReactiveFormConfig.json.validationMessage[messageKey] : ''
+    }
 }
