@@ -1,5 +1,5 @@
 import {FormGroup, FormControl, Validators } from '@angular/forms';
-import {NumericValueType, RxwebValidators, ReactiveFormConfig, RxFormBuilder, FormGroupExtension, RxFormControl } from '@rxweb/reactive-form-validators';
+import {NumericValueType, RxwebValidators, ReactiveFormConfig, RxFormBuilder, FormGroupExtension, RxFormControl, RxFormArray } from '@rxweb/reactive-form-validators';
 import { tick,fakeAsync } from '@angular/core/testing';
 describe('Validator', () => {
     beforeEach(() => {
@@ -352,6 +352,19 @@ describe('Validator', () => {
                 })
                 expect(formGroup.controls.date instanceof RxFormControl).toBe(true);
                 expect(formGroup.controls.date.value).toEqual(date);
+            });
+
+        //issue : https://github.com/rxweb/rxweb/issues/276
+        it("should define nested formarray with zero controls",
+            () => {
+                let date = new Date();
+                let formBuilder = new RxFormBuilder();
+                let formGroup = formBuilder.group({
+                    addresses: []
+                })
+                let formArray = formGroup.controls.addresses as RxFormArray;
+                expect(formGroup.controls.addresses instanceof RxFormArray).toBe(true);
+                expect(formArray.controls.length).toEqual(0);
             });
     });
 });
