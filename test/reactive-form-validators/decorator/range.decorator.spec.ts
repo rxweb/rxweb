@@ -1,4 +1,4 @@
-import { range, ReactiveFormConfig,RxFormBuilder } from '@rxweb/reactive-form-validators';
+import { range, numeric, ReactiveFormConfig,RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 export class EmployeeInfo {
 
@@ -14,7 +14,11 @@ export class EmployeeInfo {
 	experience: number;
 
 	@range({minimumNumber:1000  ,maximumNumber:200000  ,message:'Your Salary should be between 1000 to 200000.' }) 
-	salary: number;
+    salary: number;
+
+    @range({ minimumNumber: 18, maximumNumber: 59.50 })
+    @numeric({ allowDecimal: true })
+    bonus: number;
 
 }
 
@@ -155,7 +159,15 @@ export class EmployeeInfo {
         let formGroup = formBuilder.formGroup(employeeInfo);
 		formGroup.controls.salary.setValue(20000000);
         expect(formGroup.controls.salary.errors).toEqual({'range':{ message: 'Your Salary should be between 1000 to 200000.', refValues: [ 20000000,1000,200000 ] } });
-     });
+         });
+        // feat : https://github.com/rxweb/rxweb/issues/264
+        it("Should not error, range decorator bonus control value in decimal",
+            () => {
+                let employeeInfo = new EmployeeInfo();
+                let formGroup = formBuilder.formGroup(employeeInfo);
+                formGroup.controls.bonus.setValue(59.50);
+                expect(formGroup.controls.bonus.errors).toBeNull();
+            });
 
 
 
