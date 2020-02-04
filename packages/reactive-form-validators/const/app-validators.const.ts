@@ -20,7 +20,7 @@ import {
   dateValidator,
   minTimeValidator,
     maxTimeValidator,
-    requiredTrueValidator
+    requiredTrueValidator,maskValidator
 } from '../reactive-form-validators/index';
 
 export const APP_VALIDATORS: { [key: string]: Function } = {
@@ -85,5 +85,6 @@ export const APP_VALIDATORS: { [key: string]: Function } = {
     "date": dateValidator,
     "minTime": minTimeValidator,
     "maxTime": maxTimeValidator,
-    "requiredTrue": requiredTrueValidator
+    "requiredTrue": requiredTrueValidator,
+    "mask": maskValidator
 }

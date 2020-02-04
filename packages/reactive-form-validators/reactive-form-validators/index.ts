@@ -61,3 +61,4 @@ export * from './date.validator';
 export * from './minTime.validator';
 export * from './maxTime.validator';
 export * from './requiredTrue.validator';
+export * from './mask.validator';

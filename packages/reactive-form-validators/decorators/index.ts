@@ -88,3 +88,4 @@ export * from './minTime.decorator';
 export * from './maxTime.decorator';
 export * from './compose.decorator';
 export * from './requiredTrue.decorator';
+export * from './mask.decorator';

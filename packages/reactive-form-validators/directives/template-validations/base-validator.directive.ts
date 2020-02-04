@@ -6,15 +6,15 @@ import {
 } from "../../const";
 
 import { ControlExpressionProcess } from './control-expression-process'
-
+import { MaskProvider } from '../../domain/element-processor/mask.provider';
 
 export class BaseValidator extends ControlExpressionProcess {
     @Input() formControl: FormControl | AbstractControl;
 
-    protected validators: ValidatorFn[];
+    protected validators: ValidatorFn[]  = [];
     protected element: any;
     protected eventName: string;
-
+    protected maskProvider: MaskProvider;
 
     validation(control: AbstractControl): { [key: string]: any } {
         let result = null;
@@ -23,6 +23,8 @@ export class BaseValidator extends ControlExpressionProcess {
             if (result)
                 break;
         }
+        if (!result && this.maskProvider)
+           result = this.maskProvider.validate();
         return result;
     }
 
@@ -40,6 +42,7 @@ export class BaseValidator extends ControlExpressionProcess {
         }
         this.eventName = eventName.toLowerCase();
     }
+
 
 
 }

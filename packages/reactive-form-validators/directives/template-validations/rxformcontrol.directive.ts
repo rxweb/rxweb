@@ -11,6 +11,8 @@ import { DecimalProvider } from "../../domain/element-processor/decimal.provider
 import { AlphaConfig, ArrayConfig, BaseConfig, ChoiceConfig, CompareConfig, ComposeConfig, ContainsConfig, CreditCardConfig, DateConfig, DefaultConfig, DigitConfig, EmailConfig, ExtensionConfig, FactorConfig, MessageConfig, NumberConfig, NumericConfig, PasswordConfig, RangeConfig, RequiredConfig, RuleConfig, SizeConfig, TimeConfig, DifferentConfig, RelationalOperatorConfig, UniqueConfig } from '../../models/config'
 import { RegexValidator } from '../../util';
 import { RxFormControl } from "../../services/form-control";
+import { MaskProvider } from '../../domain/element-processor/mask.provider';
+
 
 const NGMODEL_BINDING: any = {
     provide: NG_VALIDATORS,
@@ -29,7 +31,9 @@ const DIGITS_INFO: string = "digitsInfo";
 export class RxFormControlDirective extends BaseValidator implements OnInit, OnDestroy, Validator {
     private eventListeners: any[] = [];
     private isNumericSubscribed: boolean = false;
-    private isFocusCalled:boolean = false;
+    private isFocusCalled: boolean = false;
+    private isMasked: boolean = false;
+
     
     set validationControls(value: { [key: string]: FormControl }) {
         this.controls = value;
@@ -168,6 +172,14 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
         
     }
 
+    subscribeMaskValidator() {
+        if (this.formControl[VALIDATOR_CONFIG] && this.formControl[VALIDATOR_CONFIG]["mask"] && !this.isMasked) {
+            let config = this.formControl[VALIDATOR_CONFIG]["mask"];
+            this.maskProvider = new MaskProvider(this.element, config.mask, this.renderer, this.formControl as FormControl, config);
+            this.isMasked = true;
+        }
+    }
+
     private setValueOnElement(value: any) {
         this.renderer.setProperty(this.element, ELEMENT_VALUE, value);
     }
@@ -192,7 +204,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
             previousClassName = className;
         }
     }
-
+    
     private setValidatorConfig(control:AbstractControl){
         if (!this.formControl) { 
             this.formControl = control;
@@ -200,7 +212,8 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
             if (rxFormControl.updateOnElementClass)
                 rxFormControl.updateOnElementClass = this.updateOnElementClass(this.element);
         }
-
+        
+        this.subscribeMaskValidator();
         this.subscribeNumericFormatter();
     if(control[TEMPLATE_VALIDATION_CONFIG])
         this.setTemplateValidators(control);
@@ -217,7 +230,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
             this.conditionalValidator(control);
         if (!this.isProcessed)
             this.setModelConfig(control);
-        return this.validators && this.validators.length > 0 ? this.validation(control) : null;
+        return ((this.validators && this.validators.length > 0) || this.maskProvider) ? this.validation(control) : null;
     }
 
     ngOnDestroy() {
@@ -228,5 +241,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
             this.eventListeners.splice(0, 1);
         }
         this.eventListeners = [];
+        if (this.maskProvider)
+            this.maskProvider.onDestroy();
     }
 }

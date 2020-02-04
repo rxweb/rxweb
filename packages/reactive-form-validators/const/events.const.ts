@@ -16,4 +16,11 @@ export const BLUR:string = "blur";
 
 export const FOCUS:string = "focus";
 
-export const CHANGE:string = "change";
+export const CHANGE: string = "change";
+
+export const KEY_DOWN: string = "keydown";
+
+export const KEY_PRESS: string = "keypress";
+
+export const PASTE: string = "paste";
+
