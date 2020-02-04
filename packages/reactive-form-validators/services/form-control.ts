@@ -131,7 +131,7 @@ export class RxFormControl extends FormControl {
         return this.getSanitizedValue(this.value);
     }
 
-    bindError(){
+    bindError() {
         if(this._messageExpression)
             this._isPassedExpression = this.executeExpression(this._messageExpression,this);
         this.setControlErrorMessages();
@@ -301,17 +301,22 @@ export class RxFormControl extends FormControl {
             this._errorMessages = [];
             if (this.errors) {
                 Object.keys(this.errors).forEach(t => {
-                    this.parent[CONTROLS_ERROR][this.keyName] = this._errorMessage = this.getErrorMessage(this.errors, t);
-                    if (!this._errorMessage) {
-                        let errorObject = ObjectMaker.toJson(t, undefined, [this.errors[t][t]]);
-                        this.parent[CONTROLS_ERROR][this.keyName] = this._errorMessage = this.getErrorMessage(errorObject, t);
-                    }
+                    if (this.parent) {
+                        this.parent[CONTROLS_ERROR][this.keyName] = this._errorMessage = this.getErrorMessage(this.errors, t);
+                        if (!this._errorMessage) {
+                            let errorObject = ObjectMaker.toJson(t, undefined, [this.errors[t][t]]);
+                            this.parent[CONTROLS_ERROR][this.keyName] = this._errorMessage = this.getErrorMessage(errorObject, t);
+                        }
+                    } else
+                        this._errorMessage = this.getErrorMessage(this.errors, t)
                     this._errorMessages.push(this._errorMessage);
                 })
             } else {
                 this._errorMessage = undefined;
-                this.parent[CONTROLS_ERROR][this.keyName] = undefined
-                delete this.parent[CONTROLS_ERROR][this.keyName];
+                if (this.parent) {
+                    this.parent[CONTROLS_ERROR][this.keyName] = undefined
+                    delete this.parent[CONTROLS_ERROR][this.keyName];
+                }
             }
         } else {
             this._errorMessages = [];

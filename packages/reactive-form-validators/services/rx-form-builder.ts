@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { FormGroup, FormArray, FormControl, ValidatorFn, AsyncValidatorFn } from "@angular/forms"
+import { FormGroup, FormArray, FormControl, ValidatorFn, AsyncValidatorFn, FormBuilder } from "@angular/forms"
 import { Type } from "../util"
 import { BaseFormBuilder } from './base-form-builder';
 
@@ -24,6 +24,7 @@ import { notValidator } from '../reactive-form-validators/not.validator'
 import { AppFormGroup } from '../models/interface/i-form-group'
 import { RegexValidator } from "../util/regex-validator";
 import { getInstance } from "../util/instance-provider.function";
+import { IAbstractControl } from "../models/interface/i-abstract-control"
 const LOGICAL_VALIDATORS: { [key: string]: Function } = { and: andValidator, or: orValidator, not: notValidator }
 const ASYNC: string = "async"
 const ENTITY_OBJECT: string = "entityObject";
@@ -220,6 +221,15 @@ export class RxFormBuilder extends BaseFormBuilder {
 
 
 
+    control(value?: any, validators?: ValidatorFn[], asyncValidators?: AsyncValidatorFn[]): IAbstractControl  {
+        return new RxFormControl(value, validators, asyncValidators, {}, {}, '', []);
+    }
+
+    array(values: [{ [key: string]: any }], validatorConfig?: FormBuilderConfiguration) {
+        let formArray = this.group({ temp: values }, validatorConfig).get("temp") as FormArray;
+        var formBuilder = new FormBuilder();
+        return formBuilder.array(formArray.controls);
+    }
 
     group(groupObject: { [key: string]: any }, validatorConfig?: FormBuilderConfiguration): FormGroup {
         let modelInstance = super.createInstance();

@@ -1,6 +1,6 @@
 import { FormGroup, FormArray} from '@angular/forms';
 
-import { prop, propObject, required, propArray, email ,RxFormBuilder, FormBuilderConfiguration, RxFormGroup } from '@rxweb/reactive-form-validators';
+import { RxFormControl, prop, propObject, required, propArray, email ,RxFormBuilder, FormBuilderConfiguration, RxFormGroup, RxwebValidators } from '@rxweb/reactive-form-validators';
 
 
 export class Skill {
@@ -157,7 +157,26 @@ export class UserModel {
 
                 });
 
+            // feature : https://github.com/rxweb/rxweb/issues/268
+            it('should define formmcontrol through control method',
+                () => {
+                    
+                    let control = formBuilder.control('India', [RxwebValidators.required()]);
+                    expect(control).toBeDefined();
+                    expect(control instanceof RxFormControl).toBeTruthy();
+                    expect(control.valid).toBeTruthy();
+                });
 
+            // feature : https://github.com/rxweb/rxweb/issues/268
+            it('should define formarray through array method',
+                () => {
+
+                    let array = formBuilder.array([{ name: 'ajay' }]) as FormArray;
+                    expect(array).toBeDefined();
+                    expect(array instanceof FormArray).toBeTruthy();
+                    expect(array.controls.length).toEqual(1);
+                    expect(array.controls[0] instanceof RxFormGroup).toBeTruthy();
+                });
             //end
         });
     });
