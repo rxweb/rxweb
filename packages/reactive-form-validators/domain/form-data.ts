@@ -31,7 +31,7 @@ export class FormDataProvider{
 
     nonObjectValueBind(value:any,formData:FormData,propName:string) {
         if (typeof value === BOOLEAN) {
-            formData.append(propName, +value ? '1' : '0');
+            formData.append(propName, +value ? true : false);
         } else if (value instanceof FileList) {
             for (var i = 0; i < value.length; i++) {
                 formData.append(`${propName}[${i}]`, value.item(i));
