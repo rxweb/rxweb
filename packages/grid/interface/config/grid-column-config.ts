@@ -8,6 +8,7 @@ export class GridColumnConfig{
     headerKey?: string;
     allowSorting?: boolean;
     allowSearch?: boolean;
+    configuredHeaderTemplate?: CustomTemplateConfig;
     template?: TemplateConfig;
     configuredTemplate?: CustomTemplateConfig;
     class?: any[];

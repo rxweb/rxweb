@@ -5,6 +5,7 @@ import { TemplateConfig } from "../..";
 import { TableTemplateConfig } from "../../interface/config/table-template-config";
 import { GridColumnConfig } from "../../interface/config/grid-column-config";
 import { EVENTS } from "../../const/events.const";
+import { customTemplateParser } from "../../static/custom-template-parser";
 
 export function table(templateConfig: TableTemplateConfig, source: Item[]) {
     var config = getHeaderAndRowConfiguration(templateConfig)
@@ -39,6 +40,12 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
     templateConfig.gridColumns.forEach(columnConfig => {
         if (columnConfig.visible) {
             var headerCellChildrens: TemplateConfig[] = [];
+            if (columnConfig.configuredHeaderTemplate) {
+                let item = customTemplateParser(columnConfig.configuredHeaderTemplate, columnConfig)
+                if(item)
+                    headerCellChildrens.push(item);
+            }
+                
             headerCellChildrens.push({
                 text: {
                     text: columnConfig.headerTitle ? columnConfig.headerTitle : MultiLingualData.get(`${templateConfig.multiLingualPath}.${getText(columnConfig)}_gh`)

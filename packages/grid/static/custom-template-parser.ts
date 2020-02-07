@@ -1,15 +1,29 @@
 import { GridCustomTemplate } from "./grid-custom-templates";
 import { CustomTemplateConfig } from "../interface/config/custom-template-config";
 import { GridColumnConfig } from "../interface/config/grid-column-config";
+import { TemplateConfig, ElementConfig } from "../interface/config/template-config";
 
 export function customTemplateParser(configuredTemplate: CustomTemplateConfig, columnConfig: GridColumnConfig) {
     var replacers: { [key: string]: any } = { columnName: columnConfig.name };
     if (configuredTemplate.replacers)
         Object.keys(configuredTemplate.replacers).forEach(t => replacers[t] = configuredTemplate.replacers[t]);
     var template = GridCustomTemplate.getTemplate(configuredTemplate.templateName);
-    return template ? parse(template, replacers, columnConfig,true) : undefined;
+    var cloned = template;
+    if (template)
+        cloned = mergeChildrens(configuredTemplate, { ...template });
+    return template ? parse(cloned, replacers, columnConfig,true) : undefined;
 }
 
+function mergeChildrens(configuredTemplate: CustomTemplateConfig, cloned: TemplateConfig) {
+    if (configuredTemplate && configuredTemplate.childrenTemplateNames)
+    configuredTemplate.childrenTemplateNames.forEach(t => {
+        Object.keys(cloned).forEach(x => {
+            let elementConfig = cloned[x] as ElementConfig;
+            elementConfig.childrens.push(GridCustomTemplate.getTemplate(t));
+        })
+    })
+    return cloned;
+}
 export function parse(jsonObject: { [key: string]: any }, replacer: { [key: string]: any }, columnConfig: GridColumnConfig,isRoot:boolean) {
     let jObject: any = {};
     if (isObjectType(jsonObject)) {

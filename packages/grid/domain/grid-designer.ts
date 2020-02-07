@@ -9,7 +9,6 @@ import { paginator } from '../template/paginator';
 import { GridConfig } from "../interface/config/grid-config";
 
 export class GridDesigner extends GridTemplate {
-    
     private element: HTMLElement;
     private isReDesign: boolean = false;
     private controlState: ControlState;
@@ -65,11 +64,12 @@ export class GridDesigner extends GridTemplate {
             var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, this.gridConfiguration);
             domManipulation.bind();
             this.controlState.elements[domManipulation.controlId] = domManipulation;
-            if (elementConfig.sourceItems && elementConfig.childrens)
+            if (elementConfig.sourceItems && elementConfig.childrens){
                 elementConfig.sourceItems.forEach((t, index) => {
                     var childrenLength = elementConfig.childrens.length;
                     this.createChildElements(domManipulation.element, [childrenLength > index ? elementConfig.childrens[index] : elementConfig.childrens[0]], t, index)
                 });
+            }
             else
                 if (elementConfig.childrens)
                     this.createChildElements(domManipulation.element, elementConfig.childrens, modelObject, 0);
@@ -77,10 +77,12 @@ export class GridDesigner extends GridTemplate {
         }
     }
 
-    private createChildElements(element: HTMLElement, childrens: TemplateConfig[], modelObject: object, index: number) {
+    private createChildElements(element: HTMLElement, childrens: TemplateConfig[], modelObject: any, index: number) {
         childrens.forEach(templateConfig => {
             Object.keys(templateConfig).forEach(t => {
-                this.createElement(element, t, templateConfig[t], modelObject, index);
+                let bind = templateConfig[t].isBind === undefined ? true : templateConfig[t].isBind(modelObject.instance);
+                if (bind)
+                    this.createElement(element, t, templateConfig[t], modelObject, index);
             })
         })
     }

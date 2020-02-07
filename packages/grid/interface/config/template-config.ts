@@ -33,6 +33,7 @@ export class ElementConfig {
     id?: string;
     parameterConfig?: ParameterConfig;
     authorize?: { [key: string]: any };
+    isBind?: (x: any) => boolean;
 }
 
 export class TextConfig {

@@ -5,5 +5,6 @@ export interface RouterModuleConfig{
     authorization?: Type<any>,
     authentication?: Type<any>,
     middlewares?: Array<Type<any>>,
+    childMultilingualResolver?: Function,
     urlEncryption?:boolean
 }

@@ -11,7 +11,6 @@ export class RxAuthorizeDirective {
     private _context: NgIfContext = new NgIfContext();
 
     constructor(private viewContainerRef: ViewContainerRef, private templateRef: TemplateRef<any>, private injector: Injector) {
-        console.log(this.templateRef)
     }
 
     @Input('rxAuthorize') set component(value: any) {

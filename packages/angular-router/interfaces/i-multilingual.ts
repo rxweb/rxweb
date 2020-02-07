@@ -1,3 +1,3 @@
 export interface IMultilingual {
-    resolve(name: string) : boolean | Promise<boolean>;
+    resolveChildren(component:Function) : boolean | Promise<boolean>;
 }
