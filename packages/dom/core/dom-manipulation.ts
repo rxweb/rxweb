@@ -110,7 +110,7 @@ export class DomManipulation {
             var value = this.getValue(attributes[attribute]);
             if (attribute == "value")
                 this.element.value = value;
-            else if (attribute == "checked")
+            else if (attribute == "checked" || attribute == "selected")
             {
                 if (value === true || value === 1 || value === "true")
                     this.element.setAttribute(attribute, value);
