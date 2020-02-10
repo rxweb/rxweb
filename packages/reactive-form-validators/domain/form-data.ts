@@ -20,7 +20,7 @@ export class FormDataProvider{
                     else
                         this.nonObjectValueBind(row, formData, propName);
                 })
-            } else if (jObject[columnName] !== null && typeof jObject[columnName] === OBJECT && !(jObject[columnName] instanceof File || jObject[columnName] instanceof FileList)) {
+            } else if (jObject[columnName] !== null && !(jObject[columnName] instanceof Date) && typeof jObject[columnName] === OBJECT && !(jObject[columnName] instanceof File || jObject[columnName] instanceof FileList)) {
                 this.convertFormData(jObject[columnName],formData,propName)
             } else {
                 this.nonObjectValueBind(jObject[columnName], formData, propName);
