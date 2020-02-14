@@ -17,7 +17,7 @@ export class SortCollection extends Pagination {
     }
 
     protected sortColumn(data, isDirect: boolean = false) {
-        if (data.allowSorting === undefined || data.allowSorting) {
+        if (data && (data.allowSorting === undefined || data.allowSorting)) {
             this.headerColumns.forEach((t: any) => {
                 if (data.name != t.instance.name)
                     t.instance.isAscending = false;

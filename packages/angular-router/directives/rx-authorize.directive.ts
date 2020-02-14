@@ -14,15 +14,28 @@ export class RxAuthorizeDirective {
     }
 
     @Input('rxAuthorize') set component(value: any) {
-        if (value) {
-            var authorizeModel = routeContainer.get().authorization;
-            let component = routeContainer.getModelDecorator(value as Function, "access");
-            if (authorizeModel && component) {
-                var authorize = this.injector.get(authorizeModel) as IAuthorize;
-                var authorizeConfig = componentInstanceProvider.getAuthorizeConfig();
-                var result = authorize.authorizeChildren(component.functions, authorizeConfig) as boolean;
-                this.updateView(result);
+        if (Array.isArray(value)) {
+            var result = true;
+            for (var i = 0; i < value.length; i++) {
+                result = this.checkAccess(value[i], false);
+                if (!result)
+                    break;
             }
+            this.updateView(result)
+        } else if (value)
+            this.checkAccess(value);
+    }
+
+    checkAccess(value:any,isUpdateView:boolean = true) {
+        var authorizeModel = routeContainer.get().authorization;
+        let component = routeContainer.getModelDecorator(value as Function, "access");
+        if (authorizeModel && component) {
+            var authorize = this.injector.get(authorizeModel) as IAuthorize;
+            var authorizeConfig = componentInstanceProvider.getAuthorizeConfig();
+            var result = authorize.authorizeChildren(component.functions, authorizeConfig) as boolean;
+            if(isUpdateView)
+                this.updateView(result);
+            return result
         }
     }
 

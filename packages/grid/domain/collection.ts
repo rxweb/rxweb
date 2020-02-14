@@ -1,3 +1,4 @@
+import { DomManipulation } from "@rxweb/dom";
 import { ContainerConfig } from "../interface/config/container-config";
 import { gridContainer } from "../core/gridContainer";
 import { GridColumnConfig } from "../interface/config/grid-column-config";
@@ -7,15 +8,17 @@ import { EVENTS } from "../const/events.const";
 import { customTemplateParser } from "../static/custom-template-parser";
 import { merge, clone } from '../functions/entity.service'
 import { StoreProcedureConfig } from "../interface/config/store-procedure-config";
+import { ControlState } from './control-state'
 export class Collection {
-
+    protected childrens: { [key: string]: any } = {};
     componentId: string;
-
+    protected controlState: ControlState;
     storeProcedure: StoreProcedureConfig;
     private model: Function;
-
+    protected DomRows: { [key: string]: DomManipulation[] } = {};
     protected primaryKey: string;
     private _source: any[];
+    private _items: any[];
     private _gridSource: Item[];
     private gridConfig: ContainerConfig;
     gridColumns: GridColumnConfig[] = [];
@@ -69,6 +72,7 @@ export class Collection {
     private sourceKeyValue: { [key: string]: any } = {};
 
     protected mapWithModel(source: any[], isDispatchEvent: boolean = true) {
+        this.removeChildrens();
         var gridSourceLength = this._gridSource.length;
         for (var i = 0, j = source.length; i < j; i++) {
             var key = source[i][this.primaryKey];
@@ -84,11 +88,13 @@ export class Collection {
             }
 
             if (gridSourceLength > i) {
-                if (this._gridSource[i].value[this.primaryKey] != source[i][this.primaryKey])
+                if (this._gridSource[i].value[this.primaryKey] != source[i][this.primaryKey]) {
                     this._gridSource[i].setValue(source[i]);
+                }
             }
             else {
                 var row = new Item(source[i], this.columns);
+                this.overrideValueProp(source[i], this.columns);
                 this._gridSource.push(row);
                 if (isDispatchEvent)
                     this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i, identity: 'tbody-id' });
@@ -141,4 +147,68 @@ export class Collection {
         this.eventSubscriber.dispatch(EVENTS.REMOVE_ROWS, { identity: identity, start: startIndex, end: endIndex });
     }
 
+    protected removeChildrens() {
+        Object.keys(this.childrens).forEach(t => {
+            this.removeChildGrid(t);
+        })
+    }
+    
+    removeChildGrid(id:any) {
+        if (this.childrens[id]) {
+            this.childrens[id].destroy();
+            delete this.childrens[id];
+        }
+    }
+
+    getRowElement(id: number) {
+        let domManipulation: DomManipulation = undefined;
+        for (var i = 0; i < this._gridSource.length; i++) {
+            if (this._gridSource[i].value[this.primaryKey] == id) {
+                domManipulation= this.controlState.elements[`row-id-${i}`];
+                break;
+            }
+        }
+        return domManipulation.element;
+    }
+
+    private updateDom(currentObject,newObject,index) {
+        for (var column in newObject) {
+            if (currentObject[column] != newObject[column]) {
+                if (this.DomRows.length > index) {
+                    let filterValues = this.DomRows[index].filter(x => x.subscribeProps.indexOf(column) !== -1)
+                    filterValues.forEach(y => {
+                        y.updateElement(newObject);
+                    })
+                }
+            }
+        }
+    }
+
+    private overrideValueProp(instanceObject, columns:string[]) {
+        if (!instanceObject.grid) {
+            instanceObject.grid = true;
+            columns.forEach(propName => {
+                let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(instanceObject), propName);
+                let value = descriptor ? descriptor.get() : instanceObject[propName];
+                let oldValue = value;
+                Object.defineProperty(instanceObject, propName, {
+                    get: () => { return descriptor ? descriptor.get.call(instanceObject) : value },
+                    set: (v) => {
+                        if (oldValue !== v) {
+                            value = v;
+                            this._gridSource.forEach((t, i) => {
+                                if (t.value[this.primaryKey] == instanceObject[this.primaryKey]) {
+                                    let filterValues = this.DomRows[i].filter(x => x.subscribeProps.indexOf(propName) !== -1)
+                                    filterValues.forEach(y => {
+                                        y.updateElement(instanceObject);
+                                    })
+                                }
+                            })
+                            oldValue = v;
+                        }
+                    }
+                })
+            })
+        }
+    }
 }

@@ -3,7 +3,7 @@ import { Item } from './item';
 import { FunctionParser } from '../static/function-parser';
 export class DomManipulation {
     private itemObject: Item;
-    private subscribeProps: string[] = [];
+    subscribeProps: string[] = [];
     private updating: boolean = false;
     private instanceObject = {};
     element: any;
@@ -61,12 +61,12 @@ export class DomManipulation {
         }
         if (this.itemObject && !this.updating) {
             this.itemObject.subscribe(this.subscribeProps, this.updateElement.bind(this));
-            this.subscribeProps = [];
         }
     }
 
-    updateElement() {
+    updateElement(model:any) {
         this.updating = true;
+        this.modelObject = model;
         if (this.elementName === "text") {
             var value = this.getValue(this.config.text);
             if (value === undefined || value === "undefined")

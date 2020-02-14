@@ -11,8 +11,10 @@ import { GridConfig } from "../interface/config/grid-config";
 export class GridDesigner extends GridTemplate {
     private element: HTMLElement;
     private isReDesign: boolean = false;
-    private controlState: ControlState;
     startNodeName: string = "table"
+    isDivBase: boolean = false;
+    hideHeaderFooter: boolean = false;
+    private DomManipulations: DomManipulation[] ;
     constructor(source: any[], model: Function, private gridConfiguration: GridConfig) {
         super(source, model);
         this.eventSubscriber.subscribe(EVENTS.ADD_ROWS, this.addRows.bind(this));
@@ -27,6 +29,8 @@ export class GridDesigner extends GridTemplate {
         if (isRowEvent && !this.isReDesign)
             this.overrideRowSelect();
         var template = table({
+            hideHeaderFooter: this.hideHeaderFooter,
+            isDivBase: this.isDivBase,
             allowSorting: this.allowSorting,
             classConfig: this.designClass,
             eventSubscriber: this.eventSubscriber,
@@ -36,18 +40,20 @@ export class GridDesigner extends GridTemplate {
         }, this.gridSource);
         if (!this.isReDesign)
             this.pagination();
-        var footerTemplate = paginator({ onPageChanging: this.onPageChanging.bind(this), designClass: this.footerDesignClass, dropdownOptions: this.pagingSource, eventSubscriber: this.eventSubscriber, onMaxPerPageChanging: this.onMaxPerPageChanging.bind(this), paginatorSource: this.paginationConfigs });
-        this.footerLeftTemplate = footerTemplate.leftTemplate;
-        this.footerCenterTemplate = footerTemplate.centerTemplate;
-        this.footerRightTemplate = footerTemplate.rightTemplate;
-
+        
         this.bodyTemplate = template.bodyTemplate;
         this.headerTemplate = template.headerTemplate;
         this.headerColumns = template.headerColumns;
         this.createElement(element, this.startNodeName, this.tableElementConfig, this, 0);
-        this.createChildElements(element, [this.footerTemplate], this, 0);
+        if (!this.hideHeaderFooter) {
+            var footerTemplate = paginator({ onPageChanging: this.onPageChanging.bind(this), designClass: this.footerDesignClass, dropdownOptions: this.pagingSource, eventSubscriber: this.eventSubscriber, onMaxPerPageChanging: this.onMaxPerPageChanging.bind(this), paginatorSource: this.paginationConfigs });
+            this.footerLeftTemplate = footerTemplate.leftTemplate;
+            this.footerCenterTemplate = footerTemplate.centerTemplate;
+            this.footerRightTemplate = footerTemplate.rightTemplate;
+            this.createChildElements(element, [this.footerTemplate], this, 0);
+        }
         var column = this.gridColumns.filter(t => t.isAscending)[0];
-        super.sortColumn(column,true);
+        super.sortColumn(column, true);
     }
 
     private overrideRowSelect() {
@@ -64,9 +70,13 @@ export class GridDesigner extends GridTemplate {
         if (authorizationPassed) {
             var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, this.gridConfiguration);
             domManipulation.bind();
+            if (this.DomManipulations)
+                this.DomManipulations.push(domManipulation);
             this.controlState.elements[domManipulation.controlId] = domManipulation;
             if (elementConfig.sourceItems && elementConfig.childrens){
                 elementConfig.sourceItems.forEach((t, index) => {
+                    if (elementConfig["rowItem"])
+                        this.DomManipulations = this.DomRows[index] = []
                     var childrenLength = elementConfig.childrens.length;
                     let x = {};
                     if (modelObject.value) {
@@ -97,7 +107,8 @@ export class GridDesigner extends GridTemplate {
     private addRows(dataItem: { [key: string]: any }) {
         var name = `${dataItem.identity}-0`;
         var domManipulation = this.controlState.elements[name];
-        this.createChildElements(domManipulation.element, this.getChildTemplate(name), dataItem.row, dataItem.index)
+        if (domManipulation)
+            this.createChildElements(domManipulation.element, this.getChildTemplate(name), dataItem.row, dataItem.index)
     }
 
 
@@ -117,6 +128,22 @@ export class GridDesigner extends GridTemplate {
         this.isReDesign = false
     }
 
+
+    addChildGrid(id: number, grid: GridDesigner) {
+        var element = this.getRowElement(id);
+        if (element) {
+            grid.design(element);
+            this.childrens[id] = grid;
+        }
+    }
+
+    
+
+    destroy() {
+        this.removeChildrens();
+        this.removeChildren(this.element);
+    }
+
     private removeChildren(element: any, isRemoveRoot: boolean = true) {
         while (element.firstElementChild)
             this.removeChildren(element.firstElementChild);
@@ -132,7 +159,7 @@ export class GridDesigner extends GridTemplate {
     private getChildTemplate(name: string) {
         switch (name) {
             case "tbody-id-0":
-                return this.bodyTemplate.tbody.childrens;
+                return this.bodyTemplate[this.isDivBase ? "div" : "tbody"].childrens;
                 break;
             case "pagination-0":
                 return this.footerTemplate.div.childrens[2].div.childrens[0].ul.childrens;
