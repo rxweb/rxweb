@@ -32,7 +32,7 @@ export class ElementConfig {
     event?: { [key: string]: any }
     id?: string;
     parameterConfig?: ParameterConfig;
-    authorize?: { [key: string]: any };
+    authorize?: string;
     isBind?: (x: any) => boolean;
 }
 

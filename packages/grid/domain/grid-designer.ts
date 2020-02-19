@@ -14,7 +14,8 @@ export class GridDesigner extends GridTemplate {
     startNodeName: string = "table"
     isDivBase: boolean = false;
     hideHeaderFooter: boolean = false;
-    private DomManipulations: DomManipulation[] ;
+    private DomManipulations: DomManipulation[];
+    authorization: { [key: string]: any };
     constructor(source: any[], model: Function, private gridConfiguration: GridConfig) {
         super(source, model);
         this.eventSubscriber.subscribe(EVENTS.ADD_ROWS, this.addRows.bind(this));
@@ -65,8 +66,8 @@ export class GridDesigner extends GridTemplate {
     }
 
     private createElement(parentElement: HTMLElement, elementName: string, elementConfig: ElementConfig, modelObject: any, index: number) {
-        
-        let authorizationPassed = (elementConfig && elementConfig.authorize) ? this.authorize(elementConfig.authorize) : true;
+
+        let authorizationPassed = (this.authorization && elementConfig && elementConfig.authorize && this.authorization[elementConfig.authorize]) ? this.authorize(this.authorization[elementConfig.authorize]) : true;
         if (authorizationPassed) {
             var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, this.gridConfiguration);
             domManipulation.bind();

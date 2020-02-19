@@ -181,6 +181,12 @@ export class DomManipulation {
             if (!this.itemObject)
                 this.overrideProp(text);
             return this.objectPropValue(text, this.modelObject);
+        } else if (typeof text == "string" && (text[0] == "$")) {
+            let eventName = text.replace(new RegExp("$", "g"), "");
+            if (this.additionalConfiguration && this.additionalConfiguration.actions && this.additionalConfiguration.actions[eventName]) {
+                let actionMethod = this.additionalConfiguration.actions[eventName];
+                return actionMethod.call(this.modelObject.instance, this.modelObject, this.config.parameterConfig)
+            }
         }
         if (typeof text == "function") {
             this.propSubscribes(text);
