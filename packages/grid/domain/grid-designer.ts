@@ -7,8 +7,9 @@ import { table } from "../template/table/table";
 import { EVENTS } from "../const/events.const";
 import { paginator } from '../template/paginator';
 import { GridConfig } from "../interface/config/grid-config";
-
+import { ElementOnDemand } from "../interface/config/element-on-demand"
 export class GridDesigner extends GridTemplate {
+    childDom: DomManipulation;
     private element: HTMLElement;
     private isReDesign: boolean = false;
     startNodeName: string = "table"
@@ -64,13 +65,19 @@ export class GridDesigner extends GridTemplate {
                 onRowSelect(x);
         }
     }
-
+    private resolveOnDemandSelector(selectorName: any, jObject: { [key: string]: any }): ElementOnDemand {
+        return null;
+    }
     private createElement(parentElement: HTMLElement, elementName: string, elementConfig: ElementConfig, modelObject: any, index: number) {
 
         let authorizationPassed = (this.authorization && elementConfig && elementConfig.authorize && this.authorization[elementConfig.authorize]) ? this.authorize(this.authorization[elementConfig.authorize]) : true;
         if (authorizationPassed) {
             var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, this.gridConfiguration);
             domManipulation.bind();
+            if (elementConfig.onDemandSelector) {
+                domManipulation.onDemand = this.resolveOnDemandSelector(elementConfig.onDemandSelector, modelObject.instance ? modelObject.instance : modelObject) as ElementOnDemand
+                domManipulation.element.appendChild(domManipulation.onDemand.element);
+            }
             if (this.DomManipulations)
                 this.DomManipulations.push(domManipulation);
             this.controlState.elements[domManipulation.controlId] = domManipulation;
@@ -133,7 +140,9 @@ export class GridDesigner extends GridTemplate {
     addChildGrid(id: number, grid: GridDesigner) {
         var element = this.getRowElement(id);
         if (element) {
-            grid.design(element);
+            var dom = new DomManipulation(element, 'div', {}, {}, 0);
+            grid.childDom = dom;
+            grid.design(dom.element);
             this.childrens[id] = grid;
         }
     }
@@ -146,8 +155,12 @@ export class GridDesigner extends GridTemplate {
     }
 
     private removeChildren(element: any, isRemoveRoot: boolean = true) {
+        let controlId = element.getAttribute("data-rxwebid");
         while (element.firstElementChild)
-            this.removeChildren(element.firstElementChild);
+            if (controlId && this.controlState.elements[controlId] && this.controlState.elements[controlId].onDemand)
+                this.controlState.elements[controlId].onDemand.onDestroy();
+            else
+                this.removeChildren(element.firstElementChild);
         if (isRemoveRoot) {
             let controlId = element.getAttribute("data-rxwebid");
             if (controlId && this.controlState.elements[controlId]) {

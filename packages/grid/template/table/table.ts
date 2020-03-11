@@ -37,6 +37,16 @@ export function table(templateConfig: TableTemplateConfig, source: Item[]) {
 function getText(columnConfig: GridColumnConfig) {
     return columnConfig.headerKey || columnConfig.name;
 }
+function getHeaderCellClass(templateConfig: TableTemplateConfig, columnConfig: GridColumnConfig) {
+    let cellClass = new Array<string>();
+    if (templateConfig.classConfig.headerCellClass && templateConfig.classConfig.headerCellClass.length > 0)
+        templateConfig.classConfig.headerCellClass.forEach(t => cellClass.push(t));
+    if (columnConfig.headerCellClass && columnConfig.headerCellClass.length > 0) {
+        columnConfig.headerCellClass.forEach(t => cellClass.push(t));
+    }
+    return cellClass;
+
+}
 function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
     var _rowChildrens: TemplateConfig[] = [];
     var _rowHeaderChildrens: TemplateConfig[] = [];
@@ -78,8 +88,8 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
 
                         },
                     }
-                };
-            th[templateConfig.isDivBase ? "div" : "th"].class = templateConfig.classConfig.headerCellClass;
+            };
+            th[templateConfig.isDivBase ? "div" : "th"].class = getHeaderCellClass(templateConfig, columnConfig);
             th[templateConfig.isDivBase ? "div" : "th"].childrens = headerCellChildrens;
                 _rowHeaderChildrens.push(th);
             let tableData = {

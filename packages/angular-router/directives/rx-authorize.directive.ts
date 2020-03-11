@@ -9,7 +9,7 @@ import { componentInstanceProvider } from "../core/component-instance-provider";
 export class RxAuthorizeDirective {
     private viewRef: EmbeddedViewRef<any> | null = null;
     private _context: NgIfContext = new NgIfContext();
-
+    private failedCount = 0;
     private _components: any[];
 
     constructor(private viewContainerRef: ViewContainerRef, private templateRef: TemplateRef<any>, private injector: Injector) {
@@ -31,7 +31,17 @@ export class RxAuthorizeDirective {
             this.updateView(true)
         }
     }
-
+    private failedGoToNext(currentIndex) {
+        if (this._components.length == this.failedCount)
+            this.updateView(false);
+        else {
+            this.goToNext(currentIndex)
+        }
+    }
+    private goToNext(currentIndex) {
+        let index = currentIndex + 1;
+        this.checkAuth(index);
+    }
     checkAccess(value:any,currentIndex:number = 0) {
         var authorizeModel = routeContainer.get().authorization;
         let component = routeContainer.getModelDecorator(value as Function, "access");
@@ -41,8 +51,11 @@ export class RxAuthorizeDirective {
             var result = authorize.authorizeChildren(component.functions, authorizeConfig) as Promise<boolean> | boolean;
                 if (typeof result === "boolean") {
                     if (this._components && this._components.length > 0 && result) {
-                        let index = currentIndex + 1;
-                        this.checkAuth(index);
+                        this.goToNext(currentIndex);
+                    } else if (this._components && this._components.length > 1 && !result)
+                    {
+                        this.failedCount++;
+                        this.failedGoToNext(currentIndex)
                     }
                     else 
                         this.updateView(result);
@@ -51,7 +64,10 @@ export class RxAuthorizeDirective {
                         if (t) {
                             let index = currentIndex + 1;
                             this.checkAuth(index);
-                        }else
+                        } else if (this._components && this._components.length > 1 && !t) {
+                            this.failedCount++;
+                            this.failedGoToNext(currentIndex)
+                        } else
                         this.updateView(t);
                     })
         }

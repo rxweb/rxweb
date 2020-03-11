@@ -22,6 +22,7 @@ export class TemplateConfig {
 }
 
 export class ElementConfig {
+    onDemandSelector?: { selector: string, columnName: string };
     style?: { [key: string]: any };
     class?: any[];
     attributes?: { [key: string]: any };

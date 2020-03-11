@@ -156,6 +156,8 @@ export class Collection {
     removeChildGrid(id:any) {
         if (this.childrens[id]) {
             this.childrens[id].destroy();
+            if (this.childrens[id].childDom)
+                this.childrens[id].childDom.destroy();
             delete this.childrens[id];
         }
     }

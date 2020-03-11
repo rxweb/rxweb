@@ -8,6 +8,7 @@ export class DomManipulation {
     private instanceObject = {};
     element: any;
     controlId: any;
+    onDemand: any;
     private events: { [key: string]: Function } = {};
 
     constructor(parentNode: any, private elementName: string, private config, private modelObject: { [key: string]: any }, index: number, private additionalConfiguration: { [key: string]: any } = null) {

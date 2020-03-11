@@ -13,6 +13,7 @@ export class GridColumnConfig{
     configuredTemplate?: CustomTemplateConfig;
     class?: any[];
     headerClass?: any[];
+    headerCellClass?: any[];
     cellClass?: any[];
     style?: {[key:string]:any}
     visible?: boolean = true;
