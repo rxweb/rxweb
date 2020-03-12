@@ -10,7 +10,7 @@ import { customTemplateParser } from "../../static/custom-template-parser";
 export function table(templateConfig: TableTemplateConfig, source: Item[]) {
     var config = getHeaderAndRowConfiguration(templateConfig)
     var headerTemplate = {};
-    if (!templateConfig.hideHeaderFooter)
+    if (!templateConfig.hideHeaderFooter && !templateConfig.hideHeader)
     headerTemplate = {
         [templateConfig.isDivBase ? "div" : "thead"]: {
             class: templateConfig.classConfig.headerClass,

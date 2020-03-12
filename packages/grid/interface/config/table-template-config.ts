@@ -3,6 +3,8 @@ import { DesignClass } from "../../domain/design-class";
 import { GridColumnConfig } from "./grid-column-config";
 
 export interface TableTemplateConfig{
+    hideHeader: boolean;
+    hideFooter: boolean;
     hideHeaderFooter: boolean;
     isDivBase: boolean;
     classConfig: DesignClass;

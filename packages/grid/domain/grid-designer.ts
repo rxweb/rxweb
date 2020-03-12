@@ -15,6 +15,8 @@ export class GridDesigner extends GridTemplate {
     startNodeName: string = "table"
     isDivBase: boolean = false;
     hideHeaderFooter: boolean = false;
+    hideFooter: boolean = false;
+    hideHeader: boolean = false;
     private DomManipulations: DomManipulation[];
     authorization: { [key: string]: any };
     constructor(source: any[], model: Function, private gridConfiguration: GridConfig) {
@@ -31,6 +33,8 @@ export class GridDesigner extends GridTemplate {
         if (isRowEvent && !this.isReDesign)
             this.overrideRowSelect();
         var template = table({
+            hideHeader: this.hideHeader,
+            hideFooter: this.hideFooter,
             hideHeaderFooter: this.hideHeaderFooter,
             isDivBase: this.isDivBase,
             allowSorting: this.allowSorting,
@@ -47,7 +51,7 @@ export class GridDesigner extends GridTemplate {
         this.headerTemplate = template.headerTemplate;
         this.headerColumns = template.headerColumns;
         this.createElement(element, this.startNodeName, this.tableElementConfig, this, 0);
-        if (!this.hideHeaderFooter) {
+        if (!this.hideHeaderFooter && !this.hideFooter) {
             var footerTemplate = paginator({ onPageChanging: this.onPageChanging.bind(this), designClass: this.footerDesignClass, dropdownOptions: this.pagingSource, eventSubscriber: this.eventSubscriber, onMaxPerPageChanging: this.onMaxPerPageChanging.bind(this), paginatorSource: this.paginationConfigs });
             this.footerLeftTemplate = footerTemplate.leftTemplate;
             this.footerCenterTemplate = footerTemplate.centerTemplate;
