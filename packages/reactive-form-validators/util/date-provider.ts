@@ -66,9 +66,10 @@ export class DateProvider{
       return <Date>value;
   }
 
-  isValid(value:string | Date) : Boolean{
-    if(typeof value == "string"){
-      if(ISO_DATE_REGEX.test(<string>value))
+    isValid(value: string | Date, config: any): Boolean{
+      if (typeof value == "string") {
+       // Fixed issue : https://github.com/rxweb/rxweb/issues/280 & feature request : https://github.com/rxweb/rxweb/issues/295
+      if(config && config.allowISODate && ISO_DATE_REGEX.test(<string>value))
         return true;
       let seperator = '/'
       if(ReactiveFormConfig.json && ReactiveFormConfig.json.internationalization && ReactiveFormConfig.json.internationalization.seperator)

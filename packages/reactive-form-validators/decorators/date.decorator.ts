@@ -1,7 +1,7 @@
 import { baseDecoratorFunction } from "./base-decorator.function"
 import { AnnotationTypes } from '../core/validator.static';
-import { BaseConfig } from "../models/config/base-config";
+import { BaseDateConfig } from "../models/config/base-date-config";
 
-export function date(config?:BaseConfig) {
+export function date(config?: BaseDateConfig) {
     return baseDecoratorFunction(AnnotationTypes.date, config);
 }

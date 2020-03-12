@@ -128,7 +128,7 @@ import { RxwebValidators, ReactiveFormConfig } from '../../../packages/reactive-
 
         it("Should not error, valid ISO format date value",
         () => { 
-          expect(RxwebValidators.date()(new FormControl("2018-09-15"))).toBeNull(); 
+            expect(RxwebValidators.date({allowISODate:true})(new FormControl("2018-09-15"))).toBeNull(); 
         });
 
       //end
