@@ -117,6 +117,8 @@ export class DomManipulation {
                     this.element.setAttribute(attribute, value);
                 else
                     this.element.removeAttribute(attribute);
+            } else if (attribute == "innerHTML") {
+                this.element.innerHTML = value;
             }
             else if (this.element.setAttribute)
                 this.element.setAttribute(attribute, value);
