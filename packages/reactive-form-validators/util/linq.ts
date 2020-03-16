@@ -42,7 +42,7 @@ export class Linq {
         let splitExpressions = [];
         let columns = [];
         let expressionString = expression.toString();
-        let expressionArguments = Linq.extractArguments(expressionString.match(/\(([^)]+)\)/g));
+        let expressionArguments = Linq.extractArguments(expressionString);
         if (expressionArguments.length > 0) {
             let splitTexts = [];
             expressionString.replace(/\s/g, '').replace(new RegExp(/{|}/, "g"), "").split(new RegExp(/return|===|!==|==|!=|>=|>|<=|<|&&/)).forEach(t => {
@@ -77,10 +77,16 @@ export class Linq {
         return columns;
     }
 
-    private static extractArguments(splitTexts: string[]): string[] {
+    private static extractArguments(splitText: string): string[] {
         let expressionArguments: string[] = [THIS];
-        if (splitTexts && splitTexts[0])
-            splitTexts[0].split(",").forEach(t => expressionArguments.push(t.trim().replace("(", "").replace(")", "")));
+        if (splitText[0] !== "(") {
+            let text = splitText[0].split("=>")[0];
+            expressionArguments.push(text.trim().replace("(", "").replace(")", ""))
+        } else {
+            let splitTexts = splitText.match(/\(([^)]+)\)/g);
+            if (splitTexts && splitTexts[0]) 
+                    splitTexts[0].split(",").forEach(t => expressionArguments.push(t.trim().replace("(", "").replace(")", "")));
+        }
         return expressionArguments;
     }
 
