@@ -104,8 +104,11 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
 
             } else if (controls[fieldName] instanceof FormArray) {
                 //fix https://github.com/rxweb/rxweb/issues/274
-                controls[fieldName].controls.forEach(t => {
-                    this.setConditionalValidator(t.controls);
+                controls[fieldName].controls.forEach((t, i) => {
+                    if (t.controls == undefined)
+                        this.setConditionalValidator({ [i]: t });
+                    else
+                        this.setConditionalValidator(t.controls);
                 });
             }
         });
