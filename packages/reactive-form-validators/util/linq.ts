@@ -79,7 +79,7 @@ export class Linq {
 
     private static extractArguments(splitText: string): string[] {
         let expressionArguments: string[] = [THIS];
-        if (splitText[0] !== "(") {
+        if (splitText[0].trim() !== "(" && !splitText.trim().startsWith("function")) {
             let text = splitText[0].split("=>")[0];
             expressionArguments.push(text.trim().replace("(", "").replace(")", ""))
         } else {
@@ -123,7 +123,7 @@ export class Linq {
     static dynamicConfigParser(expression: Function, propName: string): any[] {
         let controlNames = [];
         let expressionString = expression.toString();
-        let expressionArguments = Linq.extractArguments(expressionString.match(/\(([^)]+)\)/g));
+        let expressionArguments = Linq.extractArguments(expressionString);
         let splitString: string[] = expressionString.replace(new RegExp(/\r?\n|\r|;/g), ' ').replace(/["%()\{}=\\?´`'#<>|,;:+-]+/g, " ").split(/ /g);
         if (expressionArguments.length > 3)
             expressionArguments.splice(expressionArguments.length - 1, 1)
