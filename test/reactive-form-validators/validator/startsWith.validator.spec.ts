@@ -100,7 +100,12 @@ import { RxwebValidators,ReactiveFormConfig  } from '@rxweb/reactive-form-valida
       it("Should error, startsWith validator Shows custom message",
         () => { 
           expect(RxwebValidators.startsWith({value:'R',message:'{{0}} does not starts with `R`'})(new FormControl('Microsoft Corporation'))).toEqual({'startsWith':{ message: 'Microsoft Corporation does not starts with `R`', refValues: [ 'Microsoft Corporation','R' ] } }); 
-        });
+          });
+
+        it("Should error, restrict startswith word",
+            () => {
+                expect(RxwebValidators.startsWith({ value: 'R', isRestrict: true, message: 'does not allow starts with `R`' })(new FormControl('R'))).toEqual({ 'startsWith': { message: 'does not allow starts with `R`', refValues: ['R', 'R'] } });
+            });
 
 
 
