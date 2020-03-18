@@ -15,7 +15,7 @@ export interface MinTimeConfig extends TimeRelationConfig<MinTimeConfig> {
     
 }
 
-export interface MaxTimeConfig extends TimeRelationConfig<MinTimeConfig>  {
+export interface MaxTimeConfig extends TimeRelationConfig<MaxTimeConfig>  {
     operator?: "<" | "<=";
     
 }

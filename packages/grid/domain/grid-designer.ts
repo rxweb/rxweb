@@ -46,7 +46,7 @@ export class GridDesigner extends GridTemplate {
         }, this.gridSource);
         if (!this.isReDesign)
             this.pagination();
-        
+
         this.bodyTemplate = template.bodyTemplate;
         this.headerTemplate = template.headerTemplate;
         this.headerColumns = template.headerColumns;
@@ -69,7 +69,7 @@ export class GridDesigner extends GridTemplate {
                 onRowSelect(x);
         }
     }
-    private resolveOnDemandSelector(selectorName: any, jObject: { [key: string]: any }): ElementOnDemand {
+    resolveOnDemandSelector(selectorName: any, jObject: { [key: string]: any }): ElementOnDemand {
         return null;
     }
     private createElement(parentElement: HTMLElement, elementName: string, elementConfig: ElementConfig, modelObject: any, index: number) {
@@ -85,7 +85,7 @@ export class GridDesigner extends GridTemplate {
             if (this.DomManipulations)
                 this.DomManipulations.push(domManipulation);
             this.controlState.elements[domManipulation.controlId] = domManipulation;
-            if (elementConfig.sourceItems && elementConfig.childrens){
+            if (elementConfig.sourceItems && elementConfig.childrens) {
                 elementConfig.sourceItems.forEach((t, index) => {
                     if (elementConfig["rowItem"])
                         this.DomManipulations = this.DomRows[index] = []
@@ -151,7 +151,7 @@ export class GridDesigner extends GridTemplate {
         }
     }
 
-    
+
 
     destroy() {
         this.removeChildrens();
@@ -160,11 +160,17 @@ export class GridDesigner extends GridTemplate {
 
     private removeChildren(element: any, isRemoveRoot: boolean = true) {
         let controlId = element.getAttribute("data-rxwebid");
+        let rxinner = element.getAttribute("data-rxinner");
         while (element.firstElementChild)
             if (controlId && this.controlState.elements[controlId] && this.controlState.elements[controlId].onDemand)
                 this.controlState.elements[controlId].onDemand.onDestroy();
-            else
-                this.removeChildren(element.firstElementChild);
+            else {
+                if (!rxinner)
+                    this.removeChildren(element.firstElementChild);
+                else
+                    break;
+            }
+            
         if (isRemoveRoot) {
             let controlId = element.getAttribute("data-rxwebid");
             if (controlId && this.controlState.elements[controlId]) {

@@ -118,6 +118,7 @@ export class DomManipulation {
                 else
                     this.element.removeAttribute(attribute);
             } else if (attribute == "innerHTML") {
+                this.addAttributes({ "data-rxinner": true})
                 this.element.innerHTML = value;
             }
             else if (this.element.setAttribute)

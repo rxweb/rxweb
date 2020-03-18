@@ -222,7 +222,7 @@ export class List<T>  {
     }
 
     single(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T | Error {
-        if (this.count() !== 1) {
+        if (this.count(predicate) !== 1) {
             throw new Error('Item does not contain one element.');
         } else {
             return this.first(predicate);
@@ -242,7 +242,14 @@ export class List<T>  {
     }
 
     sum(transform?: (value?: T, index?: number, list?: T[]) => number): number {
-        return transform ? this.select(transform).sum() : this.aggregate((ac, v) => ac += (+v), 0);
+        let result = this.select(transform);
+        if (transform) {
+            let sum = 0;
+            if (result)
+                result.forEach(t => sum += t);
+            return sum;
+        } else
+            return this.aggregate((ac, v) => ac += (+v), 0);
     }
 
     take(amount: number): List<T> {
