@@ -108,6 +108,12 @@ import { RxwebValidators,ReactiveFormConfig  } from '@rxweb/reactive-form-valida
             });
 
 
+        it("Should Pass, should not restrict other than 'R' Characters",
+            () => {
+                expect(RxwebValidators.startsWith({ value: 'R', isRestrict: true })(new FormControl('A'))).toBeNull();
+            });
+
+
 
 
 	//end

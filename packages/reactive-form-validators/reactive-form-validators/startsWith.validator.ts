@@ -13,7 +13,7 @@ export function startsWithValidator(configModel: StringComparisonConfig): Valida
         let config = getConfigObject(configModel, control);
         if (ValidatorValueChecker.pass(control, config)) {
             var startString = String(control.value).substr(0, config.value.length);
-            if ((config.isRestrict && startString == config.value) || (startString != config.value))
+            if ((config.isRestrict && String(startString).toLowerCase() == String(config.value).toLowerCase()) || (!config.isRestrict && startString != config.value))
                 return ObjectMaker.toJson(AnnotationTypes.startsWith, config, [control.value, config.value]);
         }
         return ObjectMaker.null();
