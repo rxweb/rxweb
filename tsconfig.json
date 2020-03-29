@@ -28,7 +28,8 @@
       "@rxweb/angular/*": [ "packages/angular/*/public_api" ],
       "@rxweb/storage": [ "packages/storage" ],
       "@rxweb/angular-router": [ "packages/angular-router" ],
-      "@rxweb/localization": [ "packages/localization" ]
+      "@rxweb/localization": [ "packages/localization" ],
+      "@rxweb/translate": [ "packages/translate" ]
 
     },
     "lib": [

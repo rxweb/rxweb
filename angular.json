@@ -20,7 +20,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/multilingual/en"
             ],
             "styles": [
               "src/styles.css"
@@ -86,7 +87,8 @@
             "scripts": [],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/multilingual"
             ]
           }
         },
@@ -650,6 +652,38 @@
             "tsConfig": [
               "packages/angular-localization/tsconfig.lib.json",
               "packages/angular-localization/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/translate": {
+      "root": "packages/translate",
+      "sourceRoot": "packages/translate",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/translate/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/translate/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/translate/tsconfig.lib.json",
+              "packages/translate/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

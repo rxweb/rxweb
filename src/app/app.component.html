@@ -1,5 +1,13 @@
- <form [formGroup]="dynamicFormBuildConfig.formGroup">
+<!--<form [formGroup]="dynamicFormBuildConfig.formGroup">
     <div viewMode="basic" [rxwebDynamicForm]="dynamicFormBuildConfig" [uiBindings]="uiBindings">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</form>-->
+<h2><a [routerLink]="'/contact'">Contact</a> <a [routerLink]="'/contacts'">Contacts</a> <a [routerLink]="'/contacts/child'">Child</a></h2>
+<div *ngIf="isHide">
+    <app-contact-child *rxTranslate="true"></app-contact-child>
+</div>
+{{global | json}}
+<button (click)="hideClick()">Click</button>
+<button (click)="changeLanguage()">Change Language</button>
+<router-outlet></router-outlet>
