@@ -1,5 +1,5 @@
 export interface TranslateConfig {
-    name: string;
+    translationName: string;
     language?: string;
     filePath?: string;
 }

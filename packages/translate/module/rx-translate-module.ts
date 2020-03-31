@@ -19,7 +19,7 @@ export class RxTranslateModule {
         if (!RxTranslateModule.config.languageCode)
             RxTranslateModule.config.languageCode = "en";
         if (config.globalFilePath) {
-            let translateConfig = { config: { name: 'global', filePath: config.globalFilePath }, instance: null }; 
+            let translateConfig = { config: { translationName: 'global', filePath: config.globalFilePath }, instance: null }; 
             var baseResolver = new BaseResolver(config);
             baseResolver.resolveGlobal(translateConfig);
         }

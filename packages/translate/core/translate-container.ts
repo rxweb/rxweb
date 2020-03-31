@@ -22,20 +22,20 @@ export const translateContainer:
         }
 
         getByName(name: string): TranslateContainerConfig {
-            let containerConfig = this.store.filter(t => t.config.name == name);
+            let containerConfig = this.store.filter(t => t.config.translationName == name);
             return containerConfig.length > 0 ? containerConfig[0] : undefined;
         }
 
         defineProperty(instance: Function, propertyName: string, config?: TranslateConfig) {
             let isPropertyKey = (propertyName != undefined);
             var model: Function = !isPropertyKey ? instance : instance.constructor;
-            let modelName = config === undefined ? "global":config.name;
+            let modelName = config === undefined ? "global" : config.translationName;
             defineProperty(model, propertyName, modelName);
             if (modelName != "global") {
                 this.set(model, config)
                 let count = this.store.filter(t => t.instance == model).length;
                 if (count == 1)
-                    overrideDestroyMethod(model, config.name);
+                    overrideDestroyMethod(model, config.translationName);
             }
         }
     })();

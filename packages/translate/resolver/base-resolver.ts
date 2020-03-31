@@ -39,7 +39,7 @@ export class BaseResolver {
             if (isSuccess) {
                 if (typeof body === "string")
                     body = JSON.parse(body);
-                MultiLingualData.addOrUpdate(this.containerConfig.config.name, body);
+                MultiLingualData.addOrUpdate(this.containerConfig.config.translationName, body);
             } 
             setTimeout(() => { MultiLingualData.clearInActives(this.baseConfig) }, 10);
             this.xhr.removeEventListener('load', this.loadEventFunction);
@@ -51,18 +51,26 @@ export class BaseResolver {
     getPath() {
         let url = '';
         if (this.containerConfig.config.filePath)
-            url = `/${this.containerConfig.config.filePath.replace("#lcode#", this.baseConfig.languageCode)}`;
+            url = `/${this.containerConfig.config.filePath.replace("{{language-code}}", this.baseConfig.languageCode)}`;
         else
-            url = `/${this.baseConfig.filePath.replace("#lcode#", this.baseConfig.languageCode).replace("#file#", this.containerConfig.config.name) }`;
+            url = `/${this.baseConfig.filePath.replace("{{language-code}}", this.baseConfig.languageCode).replace("{{translation-name}}", this.containerConfig.config.translationName) }`;
         return url
     }
 
     resolveRoute(route: ActivatedRouteSnapshot) {
+        this.updateLanguageByParam(route);
         let containerConfig = translateContainer.get(route.component);
-        if (containerConfig && !MultiLingualData.contains(containerConfig.config.name)) {
+        if (containerConfig && !MultiLingualData.contains(containerConfig.config.translationName)) {
             return this.resolve(containerConfig)
         } else
             return true;
+    }
+
+    updateLanguageByParam(route: ActivatedRouteSnapshot) {
+        if (route.params && route.params["languageCode"]) {
+            this.baseConfig.languageCode = route.params["languageCode"];
+        }
+        
     }
 
     resolveByName(name: string) {
