@@ -2,6 +2,7 @@ import { TranslateConfig } from "../interface/translate-config";
 import { TranslateContainerConfig } from "../interface/translate-container-config";
 import { defineProperty } from "../functions/define-property";
 import { overrideDestroyMethod } from "../functions/override-destroy";
+import { RxTranslateConfig } from "../interface/rx-translate-config";
 
 export const translateContainer:
     {
@@ -9,9 +10,10 @@ export const translateContainer:
         getByName(name: string): TranslateContainerConfig;
         get(instance: any): TranslateContainerConfig;
         defineProperty(instance: Function, propertyName: string, config: TranslateConfig): void;
+        config: RxTranslateConfig;
     } = new (class {
         store: TranslateContainerConfig[] = new Array<TranslateContainerConfig>();
-
+        config: RxTranslateConfig;
         set(instance: Function, config: TranslateConfig): void {
             this.store.push({ instance: instance, config: config });
         }

@@ -8,12 +8,22 @@ export function overrideProperty() {
             this.cloneSnap = v;
             if (this.cloneSnap && !this.cloneSnap.canActivate) {
                 this.cloneSnap.canActivate = [ComponentGuard];
-            } else if (this.cloneSnap && this.cloneSnap.canActivate)
-                this.cloneSnap.canActivate.push(ComponentGuard);
-            if (this.cloneSnap && this.cloneSnap.children) {
-                this.cloneSnap.canActivateChild = [ComponentGuard]
             }
-            
+            else if (this.cloneSnap && this.cloneSnap.canActivate) {
+                if (this.cloneSnap.canActivate.filter(t => t == ComponentGuard).length == 0) {
+                    this.cloneSnap.canActivate.push(ComponentGuard);
+                }
+
+            }
+            if (this.cloneSnap && this.cloneSnap.children) {
+                if (this.cloneSnap && !this.cloneSnap.canActivateChild) {
+                    this.cloneSnap.canActivateChild = [ComponentGuard];
+                }
+                else if (this.cloneSnap && this.cloneSnap.canActivateChild) {
+                    if (this.cloneSnap.canActivateChild.filter(t => t== ComponentGuard).length == 0)
+                        this.cloneSnap.canActivateChild.push(ComponentGuard);
+                }
+            }
         },
         enumerable: true,
         configurable: true
