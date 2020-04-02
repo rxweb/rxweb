@@ -52,7 +52,8 @@ export class UserComponent  {
 ```
 As per the above code, We have mapped ```@translate``` decorator on the property of ```multilingualContent```. This decorator resolves the internationalization data while initialization of the ```UserComponent```.
 
-To know more, please refer the articles : 
+To know more, please refer to the [basic example](https://stackblitz.com/edit/rxweb-translate-basic-example?file=src%2Fapp%2Fuser.component.ts) or refer to the articles on [Medium](https://medium.com/@oojhaajay)
+
 
 ## Contributing
 If you are thinking to make rxweb framework better, that's truly great. You can contribute from a single character to core architectural work or significant documentation – all with the goal of making a robust rxweb framework which helps for everyone in their projects. Even if you are don’t feel up to writing code or documentation yet, there are a variety of other ways that you can contribute like reporting issues to testing patches.

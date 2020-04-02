@@ -1,12 +1,12 @@
 {
   "name": "@rxweb/translate",
-  "version": "0.0.2-beta1",
+  "version": "1.0.0",
   "keywords": [
-    "angular "
+    "angular ","angular internationalization","angular i18n", "rxweb translate", "lazy load content translation in angular"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rxweb/rxweb/tree/master/packages/core#readme"
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/translate#readme"
   },
   "bugs": {
     "url": "https://github.com/rxweb/rxweb/issues"
