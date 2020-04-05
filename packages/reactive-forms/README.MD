@@ -9,7 +9,7 @@
 <h3>RxWeb</h3>
 The most powerful and well-factored validation framework for VUE and React based enterprise application.
 
-For More Information on ***[rxweb](http://rxweb.io)***
+For More Information on ***[rxweb](https://docs.rxweb.io/vue/home)***
 
 # Prerequisites
 This only works in TypeScript Language Supported Project.
@@ -1335,7 +1335,7 @@ ___
 
 
 ## Contributing
-If you are thinking to make rxweb framework better, that's truly great. You can contribute from a single character to core architectural work or significant documentation – all with the goal of making a robust rxweb framework which helps for everyone in their projects. Even if you are don’t feel up to writing code or documentation yet, there are a variety of other ways that you can contribute like reporting issues to testing patches.
+If you are thinking to make rxweb framework better, that's truly great. You can contribute from a single character to core architectural work or significant documentation Â– all with the goal of making a robust rxweb framework which helps for everyone in their projects. Even if you are donÂ’t feel up to writing code or documentation yet, there are a variety of other ways that you can contribute like reporting issues to testing patches.
 
 Check out the <a href="https://rxweb.io/community/where_to_start_contributing">docs</a> on how you can put your precious efforts on the rxweb framework and contribute in the respective area.
 
