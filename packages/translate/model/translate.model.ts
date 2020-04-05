@@ -29,7 +29,7 @@ export class TranslateModel {
 
     private getText(text: string) {
         if (text.indexOf('this.') !== -1) {
-            var func = new Function("x", `return`+ text);
+            var func = new Function("x", "return "+ text);
             text = func.call(this.componentData);
         }
         if (text && text.indexOf("{{") != -1) {
