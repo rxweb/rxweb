@@ -31,686 +31,20 @@ This only works in TypeScript Language Supported Project.
 $ npm install @rxweb/reactive-forms
 ```
 
-## Form Validation 
-Three ways to apply validation on the form via Validators, Validation Decorators or Template Form.  
 
 ## Global Configuration
 Before applying the validation on the model, you have set few one thing globally. Write the below code at starting point of the application. 
 ```js
+// For VUE Projects
 ReactiveFormConfig.clientLib = ClientLibrary.Vue;
 
+// For React Projects
+ReactiveFormConfig.clientLib = ClientLibrary.React;
+
 ```
-
-  
-2. [alpha](#alpha)   
-3. [alphaNumeric](#alphanumeric)   
-4. [ascii](#ascii) 
-6. [compare](#compare)
-8. [contains](#contains)   
-9. [creditCard](#creditcard)  
-10. [dataUri](#datauri) 
-11. [different](#different) 
-12. [digit](#digit)  
-13. [email](#email)  
-14. [endsWith](#endswith) 
-15. [even](#even)   
-16. [extension](#extension)  
-17. [factor](#factor)   
-18. [file](#file)
-19. [fileSize](#filesize) 
-20. [greaterThanEqualTo](#greaterthanequalto)   
-21. [greaterThan](#greaterthan)
-23. [image](#image)
-24. [hexColor](#hexcolor)   
-25. [json](#json)  
-26. [latitude](#latitude) 
-27. [latLong](#latlong) 
-28. [leapYear](#leapyear)  
-29. [lessThanEqualTo](#lessthanequalto)   
-30. [lessThan](#lessthan)   
-31. [longitude](#longitude)
-32. [lowerCase](#lowercase) 
-33. [mac](#mac) 
-34. [maxDate](#maxdate) 
-35. [maxLength](#maxlength)  
-36. [maxNumber](#maxnumber)
-37. [minDate](#mindate) 
-38. [minLength](#minlength) 
-39. [minNumber](#minnumber)     
-41. [numeric](#numeric) 
-42. [odd](#odd)   
-44. [password](#password)
-45. [pattern](#pattern)   
-46. [port](#port) 
-47. [primeNumber](#primenumber)
-48. [range](#range)   
-49. [required](#required)  
-50. [startsWith](#startswith)
-53. [upperCase](#uppercase)   
-54. [url](#url)   
-___
-## alpha   
-Alpha validation will allow only alphabets to be entered. It will not allow any digit or special character.
-> Model
-```js
-	@alpha() 
-	countryName: string;	
-```  
-
-> Component
-```html
-        <input id="name" class="form-control" v-model="countryFormGroup.props.countryName" type="text" name="name" />
-        <div v-if="countryFormGroup.controls.countryName.errors">
-         <small class="form-text text-danger">{{countryFormGroup.controls.countryName.errors.alpha.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class CountryComponent extends Vue {
- countryFormGroup: IFormGroup<Country>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.countryFormGroup = this.formBuilder.formGroup(Country) as IFormGroup<Country>;
-   }
-}
-```
-___
-## alphaNumeric
-Alpha Numeric validation will allow only alphabets and numbers to be entered, It will not allow any special character. 
-> Model
-```js
-	@alphaNumeric() 
-	areaName: string;	
-```  
-
-> Component
-```html
-        <input id="name" class="form-control" v-model="countryFormGroup.props.areaName" type="text" name="name" />
-        <div v-if="countryFormGroup.controls.areaName.errors">
-         <small class="form-text text-danger">{{countryFormGroup.controls.areaName.errors.alphaNumeric.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class CountryComponent extends Vue {
- countryFormGroup: IFormGroup<Country>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.countryFormGroup = this.formBuilder.formGroup(Country) as IFormGroup<Country>;
-   }
-}
-```
-___
-## ascii
-ascii validation decorator allows user to enter the input which is in the proper ascii format.
-> Model
-```js
-	@ascii() 
-	specialCharAsciiCode: string;
-```  
-
-> Component
-```html
-        <input id="name" class="form-control" v-model="userFormGroup.props.specialCharAsciiCode" type="text" name="name" />
-        <div v-if="userFormGroup.controls.specialCharAsciiCode.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.specialCharAsciiCode.errors.ascii.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class UserComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() 
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-___
-
-## compare
-Compare validation will compare two inputs whether they are same or not.
-> Reactive Form Validation
-```js
- > Model
-```js
-	@prop()
-	password: string;
-
-	@compare({fieldName:'password' }) 
-	confirmPassword: string;
-```  
-
-> Component
-```html
-
-        <input id="name" class="form-control" v-model="userFormGroup.props.password" type="text" name="name" />
-        <div v-if="userFormGroup.controls.password.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.password.errors.compare.message}}<br/></small>	
-       </div>
-        <input id="name" class="form-control" v-model="userFormGroup.props.confirmPassword" type="text" name="name" />
-        <div v-if="userFormGroup.controls.confirmPassword.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.confirmPassword.errors.compare.message}}<br/></small>	
-       </div> 
-```
-```js
-@Component
-export default class UserComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-___
-## contains
-Contains validation will check that value is in the input, It will not allow to enter input that not contains the predefined value.
-> Model
-```js
-  @contains({value:'@gmail.com' }) 
-	emailAddress: string;
-```  
-
-> Component
-```html
-       <input id="name" class="form-control" v-model="userFormGroup.props.emailAddress" type="text" name="name" />
-        <div v-if="userFormGroup.controls.emailAddress.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.emailAddress.errors.contains.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class UserComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() 
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-___
-## creditCard
-creditCard validation will check property value is creditcardtype or not, It will not allow to enter any value other than credit card format.
- > Model
-```js
-   @prop()
- 	cardType: string;
-
-	@creditCard({fieldName:'cardType' }) 
-	creditCardNumber: string;
-```  
-
-> Component
-```html
-       <input id="name" class="form-control" v-model="userFormGroup.props.creditCardNumber" type="text" name="name" />
-          <small class="form-text text-muted">Enter Selected Card's Card No<br/></small>
-       <div v-if="userFormGroup.controls.creditCardNumber.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.creditCardNumber.errors.creditCard.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class UserComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() 
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-___
-## dataUri
-dataUri validation  allows user to enter the input which is a valid data Uri.
-> Model
-```js
-  @dataUri
-	videoDataUri: string;
-```  
-
-> Component
-```html
-       <input id="name" class="form-control" v-model="userFormGroup.props.emailAddress" type="text" name="name" />
-        <div v-if="userFormGroup.controls.emailAddress.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.emailAddress.errors.contains.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class UserComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() 
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-___
-___
-## different
-different validation decorator will check two inputs whether they are different or not. It is just opposite of different decorator.
-> Model
-```js
-   @prop()
-	firstName: string;
-
-	@different({fieldName:'firstName' }) 
-	lastName: string;
-```  
-
-> Component
-```html
-   <input id="name" class="form-control" v-model="accountInfoFormGroup.props.lastName" type="text" name="name" />
-          <small class="form-text text-muted">Both field must be different<br/></small>
-       <div v-if="accountInfoFormGroup.controls.lastName.errors">
-         <small class="form-text text-danger">{{accountInfoFormGroup.controls.lastName.errors.different.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class DifferentAddComponent extends Vue {
- accountInfoFormGroup: IFormGroup<AccountInfo>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.accountInfoFormGroup = this.formBuilder.formGroup(AccountInfo) as IFormGroup<AccountInfo>;
-   }
-}
-```
-
-___
-## digit
-Digit validation will allow only digits to be entered, It will not allow any alphabets or special character.
-> Model
-```js
-  @digit() 
-	age: number;
-```  
-
-> Component
-```html
-  <input id="name" class="form-control" v-model="userFormGroup.props.age" type="text" name="name" />
-        <div v-if="userFormGroup.controls.age.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.age.errors.digit.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class DigitAddComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-___
-___
-## email
-email validation decorator will only allow user to enter input which is in the correct email format.
-> Model
-```js
-  @email() 
-	email: string;
-```  
-
-> Component
-```html
-  <input id="name" class="form-control" v-model="userFormGroup.props.email" type="text" name="name" />
-        <div v-if="userFormGroup.controls.email.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.email.errors.email.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class EmailAddComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-___
-## endsWith
-endsWith validation allows user to enter the input which ends with particular value.
-> Model
-```js
- @endsWith({value:'t' }) 
-	name: string;
-```  
-
-> Component
-```html
- <input id="name" class="form-control" v-model="userFormGroup.props.name" type="text" name="name" />
-          <small class="form-text text-muted">You can enter value which ends with 't'<br/></small>
-       <div v-if="userFormGroup.controls.name.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.name.errors.endsWith.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class EndsWithAddComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-___
-## even
-even validation decorator will check whether the value entered by user is an even number or not.
-> Model
-```js
- @even() 
-	evenNumber: number;
-```  
-
-> Component
-```html
- <input id="name" class="form-control" v-model="userFormGroup.props.evenNumber" type="text" name="name" />
-          <small class="form-text text-muted">you can enter only an even number<br/></small>
-       <div v-if="userFormGroup.controls.evenNumber.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.evenNumber.errors.even.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class EvenAddComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-___
-## extension
-extension validation allows user to enter the input which is in the proper extension format.
-> Model
-```js
- @extension({extensions:['jpg','bmp'] }) 
-	profilePicture: string;
-```  
-
-> Component
-```html
-  <input id="name" class="form-control" v-model="userInfoFormGroup.props.profilePicture" type="text" name="name" />
-          <small class="form-text text-muted">This field only allow file extension as jpg or bmp only.<br/></small>
-       <div v-if="userInfoFormGroup.controls.profilePicture.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePicture.errors.extension.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class ExtensionAddComponent extends Vue {
- userInfoFormGroup: IFormGroup<UserInfo>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userInfoFormGroup = this.formBuilder.formGroup(UserInfo) as IFormGroup<UserInfo>;
-   }
-}
-```
-## extension
-extension validation allows user to enter the input which is in the proper extension format.
-> Model
-```js
- @extension({extensions:['jpg','bmp'] }) 
-	profilePicture: string;
-```  
-
-> Component
-```html
-  <input id="name" class="form-control" v-model="userInfoFormGroup.props.profilePicture" type="text" name="name" />
-          <small class="form-text text-muted">This field only allow file extension as jpg or bmp only.<br/></small>
-       <div v-if="userInfoFormGroup.controls.profilePicture.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePicture.errors.extension.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class ExtensionAddComponent extends Vue {
- userInfoFormGroup: IFormGroup<UserInfo>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userInfoFormGroup = this.formBuilder.formGroup(UserInfo) as IFormGroup<UserInfo>;
-   }
-}
-```
-## factor
-factor validation will allow user to enter factor of a number which is called dividend.
-> Model
-```js
- @factor({dividend:50 }) 
-	firstNumber: Number;
-```  
-
-> Component
-```html
-  <input id="name" class="form-control" v-model="userFormGroup.props.firstNumber" type="text" name="name" />
-          <small class="form-text text-muted">You can only enter factors of 50<br/></small>
-       <div v-if="userFormGroup.controls.firstNumber.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.firstNumber.errors.factor.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class FactorAddComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-## file
-file validation decorator allows user to validate whether how many files can be uploaded. It depends on maxFiles and minFiles.
-> Model
-```js
-  @file({maxFiles:5 }) 
-	totalImageFiles: number;
-	
-	
-	@file({minFiles:5 }) 
-	totalDocumentFiles: number;
-```  
-
-> Component
-```html
-  <input id="name" class="form-control" v-model="userInfoFormGroup.props.totalImageFiles" type="text" name="name" />
-          <small class="form-text text-muted">This field allow upto 5 files.<br/></small>
-       <div v-if="userInfoFormGroup.controls.totalImageFiles.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.totalImageFiles.errors.file.message}}<br/></small>	
-       </div>
-
-<input id="name" class="form-control" v-model="userInfoFormGroup.props.totalDocumentFiles" type="text" name="name" />
-          <small class="form-text text-muted">This field allow minmum 5 files.<br/></small>
-       <div v-if="userInfoFormGroup.controls.totalDocumentFiles.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.totalDocumentFiles.errors.file.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class FileAddComponent extends Vue {
- userInfoFormGroup: IFormGroup<UserInfo>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userInfoFormGroup = this.formBuilder.formGroup(UserInfo) as IFormGroup<UserInfo>;
-   }
-}
-```
-## fileSize 
-fileSize validation decorator allows user to enter the input which is in the proper fileSize size format.
-> Model
-```js
-  @fileSize({maxSize:10 }) 
-	profilePicture: string;
-```  
-
-> Component
-```html
-   <input id="name" class="form-control" v-model="userInfoFormGroup.props.profilePicture" type="text" name="name" />
-          <small class="form-text text-muted">Uploaded File must be in the file size range.<br/></small>
-       <div v-if="userInfoFormGroup.controls.profilePicture.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePicture.errors.fileSize.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class FileSizeAddComponent extends Vue {
- userInfoFormGroup: IFormGroup<UserInfo>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userInfoFormGroup = this.formBuilder.formGroup(UserInfo) as IFormGroup<UserInfo>;
-   }
-}
-```
-
-## greaterThanEqualTo 
-Greater than equal to validation decorator will check that input property is greater than or equal to the related field input.
-> Model
-```js
- @greaterThanEqualTo({fieldName:'age' }) 
-	voterAge: number;
-```  
-
-> Component
-```html
- <input id="name" class="form-control" v-model="userFormGroup.props.voterAge" type="text" name="name" />
-          <small class="form-text text-muted">This is checking greater than equal to validation for Voter Age must be greater than equal to age.<br/></small>
-       <div v-if="userFormGroup.controls.voterAge.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.voterAge.errors.greaterThanEqualTo.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class GreaterThanEqualToAddComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-
-## greaterThan
-Greater than validation decorator will check that input property is greater than to the related field input.
-> Model
-```js
- @greaterThan({fieldName:'age' }) 
-	voterAge: number;
-```  
-
-> Component
-```html
-  <input id="name" class="form-control" v-model="userFormGroup.props.voterAge" type="text" name="name" />
-          <small class="form-text text-muted">This is checking greater than validation for  Voter Age must be greater than to age.<br/>           </small>
-       <div v-if="userFormGroup.controls.voterAge.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.voterAge.errors.greaterThan.message}}<br/></small>	
-       </div>
-```
-```js
-@Component
-export default class GreaterThanAddComponent extends Vue {
- userFormGroup: IFormGroup<User>;
-
- formBuilder: RxFormBuilder = new RxFormBuilder();
-
-  constructor() {
-    super();
-    this.userFormGroup = this.formBuilder.formGroup(User) as IFormGroup<User>;
-   }
-}
-```
-
-[![Build Status](https://travis-ci.org/rxweb/rxweb.svg?branch=master)](https://travis-ci.org/rxweb/rxweb)
-[![Gitter](https://badges.gitter.im/rx-web/Lobby.svg)](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6af5855682524d39a0d88bade210facd)](https://www.codacy.com/app/rxweb/rxweb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rxweb/rxweb&amp;utm_campaign=Badge_Grade)
-[![dependencies Status](https://david-dm.org/rxweb/rxweb/status.svg)](https://david-dm.org/rxweb/rxweb)
-[![npm version](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators.svg)](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators)
-[![DeepScan grade](https://deepscan.io/api/teams/3217/projects/4745/branches/37870/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3217&pid=4745&bid=37870)
-[![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
-[![](https://data.jsdelivr.com/v1/package/npm/@rxweb/reactive-form-validators/badge)](https://www.jsdelivr.com/package/npm/@rxweb/reactive-form-validators)
-
-
-<h3>RxWeb</h3>
-The most powerful and well-factored validation framework for vue based enterprise application.
-
-For More Information on ***[rxweb](http://rxweb.io)***
-
-# Prerequisites
-Reactive Forms will work in vue and react projects.
-
-## Table of Contents
-
-* [Installation](#installation)
-* [Form Validation](#form-validation)
-* [Contributing](#contributing)
-* [Need Help](#need-help) 
-* [Feature Request](#feature-request)
-* [License](#license)
-
-## Installation
-```bash
-$ npm install @rxweb/reactive-forms
-```
-
 ## Form Validation 
-Three ways to apply validation on the form via Validators, Validation Decorators or Template Form.  
+Pure model driven decorator based validation.
+
   
 2. [alpha](#alpha)   
 3. [alphaNumeric](#alphanumeric)   
@@ -730,7 +64,6 @@ Three ways to apply validation on the form via Validators, Validation Decorators
 19. [fileSize](#filesize) 
 20. [greaterThanEqualTo](#greaterthanequalto)   
 21. [greaterThan](#greaterthan)
-22. [ip](#ip)
 23. [image](#image)
 24. [hexColor](#hexcolor)   
 25. [json](#json)  
@@ -757,8 +90,6 @@ Three ways to apply validation on the form via Validators, Validation Decorators
 48. [range](#range)   
 49. [required](#required)  
 50. [startsWith](#startswith)
-51. [time](#time)
-52. [unique](#unique)
 53. [upperCase](#uppercase)   
 54. [url](#url)   
 ___
@@ -773,9 +104,7 @@ Alpha validation will allow only alphabets to be entered. It will not allow any 
 > Component
 ```html
         <input id="name" class="form-control" v-model="countryFormGroup.props.countryName" type="text" name="name" />
-        <div v-if="countryFormGroup.controls.countryName.errors">
-         <small class="form-text text-danger">{{countryFormGroup.controls.countryName.errors.alpha.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{countryFormGroup.controls.countryName.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -802,9 +131,7 @@ Alpha Numeric validation will allow only alphabets and numbers to be entered, It
 > Component
 ```html
         <input id="name" class="form-control" v-model="countryFormGroup.props.areaName" type="text" name="name" />
-        <div v-if="countryFormGroup.controls.areaName.errors">
-         <small class="form-text text-danger">{{countryFormGroup.controls.areaName.errors.alphaNumeric.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{countryFormGroup.controls.areaName.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -831,9 +158,7 @@ ascii validation decorator allows user to enter the input which is in the proper
 > Component
 ```html
         <input id="name" class="form-control" v-model="userFormGroup.props.specialCharAsciiCode" type="text" name="name" />
-        <div v-if="userFormGroup.controls.specialCharAsciiCode.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.specialCharAsciiCode.errors.ascii.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.specialCharAsciiCode.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -867,13 +192,10 @@ Compare validation will compare two inputs whether they are same or not.
 ```html
 
         <input id="name" class="form-control" v-model="userFormGroup.props.password" type="text" name="name" />
-        <div v-if="userFormGroup.controls.password.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.password.errors.compare.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.password.errorMessage}}<br/></small>	
+       
         <input id="name" class="form-control" v-model="userFormGroup.props.confirmPassword" type="text" name="name" />
-        <div v-if="userFormGroup.controls.confirmPassword.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.confirmPassword.errors.compare.message}}<br/></small>	
-       </div> 
+         <small class="form-text text-danger">{{userFormGroup.controls.confirmPassword.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -900,9 +222,7 @@ Contains validation will check that value is in the input, It will not allow to 
 > Component
 ```html
        <input id="name" class="form-control" v-model="userFormGroup.props.emailAddress" type="text" name="name" />
-        <div v-if="userFormGroup.controls.emailAddress.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.emailAddress.errors.contains.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.emailAddress.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -933,9 +253,7 @@ creditCard validation will check property value is creditcardtype or not, It wil
 ```html
        <input id="name" class="form-control" v-model="userFormGroup.props.creditCardNumber" type="text" name="name" />
           <small class="form-text text-muted">Enter Selected Card's Card No<br/></small>
-       <div v-if="userFormGroup.controls.creditCardNumber.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.creditCardNumber.errors.creditCard.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.creditCardNumber.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -962,9 +280,7 @@ dataUri validation  allows user to enter the input which is a valid data Uri.
 > Component
 ```html
        <input id="name" class="form-control" v-model="userFormGroup.props.emailAddress" type="text" name="name" />
-        <div v-if="userFormGroup.controls.emailAddress.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.emailAddress.errors.contains.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.emailAddress.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -996,9 +312,7 @@ different validation decorator will check two inputs whether they are different 
 ```html
    <input id="name" class="form-control" v-model="accountInfoFormGroup.props.lastName" type="text" name="name" />
           <small class="form-text text-muted">Both field must be different<br/></small>
-       <div v-if="accountInfoFormGroup.controls.lastName.errors">
-         <small class="form-text text-danger">{{accountInfoFormGroup.controls.lastName.errors.different.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{accountInfoFormGroup.controls.lastName.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1026,9 +340,7 @@ Digit validation will allow only digits to be entered, It will not allow any alp
 > Component
 ```html
   <input id="name" class="form-control" v-model="userFormGroup.props.age" type="text" name="name" />
-        <div v-if="userFormGroup.controls.age.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.age.errors.digit.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.age.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1056,9 +368,7 @@ email validation decorator will only allow user to enter input which is in the c
 > Component
 ```html
   <input id="name" class="form-control" v-model="userFormGroup.props.email" type="text" name="name" />
-        <div v-if="userFormGroup.controls.email.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.email.errors.email.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.email.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1086,9 +396,7 @@ endsWith validation allows user to enter the input which ends with particular va
 ```html
  <input id="name" class="form-control" v-model="userFormGroup.props.name" type="text" name="name" />
           <small class="form-text text-muted">You can enter value which ends with 't'<br/></small>
-       <div v-if="userFormGroup.controls.name.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.name.errors.endsWith.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.name.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1116,9 +424,7 @@ even validation decorator will check whether the value entered by user is an eve
 ```html
  <input id="name" class="form-control" v-model="userFormGroup.props.evenNumber" type="text" name="name" />
           <small class="form-text text-muted">you can enter only an even number<br/></small>
-       <div v-if="userFormGroup.controls.evenNumber.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.evenNumber.errors.even.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.evenNumber.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1146,9 +452,7 @@ extension validation allows user to enter the input which is in the proper exten
 ```html
   <input id="name" class="form-control" v-model="userInfoFormGroup.props.profilePicture" type="text" name="name" />
           <small class="form-text text-muted">This field only allow file extension as jpg or bmp only.<br/></small>
-       <div v-if="userInfoFormGroup.controls.profilePicture.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePicture.errors.extension.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePicture.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1175,9 +479,7 @@ extension validation allows user to enter the input which is in the proper exten
 ```html
   <input id="name" class="form-control" v-model="userInfoFormGroup.props.profilePicture" type="text" name="name" />
           <small class="form-text text-muted">This field only allow file extension as jpg or bmp only.<br/></small>
-       <div v-if="userInfoFormGroup.controls.profilePicture.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePicture.errors.extension.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePicture.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1204,9 +506,7 @@ factor validation will allow user to enter factor of a number which is called di
 ```html
   <input id="name" class="form-control" v-model="userFormGroup.props.firstNumber" type="text" name="name" />
           <small class="form-text text-muted">You can only enter factors of 50<br/></small>
-       <div v-if="userFormGroup.controls.firstNumber.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.firstNumber.errors.factor.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.firstNumber.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1237,15 +537,11 @@ file validation decorator allows user to validate whether how many files can be 
 ```html
   <input id="name" class="form-control" v-model="userInfoFormGroup.props.totalImageFiles" type="text" name="name" />
           <small class="form-text text-muted">This field allow upto 5 files.<br/></small>
-       <div v-if="userInfoFormGroup.controls.totalImageFiles.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.totalImageFiles.errors.file.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userInfoFormGroup.controls.totalImageFiles.errorMessage}}<br/></small>	
 
 <input id="name" class="form-control" v-model="userInfoFormGroup.props.totalDocumentFiles" type="text" name="name" />
           <small class="form-text text-muted">This field allow minmum 5 files.<br/></small>
-       <div v-if="userInfoFormGroup.controls.totalDocumentFiles.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.totalDocumentFiles.errors.file.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userInfoFormGroup.controls.totalDocumentFiles.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1272,9 +568,7 @@ fileSize validation decorator allows user to enter the input which is in the pro
 ```html
    <input id="name" class="form-control" v-model="userInfoFormGroup.props.profilePicture" type="text" name="name" />
           <small class="form-text text-muted">Uploaded File must be in the file size range.<br/></small>
-       <div v-if="userInfoFormGroup.controls.profilePicture.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePicture.errors.fileSize.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePicture.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1301,10 +595,7 @@ Greater than equal to validation decorator will check that input property is gre
 > Component
 ```html
  <input id="name" class="form-control" v-model="userFormGroup.props.voterAge" type="text" name="name" />
-          <small class="form-text text-muted">This is checking greater than equal to validation for Voter Age must be greater than equal to age.<br/></small>
-       <div v-if="userFormGroup.controls.voterAge.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.voterAge.errors.greaterThanEqualTo.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.voterAge.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1331,10 +622,7 @@ Greater than validation decorator will check that input property is greater than
 > Component
 ```html
   <input id="name" class="form-control" v-model="userFormGroup.props.voterAge" type="text" name="name" />
-          <small class="form-text text-muted">This is checking greater than validation for  Voter Age must be greater than to age.<br/>           </small>
-       <div v-if="userFormGroup.controls.voterAge.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.voterAge.errors.greaterThan.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.voterAge.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1349,7 +637,6 @@ export default class GreaterThanAddComponent extends Vue {
    }
 }
 ```
-
 ## hexColor 
 hexColor validation decorator will allow user to enter only the input in proper Hex Color format.
 > Model
@@ -1361,9 +648,7 @@ hexColor validation decorator will allow user to enter only the input in proper 
 > Component
 ```html
  <input id="name" class="form-control" v-model="userFormGroup.props.color" type="text" name="name" />
-        <div v-if="userFormGroup.controls.color.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.color.errors.hexColor.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.color.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1390,10 +675,7 @@ image validation validators allows user to validate image like height,width etc 
 > Component
 ```html
  <input id="name" class="form-control" v-model="userInfoFormGroup.props.profilePhoto" type="text" name="name" />
-          <small class="form-text text-muted">Uploaded image must be in the proper height and width.<br/></small>
-       <div v-if="userInfoFormGroup.controls.profilePhoto.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePhoto.errors.image.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userInfoFormGroup.controls.profilePhoto.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1420,9 +702,7 @@ json validation will allow user to enter the input only in proper Json format.
 > Component
 ```html
  <input id="name" class="form-control" v-model="jsonInfoFormGroup.props.locationJson" type="text" name="name" />
-        <div v-if="jsonInfoFormGroup.controls.locationJson.errors">
-         <small class="form-text text-danger">{{jsonInfoFormGroup.controls.locationJson.errors.json.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{jsonInfoFormGroup.controls.locationJson.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1449,10 +729,7 @@ latitude validation allows user to enter value which is valid latitude.
 > Component
 ```html
  <input id="name" class="form-control" v-model="numberInfoFormGroup.props.firstCountryLatitude" type="text" name="name" />
-          <small class="form-text text-muted">You must enter a valid latitude<br/></small>
-       <div v-if="numberInfoFormGroup.controls.firstCountryLatitude.errors">
-         <small class="form-text text-danger">{{numberInfoFormGroup.controls.firstCountryLatitude.errors.latitude.message}}<br/>              </small>	
-       </div>
+         <small class="form-text text-danger">{{numberInfoFormGroup.controls.firstCountryLatitude.errorMessage}}<br/>              </small>	
 ```
 ```js
 @Component
@@ -1479,10 +756,7 @@ leapyear validation will check whether the value entered is a leap year or not.
 > Component
 ```html
  <input id="name" class="form-control" v-model="userFormGroup.props.birthYear" type="text" name="name" />
-          <small class="form-text text-muted">you can enter only a leap year<br/></small>
-       <div v-if="userFormGroup.controls.birthYear.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.birthYear.errors.leapYear.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.birthYear.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1509,10 +783,7 @@ latLong validation decorator allows user to enter the input which is valid Latit
 > Component
 ```html
   <input id="name" class="form-control" v-model="countryFormGroup.props.firstCountry" type="text" name="name" />
-          <small class="form-text text-muted">You must enter a proper Latitude or Longitude<br/></small>
-       <div v-if="countryFormGroup.controls.firstCountry.errors">
-         <small class="form-text text-danger">{{countryFormGroup.controls.firstCountry.errors.latLong.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{countryFormGroup.controls.firstCountry.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1541,10 +812,7 @@ Less than equal to validation will allow the user to enter only that value which
 > Component
 ```html
   <input id="name" class="form-control" v-model="userFormGroup.props.marks" type="text" name="name" />
-          <small class="form-text text-muted">This is checking less than equal to validation for  Marks must be less than equal to                Total Marks.<br/></small>
-       <div v-if="userFormGroup.controls.marks.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.marks.errors.lessThanEqualTo.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.marks.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1572,10 +840,7 @@ less than validation decorator will allow the user to enter only that value whic
 > Component
 ```html
   <input id="name" class="form-control" v-model="userFormGroup.props.passingMarks" type="text" name="name" />
-          <small class="form-text text-muted">This is checking less than validation for PassingMarks must be less than to marks.<br/></small>
-       <div v-if="userFormGroup.controls.passingMarks.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.passingMarks.errors.lessThan.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.passingMarks.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1603,10 +868,7 @@ longitude validation allows user to enter the input which is in the proper longi
 > Component
 ```html
   <input id="name" class="form-control" v-model="numberInfoFormGroup.props.firstCountryLongitude" type="text" name="name" />
-          <small class="form-text text-muted">You must enter a valid longitude<br/></small>
-       <div v-if="numberInfoFormGroup.controls.firstCountryLongitude.errors">
-         <small class="form-text text-danger">{{numberInfoFormGroup.controls.firstCountryLongitude.errors.longitude.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{numberInfoFormGroup.controls.firstCountryLongitude.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1633,9 +895,7 @@ lowerCase validation will allow user to enter only the lowercase alphabets.
 > Component
 ```html
    <input id="name" class="form-control" v-model="userInfoFormGroup.props.username" type="text" name="name" />
-        <div v-if="userInfoFormGroup.controls.username.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.username.errors.lowerCase.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userInfoFormGroup.controls.username.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1662,10 +922,7 @@ mac validation decorator will check whether the value entered is a valid mac add
 > Component
 ```html
    <input id="name" class="form-control" v-model="macAddressInfoFormGroup.props.systemMacAddress" type="text" name="name" />
-          <small class="form-text text-muted">You must enter a MAC address<br/></small>
-       <div v-if="macAddressInfoFormGroup.controls.systemMacAddress.errors">
-         <small class="form-text text-danger">{{macAddressInfoFormGroup.controls.systemMacAddress.errors.mac.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{macAddressInfoFormGroup.controls.systemMacAddress.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1692,10 +949,7 @@ maxDate validation decorator will allow user to enter the date less than the max
 > Component
 ```html
  <input id="name" class="form-control" v-model="userFormGroup.props.registrationDate" type="text" name="name" />
-          <small class="form-text text-muted">you can enter Max Date upto 30th july 2018<br/></small>
-       <div v-if="userFormGroup.controls.registrationDate.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.registrationDate.errors.maxDate.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.registrationDate.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1722,10 +976,7 @@ MaxLength validation will allow user to enter the input upto the maximum length 
 > Component
 ```html
   <input id="name" class="form-control" v-model="locationFormGroup.props.firstName" type="text" name="name" />
-          <small class="form-text text-muted">Maximum Length Upto 10 characters<br/></small>
-       <div v-if="locationFormGroup.controls.firstName.errors">
-         <small class="form-text text-danger">{{locationFormGroup.controls.firstName.errors.maxLength.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{locationFormGroup.controls.firstName.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1753,10 +1004,7 @@ MaxLength validation will allow user to enter the input upto the maximum length 
 > Component
 ```html
   <input id="name" class="form-control" v-model="locationFormGroup.props.firstName" type="text" name="name" />
-          <small class="form-text text-muted">Maximum Length Upto 10 characters<br/></small>
-       <div v-if="locationFormGroup.controls.firstName.errors">
-         <small class="form-text text-danger">{{locationFormGroup.controls.firstName.errors.maxLength.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{locationFormGroup.controls.firstName.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1784,10 +1032,7 @@ MaxNumber validation will allow user to enter the input upto the maximum number 
 > Component
 ```html
    <input id="name" class="form-control" v-model="subjectDetailsFormGroup.props.passingMarks" type="text" name="name" />
-          <small class="form-text text-muted">you can enter MaxNumber upto 50<br/></small>
-       <div v-if="subjectDetailsFormGroup.controls.passingMarks.errors">
-         <small class="form-text text-danger">{{subjectDetailsFormGroup.controls.passingMarks.errors.maxNumber.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{subjectDetailsFormGroup.controls.passingMarks.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1814,10 +1059,7 @@ Minimum Date validation will allow user to enter date greater the minimum date v
 > Component
 ```html
    <input id="name" class="form-control" v-model="userFormGroup.props.registrationDate" type="text" name="name" />
-          <small class="form-text text-muted">you can enter Min Date upto 30th july 2018<br/></small>
-       <div v-if="userFormGroup.controls.registrationDate.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.registrationDate.errors.minDate.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.registrationDate.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1844,10 +1086,7 @@ minLength validation decorator will allow user to enter the input length matchin
 > Component
 ```html
      <input id="name" class="form-control" v-model="contactFormGroup.props.countryName" type="text" name="name" />
-          <small class="form-text text-muted">Minimum length upto 3 characters.<br/></small>
-       <div v-if="contactFormGroup.controls.countryName.errors">
-         <small class="form-text text-danger">{{contactFormGroup.controls.countryName.errors.minLength.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{contactFormGroup.controls.countryName.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1874,10 +1113,7 @@ minNumber validation decorator will allow user to enter the input greater than t
 > Component
 ```html
       <input id="name" class="form-control" v-model="resultInfoFormGroup.props.maths" type="text" name="name" />
-          <small class="form-text text-muted">you can enter min number upto 35<br/></small>
-       <div v-if="resultInfoFormGroup.controls.maths.errors">
-         <small class="form-text text-danger">{{resultInfoFormGroup.controls.maths.errors.minNumber.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{resultInfoFormGroup.controls.maths.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1904,10 +1140,7 @@ numeric validation will check whether the value entered is a valid numberic valu
 > Component
 ```html
      <input id="name" class="form-control" v-model="userInfoFormGroup.props.integerNumber" type="text" name="name" />
-          <small class="form-text text-muted">you can enter only a non decimal positive number<br/></small>
-       <div v-if="userInfoFormGroup.controls.integerNumber.errors">
-         <small class="form-text text-danger">{{userInfoFormGroup.controls.integerNumber.errors.numeric.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userInfoFormGroup.controls.integerNumber.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1935,10 +1168,7 @@ Odd validation will check whether the value entered is an odd number or not.
 > Component
 ```html
     <input id="name" class="form-control" v-model="userFormGroup.props.oddNumber" type="text" name="name" />
-          <small class="form-text text-muted">you can enter only an odd number<br/></small>
-       <div v-if="userFormGroup.controls.oddNumber.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.oddNumber.errors.odd.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.oddNumber.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1967,10 +1197,7 @@ pattern validation decorator will allow user to enter the input which match the 
 > Component
 ```html
      <input id="name" class="form-control" v-model="userFormGroup.props.userName" type="text" name="name" />
-          <small class="form-text text-muted">It checked that username match alpha regex or not<br/></small>
-       <div v-if="userFormGroup.controls.userName.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.userName.errors.pattern.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.userName.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -1998,9 +1225,7 @@ password validation decorator will allow user to enter only the input according 
 > Component
 ```html
      <input id="name" class="form-control" v-model="loginInfoFormGroup.props.password" type="text" name="name" />
-        <div v-if="loginInfoFormGroup.controls.password.errors">
-         <small class="form-text text-danger">{{loginInfoFormGroup.controls.password.errors.password.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{loginInfoFormGroup.controls.password.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -2030,10 +1255,7 @@ port validation decorator allows user to enter the input which is a valid port n
 > Component
 ```html
      <input id="name" class="form-control" v-model="userFormGroup.props.educationalWebsitePort" type="text" name="name" />
-          <small class="form-text text-muted">You must enter a proper port number<br/></small>
-       <div v-if="userFormGroup.controls.educationalWebsitePort.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.educationalWebsitePort.errors.port.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.educationalWebsitePort.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -2063,9 +1285,7 @@ primeNumber validation allows user to enter only prime number.
 > Component
 ```html
         <input id="name" class="form-control" v-model="userFormGroup.props.firstNumber" type="text" name="name" />
-        <div v-if="userFormGroupFormGroup.controls.firstNumber.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.firstNumber.errors.primeNumber.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.firstNumber.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -2091,9 +1311,7 @@ export default class UserComponent extends Vue {
 > Component
 ```html
         <input id="name" class="form-control" v-model="userFormGroup.props.age" type="text" name="name" />
-        <div v-if="userFormGroupFormGroup.controls.age.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.age.errors.range.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.age.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -2121,9 +1339,7 @@ Required validation will check that the user has entered the value in the proper
 > Component
 ```html
         <input id="name" class="form-control" v-model="userFormGroup.props.countryName" type="text" name="name" />
-        <div v-if="userFormGroupFormGroup.controls.countryName.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.countryName.errors.required.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.countryName.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -2150,9 +1366,7 @@ startsWith validation allows user to enter the input which starts with particula
 > Component
 ```html
         <input id="name" class="form-control" v-model="userFormGroup.props.countryName" type="text" name="name" />
-        <div v-if="userFormGroupFormGroup.controls.countryName.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.countryName.errors.startsWith.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.countryName.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -2179,9 +1393,7 @@ UpperCase validation will allow user to enter the alphabets only in the upperCas
 > Component
 ```html
         <input id="name" class="form-control" v-model="userFormGroup.props.countryName" type="text" name="name" />
-        <div v-if="userFormGroupFormGroup.controls.countryName.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.countryName.errors.upperCase.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.countryName.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -2208,9 +1420,7 @@ Url validation will check that value entered in the property is in the correct u
 > Component
 ```html
         <input id="name" class="form-control" v-model="userFormGroup.props.adminWebsiteUrl" type="text" name="name" />
-        <div v-if="userFormGroup.controls.adminWebsiteUrl.errors">
-         <small class="form-text text-danger">{{userFormGroup.controls.adminWebsiteUrl.errors.url.message}}<br/></small>	
-       </div>
+         <small class="form-text text-danger">{{userFormGroup.controls.adminWebsiteUrl.errorMessage}}<br/></small>	
 ```
 ```js
 @Component
@@ -2226,99 +1436,6 @@ export default class UserComponent extends Vue {
 }
 ```
 
-___
-
-## Sanitization
-1. [blacklist](#blacklist)  
-2. [ltrim](#ltrim)
-3. [rtrim](#rtrim)
-4. [toBoolean](#toboolean)
-5. [toDate](#todate)
-6. [toDouble](#todouble)
-7. [toInt](#toint)
-8. [toString](#tostring)
-9. [trim](#trim)
-10. [whitelist](#whitelist)
-
-## blacklist
-Remove the characters form the user entered value.
-```js
-  @prop()
-  @blacklist('abc' ) 
-  freeText: string;
-```
-___
-## ltrim
-Trim characters from the left-side of the input.
-```js
-  @prop()
-  @ltrim() 
-  freeText: string;
-```
-___
-## rtrim
-Trim characters from the right-side of the input.
-```js
-  @prop()
-  @rtrim() 
-  freeText: string;
-```
-___
-## toBoolean
-Convert the input to a boolean.
-```js
-  @prop()
-  @toBoolean() 
-  Active: boolean;
-```
-___
-## toDate
-Convert the input to a date, or null if the input is not a date.
-```js
-  @prop()
-  @toDate() 
-  dob: Date;
-```
-___
-## toDouble
-Convert the input to a float, or NAN if the input is not a float.
-```js
-  @prop()
-  @toDouble() 
-  amount: number;
-```
-___
-## toInt
-Convert the input to an integer, or NAN if the input is not an integer.
-```js
-  @prop()
-  @toInt() 
-  amount: number;
-```
-___
-## toString
-Convert the input to a string.
-```js
-  @prop()
-  @toString() 
-  freeText: string;
-```
-___
-## trim
-Trim characters from the input.
-```js
-  @prop()
-  @trim() 
-  freeText: string;
-```
-___
-## whitelist
-Remove characters that do not appear in the whitelist.
-```js
-  @prop()
-  @whitelist('abc' ) 
-  freeText: string;
-```
 ___
 
 
