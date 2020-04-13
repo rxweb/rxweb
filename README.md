@@ -1,26 +1,6 @@
 <h1 align="center">rxweb</h1>
 <h3 align="center">Clean Code. Built with Purpose</h3>
 
-# Validation Framework
-[![Build Status](https://travis-ci.org/rxweb/rxweb.svg?branch=master)](https://travis-ci.org/rxweb/rxweb)
-[![Gitter](https://badges.gitter.im/rx-web/Lobby.svg)](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6af5855682524d39a0d88bade210facd)](https://www.codacy.com/app/rxweb/rxweb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rxweb/rxweb&amp;utm_campaign=Badge_Grade)
-[![dependencies Status](https://david-dm.org/rxweb/rxweb/status.svg)](https://david-dm.org/rxweb/rxweb)
-[![npm version](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators.svg)](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators)
-[![](https://data.jsdelivr.com/v1/package/npm/@rxweb/reactive-form-validators/badge)](https://www.jsdelivr.com/package/npm/@rxweb/reactive-form-validators)
-[![DeepScan grade](https://deepscan.io/api/teams/3217/projects/4745/branches/37870/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3217&pid=4745&bid=37870)
-[![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
-
-The most powerful validation framework for angular based enterprise application with tons of form validation solution in simpler manner. This provides all type of complex validation and dynamic validation on Reactive Form, Template Driven Form and Model Based Form. 
-
-Decorator based Reactive form validation is one of the unique feature of the validation framework, which none of the other framework provides this kind of feature including angular. This helps alot for reactive form validation in Angular based enterprise application. Decorator based reactive form validation is much more simpler than the other approaches in angular based application, we know this is the new concept for the developers. But this is more efficent way to deal the form in multiple components. For More information about our [validation decorators](https://rxweb.io/form-validations/alpha/decorators).
-
-Please refer readme doc of [validation framework](https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators#rxweb). 
-
-### installation
-```js
-npm install @rxweb/reactive-form-validators
-```
 
 # Contributing to rxweb framework
 If you are thinking to make rxweb framework better, that's truly great. You can contribute from a single character to core architectural work or significant documentation – all with the goal of making a robust rxweb framework which helps for everyone in their projects. Even if you are don’t feel up to writing code or documentation yet, there are a variety of other ways that you can contribute like reporting issues to testing patches.
