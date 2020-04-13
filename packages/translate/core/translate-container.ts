@@ -1,8 +1,10 @@
 import { TranslateConfig } from "../interface/translate-config";
 import { TranslateContainerConfig } from "../interface/translate-container-config";
 import { defineProperty } from "../functions/define-property";
+import { defineAsyncProperty } from "../functions/define-async-property";
 import { overrideDestroyMethod } from "../functions/override-destroy";
 import { RxTranslateConfig } from "../interface/rx-translate-config";
+import { AsyncTranslateConfig } from "../interface/async-translate-config";
 
 export const translateContainer:
     {
@@ -10,6 +12,7 @@ export const translateContainer:
         getByName(name: string): TranslateContainerConfig;
         get(instance: any): TranslateContainerConfig;
         defineProperty(instance: Function, propertyName: string, config: TranslateConfig): void;
+        defineAsyncProperty(instance: Function, propertyName: string, config: AsyncTranslateConfig): void;
         config: RxTranslateConfig;
     } = new (class {
         store: TranslateContainerConfig[] = new Array<TranslateContainerConfig>();
@@ -26,6 +29,13 @@ export const translateContainer:
         getByName(name: string): TranslateContainerConfig {
             let containerConfig = this.store.filter(t => t.config.translationName == name);
             return containerConfig.length > 0 ? containerConfig[0] : undefined;
+        }
+
+
+        defineAsyncProperty(instance: Function, propertyName: string, config: AsyncTranslateConfig) {
+            let isPropertyKey = (propertyName != undefined);
+            var model: Function = !isPropertyKey ? instance : instance.constructor;
+            defineAsyncProperty(model, propertyName, config);
         }
 
         defineProperty(instance: Function, propertyName: string, config?: TranslateConfig) {
