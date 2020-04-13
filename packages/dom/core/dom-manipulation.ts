@@ -10,6 +10,7 @@ export class DomManipulation {
     controlId: any;
     onDemand: any;
     private events: { [key: string]: Function } = {};
+    private oldClassState: string[];
 
     constructor(parentNode: any, private elementName: string, private config, private modelObject: { [key: string]: any }, index: number, private additionalConfiguration: { [key: string]: any } = null) {
 
@@ -43,21 +44,21 @@ export class DomManipulation {
         if (typeof this.config === "object" && this.element) {
             Object.keys(this.config).forEach(key => {
                 if (this.config[key])
-                switch (key) {
-                    case 'attributes':
-                        this.addAttributes(this.config[key]);
-                        break;
-                    case 'class':
-                        this.addOrRemoveClass(this.config[key]);
-                        break;
-                    case 'style':
-                        this.addStyle(this.config[key]);
-                        break;
-                    case 'event':
-                        if (!this.updating)
-                        this.setEvent(this.config[key]);
-                        break;
-                }
+                    switch (key) {
+                        case 'attributes':
+                            this.addAttributes(this.config[key]);
+                            break;
+                        case 'class':
+                            this.addOrRemoveClass(this.config[key], true, true);
+                            break;
+                        case 'style':
+                            this.addStyle(this.config[key]);
+                            break;
+                        case 'event':
+                            if (!this.updating)
+                                this.setEvent(this.config[key]);
+                            break;
+                    }
             });
         }
         if (this.itemObject && !this.updating) {
@@ -65,7 +66,7 @@ export class DomManipulation {
         }
     }
 
-    updateElement(model:any) {
+    updateElement(model: any) {
         this.updating = true;
         this.modelObject = model;
         if (this.elementName === "text") {
@@ -85,17 +86,17 @@ export class DomManipulation {
                     var eventName: any = event[t];
                     if (this.additionalConfiguration && this.additionalConfiguration.actions && this.additionalConfiguration.actions[eventName]) {
                         let actionMethod = this.additionalConfiguration.actions[eventName];
-                       return actionMethod.call(this.modelObject.instance, this.modelObject, e)
+                        return actionMethod.call(this.modelObject.instance, this.modelObject, e)
                     }
                 };
                 this.element.addEventListener(t, this.events[t])
             }
             else {
-                
+
                 this.events[t] = event[t];
                 if (this.config && this.config.parameterConfig) {
                     this.events[t] = (e) => {
-                       return event[t].call(this.instanceObject, this.config.parameterConfig, e)
+                        return event[t].call(this.instanceObject, this.config.parameterConfig, e)
                     }
                     this.element.addEventListener(t, this.events[t]);
                 } else {
@@ -111,14 +112,13 @@ export class DomManipulation {
             var value = this.getValue(attributes[attribute]);
             if (attribute == "value")
                 this.element.value = value;
-            else if (attribute == "checked" || attribute == "selected")
-            {
+            else if (attribute == "checked" || attribute == "selected") {
                 if (value === true || value === 1 || value === "true")
                     this.element.setAttribute(attribute, value);
                 else
                     this.element.removeAttribute(attribute);
             } else if (attribute == "innerHTML") {
-                this.addAttributes({ "data-rxinner": true})
+                this.addAttributes({ "data-rxinner": true })
                 this.element.innerHTML = value;
             }
             else if (this.element.setAttribute)
@@ -128,20 +128,25 @@ export class DomManipulation {
 
     addStyle(style: { [key: string]: any }) {
         var cssText = '';
-        Object.keys(style).forEach(t => { cssText+= `${t}:${style[t]};` })
+        Object.keys(style).forEach(t => { cssText += `${t}:${style[t]};` })
         this.element.style.cssText = cssText;
     }
 
-    addOrRemoveClass(classNames: any[], isAdd: boolean = true) {
-        classNames = this.getClassNames(classNames);
+    addOrRemoveClass(classNames: any[], isAdd: boolean = true, isAdditional: boolean = false) {
+        if (isAdditional) {
+            if (this.oldClassState)
+                this.oldClassState.forEach(t => { this.element.classList.remove(t); });
+            this.oldClassState = classNames = this.getClassNames(classNames);
+        } else
+            classNames = this.getClassNames(classNames);
         if (this.updating) {
             for (var i = 0, j = this.element.classList.length; i < j; i++) {
                 var className = this.element.classList[i];
                 var classIndex = classNames.indexOf(className);
-                if (classIndex == -1)
+                if (classIndex !== -1)
                     this.element.classList.remove(className);
                 else
-                    classNames.splice(classIndex,1);
+                    classNames.splice(classIndex, 1);
             }
         }
         classNames.forEach(t => {
@@ -152,7 +157,7 @@ export class DomManipulation {
     private getClassNames(classes: any[]) {
         let elementClasses = [];
         if (classes)
-            classes.forEach(t => {
+            classes.forEach((t, i) => {
                 if (typeof t == "string")
                     elementClasses.push(t);
                 else if (typeof t == "function") {
@@ -167,13 +172,13 @@ export class DomManipulation {
         return elementClasses;
     }
 
-    private propSubscribes(t:any) {
+    private propSubscribes(t: any) {
         if (!this.updating) {
             var props = FunctionParser.parseColumns(String(t));
             props.forEach(x => this.subscribeProps.push(x));
-                var indexOf = this.subscribeProps.indexOf("name]");
-                if (indexOf != -1)
-                    this.subscribeProps[indexOf] = this.config.parameterConfig.name;
+            var indexOf = this.subscribeProps.indexOf("name]");
+            if (indexOf != -1)
+                this.subscribeProps[indexOf] = this.config.parameterConfig.name;
         }
     }
 
@@ -244,6 +249,6 @@ export class DomManipulation {
             this.element.parentElement.removeChild(this.element);
             this.element = null;
         } catch (ex) { }
-        
+
     }
 }

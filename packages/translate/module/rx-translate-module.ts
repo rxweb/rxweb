@@ -39,9 +39,8 @@ export class RxTranslateModule {
     }
 
     static changeLanguage(languageCode: string): void {
-        translateConfigContainer.config.languageCode = languageCode;
         var baseResolver = new BaseResolver(translateConfigContainer.config);
-        baseResolver.languageChanged();
+        baseResolver.languageChanged(languageCode);
     }
 
     static tranlate(text: string, data: { [key: string]: any }) {

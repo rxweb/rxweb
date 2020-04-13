@@ -11,11 +11,13 @@ export class TranslateModel {
                     get: function () {
                         let text = data[key];
                         if (isObject(text)) {
-                            if (!(text instanceof TranslateModel))
+                            if (!translateConfigContainer.loading)
                                 text = data[key] = new TranslateModel(data[key], componentData);
+                            else
+                                return new TranslateModel(data[key], {});
                             return text;
                         }
-                        return  this.getText(text);
+                        return translateConfigContainer.loading ? "loading..." : this.getText(text);
                     },
                     enumerable: true,
                     configurable: true

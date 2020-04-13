@@ -43,6 +43,8 @@ export class GridDesigner extends GridTemplate {
             gridColumns: this.gridColumns,
             multiLingualPath: this.componentId,
             isRowEvent: isRowEvent,
+            authorization: this.authorization,
+            authroizationMethod: this.authorize.bind(this)
         }, this.gridSource);
         if (!this.isReDesign)
             this.pagination();

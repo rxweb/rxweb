@@ -52,6 +52,21 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
     var _rowHeaderChildrens: TemplateConfig[] = [];
     var headerColumns: Item[] = [];
     templateConfig.gridColumns.forEach(columnConfig => {
+        let authorizationCheck = templateConfig.authorization && templateConfig.authorization[columnConfig.name];
+        let isAccess = true;
+        let loopCount = 0;
+        if (authorizationCheck) {
+            if (Array.isArray(templateConfig.authorization[columnConfig.name])) {
+                for (var keyName of templateConfig.authorization[columnConfig.name]) {
+                    if (templateConfig.authorization[keyName]) {
+                        isAccess = templateConfig.authroizationMethod(templateConfig.authorization[keyName]);
+                        if (!isAccess)
+                            loopCount += 1; 
+                    }
+                }
+                columnConfig.visible = columnConfig.visible ? !(templateConfig.authorization[columnConfig.name].length == loopCount) : columnConfig.visible;
+            }
+        }
         if (columnConfig.visible) {
             var headerCellChildrens: TemplateConfig[] = [];
             if (columnConfig.configuredHeaderTemplate) {
