@@ -29,6 +29,22 @@ export class TranslateModel {
         return translateConfigContainer.config ? translateConfigContainer.config.languageCode : "en";
     }
 
+
+    get(key: string) {
+        let jObject;
+        if (key) {
+            var keys = key.split(".");
+            
+            for (let column of keys) {
+                if (!jObject)
+                    jObject = this[column];
+                else
+                    jObject = jObject[column]
+            }
+        }
+        return jObject;
+    }
+
     private getText(text: string) {
         if (text.indexOf('this.') !== -1) {
             var func = new Function("x", "return "+ text);

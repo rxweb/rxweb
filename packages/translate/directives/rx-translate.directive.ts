@@ -5,6 +5,7 @@ import { TranslateContainerConfig } from "../interface/translate-container-confi
 import { BaseResolver } from "../resolver/base-resolver";
 import { RxTranslateConfig } from "../interface/rx-translate-config";
 import { ActivatedRoute } from "@angular/router";
+import { RX_TRANSLATE_CONFIG } from "../core/rx-translate-config.const";
 
 @Directive({
     selector: '[rxTranslate]'
@@ -14,7 +15,7 @@ export class RxTranslateDirective {
     private _context: NgIfContext = new NgIfContext();
     private config: TranslateContainerConfig;
 
-    constructor(private viewContainerRef: ViewContainerRef, private templateRef: TemplateRef<any>, private injector: Injector, @Inject("config") private baseConfig: RxTranslateConfig, private route: ActivatedRoute) {
+    constructor(private viewContainerRef: ViewContainerRef, private templateRef: TemplateRef<any>, private injector: Injector, @Inject(RX_TRANSLATE_CONFIG) private baseConfig: RxTranslateConfig, private route: ActivatedRoute) {
         let ref: any = this.templateRef;
         let node = ref._def.element.template.nodes[ref._def.element.template.nodes.length - 1];
         this.config = translateContainer.get(node.provider.token);

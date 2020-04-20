@@ -7,8 +7,9 @@ import { extract } from "../functions/extract";
 import { getValue } from "../functions/get-value";
 import { translateConfigContainer } from "../core/translate-config-container";
 import { getKeyName } from "../functions/get-key-name";
+import { Title } from "@angular/platform-browser";
 export class BaseResolver {
-    constructor(private baseConfig: RxTranslateConfig) {
+    constructor(private baseConfig: RxTranslateConfig,private titleService?: Title) {
         this.cloneBaseConfig = { ...baseConfig };
     }
     cloneBaseConfig: RxTranslateConfig;
@@ -16,8 +17,9 @@ export class BaseResolver {
     containerConfig: TranslateContainerConfig;
     loadEventFunction: any;
 
-    resolveGlobal(config: TranslateContainerConfig) {
-        translateContainer.set(config.instance, config.config);
+    resolveGlobal(config: TranslateContainerConfig, isGlobal: boolean = true) {
+        if(isGlobal)
+            translateContainer.set(config.instance, config.config);
         this.resolve(config);
     }
 
@@ -48,6 +50,8 @@ export class BaseResolver {
                 if (typeof body === "string")
                     body = JSON.parse(body);
                 MultiLingualData.addOrUpdate(getKeyName(this.containerConfig.config.translationName, this.cloneBaseConfig.languageCode), body, this.containerConfig.config.translationName, this.cloneBaseConfig.languageCode);
+                if (translateConfigContainer.activePageTranslationName == this.containerConfig.config.translationName)
+                    this.setPageTitle(body)
             }
             setTimeout(() => { MultiLingualData.clearInActives(this.cloneBaseConfig) }, 10);
             resolve(true);
@@ -75,6 +79,8 @@ export class BaseResolver {
     resolveRoute(route: ActivatedRouteSnapshot) {
         let isRouteLanguageChanged = route.params && route.params["languageCode"] && route.params["languageCode"] != this.cloneBaseConfig.languageCode;
         let containerConfig = translateContainer.get(route.component);
+        if (containerConfig && containerConfig.config)
+            translateConfigContainer.activePageTranslationName = containerConfig.config.translationName;
         if (isRouteLanguageChanged) {
             this.updateLanguageByParam(route);
             this.cloneBaseConfig.languageCode = route.params["languageCode"];
@@ -135,6 +141,11 @@ export class BaseResolver {
             text = text.replace(`{{${key}}}`, getValue(key, data));
         })
         return text;
+    }
+
+    private setPageTitle(body: { [key: string]: string }) {
+        if (body && body["pageTitle"])
+            this.titleService.setTitle(body["pageTitle"]);
     }
 
 

@@ -4,4 +4,5 @@ export class RxTranslateConfig {
     cacheActiveLanguageObject?: boolean;
     cacheLanguageWiseObject?: boolean;
     globalFilePath?: string;
+    preloadingStrategy?: boolean;
 }

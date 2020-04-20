@@ -9,6 +9,7 @@ import { RouterModule } from "@angular/router";
 
 import { translateConfigContainer } from "../core/translate-config-container";
 import { RxTranslation } from "../service/rx-translation";
+import { RX_TRANSLATE_CONFIG } from "../core/rx-translate-config.const";
 
 @NgModule({
     imports: [RouterModule],
@@ -17,7 +18,7 @@ import { RxTranslation } from "../service/rx-translation";
     exports: [RxTranslateDirective],
 })
 export class RxTranslateModule {
-    constructor(@Inject("config") config: RxTranslateConfig) {
+    constructor(@Inject(RX_TRANSLATE_CONFIG) config: RxTranslateConfig) {
         translateConfigContainer.config =  config;
         if (!translateConfigContainer.config.languageCode)
             translateConfigContainer.config.languageCode = "en";
@@ -28,12 +29,12 @@ export class RxTranslateModule {
         }
         overrideProperty();
     }
-    static forRoot(config?: RxTranslateConfig): ModuleWithProviders {
+    static forRoot(config?: RxTranslateConfig): ModuleWithProviders<RxTranslateModule> {
         return {
             ngModule: RxTranslateModule,
             providers: [
                 ComponentGuard, RxTranslation,
-                { provide: "config", useValue: config }
+                { provide: RX_TRANSLATE_CONFIG, useValue: config }
             ]
         };
     }

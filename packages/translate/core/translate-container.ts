@@ -11,7 +11,7 @@ export const translateContainer:
         set(instance: Function, config: TranslateConfig): void;
         getByName(name: string): TranslateContainerConfig;
         get(instance: any): TranslateContainerConfig;
-        defineProperty(instance: Function, propertyName: string, config: TranslateConfig): void;
+        defineProperty(instance: Function, propertyName: string, config: TranslateConfig): TranslateContainerConfig;
         defineAsyncProperty(instance: Function, propertyName: string, config: AsyncTranslateConfig): void;
         config: RxTranslateConfig;
     } = new (class {
@@ -38,16 +38,18 @@ export const translateContainer:
             defineAsyncProperty(model, propertyName, config);
         }
 
-        defineProperty(instance: Function, propertyName: string, config?: TranslateConfig) {
+        defineProperty(instance: Function, propertyName: string, config?: TranslateConfig): TranslateContainerConfig {
             let isPropertyKey = (propertyName != undefined);
             var model: Function = !isPropertyKey ? instance : instance.constructor;
             let modelName = config === undefined ? "global" : config.translationName;
             defineProperty(model, propertyName, modelName);
             if (modelName != "global") {
+                let instanceConfig: TranslateContainerConfig = { instance: model, config: config };
                 this.set(model, config)
                 let count = this.store.filter(t => t.instance == model).length;
                 if (count == 1)
                     overrideDestroyMethod(model, config.translationName);
+                return instanceConfig;
             }
         }
     })();

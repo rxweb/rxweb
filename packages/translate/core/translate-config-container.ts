@@ -5,8 +5,10 @@ export const translateConfigContainer:
         config: RxTranslateConfig;
         loading: boolean;
         injector: Injector;
+        activePageTranslationName: string;
     } = new (class {
         config: RxTranslateConfig;
         loading: boolean;
         injector: Injector;
+        activePageTranslationName: string;
     })();
