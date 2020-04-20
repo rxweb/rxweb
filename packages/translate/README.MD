@@ -13,6 +13,7 @@ Internationalize your application by following the two simple steps.
 
 * [Install Package](#install-package)
 * [Automatic Translation Configuration Through CLI](#automatic-translation-configuration-through-cli)
+* [Strongly Typed](#strongly-typed)
 * [Binding](#binding)
   * [Simple Binding](#simple-binding)
     * [Property](#property)
@@ -22,7 +23,7 @@ Internationalize your application by following the two simple steps.
     * [On Demand Scope](#on-demand-scope)
   * [Conditional Scoped Binding](#conditional-scope-binding)
   * [Binding By Key Name](#binding-by-key-name)
-  * [Strongly Typed](#strongly-typed)
+  
 * [Translation Loading Stratergy](#translation-loading-strategy)
   * [Loading Page Translation](#loading-page-translation)
   * [Loading Shared Component Translation](#loading-shared-component)
@@ -52,7 +53,7 @@ If you want to configure all the translation configuration automatically, you mu
 $ npm install @rxweb/cli
 ```
 
-![Image](rxweb-install-1.gif)
+![Image](https://docs.rxweb.io/assets/images/rxweb-install-1.gif)
 
 <ul>
 <li><b>rxweb.module.ts</b>: This file resolves RxTranslateModule which contains caching and filePaths.</li> 
@@ -63,7 +64,18 @@ $ npm install @rxweb/cli
 </ul>
 
 ## @Translate
-Translate decorator is used to create a multilingualContent object and resolve multilingual data based upon the given translation name.
+Translate decorator is used for resolving the translation data by given name of ```translationName```.
+Here is example code:
+```js
+@translate({translationName:'user'}) translation:{[key:string]:any}
+```
+
+Another approach, Which I liked most to assign the respective translation model to the translation object property.
+```js
+@translate({translationName:'user'}) translation:UserTranslation
+```
+The ```UserTranslation``` will be generated automatically based upon the JSON data.
+
 
 ## Binding
 
@@ -126,7 +138,7 @@ export class UserComponent {
     
     @translate({ translationName: "user" }) multilingualContent: { [key: string]: any }
 
-    freeText: string;
+    freeText: string = "India";
 }
 ```
 
@@ -156,7 +168,7 @@ let message = RxTranslateModule.tranlate(this.multilingualContent.text.selectedR
 ### Conditional Scoped Binding
 For showing the multilingual content conditionally based upon the keys defined in the JSON.
 
-Let’s consider a case where we want to show some information about the countries according to the input name of the country. If the user enters a value of India then it must show the content in English or French according to the user preferred language. Other than India it must show the information about the World.
+Letâ€™s consider a case where we want to show some information about the countries according to the input name of the country. If the user enters a value of India then it must show the content in English or French according to the user preferred language. Other than India it must show the information about the World.
 So, as per the above case, we have to define two properties in the JSON file, which are as below:
 
 ```js
@@ -185,24 +197,24 @@ This is another approach to get the key value from the object property by key na
 Here is the JSON, which we get the ```userName``` value by calling the get method.
 ```json
 {
-"text":{
-	"userName":"User Name"
-}
+	"text":{
+		"userName":"User Name"
+	}
 }
 ```
 Here is the HTML.
 ```Html
-  <mark>{{multilingualContent.get("text.userName")}}</mark>
+  {{multilingualContent.get("text.userName")}}
 ```
 
-### Strongly Typed
+
 
 ## Translation Loading Stratergy
 Loading translated content can be done using lazy loading and using shared component.
 
 ### Loading Page Translation
 Lazy loading can be achieved using `@rxweb/translate` by configuration routes in app routing.  
-Let’s create a UserComponent and map the route into app routing.
+Letâ€™s create a UserComponent and map the route into app routing.
 
 ```js
     {
@@ -223,7 +235,7 @@ export class UserComponent {
 ```
 
 ### Loading Shared Component Translation 
-Shared component can be achieved using `rxTranslate`. So let’s create a AddressComponent and map the translate decorator on the component property.
+Shared component can be achieved using `rxTranslate`. So letâ€™s create a AddressComponent and map the translate decorator on the component property.
 
 ```js
 export class AddressComponent {
@@ -336,7 +348,7 @@ For allowing language wise cache in the application we can set cacheLanguageWise
 ```
 
 ## Contributing
-If you are thinking to make rxweb framework better, that's truly great. You can contribute from a single character to core architectural work or significant documentation – all with the goal of making a robust rxweb framework which helps for everyone in their projects. Even if you are don’t feel up to writing code or documentation yet, there are a variety of other ways that you can contribute like reporting issues to testing patches.
+If you are thinking to make rxweb framework better, that's truly great. You can contribute from a single character to core architectural work or significant documentation â€“ all with the goal of making a robust rxweb framework which helps for everyone in their projects. Even if you are donâ€™t feel up to writing code or documentation yet, there are a variety of other ways that you can contribute like reporting issues to testing patches.
 
 Check out the <a href="https://docs.rxweb.io/community/where_to_start_contributing">docs</a> on how you can put your precious efforts on the rxweb framework and contribute in the respective area.
 
