@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/rxweb/rxweb/issues"
   },
-  "homepage": "https://rxweb.io",
+  "homepage": "https://docs.rxweb.io",
   "license": "MIT",
   "sideEffects": false,
   "dependencies": {

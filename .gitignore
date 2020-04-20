@@ -8,6 +8,8 @@
 # dependencies
 /node_modules
 /rxwebio/node_modules
+/packages/cli/node_modules
+/packages/i18n/node_modules
 
 # IDEs and editors
 /.idea
