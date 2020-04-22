@@ -16,7 +16,7 @@
       "es2019"
     ],
     "module": "commonjs",
-    "outDir": "dist",
+    "outDir": "../../dist/@rxweb/cli/dist",
     "sourceMap": true,
     "typeRoots": [
       "../../node_modules/@types"

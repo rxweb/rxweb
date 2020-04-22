@@ -16,7 +16,7 @@
       "es2019"
     ],
     "module": "commonjs",
-    "outDir": "../../dist/i18n",
+    "outDir": "../../dist/@rxweb/i18n",
     "sourceMap": true,
     "typeRoots": [
       "../../node_modules/@types"
