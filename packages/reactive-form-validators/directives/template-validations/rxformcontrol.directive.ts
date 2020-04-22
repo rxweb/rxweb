@@ -126,9 +126,11 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
 
     blurEvent(){
         if (!(this.formControl && this.formControl.errors && this.formControl.errors.numeric)) {
-            let value = this.decimalProvider.transFormDecimal(this.formControl.value, this.numeric.digitsInfo);
-            value = (!this.numeric.isFormat) ? this.decimalProvider.replacer(value) : value;
-            this.setValueOnElement(value);
+            if (this.formControl.value !== null && this.formControl.value !== undefined) {
+                let value = this.decimalProvider.transFormDecimal(this.formControl.value, this.numeric.digitsInfo);
+                value = (!this.numeric.isFormat) ? this.decimalProvider.replacer(value) : value;
+                this.setValueOnElement(value);
+            }
             this.isFocusCalled = false;
         }
     }
