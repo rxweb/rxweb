@@ -7,9 +7,8 @@ import { extract } from "../functions/extract";
 import { getValue } from "../functions/get-value";
 import { translateConfigContainer } from "../core/translate-config-container";
 import { getKeyName } from "../functions/get-key-name";
-import { Title } from "@angular/platform-browser";
 export class BaseResolver {
-    constructor(private baseConfig: RxTranslateConfig,private titleService?: Title) {
+    constructor(private baseConfig: RxTranslateConfig) {
         this.cloneBaseConfig = { ...baseConfig };
     }
     cloneBaseConfig: RxTranslateConfig;
@@ -145,7 +144,7 @@ export class BaseResolver {
 
     private setPageTitle(body: { [key: string]: string }) {
         if (body && body["pageTitle"])
-            this.titleService.setTitle(body["pageTitle"]);
+            document.body.title = body["pageTitle"];
     }
 
 

@@ -8,7 +8,7 @@ import { Title } from "@angular/platform-browser";
 
 export class ComponentGuard extends BaseResolver implements CanActivate, CanActivateChild {
 
-    constructor(@Inject(RX_TRANSLATE_CONFIG) config: RxTranslateConfig, injector: Injector, titleService: Title) { super(config, titleService); translateConfigContainer.injector = injector }
+    constructor(@Inject(RX_TRANSLATE_CONFIG) config: RxTranslateConfig, injector: Injector) { super(config); translateConfigContainer.injector = injector }
 
 
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot) {

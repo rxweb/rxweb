@@ -9,12 +9,13 @@ export function defineProperty(model: Function, propertyName: string, modelName:
         get: function () {
             let keyName = getKeyName(modelName);
             data = MultiLingualData.get(keyName);
-            if ((data && !(data instanceof TranslateModel)))
+            let translationModelData = MultiLingualData.getComponentPropValue(keyName, this.constructor);
+            if ((data && !translationModelData))
                 if (!translateConfigContainer.loading)
-                    MultiLingualData.addOrUpdate(keyName, new TranslateModel(data, this), modelName);
+                    MultiLingualData.addOrUpdateComponent(keyName, new TranslateModel({ ...data }, this), this.constructor);
                 else
                     return new TranslateModel(data, {});
-            return MultiLingualData.get(keyName);
+            return MultiLingualData.getComponentPropValue(keyName,this.constructor);
         },
         enumerable: true,
         configurable: true

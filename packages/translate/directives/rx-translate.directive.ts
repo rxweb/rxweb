@@ -17,8 +17,16 @@ export class RxTranslateDirective {
 
     constructor(private viewContainerRef: ViewContainerRef, private templateRef: TemplateRef<any>, private injector: Injector, @Inject(RX_TRANSLATE_CONFIG) private baseConfig: RxTranslateConfig, private route: ActivatedRoute) {
         let ref: any = this.templateRef;
-        let node = ref._def.element.template.nodes[ref._def.element.template.nodes.length - 1];
-        this.config = translateContainer.get(node.provider.token);
+        if (ref._def) {
+            let node = ref._def.element.template.nodes[ref._def.element.template.nodes.length - 1];
+            this.config = translateContainer.get(node.provider.token);
+        } else if (ref._declarationTContainer) {
+            let tagName = ref._declarationTContainer.tagName;
+            let tView = ref._declarationTContainer.tView_;
+            let node = tView.directiveRegistry.filter(t => t.selectors.filter(y => y == tagName)[0] != undefined)[0];
+            if (node) 
+                this.config = translateContainer.get(node.type);
+        }
     }
 
     @Input('rxTranslate') set translate(value: any) {
