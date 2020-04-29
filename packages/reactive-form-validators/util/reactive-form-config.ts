@@ -2,7 +2,7 @@
 export class ReactiveFormConfig {
     static number:{[key:string]:any} = {}
     static json: { [key: string]: any } = {};
-
+    static autoInstancePush: boolean = false;
     static set(jObject: { [key: string]: any }): void {
         if (jObject)
             ReactiveFormConfig.json = jObject;

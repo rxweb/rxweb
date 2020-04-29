@@ -8,25 +8,30 @@ export class RxFormArray extends FormArray {
     private _baseValue: any[];
     private _isModified: boolean = false;
     private _modified: any[] = [];
-    constructor(private arrayObject: any[], controls, validatorOrOpts?: any, asyncValidator?: any, private arrayConfig?: {allowMaxIndex?:number,messageKey?:string}){
+    constructor(private arrayObject: any[], controls, validatorOrOpts?: any, asyncValidator?: any, private arrayConfig?: { allowMaxIndex?: number, messageKey?: string }) {
         super(controls, validatorOrOpts, asyncValidator);
-        this.cloneObject(arrayObject);        
+        this.cloneObject(arrayObject);
     }
 
     get isModified() {
         return this._isModified;
     }
 
-    push(control:any){
-        let formGroup:any = this.root;
-        if(this.arrayObject)
-            if(control.modelInstance)
-                this.arrayObject.push(control.modelInstance);
+    push(control: any, isAddedInstance: boolean = false) {
+        let formGroup: any = this.root;
+        if (this.arrayObject)
+            if (control.modelInstance) {
+                if (!isAddedInstance)
+                    this.arrayObject.push(control.modelInstance);
+                else
+                    this.arrayObject[this.arrayObject.length] = control.modelInstance
+            }
+            
         super.push(control);
-        if(formGroup[VALUE_CHANGED_SYNC])
+        if (formGroup[VALUE_CHANGED_SYNC])
             formGroup.valueChangedSync()
         this.patch()
-        this.checkValidation() 
+        this.checkValidation()
     }
 
     patch() {
@@ -43,7 +48,7 @@ export class RxFormArray extends FormArray {
             with?: string[],
             value?: { [key: string]: any }
         },
-        pushFunction: (value:Object) => boolean;
+        pushFunction: (value: Object) => boolean;
     }) {
         if (options && options.index >= 0 && options.groupOption) {
             (<any>this.controls[options.index]).resetForm(options.groupOption)
@@ -52,8 +57,7 @@ export class RxFormArray extends FormArray {
                 if (this.controls[i] !== undefined)
                     (<any>this.controls[i]).resetForm({ value: this._baseValue[i] });
                 else
-                    if (options && options.pushFunction)
-                    {
+                    if (options && options.pushFunction) {
                         let formGroup = options.pushFunction(this._baseValue[i]);
                         this.push(formGroup);
                     }
@@ -73,11 +77,19 @@ export class RxFormArray extends FormArray {
     }
 
 
-    removeAt(index:number){
-        let formGroup:any = this.root;
-        this.arrayObject.splice(index,1);
+    removeAt(index: number, isRemovedInstance: boolean = false) {
+        let formGroup: any = this.root;
+        if (!isRemovedInstance)
+            this.arrayObject.splice(index, 1);
+        else {
+            for (var i = index; i < this.arrayObject.length - 1; i++)
+                this.arrayObject[i] = this.arrayObject[i + 1];
+            this.arrayObject.pop();
+        }
+
+
         super.removeAt(index);
-        if(formGroup[VALUE_CHANGED_SYNC])
+        if (formGroup[VALUE_CHANGED_SYNC])
             formGroup.valueChangedSync()
         this.patch()
         this.checkValidation();

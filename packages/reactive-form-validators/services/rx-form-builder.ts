@@ -3,11 +3,11 @@ import { FormGroup, FormArray, FormControl, ValidatorFn, AsyncValidatorFn, FormB
 import { Type } from "../util"
 import { BaseFormBuilder } from './base-form-builder';
 
-
+import { ReactiveFormConfig } from '../util/reactive-form-config'
 import { defaultContainer } from '../core/defaultContainer';
 import { DecoratorConfiguration, InstanceContainer, PropertyInfo } from '../core/validator.interface';
 
-import { FormBuilderConfiguration} from "../models"
+import { FormBuilderConfiguration } from "../models"
 import { ARRAY_PROPERTY, OBJECT_PROPERTY, PROPERTY, FUNCTION_STRING, OBJECT_STRING, RX_WEB_VALIDATOR, NUMBER, BOOLEAN, STRING, MODEL } from "../const"
 import { PropValidationConfig } from "../models/prop-validation-config";
 
@@ -39,7 +39,7 @@ export class RxFormBuilder extends BaseFormBuilder {
     private isNested: boolean = false;
     private isGroupCalled: boolean = false;
     private isNestedBinding: boolean = false;
-    
+
     constructor() {
         super();
     }
@@ -143,7 +143,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         }
     }
 
-    private getEntity<T>(object: T, formBuilderConfiguration: FormBuilderConfiguration, propertyName: string,isSameObjectConstructor:boolean = false) {
+    private getEntity<T>(object: T, formBuilderConfiguration: FormBuilderConfiguration, propertyName: string, isSameObjectConstructor: boolean = false) {
         if (formBuilderConfiguration && formBuilderConfiguration.genericEntities && formBuilderConfiguration.genericEntities[propertyName])
             return formBuilderConfiguration.genericEntities[propertyName];
         return isSameObjectConstructor ? object.constructor : undefined;
@@ -221,7 +221,7 @@ export class RxFormBuilder extends BaseFormBuilder {
 
 
 
-    control(value?: any, validators?: ValidatorFn[], asyncValidators?: AsyncValidatorFn[]): IAbstractControl  {
+    control(value?: any, validators?: ValidatorFn[], asyncValidators?: AsyncValidatorFn[]): IAbstractControl {
         return new RxFormControl(value, validators, asyncValidators, {}, {}, '', []);
     }
 
@@ -371,14 +371,14 @@ export class RxFormBuilder extends BaseFormBuilder {
             if (validatorConfig.includeProps)
                 includeProps = this.getProps(validatorConfig.includeProps, rootPropertyName);
             if (validatorConfig.ignoreUndefinedProps)
-                ignoreUndefinedProps = this.getProps(validatorConfig.ignoreUndefinedProps, rootPropertyName,true);
+                ignoreUndefinedProps = this.getProps(validatorConfig.ignoreUndefinedProps, rootPropertyName, true);
             return { ignoreUndefinedProps: ignoreUndefinedProps, includeProps: includeProps, dynamicValidation: (validatorConfig.dynamicValidationConfigurationPropertyName && entityObject[validatorConfig.dynamicValidationConfigurationPropertyName]) ? entityObject[validatorConfig.dynamicValidationConfigurationPropertyName] : validationProps, excludeProps: excludeProps }
         }
         return {}
 
     }
 
-    private getProps(properties: string[], rootPropertyName: string,isIgnoreProp:boolean = false) {
+    private getProps(properties: string[], rootPropertyName: string, isIgnoreProp: boolean = false) {
         let props: string[] = [];
         for (let prop of properties) {
             if (prop.indexOf(rootPropertyName) != -1) {
@@ -420,9 +420,9 @@ export class RxFormBuilder extends BaseFormBuilder {
                     isIncludeProp = formBuilderConfiguration.excludeProps.indexOf(property.name) == -1
                 if (formBuilderConfiguration.dynamicValidation)
                     additionalValidations = formBuilderConfiguration.dynamicValidation;
-                if (formBuilderConfiguration.includeProps  && formBuilderConfiguration.includeProps.length > 0)
+                if (formBuilderConfiguration.includeProps && formBuilderConfiguration.includeProps.length > 0)
                     isIncludeProp = formBuilderConfiguration.includeProps.indexOf(property.name) != -1
-                if (formBuilderConfiguration.ignoreUndefinedProps   && formBuilderConfiguration.ignoreUndefinedProps.length > 0 ) {
+                if (formBuilderConfiguration.ignoreUndefinedProps && formBuilderConfiguration.ignoreUndefinedProps.length > 0) {
                     isIncludeProp = !(property.propertyType == PROPERTY && !RegexValidator.isNotBlank(json.entityObject[property.name]) && (formBuilderConfiguration.ignoreUndefinedProps.indexOf(property.name) !== -1 || formBuilderConfiguration.ignoreUndefinedProps.indexOf(":self:") !== -1));
                 }
 
@@ -469,6 +469,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                             var formArrayGroup = [];
                             let index = 0;
                             let entity = property.entityProvider ? property.entityProvider.call(entityObject) : undefined;
+                            let objectValidationConfig = null;
                             for (let subObject of arrayObjectValue) {
                                 if (instanceContainer && instanceContainer.conditionalObjectProps)
                                     this.conditionalObjectProps = instanceContainer.conditionalObjectProps.filter(t => t.objectPropName == property.name && t.arrayIndex == index)
@@ -476,13 +477,23 @@ export class RxFormBuilder extends BaseFormBuilder {
                                     this.builderConfigurationConditionalObjectProps = this.conditionalValidationInstance.conditionalObjectProps.filter(t => t.objectPropName == property.name && t.arrayIndex == index);
                                 if (this.formGroupPropOtherValidator[property.name])
                                     this.currentFormGroupPropOtherValidator = this.formGroupPropOtherValidator[property.name];
-                                let objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, subObject, `${property.name}.`, `${property.name}[${index}].`)
-                                formArrayGroup.push(this.formGroup(entity || property.entity || this.getEntity(subObject, formBuilderConfiguration, property.name,true), subObject, objectValidationConfig));
+                                objectValidationConfig = this.getValidatorConfig(formBuilderConfiguration, subObject, `${property.name}.`, `${property.name}[${index}].`)
+                                formArrayGroup.push(this.formGroup(entity || property.entity || this.getEntity(subObject, formBuilderConfiguration, property.name, true), subObject, objectValidationConfig));
                                 index++;
                                 this.conditionalObjectProps = [];
                                 this.builderConfigurationConditionalObjectProps = [];
                             }
                             formGroupObject[property.name] = new RxFormArray(arrayObjectValue, formArrayGroup, null, null, property.arrayConfig);
+                            if (ReactiveFormConfig.autoInstancePush) {
+                                arrayObjectValue.push = (instance: any[]): number => { let formGroup = this.formGroup(instance.constructor, instance, objectValidationConfig); formGroupObject[property.name].push(formGroup, true); return 0; };
+                                arrayObjectValue.splice = (start, deleteCount): any[] => {
+                                    let end = start + deleteCount;
+                                    for (var i = start; i <= end; i++) {
+                                        formGroupObject[property.name].removeAt(i, true)
+                                    }
+                                    return [];
+                                };
+                            }
                             this.isNestedBinding = this.isNested = false;
                         } else if (arrayObjectValue instanceof FormArray)
                             formGroupObject[property.name] = arrayObjectValue;
