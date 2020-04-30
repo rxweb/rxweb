@@ -55,6 +55,11 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
             let formControl: any = controls[fieldName];
             if (formControl.validatorConfig) {
                 Object.keys(AnnotationTypes).forEach(validatorName => {
+                    if (formControl.validatorConfig[validatorName] && formControl.validatorConfig[validatorName].disableExpression) {
+                        formControl["disableExpression"] = formControl.validatorConfig[validatorName].disableExpression;
+                        let columns = Linq.expressionColumns(formControl.validatorConfig[validatorName].disableExpression);
+                        defaultContainer.addChangeValidation(this.validationRule, rootFieldName + fieldName, columns);
+                    }
                     if (formControl.validatorConfig[validatorName] && formControl.validatorConfig[validatorName].conditionalExpression) {
                         let columns = Linq.expressionColumns(formControl.validatorConfig[validatorName].conditionalExpression);
                         defaultContainer.addChangeValidation(this.validationRule, rootFieldName + fieldName, columns);
