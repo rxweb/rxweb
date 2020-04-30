@@ -1,4 +1,4 @@
-import { FormGroup, AbstractControl, FormControl, ValidatorFn, AsyncValidatorFn } from "@angular/forms";
+import { FormGroup, AbstractControl, FormControl, ValidatorFn, AsyncValidatorFn, AbstractControlOptions } from "@angular/forms";
 import { ObjectMaker } from "../util/object-maker";
 import { MESSAGE, CONTROLS_ERROR, VALUE_CHANGED_SYNC } from '../const'
 import { ApplicationUtil } from '../util/app-util'
@@ -74,7 +74,7 @@ export class RxFormControl extends FormControl {
             this.setControlErrorMessages();
         return this._errorMessage;
     }
-    constructor(formState: any, validator: ValidatorFn | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string, private _sanitizers: DataSanitizer[]) {
+    constructor(formState: any, validator: ValidatorFn | AbstractControlOptions | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string, private _sanitizers: DataSanitizer[]) {
         super(formState, validator, asyncValidator)
         this._baseValue = formState === undefined ? null : this.getFormState(formState);
         this._isModified = false;

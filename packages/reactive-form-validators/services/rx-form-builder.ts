@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { FormGroup, FormArray, FormControl, ValidatorFn, AsyncValidatorFn, FormBuilder } from "@angular/forms"
+import { FormGroup, FormArray, FormControl, ValidatorFn, AsyncValidatorFn, FormBuilder, AbstractControlOptions } from "@angular/forms"
 import { Type } from "../util"
 import { BaseFormBuilder } from './base-form-builder';
 
@@ -438,7 +438,11 @@ export class RxFormBuilder extends BaseFormBuilder {
                             let sanitizeValue = super.sanitizeValue(instanceContainer, property.name, super.getDefaultValue(property, entityObject[property.name], formBuilderConfiguration), json.entityObject, Object.assign({}, json.entityObject));
                             if (entityObject[property.name] === undefined && sanitizeValue)
                                 entityObject[property.name] = sanitizeValue;
-                            formGroupObject[property.name] = new RxFormControl(sanitizeValue, this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject), this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]), json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
+                            let validators = this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject);
+                            let abstractControlOptions: AbstractControlOptions = { validators: validators };
+                            if (formBuilderConfiguration && formBuilderConfiguration.abstractControlOptions && formBuilderConfiguration.abstractControlOptions[property.name])
+                                abstractControlOptions.updateOn = formBuilderConfiguration.abstractControlOptions[property.name];
+                            formGroupObject[property.name] = new RxFormControl(sanitizeValue, abstractControlOptions, this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]), json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
                             this.isNested = false;
                         } else
                             formGroupObject[property.name] = super.getDefaultValue(property, entityObject[property.name], formBuilderConfiguration);

@@ -1,5 +1,5 @@
 import { PropValidationConfig } from "./prop-validation-config";
-import {ValidatorFn } from '@angular/forms'
+import {FormHooks,ValidatorFn, AbstractControlOptions } from '@angular/forms'
 import { AutoInstanceConfig } from './interface/auto-instance-config.interface'
 import { PropConfig } from "./config/prop-config"
 export class FormBuilderConfiguration{
@@ -25,6 +25,8 @@ export class FormBuilderConfiguration{
 
     dynamicValidationConfigurationPropertyName?:string;
 
-    autoInstanceConfig?:AutoInstanceConfig
+    autoInstanceConfig?: AutoInstanceConfig
+
+    abstractControlOptions: { [key: string]: FormHooks }
 }
 
