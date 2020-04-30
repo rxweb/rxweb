@@ -12,8 +12,10 @@ export class ObjectMaker{
         });
         let jObject = {};
         jObject[key] = {
-            message: messageText, refValues: values,messageKey
+            message: messageText, refValues: values
         };
+        if (config && config.isAddMessageKey)
+            jObject["messageKey"] = messageKey;
         return jObject;
     }
     static null() {

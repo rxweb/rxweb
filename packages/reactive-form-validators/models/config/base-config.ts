@@ -3,4 +3,5 @@ export interface BaseConfig{
     conditionalExpression?: string | Function;
     messageKey?: string;
     disableExpression?: Function;
+    isAddMessageKey?: boolean;
 }
