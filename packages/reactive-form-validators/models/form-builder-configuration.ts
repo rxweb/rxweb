@@ -1,5 +1,5 @@
 import { PropValidationConfig } from "./prop-validation-config";
-import {FormHooks,ValidatorFn, AbstractControlOptions } from '@angular/forms'
+import {ValidatorFn, AbstractControlOptions } from '@angular/forms'
 import { AutoInstanceConfig } from './interface/auto-instance-config.interface'
 import { PropConfig } from "./config/prop-config"
 export class FormBuilderConfiguration{
@@ -27,6 +27,6 @@ export class FormBuilderConfiguration{
 
     autoInstanceConfig?: AutoInstanceConfig
 
-    abstractControlOptions: { [key: string]: FormHooks }
+    abstractControlOptions: { [key: string]: 'change' | 'blur' | 'submit' }
 }
 
