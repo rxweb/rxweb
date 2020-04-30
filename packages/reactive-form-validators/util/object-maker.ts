@@ -12,7 +12,7 @@ export class ObjectMaker{
         });
         let jObject = {};
         jObject[key] = {
-            message: messageText, refValues: values
+            message: messageText, refValues: values,messageKey
         };
         return jObject;
     }
