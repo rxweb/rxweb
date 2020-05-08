@@ -26,11 +26,11 @@ export class NumberInfo {
     </div>
     <div class="form-group">
       <label>Third Number</label>
-	    <input type="text" name="thirdNumber" [(ngModel)]="numberinfo.thirdNumber"  class="form-control" [primeNumber]="conditionalExpression"/>
+	    <input type="text" name="thirdNumber" [(ngModel)]="numberinfo.thirdNumber"  class="form-control" [rxprimeNumber]="conditionalExpression"/>
     </div>
     <div class="form-group">
       <label>First Number</label>
-	    <input type="text" name="firstNumber" [(ngModel)]="numberinfo.firstNumber"  class="form-control" [primeNumber]="{'message':'First Number is not a prime number'}"/>
+	    <input type="text" name="firstNumber" [(ngModel)]="numberinfo.firstNumber"  class="form-control" [rxprimeNumber]="{'message':'First Number is not a prime number'}"/>
 
     </div>
     <button [disabled]="!numberinfoForm.valid" class="btn btn-primary">Submit</button>

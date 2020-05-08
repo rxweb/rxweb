@@ -25,16 +25,16 @@ export class Contact {
     </div>
     <div class="form-group">
       <label>Mobile No.</label>
-	    <input type="text" name="mobileNo" [(ngModel)]="contact.mobileNo"  class="form-control" [minLength]="{'value':10}"/>
+	    <input type="text" name="mobileNo" [(ngModel)]="contact.mobileNo"  class="form-control" [rxminLength]="{'value':10}"/>
     </div>
     <div class="form-group">
       <label>Land line No</label>
-	    <input type="text" name="landLineNo" [(ngModel)]="contact.landLineNo"  class="form-control" [minLength]="{'value':8,'message':'Minimum 8 characters are allowed'}"/>
+	    <input type="text" name="landLineNo" [(ngModel)]="contact.landLineNo"  class="form-control" [rxminLength]="{'value':8,'message':'Minimum 8 characters are allowed'}"/>
 
     </div>
     <div class="form-group">
       <label>State Code</label>
-	    <input type="text" name="stateCode" [(ngModel)]="contact.stateCode"  class="form-control" [minLength]="minLength"/>
+	    <input type="text" name="stateCode" [(ngModel)]="contact.stateCode"  class="form-control" [rxminLength]="minLength"/>
 
     </div>
     <button [disabled]="!contactForm.valid" class="btn btn-primary">Submit</button>

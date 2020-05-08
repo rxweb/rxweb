@@ -23,11 +23,11 @@ export class JsonInfo {
     </div>
     <div class="form-group">
       <label>Location Json</label>
-	    <input type="text" name="locationJson" [(ngModel)]="jsoninfo.locationJson"  class="form-control" [json]="json"/>
+	    <input type="text" name="locationJson" [(ngModel)]="jsoninfo.locationJson"  class="form-control" [rxjson]="json"/>
     </div>
     <div class="form-group">
       <label>Contact Json</label>
-	    <input type="text" name="contactJson" [(ngModel)]="jsoninfo.contactJson"  class="form-control" [json]="{'message':'Enter only JSON type data'}"/>
+	    <input type="text" name="contactJson" [(ngModel)]="jsoninfo.contactJson"  class="form-control" [rxjson]="{'message':'Enter only JSON type data'}"/>
     </div>
     <button [disabled]="!jsoninfoForm.valid" class="btn btn-primary">Submit</button>
   </form>

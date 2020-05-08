@@ -28,17 +28,17 @@ export class AttandanceDetail {
       </div>
       <div class="form-group">
         <label>Entry Time</label>
-          <input type="text" name="entryTime" [(ngModel)]="attandancedetail.entryTime"  class="form-control" [time]="conditionalExpression"/>
+          <input type="text" name="entryTime" [(ngModel)]="attandancedetail.entryTime"  class="form-control" [rxtime]="conditionalExpression"/>
 
       </div>
       <div class="form-group">
         <label>Total Time Out</label>
-          <input type="text" name="totalOutTime" [(ngModel)]="attandancedetail.totalOutTime"  class="form-control" [time]="{'allowSeconds':true}"/>
+          <input type="text" name="totalOutTime" [(ngModel)]="attandancedetail.totalOutTime"  class="form-control" [rxtime]="{'allowSeconds':true}"/>
   
       </div>
       <div class="form-group">
         <label>Exit Time</label>
-          <input type="text" name="exitTime" [(ngModel)]="attandancedetail.exitTime"  class="form-control" [time]="{'message':'You can enter only time format data'}"/>
+          <input type="text" name="exitTime" [(ngModel)]="attandancedetail.exitTime"  class="form-control" [rxtime]="{'message':'You can enter only time format data'}"/>
   
       </div>
       <button [disabled]="!attandancedetailForm.valid" class="btn btn-primary">Submit</button>

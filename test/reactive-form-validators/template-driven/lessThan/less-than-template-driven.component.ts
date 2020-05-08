@@ -23,16 +23,16 @@ export class User {
       </div>
       <div class="form-group">
         <label>Other Activity Marks</label>
-          <input type="text" name="otherActivityMarks" [(ngModel)]="user.otherActivityMarks"  class="form-control" [lessThan]="{'fieldName':'obtainedMarks'}"/>
+          <input type="text" name="otherActivityMarks" [(ngModel)]="user.otherActivityMarks"  class="form-control" [rxlessThan]="{'fieldName':'obtainedMarks'}"/>
       </div>
       <div class="form-group">
         <label>Passing Marks</label>
-          <input type="text" name="passingMarks" [(ngModel)]="user.passingMarks"  class="form-control" [lessThan]="lessThanEqualTo"/>
+          <input type="text" name="passingMarks" [(ngModel)]="user.passingMarks"  class="form-control" [rxlessThan]="lessThanEqualTo"/>
 
       </div>
       <div class="form-group">
         <label>Other Marks</label>
-          <input type="text" name="otherMarks" [(ngModel)]="user.otherMarks"  class="form-control" [lessThan]="{'fieldName':'obtainedMarks','message':'Please enter number greater than 100.'}"/>
+          <input type="text" name="otherMarks" [(ngModel)]="user.otherMarks"  class="form-control" [rxlessThan]="{'fieldName':'obtainedMarks','message':'Please enter number greater than 100.'}"/>
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
     </form>

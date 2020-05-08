@@ -22,12 +22,12 @@ export class User {
       </div>
       <div class="form-group">
         <label>Admission Year</label>
-          <input type="text" name="admissionYear" [(ngModel)]="user.admissionYear"  class="form-control" [leapYear]="conditionalExpression"/>
+          <input type="text" name="admissionYear" [(ngModel)]="user.admissionYear"  class="form-control" [rxleapYear]="conditionalExpression"/>
 
       </div>
       <div class="form-group">
        <label>Joining Year</label>
-          <input type="text" name="joiningYear" [(ngModel)]="user.joiningYear"  class="form-control" [leapYear]="{'message':'Joining Year is not a leap year'}"/>
+          <input type="text" name="joiningYear" [(ngModel)]="user.joiningYear"  class="form-control" [rxleapYear]="{'message':'Joining Year is not a leap year'}"/>
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
     </form>

@@ -23,11 +23,11 @@ export class User {
       </div>
       <div class="form-group">
         <label>Audio Data Uri</label>
-          <input type="text" name="audioDataUri" [(ngModel)]="user.audioDataUri"  class="form-control" [dataUri]="conditionalExpression"/>
+          <input type="text" name="audioDataUri" [(ngModel)]="user.audioDataUri"  class="form-control" [rxdataUri]="conditionalExpression"/>
       </div>
       <div class="form-group">
         <label>Video Data Uri</label>
-          <input type="text" name="videoDataUri" [(ngModel)]="user.videoDataUri"  class="form-control" [dataUri]="{'message':'Video Data Uri is not a proper data URI'}"/>
+          <input type="text" name="videoDataUri" [(ngModel)]="user.videoDataUri"  class="form-control" [rxdataUri]="{'message':'Video Data Uri is not a proper data URI'}"/>
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
     </form>

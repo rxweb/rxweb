@@ -20,15 +20,15 @@ export class User {
   <form #userForm = "ngForm" [rxwebForm]="userForm">
     <div class="form-group">
       <label>Name</label>
-	    <input type="text" name="name" [(ngModel)]="user.name"  class="form-control" [startsWith]="{'value':'B'}"/>
+	    <input type="text" name="name" [(ngModel)]="user.name"  class="form-control" [rxstartsWith]="{'value':'B'}"/>
     </div>
     <div class="form-group">
       <label>Task Id</label>
-	    <input type="text" name="taskId" [(ngModel)]="user.taskId"  class="form-control" [startsWith]="startsWith"/>
+	    <input type="text" name="taskId" [(ngModel)]="user.taskId"  class="form-control" [rxstartsWith]="startsWith"/>
     </div>
     <div class="form-group">
       <label>Company</label>
-	    <input type="text" name="company" [(ngModel)]="user.company"  class="form-control" [startsWith]="{'value':'R','message':'Company does not starts with R'}"/>
+	    <input type="text" name="company" [(ngModel)]="user.company"  class="form-control" [rxstartsWith]="{'value':'R','message':'Company does not starts with R'}"/>
 
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>

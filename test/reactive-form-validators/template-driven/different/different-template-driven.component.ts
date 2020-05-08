@@ -19,11 +19,11 @@ export class AccountInfo {
       </div>
       <div class="form-group">
         <label>Last Name</label>
-          <input type="text" name="lastName" [(ngModel)]="accountinfo.lastName"  class="form-control" [different]="{'fieldName':'firstName'}"/>
+          <input type="text" name="lastName" [(ngModel)]="accountinfo.lastName"  class="form-control" [rxdifferent]="{'fieldName':'firstName'}"/>
       </div>
       <div class="form-group">
         <label>Middle Name</label>
-          <input type="text" name="middleName" [(ngModel)]="accountinfo.middleName"  class="form-control" [different]="different"/>
+          <input type="text" name="middleName" [(ngModel)]="accountinfo.middleName"  class="form-control" [rxdifferent]="different"/>
       </div>
       <button [disabled]="!accountinfoForm.valid" class="btn btn-primary">Submit</button>
     </form>

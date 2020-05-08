@@ -25,7 +25,7 @@ export class User {
       </div>
       <div class="form-group">
         <label>Shopping Website Port</label>
-          <input type="text" name="shoppingWebsitePort" [(ngModel)]="user.shoppingWebsitePort"  class="form-control" [port]="conditionalExpression"/>
+          <input type="text" name="shoppingWebsitePort" [(ngModel)]="user.shoppingWebsitePort"  class="form-control" [rxport]="conditionalExpression"/>
       </div>
       <div class="form-group">
         <label>Educational Website Port</label>

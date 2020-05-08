@@ -21,11 +21,11 @@ export class User {
     </div>
     <div class="form-group">
       <label>Even Number</label>
-	    <input type="text" name="evenNumber" [(ngModel)]="user.evenNumber"  class="form-control" [even]="conditionalExpression"/>
+	    <input type="text" name="evenNumber" [(ngModel)]="user.evenNumber"  class="form-control" [rxeven]="conditionalExpression"/>
     </div>
     <div class="form-group">
       <label>Multiples of Even Number</label>
-	    <input type="text" name="multiplesOfEvenNumber" [(ngModel)]="user.multiplesOfEvenNumber"  class="form-control" [even]="{'message':'Multiples of Even Number is not an even number'}"/>
+	    <input type="text" name="multiplesOfEvenNumber" [(ngModel)]="user.multiplesOfEvenNumber"  class="form-control" [rxeven]="{'message':'Multiples of Even Number is not an even number'}"/>
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

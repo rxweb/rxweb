@@ -23,12 +23,12 @@ export class User {
       </div>
       <div class="form-group">
         <label>Fax Number</label>
-          <input type="text" name="faxNumber" [(ngModel)]="user.faxNumber"  class="form-control" [digit]="conditionalExpression"/>
+          <input type="text" name="faxNumber" [(ngModel)]="user.faxNumber"  class="form-control" [rxdigit]="conditionalExpression"/>
 
       </div>
       <div class="form-group">
         <label>Mobile Number</label>
-          <input type="text" name="mobileNumber" [(ngModel)]="user.mobileNumber"  class="form-control" [digit]="{'message':'Please enter only digit.'}"/>
+          <input type="text" name="mobileNumber" [(ngModel)]="user.mobileNumber"  class="form-control" [rxdigit]="{'message':'Please enter only digit.'}"/>
 
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>

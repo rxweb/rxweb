@@ -22,11 +22,11 @@ export class User {
       </div>
       <div class="form-group">
         <label>Middle name</label>
-          <input type="text" name="middleName" [(ngModel)]="user.middleName"  class="form-control" [lowerCase]="conditionalExpression"/>
+          <input type="text" name="middleName" [(ngModel)]="user.middleName"  class="form-control" [rxlowerCase]="conditionalExpression"/>
       </div>
       <div class="form-group">
         <label>Last name</label>
-          <input type="text" name="lastName" [(ngModel)]="user.lastName"  class="form-control" [lowerCase]="{'message':'You can enter only lowerCase letters.'}"/>      </div>
+          <input type="text" name="lastName" [(ngModel)]="user.lastName"  class="form-control" [rxlowerCase]="{'message':'You can enter only lowerCase letters.'}"/>      </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
     </form>
     `

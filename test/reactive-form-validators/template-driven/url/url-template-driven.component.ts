@@ -20,12 +20,12 @@ export class User {
     </div>
     <div class="form-group">
       <label>Customer Website Url</label>
-	    <input type="text" name="customerWebsiteUrl" [(ngModel)]="user.customerWebsiteUrl"  class="form-control" [url]="conditionalExpression"/>
+	    <input type="text" name="customerWebsiteUrl" [(ngModel)]="user.customerWebsiteUrl"  class="form-control" [rxurl]="conditionalExpression"/>
 
     </div>
     <div class="form-group">
       <label>Maintenance Website Url</label>
-	    <input type="text" name="maintenanceWebSiteUrl" [(ngModel)]="user.maintenanceWebSiteUrl"  class="form-control" [url]="{'message':'Maintenance Website Url Is not the correct url pattern.'}"/>
+	    <input type="text" name="maintenanceWebSiteUrl" [(ngModel)]="user.maintenanceWebSiteUrl"  class="form-control" [rxurl]="{'message':'Maintenance Website Url Is not the correct url pattern.'}"/>
 
         </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>

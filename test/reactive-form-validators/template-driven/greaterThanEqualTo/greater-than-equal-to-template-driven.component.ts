@@ -24,15 +24,15 @@ export class User {
       </div>
       <div class="form-group">
         <label>Retirement Age</label>
-          <input type="text" name="retiermentAge" [(ngModel)]="user.retiermentAge"  class="form-control" [greaterThanEqualTo]="{'fieldName':'admissionAge'}"/>
+          <input type="text" name="retiermentAge" [(ngModel)]="user.retiermentAge"  class="form-control" [rxgreaterThanEqualTo]="{'fieldName':'admissionAge'}"/>
       </div>
       <div class="form-group">
         <label>Member Age</label>
-          <input type="text" name="memberAge" [(ngModel)]="user.memberAge"  class="form-control" [greaterThanEqualTo]="GreaterThanEqualToconditionalExpression"/>
+          <input type="text" name="memberAge" [(ngModel)]="user.memberAge"  class="form-control" [rxgreaterThanEqualTo]="GreaterThanEqualToconditionalExpression"/>
       </div>
       <div class="form-group">
         <label>Other Age</label>
-          <input type="text" name="otherAge" [(ngModel)]="user.otherAge"  class="form-control" [greaterThanEqualTo]="{'fieldName':'admissionAge','message':'Please enter number greater than or equal to 1.'}"/>
+          <input type="text" name="otherAge" [(ngModel)]="user.otherAge"  class="form-control" [rxgreaterThanEqualTo]="{'fieldName':'admissionAge','message':'Please enter number greater than or equal to 1.'}"/>
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
     </form>

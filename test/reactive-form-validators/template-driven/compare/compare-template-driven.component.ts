@@ -22,7 +22,7 @@ export class User {
       </div>
       <div class="form-group">
         <label>Confirm Email</label>
-          <input type="text" name="confirmEmail" [(ngModel)]="user.confirmEmail"  class="form-control" [compare]="fieldNameEmail"/>
+          <input type="text" name="confirmEmail" [(ngModel)]="user.confirmEmail"  class="form-control" [rxcompare]="fieldNameEmail"/>
       </div>
       <div class="form-group">
         <label>Password</label>
@@ -30,7 +30,7 @@ export class User {
       </div>
       <div class="form-group">
         <label>Confirm Password</label>
-          <input type="text" name="confirmPassword" [(ngModel)]="user.confirmPassword"  class="form-control" [compare]="comparePassword"/>
+          <input type="text" name="confirmPassword" [(ngModel)]="user.confirmPassword"  class="form-control" [rxcompare]="comparePassword"/>
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
     </form>

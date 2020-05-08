@@ -23,11 +23,11 @@ export class User {
     </div>
     <div class="form-group">
       <label>Business Email Address</label>
-	    <input type="text" name="businessEmailAddress" [(ngModel)]="user.businessEmailAddress"  class="form-control" [email]="conditionalExpression"/>
+	    <input type="text" name="businessEmailAddress" [(ngModel)]="user.businessEmailAddress"  class="form-control" [rxemail]="conditionalExpression"/>
     </div>
     <div class="form-group">
       <label>Other Email Address</label>
-	    <input type="text" name="otherEmailAddress" [(ngModel)]="user.otherEmailAddress"  class="form-control" [email]="{'message':'Please enter valid email'}"/>
+	    <input type="text" name="otherEmailAddress" [(ngModel)]="user.otherEmailAddress"  class="form-control" [rxemail]="{'message':'Please enter valid email'}"/>
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

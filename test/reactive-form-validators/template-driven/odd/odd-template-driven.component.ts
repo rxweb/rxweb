@@ -22,11 +22,11 @@ export class User {
       </div>
       <div class="form-group">
         <label>Odd Number</label>
-          <input type="text" name="oddNumber" [(ngModel)]="user.oddNumber"  class="form-control" [odd]="conditionalExpression"/>
+          <input type="text" name="oddNumber" [(ngModel)]="user.oddNumber"  class="form-control" [rxodd]="conditionalExpression"/>
       </div>
       <div class="form-group">
         <label>Multiples of Odd Number</label>
-          <input type="text" name="multiplesOfOddNumber" [(ngModel)]="user.multiplesOfOddNumber"  class="form-control" [odd]="{'message':'Multiples of Odd Number is not an odd number'}"/>
+          <input type="text" name="multiplesOfOddNumber" [(ngModel)]="user.multiplesOfOddNumber"  class="form-control" [rxodd]="{'message':'Multiples of Odd Number is not an odd number'}"/>
 
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>

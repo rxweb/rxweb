@@ -20,12 +20,12 @@ export class Location {
     </div>
     <div class="form-group">
       <label>City Name</label>
-	    <input type="text" name="cityName" [(ngModel)]="location.cityName"  class="form-control" [upperCase]="conditionalExpression"/>
+	    <input type="text" name="cityName" [(ngModel)]="location.cityName"  class="form-control" [rxupperCase]="conditionalExpression"/>
 
     </div>
     <div class="form-group">
       <label>Colony Name</label>
-	    <input type="text" name="colonyName" [(ngModel)]="location.colonyName"  class="form-control" [upperCase]="{'message':'You can enter only upperCase letters.'}"/>
+	    <input type="text" name="colonyName" [(ngModel)]="location.colonyName"  class="form-control" [rxupperCase]="{'message':'You can enter only upperCase letters.'}"/>
 
     </div>
     <button [disabled]="!locationForm.valid" class="btn btn-primary">Submit</button>

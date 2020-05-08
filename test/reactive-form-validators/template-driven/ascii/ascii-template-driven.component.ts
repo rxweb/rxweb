@@ -22,11 +22,11 @@ export class User {
     </div>
     <div class="form-group">
       <label>Alphabet Ascii Code</label>
-	    <input type="text" name="alphabetAsciiCode" [(ngModel)]="user.alphabetAsciiCode"  class="form-control" [ascii]="conditionalExpression"/>
+	    <input type="text" name="alphabetAsciiCode" [(ngModel)]="user.alphabetAsciiCode"  class="form-control" [rxascii]="conditionalExpression"/>
     </div>
     <div class="form-group">
       <label>Special Character Ascii Code</label>
-	    <input type="text" name="specialCharAsciiCode" [(ngModel)]="user.specialCharAsciiCode"  class="form-control" [ascii]="message"/>
+	    <input type="text" name="specialCharAsciiCode" [(ngModel)]="user.specialCharAsciiCode"  class="form-control" [rxascii]="message"/>
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
   </form>

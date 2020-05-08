@@ -25,15 +25,15 @@ export class AddressInfo {
       </div>
       <div class="form-group">
         <label>City</label>
-        <input type="text" name="cityName" [(ngModel)]="addressinfo.cityName"  class="form-control" [alphaNumeric]="conditionalExpression"/>	
+        <input type="text" name="cityName" [(ngModel)]="addressinfo.cityName"  class="form-control" [rxalphaNumeric]="conditionalExpression"/>	
       </div>
       <div class="form-group">
         <label>State Name</label>
-        <input type="text" name="stateName" [(ngModel)]="addressinfo.stateName"  class="form-control" [alpha]="{'allowWhiteSpace':true}"/>
+        <input type="text" name="stateName" [(ngModel)]="addressinfo.stateName"  class="form-control" [rxalpha]="{'allowWhiteSpace':true}"/>
       </div>
       <div class="form-group">
         <label>State Code</label>
-        <input type="text" name="stateCode" [(ngModel)]="addressinfo.stateCode"  class="form-control" [alpha]="{'message':'You can enter only alphabets.'}"/>	
+        <input type="text" name="stateCode" [(ngModel)]="addressinfo.stateCode"  class="form-control" [rxalpha]="{'message':'You can enter only alphabets.'}"/>	
       </div>
       <button [disabled]="!addressinfoForm.valid" class="btn btn-primary">Submit</button>
     </form>

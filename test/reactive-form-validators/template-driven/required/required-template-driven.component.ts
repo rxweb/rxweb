@@ -23,12 +23,12 @@ export class User {
       </div>
       <div class="form-group">
         <label>Last Name</label>
-          <input type="text" name="lastName" [(ngModel)]="user.lastName"  class="form-control" [required]="conditionalExpression"/>
+          <input type="text" name="lastName" [(ngModel)]="user.lastName"  class="form-control" [rxrequired]="conditionalExpression"/>
   
       </div>
       <div class="form-group">
         <label>UserName</label>
-          <input type="text" name="userName" [(ngModel)]="user.userName"  class="form-control" [required]="{'message':'Username cannot be blank.'}"/>
+          <input type="text" name="userName" [(ngModel)]="user.userName"  class="form-control" [rxrequired]="{'message':'Username cannot be blank.'}"/>
 
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>

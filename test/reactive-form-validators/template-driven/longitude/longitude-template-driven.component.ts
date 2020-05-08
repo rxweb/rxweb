@@ -21,11 +21,11 @@ export class Country {
       </div>
       <div class="form-group">
         <label>Third Country Longitude</label>
-          <input type="text" name="thirdCountryLongitude" [(ngModel)]="country.thirdCountryLongitude"  class="form-control" [longitude]="conditionalExpression"/>
+          <input type="text" name="thirdCountryLongitude" [(ngModel)]="country.thirdCountryLongitude"  class="form-control" [rxlongitude]="conditionalExpression"/>
       </div>
       <div class="form-group">
         <label>First Country Longitude</label>
-          <input type="text" name="firstCountryLongitude" [(ngModel)]="country.firstCountryLongitude"  class="form-control" [longitude]="{'message':'First Country Longitude is not a longitude'}"/>
+          <input type="text" name="firstCountryLongitude" [(ngModel)]="country.firstCountryLongitude"  class="form-control" [rxlongitude]="{'message':'First Country Longitude is not a longitude'}"/>
       </div>
       <button [disabled]="!countryForm.valid" class="btn btn-primary">Submit</button>
     </form>

@@ -26,16 +26,16 @@ export class User {
       </div>
       <div class="form-group">
         <label>Passing Marks</label>
-          <input type="text" name="passingMarks" [(ngModel)]="user.passingMarks"  class="form-control" [lessThanEqualTo]="{'fieldName':'totalMarks'}"/>
+          <input type="text" name="passingMarks" [(ngModel)]="user.passingMarks"  class="form-control" [rxlessThanEqualTo]="{'fieldName':'totalMarks'}"/>
       </div>
       <div class="form-group">
         <label>Practical Exam Marks</label>
-          <input type="text" name="practicalExamMarks" [(ngModel)]="user.practicalExamMarks"  class="form-control" [lessThanEqualTo]="lessThanEqualTo"/>
+          <input type="text" name="practicalExamMarks" [(ngModel)]="user.practicalExamMarks"  class="form-control" [rxlessThanEqualTo]="lessThanEqualTo"/>
 	
       </div>
       <div class="form-group">
         <label>Other Marks</label>
-          <input type="text" name="otherMarks" [(ngModel)]="user.otherMarks"  class="form-control" [lessThanEqualTo]="{'fieldName':'totalMarks','message':'Please enter number less than 100.'}"/>
+          <input type="text" name="otherMarks" [(ngModel)]="user.otherMarks"  class="form-control" [rxlessThanEqualTo]="{'fieldName':'totalMarks','message':'Please enter number less than 100.'}"/>
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
     </form>

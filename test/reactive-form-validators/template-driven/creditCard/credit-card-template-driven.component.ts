@@ -22,7 +22,7 @@ export class User {
       </div>
       <div class="form-group">
         <label>Other Visa Card</label>
-          <input type="text" name="otherVisaCard" [(ngModel)]="user.otherVisaCard"  class="form-control" [creditCard]="creditCard"/>
+          <input type="text" name="otherVisaCard" [(ngModel)]="user.otherVisaCard"  class="form-control" [rxcreditCard]="creditCard"/>
   
       </div>
     

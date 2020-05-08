@@ -18,15 +18,15 @@ export class User {
     <form #userForm = "ngForm" [rxwebForm]="userForm">
       <div class="form-group">
         <label>First Name</label>
-          <input type="text" name="firstName" [(ngModel)]="user.firstName"  class="form-control" [maxLength]="{'value':16}"/>
+          <input type="text" name="firstName" [(ngModel)]="user.firstName"  class="form-control" [rxmaxLength]="{'value':16}"/>
       </div>
       <div class="form-group">
         <label>Last Name</label>
-          <input type="text" name="lastName" [(ngModel)]="user.lastName"  class="form-control" [maxLength]="maxLength"/>
+          <input type="text" name="lastName" [(ngModel)]="user.lastName"  class="form-control" [rxmaxLength]="maxLength"/>
       </div>
       <div class="form-group">
         <label>User Name</label>
-          <input type="text" name="userName" [(ngModel)]="user.userName"  class="form-control" [maxLength]="{'value':10,'message':'Maximum 10 characters are allowed'}"/>
+          <input type="text" name="userName" [(ngModel)]="user.userName"  class="form-control" [rxmaxLength]="{'value':10,'message':'Maximum 10 characters are allowed'}"/>
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
     </form>

@@ -22,7 +22,7 @@ export class MacAddressInfo {
       </div>
       <div class="form-group">
         <label>Local MAC Address</label>
-          <input type="text" name="localMacAddress" [(ngModel)]="macaddressinfo.localMacAddress"  class="form-control" [mac]="conditionalExpression"/>
+          <input type="text" name="localMacAddress" [(ngModel)]="macaddressinfo.localMacAddress"  class="form-control" [rxmac]="conditionalExpression"/>
 
       </div>
       <div class="form-group">

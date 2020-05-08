@@ -22,11 +22,11 @@ export class HexcolorInfo {
       </div>
       <div class="form-group">
         <label>Header Hexcode</label>
-          <input type="text" name="headerHexcolorCode" [(ngModel)]="hexcolorinfo.headerHexcolorCode"  class="form-control" [hexColor]="conditionalExpression"/>
+          <input type="text" name="headerHexcolorCode" [(ngModel)]="hexcolorinfo.headerHexcolorCode"  class="form-control" [rxhexColor]="conditionalExpression"/>
       </div>
       <div class="form-group">
         <label>Body Hexcode</label>
-          <input type="text" name="bodyHexcolorCode" [(ngModel)]="hexcolorinfo.bodyHexcolorCode"  class="form-control" [hexColor]="message"/>
+          <input type="text" name="bodyHexcolorCode" [(ngModel)]="hexcolorinfo.bodyHexcolorCode"  class="form-control" [rxhexColor]="message"/>
 
       </div>
       <button [disabled]="!hexcolorinfoForm.valid" class="btn btn-primary">Submit</button>

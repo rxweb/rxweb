@@ -30,16 +30,16 @@ export class User {
       </div>
       <div class="form-group">
         <label>Allocation Date</label>
-          <input type="text" name="allocationDate" [(ngModel)]="user.allocationDate"  class="form-control" [minDate]="{'value':'07/30/2018'}"/>
+          <input type="text" name="allocationDate" [(ngModel)]="user.allocationDate"  class="form-control" [rxminDate]="{'value':'07/30/2018'}"/>
       </div>
       <div class="form-group">
         <label>Admission Date</label>
-          <input type="text" name="admissionDate" [(ngModel)]="user.admissionDate"  class="form-control" [minDate]="minDate"/>
+          <input type="text" name="admissionDate" [(ngModel)]="user.admissionDate"  class="form-control" [rxminDate]="minDate"/>
 
       </div>
       <div class="form-group">
         <label>Registration Date</label>
-          <input type="text" name="registrationDate" [(ngModel)]="user.registrationDate"  class="form-control" [minDate]="{'value':'07/30/2018','message':'Registration Date exceeds the Minimum Date Limit'}"/>
+          <input type="text" name="registrationDate" [(ngModel)]="user.registrationDate"  class="form-control" [rxminDate]="{'value':'07/30/2018','message':'Registration Date exceeds the Minimum Date Limit'}"/>
   
       </div>
       <div class="form-group">
@@ -49,7 +49,7 @@ export class User {
       </div>
       <div class="form-group">
         <label>Last Registration Date</label>
-          <input type="text" name="lastRegistrationDate" [(ngModel)]="user.lastRegistrationDate"  class="form-control" [minDate]="{'fieldName':'enrollmentDate'}"/>
+          <input type="text" name="lastRegistrationDate" [(ngModel)]="user.lastRegistrationDate"  class="form-control" [rxminDate]="{'fieldName':'enrollmentDate'}"/>
   
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>

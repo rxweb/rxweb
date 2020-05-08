@@ -18,15 +18,15 @@ export class User {
   <form #userForm = "ngForm"  [rxwebForm]="userForm">
     <div class="form-group">
       <label>Email Address</label>
-	    <input type="text" name="emailAddress" [(ngModel)]="user.emailAddress"  class="form-control" [contains]="value"/>
+	    <input type="text" name="emailAddress" [(ngModel)]="user.emailAddress"  class="form-control" [rxcontains]="value"/>
     </div>
     <div class="form-group">
       <label>Recovery Email Address</label>
-	    <input type="text" name="recoveryEmailAddress" [(ngModel)]="user.recoveryEmailAddress"  class="form-control" [contains]="contains"/>
+	    <input type="text" name="recoveryEmailAddress" [(ngModel)]="user.recoveryEmailAddress"  class="form-control" [rxcontains]="contains"/>
     </div>
     <div class="form-group">
       <label>Other Email Address</label>
-	    <input type="text" name="otherEmailAddress" [(ngModel)]="user.otherEmailAddress"  class="form-control" [contains]="containsMessage"/>
+	    <input type="text" name="otherEmailAddress" [(ngModel)]="user.otherEmailAddress"  class="form-control" [rxcontains]="containsMessage"/>
 
     </div>
     <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>

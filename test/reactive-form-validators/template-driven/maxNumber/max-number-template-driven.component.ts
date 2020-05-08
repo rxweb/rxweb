@@ -25,16 +25,16 @@ export class SubjectDetails {
       </div>
       <div class="form-group">
         <label>Obtained Marks for above subject code</label>
-          <input type="text" name="obtainedMarks" [(ngModel)]="subjectdetails.obtainedMarks"  class="form-control" [maxNumber]="maxNumber"/>
+          <input type="text" name="obtainedMarks" [(ngModel)]="subjectdetails.obtainedMarks"  class="form-control" [rxmaxNumber]="maxNumber"/>
       </div>
       <div class="form-group">
         <label>Passing Marks</label>
-          <input type="text" name="passingMarks" [(ngModel)]="subjectdetails.passingMarks"  class="form-control" [maxNumber]="{'value':50}"/>
+          <input type="text" name="passingMarks" [(ngModel)]="subjectdetails.passingMarks"  class="form-control" [rxmaxNumber]="{'value':50}"/>
 
       </div>
       <div class="form-group">
         <label>Practical Marks</label>
-          <input type="text" name="practicalMarks" [(ngModel)]="subjectdetails.practicalMarks"  class="form-control" [maxNumber]="{'value':70,'message':'Practical Marks exceeds the Maximum marks Limit'}"/>
+          <input type="text" name="practicalMarks" [(ngModel)]="subjectdetails.practicalMarks"  class="form-control" [rxmaxNumber]="{'value':70,'message':'Practical Marks exceeds the Maximum marks Limit'}"/>
 
       </div>
       <button [disabled]="!subjectdetailsForm.valid" class="btn btn-primary">Submit</button>
