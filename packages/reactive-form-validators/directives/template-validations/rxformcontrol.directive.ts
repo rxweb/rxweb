@@ -43,57 +43,57 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
         return this.controls;
     }
 
-    @Input() alpha: AlphaConfig;
-    @Input() alphaNumeric: AlphaConfig;
-    @Input() ascii: BaseConfig;
-    @Input() compare: CompareConfig;
-    @Input() compose: ComposeConfig;
-    @Input() contains: ContainsConfig;
-    @Input() creditCard: CreditCardConfig;
-    @Input() dataUri: BaseConfig;
-    @Input() different: DifferentConfig;
-    @Input() digit: DigitConfig;
-    @Input() email: EmailConfig;
-    @Input() endsWith: DefaultConfig;
-    @Input() even: BaseConfig;
-    @Input() extension: ExtensionConfig;
-    @Input() factor: FactorConfig;
-    @Input() fileSize: SizeConfig;
-    @Input() greaterThanEqualTo: RelationalOperatorConfig;
-    @Input() greaterThan: RelationalOperatorConfig;
-    @Input() hexColor: MessageConfig;
-    @Input() json: DefaultConfig;
-    @Input() latitude: BaseConfig;
-    @Input() latLong: BaseConfig;
-    @Input() leapYear: BaseConfig;
-    @Input() lessThan: RelationalOperatorConfig;
-    @Input() lessThanEqualTo: RelationalOperatorConfig;
-    @Input() longitude: BaseConfig;
-    @Input() lowerCase: MessageConfig;
-    @Input() mac: BaseConfig;
-    @Input() maxDate: DateConfig;
-    @Input() maxLength: NumberConfig;
-    @Input() maxNumber: NumberConfig;
-    @Input() minDate: DateConfig;
-    @Input() minLength: NumberConfig;
-    @Input() minNumber: NumberConfig;
-    @Input() numeric: NumericConfig;
-    @Input() odd: BaseConfig;
-    @Input() password: PasswordConfig;
-    @Input() port: BaseConfig;
-    @Input() primeNumber: BaseConfig;
-    @Input() required: RequiredConfig;
-    @Input() range: RangeConfig;
-    @Input() rule: RuleConfig;
-    @Input() startsWith: DefaultConfig;
-    @Input() time: TimeConfig;
-    @Input() upperCase: MessageConfig;
-    @Input() url: DefaultConfig;
-    @Input() unique: UniqueConfig;
-    @Input() notEmpty: BaseConfig;
-    @Input() cusip: BaseConfig;
-    @Input() grid: BaseConfig;
-    @Input() date:BaseConfig;
+    @Input() rxalpha: AlphaConfig;
+    @Input() rxalphaNumeric: AlphaConfig;
+    @Input() rxascii: BaseConfig;
+    @Input() rxcompare: CompareConfig;
+    @Input() rxcompose: ComposeConfig;
+    @Input() rxcontains: ContainsConfig;
+    @Input() rxcreditCard: CreditCardConfig;
+    @Input() rxdataUri: BaseConfig;
+    @Input() rxdifferent: DifferentConfig;
+    @Input() rxdigit: DigitConfig;
+    @Input() rxemail: EmailConfig;
+    @Input() rxendsWith: DefaultConfig;
+    @Input() rxeven: BaseConfig;
+    @Input() rxextension: ExtensionConfig;
+    @Input() rxfactor: FactorConfig;
+    @Input() rxfileSize: SizeConfig;
+    @Input() rxgreaterThanEqualTo: RelationalOperatorConfig;
+    @Input() rxgreaterThan: RelationalOperatorConfig;
+    @Input() rxhexColor: MessageConfig;
+    @Input() rxjson: DefaultConfig;
+    @Input() rxlatitude: BaseConfig;
+    @Input() rxlatLong: BaseConfig;
+    @Input() rxleapYear: BaseConfig;
+    @Input() rxlessThan: RelationalOperatorConfig;
+    @Input() rxlessThanEqualTo: RelationalOperatorConfig;
+    @Input() rxlongitude: BaseConfig;
+    @Input() rxlowerCase: MessageConfig;
+    @Input() rxmac: BaseConfig;
+    @Input() rxmaxDate: DateConfig;
+    @Input() rxmaxLength: NumberConfig;
+    @Input() rxmaxNumber: NumberConfig;
+    @Input() rxminDate: DateConfig;
+    @Input() rxminLength: NumberConfig;
+    @Input() rxminNumber: NumberConfig;
+    @Input() rxnumeric: NumericConfig;
+    @Input() rxodd: BaseConfig;
+    @Input() rxpassword: PasswordConfig;
+    @Input() rxport: BaseConfig;
+    @Input() rxprimeNumber: BaseConfig;
+    @Input() rxrequired: RequiredConfig;
+    @Input() rxrange: RangeConfig;
+    @Input() rxrule: RuleConfig;
+    @Input() rxstartsWith: DefaultConfig;
+    @Input() rxtime: TimeConfig;
+    @Input() rxupperCase: MessageConfig;
+    @Input() rxurl: DefaultConfig;
+    @Input() rxunique: UniqueConfig;
+    @Input() rxnotEmpty: BaseConfig;
+    @Input() rxcusip: BaseConfig;
+    @Input() rxgrid: BaseConfig;
+    @Input() rxdate:BaseConfig;
 
 
 
@@ -117,7 +117,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
         })
         if (validators.length > 0)
             this.validators = validators
-        if (this.numeric && (this.numeric.isFormat || this.numeric.digitsInfo)) {
+        if (this.rxnumeric && (this.rxnumeric.isFormat || this.rxnumeric.digitsInfo)) {
             this.bindNumericElementEvent();
         }
         
@@ -127,8 +127,8 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     blurEvent(){
         if (!(this.formControl && this.formControl.errors && this.formControl.errors.numeric)) {
             if (this.formControl.value !== null && this.formControl.value !== undefined) {
-                let value = this.decimalProvider.transFormDecimal(this.formControl.value, this.numeric.digitsInfo);
-                value = (!this.numeric.isFormat) ? this.decimalProvider.replacer(value) : value;
+                let value = this.decimalProvider.transFormDecimal(this.formControl.value, this.rxnumeric.digitsInfo);
+                value = (!this.rxnumeric.isFormat) ? this.decimalProvider.replacer(value) : value;
                 this.setValueOnElement(value);
             }
             this.isFocusCalled = false;
@@ -137,7 +137,7 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
 
     bindNumericElementEvent(config?: NumericConfig) {
         if (config)
-            this.numeric = config;
+            this.rxnumeric = config;
         let listener = this.renderer.listen(this.element, BLUR, this.blurEvent.bind(this));
         this.eventListeners.push(listener)
         listener = this.renderer.listen(this.element, FOCUS, (event) => {
