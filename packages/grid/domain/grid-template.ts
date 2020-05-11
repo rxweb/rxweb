@@ -1,5 +1,6 @@
 import { DesignClass } from "./design-class";
 import { TemplateConfig, ElementConfig } from "../interface/config/template-config";
+import { GridConfig } from "../interface/config/grid-config"
 import { FilterCollection } from "./filter-collection";
 import { FooterDesignClass } from './footer-design-class';
 
@@ -8,8 +9,8 @@ export class GridTemplate extends FilterCollection {
     private _footerCenterTemplate: TemplateConfig;
     private _footerRightTemplate: TemplateConfig;
     footerDesignClass: FooterDesignClass;
-    constructor(source:any[],model:Function) {
-        super(source, model);
+    constructor(source: any[], model: Function, gridConfiguration: GridConfig) {
+        super(source, model, gridConfiguration);
         this.designClass = new DesignClass();
         this.footerDesignClass = new FooterDesignClass();
     }

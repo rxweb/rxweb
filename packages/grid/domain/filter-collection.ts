@@ -1,10 +1,10 @@
 import { SortCollection } from "./sort-collection";
-
+import { GridConfig } from "../interface/config/grid-config"
 
 export class FilterCollection extends SortCollection {
 
-    constructor(source:any[],model:Function) {
-        super(source, model);
+    constructor(source: any[], model: Function, gridConfiguration: GridConfig) {
+        super(source, model, gridConfiguration);
         
     }
 

@@ -19,8 +19,10 @@ export class GridDesigner extends GridTemplate {
     hideHeader: boolean = false;
     private DomManipulations: DomManipulation[];
     authorization: { [key: string]: any };
-    constructor(source: any[], model: Function, private gridConfiguration: GridConfig) {
-        super(source, model);
+    private gridConfiguration: GridConfig;
+    constructor(source: any[], model: Function, configuration: GridConfig) {
+        super(source, model, configuration);
+        this.gridConfiguration = configuration;
         this.eventSubscriber.subscribe(EVENTS.ADD_ROWS, this.addRows.bind(this));
         this.eventSubscriber.subscribe(EVENTS.REMOVE_ROWS, this.removeRows.bind(this));
         this.controlState = new ControlState();

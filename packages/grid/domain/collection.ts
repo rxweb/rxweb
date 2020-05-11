@@ -9,6 +9,7 @@ import { customTemplateParser } from "../static/custom-template-parser";
 import { merge, clone } from '../functions/entity.service'
 import { StoreProcedureConfig } from "../interface/config/store-procedure-config";
 import { ControlState } from './control-state'
+import { GridConfig } from '../interface/config/grid-config'
 export class Collection {
     protected childrens: { [key: string]: any } = {};
     componentId: string;
@@ -25,7 +26,7 @@ export class Collection {
     private columns: string[] = [];
     protected activeColumns: string[] = [];
     protected eventSubscriber: EventSubscriber;
-    constructor(source: any[], model: Function) {
+    constructor(source: any[], model: Function, private configuration: GridConfig) {
         this.source = source;
         this.model = model;
         this.gridConfig = this.getInstanceProvider(this.model);
@@ -118,7 +119,28 @@ export class Collection {
                     prototype = prototype.__proto__;
                 }
             } while (isLoop)
+        }
+        return this.bindDynamicColumns(instance);
+    }
 
+    private bindDynamicColumns(instance: ContainerConfig) {
+        if (instance && this.configuration && this.configuration.columns) {
+            let cloneInstance = { ...instance };
+            let columns = [];
+            let index = 0;
+            cloneInstance.columns.forEach((column, index) => {
+                if (this.configuration.columns.startColumnIndex == column.columnIndex)
+                    this.configuration.columns.columnConfigs.forEach(t => {
+                        t.columnIndex = index;
+                        columns.push(t);
+                        index++;
+                    });
+                column.columnIndex = index;
+                columns.push(column);
+                index++;
+            });
+            cloneInstance.columns = columns;
+            instance = cloneInstance;
         }
         return instance;
     }

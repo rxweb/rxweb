@@ -3,7 +3,7 @@ import { Collection } from './collection'
 import { TemplateConfig } from "../interface/config/template-config";
 import { FooterDesignClass } from './footer-design-class';
 import { EVENTS } from "../const/events.const";
-
+import { GridConfig } from '../interface/config/grid-config'
 
 
 export class Pagination extends Collection {
@@ -41,8 +41,8 @@ export class Pagination extends Collection {
         return this.storeProcedure ? Math.ceil(this.storeProcedure.length / this.maxPerPage) : Math.ceil(this.bindingSource.length / this.maxPerPage)
     }
 
-    constructor(source: any[], model: Function) {
-        super(source, model);
+    constructor(source: any[], model: Function, gridConfiguration: GridConfig) {
+        super(source, model, gridConfiguration);
         this.currentPage = 1;
     }
 
