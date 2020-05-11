@@ -14,9 +14,9 @@ describe('template-driven forms integration tests', () => {
         
         it('should not error contains with blank value', fakeAsync(() => {
             const fixture = createInstance(ContainsValidationComponent);
-            expect(specTester(fixture, {emailAddress:'abc@gmail.com'},'contains')).toBe(false);
-            expect(specTester(fixture, {recoveryEmailAddress:'ushmidave@gmail.com'},'contains')).toBe(false);
-            expect(specTester(fixture,{otherEmailAddress:'ushmidave@hotmail.com'},'contains')).toBe(true);
+            expect(specTester(fixture, { emailAddress: 'abc@gmail.com' },'rxcontains')).toBe(false);
+            //expect(specTester(fixture, { recoveryEmailAddress: 'ushmidave@gmail.com' },'rxcontains')).toBe(false);
+            //expect(specTester(fixture, { otherEmailAddress: 'ushmidave@hotmail.com' },'rxcontains')).toBe(true);
         }));    
 
 //end        

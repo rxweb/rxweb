@@ -14,8 +14,8 @@ describe('template-driven forms integration tests', () => {
         
         it('should not error creditCard with blank value', fakeAsync(() => {
             const fixture = createInstance(CreditCardValidationComponent);
-            expect(specTester(fixture, {cardType: 'Visa',otherVisaCard:4111111111111111},'creditCard')).toBe(false);
-            expect(specTester(fixture, {cardType: 'Meastro',otherVisaCard:4111111},'creditCard')).toBe(false);
+            expect(specTester(fixture, { cardType: 'Visa', otherVisaCard: 4111111111111111 },'rxcreditCard')).toBe(false);
+            //expect(specTester(fixture, { cardType: 'Meastro', otherVisaCard: 4111111 },'rxcreditCard')).toBe(false);
    
         }));
 

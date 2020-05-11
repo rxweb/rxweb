@@ -21,11 +21,11 @@ export class AddressInfo {
     <form #addressinfoForm = "ngForm"  [rxwebForm]="addressinfoForm">
       <div class="form-group">
         <label>Country Name</label>
-        <input type="text" name="countryName" [(ngModel)]="addressinfo.countryName"  class="form-control" alpha/>	
+        <input type="text" name="countryName" [(ngModel)]="addressinfo.countryName"  class="form-control" rxalpha/>	
       </div>
       <div class="form-group">
         <label>City</label>
-        <input type="text" name="cityName" [(ngModel)]="addressinfo.cityName"  class="form-control" [rxalphaNumeric]="conditionalExpression"/>	
+        <input type="text" name="cityName" [(ngModel)]="addressinfo.cityName"  class="form-control" [rxalpha]="conditionalExpression"/>	
       </div>
       <div class="form-group">
         <label>State Name</label>

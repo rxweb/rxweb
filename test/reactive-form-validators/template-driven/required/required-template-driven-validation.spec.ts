@@ -14,8 +14,8 @@ describe('template-driven forms integration tests', () => {
         it('should not error required with blank value', fakeAsync(() => {
             const fixture = createInstance(RequiredValidationComponent);
             expect(specTester(fixture, { firstName: '' }, 'required')).toBe(true);
-            expect(specTester(fixture, { firstName: 'Bharat',lastName:''},'required')).toBe(true);
-            expect(specTester(fixture, { userName:  ''}, 'required')).toBe(true);
+            //expect(specTester(fixture, { firstName: 'Bharat', lastName: '' },'rxrequired')).toBe(true);
+            //expect(specTester(fixture, { userName: '' }, 'rxrequired')).toBe(true);
         }));
         //end        
     })

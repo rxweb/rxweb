@@ -27,7 +27,7 @@ export class MacAddressInfo {
       </div>
       <div class="form-group">
         <label>System MAC Address</label>
-          <input type="text" name="systemMacAddress" [(ngModel)]="macaddressinfo.systemMacAddress"  class="form-control" [mac]="{'message':'System MAC Address is not a MAC address'}"/>
+          <input type="text" name="systemMacAddress" [(ngModel)]="macaddressinfo.systemMacAddress"  class="form-control" [rxmac]="{'message':'System MAC Address is not a MAC address'}"/>
       </div>
       <button [disabled]="!macaddressinfoForm.valid" class="btn btn-primary">Submit</button>
     </form>

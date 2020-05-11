@@ -107,10 +107,10 @@ export class RxFormControlDirective extends BaseValidator implements OnInit, OnD
     ngOnInit() {
         let validators = [];
         Object.keys(APP_VALIDATORS).forEach(validatorName => {
-            if ((this[validatorName]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[validatorName] == BLANK)) {
-                validators.push(APP_VALIDATORS[validatorName](this[validatorName]));
+            if ((this[`rx${validatorName}`]) || (ALLOW_VALIDATOR_WITHOUT_CONFIG.indexOf(validatorName) != -1 && this[`rx${validatorName}`] == BLANK)) {
+                validators.push(APP_VALIDATORS[validatorName](this[`rx${validatorName}`]));
                 if (this.name && !(this.formControlName && this.formControl)) {
-                    ApplicationUtil.configureControl(this.controlConfig, this[validatorName], validatorName);
+                    ApplicationUtil.configureControl(this.controlConfig, this[`rx${validatorName}`], validatorName);
                 }
 
             }

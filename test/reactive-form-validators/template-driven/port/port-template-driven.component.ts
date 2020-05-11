@@ -29,7 +29,7 @@ export class User {
       </div>
       <div class="form-group">
         <label>Educational Website Port</label>
-          <input type="text" name="educationalWebsitePort" [(ngModel)]="user.educationalWebsitePort"  class="form-control" [port]="{'message':'Educational Website Port is not a proper port number'}"/>
+          <input type="text" name="educationalWebsitePort" [(ngModel)]="user.educationalWebsitePort"  class="form-control" [rxport]="{'message':'Educational Website Port is not a proper port number'}"/>
       </div>
       <button [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
     </form>
