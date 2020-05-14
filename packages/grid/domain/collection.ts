@@ -25,6 +25,7 @@ export class Collection {
     gridColumns: GridColumnConfig[] = [];
     private columns: string[] = [];
     protected activeColumns: string[] = [];
+    protected searchColumns: string[] = [];
     protected eventSubscriber: EventSubscriber;
     constructor(source: any[], model: Function, private configuration: GridConfig) {
         this.source = source;
@@ -32,8 +33,12 @@ export class Collection {
         this.gridConfig = this.getInstanceProvider(this.model);
         this.gridConfig.columns.forEach(t => {
             this.columns.push(t.name);
-            if (t.visible)
+            if (t.visible) {
                 this.activeColumns.push(t.name);
+                if (t.allowSearch === undefined || t.allowSearch === true)
+                    this.searchColumns.push(t.name);
+            }
+            
             if (t.keyColumn)
                 this.primaryKey = t.name;
             var gridColumn = { ...t };

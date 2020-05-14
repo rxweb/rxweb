@@ -15,7 +15,8 @@ export function defineProperty(model: Function, propertyName: string, modelName:
                     MultiLingualData.addOrUpdateComponent(keyName, new TranslateModel({ ...data }, this), this.constructor);
                 else
                     return new TranslateModel(data, {});
-            return MultiLingualData.getComponentPropValue(keyName,this.constructor);
+            let value = MultiLingualData.getComponentPropValue(keyName, this.constructor);
+            return value === undefined ? {} : value;
         },
         enumerable: true,
         configurable: true

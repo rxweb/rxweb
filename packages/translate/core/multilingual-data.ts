@@ -42,7 +42,7 @@ export const MultiLingualData:
         }
 
         get(key: string): string {
-            return this.data[key] ? this.data[key] : {};
+            return this.data[key] ? this.data[key] : undefined;
         }
 
         clearInActives(config: RxTranslateConfig) {

@@ -1,3 +1,5 @@
+import { ErrorMessageConfig } from "./error-message-config";
+
 export class RxTranslateConfig {
     languageCode?: string;
     filePath: string;
@@ -5,4 +7,5 @@ export class RxTranslateConfig {
     cacheLanguageWiseObject?: boolean;
     globalFilePath?: string;
     preloadingStrategy?: boolean;
+    controlErrorMessage?: ErrorMessageConfig;
 }

@@ -104,8 +104,14 @@ function getPagingOptions(source: any[]) {
         var text = String(t);
         templateConfigs.push({
             option: {
-                attributes: { value: text },
-                childrens: [{ text: { text: text } }]
+                attributes: {
+                    value: text,
+                    selected: function (x, y) {
+                        return this.maxPerPage == x.data;
+                    }
+                },
+                childrens: [{ text: { text: text } }],
+                parameterConfig: {data:text}
             }
         })
     })

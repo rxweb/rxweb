@@ -24,7 +24,7 @@ export class FilterCollection extends SortCollection {
     protected searchData(value: any) {
         var filter = [];
         this.source.forEach(t => {
-            if (this.wildcardSearch(t, String(value).trim(), this.activeColumns))
+            if (this.wildcardSearch(t, String(value).trim(), this.searchColumns))
                 filter.push(t);
         });
         this.bindingSource = filter;

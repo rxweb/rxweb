@@ -144,7 +144,7 @@ export class BaseResolver {
 
     private setPageTitle(body: { [key: string]: string }) {
         if (body && body["pageTitle"])
-            document.body.title = body["pageTitle"];
+            document.title = body["pageTitle"];
     }
 
 

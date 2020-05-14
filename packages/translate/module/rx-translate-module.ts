@@ -10,6 +10,7 @@ import { RouterModule } from "@angular/router";
 import { translateConfigContainer } from "../core/translate-config-container";
 import { RxTranslation } from "../service/rx-translation";
 import { RX_TRANSLATE_CONFIG } from "../core/rx-translate-config.const";
+import { overrideErrorsProperty } from "../functions/override-errors-property";
 
 @NgModule({
     imports: [RouterModule],
@@ -19,15 +20,20 @@ import { RX_TRANSLATE_CONFIG } from "../core/rx-translate-config.const";
 })
 export class RxTranslateModule {
     constructor(@Inject(RX_TRANSLATE_CONFIG) config: RxTranslateConfig) {
-        translateConfigContainer.config =  config;
-        if (!translateConfigContainer.config.languageCode)
-            translateConfigContainer.config.languageCode = "en";
-        if (config.globalFilePath) {
-            let translateConfig = { config: { translationName: 'global', filePath: config.globalFilePath }, instance: null }; 
-            var baseResolver = new BaseResolver(config);
-            baseResolver.resolveGlobal(translateConfig);
+        if (!translateConfigContainer.config) {
+            translateConfigContainer.config = config;
+            if (!translateConfigContainer.config.languageCode)
+                translateConfigContainer.config.languageCode = "en";
+            if (config.globalFilePath) {
+                let translateConfig = { config: { translationName: 'global', filePath: config.globalFilePath }, instance: null };
+                var baseResolver = new BaseResolver(config);
+                baseResolver.resolveGlobal(translateConfig);
+            }
+            overrideProperty();
+            if (config.controlErrorMessage)
+                overrideErrorsProperty(config.controlErrorMessage);
         }
-        overrideProperty();
+
     }
     static forRoot(config?: RxTranslateConfig): ModuleWithProviders<RxTranslateModule> {
         return {
@@ -39,5 +45,5 @@ export class RxTranslateModule {
         };
     }
 
-    
+
 }
