@@ -6,6 +6,7 @@ import { BaseResolver } from "../resolver/base-resolver";
 import { RxTranslateConfig } from "../interface/rx-translate-config";
 import { ActivatedRoute } from "@angular/router";
 import { RX_TRANSLATE_CONFIG } from "../core/rx-translate-config.const";
+import { HttpClient } from "@angular/common/http";
 
 @Directive({
     selector: '[rxTranslate]'
@@ -15,30 +16,36 @@ export class RxTranslateDirective {
     private _context: NgIfContext = new NgIfContext();
     private config: TranslateContainerConfig;
 
-    constructor(private viewContainerRef: ViewContainerRef, private templateRef: TemplateRef<any>, private injector: Injector, @Inject(RX_TRANSLATE_CONFIG) private baseConfig: RxTranslateConfig, private route: ActivatedRoute) {
+    constructor(private viewContainerRef: ViewContainerRef, private templateRef: TemplateRef<any>, private injector: Injector, @Inject(RX_TRANSLATE_CONFIG) private baseConfig: RxTranslateConfig, private route: ActivatedRoute, private httpClient: HttpClient) {
         let ref: any = this.templateRef;
+        let component: any = null;
         if (ref._def) {
             let node = ref._def.element.template.nodes[ref._def.element.template.nodes.length - 1];
+            component = node.provider.token;
             this.config = translateContainer.get(node.provider.token);
         } else if (ref._declarationTContainer) {
             let tagName = ref._declarationTContainer.tagName;
             let tView = ref._declarationTContainer.tView_;
             let node = tView.directiveRegistry.filter(t => t.selectors.filter(y => y == tagName)[0] != undefined)[0];
-            if (node) 
+            if (node) {
                 this.config = translateContainer.get(node.type);
+                component = node.type;
+            }
         }
+        if (baseConfig.forNgxTranslate && component)
+            translateContainer.setComponentState(this.templateRef.elementRef.nativeElement.nodeName, component);
     }
 
     @Input('rxTranslate') set translate(value: any) {
         if (this.config)
         {
-            let baseResolver = new BaseResolver(this.baseConfig);
+            let baseResolver = new BaseResolver(this.baseConfig, this.httpClient);
             let languageCode = "";
             if (this.route.params && this.route.params["languageCode"] && this.baseConfig.languageCode !== this.route.params["languageCode"] && !this.config.config.language)
                 languageCode = this.route.params["languageCode"];
-            baseResolver.resolve(this.config,languageCode).then(x => {
+            baseResolver.resolve(this.config, languageCode).subscribe(x => {
                 this.updateView(x);
-            })
+            });
         }
         else
             this.updateView(true)

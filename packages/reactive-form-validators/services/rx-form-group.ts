@@ -73,7 +73,7 @@ export class RxFormGroup extends FormGroup {
         this._isModified = Object.keys(this._modified).length > 0;
         if (!this._isModified)
             this.nestedArrayIsModified();
-        if (this.parent)
+        if (this.parent && (<RxFormGroup>this.parent).patch)
             (<RxFormGroup>this.parent).patch();
     }
 

@@ -13,10 +13,14 @@ export const translateContainer:
         get(instance: any): TranslateContainerConfig;
         defineProperty(instance: Function, propertyName: string, config: TranslateConfig): TranslateContainerConfig;
         defineAsyncProperty(instance: Function, propertyName: string, config: AsyncTranslateConfig): void;
+        setComponentState(key: string, instance: Function);
+        getComponentState(key: string);
         config: RxTranslateConfig;
+        getActiveTranslations(): Array<TranslateContainerConfig>
     } = new (class {
         store: TranslateContainerConfig[] = new Array<TranslateContainerConfig>();
         config: RxTranslateConfig;
+        componentState: { [key: string]: Function } = {};
         set(instance: Function, config: TranslateConfig): void {
             this.store.push({ instance: instance, config: config });
         }
@@ -43,13 +47,26 @@ export const translateContainer:
             var model: Function = !isPropertyKey ? instance : instance.constructor;
             let modelName = config === undefined ? "global" : config.translationName;
             defineProperty(model, propertyName, modelName);
-            if (modelName != "global") {
+            if (modelName != "global" && propertyName) {
                 let instanceConfig: TranslateContainerConfig = { instance: model, config: config };
                 this.set(model, config)
                 let count = this.store.filter(t => t.instance == model).length;
                 if (count == 1)
                     overrideDestroyMethod(model, config.translationName);
                 return instanceConfig;
-            }
+            } else if (!propertyName)
+                this.set(model, config);
+        }
+
+        setComponentState(key: string, instance: Function) {
+            this.componentState[key] = instance;
+        }
+
+        getComponentState(key: string) {
+            return this.componentState[key];
+        }
+
+        getActiveTranslations() {
+            return this.store;
         }
     })();

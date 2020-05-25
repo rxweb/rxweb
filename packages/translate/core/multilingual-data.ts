@@ -11,9 +11,10 @@ export const MultiLingualData:
         clearInActives(config: RxTranslateConfig);
         getActiveKeys();
         contains(key: string, languageCode: string);
+        data: { [key: string]: any };
     } = new (class {
         private translationModelData: Array<TranslationModelData> = new Array<TranslationModelData>();
-        private data: { [key: string]: any } = {};
+        data: { [key: string]: any } = {};
         private keys: { [key: string]: boolean } = {};
         private contentKeysByLanguage: { [key: string]: string } = {};
 
@@ -23,6 +24,7 @@ export const MultiLingualData:
             if (languageCode)
                 this.contentKeysByLanguage[key] = languageCode
         }
+
 
         addOrUpdateComponent(key: string, data: { [key: string]: any }, instance: Function) {
             let indexOf = this.translationModelData.findIndex(t => t.instance == instance && t.key == key);
