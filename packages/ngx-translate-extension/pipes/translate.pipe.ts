@@ -6,32 +6,49 @@ import { ActivatedRoute } from '@angular/router';
 import { RequestState } from '../services/request.state';
 import { Subscription } from 'rxjs';
 import { UNDEFINED } from '../const/app.const';
+import { isObject } from '../functions/is-object';
 const TRANSLATE: string = "translate";
 const NG_COMPONENT: string = "ng-component";
 export class TranslatePipe extends TranslatePipeNgx {
     private nodeName: string;
     private baseOnLangChange: Subscription;
+    private currentTranslationName: string;
+    private languageCode: string;
     constructor(private translateBase: TranslateService, ref: ChangeDetectorRef, elementRef?: ElementRef, private rxTranslation?: RxTranslation, private activatedRoute?: ActivatedRoute, private requestState?: RequestState, private translationResolver?: TranslationResolver) {
         super(translateBase, ref)
         this[TRANSLATE] = new TranslateService(translateBase.store, translateBase.currentLoader, translateBase.compiler, translateBase.parser, translateBase.missingTranslationHandler, true, true, false, false, rxTranslation, requestState, this.translationResolver);
+        this[TRANSLATE]["isInternal"] = true;
         this.nodeName = elementRef.nativeElement.nodeName ? elementRef.nativeElement.nodeName.toLowerCase() : '';
         this.subscribe();
-        this[TRANSLATE].currentLang = this.getName();
+        this.setAndGetCurrentLang();
+        
     }
 
-    private getName() {
+    private setAndGetCurrentLang(isSet:boolean = true) {
         let name = null;
-        if (this.nodeName == NG_COMPONENT)
-            name =  this.translationResolver.getTranslationNameByInstance(this.activatedRoute.component);
-        else
-            name = this.translationResolver.getTranslationName(this.nodeName);
-        if (!name)
-            name = this.translationResolver.activeLanguage;
+        if (this.currentTranslationName) {
+            name = `${this.currentTranslationName}_${this.languageCode || this.translationResolver.activeLanguage}`;
+        } else {
+            if (this.nodeName == NG_COMPONENT)
+                name = this.translationResolver.getTranslationNameByInstance(this.activatedRoute.component, this.languageCode);
+            else
+                name = this.translationResolver.getTranslationName(this.nodeName, this.languageCode);
+            if (!name)
+                name = this.translationResolver.activeLanguage;
+        }
+        if (isSet)
+        this[TRANSLATE].currentLang = name;
         return name;
     }
+    transform(query: string, ...args: any[]): any {
+        if (args && args.length > 0) {
+            this.checkAndSetLanguageCode(...args);
+        }
+        return super.transform(query, ...args);
+    }
+
     subscribe() {
         this.translateBase.onDefaultLangChange.subscribe(t => {
-            
             this.translateBase.changeLanguage(t.lang, this.notifyDefaultLanguageChange.bind(this));
         })
         this.translateBase.onLangChange.subscribe(t => {
@@ -39,21 +56,18 @@ export class TranslatePipe extends TranslatePipeNgx {
         })
 
         this.translateBase.onTranslationChange.subscribe(t => {
-            let name = this.getName();
-            this[TRANSLATE].currentLang = name;
+            let name = this.setAndGetCurrentLang();
             this[TRANSLATE].onTranslationChange.emit({ lang: name, translations: this.translateBase.translations[name] })
         })
     }
 
     private notifyDefaultLanguageChange() {
-        let name = this.getName();
-        this[TRANSLATE].currentLang = name;
+        let name = this.setAndGetCurrentLang();
         this[TRANSLATE].onDefaultLangChange.emit({ lang: name })
     }
 
     private notifyChangeLanguage() {
-        let name = this.getName();
-        this[TRANSLATE].currentLang = name;
+        let name = this.setAndGetCurrentLang();
         this[TRANSLATE].onLangChange.emit({ lang: name, translations: this.translateBase.translations[name] })
     }
 
@@ -66,5 +80,31 @@ export class TranslatePipe extends TranslatePipeNgx {
     ngOnDestroy() {
         this.destroy();
         super.ngOnDestroy();
+    }
+
+    checkAndSetLanguageCode(...args: any[]) {
+        for (var i = 0; i < args.length; i++) {
+            if (isObject(args[i]) && (args[i].lang || args[i].translationName)) {
+                this.languageCode = args[i].lang
+                this.currentTranslationName = args[i].translationName;
+                var name = this.setAndGetCurrentLang(false);
+                if (!this.translateBase.translations[name]) {
+                    if (!this.translateBase.isolateSubscriptions[name]) {
+                        this.translateBase.isolateSubscriptions[name] = this[TRANSLATE].use(name);
+                        this.translateBase.isolateSubscriptions[name].subscribe(t => {
+                            this.translateBase.isolateSubscriptions[name] = undefined;
+                            delete this.translateBase.isolateSubscriptions[name];
+                            this.notifyChangeLanguage();
+                        })
+                    } else {
+                        this.translateBase.isolateSubscriptions[name].subscribe(t => {
+                            this.notifyChangeLanguage();
+                        })
+                    }
+                } else
+                    this.setAndGetCurrentLang();
+                break;
+            }
+        }
     }
 }

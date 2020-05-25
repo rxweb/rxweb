@@ -50,22 +50,22 @@ export class TranslationResolver {
         return MultiLingualData.data;
     }
 
-    getTranslationName(nodeName: string) {
+    getTranslationName(nodeName: string,languageCode:string = null) {
         let instance = translateContainer.getComponentState(nodeName);
         if (instance) {
             let translateConfig = translateContainer.get(instance);
             if (translateConfig && translateConfig.config)
-                return getKeyName(translateConfig.config.translationName);
+                return getKeyName(translateConfig.config.translationName, languageCode);
         }
         return null;
     }
 
 
 
-    getTranslationNameByInstance(instance: any) {
+    getTranslationNameByInstance(instance: any, languageCode: string = null) {
         let translateConfig = translateContainer.get(instance);
         if (translateConfig && translateConfig.config)
-            return getKeyName(translateConfig.config.translationName);
+            return getKeyName(translateConfig.config.translationName, languageCode);
         return null;
     }
 

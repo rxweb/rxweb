@@ -4,3 +4,4 @@ export * from './service/rx-translation'
 export * from './module/rx-translate-module';
 export * from './interface/translate-config';
 export * from './core/translation-resolver';
+export * from './functions/equals';

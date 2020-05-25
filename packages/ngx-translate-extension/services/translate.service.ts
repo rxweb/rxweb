@@ -4,10 +4,13 @@ import { Inject } from '@angular/core';
 import { RequestState } from './request.state';
 import { mergeDeep } from '../functions/merge-deep';
 import { FAKE_LOADER } from '../const/app.const';
+import { Observable } from 'rxjs';
 
 export class TranslateService extends TranslateServiceExtension {
     private changeLangFunc: Function;
     private extendExtension: boolean;
+    private isInternal: boolean = false;
+    isolateSubscriptions: { [key: string]: Observable<any> } = {};
     constructor(public store: TranslateStore,
         public currentLoader: TranslateLoader,
         public compiler: TranslateCompiler,
@@ -35,7 +38,6 @@ export class TranslateService extends TranslateServiceExtension {
 
 
     changeLanguage(lang: string, onComplete: Function) {
-        debugger;
         if (this.translationResolver.activeTranslationsLength > 1) {
             if (lang != this.languageCode && !this.translationResolver.pending) {
                 this.languageCode = lang;
@@ -77,6 +79,13 @@ export class TranslateService extends TranslateServiceExtension {
         this.updateLanguages(language);
         return super.setDefaultLang(language);
     }
+
+    useByTranslationName(translationName: string, languageCode: string) {
+        return super.use(`${translationName}_${languageCode}`).subscribe(t => {
+
+        });
+    }
+
     use(language: string) {
         this.updateLanguages(language)
         return super.use(language)
@@ -84,7 +93,8 @@ export class TranslateService extends TranslateServiceExtension {
 
     private updateLanguages(language: string) {
         if (language && (!this.translationResolver.activeLanguage || this.translationResolver.activeLanguage != language))
-            this.translationResolver.activeLanguage = language;
+            if (!this.isInternal)
+                this.translationResolver.activeLanguage = language;
         if ((language && this.translationResolver.allowedLanguages.indexOf(language) === -1)) {
             this.translationResolver.allowedLanguages.push(language);
             this.addLangs([language]);

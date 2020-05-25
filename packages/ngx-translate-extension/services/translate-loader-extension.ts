@@ -6,14 +6,18 @@ export class TranslateLoaderExtension {
     }
 
     getTranslation(lang: string): Observable<any> {
-            return this.translationResolver.resolve(this.getName(lang),lang);
+        let translation = this.getName(lang);
+        return this.translationResolver.resolve(translation.translationName, translation.lang);
     }
 
     getName(lang: string) {
-        lang = lang.split('_')[0];
-        if (this.translationResolver.allowedLanguages.indexOf(lang) !== -1)
+        var splitText = lang.split('_');
+        if (this.translationResolver.allowedLanguages.indexOf(splitText[0]) !== -1)
             lang = "global"
-        return lang;
+        return splitText.length > 1 ? {
+            lang: splitText[1],
+            translationName: splitText[0]
+        } : { lang: splitText[0], translationName: lang };
     }
 
 }

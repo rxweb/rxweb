@@ -28,7 +28,7 @@ export class BaseResolver {
 
     resolve(config: TranslateContainerConfig, languageCode: string = "", isRouteLanguageChanged: boolean = false): Observable<boolean> {
         this.containerConfig = config;
-        if ((this.containerConfig && this.cloneBaseConfig.isTest) || (this.containerConfig && !MultiLingualData.contains(getKeyName(this.containerConfig.config.translationName, this.cloneBaseConfig.languageCode), this.cloneBaseConfig.languageCode)) || (this.containerConfig && isRouteLanguageChanged)) {
+        if ((this.containerConfig && this.cloneBaseConfig.isTest) || (this.containerConfig && !MultiLingualData.contains(getKeyName(this.containerConfig.config.translationName, languageCode || this.cloneBaseConfig.languageCode), languageCode || this.cloneBaseConfig.languageCode)) || (this.containerConfig && isRouteLanguageChanged)) {
             if (!translateConfigContainer.customLoader) {
                 let url = this.getPath(languageCode);
                 if (url)
