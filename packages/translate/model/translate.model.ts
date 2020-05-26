@@ -35,6 +35,8 @@ export class TranslateModel {
     }
 
     private transform(data, key, text) {
+        if (this.thisParameter[key]) 
+            return this.getText(data, text, key);
         if (this.keyParameters && this.keyParameters[key] && isObject(this.keyParameters[key])) {
             if (!equals(this.keyParameters[key], this.getKeyValue(this.keyParameters[key])))
                 return this.getText(data,text, key);
@@ -52,6 +54,8 @@ export class TranslateModel {
     private keyParameters: { [key: string]: any } = {};
 
     private memoized: { [key: string]: string } = {};
+
+    private thisParameter: { [key: string]: boolean } = {};
 
     get languageCode() {
         return translateConfigContainer.config ? translateConfigContainer.config.languageCode : "en";
@@ -80,6 +84,7 @@ export class TranslateModel {
     private getText(translations: any, text: string, columnKey: string) {
         text = translateConfigContainer.ngxTranslate ? this.ngxTranslateParser(translations, columnKey) : text;
         if (text.indexOf('this.') !== -1) {
+            this.thisParameter[columnKey] = true;
             var func = new Function("x", "return " + text);
             text = func.call(this.componentData);
         }

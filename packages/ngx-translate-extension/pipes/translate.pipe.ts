@@ -16,28 +16,31 @@ export class TranslatePipe extends TranslatePipeNgx {
     private languageCode: string;
     constructor(private translateBase: TranslateService, ref: ChangeDetectorRef, elementRef?: ElementRef, private rxTranslation?: RxTranslation, private activatedRoute?: ActivatedRoute, private requestState?: RequestState, private translationResolver?: TranslationResolver) {
         super(translateBase, ref)
-        this[TRANSLATE] = new TranslateService(translateBase.store, translateBase.currentLoader, translateBase.compiler, translateBase.parser, translateBase.missingTranslationHandler, true, true, false, false, rxTranslation, requestState, this.translationResolver);
+        this[TRANSLATE] = new TranslateService(translateBase.store, translateBase.currentLoader, translateBase.compiler, translateBase.parser, translateBase.missingTranslationHandler, true, true, false, false, rxTranslation, new RequestState(), this.translationResolver);
         this[TRANSLATE]["isInternal"] = true;
         this.nodeName = elementRef.nativeElement.nodeName ? elementRef.nativeElement.nodeName.toLowerCase() : '';
         this.subscribe();
         this.setAndGetCurrentLang();
-        
+
     }
 
-    private setAndGetCurrentLang(isSet:boolean = true) {
+    private setAndGetCurrentLang(isSet: boolean = true) {
         let name = null;
         if (this.currentTranslationName) {
-            name = `${this.currentTranslationName}_${this.languageCode || this.translationResolver.activeLanguage}`;
+            if (this.currentTranslationName == "global")
+                name = this.languageCode;
+            else
+                name = `${this.currentTranslationName}_${this.languageCode || this.translationResolver.activeLanguage}`;
         } else {
             if (this.nodeName == NG_COMPONENT)
                 name = this.translationResolver.getTranslationNameByInstance(this.activatedRoute.component, this.languageCode);
             else
                 name = this.translationResolver.getTranslationName(this.nodeName, this.languageCode);
             if (!name)
-                name = this.translationResolver.activeLanguage;
+                name = this.languageCode || this.translationResolver.activeLanguage;
         }
         if (isSet)
-        this[TRANSLATE].currentLang = name;
+            this[TRANSLATE].currentLang = name;
         return name;
     }
     transform(query: string, ...args: any[]): any {

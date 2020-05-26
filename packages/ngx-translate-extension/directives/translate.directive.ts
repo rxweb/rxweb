@@ -16,7 +16,7 @@ export class TranslateDirective extends TranslateDirectiveNgx {
     private languageCode: string;
 
     constructor(private translateBase: TranslateService, element: ElementRef, _ref: ChangeDetectorRef, viewContainer: ViewContainerRef, private rxTranslation: RxTranslation, private requestState: RequestState, private translationResolver: TranslationResolver) {
-        super(new TranslateService(translateBase.store, translateBase.currentLoader, translateBase.compiler, translateBase.parser, translateBase.missingTranslationHandler, true, true, false, false, rxTranslation, requestState, translationResolver), element, _ref);
+        super(new TranslateService(translateBase.store, translateBase.currentLoader, translateBase.compiler, translateBase.parser, translateBase.missingTranslationHandler, true, true, false, false, rxTranslation, new RequestState(), translationResolver), element, _ref);
         this[TRANSLATE_SERVICE]["isInternal"] = true;
         this.subscribe();
         if (viewContainer[VIEW] && viewContainer[VIEW].component) {
@@ -25,9 +25,9 @@ export class TranslateDirective extends TranslateDirectiveNgx {
         }
     }
 
-    set translateLang(value:string) {
+    @Input() set translateLang(value: string) {
         if (!equals(this.languageCode, value)) {
-            this.checkAndSetLanguageCode({lang:value});
+            this.checkAndSetLanguageCode({ lang: value });
             this.checkNodes(true);
         }
     }
@@ -48,9 +48,16 @@ export class TranslateDirective extends TranslateDirectiveNgx {
     }
 
     setAndGetCurrentLang(isSet: boolean = true) {
-        let name = this.currentTranslationName ? `${this.currentTranslationName}_${this.languageCode || this.translationResolver.activeLanguage}` : this.translationResolver.getTranslationNameByInstance(this.component, this.languageCode);
+        let name = null;
+        if (this.currentTranslationName) {
+            if (this.currentTranslationName == "global")
+                name = this.languageCode;
+            else
+                name = `${this.currentTranslationName}_${this.languageCode || this.translationResolver.activeLanguage}`
+        } else
+            name = this.translationResolver.getTranslationNameByInstance(this.component, this.languageCode);
         if (!name)
-            name = this.translationResolver.activeLanguage;
+            name = this.languageCode || this.translationResolver.activeLanguage;
         if (isSet)
             this[TRANSLATE_SERVICE].currentLang = name;
         return name;

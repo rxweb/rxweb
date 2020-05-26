@@ -37,11 +37,16 @@ function getTranslatedErrorMessages(errorMessageConfig: ErrorMessageConfig,error
                     let message = '';
                     if (data[key])
                         message = data[key];
-                    if (message && errorMessageConfig.parametersPropName && errors[key][errorMessageConfig.parametersPropName]) {
-                        let values = errors[key][errorMessageConfig.parametersPropName];
-                        values.forEach((t, index) => {
-                            message = message.replace(`{{${index}}}`, t);
-                        });
+                    if (message) {
+                        if (errorMessageConfig.parametersPropName && errors[key][errorMessageConfig.parametersPropName]) {
+                            let values = errors[key][errorMessageConfig.parametersPropName];
+                            values.forEach((t, index) => {
+                                message = message.replace(`{{${index}}}`, t);
+                            });
+                        }
+                        Object.keys(errors[key]).forEach(t => {
+                            message = message.replace(`{{${t}}}`, errors[key][t]);
+                        })
                     }
                     if (!isObject(errors[key]))
                         errors[key] = {};

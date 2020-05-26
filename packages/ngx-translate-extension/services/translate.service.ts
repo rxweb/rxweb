@@ -44,8 +44,9 @@ export class TranslateService extends TranslateServiceExtension {
                 this.rxTranslation.change(lang, () => {
                     onComplete();
                 })
-            } else if (this.translationResolver.pending) {
-                let time = setTimeout(() => { clearTimeout(time); this.changeLanguage(lang, onComplete); }, 5);
+            }
+            else if (this.translationResolver.pending) {
+                let time = setTimeout(() => { clearTimeout(time); this.changeLanguage(lang, onComplete, storeTranslationName); }, 5);
             }
             else
                 onComplete();
@@ -102,6 +103,7 @@ export class TranslateService extends TranslateServiceExtension {
     }
 
     private storeResolve(name: string, data: any) {
+        debugger;
         data = this.compiler.compileTranslations(data, this.currentLang);
         this.translations[name] = data;
         return data;

@@ -19,7 +19,9 @@ export class RxTranslateDirective {
     constructor(private viewContainerRef: ViewContainerRef, private templateRef: TemplateRef<any>, private injector: Injector, @Inject(RX_TRANSLATE_CONFIG) private baseConfig: RxTranslateConfig, private route: ActivatedRoute, private httpClient: HttpClient) {
         let ref: any = this.templateRef;
         let component: any = null;
+        let elementName = null;
         if (ref._def) {
+            elementName = ref._def.element.template.nodes[0].element.name
             let node = ref._def.element.template.nodes[ref._def.element.template.nodes.length - 1];
             component = node.provider.token;
             this.config = translateContainer.get(node.provider.token);
@@ -33,7 +35,7 @@ export class RxTranslateDirective {
             }
         }
         if (baseConfig.forNgxTranslate && component)
-            translateContainer.setComponentState(this.templateRef.elementRef.nativeElement.nodeName, component);
+            translateContainer.setComponentState(elementName, component);
     }
 
     @Input('rxTranslate') set translate(value: any) {

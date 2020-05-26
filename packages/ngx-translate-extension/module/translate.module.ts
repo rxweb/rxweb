@@ -52,18 +52,7 @@ export class TranslateModule {
     static forChild(config: TranslateModuleConfig  = {}): ModuleWithProviders<TranslateModule> {
         return {
             ngModule: TranslateModule,
-            providers: [
-                { provide: TranslateLoader, useClass: TranslateLoaderExtension  },
-                config.compiler || { provide: TranslateCompiler, useClass: TranslateFakeCompiler },
-                config.parser || { provide: TranslateParser, useClass: TranslateDefaultParser },
-                config.missingTranslationHandler || { provide: MissingTranslationHandler, useClass: FakeMissingTranslationHandler },
-                { provide: USE_STORE, useValue: config.isolate },
-                { provide: USE_DEFAULT_LANG, useValue: config.useDefaultLang },
-                { provide: USE_EXTEND, useValue: config.extend },
-                { provide: DEFAULT_LANGUAGE, useValue: config.defaultLanguage },
-                config.loader ? { provide: FAKE_LOADER, useClass: <any>config.loader } : { provide: FAKE_LOADER, useValue: null },
-                TranslateService, RequestState
-            ]
+            providers: []
         };
     }
 }

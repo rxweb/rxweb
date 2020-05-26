@@ -1,17 +1,10 @@
 export * from './module/translate.module'
-import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
-
-export abstract class TranslateLoader {
-    abstract getTranslation(lang: string): Observable<any>;
-}
-
-@Injectable()
-export class TranslateFakeLoader extends TranslateLoader {
-    getTranslation(lang: string): Observable<any> {
-        return of({});
-    }
-}
 export * from './services/translate.service';
 export * from './pipes/translate.pipe';
 export * from './services/request.state';
+export {
+    DefaultLangChangeEvent, DEFAULT_LANGUAGE, FakeMissingTranslationHandler, LangChangeEvent,
+    MissingTranslationHandler, MissingTranslationHandlerParams, TranslateCompiler, TranslateDefaultParser,
+    TranslateFakeCompiler, TranslateFakeLoader, TranslateLoader, TranslateModuleConfig, TranslateParser,
+    TranslateStore, TranslationChangeEvent, USE_DEFAULT_LANG, USE_EXTEND, USE_STORE
+} from "@ngx-translate/core"

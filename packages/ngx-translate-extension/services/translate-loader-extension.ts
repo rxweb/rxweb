@@ -7,6 +7,7 @@ export class TranslateLoaderExtension {
 
     getTranslation(lang: string): Observable<any> {
         let translation = this.getName(lang);
+        this.translationResolver.addConfig(translation.translationName);
         return this.translationResolver.resolve(translation.translationName, translation.lang);
     }
 

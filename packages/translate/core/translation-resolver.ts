@@ -76,8 +76,15 @@ export class TranslationResolver {
     getKeyName(modelName: string, languageCode: string = '') {
         return getKeyName(modelName, languageCode);
     }
-    resolve(modelName,languageCode:string) {
+    resolve(modelName, languageCode: string) {
         var baseResolver = new BaseResolver(translateConfigContainer.config, this.httpClient);
         return baseResolver.resolveByName(modelName, languageCode);
+    }
+
+    addConfig(name: string) {
+        let containerConfig = translateContainer.getByName(name);
+        if (!containerConfig)
+            translateContainer.set(null, { translationName: name });
+        
     }
 }
