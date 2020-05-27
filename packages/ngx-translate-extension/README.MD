@@ -4,7 +4,7 @@
 [![DeepScan grade](https://deepscan.io/api/teams/3217/projects/4745/branches/37870/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3217&pid=4745&bid=37870)
 [![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
 	
-### A extensible library of ngx-translate for Angular Internationalization with spectacular features.
+### A extensible library of ngx-translate for Angular Internationalization with spectacular features 🌈.
 
 > Ngx-translate is superb library, but less activly managed and this library adds the features of those which are not available in the ngx-translate or enhance the current features as well as fix the bugs.
 
@@ -18,11 +18,11 @@ That's it.
 We have copied the spec from [@ngx-translate/core](https://github.com/ngx-translate/core/tree/master/projects/ngx-translate/core/tests) project and follows the above mentioned steps, [it's working as expected](https://github.com/rxweb/rxweb/tree/master/test/ngx-translate-extension). Please refer the [Spec Code Comparision Page](https://docs.rxweb.io/ngx-translate-extension/comparison/translate-store).
 
 # 💪 Features
-<table width="100%">
+<table width="100%" bgcolor="#f6f8fa">
 	<tr>
-		<td colspan="2">Attribute Directive</td>
+		<td colspan="2"><b>Attribute Directive</b></td>
 	</tr>
-<tr>
+<tr style="background-color:white!important;">
 <td width="80%">
 
 ```html
@@ -34,6 +34,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 [Working Example](https://stackblitz.com)
 </td>
 </tr>
+<tr></tr>
 <tr>
 <td>
 		
@@ -45,6 +46,178 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 	
 [Working Example](https://stackblitz.com)
 </td>
+</tr>
+<tr></tr>
+<tr>
+<td>
+		
+```html
+<span translate="note" translateLang="fr"></span>
+```
+</td>
+<td>
+	
+<b>[Working Example](https://stackblitz.com)</b>
+</td>
+</tr>
+<tr></tr>
+<tr>
+<td>
+		
+```html
+<span translate="dashboardHeading" translationName="dashboard"></span>
+```
+</td>
+<td>
+	
+<b>[Working Example](https://stackblitz.com)</b>
+</td>
+</tr>
+
+<tr>
+	<td colspan="2"><b>Pipe</b></td>
+	</tr>
+	
+<tr style="background-color:white!important;">
+<td width="80%">
+
+```html
+{{'introduction' | translate}}
+```
+</td>
+<td width="20%">
+	
+[Working Example](https://stackblitz.com)
+</td>
+</tr>
+<tr></tr>
+<tr>
+<td>
+		
+```html
+{{'notification' | translate:{name:'John'} }}
+```
+</td>
+<td>
+	
+[Working Example](https://stackblitz.com)
+</td>
+</tr>
+<tr></tr>
+<tr>
+<td>
+		
+```html
+{{'note' | translate:{lang:'fr'} }}
+```
+</td>
+<td>
+	
+<b>[Working Example](https://stackblitz.com)</b>
+</td>
+</tr>
+<tr></tr>
+<tr>
+<td>
+		
+```html
+{{'dashboardHeading' | translate:{translationName:'dashboard'} }}
+```
+</td>
+<td>
+	
+<b>[Working Example](https://stackblitz.com)</b>
+</td>
+</tr>
+
+<tr>
+	<td colspan="2"><b>Decorator</b></td>
+</tr>
+
+<tr>
+<td>
+COMPONENT	
+	
+```js
+@translate() global:{[key:string]:any};
+```
+HTML
+
+```html
+{{global.introduction}}
+{{global.notification}} // Not required to passing the parameter, automatically managed.
+```
+</td>
+<td>
+	
+<b>[Working Example](https://stackblitz.com)</b></td>
+</tr>
+<tr></tr>
+<tr>
+<td>
+	
+```js
+@translate({languageCode:'fr'}) global:{[key:string]:any}; // HTML binding is same as above.
+```
+</td>
+<td>
+
+<b>[Working Example](https://stackblitz.com)</b></td>
+</tr>
+
+<tr></tr>
+<tr>
+<td>
+	
+```js
+@translate({translationName:'dashboard'}) dashboard:{[key:string]:any}; 
+```
+</td>
+<td>
+
+<b>[Working Example](https://stackblitz.com)</b></td>
+</tr>
+<tr></tr>
+<tr>
+<td>
+	
+```js
+@translate({ filePath:"..."}) global:{[key:string]:any}; 
+```
+</td>
+<td>
+
+<b>[Working Example](https://stackblitz.com)</b></td>
+</tr>
+<tr></tr>
+<tr>
+<td>
+	
+```js
+@translateAsync({
+    serviceModel: LanguageService,
+    serviceMethod: LanguageService.prototype.get
+}) languages : any[];
+```
+</td>
+<td>
+
+<b>[Working Example](https://stackblitz.com)</b></td>
+</tr>
+
+<tr>
+	<td colspan="2"><b>Structrual Directive</b></td>
+</tr>
+<tr>
+<td>
+	
+```html
+<app-child *rxTranslate="true"></app-child>
+```
+</td>
+<td>
+
+<b>[Working Example](https://stackblitz.com)</b></td>
 </tr>
 </table>
 
