@@ -6,7 +6,7 @@
 	
 ### A extensible library of ngx-translate for Angular Internationalization with spectacular features 🌈.
 
-> The objective of this library adds the features of those which are not available in the ngx-translate or enhance the current features as well as fix the bugs, which are opened since long on ngx-translate project. 
+> The objective of this library add those features which are not available in the ngx-translate or enhance the current features as well as fix the bugs, which are opened since long on ngx-translate project. 
 
 #### For Existing ngx-translate developer community
 ##### How much code change is required to avail the ngx-translate-extension features.
@@ -293,7 +293,7 @@ Automatically set the page title.
 </tr>
 </table>
 
-Ohh! We missed the initial configuration like module registration and all 😜, Don't worry that won't take much time, it's a one time configuration for accessing the services of translation.
+Ohh! We missed the initial configuration like module registration and all 😜, Don't worry that won't take much time, it's a one time configuration for accessing the services of translation throughout the application.
 
 Here, First we are going to create a ```TranslateLoader```, which resolves our translation content.
 ```js
