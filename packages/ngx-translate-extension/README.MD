@@ -6,7 +6,7 @@
 	
 ### A extensible library of ngx-translate for Angular Internationalization with spectacular features 🌈.
 
-> Ngx-translate is superb library, but less activly managed and this library adds the features of those which are not available in the ngx-translate or enhance the current features as well as fix the bugs.
+> The objective of this library adds the features of those which are not available in the ngx-translate or enhance the current features as well as fix the bugs, which are opened since long on ngx-translate project. 
 
 #### For Existing ngx-translate developer community
 ##### How much code change is required to avail the ngx-translate-extension features.
@@ -31,7 +31,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 </td>
 <td width="20%">
 	
-[Working Example](https://stackblitz.com)
+[Example](https://stackblitz.com)
 </td>
 </tr>
 <tr></tr>
@@ -44,7 +44,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 </td>
 <td>
 	
-[Working Example](https://stackblitz.com)
+[Example](https://stackblitz.com)
 </td>
 </tr>
 <tr></tr>
@@ -57,7 +57,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 </td>
 <td>
 	
-<b>[Working Example](https://stackblitz.com)</b>
+<b>[Example](https://stackblitz.com)</b>
 </td>
 </tr>
 <tr></tr>
@@ -70,7 +70,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 </td>
 <td>
 	
-<b>[Working Example](https://stackblitz.com)</b>
+<b>[Example](https://stackblitz.com)</b>
 </td>
 </tr>
 
@@ -87,7 +87,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 </td>
 <td width="20%">
 	
-[Working Example](https://stackblitz.com)
+[Example](https://stackblitz.com)
 </td>
 </tr>
 <tr></tr>
@@ -100,7 +100,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 </td>
 <td>
 	
-[Working Example](https://stackblitz.com)
+[Example](https://stackblitz.com)
 </td>
 </tr>
 <tr></tr>
@@ -113,7 +113,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 </td>
 <td>
 	
-<b>[Working Example](https://stackblitz.com)</b>
+<b>[Example](https://stackblitz.com)</b>
 </td>
 </tr>
 <tr></tr>
@@ -126,7 +126,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 </td>
 <td>
 	
-<b>[Working Example](https://stackblitz.com)</b>
+<b>[Example](https://stackblitz.com)</b>
 </td>
 </tr>
 
@@ -150,7 +150,7 @@ HTML
 </td>
 <td>
 	
-<b>[Working Example](https://stackblitz.com)</b></td>
+<b>[Example](https://stackblitz.com)</b></td>
 </tr>
 <tr></tr>
 <tr>
@@ -162,7 +162,7 @@ HTML
 </td>
 <td>
 
-<b>[Working Example](https://stackblitz.com)</b></td>
+<b>[Example](https://stackblitz.com)</b></td>
 </tr>
 
 <tr></tr>
@@ -175,7 +175,7 @@ HTML
 </td>
 <td>
 
-<b>[Working Example](https://stackblitz.com)</b></td>
+<b>[Example](https://stackblitz.com)</b></td>
 </tr>
 <tr></tr>
 <tr>
@@ -187,7 +187,7 @@ HTML
 </td>
 <td>
 
-<b>[Working Example](https://stackblitz.com)</b></td>
+<b>[Example](https://stackblitz.com)</b></td>
 </tr>
 <tr></tr>
 <tr>
@@ -202,7 +202,59 @@ HTML
 </td>
 <td>
 
-<b>[Working Example](https://stackblitz.com)</b></td>
+<b>[Example](https://stackblitz.com)</b></td>
+</tr>
+
+<tr>
+	<td colspan="2"><b>FormControl Validation Message Translation</b></td>
+</tr>
+<tr>
+<td>
+Binds Validation message in ```errors``` object of FormControl, as per active language.
+</td>
+<td>
+
+<b>[Example](https://stackblitz.com)</b></td>
+</tr>
+<tr></tr>
+<tr>
+<td>
+Binds Validation message with custom parameter.
+</td>
+<td>
+
+<b>[Example](https://stackblitz.com)</b></td>
+</tr>
+
+<tr></tr>
+<tr>
+<td>
+Binds Validation message with array values.
+</td>
+<td>
+
+<b>[Example](https://stackblitz.com)</b></td>
+</tr>
+<tr>
+	<td colspan="2"><b>Change Language</b></td>
+</tr>
+<tr>
+<td>
+By URL
+</td>
+<td>
+
+<b>[Example](https://stackblitz.com)</b></td>
+</tr>
+<tr></tr>
+
+<tr>
+<td>
+Through Code
+</td>
+<td>
+
+<b>[Example](https://stackblitz.com)</b></td>
 </tr>
 
 <tr>
@@ -219,9 +271,68 @@ HTML
 
 <b>[Working Example](https://stackblitz.com)</b></td>
 </tr>
+<tr>
+	<td colspan="2"><b>Other Intuitive Features</b></td>
+</tr>
+<tr>
+<td>
+Lazy Load Translation Files as per Angular PreLoadModule Stratergy.
+</td>
+<td>
+
+<b>[Example](https://stackblitz.com)</b></td>
+</tr>
+<tr></tr>
+<tr>
+<td>
+Automatically set the page title.
+</td>
+<td>
+
+<b>[Example](https://stackblitz.com)</b></td>
+</tr>
 </table>
 
+Ohh! We missed the initial configuration like module registration and all 😜, Don't worry that won't take much time, it's a one time configuration for accessing the services of translation.
 
+Here, First we are going to create a ```TranslateLoader```, which resolves our translation content.
+```js
+import { HttpClient } from "@angular/common/http";
+import { TranslateLoader } from "@rxweb/ngx-translate-extension";
+import { isObject } from 'util';
+
+export class TranslateHttpLoader implements TranslateLoader {
+    constructor(private http: HttpClient) { }
+
+    public getTranslation(lang: any): Observable<Object> {
+        if (isObject(lang) && lang.translationName)
+            return this.http.get(`assets/i18n/${lang.translationName}/${lang.lang}.json`);
+	else if(isObject(lang) && lang.filePath)
+	    return this.http.get(lang.filePath);
+        return this.http.get(`assets/i18n/${lang}.json`);
+    }
+}
+```
+
+Now we are going to register the module in the root module of the application.
+```js
+@NgModule({
+  declarations: [...],
+  imports: [
+	TranslateModule.forRoot({ provide: TranslateLoader, useClass: TranslateHttpLoader }),
+      	RxTranslateModule.forRoot({
+          controlErrorMessage: {path: 'validationErrorMessages'},
+          forNgxTranslate: true,
+          cacheLanguageWiseObject: true,
+      })
+  ],
+  providers: [],
+  bootstrap: [...]
+})
+export class AppModule { }
+```
+
+All Done, Feel free to share your suggestions if something is missing or we enchance this package 🙂.
 
 	
 ## Contributing
