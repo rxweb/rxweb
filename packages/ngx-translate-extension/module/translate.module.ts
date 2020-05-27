@@ -41,7 +41,7 @@ export class TranslateModule {
                 { provide: USE_DEFAULT_LANG, useValue: config.useDefaultLang },
                 { provide: USE_EXTEND, useValue: config.extend },
                 { provide: DEFAULT_LANGUAGE, useValue: config.defaultLanguage },
-                config.loader ? { provide: FAKE_LOADER, useClass: <any>config.loader } : { provide: FAKE_LOADER, useValue: null },
+                config.loader ? { provide: FAKE_LOADER, useClass: (<any>config.loader).useClass } : { provide: FAKE_LOADER, useValue: null },
                 { provide: "singleton", useValue: true},
                 TranslateService,
                 RequestState

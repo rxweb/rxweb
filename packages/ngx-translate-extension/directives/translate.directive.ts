@@ -1,5 +1,5 @@
 import { TranslateDirective as TranslateDirectiveNgx } from "@ngx-translate/core"
-import { ElementRef, ChangeDetectorRef, ViewContainerRef, Input } from '@angular/core';
+import { ElementRef, ChangeDetectorRef, ViewContainerRef, Input, Directive } from '@angular/core';
 import { TranslateService } from "../services/translate.service"
 import { RxTranslation, TranslationResolver, equals } from '@rxweb/translate';
 import { RequestState } from '../services/request.state';
@@ -8,7 +8,9 @@ import { isObject } from '../functions/is-object';
 import { UNDEFINED } from '../const/app.const';
 const TRANSLATE_SERVICE: string = "translateService"
 const VIEW: string = "_view";
-
+@Directive({
+    selector: '[translate],[ngx-translate]'
+})
 export class TranslateDirective extends TranslateDirectiveNgx {
     private component: any;
     private baseOnLangChange: Subscription;

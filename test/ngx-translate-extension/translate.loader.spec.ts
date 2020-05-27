@@ -1,7 +1,6 @@
 import { TestBed } from "@angular/core/testing";
 import { Observable, of } from "rxjs";
-import { TranslateLoader } from "@ngx-translate/core";
-import { TranslateModule, TranslateService } from '@rxweb/ngx-translate-extension'
+import { TranslateLoader, TranslateModule, TranslateService } from '@rxweb/ngx-translate-extension'
 import { RxTranslateModule } from '@rxweb/translate';
 let translations: any = { "TEST": "This is a test" };
 
@@ -18,9 +17,9 @@ describe('TranslateLoader', () => {
         TestBed.configureTestingModule({
             imports: [
                 TranslateModule.forRoot({
-                    loader: FakeLoader
-                }),
-                RxTranslateModule.forRoot({
+                    loader: { provide: TranslateLoader, useClass: FakeLoader }
+                })
+                , RxTranslateModule.forRoot({
                     isTest: true,
                     forNgxTranslate: true,
                     cacheLanguageWiseObject: true,
@@ -53,9 +52,9 @@ describe('TranslateLoader', () => {
         TestBed.configureTestingModule({
             imports: [
                 TranslateModule.forRoot({
-                    loader: CustomLoader
-                }),
-                RxTranslateModule.forRoot({
+                    loader: { provide: TranslateLoader, useClass: CustomLoader }
+                })
+                , RxTranslateModule.forRoot({
                     isTest: true,
                     forNgxTranslate: true,
                     cacheLanguageWiseObject: true,

@@ -1,14 +1,13 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Injectable, ViewContainerRef, ElementRef } from "@angular/core";
 import { TestBed } from "@angular/core/testing";
 import { Observable, of } from "rxjs";
-import { DefaultLangChangeEvent, LangChangeEvent, TranslateLoader } from "@ngx-translate/core";
-import { RequestState, TranslateModule, TranslateService, TranslatePipe } from '@rxweb/ngx-translate-extension'
+import { DefaultLangChangeEvent, LangChangeEvent, TranslateLoader, RequestState, TranslateModule, TranslateService, TranslatePipe } from '@rxweb/ngx-translate-extension'
 import { RxTranslateModule, RxTranslation, TranslationResolver } from '@rxweb/translate';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 
 class MockElementRef extends ElementRef {
     constructor(nodeName: string) { super(nodeName); }
-    
+
 }
 class FakeActivatedRoute {
 
@@ -61,7 +60,7 @@ describe('TranslatePipe', () => {
         TestBed.configureTestingModule({
             imports: [RouterModule,
                 TranslateModule.forRoot({
-                    loader: FakeLoader
+                    loader: { provide: TranslateLoader, useClass: FakeLoader }
                 }),
                 RxTranslateModule.forRoot({
                     isTest: true,
@@ -191,13 +190,12 @@ describe('TranslatePipe', () => {
             translate.setTranslation('en', { "TEST": "This is a test" });
             translate.setTranslation('fr', { "TEST": "C'est un test" });
             translate.use('en');
-            
+
             expect(translatePipe.transform('TEST')).toEqual("This is a test");
 
             // this will be resolved at the next lang change
             let subscription = translate.onLangChange.subscribe((res: LangChangeEvent) => {
                 expect(res.lang).toEqual('fr');
-                
                 expect(translatePipe.transform('TEST')).toEqual("C'est un test");
                 subscription.unsubscribe();
                 done();
@@ -215,8 +213,7 @@ describe('TranslatePipe', () => {
                 // let it update the translations
                 setTimeout(() => {
                     expect(res.lang).toEqual('fr');
-                    let text = translatePipe.transform('TEST')
-                    expect(text).toEqual("C'est un test");
+                    expect(translatePipe.transform('TEST')).toEqual("C'est un test");
                     subscription.unsubscribe();
                     done();
                 });
@@ -263,7 +260,6 @@ describe('TranslatePipe', () => {
             let subscription = translate.onDefaultLangChange.subscribe((res: DefaultLangChangeEvent) => {
                 // let it update the translations
                 setTimeout(() => {
-                    debugger;
                     expect(res.lang).toEqual('fr');
                     expect(translatePipe.transform('TEST')).toEqual("C'est un test");
                     subscription.unsubscribe();

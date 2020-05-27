@@ -1,7 +1,6 @@
-import { TestBed, fakeAsync, async } from "@angular/core/testing";
+import { TestBed } from "@angular/core/testing";
 import { Observable, of } from "rxjs";
-import { MissingTranslationHandler, MissingTranslationHandlerParams, TranslateLoader, } from "@ngx-translate/core";
-import { TranslateModule, TranslateService } from '@rxweb/ngx-translate-extension'
+import { MissingTranslationHandler, MissingTranslationHandlerParams, TranslateLoader, TranslateModule, TranslateService } from "@rxweb/ngx-translate-extension";
 import { RxTranslateModule } from "@rxweb/translate"
 
 let translations: any = { "TEST": "This is a test" };
@@ -37,11 +36,11 @@ describe('MissingTranslationHandler', () => {
         TestBed.configureTestingModule({
             imports: [
                 TranslateModule.forRoot({
-                    useDefaultLang: defaultLang,
-                    loader: FakeLoader
-                }),
-                RxTranslateModule.forRoot({
-                    isTest: true,
+                    loader: { provide: TranslateLoader, useClass: FakeLoader },
+                    useDefaultLang: defaultLang
+                })
+                ,RxTranslateModule.forRoot({
+                    isTest: true, // Only use this for spec.
                     forNgxTranslate: true,
                     cacheLanguageWiseObject: true,
                 })
@@ -52,7 +51,6 @@ describe('MissingTranslationHandler', () => {
         });
         translate = TestBed.get(TranslateService);
         missingTranslationHandler = TestBed.get(MissingTranslationHandler);
-        console.log(missingTranslationHandler);
     });
 
     afterEach(() => {
@@ -65,6 +63,7 @@ describe('MissingTranslationHandler', () => {
         prepare(Missing);
         translate.use('en');
         spyOn(missingTranslationHandler, 'handle').and.callThrough();
+
         translate.get('nonExistingKey').subscribe((res: string) => {
             expect(missingTranslationHandler.handle).toHaveBeenCalledWith(jasmine.objectContaining({ key: 'nonExistingKey' }));
             //test that the instance of the last called argument is string
@@ -103,9 +102,11 @@ describe('MissingTranslationHandler', () => {
             handle(params: MissingTranslationHandlerParams) {
             }
         }
+
         prepare(MissingUndef);
         translate.use('en');
         spyOn(missingTranslationHandler, 'handle').and.callThrough();
+
         translate.get('nonExistingKey').subscribe((res: string) => {
             expect(missingTranslationHandler.handle).toHaveBeenCalledWith(jasmine.objectContaining({ key: 'nonExistingKey' }));
             expect(res).toEqual('nonExistingKey');
@@ -116,7 +117,8 @@ describe('MissingTranslationHandler', () => {
         prepare(Missing);
         translate.use('en');
         spyOn(missingTranslationHandler, 'handle').and.callThrough();
-        translate.get('TEST').subscribe((t) => {
+
+        translate.get('TEST').subscribe(() => {
             expect(missingTranslationHandler.handle).not.toHaveBeenCalled();
         });
     });
@@ -200,11 +202,10 @@ describe('MissingTranslationHandler', () => {
     it('should return default translation', () => {
         prepare(Missing, true);
         translate.use('en');
-        //translate.use('fake');
+        translate.use('fake');
 
         spyOn(missingTranslationHandler, 'handle').and.callThrough();
         translate.get('TEST').subscribe((res: string) => {
-            
             expect(res).toEqual('This is a test');
         });
     });

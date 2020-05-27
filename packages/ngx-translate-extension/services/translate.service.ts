@@ -1,11 +1,11 @@
 import { TranslateService as TranslateServiceExtension, TranslateStore, TranslateLoader, TranslateCompiler, TranslateParser, MissingTranslationHandler, USE_DEFAULT_LANG, USE_STORE, USE_EXTEND } from "@ngx-translate/core";
 import { TranslationResolver, RxTranslation } from "@rxweb/translate"
-import { Inject } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { RequestState } from './request.state';
-import { mergeDeep } from '../functions/merge-deep';
 import { FAKE_LOADER } from '../const/app.const';
 import { Observable } from 'rxjs';
 
+@Injectable()
 export class TranslateService extends TranslateServiceExtension {
     private changeLangFunc: Function;
     private extendExtension: boolean;
@@ -46,7 +46,7 @@ export class TranslateService extends TranslateServiceExtension {
                 })
             }
             else if (this.translationResolver.pending) {
-                let time = setTimeout(() => { clearTimeout(time); this.changeLanguage(lang, onComplete, storeTranslationName); }, 5);
+                let time = setTimeout(() => { clearTimeout(time); this.changeLanguage(lang, onComplete); }, 5);
             }
             else
                 onComplete();

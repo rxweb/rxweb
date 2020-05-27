@@ -691,6 +691,38 @@
           }
         }
       }
+    },
+    "@rxweb/ngx-translate-extension": {
+      "root": "packages/ngx-translate-extension",
+      "sourceRoot": "packages/ngx-translate-extension",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/ngx-translate-extension/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/ngx-translate-extension/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/ngx-translate-extension/tsconfig.lib.json",
+              "packages/ngx-translate-extension/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
 

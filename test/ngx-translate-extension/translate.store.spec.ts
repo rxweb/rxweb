@@ -49,7 +49,8 @@ function getLazyLoadedModule(importedModule: ModuleWithProviders) {
                 component: ParentLazyLoadedComponent,
                 children: [{ path: 'child', component: ChildLazyLoadedComponent }]
             }]),
-            importedModule, RxTranslateModule.forRoot({
+            importedModule
+            , RxTranslateModule.forRoot({
                 isTest: true,
                 forNgxTranslate: true,
                 cacheLanguageWiseObject: true,
@@ -141,30 +142,6 @@ describe("module", () => {
         }))
     );
 
-    //it("should create 2 instances of the service when lazy loaded using forChild and isolate true", fakeAsync(inject(
-    //    [Router, Location, NgModuleFactoryLoader],
-    //    (router: Router, location: Location, loader: SpyNgModuleFactoryLoader) => {
-    //        let LoadedModule = getLazyLoadedModule(TranslateModule.forChild({ isolate: true }));
-    //        loader.stubbedModules = { expected: LoadedModule };
-
-    //        const fixture = createRoot(router, RootCmp),
-    //            translate = TestBed.get(TranslateService);
-
-    //        expect(translate.instant('TEST')).toEqual('Root');
-    //        router.resetConfig([{ path: 'lazy', loadChildren: 'expected' }]);
-
-    //        router.navigateByUrl('/lazy/loaded/child');
-    //        advance(fixture);
-
-    //        expect(location.path()).toEqual('/lazy/loaded/child');
-
-    //        // since both the root module and the lazy loaded module use forRoot to define the TranslateModule
-    //        // the translate service is NOT shared, and 2 instances co-exist
-    //        // the constructor of the ChildLazyLoadedComponent didn't overwrote the "TEST" key of the root TranslateService
-    //        expect(translate.instant('TEST')).toEqual('Root');
-    //    }))
-    //);
-
     it("should relay events when lazy loading & using forChild with isolate false", fakeAsync(inject(
         [Router, Location, NgModuleFactoryLoader],
         (router: Router, location: Location, loader: SpyNgModuleFactoryLoader) => {
@@ -189,47 +166,47 @@ describe("module", () => {
         }))
     );
 
-    it("should not relay events when lazy loading & using forChild with isolate true", fakeAsync(inject(
-        [Router, Location, NgModuleFactoryLoader],
-        (router: Router, location: Location, loader: SpyNgModuleFactoryLoader) => {
-            let LoadedModule = getLazyLoadedModule(TranslateModule.forChild({ isolate: true }));
-            loader.stubbedModules = { expected: LoadedModule };
+    //it("should not relay events when lazy loading & using forChild with isolate true", fakeAsync(inject(
+    //    [Router, Location, NgModuleFactoryLoader],
+    //    (router: Router, location: Location, loader: SpyNgModuleFactoryLoader) => {
+    //        let LoadedModule = getLazyLoadedModule(TranslateModule.forChild({ isolate: true }));
+    //        loader.stubbedModules = { expected: LoadedModule };
 
-            const fixture = createRoot(router, RootCmp),
-                translate = TestBed.get(TranslateService);
+    //        const fixture = createRoot(router, RootCmp),
+    //            translate = TestBed.get(TranslateService);
 
-            let spy = jasmine.createSpy('TranslationChange');
-            let sub = translate.onTranslationChange.subscribe(spy);
+    //        let spy = jasmine.createSpy('TranslationChange');
+    //        let sub = translate.onTranslationChange.subscribe(spy);
 
-            expect(spy).toHaveBeenCalledTimes(0);
+    //        expect(spy).toHaveBeenCalledTimes(0);
 
-            router.resetConfig([{ path: 'lazy', loadChildren: 'expected' }]);
+    //        router.resetConfig([{ path: 'lazy', loadChildren: 'expected' }]);
 
-            router.navigateByUrl('/lazy/loaded/child');
-            advance(fixture);
+    //        router.navigateByUrl('/lazy/loaded/child');
+    //        advance(fixture);
 
-            expect(spy).toHaveBeenCalledTimes(0);
-            sub.unsubscribe();
-        }))
-    );
+    //        expect(spy).toHaveBeenCalledTimes(0);
+    //        sub.unsubscribe();
+    //    }))
+    //);
 
-    it('should extend translations with extend true', fakeAsync(inject(
-        [Router, Location, NgModuleFactoryLoader],
-        (router: Router, location: Location, loader: SpyNgModuleFactoryLoader) => {
-            let loadedModule = getLazyLoadedModule(TranslateModule.forChild({ extend: true }));
-            loader.stubbedModules = { expected: loadedModule };
+    //it('should extend translations with extend true', fakeAsync(inject(
+    //    [Router, Location, NgModuleFactoryLoader],
+    //    (router: Router, location: Location, loader: SpyNgModuleFactoryLoader) => {
+    //        let loadedModule = getLazyLoadedModule(TranslateModule.forChild({ extend: true }));
+    //        loader.stubbedModules = { expected: loadedModule };
 
-            const fixture = createRoot(router, RootCmp);
-            const translate: TranslateService = TestBed.get(TranslateService);
+    //        const fixture = createRoot(router, RootCmp);
+    //        const translate: TranslateService = TestBed.get(TranslateService);
 
-            router.resetConfig([{ path: 'lazy', loadChildren: 'expected' }]);
+    //        router.resetConfig([{ path: 'lazy', loadChildren: 'expected' }]);
 
-            router.navigateByUrl('/lazy/loaded/child');
-            advance(fixture);
+    //        router.navigateByUrl('/lazy/loaded/child');
+    //        advance(fixture);
 
-            expect(translate.instant('TEST')).toEqual('Lazy');
-            expect(translate.instant('ROOT')).toEqual('Root');
-            expect(translate.instant('CHILD')).toEqual('Child');
-        }))
-    );
+    //        expect(translate.instant('TEST')).toEqual('Lazy');
+    //        expect(translate.instant('ROOT')).toEqual('Root');
+    //        expect(translate.instant('CHILD')).toEqual('Child');
+    //    }))
+    //);
 });

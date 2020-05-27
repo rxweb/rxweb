@@ -1,4 +1,4 @@
-import { TranslateDefaultParser, TranslateParser } from '@ngx-translate/core';
+import { TranslateDefaultParser, TranslateParser } from '@rxweb/ngx-translate-extension';
 
 describe('Parser', () => {
     let parser: TranslateParser;

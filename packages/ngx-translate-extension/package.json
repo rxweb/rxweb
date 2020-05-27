@@ -1,0 +1,26 @@
+{
+  "name": "@rxweb/ngx-translate-extension",
+  "version": "1.0.4",
+  "keywords": [
+    "angular ",
+    "angular internationalization",
+    "angular i18n",
+    "rxweb translate",
+    "lazy load content translation in angular"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/translate#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
+  },
+  "homepage": "https://docs.rxweb.io",
+  "license": "MIT",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0",
+    "@rxweb/translate": "1.0.5",
+    "@ngx-translate/core": "12.1.2"
+  }
+}

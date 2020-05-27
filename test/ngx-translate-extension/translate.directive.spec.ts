@@ -48,8 +48,8 @@ describe('TranslateDirective', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
-                TranslateModule.forRoot(),
-                RxTranslateModule.forRoot({
+                TranslateModule.forRoot()
+                , RxTranslateModule.forRoot({
                     isTest: true,
                     forNgxTranslate: true,
                     cacheLanguageWiseObject: true,
@@ -213,6 +213,7 @@ describe('TranslateDirective', () => {
         expect(fixture.componentInstance.noKey.nativeElement.innerHTML).toEqual('This is a test');
         expect(fixture.componentInstance.withParams.nativeElement.innerHTML).toEqual('This is a test');
         expect(fixture.componentInstance.noContent.nativeElement.innerHTML).toEqual('This is a test');
+
         translate.use('fr');
         expect(fixture.componentInstance.noKey.nativeElement.innerHTML).toEqual("C'est un test");
         expect(fixture.componentInstance.withParams.nativeElement.innerHTML).toEqual("C'est un test");
@@ -234,7 +235,7 @@ describe('TranslateDirective', () => {
         expect(fixture.componentInstance.noKey.nativeElement.innerHTML).toEqual(`${en}`);
         expect(fixture.componentInstance.withParams.nativeElement.innerHTML).toEqual(en);
         expect(fixture.componentInstance.noContent.nativeElement.innerHTML).toEqual(en);
-        
+
         translate.use('fr');
         expect(fixture.componentInstance.noKey.nativeElement.innerHTML).toEqual(`${fr}`);
         expect(fixture.componentInstance.withParams.nativeElement.innerHTML).toEqual(fr);
@@ -248,6 +249,7 @@ describe('TranslateDirective', () => {
         translate.setTranslation('fr', { "TEST": "C'est un test" });
         translate.setDefaultLang('en');
         expect(fixture.componentInstance.noKey.nativeElement.innerHTML).toEqual('This is a test');
+
         translate.setDefaultLang('fr');
         expect(fixture.componentInstance.noKey.nativeElement.innerHTML).toEqual("C'est un test");
     });

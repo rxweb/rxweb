@@ -1,9 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 import { Observable, of } from "rxjs";
-import { TranslateCompiler, TranslateFakeCompiler, TranslateLoader} from "@ngx-translate/core";
-import { TranslateModule, TranslateService } from '@rxweb/ngx-translate-extension'
+import { TranslateCompiler, TranslateFakeCompiler, TranslateLoader, TranslateModule, TranslateService } from "@rxweb/ngx-translate-extension";
 import { RxTranslateModule } from "@rxweb/translate"
-
 
 let translations: any = { LOAD: 'This is a test' };
 
@@ -21,17 +19,18 @@ describe('TranslateCompiler', () => {
             TestBed.configureTestingModule({
                 imports: [
                     TranslateModule.forRoot({
-                        compiler: { provide: TranslateCompiler, useClass: TranslateFakeCompiler },
-                        loader: FakeLoader
-                    }),
-                    RxTranslateModule.forRoot({
-                        isTest: true,
+                        loader: { provide: TranslateLoader, useClass: FakeLoader },
+                        compiler: { provide: TranslateCompiler, useClass: TranslateFakeCompiler }
+                    })
+                    , RxTranslateModule.forRoot({
+                        isTest: true, // Only use this for spec.
                         forNgxTranslate: true,
                         cacheLanguageWiseObject: true,
                     })
                 ],
             });
             translate = TestBed.get(TranslateService);
+
             translate.use('en');
         });
 
@@ -76,11 +75,11 @@ describe('TranslateCompiler', () => {
             TestBed.configureTestingModule({
                 imports: [
                     TranslateModule.forRoot({
-                        compiler: { provide: TranslateCompiler, useClass: CustomCompiler },
-                        loader: FakeLoader
-                    }),
-                    RxTranslateModule.forRoot({
-                        isTest: true,
+                        loader: { provide: TranslateLoader, useClass: FakeLoader },
+                        compiler: { provide: TranslateCompiler, useClass: CustomCompiler }
+                    })
+                    , RxTranslateModule.forRoot({
+                        isTest: true,  // Only use this for spec.
                         forNgxTranslate: true,
                         cacheLanguageWiseObject: true,
                     })

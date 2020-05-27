@@ -9,6 +9,11 @@ import { UNDEFINED } from '../const/app.const';
 import { isObject } from '../functions/is-object';
 const TRANSLATE: string = "translate";
 const NG_COMPONENT: string = "ng-component";
+@Injectable()
+@Pipe({
+    name: 'translate',
+    pure: false // required to update the value when the promise is resolved
+})
 export class TranslatePipe extends TranslatePipeNgx {
     private nodeName: string;
     private baseOnLangChange: Subscription;

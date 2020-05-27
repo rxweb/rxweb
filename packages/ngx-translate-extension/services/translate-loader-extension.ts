@@ -1,6 +1,7 @@
 import { TranslationResolver } from "@rxweb/translate"
 import { Observable } from "rxjs"
-
+import { Injectable } from "@angular/core";
+@Injectable()
 export class TranslateLoaderExtension {
     constructor(private translationResolver: TranslationResolver) {
     }

@@ -1,8 +1,7 @@
 import { fakeAsync, TestBed, tick } from "@angular/core/testing";
 import { Observable, of, timer, zip, defer } from "rxjs";
 import { mapTo, take, toArray, first } from 'rxjs/operators';
-import { LangChangeEvent, TranslateLoader, TranslationChangeEvent } from '@ngx-translate/core';
-import { TranslateModule, TranslateService } from '@rxweb/ngx-translate-extension'
+import { LangChangeEvent, TranslateLoader, TranslateModule, TranslateService, TranslationChangeEvent } from '@rxweb/ngx-translate-extension';
 import { RxTranslateModule } from "@rxweb/translate"
 
 let translations: any = { "TEST": "This is a test" };
@@ -20,10 +19,10 @@ describe('TranslateService', () => {
         TestBed.configureTestingModule({
             imports: [
                 TranslateModule.forRoot({
-                    loader: FakeLoader
-                }),
-                RxTranslateModule.forRoot({
-                    isTest:true,
+                    loader: { provide: TranslateLoader, useClass: FakeLoader }
+                })
+                , RxTranslateModule.forRoot({
+                    isTest: true,
                     forNgxTranslate: true,
                     cacheLanguageWiseObject: true,
                 })
@@ -131,6 +130,7 @@ describe('TranslateService', () => {
     it('should be able to get translations with nested params', () => {
         translations = { "TEST": "This is a test {{param.value}}" };
         translate.use('en');
+
         translate.get('TEST', { param: { value: 'with param' } }).subscribe((res: string) => {
             expect(res).toEqual('This is a test with param');
         });
@@ -328,10 +328,9 @@ describe('TranslateService', () => {
 
         translate.setTranslation('nl', { "TEST": "Dit is een test" });
         translate.use('nl');
-        debugger;
+
         translation$.pipe(first()).subscribe((res: string[]) => {
             const expected = 'Dit is een test';
-            console.log(res)
             expect(res).toEqual(expected);
             done();
         });
@@ -451,21 +450,20 @@ describe('TranslateService', () => {
         });
     });
 
-    it('should be able to add new langs', fakeAsync(() => {
+    it('should be able to add new langs', () => {
         translate.addLangs(['pl', 'es']);
         expect(translate.getLangs()).toEqual(['pl', 'es']);
         translate.addLangs(['fr']);
         translate.addLangs(['pl', 'fr']);
         expect(translate.getLangs()).toEqual(['pl', 'es', 'fr']);
+
         // this will request the translation from the backend because we use a static files loader for TranslateService
         translate.use('en').subscribe((res: string) => {
-            tick(1001);
-            
             expect(translate.getLangs()).toEqual(['pl', 'es', 'fr', 'en']);
             translate.addLangs(['de']);
             expect(translate.getLangs()).toEqual(['pl', 'es', 'fr', 'en', 'de']);
         });
-    }));
+    });
 
     it('should be able to get the browserLang', () => {
         let browserLang = translate.getBrowserLang();
