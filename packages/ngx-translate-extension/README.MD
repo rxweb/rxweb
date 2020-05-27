@@ -17,6 +17,40 @@ That's it.
 ##### How can be sure that after replacing the package name, everything will work as expected?
 We have copied the spec from [@ngx-translate/core](https://github.com/ngx-translate/core/tree/master/projects/ngx-translate/core/tests) project and follows the above mentioned steps, [it's working as expected](https://github.com/rxweb/rxweb/tree/master/test/ngx-translate-extension). Please refer the [Spec Code Comparision Page](https://docs.rxweb.io/ngx-translate-extension/comparison/translate-store).
 
+# 💪 Features
+<table width="100%">
+	<tr>
+		<td colspan="2">Attribute Directive</td>
+	</tr>
+<tr>
+<td width="80%">
+
+```html
+<span translate="introduction"></span>
+```
+</td>
+<td width="20%">
+	
+[Working Example](https://stackblitz.com)
+</td>
+</tr>
+<tr>
+<td>
+		
+```html
+<span translate="notification" [translateParams]="{name:'John'}"></span>
+```
+</td>
+<td>
+	
+[Working Example](https://stackblitz.com)
+</td>
+</tr>
+</table>
+
+
+
+	
 ## Contributing
 If you are thinking to make rxweb framework better, that's truly great. You can contribute from a single character to core architectural work or significant documentation – all with the goal of making a robust rxweb framework which helps for everyone in their projects. Even if you are don’t feel up to writing code or documentation yet, there are a variety of other ways that you can contribute like reporting issues to testing patches.
 
