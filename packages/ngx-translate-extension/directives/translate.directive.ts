@@ -8,6 +8,7 @@ import { isObject } from '../functions/is-object';
 import { UNDEFINED, IS_INTERNAL, GLOBAL } from '../const/app.const';
 const TRANSLATE_SERVICE: string = "translateService"
 const VIEW: string = "_view";
+const HOST_VIEW: string = "_hostView";
 @Directive({
     selector: '[translate],[ngx-translate]'
 })
@@ -26,6 +27,9 @@ export class TranslateDirective extends TranslateDirectiveNgx {
         this.subscribe();
         if (viewContainer[VIEW] && viewContainer[VIEW].component) {
             this.component = viewContainer[VIEW].component.constructor;
+            this.setAndGetCurrentLang();
+        } else if (viewContainer[HOST_VIEW] && viewContainer[HOST_VIEW].length > 7) {
+            this.component = viewContainer[HOST_VIEW][8].constructor;
             this.setAndGetCurrentLang();
         }
     }
