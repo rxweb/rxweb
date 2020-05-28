@@ -11,6 +11,7 @@ export const translateContainer:
         set(instance: Function, config: TranslateConfig): void;
         getByName(name: string): TranslateContainerConfig;
         get(instance: any): TranslateContainerConfig;
+        additionalGet(instance: any): TranslateContainerConfig[];
         defineProperty(instance: Function, propertyName: string, config: TranslateConfig): TranslateContainerConfig;
         defineAsyncProperty(instance: Function, propertyName: string, config: AsyncTranslateConfig): void;
         setComponentState(key: string, instance: Function);
@@ -19,15 +20,24 @@ export const translateContainer:
         getActiveTranslations(): Array<TranslateContainerConfig>
     } = new (class {
         store: TranslateContainerConfig[] = new Array<TranslateContainerConfig>();
+        additionalStore: TranslateContainerConfig[] = new Array<TranslateContainerConfig>();
         config: RxTranslateConfig;
         componentState: { [key: string]: Function } = {};
         set(instance: Function, config: TranslateConfig): void {
-            this.store.push({ instance: instance, config: config });
+            let translateConfig = this.store.filter(t => t.instance == instance)[0]
+            if (!translateConfig)
+                this.store.push({ instance: instance, config: config });
+            else 
+                this.additionalStore.push({ instance: instance, config: config });
         }
 
         get(instance: Function): TranslateContainerConfig {
             let containerConfig = this.store.filter(t => t.instance == instance);
             return containerConfig.length > 0 ?containerConfig[0] : undefined;
+        }
+
+        additionalGet(instance: Function): TranslateContainerConfig[] {
+            return this.additionalStore.filter(t => t.instance == instance);
         }
 
         getByName(name: string): TranslateContainerConfig {
@@ -46,7 +56,7 @@ export const translateContainer:
             let isPropertyKey = (propertyName != undefined);
             var model: Function = !isPropertyKey ? instance : instance.constructor;
             let modelName = config === undefined ? "global" : config.translationName;
-            defineProperty(model, propertyName, modelName);
+            defineProperty(model, propertyName, modelName, config ? config.language : undefined);
             if (modelName != "global" && propertyName) {
                 let instanceConfig: TranslateContainerConfig = { instance: model, config: config };
                 this.set(model, config)

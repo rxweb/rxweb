@@ -3,11 +3,11 @@ import { TranslateModel } from '../model/translate.model';
 import { getKeyName } from "./get-key-name";
 import { translateConfigContainer } from "../core/translate-config-container";
 
-export function defineProperty(model: Function, propertyName: string, modelName: string) {
+export function defineProperty(model: Function, propertyName: string, modelName: string,languageCode:string) {
     let data = null;
     Object.defineProperty(model.prototype, propertyName, {
         get: function () {
-            let keyName = getKeyName(modelName);
+            let keyName = getKeyName(modelName, languageCode);
             data = MultiLingualData.get(keyName);
             let translationModelData = MultiLingualData.getComponentPropValue(keyName, this.constructor);
             if ((data && !translationModelData))
