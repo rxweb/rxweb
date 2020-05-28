@@ -12,10 +12,13 @@ export class TranslateModel {
                     get: function () {
                         let text = data[key];
                         if (isObject(text)) {
-                            if (!translateConfigContainer.loading)
-                                text = data[key] = new TranslateModel(data[key], componentData);
-                            else
-                                return new TranslateModel(data[key], {});
+                            if (!(data[key] instanceof TranslateModel)) {
+                                if (!translateConfigContainer.loading)
+                                    text = data[key] = new TranslateModel(data[key], componentData);
+                                else
+                                    return new TranslateModel(data[key], {});
+                            } else
+                                text = data[key];
                             return text;
                         }
                         return translateConfigContainer.loading ? "loading..." : this.transform(data, key, text)

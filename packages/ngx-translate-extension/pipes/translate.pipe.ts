@@ -1,14 +1,15 @@
-import { Injectable, Pipe, ChangeDetectorRef, ElementRef } from "@angular/core";
+import { Injectable, Pipe, ChangeDetectorRef, ElementRef, VERSION, ViewContainerRef } from "@angular/core";
 import { TranslatePipe as TranslatePipeNgx, } from "@ngx-translate/core"
 import { TranslateService } from "../services/translate.service";
 import { TranslationResolver, RxTranslation } from "@rxweb/translate"
 import { ActivatedRoute } from '@angular/router';
 import { RequestState } from '../services/request.state';
 import { Subscription } from 'rxjs';
-import { UNDEFINED } from '../const/app.const';
+import { UNDEFINED, IS_INTERNAL, GLOBAL } from '../const/app.const';
 import { isObject } from '../functions/is-object';
 const TRANSLATE: string = "translate";
 const NG_COMPONENT: string = "ng-component";
+const HOST_VIEW: string = "_hostView";
 @Injectable()
 @Pipe({
     name: 'translate',
@@ -17,13 +18,19 @@ const NG_COMPONENT: string = "ng-component";
 export class TranslatePipe extends TranslatePipeNgx {
     private nodeName: string;
     private baseOnLangChange: Subscription;
+    private baseDefaultLangChange: Subscription;
+    private baseTranslationChange: Subscription;
+    private isolateSubscription: Subscription;
     private currentTranslationName: string;
     private languageCode: string;
-    constructor(private translateBase: TranslateService, ref: ChangeDetectorRef, elementRef?: ElementRef, private rxTranslation?: RxTranslation, private activatedRoute?: ActivatedRoute, private requestState?: RequestState, private translationResolver?: TranslationResolver) {
+    constructor(private translateBase: TranslateService, ref: ChangeDetectorRef, elementRef?: ElementRef, private rxTranslation?: RxTranslation, private activatedRoute?: ActivatedRoute, private requestState?: RequestState, private translationResolver?: TranslationResolver, private viewContainerRef?: ViewContainerRef) {
         super(translateBase, ref)
         this[TRANSLATE] = new TranslateService(translateBase.store, translateBase.currentLoader, translateBase.compiler, translateBase.parser, translateBase.missingTranslationHandler, true, true, false, false, rxTranslation, new RequestState(), this.translationResolver);
-        this[TRANSLATE]["isInternal"] = true;
-        this.nodeName = elementRef.nativeElement.nodeName ? elementRef.nativeElement.nodeName.toLowerCase() : '';
+        this[TRANSLATE][IS_INTERNAL] = true;
+        if (viewContainerRef && parseInt(VERSION.major) >= 9)
+            this.nodeName = viewContainerRef[HOST_VIEW][0].tagName
+        else
+            this.nodeName = elementRef.nativeElement.nodeName ? elementRef.nativeElement.nodeName.toLowerCase() : '';
         this.subscribe();
         this.setAndGetCurrentLang();
 
@@ -32,7 +39,7 @@ export class TranslatePipe extends TranslatePipeNgx {
     private setAndGetCurrentLang(isSet: boolean = true) {
         let name = null;
         if (this.currentTranslationName) {
-            if (this.currentTranslationName == "global")
+            if (this.currentTranslationName == GLOBAL)
                 name = this.languageCode;
             else
                 name = `${this.currentTranslationName}_${this.languageCode || this.translationResolver.activeLanguage}`;
@@ -56,14 +63,14 @@ export class TranslatePipe extends TranslatePipeNgx {
     }
 
     subscribe() {
-        this.translateBase.onDefaultLangChange.subscribe(t => {
+        this.baseDefaultLangChange = this.translateBase.onDefaultLangChange.subscribe(t => {
             this.translateBase.changeLanguage(t.lang, this.notifyDefaultLanguageChange.bind(this));
         })
-        this.translateBase.onLangChange.subscribe(t => {
+        this.baseOnLangChange = this.translateBase.onLangChange.subscribe(t => {
             this.translateBase.changeLanguage(t.lang, this.notifyChangeLanguage.bind(this))
         })
 
-        this.translateBase.onTranslationChange.subscribe(t => {
+        this.baseTranslationChange = this.translateBase.onTranslationChange.subscribe(t => {
             let name = this.setAndGetCurrentLang();
             this[TRANSLATE].onTranslationChange.emit({ lang: name, translations: this.translateBase.translations[name] })
         })
@@ -79,16 +86,7 @@ export class TranslatePipe extends TranslatePipeNgx {
         this[TRANSLATE].onLangChange.emit({ lang: name, translations: this.translateBase.translations[name] })
     }
 
-    destroy() {
-        if (typeof this.baseOnLangChange !== UNDEFINED) {
-            this.baseOnLangChange.unsubscribe();
-            this.baseOnLangChange = undefined;
-        }
-    }
-    ngOnDestroy() {
-        this.destroy();
-        super.ngOnDestroy();
-    }
+
 
     checkAndSetLanguageCode(...args: any[]) {
         for (var i = 0; i < args.length; i++) {
@@ -99,13 +97,15 @@ export class TranslatePipe extends TranslatePipeNgx {
                 if (!this.translateBase.translations[name]) {
                     if (!this.translateBase.isolateSubscriptions[name]) {
                         this.translateBase.isolateSubscriptions[name] = this[TRANSLATE].use(name);
-                        this.translateBase.isolateSubscriptions[name].subscribe(t => {
+                        this.unsubscribeIsolateSubscription();
+                        this.isolateSubscription = this.translateBase.isolateSubscriptions[name].subscribe(t => {
                             this.translateBase.isolateSubscriptions[name] = undefined;
                             delete this.translateBase.isolateSubscriptions[name];
                             this.notifyChangeLanguage();
                         })
                     } else {
-                        this.translateBase.isolateSubscriptions[name].subscribe(t => {
+                        this.unsubscribeIsolateSubscription();
+                        this.isolateSubscription = this.translateBase.isolateSubscriptions[name].subscribe(t => {
                             this.notifyChangeLanguage();
                         })
                     }
@@ -114,5 +114,33 @@ export class TranslatePipe extends TranslatePipeNgx {
                 break;
             }
         }
+    }
+
+    unsubscribeIsolateSubscription() {
+        if (typeof this.isolateSubscription !== UNDEFINED) {
+            this.isolateSubscription.unsubscribe();
+            this.isolateSubscription = undefined;
+        }
+    }
+
+    destroy() {
+        if (typeof this.baseDefaultLangChange !== UNDEFINED) {
+            this.baseDefaultLangChange.unsubscribe();
+            this.baseDefaultLangChange = undefined;
+        }
+        if (typeof this.baseOnLangChange !== UNDEFINED) {
+            this.baseOnLangChange.unsubscribe();
+            this.baseOnLangChange = undefined;
+        }
+        if (typeof this.baseTranslationChange !== UNDEFINED) {
+            this.baseTranslationChange.unsubscribe();
+            this.baseTranslationChange = undefined;
+        }
+        this.unsubscribeIsolateSubscription();
+    }
+
+    ngOnDestroy() {
+        this.destroy();
+        super.ngOnDestroy();
     }
 }

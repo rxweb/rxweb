@@ -2,7 +2,7 @@ import { TranslateService as TranslateServiceExtension, TranslateStore, Translat
 import { TranslationResolver, RxTranslation } from "@rxweb/translate"
 import { Inject, Injectable } from '@angular/core';
 import { RequestState } from './request.state';
-import { FAKE_LOADER } from '../const/app.const';
+import { CUSTOM_LOADER } from '../const/app.const';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class TranslateService extends TranslateServiceExtension {
         private rxTranslation: RxTranslation,
         private requestState: RequestState,
         private translationResolver: TranslationResolver,
-        @Inject(FAKE_LOADER) public customLoader?: TranslateLoader
+        @Inject(CUSTOM_LOADER) public customLoader?: TranslateLoader
     ) {
         super(store, currentLoader, compiler, parser, missingTranslationHandler, useDefaultLang, isolate, extend, null);
         this.defineProperty();
@@ -103,7 +103,6 @@ export class TranslateService extends TranslateServiceExtension {
     }
 
     private storeResolve(name: string, data: any) {
-        debugger;
         data = this.compiler.compileTranslations(data, this.currentLang);
         this.translations[name] = data;
         return data;

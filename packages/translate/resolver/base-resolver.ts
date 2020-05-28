@@ -23,7 +23,7 @@ export class BaseResolver {
         if (isGlobal)
             translateContainer.set(config.instance, config.config);
         if ((isGlobal && !this.baseConfig.forNgxTranslate) || !isGlobal)
-            this.resolve(config);
+            this.resolve(config).subscribe(t => t);
     }
 
     resolve(config: TranslateContainerConfig, languageCode: string = "", isRouteLanguageChanged: boolean = false): Observable<boolean> {

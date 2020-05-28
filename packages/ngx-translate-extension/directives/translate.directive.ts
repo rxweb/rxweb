@@ -5,7 +5,7 @@ import { RxTranslation, TranslationResolver, equals } from '@rxweb/translate';
 import { RequestState } from '../services/request.state';
 import { Subscription } from 'rxjs';
 import { isObject } from '../functions/is-object';
-import { UNDEFINED } from '../const/app.const';
+import { UNDEFINED, IS_INTERNAL, GLOBAL } from '../const/app.const';
 const TRANSLATE_SERVICE: string = "translateService"
 const VIEW: string = "_view";
 @Directive({
@@ -14,12 +14,15 @@ const VIEW: string = "_view";
 export class TranslateDirective extends TranslateDirectiveNgx {
     private component: any;
     private baseOnLangChange: Subscription;
+    private baseDefaultLangChange: Subscription;
+    private baseTranslationChange: Subscription;
+    private isolateSubscription: Subscription;
     private currentTranslationName: string;
     private languageCode: string;
 
     constructor(private translateBase: TranslateService, element: ElementRef, _ref: ChangeDetectorRef, viewContainer: ViewContainerRef, private rxTranslation: RxTranslation, private requestState: RequestState, private translationResolver: TranslationResolver) {
         super(new TranslateService(translateBase.store, translateBase.currentLoader, translateBase.compiler, translateBase.parser, translateBase.missingTranslationHandler, true, true, false, false, rxTranslation, new RequestState(), translationResolver), element, _ref);
-        this[TRANSLATE_SERVICE]["isInternal"] = true;
+        this[TRANSLATE_SERVICE][IS_INTERNAL] = true;
         this.subscribe();
         if (viewContainer[VIEW] && viewContainer[VIEW].component) {
             this.component = viewContainer[VIEW].component.constructor;
@@ -52,7 +55,7 @@ export class TranslateDirective extends TranslateDirectiveNgx {
     setAndGetCurrentLang(isSet: boolean = true) {
         let name = null;
         if (this.currentTranslationName) {
-            if (this.currentTranslationName == "global")
+            if (this.currentTranslationName == GLOBAL)
                 name = this.languageCode;
             else
                 name = `${this.currentTranslationName}_${this.languageCode || this.translationResolver.activeLanguage}`
@@ -65,14 +68,14 @@ export class TranslateDirective extends TranslateDirectiveNgx {
         return name;
     }
     subscribe() {
-        this.translateBase.onDefaultLangChange.subscribe(t => {
+        this.baseDefaultLangChange = this.translateBase.onDefaultLangChange.subscribe(t => {
             this.translateBase.changeLanguage(t.lang, this.notifyDefaultLanguageChange.bind(this));
         })
-        this.translateBase.onLangChange.subscribe(t => {
+        this.baseOnLangChange = this.translateBase.onLangChange.subscribe(t => {
             this.translateBase.changeLanguage(t.lang, this.notifyChangeLanguage.bind(this))
         })
 
-        this.translateBase.onTranslationChange.subscribe(t => {
+        this.baseTranslationChange = this.translateBase.onTranslationChange.subscribe(t => {
             let name = this.setAndGetCurrentLang();
             this[TRANSLATE_SERVICE].onTranslationChange.emit({ lang: name, translations: this.translateBase.translations[name] })
         })
@@ -87,16 +90,8 @@ export class TranslateDirective extends TranslateDirectiveNgx {
         let name = this.setAndGetCurrentLang();
         this[TRANSLATE_SERVICE].onLangChange.emit({ lang: name, translations: this.translateBase.translations[name] })
     }
-    destroy() {
-        if (typeof this.baseOnLangChange !== UNDEFINED) {
-            this.baseOnLangChange.unsubscribe();
-            this.baseOnLangChange = undefined;
-        }
-    }
-    ngOnDestroy() {
-        this.destroy();
-        super.ngOnDestroy();
-    }
+    
+
 
     checkAndSetLanguageCode(params: any) {
         if (isObject(params) && (params.lang || params.translationName)) {
@@ -106,19 +101,48 @@ export class TranslateDirective extends TranslateDirectiveNgx {
             if (!this.translateBase.translations[name]) {
                 if (!this.translateBase.isolateSubscriptions[name]) {
                     this.translateBase.isolateSubscriptions[name] = this[TRANSLATE_SERVICE].use(name);
-                    this.translateBase.isolateSubscriptions[name].subscribe(t => {
+                    this.unsubscribeIsolateSubscription();
+                    this.isolateSubscription = this.translateBase.isolateSubscriptions[name].subscribe(t => {
                         this.translateBase.isolateSubscriptions[name] = undefined;
                         delete this.translateBase.isolateSubscriptions[name];
                         this.notifyChangeLanguage();
                     })
                 } else {
-                    this.translateBase.isolateSubscriptions[name].subscribe(t => {
+                    this.unsubscribeIsolateSubscription();
+                    this.isolateSubscription = this.translateBase.isolateSubscriptions[name].subscribe(t => {
                         this.notifyChangeLanguage();
-                        console.log(params);
                     })
                 }
             } else
                 this.setAndGetCurrentLang();
         }
+    }
+
+    unsubscribeIsolateSubscription() {
+        if (typeof this.isolateSubscription !== UNDEFINED) {
+            this.isolateSubscription.unsubscribe();
+            this.isolateSubscription = undefined;
+        }
+    }
+
+    destroy() {
+        if (typeof this.baseDefaultLangChange !== UNDEFINED) {
+            this.baseDefaultLangChange.unsubscribe();
+            this.baseDefaultLangChange = undefined;
+        }
+        if (typeof this.baseOnLangChange !== UNDEFINED) {
+            this.baseOnLangChange.unsubscribe();
+            this.baseOnLangChange = undefined;
+        }
+        if (typeof this.baseTranslationChange !== UNDEFINED) {
+            this.baseTranslationChange.unsubscribe();
+            this.baseTranslationChange = undefined;
+        }
+        this.unsubscribeIsolateSubscription();
+    }
+
+    ngOnDestroy() {
+        this.destroy();
+        super.ngOnDestroy();
     }
 }

@@ -6,9 +6,9 @@ import { TranslateDirective } from "../directives/translate.directive"
 import { TranslateLoaderExtension } from '../services/translate-loader-extension';
 import { RouterModule } from '@angular/router';
 import { RequestState } from '../services/request.state';
-import { FAKE_LOADER } from '../const/app.const';
+import { CUSTOM_LOADER } from '../const/app.const';
 import { RxTranslateModule } from '@rxweb/translate';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule } from '@angular/common/http';
 
 
 
@@ -41,7 +41,7 @@ export class TranslateModule {
                 { provide: USE_DEFAULT_LANG, useValue: config.useDefaultLang },
                 { provide: USE_EXTEND, useValue: config.extend },
                 { provide: DEFAULT_LANGUAGE, useValue: config.defaultLanguage },
-                config.loader ? { provide: FAKE_LOADER, useClass: (<any>config.loader).useClass } : { provide: FAKE_LOADER, useValue: null },
+                config.loader ? { provide: CUSTOM_LOADER, useClass: (<any>config.loader).useClass } : { provide: CUSTOM_LOADER, useValue: null },
                 { provide: "singleton", useValue: true},
                 TranslateService,
                 RequestState
