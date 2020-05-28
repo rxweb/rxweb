@@ -2,6 +2,7 @@ export * from './module/translate.module'
 export * from './services/translate.service';
 export * from './pipes/translate.pipe';
 export * from './services/request.state';
+export * from './decorators/translateComponent.decorator'
 export {
     DefaultLangChangeEvent, DEFAULT_LANGUAGE, FakeMissingTranslationHandler, LangChangeEvent,
     MissingTranslationHandler, MissingTranslationHandlerParams, TranslateCompiler, TranslateDefaultParser,

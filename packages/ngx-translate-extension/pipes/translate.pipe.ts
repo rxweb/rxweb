@@ -28,7 +28,7 @@ export class TranslatePipe extends TranslatePipeNgx {
         this[TRANSLATE] = new TranslateService(translateBase.store, translateBase.currentLoader, translateBase.compiler, translateBase.parser, translateBase.missingTranslationHandler, true, true, false, false, rxTranslation, new RequestState(), this.translationResolver);
         this[TRANSLATE][IS_INTERNAL] = true;
         if (viewContainerRef && parseInt(VERSION.major) >= 9)
-            this.nodeName = viewContainerRef[HOST_VIEW][0].tagName
+            this.nodeName = viewContainerRef[HOST_VIEW][0].tagName.toLowerCase();
         else
             this.nodeName = elementRef.nativeElement.nodeName ? elementRef.nativeElement.nodeName.toLowerCase() : '';
         this.subscribe();

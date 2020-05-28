@@ -27,6 +27,7 @@ export class RxTranslateDirective {
             this.config = translateContainer.get(node.provider.token);
         } else if (ref._declarationTContainer) {
             let tagName = ref._declarationTContainer.tagName;
+            elementName = tagName.toLowerCase();
             let tView = ref._declarationTContainer.tView_;
             let node = tView.directiveRegistry.filter(t => t.selectors.filter(y => y == tagName)[0] != undefined)[0];
             if (node) {
@@ -34,7 +35,7 @@ export class RxTranslateDirective {
                 component = node.type;
             }
         }
-        if (baseConfig.forNgxTranslate && component)
+        if (baseConfig.forNgxTranslate && component && elementName)
             translateContainer.setComponentState(elementName, component);
     }
 
