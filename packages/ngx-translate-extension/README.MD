@@ -3,11 +3,14 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6af5855682524d39a0d88bade210facd)](https://www.codacy.com/app/rxweb/rxweb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rxweb/rxweb&amp;utm_campaign=Badge_Grade)
 [![DeepScan grade](https://deepscan.io/api/teams/3217/projects/4745/branches/37870/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3217&pid=4745&bid=37870)
 [![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
-	
+
+
 ### An extensible library of ngx-translate for Angular Internationalization with spectacular features 🌈.
 
 
+
 > The objective of this library to extend the features of ngx-translate, fix the bugs which are opened since long on ngx-translate project. 
+
 
 
 ### For existing ngx-translate developer community
@@ -27,8 +30,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 
 
 # 💪 Features
-<b>Attribute Directive </b> ([Working Example of below features](https://docs.rxweb.io))
-<hr/>
+<h2>Attribute Directive </h2> ([Working Example of below features](https://docs.rxweb.io))
 
 ```html
 <span translate="introduction"></span>
@@ -46,8 +48,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 <span translate="dashboardHeading" translationName="dashboard"></span>
 ```
 
-<b>Pipe</b> ([Working Example of below features](https://docs.rxweb.io))
-<hr/>
+<h2>Pipe</h2> ([Working Example of below features](https://docs.rxweb.io))
 
 ```html
 {{'introduction' | translate}}
@@ -64,7 +65,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 {{'dashboardHeading' | translate:{translationName:'dashboard'} }}
 ```
 
-<b>Decorator</b> ([Working Example of below features](https://docs.rxweb.io))
+<h2>Decorator</h2> ([Working Example of below features](https://docs.rxweb.io))
 <hr/>
 
 COMPONENT	
@@ -98,28 +99,25 @@ HTML
 }) languages : any[];
 ```
 
-<b>FormControl Validation Message Translation</b>
-<hr/>
+<h2>FormControl Validation Message Translation</h2>
+
 
 1. [Binds Validation message in ```errors``` object of FormControl, as per active language.](https://docs.rxweb.io)
 2. [Binds Validation message with custom parameter.](https://docs.rxweb.io)
 3. [Binds Validation message with array values.](https://docs.rxweb.io)
 
-<b>Change Language</b> ([Working Example of below features](https://stackblitz.com))
-<hr/>
+<h2>Change Language</b> ([Working Example of below features](https://docs.rxweb.io))
 
 1. [By URL](https://docs.rxweb.io)
 2. [Through Code](https://docs.rxweb.io)
 
-<b>Structrual Directive</b> 
-<hr/>
+<h2>Structrual Directive</h2> 
 
 ```html
 <app-child *rxTranslate="true"></app-child>
 ```
 
-<b>Other Intuitive Features</b>
-<hr/>
+<h2>Other Intuitive Features</h2>
 
 1. [Lazy Load Translation Files as per Angular PreLoadModule Stratergy.](https://docs.rxweb.io)
 2. [Automatically set the page title.](https://docs.rxweb.io)
@@ -128,20 +126,26 @@ HTML
 
 
 Ohh! We missed the initial configuration like module registration and all 😜, Don't worry that won't take much time, it's a one time configuration for accessing the services of translation throughout the application.
+#### Installation
+This package have dependency of <b>@ngx-translate/core</b> and <b>@rxweb/translate</b>.
+
+```js
+npm install @rxweb/ngx-translate-extension
+```
 
 Here, First we are going to create a ```TranslateLoader```, which resolves our translation content.
 ```js
+import { Injectable } from "@angular/core"
 import { HttpClient } from "@angular/common/http";
 import { TranslateLoader } from "@rxweb/ngx-translate-extension";
-import { isObject } from 'util';
-
+@Injectable()
 export class TranslateHttpLoader implements TranslateLoader {
     constructor(private http: HttpClient) { }
 
     public getTranslation(lang: any): Observable<Object> {
-        if (isObject(lang) && lang.translationName)
+        if (lang && lang.translationName)
             return this.http.get(`assets/i18n/${lang.translationName}/${lang.lang}.json`);
-	else if(isObject(lang) && lang.filePath)
+	else if(lang && lang.filePath)
 	    return this.http.get(lang.filePath);
         return this.http.get(`assets/i18n/${lang}.json`);
     }
@@ -153,7 +157,7 @@ Now we are going to register the module in the root module of the application.
 @NgModule({
   declarations: [...],
   imports: [
-	TranslateModule.forRoot({ provide: TranslateLoader, useClass: TranslateHttpLoader }),
+	TranslateModule.forRoot({loader:{ provide: TranslateLoader, useClass: TranslateHttpLoader }}),
       	RxTranslateModule.forRoot({
           controlErrorMessage: {path: 'validationErrorMessages'},
           forNgxTranslate: true,
