@@ -4,14 +4,14 @@
 [![DeepScan grade](https://deepscan.io/api/teams/3217/projects/4745/branches/37870/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3217&pid=4745&bid=37870)
 [![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
 	
-### A extensible library of ngx-translate for Angular Internationalization with spectacular features 🌈.
+### An extensible library of ngx-translate for Angular Internationalization with spectacular features 🌈.
 
-> The objective of this library add those features which are not available in the ngx-translate or enhance the current features as well as fix the bugs, which are opened since long on ngx-translate project. 
+> The objective of this library to extend the features of ngx-translate, fix the bugs which are opened since long on ngx-translate project. 
 
-#### For Existing ngx-translate developer community
-##### How much code change is required to avail the ngx-translate-extension features.
-1. You have to replace the package name <b>@ngx-translate/core</b> to <b>@rxweb/ngx-translate-extesion</b>.
-2. ```TranslateModule.forChild``` will not work anymore, you have to use ```@componentTranslate``` or ```@translate``` decorator on component level with translation name(folder name). Don't worry nothing will break even you will get more 😎.
+#### For existing ngx-translate developer community
+##### Three simple steps to avail the ngx-translate-extension features in existing ngx-translate package project.
+1. You have to replace the package name <b>@ngx-translate/core</b> to <b>@rxweb/ngx-translate-extesion</b>. Don't worry the base is same and will work expected 😍.
+2. ```TranslateModule.forChild``` will not work anymore, you have to use @componentTranslate or @translate decorator on component level with translation name(folder name). Again bit worry!, By doing this will not break anything, but you will get more 😎.
 3. Add ```RxTranslateModule``` on Root level.
 That's it.
 ##### How can be sure that after replacing the package name, everything will work as expected?
@@ -331,7 +331,19 @@ Now we are going to register the module in the root module of the application.
 })
 export class AppModule { }
 ```
+one time component level code for setting up the default language and current language.
+```js
+export class AppComponent {
+    constructor(public translate: TranslateService) {
+        translate.addLangs(['en', 'es','fr']);
+        translate.setDefaultLang('en');
 
+        const browserLang = translate.getBrowserLang();
+        translate.use('en');
+    }
+}
+
+```
 All Done, Feel free to share your suggestions if something is missing or we enchance this package 🙂.
 
 	
