@@ -30,7 +30,8 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 
 
 # 💪 Features
-<h2>Attribute Directive </h2> ([Working Example of below features](https://docs.rxweb.io))
+<b>Attribute Directive </b> ([Working Example of below features](https://docs.rxweb.io))
+<hr/>
 
 ```html
 <span translate="introduction"></span>
@@ -48,7 +49,8 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 <span translate="dashboardHeading" translationName="dashboard"></span>
 ```
 
-<h2>Pipe</h2> ([Working Example of below features](https://docs.rxweb.io))
+<b>Pipe</b> ([Working Example of below features](https://docs.rxweb.io))
+<hr/>
 
 ```html
 {{'introduction' | translate}}
@@ -65,7 +67,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 {{'dashboardHeading' | translate:{translationName:'dashboard'} }}
 ```
 
-<h2>Decorator</h2> ([Working Example of below features](https://docs.rxweb.io))
+<b>Decorator</b> ([Working Example of below features](https://docs.rxweb.io))
 <hr/>
 
 COMPONENT	
@@ -99,33 +101,36 @@ HTML
 }) languages : any[];
 ```
 
-<h2>FormControl Validation Message Translation</h2>
-
+<b>FormControl Validation Message Translation</b>
+<hr/>
 
 1. [Binds Validation message in ```errors``` object of FormControl, as per active language.](https://docs.rxweb.io)
 2. [Binds Validation message with custom parameter.](https://docs.rxweb.io)
 3. [Binds Validation message with array values.](https://docs.rxweb.io)
 
-<h2>Change Language</b> ([Working Example of below features](https://docs.rxweb.io))
+<b>Change Language</b> ([Working Example of below features](https://docs.rxweb.io))
+<hr/>
 
 1. [By URL](https://docs.rxweb.io)
 2. [Through Code](https://docs.rxweb.io)
 
-<h2>Structrual Directive</h2> 
+<b>Structrual Directive</b> 
+<hr/>
 
 ```html
 <app-child *rxTranslate="true"></app-child>
 ```
 
-<h2>Other Intuitive Features</h2>
+<b>Other Intuitive Features</b>
+<hr/>
 
 1. [Lazy Load Translation Files as per Angular PreLoadModule Stratergy.](https://docs.rxweb.io)
 2. [Automatically set the page title.](https://docs.rxweb.io)
 
 
 
-
 Ohh! We missed the initial configuration like module registration and all 😜, Don't worry that won't take much time, it's a one time configuration for accessing the services of translation throughout the application.
+
 #### Installation
 This package have dependency of <b>@ngx-translate/core</b> and <b>@rxweb/translate</b>.
 
@@ -133,7 +138,9 @@ This package have dependency of <b>@ngx-translate/core</b> and <b>@rxweb/transla
 npm install @rxweb/ngx-translate-extension
 ```
 
+
 Here, First we are going to create a ```TranslateLoader```, which resolves our translation content.
+
 ```js
 import { Injectable } from "@angular/core"
 import { HttpClient } from "@angular/common/http";
@@ -153,6 +160,7 @@ export class TranslateHttpLoader implements TranslateLoader {
 ```
 
 Now we are going to register the module in the root module of the application.
+
 ```js
 @NgModule({
   declarations: [...],
@@ -182,6 +190,7 @@ export class AppComponent {
 }
 
 ```
+
 All Done, Feel free to share your suggestions if something is missing or we enchance this package 🙂.
 
 	
