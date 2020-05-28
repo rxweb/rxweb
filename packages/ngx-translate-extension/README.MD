@@ -6,136 +6,67 @@
 	
 ### An extensible library of ngx-translate for Angular Internationalization with spectacular features 🌈.
 
+
 > The objective of this library to extend the features of ngx-translate, fix the bugs which are opened since long on ngx-translate project. 
 
-#### For existing ngx-translate developer community
-##### Three simple steps to avail the ngx-translate-extension features in existing ngx-translate package project.
+
+### For existing ngx-translate developer community
+
+#### Three simple steps to avail the ngx-translate-extension features in existing ngx-translate package project.
+
 1. You have to replace the package name <b>@ngx-translate/core</b> to <b>@rxweb/ngx-translate-extesion</b>. Don't worry the base is same and will work expected 😍.
 2. ```TranslateModule.forChild``` will not work anymore, you have to use @componentTranslate or @translate decorator on component level with translation name(folder name). Again bit worry!, By doing this will not break anything, but you will get more 😎.
 3. Add ```RxTranslateModule``` on Root level.
+
 That's it.
-##### How can be sure that after replacing the package name, everything will work as expected?
+
+#### How can be sure that after replacing the package name, everything will work as expected?
+
 We have copied the spec from [@ngx-translate/core](https://github.com/ngx-translate/core/tree/master/projects/ngx-translate/core/tests) project and follows the above mentioned steps, [it's working as expected](https://github.com/rxweb/rxweb/tree/master/test/ngx-translate-extension). Please refer the [Spec Code Comparision Page](https://docs.rxweb.io/ngx-translate-extension/comparison/translate-store).
 
+
+
 # 💪 Features
-<table width="100%" bgcolor="#f6f8fa">
-	<tr>
-		<td colspan="2"><b>Attribute Directive</b></td>
-	</tr>
-<tr style="background-color:white!important;">
-<td width="80%">
+<b>Attribute Directive </b> ([Working Example of below features](https://docs.rxweb.io))
+<hr/>
 
 ```html
 <span translate="introduction"></span>
 ```
-</td>
-<td width="20%">
-	
-[Example](https://stackblitz.com)
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-		
+
 ```html
 <span translate="notification" [translateParams]="{name:'John'}"></span>
 ```
-</td>
-<td>
-	
-[Example](https://stackblitz.com)
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-		
+
 ```html
 <span translate="note" translateLang="fr"></span>
 ```
-</td>
-<td>
-	
-<b>[Example](https://stackblitz.com)</b>
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-		
+
 ```html
 <span translate="dashboardHeading" translationName="dashboard"></span>
 ```
-</td>
-<td>
-	
-<b>[Example](https://stackblitz.com)</b>
-</td>
-</tr>
 
-<tr>
-	<td colspan="2"><b>Pipe</b></td>
-	</tr>
-	
-<tr style="background-color:white!important;">
-<td width="80%">
+<b>Pipe</b> ([Working Example of below features](https://docs.rxweb.io))
+<hr/>
 
 ```html
 {{'introduction' | translate}}
 ```
-</td>
-<td width="20%">
-	
-[Example](https://stackblitz.com)
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-		
 ```html
 {{'notification' | translate:{name:'John'} }}
 ```
-</td>
-<td>
-	
-[Example](https://stackblitz.com)
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-		
+
 ```html
 {{'note' | translate:{lang:'fr'} }}
 ```
-</td>
-<td>
-	
-<b>[Example](https://stackblitz.com)</b>
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-		
+
 ```html
 {{'dashboardHeading' | translate:{translationName:'dashboard'} }}
 ```
-</td>
-<td>
-	
-<b>[Example](https://stackblitz.com)</b>
-</td>
-</tr>
 
-<tr>
-	<td colspan="2"><b>Decorator</b></td>
-</tr>
+<b>Decorator</b> ([Working Example of below features](https://docs.rxweb.io))
+<hr/>
 
-<tr>
-<td>
 COMPONENT	
 	
 ```js
@@ -147,151 +78,54 @@ HTML
 {{global.introduction}}
 {{global.notification}} // Not required to passing the parameter, automatically managed.
 ```
-</td>
-<td>
-	
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-	
+
 ```js
 @translate({languageCode:'fr'}) global:{[key:string]:any}; // HTML binding is same as above.
 ```
-</td>
-<td>
 
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
-
-<tr></tr>
-<tr>
-<td>
-	
 ```js
 @translate({translationName:'dashboard'}) dashboard:{[key:string]:any}; 
 ```
-</td>
-<td>
 
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-	
 ```js
 @translate({ filePath:"..."}) global:{[key:string]:any}; 
 ```
-</td>
-<td>
 
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-	
 ```js
 @translateAsync({
     serviceModel: LanguageService,
     serviceMethod: LanguageService.prototype.get
 }) languages : any[];
 ```
-</td>
-<td>
 
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
+<b>FormControl Validation Message Translation</b>
+<hr/>
 
-<tr>
-	<td colspan="2"><b>FormControl Validation Message Translation</b></td>
-</tr>
-<tr>
-<td>
-Binds Validation message in ```errors``` object of FormControl, as per active language.
-</td>
-<td>
+1. [Binds Validation message in ```errors``` object of FormControl, as per active language.](https://docs.rxweb.io)
+2. [Binds Validation message with custom parameter.](https://docs.rxweb.io)
+3. [Binds Validation message with array values.](https://docs.rxweb.io)
 
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-Binds Validation message with custom parameter.
-</td>
-<td>
+<b>Change Language</b> ([Working Example of below features](https://stackblitz.com))
+<hr/>
 
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
+1. [By URL](https://docs.rxweb.io)
+2. [Through Code](https://docs.rxweb.io)
 
-<tr></tr>
-<tr>
-<td>
-Binds Validation message with array values.
-</td>
-<td>
+<b>Structrual Directive</b> 
+<hr/>
 
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
-<tr>
-	<td colspan="2"><b>Change Language</b></td>
-</tr>
-<tr>
-<td>
-By URL
-</td>
-<td>
-
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
-<tr></tr>
-
-<tr>
-<td>
-Through Code
-</td>
-<td>
-
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
-
-<tr>
-	<td colspan="2"><b>Structrual Directive</b></td>
-</tr>
-<tr>
-<td>
-	
 ```html
 <app-child *rxTranslate="true"></app-child>
 ```
-</td>
-<td>
 
-<b>[Working Example](https://stackblitz.com)</b></td>
-</tr>
-<tr>
-	<td colspan="2"><b>Other Intuitive Features</b></td>
-</tr>
-<tr>
-<td>
-Lazy Load Translation Files as per Angular PreLoadModule Stratergy.
-</td>
-<td>
+<b>Other Intuitive Features</b>
+<hr/>
 
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
-<tr></tr>
-<tr>
-<td>
-Automatically set the page title.
-</td>
-<td>
+1. [Lazy Load Translation Files as per Angular PreLoadModule Stratergy.](https://docs.rxweb.io)
+2. [Automatically set the page title.](https://docs.rxweb.io)
 
-<b>[Example](https://stackblitz.com)</b></td>
-</tr>
-</table>
+
+
 
 Ohh! We missed the initial configuration like module registration and all 😜, Don't worry that won't take much time, it's a one time configuration for accessing the services of translation throughout the application.
 
