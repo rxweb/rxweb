@@ -26,7 +26,7 @@ export function overrideErrorsProperty(errorMessageConfig: ErrorMessageConfig) {
 
 }
 
-function getTranslatedErrorMessages(errorMessageConfig: ErrorMessageConfig,errors:any) {
+function getTranslatedErrorMessages(errorMessageConfig: ErrorMessageConfig, errors: any) {
     let keyName = getKeyName("global");
     let data = MultiLingualData.get(keyName);
     if (data) {
@@ -38,14 +38,14 @@ function getTranslatedErrorMessages(errorMessageConfig: ErrorMessageConfig,error
                     if (data[key])
                         message = data[key];
                     if (message) {
-                        if (errorMessageConfig.parametersPropName && errors[key][errorMessageConfig.parametersPropName]) {
-                            let values = errors[key][errorMessageConfig.parametersPropName];
-                            values.forEach((t, index) => {
-                                message = message.replace(`{{${index}}}`, t);
-                            });
-                        }
+
                         Object.keys(errors[key]).forEach(t => {
-                            message = message.replace(`{{${t}}}`, errors[key][t]);
+                            if (Array.isArray(errors[key][t])) {
+                                errors[key][t].forEach((x, i) => {
+                                    message = message.replace(`{{${i}}}`, errors[key][t][i]);
+                                });
+                            } else
+                                message = message.replace(`{{${t}}}`, errors[key][t]);
                         })
                     }
                     if (!isObject(errors[key]))

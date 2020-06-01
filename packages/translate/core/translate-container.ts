@@ -56,7 +56,7 @@ export const translateContainer:
             let isPropertyKey = (propertyName != undefined);
             var model: Function = !isPropertyKey ? instance : instance.constructor;
             let modelName = config === undefined ? "global" : config.translationName;
-            defineProperty(model, propertyName, modelName, config ? config.language : undefined);
+            defineProperty(model, propertyName, modelName, config ? config.language : undefined, config ? config.filePath : undefined);
             if (modelName != "global" && propertyName) {
                 let instanceConfig: TranslateContainerConfig = { instance: model, config: config };
                 this.set(model, config)

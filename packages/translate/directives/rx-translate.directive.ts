@@ -46,7 +46,7 @@ export class RxTranslateDirective {
             let languageCode = "";
             if (this.route.params && this.route.params["languageCode"] && this.baseConfig.languageCode !== this.route.params["languageCode"] && !this.config.config.language)
                 languageCode = this.route.params["languageCode"];
-            baseResolver.resolve(this.config, languageCode).subscribe(x => {
+            baseResolver.resolveData(this.config, languageCode).subscribe(x => {
                 this.updateView(x);
             });
         }

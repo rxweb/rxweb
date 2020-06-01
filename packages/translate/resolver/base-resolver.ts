@@ -35,9 +35,10 @@ export class BaseResolver {
                 if (url)
                     return this.httpClient.get(url).pipe(map(this.setData(lang, containerConfig).bind(this)));
             } else {
+                let translationObject = lang;
                 if (config.config.translationName != "global")
-                    lang = { ...config.config, ...{ filePath: this.getPath(containerConfig,languageCode), lang: lang } };
-                return translateConfigContainer.customLoader.getTranslation(lang).pipe(map(this.setData(lang,containerConfig).bind(this)))
+                    translationObject = { ...config.config, ...{ filePath: this.getPath(containerConfig,languageCode), lang: lang } };
+                return translateConfigContainer.customLoader.getTranslation(translationObject).pipe(map(this.setData(lang,containerConfig).bind(this)))
             }
         } else
             return of(true);
@@ -45,7 +46,7 @@ export class BaseResolver {
 
     setData(languageCode: string, containerConfig: TranslateContainerConfig) {
         return body => {
-            let name = getKeyName(containerConfig.config.translationName, languageCode || this.cloneBaseConfig.languageCode);
+            let name = getKeyName(containerConfig.config.translationName, languageCode || this.cloneBaseConfig.languageCode, containerConfig.config.filePath);
             let data = body;
             if (translateConfigContainer.resolver)
                 data = translateConfigContainer.resolver(name.replace("global_", "").replace("global", ""), data);
@@ -80,25 +81,31 @@ export class BaseResolver {
         if (route.component) {
             let isRouteLanguageChanged = route.params && route.params["languageCode"] && route.params["languageCode"] != this.cloneBaseConfig.languageCode;
             let containerConfig = translateContainer.get(route.component);
-            if (containerConfig && containerConfig.config)
-                translateConfigContainer.activePageTranslationName = containerConfig.config.translationName;
             if (isRouteLanguageChanged) {
                 this.updateLanguageByParam(route);
                 this.cloneBaseConfig.languageCode = route.params["languageCode"];
                 translateConfigContainer.loading = true;
             }
-            return this.resolveData(containerConfig, isRouteLanguageChanged)
+            if (containerConfig) {
+                if (containerConfig.config)
+                    translateConfigContainer.activePageTranslationName = containerConfig.config.translationName;
+                return this.resolveData(containerConfig, '', isRouteLanguageChanged)
+            } else
+                if (isRouteLanguageChanged && translateConfigContainer.ngxTranslate) {
+                    translateConfigContainer.ngxTranslate.use(route.params["languageCode"]);
+                    translateConfigContainer.loading = false;
+                }
         }
         return true;
     }
 
-    resolveData(containerConfig: TranslateContainerConfig, isRouteLanguageChanged: boolean) {
+    resolveData(containerConfig: TranslateContainerConfig,languageCode:string, isRouteLanguageChanged: boolean = false) {
         let additionalContainerConfigs = translateContainer.additionalGet(containerConfig.instance);
             let observables = new Array<Observable<any>>();
             additionalContainerConfigs.forEach(config => {
-                observables.push(this.resolve(config, '', isRouteLanguageChanged));
+                observables.push(this.resolve(config, languageCode, isRouteLanguageChanged));
             })
-        observables.push(this.resolve(containerConfig, '', isRouteLanguageChanged))
+        observables.push(this.resolve(containerConfig, languageCode, isRouteLanguageChanged))
         return forkJoin(observables).pipe(map((response: any) => {
             this.baseConfig.languageCode = this.cloneBaseConfig.languageCode;
             translateConfigContainer.loading = false;
@@ -157,11 +164,13 @@ export class BaseResolver {
         }
     }
     private replace(extractKeys: any, text: string, data: { [key: string]: any }): string {
-        let extractor = extract(extractKeys);
-        let keys = extractor(text);
-        keys.forEach(key => {
-            text = text.replace(`{{${key}}}`, getValue(key, data));
-        })
+        if (text && text.indexOf("{{") != -1) {
+            let extractor = extract(extractKeys);
+            let keys = extractor(text);
+            keys.forEach(key => {
+                text = text.replace(`{{${key}}}`, getValue(key, data));
+            })
+        }
         return text;
     }
 
