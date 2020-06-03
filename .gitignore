@@ -74,3 +74,7 @@ Thumbs.db
 /node_modules_build
 /packages/reactive-dynamic-forms/package-lock.json
 /packages/reactive-dynamic-forms/.ng_build
+/client-side/*/**/node_modules
+/client-side/angular/packages/reactive-form-validators/.ng_build
+/client-side/angular/src/app
+/client-side/angular/src

@@ -18,8 +18,9 @@ before_install:
 before_script:
    - "sudo chown root /opt/google/chrome/chrome-sandbox"
    - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
+   - cd ${TRAVIS_BUILD_DIR}/client-side/angular
 script:
-  - npm run test
+   - npm run test
 after_success:
   - npm run report-coverage
 notifications:
