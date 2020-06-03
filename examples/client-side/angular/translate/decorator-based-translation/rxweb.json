@@ -1,0 +1,22 @@
+{
+  "translate": {
+    "defaultLanguage": "en",
+    "allowedLanguages": [
+      "en","fr"
+    ],
+    "path": {
+      "optimizeJson": "",
+      "i18n": "src/assets/i18n",
+      "component": "src/app",
+      "generate": {
+        "interface": "src/app/i18n-models"
+      }
+    },
+    "action": {
+      "createMissingFiles": true,
+      "createMissingKeys": true,
+      "removeNotInUsedKeys": true,
+      "validateDuplicateKeys": true
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "text": "The content is resolved based upon routed page component.",
+  "preLoadText": "See the network request, you will see 'pre-load-module' which loads according to the pre loading startegy, Whenever this activates it's load all respective component multilingual JSON, like if you check the request then you will see the request of 'pre-load.en.json'.",
+"pageTitle": "Translation Example in English."
+}

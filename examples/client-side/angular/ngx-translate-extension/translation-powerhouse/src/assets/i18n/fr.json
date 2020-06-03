@@ -1,0 +1,18 @@
+{
+  "greet": "salut! Comment ça va:",
+  "notification": "Bonjour {{name}}",
+  "note": "Ceci est le paquet ngx-translate-extension",
+  "conditionalText": "this.meridiem == 'am' ? 'Bonjour' : 'Bonne journée'",
+  "reuseText": "{{global.notification}}, {{global.conditionalText}}",
+  "selectedRecord": "Vous avez sélectionné l'enregistrement de '{name}'",
+  "keyOne": "Key One",
+  "nested": {
+    "keyOne": "Clé imbriquée"
+  },
+
+  "validationErrorMessages": {
+    "required": "Ce champ est requis.",
+    "maxlength": "La longueur maximale allouée est {{requiredLength}} et vous êtes entré {{actualLength}} FR.",
+    "identityRevealed": "Vous êtes entré '{{0}}', seulement '{{1}}' la valeur est autorisée."
+  }
+}

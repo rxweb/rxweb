@@ -1,0 +1,236 @@
+<div *ngIf="global.plainText">
+  <div class="mt-2">
+    <p class="text-right ">
+      <a class="blue-link english" [class.active-language]="global.languageCode == 'en'" (click)="navigate('en')">English</a>
+      <a class="blue-link french" [class.active-language]="global.languageCode == 'fr'" (click)="navigate('fr')">French</a>
+    </p>
+    <!--<h3>Binding With Angular Primary Expression</h3>-->
+  </div>
+  <div class="row " style="margin-bottom:10px;">
+    <div class="col-sm-6 example-col-title  ">
+      <div _ngcontent-nkq-c0="">💪 Features </div>
+    </div>
+    <div class="col-sm-6 example-col-title  ">
+      🌈 Working Example
+    </div>
+  </div>
+  <div class="row row-style">
+    <div class="col-sm-6 col-style">
+      <div _ngcontent-nkq-c0="" class="col-text-style"><span class="col-hash-text"># </span>Multilingual Text Only</div>
+    </div>
+    <div id="col-plainText" (mouseout)="mouseout($event)" class="col-sm-6 col-style">
+      <div class="badge {{badgeClass}}">
+        {{global.plainText}}
+      </div>
+      <app-code-viewer type='plainText'></app-code-viewer>
+    </div>
+  </div>
+  <div class="row row-style">
+    <div class="col-sm-6 col-style" style="padding-top:40px; padding-bottom:40px;">
+      <div class="col-text-style"><span class="col-hash-text"># </span>Text with Parameter</div>
+    </div>
+    <div class="col-sm-6" style="padding-top:40px; padding-bottom:40px;">
+      <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" [placeholder]="global.placeholder.freeText" class="form-control">
+      <div class="margin-left badge {{badgeClass}}"> {{global.scopedText}}</div>
+      <app-code-viewer type='scopedText'></app-code-viewer>
+    </div>
+  </div>
+
+  <div class="row row-style">
+    <div class="col-sm-6 col-style" style="padding-top:40px; padding-bottom:40px;">
+      <div class="col-text-style"><span class="col-hash-text"># </span>Conditional Text</div>
+    </div>
+    <div class="col-sm-6" style="padding-top:40px; padding-bottom:40px;">
+      <div class="badge {{badgeClass}}"> {{global.conditionalText}}</div>
+      <a class="badge badge-light btn-click" (click)="changeMeridiem()">
+        {{meridiem == "am" ? 'Greet Good Day' : 'Greet Good Morning' }}
+      </a>
+      <app-code-viewer type='conditionalText'></app-code-viewer>
+    </div>
+  </div>
+  <div class="row row-style">
+    <div class="col-sm-6 col-style" style="padding-top:40px; padding-bottom:40px;">
+      <div class="col-text-style"><span class="col-hash-text"># </span>Reuse Text </div>
+    </div>
+    <div class="col-sm-6" style="padding-top:40px; padding-bottom:40px;">
+      <div class="badge {{badgeClass
+        }}">
+        {{global.reuseText}}
+      </div>
+      <app-code-viewer type='conditionalText'></app-code-viewer>
+    </div>
+  </div>
+
+  <div class="row row-style">
+    <div class="col-sm-6 col-style" style="padding-top:40px; padding-bottom:40px;">
+      <div class="col-text-style"><span class="col-hash-text"># </span>Async Source (<b>Yours Control</b>)</div>
+    </div>
+    <div class="col-sm-6" style="padding-top:40px; padding-bottom:40px;">
+      <select name="control" class="form-control">
+        <option *ngFor="let item of countries | async" [value]="item.countryId">{{item.countryName}}</option>
+      </select>
+      <app-code-viewer type='conditionalText'></app-code-viewer>
+    </div>
+  </div>
+
+  <div class="row row-style">
+    <div class="col-sm-6 col-style" style="padding-top:40px; padding-bottom:40px;">
+      <div class="col-text-style"><span class="col-hash-text"># </span>On Demand Text</div>
+    </div>
+    <div class="col-sm-6" style="padding-top:10px; padding-bottom:10px;">
+      <table class="table table-sm example-table-color ">
+        <tbody>
+          <tr>
+            <th style="width:50%">Name</th>
+            <th style="width:50%">Action <app-code-viewer type='conditionalText'></app-code-viewer></th>
+          </tr>
+          <tr *ngFor="let user of users;">
+            <td>{{user.name}}</td>
+            <td>
+              <a (click)="selectUser(user)" class="mx-2 " title="Select">
+                <i class="fas fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="message" class="row">
+        <div class="col-sm-12 mx-auto mt-2">
+          <div style="background-color:#5fb485!important;color:white;" class="alert alert-primary"
+               role="alert">
+            {{message}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-style">
+    <div class="col-sm-6 col-style" style="padding-top:40px; padding-bottom:40px;">
+      <div class="col-text-style"><span class="col-hash-text"># </span>Resolve Text By KeyName</div>
+    </div>
+    <div class="col-sm-6" style="padding-top:10px; padding-bottom:10px;">
+      <table class="table table-sm example-table-color ">
+        <tbody>
+          <tr>
+            <th style="width:50%">Key Name</th>
+            <th style="width:50%">Key Value <app-code-viewer type='conditionalText'></app-code-viewer></th>
+          </tr>
+          <tr *ngFor="let key of keys;">
+            <td><span class="badge badge-light">{{key}}</span></td>
+            <td>
+              <!--<span class="badge {{badgeClass}}">{{global.get(key)}}</span>-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row row-style">
+    <div class="col-sm-6 col-style" style="padding-top:40px; padding-bottom:40px;">
+      <div class="col-text-style col-text-style-red"><span class="col-hash-text col-hash-text-red "># </span>Validation Message</div>
+    </div>
+    <div class="col-sm-6" style="padding-top:40px; padding-bottom:30px;">
+      <form [formGroup]="formGroup">
+        <input type="text" [class.border-red]="formGroup.controls.fullName.errors" formControlName="fullName" class="form-control" /><app-code-viewer type='conditionalText'></app-code-viewer><br />
+        <span class="small red" *ngIf="formGroup.controls.fullName.errors">{{formGroup.controls.fullName.errors.required.message}}</span>
+
+      </form>
+    </div>
+  </div>
+  <div class="row row-style">
+    <div class="col-sm-6 col-style" style="padding-top:40px; padding-bottom:40px;">
+      <div class="col-text-style col-text-style-red"><span class="col-hash-text col-hash-text-red"># </span>Validation Message with Parameters</div>
+    </div>
+    <div class="col-sm-6" style="padding-top:40px; padding-bottom:30px;">
+      <form [formGroup]="formGroup">
+        <input type="text" [class.border-red]="formGroup.controls.designation.errors" formControlName="designation" class="form-control" /><app-code-viewer type='conditionalText'></app-code-viewer><br />
+        <span class="small red" *ngIf="formGroup.controls.designation.errors">{{formGroup.controls.designation.errors.maxlength.message}}</span>
+      </form>
+    </div>
+  </div>
+  <div class="row row-style">
+    <div class="col-sm-6 col-style" style="padding-top:40px; padding-bottom:40px;">
+      <div class="col-text-style col-text-style-red"><span class="col-hash-text col-hash-text-red"># </span>Validation Message with Array Parameter</div>
+    </div>
+    <div class="col-sm-6" style="padding-top:40px; padding-bottom:30px;">
+      <form [formGroup]="formGroup">
+        <input type="text" [class.border-red]="formGroup.controls.designation.errors" formControlName="designation" class="form-control" /><app-code-viewer type='conditionalText'></app-code-viewer><br />
+        <span class="small red" *ngIf="formGroup.controls.designation.errors">{{formGroup.controls.designation.errors.maxlength.message}}</span>
+      </form>
+    </div>
+  </div>
+  <div class="row row-style">
+    <div class="col-sm-6 col-style">
+      <div _ngcontent-nkq-c0="" class="col-text-style "><span class="col-hash-text col-hash-text-color"># </span>Resolve Content By Page Component</div>
+    </div>
+    <div class="col-sm-6 col-style">
+      <div class="badge {{badgeClass}}">
+        {{lazyLoadContent.text}}
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-style">
+    <div class="col-sm-6 col-style">
+      <div _ngcontent-nkq-c0="" class="col-text-style col-text-style-green"><span class="col-hash-text  col-hash-text-color"># </span>Resolve Content By Shared Component</div>
+    </div>
+    <div class="col-sm-6 col-style">
+      <app-lazy-load-child *rxTranslate="true"></app-lazy-load-child>
+    </div>
+  </div>
+
+  <div class="row row-style">
+    <div class="col-sm-6 col-style">
+      <div _ngcontent-nkq-c0="" class="col-text-style col-text-style-green"><span class="col-hash-text  col-hash-text-color"># </span>Resolve Content By Angular Preload Module Strategy</div>
+    </div>
+    <div class="col-sm-6 col-style">
+      <div style="text-align:justify;">
+        See the network request, you will see 'pre-load-module' which loads according to the pre loading startegy, Whenever this activates it's load all respective component multilingual JSON, like if you check the request then you will see the request of 'pre-load.en.json'.
+      </div>
+    </div>
+  </div>
+  <div class="row row-style">
+    <div class="col-sm-6 col-style">
+      <div _ngcontent-nkq-c0="" class="col-text-style col-text-style-green"><span class="col-hash-text col-hash-text-marron"># </span>By Url</div>
+    </div>
+    <div class="col-sm-6 col-style">
+      <p class="small ">
+        <a class="blue-link" [class.active-language]="activeLanguage  == 'en'" (click)="navigate('en')">English</a>
+        <a class="blue-link" [class.active-language]="activeLanguage  == 'fr'" (click)="navigate('fr')">French</a>
+        <app-code-viewer type='plainText'></app-code-viewer>
+      </p>
+    </div>
+  </div>
+  <div class="row row-style">
+    <div class="col-sm-6 col-style">
+      <div _ngcontent-nkq-c0="" class="col-text-style col-text-style-green"><span class="col-hash-text col-hash-text-marron"># </span>Through Code</div>
+    </div>
+    <div class="col-sm-6 col-style">
+      <p class="small ">
+        <a class="blue-link" [class.active-language]="lazyLoadContent.languageCode == 'en'" (click)="changeLanguage('en')">English</a>
+        <a class="blue-link" [class.active-language]="lazyLoadContent.languageCode == 'fr'" (click)="changeLanguage('fr')">French</a>
+        <app-code-viewer type='plainText'></app-code-viewer>
+      </p>
+    </div>
+  </div>
+  <div class="row row-style">
+    <div class="col-sm-6 col-style">
+      <div _ngcontent-nkq-c0="" class="col-text-style col-text-style-green"><span class="col-hash-text"># </span>Fixed Language (en)</div>
+    </div>
+    <div class="col-sm-6 col-style">
+      <!--<app-fixed-language *rxTranslate="true"></app-fixed-language>-->
+    </div>
+  </div>
+  <div class="row row-style">
+    <div class="col-sm-6 col-style">
+      <div _ngcontent-nkq-c0="" class="col-text-style col-text-style-green"><span class="col-hash-text"># </span>Automatically Set Page Title</div>
+    </div>
+    <div class="col-sm-6 col-style">
+      See the above title, which is being changed once you change the language. This works only adding the key of 'pageTitle' in JSON file.
+    </div>
+  </div>
+
+  <div class="badge badge-warning">{{fixedLanguage.text}}</div>
+</div>

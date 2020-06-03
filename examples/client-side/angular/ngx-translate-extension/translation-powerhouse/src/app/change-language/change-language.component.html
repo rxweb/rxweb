@@ -1,0 +1,31 @@
+  <div class="container">
+    <h1 class="display-4">Change Language By</h1>
+    <table class="table" width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Category</th>
+          <th width="50%">Output</th>
+        </tr>
+      </thead>
+      <tr>
+        <td class="category">By URL</td>
+        <td>
+          <p class="small ">
+            <a class="blue-link" [class.active-language]="activeLanguage  == 'en'" (click)="navigate('en')">English</a>
+            <a class="blue-link" [class.active-language]="activeLanguage  == 'fr'" (click)="navigate('fr')">French</a>
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="category">Through Program</td>
+        <td>
+          <p class="small ">
+            <a class="blue-link" [class.active-language]="global.languageCode == 'en'" (click)="changeLanguage('en')">English</a>
+            <a class="blue-link" [class.active-language]="global.languageCode == 'fr'" (click)="changeLanguage('fr')">French</a>
+          </p>
+        </td>
+      </tr>
+
+    </table>
+  </div>
