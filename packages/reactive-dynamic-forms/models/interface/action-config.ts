@@ -11,6 +11,7 @@ export interface ActionFnConfig {
 }
 
 export interface ActionResult {
+    img: string;
     source:any[]
     label: string;
     placeholder: string;

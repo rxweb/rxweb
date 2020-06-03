@@ -37,6 +37,7 @@ export abstract class FormControlConfig extends BaseFormControlConfig {
     value: any;
     disabled: boolean;
     label: string;
+    img: string;
     placeholder: string;
     hide: boolean;
     description: string;

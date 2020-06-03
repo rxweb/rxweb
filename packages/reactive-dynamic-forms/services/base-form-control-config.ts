@@ -67,7 +67,7 @@ export abstract class BaseFormControlConfig extends PropDescriptor {
     }
 
     private updateActionValue() {
-        ["disabled", "label", "placeholder", "hide", "description", "focus", "readonly", "class", "filter", "source"].forEach(key => {
+        ["disabled", "label","img", "placeholder", "hide", "description", "focus", "readonly", "class", "filter", "source"].forEach(key => {
             switch (key) {
                 case FILTER:
                     if (this.isDefinedFilter && key == FILTER)
@@ -96,6 +96,7 @@ export abstract class BaseFormControlConfig extends PropDescriptor {
 
     private _actionResult: ActionResult = {
         label: undefined,
+        img: undefined,
         placeholder: undefined,
         source: [],
         filter: [],
@@ -118,6 +119,7 @@ export abstract class BaseFormControlConfig extends PropDescriptor {
         focus?: string[],
         readonly: string[],
         class: string[],
+        img?:string[]
     };
 
 }

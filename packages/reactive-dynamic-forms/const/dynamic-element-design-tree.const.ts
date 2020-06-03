@@ -13,7 +13,7 @@ const commonEvents = {
 
 
 
-const checkBoxAndRadioDesign = ['div', [{source:true},{
+const checkBoxAndRadioDesign = ['div', [{ source: true }, {
     for: {
         source: function (item, index) {
             return ['div', ['input', [{
@@ -58,6 +58,8 @@ export const DYNAMIC_ELEMENT_DESIGN_TREE: { [key: string]: any } = {
     strong: ['strong', [{ prop: configUiText, attr: classAttribute }]],
 
     span: ['span', [{ prop: configUiText, attr: classAttribute }]],
+
+    img: ['img', [{ prop: { src: ':img' }, attr: { style: { display: ":img" }, ...classAttribute } }]],
 
     label: ['label', [{ prop: { innerText: ':label' }, attr: { style: { display: ":label" }, ...classAttribute } }]],
 
@@ -129,7 +131,7 @@ export const DYNAMIC_ELEMENT_DESIGN_TREE: { [key: string]: any } = {
         events: commonEvents,
         source: true
     },
-        'option', [{ prop: { innerText: `:placeholder` }, attr: {value:'', style: { display: ":placeholder" } } }],
+        'option', [{ prop: { innerText: `:placeholder` }, attr: { value: '', style: { display: ":placeholder" } } }],
     {
         for: {
             source: function (item) {
@@ -179,7 +181,7 @@ export const DYNAMIC_ELEMENT_DESIGN_TREE: { [key: string]: any } = {
                     style: { display: ":hide" }
                 }
             },
-                '[label]', '[control]', '[error]', '[small]']
+                '[img]', '[label]', '[control]', '[error]', '[small]']
         ]]
     }
 }

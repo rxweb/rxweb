@@ -232,6 +232,8 @@ export class ControlConfigProcessor {
     private isCreateElement(collection: any, controlConfig: FormControlConfig) {
         let isCreate = true;
         switch (collection) {
+            case "[img]":
+                isCreate = controlConfig.img != undefined;
             case SQUARE_LABEL:
                 isCreate = controlConfig.label != undefined;
                 break;
