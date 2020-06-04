@@ -6,6 +6,7 @@ export const MultiLingualData:
         addOrUpdate(key: string, data: { [key: string]: any }, translationName: string, languageCode?: string);
         addOrUpdateComponent(key: string, data: { [key: string]: any }, instance: Function);
         getComponentPropValue(key: string, instance: Function);
+        removeComponentPropValue(key: string, instance: Function);
         remove(key: string);
         get(key: string);
         clearInActives(config: RxTranslateConfig);
@@ -37,6 +38,11 @@ export const MultiLingualData:
         getComponentPropValue(key: string, instance: Function) {
             let indexOf = this.translationModelData.findIndex(t => t.instance == instance && t.key == key);
             return indexOf != -1 ? this.translationModelData[indexOf].data : undefined;
+        }
+
+        removeComponentPropValue(key: string, instance: Function) {
+            let indexOf = this.translationModelData.findIndex(t => t.instance == instance && t.key == key);
+            return indexOf != -1 ? this.translationModelData.splice(indexOf,1) : undefined;
         }
 
         contains(key: string, languageCode: string) {

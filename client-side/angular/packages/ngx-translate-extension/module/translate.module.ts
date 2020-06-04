@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders, Injector } from '@angular/core';
+import { NgModule, ModuleWithProviders, Injector, Inject } from '@angular/core';
 import {  TranslateModuleConfig, TranslateCompiler, TranslateParser, TranslateFakeCompiler, TranslateDefaultParser, MissingTranslationHandler, FakeMissingTranslationHandler, TranslateStore, USE_STORE, USE_DEFAULT_LANG, USE_EXTEND, DEFAULT_LANGUAGE, TranslateLoader } from '@ngx-translate/core';
 import { TranslatePipe } from '../pipes/translate.pipe'
 import { TranslateService } from '../services/translate.service'
@@ -25,7 +25,7 @@ import {  HttpClientModule } from '@angular/common/http';
     ]
 })
 export class TranslateModule {
-    constructor(injector: Injector) {
+    constructor(translateService: TranslateService) {
         
     }
     static forRoot(config: TranslateModuleConfig = {}): ModuleWithProviders<TranslateModule> {

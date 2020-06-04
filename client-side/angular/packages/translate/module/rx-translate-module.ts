@@ -21,7 +21,7 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
     exports: [RxTranslateDirective],
 })
 export class RxTranslateModule {
-    constructor(@Inject(RX_TRANSLATE_CONFIG) config: RxTranslateConfig, httpClient: HttpClient) {
+    constructor(@Inject(RX_TRANSLATE_CONFIG) config: RxTranslateConfig, httpClient: HttpClient,) {
         if (!translateConfigContainer.config) {
             translateConfigContainer.httpClient = httpClient;
             translateConfigContainer.config = config;

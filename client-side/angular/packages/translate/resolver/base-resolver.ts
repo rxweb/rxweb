@@ -30,7 +30,12 @@ export class BaseResolver {
         let containerConfig = config;
         if ((containerConfig && this.cloneBaseConfig.isTest) || (containerConfig && !MultiLingualData.contains(getKeyName(containerConfig.config.translationName, languageCode || this.cloneBaseConfig.languageCode), languageCode || this.cloneBaseConfig.languageCode)) || (containerConfig && isRouteLanguageChanged)) {
             let lang: any = containerConfig.config.language || languageCode || this.cloneBaseConfig.languageCode;
-            if (!translateConfigContainer.customLoader) {
+            if (containerConfig.config.inlineTranslations && containerConfig.config.inlineTranslations[lang]) {
+                return Observable.create((subcriber) => {
+                    containerConfig.config.inlineTranslations[lang]().then(t => { subcriber.next(t.default); subcriber.complete() });
+                }).pipe(map(this.setData(lang, containerConfig).bind(this)))
+            }
+            else if (!translateConfigContainer.customLoader) {
                 let url = this.getPath(containerConfig,languageCode);
                 if (url)
                     return this.httpClient.get(url).pipe(map(this.setData(lang, containerConfig).bind(this)));

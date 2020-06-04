@@ -3,9 +3,11 @@ import { extract } from "../functions/extract";
 import { getValue } from "../functions/get-value";
 import { translateConfigContainer } from "../core/translate-config-container";
 import { equals } from "../functions/equals";
+import { MultiLingualData } from "../core/multilingual-data";
+import { getKeyName } from "../functions/get-key-name";
 
 export class TranslateModel {
-    constructor(private data: { [key: string]: any }, private componentData: any) {
+    constructor(private data: { [key: string]: any }, private componentData: any,private modelName) {
         if (data)
             Object.keys(data).forEach(key => {
                 Object.defineProperty(this, key, {
@@ -14,9 +16,9 @@ export class TranslateModel {
                         if (isObject(text)) {
                             if (!(data[key] instanceof TranslateModel)) {
                                 if (!translateConfigContainer.loading)
-                                    text = data[key] = new TranslateModel(data[key], componentData);
+                                    text = data[key] = new TranslateModel(data[key], componentData, modelName);
                                 else
-                                    return new TranslateModel(data[key], {});
+                                    return new TranslateModel(data[key], {}, modelName);
                             } else
                                 text = data[key];
                             return text;
@@ -38,18 +40,18 @@ export class TranslateModel {
     }
 
     private transform(data, key, text) {
-        if (this.thisParameter[key]) 
+        if (this.thisParameter[key])
             return this.getText(data, text, key);
         if (this.keyParameters && this.keyParameters[key] && isObject(this.keyParameters[key])) {
             if (!equals(this.keyParameters[key], this.getKeyValue(this.keyParameters[key])))
-                return this.getText(data,text, key);
+                return this.getText(data, text, key);
             else if (this.memoized[key])
                 return this.memoized[key];
         }
         if (this.keyParameters && !this.keyParameters[key])
-            return this.getText(data,text, key);
+            return this.getText(data, text, key);
         else
-            return typeof text === "function" ? text():text;
+            return typeof text === "function" ? text() : text;
     }
 
     private activeLanguage: any;
@@ -78,6 +80,19 @@ export class TranslateModel {
             }
         }
         return jObject;
+    }
+
+    addOrUpdateKey(name: string, value: string | { [key: string]: any }) {
+        let keyName = getKeyName(this.modelName, this.languageCode, undefined);
+        let data = MultiLingualData.get(keyName);
+        if (!isObject(value))
+            data[name] = value;
+        else if (data[name])
+            data[name] = { ...data[name], ...<{ [key: string]: any }>value };
+        else
+            data[name] = value;
+        MultiLingualData.addOrUpdate(keyName, data, this.languageCode);
+        MultiLingualData.removeComponentPropValue(keyName, this.componentData.constructor);
     }
 
     private ngxTranslateParser(translations: any, key: string) {

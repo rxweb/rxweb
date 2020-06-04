@@ -8,3 +8,4 @@ export {
     TranslateFakeCompiler, TranslateFakeLoader, TranslateLoader, TranslateModuleConfig, TranslateParser,
     TranslateStore, TranslationChangeEvent, USE_DEFAULT_LANG, USE_EXTEND, USE_STORE
 } from "@ngx-translate/core"
+export * from './decorators/translateComponent.decorator'
