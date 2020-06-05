@@ -1,27 +1,24 @@
-<!--<h2>MessageFormat Transpiler</h2>
+<h2>MessageFormat Transpiler</h2>
 <hr />
 <h4>Structural Directive</h4>
-<ng-container *transloco="let t">
-  <ul class="list-group">
-    <li class="list-group-item" data-cy="regular"><b>Regular: </b>{{ t('mf.home') }}</li>
-    <li class="list-group-item" data-cy="with-params"><b>With params: </b>{{ t('mf.params', { value: dynamic }) }}</li>
-    <li class="list-group-item" data-cy="with-translation-reuse">
-      <b>With translation reuse: </b> {{ t('mf.a.b.c') }}
-    </li>
-    <li class="list-group-item" data-cy="with-message-format">
-      <b>Using messageformat: </b>{{ t('mf.messageFormat', { gender: 'male' }) }}
-    </li>
-    <li class="list-group-item" data-cy="with-message-format-dynamic">
-      <b>Using messageformat with dynamic value: </b>{{ t('mf.messageFormat', { gender: userGender }) }}
-    </li>
-    <li class="list-group-item" data-cy="with-message-format-params">
-      <b>Using messageformat with transloco standard params: </b
-      >{{ t('mf.messageFormatWithParams', { value: 'transloco params', gender: '' }) }}
-    </li>
-  </ul>
-</ng-container>
+<ul class="list-group">
+  <li class="list-group-item"><b>Regular: </b>{{ transpilers.home }}</li>
+  <li class="list-group-item"><b>With params: </b>{{ transpilers.params }}</li>
+  <li class="list-group-item">
+    <b>With translation reuse: </b> {{ transpilers.a.b.c }}
+  </li>
+  <li class="list-group-item">
+    <b>Using messageformat: </b>{{ transpilers.json.messageFormat | rxTranslate:{ gender: 'male' } }}
+  </li>
+  <li class="list-group-item" data-cy="with-message-format-dynamic">
+    <b>Using messageformat with dynamic value: </b>{{ transpilers.messageFormat }}
+  </li>
+  <li class="list-group-item" data-cy="with-message-format-params">
+    <b>Using messageformat with transloco standard params: </b>{{ transpilers.json.messageFormatWithParams | rxTranslate:{ value: 'transloco params', gender: '' } }}
+  </li>
+</ul>
 
-<h3 class="mtb">Directive</h3>
+<!--<h3 class="mtb">Directive</h3>
 <ul class="list-group">
   <li class="list-group-item" data-cy="d-regular"><b>Regular: </b><span transloco="mf.home"></span></li>
   <li class="list-group-item" data-cy="d-with-params">

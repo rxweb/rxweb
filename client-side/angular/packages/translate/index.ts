@@ -5,3 +5,4 @@ export * from './module/rx-translate-module';
 export * from './interface/translate-config';
 export * from './core/translation-resolver';
 export * from './functions/equals';
+export * from './pure-pipes/rx-translate.pipe'

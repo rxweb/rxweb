@@ -12,7 +12,7 @@ export class DynamicTranslationComponent implements OnInit {
     @translate() global: { [key: string]: any };
   ngOnInit() {}
 
-  updateTitle() {
+    updateTitle() {
       this.global.addOrUpdateKey('home', 'New title');
   }
 
@@ -20,12 +20,11 @@ export class DynamicTranslationComponent implements OnInit {
       this.global.addOrUpdateKey('newKey', 'New key');
   }
 
-  addTranslationObj() {
+    addTranslationObj() {
+
     const newTranslation = {
-      newTranslation: {
         title: 'New translation title'
-      }
     };
-      this.global.addOrUpdateKey(newTranslation, 'en', { merge: true });
+        this.global.addOrUpdateKey('newTranslation',newTranslation);
   }
 }

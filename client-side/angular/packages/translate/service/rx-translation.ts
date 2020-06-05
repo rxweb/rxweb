@@ -3,10 +3,10 @@ import { extract } from "../functions/extract";
 import { getValue } from "../functions/get-value";
 import { BaseResolver } from "../resolver/base-resolver";
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, ApplicationRef } from '@angular/core';
 @Injectable()
 export class RxTranslation {
-    constructor(private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient, private ref: ApplicationRef) {
 
     }
     get language() {
@@ -15,7 +15,7 @@ export class RxTranslation {
 
     change(languageCode: string, onComplete?: Function) {
         var baseResolver = new BaseResolver(translateConfigContainer.config, this.httpClient);
-        baseResolver.languageChanged(languageCode,onComplete);
+        baseResolver.languageChanged(languageCode, () => { this.ref.tick(); if(onComplete) onComplete() });
     }
 
 

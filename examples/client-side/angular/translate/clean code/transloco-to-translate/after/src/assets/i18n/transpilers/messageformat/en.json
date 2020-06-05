@@ -1,8 +1,8 @@
 {
   "home": "Home - english",
   "params": "Replaces standard {{value}} - english",
-  "messageFormat": "The {gender, select, male {boy won his} female {girl won her} other {person won their}} race - english",
-  "messageFormatWithParams": "Can replace {{value}} and also give parse messageformat: The {gender, select, male {boy won his} female {girl won her} other {person won their}} race - english",
+  "messageFormat": "The {{{this.gender == 'male' ? 'boy won his' : this.gender == 'female' ? 'girl won her' : 'person won their'}}} race - english",
+  "messageFormatWithParams": "Can replace {{value}} and also give parse messageformat: The {{{this.gender == 'male' ? 'boy won his' : this.gender == 'female' ? 'girl won her' : 'person won their'}}} race - english",
   "fromList": "from list",
   "a": {
     "b": {

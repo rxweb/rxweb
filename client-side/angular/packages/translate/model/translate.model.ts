@@ -7,7 +7,8 @@ import { MultiLingualData } from "../core/multilingual-data";
 import { getKeyName } from "../functions/get-key-name";
 
 export class TranslateModel {
-    constructor(private data: { [key: string]: any }, private componentData: any,private modelName) {
+    constructor(public json: { [key: string]: any }, private componentData: any, private modelName, private parentData) {
+        let data = json;
         if (data)
             Object.keys(data).forEach(key => {
                 Object.defineProperty(this, key, {
@@ -15,10 +16,11 @@ export class TranslateModel {
                         let text = data[key];
                         if (isObject(text)) {
                             if (!(data[key] instanceof TranslateModel)) {
+                                let pData = Object.keys(parentData).length == 0 ? data : parentData;
                                 if (!translateConfigContainer.loading)
-                                    text = data[key] = new TranslateModel(data[key], componentData, modelName);
+                                    text = data[key] = new TranslateModel(data[key], componentData, modelName, pData);
                                 else
-                                    return new TranslateModel(data[key], {}, modelName);
+                                    return new TranslateModel(data[key], {}, modelName, pData);
                             } else
                                 text = data[key];
                             return text;
@@ -101,10 +103,21 @@ export class TranslateModel {
 
     private getText(translations: any, text: string, columnKey: string) {
         text = translateConfigContainer.ngxTranslate ? this.ngxTranslateParser(translations, columnKey) : text;
-        if (text.indexOf('this.') !== -1) {
+        if (text.indexOf('this.') !== -1 || text.indexOf('{{{this') !== -1) {
             this.thisParameter[columnKey] = true;
-            var func = new Function("x", "return " + text);
-            text = func.call(this.componentData);
+            if (text.indexOf('{{{this') !== -1) {
+                let stringExtractor = extract(['{{{', '}}}']);
+                let keys = stringExtractor(text)
+                keys.forEach(t => {
+                    var func = new Function("x", "return " + t);
+                    let calculatedText = func.call(this.componentData);
+                    text = text.replace(`{{{${t}}}}`, calculatedText);
+                })
+            } else {
+                var func = new Function("x", "return " + text);
+                text = func.call(this.componentData);
+            }
+            
         }
         if (text && text.indexOf("{{") != -1) {
             let stringExtractor = extract(['{{', '}}']);
@@ -112,7 +125,10 @@ export class TranslateModel {
             keys.forEach(key => {
                 if (!this.keyParameters[columnKey])
                     this.keyParameters[columnKey] = {};
-                let value = this.keyParameters[columnKey][key] = getValue(key, this.componentData);
+                let value = getValue(key, this.parentData);
+                if (!value)
+                    value = getValue(key, this.componentData)
+                this.keyParameters[columnKey][key] = value;
                 text = text.replace(`{{${key}}}`, value);
             })
             this.memoized[columnKey] = text;

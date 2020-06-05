@@ -22,8 +22,12 @@ export class BaseResolver {
     resolveGlobal(config: TranslateContainerConfig, isGlobal: boolean = true) {
         if (isGlobal)
             translateContainer.set(config.instance, config.config);
-        if ((isGlobal && !this.baseConfig.forNgxTranslate) || !isGlobal)
-            this.resolve(config).subscribe(t => t);
+        if ((isGlobal && !this.baseConfig.forNgxTranslate) || !isGlobal) {
+            translateConfigContainer.globalTranslate = this.resolve(config);
+            translateConfigContainer.globalTranslate.subscribe(t => {
+                translateConfigContainer.globalTranslate = undefined;
+            });
+        }
     }
 
     resolve(config: TranslateContainerConfig, languageCode: string = "", isRouteLanguageChanged: boolean = false): Observable<boolean> {
@@ -101,7 +105,7 @@ export class BaseResolver {
                     translateConfigContainer.loading = false;
                 }
         }
-        return true;
+        return of(true);
     }
 
     resolveData(containerConfig: TranslateContainerConfig,languageCode:string, isRouteLanguageChanged: boolean = false) {

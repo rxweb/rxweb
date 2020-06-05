@@ -1,36 +1,38 @@
-<h3 class="mb">Structural Directive</h3>
-<ul class="list-group structural">
-  <li class="list-group-item"><b>Regular: </b>{{ global.home }}</li>
-  <li class="list-group-item"><b>With params: </b>{{ global.alert }}</li>
-  <li class="list-group-item"><b>With translation reuse: </b> {{ global.a.b.c }}</li>
-</ul>
+<div >
+  <h3 class="mb">Structural Directive</h3>
+  <ul class="list-group structural">
+    <li class="list-group-item"><b>Regular: </b>{{ global.home }}</li>
+    <li class="list-group-item"><b>With params: </b>{{ global.alert }}</li>
+    <li class="list-group-item" *ngIf="global.a"><b>With translation reuse: </b> {{ global.a.b.c }}</li>
+  </ul>
 
-<h3 class="mtb">Directive</h3>
-<ul class="list-group">
-  <li class="list-group-item"><b>Regular: </b><span>{{ global.home }}</span></li>
-  <li class="list-group-item" (click)="changeParam()">
-    <b>(click) With params: </b><span>{{ global.alert }}</span>
-  </li>
-  <li class="list-group-item">
-    <b>With translation reuse: </b> <span>{{ global.a.b.c }}</span>
-  </li>
-  <li class="list-group-item" (click)="changeKey()">
-    (click) <b>Dynamic key: </b> <span [innerText]="global[key]"></span>
-  </li>
-</ul>
+  <h3 class="mtb">Directive</h3>
+  <ul class="list-group">
+    <li class="list-group-item"><b>Regular: </b><span>{{ global.home }}</span></li>
+    <li class="list-group-item" (click)="changeParam()">
+      <b>(click) With params: </b><span>{{ global.alert }}</span>
+    </li>
+    <li class="list-group-item" *ngIf="global.a">
+      <b>With translation reuse: </b> <span>{{ global.a.b.c }}</span>
+    </li>
+    <li class="list-group-item" (click)="changeKey()">
+      (click) <b>Dynamic key: </b> <span [innerText]="global[key]"></span>
+    </li>
+  </ul>
 
-<h3 class="mtb">Pipe</h3>
-<ul class="list-group pipe">
-  <li class="list-group-item" data-cy="p-regular"><b>Regular: </b>{{ global.home }}</li>
-  <li class="list-group-item" data-cy="p-with-params">
-    <b>With params: </b>{{ global.alert }}
-  </li>
-  <li class="list-group-item" data-cy="p-with-translation-reuse">
-    <b>With translation reuse: </b> {{ global.a.b.c }}
-  </li>
-</ul>
+  <h3 class="mtb">Pipe</h3>
+  <ul class="list-group pipe">
+    <li class="list-group-item" data-cy="p-regular"><b>Regular: </b>{{ global.home }}</li>
+    <li class="list-group-item" data-cy="p-with-params">
+      <b>With params: </b>{{ global.alert }}
+    </li>
+    <li class="list-group-item" data-cy="p-with-translation-reuse" *ngIf="global.a">
+      <b>With translation reuse: </b> {{ global.a.b.c }}
+    </li>
+  </ul>
 
-<h3 class="mtb">Translation in ngFor</h3>
-<ul class="list-group">
-  <li *ngFor="let key of translateList" class="list-group-item">{{ global.get(key) }}</li>
-</ul>
+  <h3 class="mtb">Translation in ngFor</h3>
+  <ul class="list-group">
+    <li *ngFor="let key of translateList" class="list-group-item">{{ global.get(key) }}</li>
+  </ul>
+</div>

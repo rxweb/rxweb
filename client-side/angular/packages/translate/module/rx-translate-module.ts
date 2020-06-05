@@ -13,12 +13,13 @@ import { RX_TRANSLATE_CONFIG, CUSTOM_LOADER } from "../core/rx-translate-config.
 import { overrideErrorsProperty } from "../functions/override-errors-property";
 import { TranslationResolver } from "../core/translation-resolver";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { RxTranslatePipe } from "../pure-pipes/rx-translate.pipe";
 
 @NgModule({
     imports: [RouterModule, HttpClientModule],
-    declarations: [RxTranslateDirective],
+    declarations: [RxTranslateDirective, RxTranslatePipe],
     providers: [ComponentGuard, RxTranslation, TranslationResolver],
-    exports: [RxTranslateDirective],
+    exports: [RxTranslateDirective, RxTranslatePipe],
 })
 export class RxTranslateModule {
     constructor(@Inject(RX_TRANSLATE_CONFIG) config: RxTranslateConfig, httpClient: HttpClient,) {

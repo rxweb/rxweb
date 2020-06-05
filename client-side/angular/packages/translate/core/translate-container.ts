@@ -42,6 +42,8 @@ export const translateContainer:
 
         getByName(name: string): TranslateContainerConfig {
             let containerConfig = this.store.filter(t => t.config.translationName == name);
+            if (containerConfig.length == 0)
+                containerConfig = this.additionalStore.filter(t => t.config.translationName == name);
             return containerConfig.length > 0 ? containerConfig[0] : undefined;
         }
 

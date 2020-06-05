@@ -7,6 +7,7 @@ import { RX_TRANSLATE_CONFIG, CUSTOM_LOADER } from "../core/rx-translate-config.
 import { Title } from "@angular/platform-browser";
 import { TranslationLoader } from "../interface/translation-loader";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 export class ComponentGuard extends BaseResolver implements CanActivate, CanActivateChild {
 
@@ -14,11 +15,22 @@ export class ComponentGuard extends BaseResolver implements CanActivate, CanActi
 
 
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        return this.resolveRoute(childRoute);
+        return this.resolveGlobalTranslate(childRoute);
     }
     
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        return this.resolveRoute(route);
+        return this.resolveGlobalTranslate(route);
+    }
+
+    private resolveGlobalTranslate(route: ActivatedRouteSnapshot) {
+        if (translateConfigContainer.globalTranslate) {
+            return Observable.create(subscriber => {
+                translateConfigContainer.globalTranslate.subscribe(t => {
+                    this.resolveRoute(route).subscribe(x => { subscriber.next(x); subscriber.complete() });
+                })
+            })
+        } else
+            return this.resolveRoute(route);
     }
 
     
