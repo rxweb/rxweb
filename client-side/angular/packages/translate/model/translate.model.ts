@@ -5,6 +5,7 @@ import { translateConfigContainer } from "../core/translate-config-container";
 import { equals } from "../functions/equals";
 import { MultiLingualData } from "../core/multilingual-data";
 import { getKeyName } from "../functions/get-key-name";
+import { runPipe } from "../functions/pipe.transformer";
 
 export class TranslateModel {
     constructor(public json: { [key: string]: any }, private componentData: any, private modelName, private parentData) {
@@ -123,11 +124,14 @@ export class TranslateModel {
             let stringExtractor = extract(['{{', '}}']);
             let keys = stringExtractor(text);
             keys.forEach(key => {
+                let value = runPipe(key, this.componentData, this.parentData);
+                if (key == value) {
+                    value = getValue(key, this.parentData);
+                    if (!value)
+                        value = getValue(key, this.componentData)
+                }
                 if (!this.keyParameters[columnKey])
                     this.keyParameters[columnKey] = {};
-                let value = getValue(key, this.parentData);
-                if (!value)
-                    value = getValue(key, this.componentData)
                 this.keyParameters[columnKey][key] = value;
                 text = text.replace(`{{${key}}}`, value);
             })
