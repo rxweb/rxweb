@@ -4,7 +4,7 @@ import { getInstanceValue } from "./get-instance-value";
 
 export function runPipe(text, componentData: any, parentData: any) {
     let pipeName: string = '';
-    if (text.indexOf("|")) {
+    if (text.indexOf("|") !== -1) {
         let splitText = text.split("|");
         let leftText = getInstanceValue(splitText[0].trim(), componentData, parentData);
         let rightText = splitText[1].split(new RegExp(":(?=([^\"]*\"[^\"]*\")*[^\"]*$)")).filter(t => t !== undefined).map(t => getInstanceValue(t, componentData, parentData));

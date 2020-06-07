@@ -8,8 +8,8 @@ import { getKeyName } from "../functions/get-key-name";
 import { runPipe } from "../functions/pipe.transformer";
 
 export class TranslateModel {
-    constructor(public json: { [key: string]: any }, private componentData: any, private modelName, private parentData) {
-        let data = json;
+    constructor(public raw: { [key: string]: any }, private componentData: any, private modelName, private parentData) {
+        let data = raw;
         if (data)
             Object.keys(data).forEach(key => {
                 Object.defineProperty(this, key, {
