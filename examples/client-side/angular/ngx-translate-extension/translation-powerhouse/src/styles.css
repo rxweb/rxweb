@@ -79,3 +79,7 @@ th {
 .light {
   background-color: #dae0e5;
 }
+.ft-small {
+  background-color: #fafafa;
+  font-weight:normal;
+}

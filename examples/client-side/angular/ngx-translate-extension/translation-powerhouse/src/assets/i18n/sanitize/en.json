@@ -1,0 +1,35 @@
+{
+
+  "currencyStaticValue": "Pay {{0.259 | currency}}",
+  "currencyDynamicValue": "Pay {{pay | currency}}",
+  "currencyStaticParam": "Pay {{pay | currency:'CAD'}}",
+  "currencyDynamicParam": "Pay {{pay | currency:currencyCode}}",
+
+  "dateDynamicValue": "Today is {{today | date}}",
+  "dateStaticParam": "Or if you prefer, {{today | date:'fullDate'}}",
+  "dateDynamicParam": "The time is {{today | date:time}}",
+
+  "decimalStaticValue": "{{2.71828 | number}}",
+  "decimalDynamicValue": "{{numeric | number}}",
+  "decimalStaticParam": "{{numeric | number:'3.1-5'}}",
+  "decimalDynamicParam": "{{numeric | number:formatting}}",
+
+  "lowerCaseStaticValue": "{{'GOOD EXAMPLE' | lowercase}}",
+  "lowerCaseDynamicValue": "{{lowerCase | lowercase}}",
+
+  "upperCaseStaticValue": "{{'good repository' | uppercase}}",
+  "upperCaseDynamicValue": "{{upperCase | uppercase}}",
+
+  "titleCaseStaticValue": "{{'my name is  munad' | titlecase}}",
+  "titleCaseDynamicValue": "{{titleCase | titlecase}}",
+
+  "percentStaticValue": "{{0.259 | percent}}",
+  "percentDynamicValue": "{{percentage | percent}}",
+  "percentStaticParam": "{{percentage | percent:'4.3-5'}}",
+  "percentDynamicParam": "{{percentage | percent:percentFormatting}}",
+
+  "customStaticValue": "{{'Superb' | custom}}",
+  "customDynamicValue": "{{custom | custom}}",
+  "customStaticParam": "{{custom | custom:'😍'}}",
+  "customDynamicParam": "{{custom | custom:emoji}}"
+}
