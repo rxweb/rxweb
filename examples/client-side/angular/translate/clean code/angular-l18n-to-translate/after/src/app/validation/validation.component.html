@@ -1,0 +1,23 @@
+<h1>{{ global.validation.title }}</h1>
+
+<hr>
+
+<h3>{{ global.validation.numbers }}</h3>
+<form >
+    <div>
+        <input [formControl]="decimal" >
+        <div class="error" *ngIf="decimal.hasError('required')">
+            {{ decimal.errors.required.message }}
+        </div>
+        <div class="error" *ngIf="decimal.hasError('maxLength')">
+            {{ decimal.errors.maxLength.message }}
+        </div>
+        <div class="error" *ngIf="decimal.hasError('minLength')">
+            {{ decimal.errors.minLength.message  }}
+        </div>
+    </div>
+    <br>
+    <button type="submit" [disabled]="!decimal.valid">{{ global.validation.submit }}</button>
+    <br>
+    <p>{{ global.validation.numberValue }}</p>
+</form>

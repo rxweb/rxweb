@@ -1,0 +1,9 @@
+<h3>Directives</h3>
+<p l10n-title title="home.greeting" l10nTranslate>home.greeting</p>
+<p [params]="{ name: 'Angular l10n' }" l10nTranslate>home.whoIAm</p>
+<p innerHTML="home.description" l10nTranslate></p>
+<br>
+<p [options]="{ dateStyle: 'full', timeStyle: 'short' }" l10nDate>{{ today }}</p>
+<p [options]="{ numeric:'always', style:'long' }" unit="second" l10nTimeAgo>{{ timeAgo }}</p>
+<br>
+<p [options]="{ digits: '1.2-2', style: 'currency' }" l10nNumber>{{ value }}</p>

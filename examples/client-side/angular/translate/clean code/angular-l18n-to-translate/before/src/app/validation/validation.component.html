@@ -1,0 +1,33 @@
+<h1>{{ 'validation.title' | translate:locale.language }}</h1>
+
+<hr>
+
+<h3>{{ 'validation.numbers' | translate:locale.language }}</h3>
+<form #numberForm="ngForm" (ngSubmit)="onNumberSubmit()" novalidate>
+    <div>
+        <input [(ngModel)]="model.decimal" name="decimal" #decimal="ngModel"
+            placeholder="{{ 1000 | l10nNumber:locale.language:options }}" [options]="options" [minValue]="minValue"
+            [maxValue]="maxValue" required (keyup)="decimal.valid ? parsedValue : parsedValue = null"
+            l10nValidateNumber>
+        <div class="error" *ngIf="decimal.hasError('required')">
+            {{ 'validation.numberIsRequired' | translate:locale.language }}
+        </div>
+        <div class="error" *ngIf="decimal.hasError('format')">
+            {{ 'validation.numberIsInvalid' | translate:locale.language:{ format: 1000 |
+                l10nNumber:locale.language:options } }}
+        </div>
+        <div class="error" *ngIf="decimal.hasError('minValue')">
+            {{ 'validation.minValueError' | translate:locale.language:{ minValue: minValue |
+                    l10nNumber:locale.language:options } }}
+        </div>
+        <div class="error" *ngIf="decimal.hasError('maxValue')">
+            {{ 'validation.maxValueError' | translate:locale.language:{ maxValue: maxValue |
+                    l10nNumber:locale.language:options } }}
+        </div>
+    </div>
+    <br>
+    <button type="submit" [disabled]="!numberForm.form.valid">{{
+            'validation.submit' | translate:locale.language }}</button>
+    <br>
+    <p>{{ 'validation.numberValue' | translate:locale.language:{ parsedValue: parsedValue || '' } }}</p>
+</form>

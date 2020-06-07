@@ -1,0 +1,16 @@
+<h1>{{ global.home.title }}</h1>
+<h2>{{ global.home.subtitle }}</h2>
+
+<hr>
+
+<div class="box">
+  <div>
+    <app-pipe [today]="today" [timeAgo]="timeAgo" [value]="value"></app-pipe>
+  </div>
+  <div>
+    <app-directive [today]="today" [timeAgo]="timeAgo" [value]="value"></app-directive>
+  </div>
+  <div>
+    <app-api [today]="today" [timeAgo]="timeAgo" [value]="value"></app-api>
+  </div>
+</div>
