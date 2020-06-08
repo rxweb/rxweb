@@ -95,7 +95,7 @@ export class TranslateModel {
         else
             data[name] = value;
         MultiLingualData.addOrUpdate(keyName, data, this.languageCode);
-        MultiLingualData.removeComponentPropValue(keyName, this.componentData.constructor);
+        MultiLingualData.removeComponentPropValue(this.componentData.constructor, this.componentData["__ngContext__"].rxRefMarkedId,keyName);
     }
 
     private ngxTranslateParser(translations: any, key: string) {

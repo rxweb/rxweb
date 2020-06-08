@@ -4,9 +4,9 @@ import { TranslationModelData } from "../interface/translation-model-data";
 export const MultiLingualData:
     {
         addOrUpdate(key: string, data: { [key: string]: any }, translationName: string, languageCode?: string);
-        addOrUpdateComponent(key: string, data: { [key: string]: any }, instance: Function);
-        getComponentPropValue(key: string, instance: Function);
-        removeComponentPropValue(key: string, instance: Function);
+        addOrUpdateComponent(key: string, data: { [key: string]: any }, instance: Function, refMarkedId: number);
+        getComponentPropValue(key: string, instance: Function, refMarkedId: number);
+        removeComponentPropValue(instance: Function, refMarkedId: number, keyName?: string);
         remove(key: string);
         get(key: string);
         clearInActives(config: RxTranslateConfig);
@@ -27,22 +27,30 @@ export const MultiLingualData:
         }
 
 
-        addOrUpdateComponent(key: string, data: { [key: string]: any }, instance: Function) {
-            let indexOf = this.translationModelData.findIndex(t => t.instance == instance && t.key == key);
+        addOrUpdateComponent(key: string, data: { [key: string]: any }, instance: Function, refMarkedId: number) {
+            let indexOf = this.translationModelData.findIndex(t => t.instance == instance && t.key == key && t.rxRefMarkedId == refMarkedId);
             if (indexOf != -1)
-                this.translationModelData[indexOf] = { key: key, data: data, instance: instance };
+                this.translationModelData[indexOf] = { key: key, data: data, instance: instance, rxRefMarkedId: refMarkedId };
             else
-                this.translationModelData.push({ key: key, data: data, instance: instance });
+                this.translationModelData.push({ key: key, data: data, instance: instance, rxRefMarkedId: refMarkedId });
         }
 
-        getComponentPropValue(key: string, instance: Function) {
-            let indexOf = this.translationModelData.findIndex(t => t.instance == instance && t.key == key);
+        getComponentPropValue(key: string, instance: Function, refMarkedId: number) {
+            let indexOf = this.translationModelData.findIndex(t => t.instance == instance && t.key == key && t.rxRefMarkedId == refMarkedId);
             return indexOf != -1 ? this.translationModelData[indexOf].data : undefined;
         }
 
-        removeComponentPropValue(key: string, instance: Function) {
-            let indexOf = this.translationModelData.findIndex(t => t.instance == instance && t.key == key);
-            return indexOf != -1 ? this.translationModelData.splice(indexOf,1) : undefined;
+        removeComponentPropValue(instance: Function, refMarkedId: number, keyName?: string) {
+            let indexOf = -1;
+            if (keyName)
+                indexOf = this.translationModelData.findIndex(t => t.instance == instance && t.rxRefMarkedId == refMarkedId && t.key == keyName);
+            else {
+                let result = this.translationModelData.filter(t => t.instance == instance && t.rxRefMarkedId == refMarkedId);
+                for (let data of result) {
+                    this.translationModelData.splice(this.translationModelData.indexOf(data), 1)
+                }
+            }
+            return indexOf != -1 ? this.translationModelData.splice(indexOf, 1) : undefined;
         }
 
         contains(key: string, languageCode: string) {
@@ -69,5 +77,5 @@ export const MultiLingualData:
         remove(key: string) {
             this.keys[key] = undefined;
         }
-        
+
     });
