@@ -38,6 +38,7 @@ import { CommonModule } from '@angular/common';
             cacheLanguageWiseObject: true,
             globalFilePath: "assets/i18n/app-{{language-code}}.json",
             filePath: "assets/i18n/{{translation-name}}-{{language-code}}.json",
+            controlErrorMessage: { path: 'validation' }, // configure the validation message path for binding the validation messages according to the active language, refer this file `assets\i18n\en.json`
         }),
         RxTranslateSanitizeModule, CommonModule
     ],

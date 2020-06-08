@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\after\\node_modules\\@rxweb\\translate",
+    "\\after\\node_modules\\@rxweb\\translate\\__ivy_ngcc__",
+    "\\after\\node_modules\\@rxweb\\translate\\__ivy_ngcc__\\fesm2015",
+    "\\after\\src\\app",
+    "\\after\\src\\app\\home",
+    "\\after\\src\\app\\home\\api",
+    "\\after\\src\\app\\home\\api\\pipes",
+    "\\after\\src\\app\\home\\directive",
+    "\\after\\src\\app\\home\\pipe",
+    "\\after\\src\\app\\validation"
+  ],
+  "SelectedNode": "\\before",
+  "PreviewInSolutionExplorer": false
+}

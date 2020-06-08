@@ -17,12 +17,9 @@ export class ValidationComponent {
 
     parsedValue: number | null = null;
 
-    constructor(private formBuilder: FormBuilder) {
-
-    }
     decimal: FormControl;
     ngOnInit() {
-        this.decimal = new FormControl('', { validators: [Validators.required, Validators.maxLength(this.maxValue), Validators.minLength(this.minValue)] })
+        this.decimal = new FormControl('', { validators: [Validators.required, Validators.max(this.maxValue), Validators.min(this.minValue)] })
     }
 
     @translate() global: any;

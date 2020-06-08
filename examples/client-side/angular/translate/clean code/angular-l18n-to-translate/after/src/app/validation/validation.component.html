@@ -9,11 +9,11 @@
         <div class="error" *ngIf="decimal.hasError('required')">
             {{ decimal.errors.required.message }}
         </div>
-        <div class="error" *ngIf="decimal.hasError('maxLength')">
-            {{ decimal.errors.maxLength.message }}
+        <div class="error" *ngIf="decimal.hasError('max')">
+            {{ decimal.errors.max.message }}
         </div>
-        <div class="error" *ngIf="decimal.hasError('minLength')">
-            {{ decimal.errors.minLength.message  }}
+        <div class="error" *ngIf="decimal.hasError('min')">
+            {{ decimal.errors.min.message  }}
         </div>
     </div>
     <br>

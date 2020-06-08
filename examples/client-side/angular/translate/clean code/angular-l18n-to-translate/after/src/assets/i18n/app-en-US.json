@@ -14,14 +14,17 @@
     "onPush": {
         "title": "OnPush Change detection strategy"
     },
-    "validation": {
-        "title": "Validation",
-        "numbers": "Numbers",
-        "numberIsInvalid": "Number is invalid. Required format: {{ format }}",
-        "minValueError": "Minimum value: {{ minValue }}",
-        "maxValueError": "Maximum value: {{ maxValue }}",
-        "numberIsRequired": "Number is required",
-        "numberValue": "Number value: {{ parsedValue }}",
-        "submit": "Submit"
-    }
+  "validation": {
+    "required": "This field is required.",
+    "min": "Minimum allowed length is {{min}} and you have entered {{actual}}.",
+    "max": "Maximum allowed length is {{max}} and you have entered {{actual}}.",
+    "title": "Validation",
+    "numbers": "Numbers",
+    "numberIsInvalid": "Number is invalid. Required format: {{ format }}",
+    "minValueError": "Minimum value: {{ minValue }}",
+    "maxValueError": "Maximum value: {{ maxValue }}",
+    "numberIsRequired": "Number is required",
+    "numberValue": "Number value: {{ parsedValue }}",
+    "submit": "Submit"
+  }
 }
