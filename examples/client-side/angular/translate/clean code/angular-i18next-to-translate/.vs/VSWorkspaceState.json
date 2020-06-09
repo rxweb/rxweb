@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\after",
+    "\\after\\src",
+    "\\after\\src\\app",
+    "\\after\\src\\app\\content",
+    "\\after\\src\\app\\content\\access-denied",
+    "\\after\\src\\app\\features",
+    "\\after\\src\\app\\features\\rich_form_feature",
+    "\\after\\src\\app\\routing",
+    "\\after\\src\\app\\structure",
+    "\\after\\src\\app\\structure\\header-controls"
+  ],
+  "SelectedNode": "\\after\\src\\app\\environment.ts",
+  "PreviewInSolutionExplorer": false
+}
