@@ -1,0 +1,42 @@
+
+input.ng-dirty.ng-invalid,
+textarea.ng-dirty.ng-invalid,
+.form-control.ng-dirty.ng-invalid,
+.ng-dirty.ng-invalid:focus
+{
+    background-color: #FDEDED;
+    border-color: #D22630;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* s7 ui kit fix */
+.form-group .error-container {
+  display: block;
+}
+
+.error-container {
+	color: #D22630;
+	padding-top: 2px;
+}
+
+
+/* end fix */
+
+checkbox.ng-invalid .custom-control-indicator,
+multiplecheckbox.ng-invalid.ng-dirty .custom-control-indicator,
+flatpickr.ng-invalid.ng-dirty .form-control, 
+datepicker.ng-invalid.ng-dirty .select2-container .select2-selection,
+radio-button.ng-dirty.ng-invalid .custom-control-indicator,
+div.ng-invalid.ng-dirty.form-group-valid .custom-control-indicator,
+div.ng-invalid.ng-dirty.form-group-valid .select2-container .select2-selection {
+    border-color: #D22630;
+    background-color: #FDEDED;
+}
+
+radio-button + radio-button,
+checkbox + checkbox {
+  margin-left: 15px;
+}
+
+

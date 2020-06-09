@@ -1,0 +1,19 @@
+﻿<header>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #f2f2f2;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="navbar-brand" href="#">
+                <img src="assets/logo.svg" width="80" height="40" class="d-inline-block align-top" alt="" />
+            </a>
+            <b>{{ 'application_title' | i18next }}</b>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">{{ 'simple_demo' | i18nextCap }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/rich_form">{{ 'rich_form_title' | i18nextCap }}</a>
+                </li>
+            </ul>
+        </div>
+        <header-language></header-language>
+    </nav>
+</header>

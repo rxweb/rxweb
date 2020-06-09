@@ -1,0 +1,6 @@
+<div>
+    <ng-template ngFor let-lang [ngForOf]="languages" let-i="index">
+        <a *ngIf="language !== lang" href="javascript:void(0)" class="link lang-item {{lang}}" (click)="changeLanguage(lang)">{{ '_languages.' + lang | i18nextCap }}</a>
+        <span *ngIf="language === lang" class="current lang-item {{lang}}">{{ '_languages.' + lang | i18nextCap }}</span>
+    </ng-template>
+</div>

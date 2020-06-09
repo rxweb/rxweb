@@ -1,0 +1,51 @@
+﻿<div class="container">
+    <br/>
+    <h1>{{ 'simple_demo' | i18nextCap }}</h1>
+    <br/>
+    <hr/>
+    <div class="row">
+        <h4>
+            {{ 'parametrized_string_title' | i18nextCap }}
+        </h4>
+        <div class="input-group">
+            <div class="form-inline">
+                <div class="form-group">
+                    <span>{{ 'parametrized_string' | i18next: { value: value, str: str } }}</span>
+                </div>
+                <div class="form-group mx-sm-3">
+                    <input name="number" type="number" class="form-control" [(ngModel)]="value">
+                </div>
+                <div class="form-group mx-sm-3">
+                    <input name="str" type="text" class="form-control" [(ngModel)]="str">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <hr/>
+    <div class="row">
+        <h4>
+            {{ 'case_demo_title' | i18nextCap }}
+        </h4>
+        <div class="form-inline">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>original</th>
+                        <th>capitalize</th>
+                        <th>lowercase</th>
+                        <th>uppercase</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ 'case_demo' | i18next }}</td>
+                        <td>{{ 'case_demo' | i18next: { format: 'capitalize' } }}</td>
+                        <td>{{ 'case_demo' | i18next: { format: 'lowercase' } }}</td>
+                        <td>{{ 'case_demo' | i18next | i18nextFormat: 'uppercase' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

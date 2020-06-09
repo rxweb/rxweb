@@ -1,0 +1,63 @@
+﻿<div>
+    <div class="main-header">
+        <h1>{{ 'title' | i18next: { case: 'cap' } }}</h1>
+    </div>
+    <br/>
+    <form #requestHtmlForm class="form-default" name="requestHtmlForm" [formGroup]="form" (ngSubmit)="onSubmit($event)">
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label class="control-label control-label-sm text-muted">{{ 'email' | i18nextCap }}</label>
+                    <input validate-onblur validationMessage name="email" type="email" class="form-control" formControlName="email" [(ngModel)]="model.email" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label class="control-label control-label-sm text-muted">{{ 'count' | i18nextCap }}</label>
+                    <input validate-onblur validationMessage name="count" type="number" class="form-control" formControlName="count" [(ngModel)]="model.count" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>{{ 'technical_contact' | i18nextEager }}</div>
+        </div>
+
+        <div formGroupName="technicalContact">
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="control-label control-label-sm text-muted">{{ '_person.last_name' | i18next: { format: 'cap' } }}</label>
+                        <input validate-onblur validationMessage class="form-control" type="text" formControlName="lastName" [(ngModel)]="model.technicalContact.lastName" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="control-label control-label-sm text-muted">{{ '_person.first_name' | i18next: { format: 'cap' } }}</label>
+                        <input validate-onblur validationMessage class="form-control" type="text" formControlName="firstName" [(ngModel)]="model.technicalContact.firstName">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="control-label control-label-sm text-muted">{{ '_person.middle_name' | i18next: { format: 'cap' } }}</label>
+                        <input validate-onblur validationMessage class="form-control" type="text" formControlName="middleName" [(ngModel)]="model.technicalContact.middleName">
+                    </div>
+                </div>
+                <div class="col-6">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">{{ '_buttons.send' | i18nextCap }}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

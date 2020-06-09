@@ -10,7 +10,7 @@ export function defineProperty(model: Function, propertyName: string, modelName:
         get: function () {
             let keyName = getKeyName(modelName, languageCode, filePath);
             data = MultiLingualData.get(keyName);
-            let refMarkedId = this["__ngContext__"].rxRefMarkedId;
+            let refMarkedId = this["__ngContext__"] ?  this["__ngContext__"].rxRefMarkedId : 0;
             let translationModelData = MultiLingualData.getComponentPropValue(keyName, this.constructor, refMarkedId );
             if ((data && !translationModelData))
                 if (!translateConfigContainer.loading) {

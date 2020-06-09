@@ -1,0 +1,24 @@
+﻿{
+    "required": "Field is required.",
+    "error": "Error occured.",
+    "min": "Minimum value is {{min}}. Was {{actual}}.",
+    "max": "Maximum value is {{max}}. Was {{actual}}.",
+    "email": "$t(validation:_fill) valid e-mail.",
+    "pattern": "$t(validation:_fill) valid value.",
+    "maxlength": "Maximum length {{requiredLength}}.",
+
+    "_fill": "Please fill in",
+    "control_specific": {
+        "technicalContact": {
+            "firstName": {
+                "required": "$t(validation:_fill) technical specialist's first name."
+            },
+            "lastName": {
+                "required": "$t(validation:_fill) technical specialist's last name."
+            },
+            "middleName": {
+                "required": "$t(validation:_fill) technical specialist's patronymic."
+            }
+        }
+    }
+}

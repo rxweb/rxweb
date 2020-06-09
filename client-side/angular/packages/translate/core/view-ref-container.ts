@@ -13,7 +13,7 @@ export const viewRefContainer:
             var changeDetector = new RxChangeDetectorRef(instance);
             if (changeDetector.createViewRef())
                 this.viewRefs.push(changeDetector);
-            return instance[NG_CONTEXT].rxRefMarkedId;
+            return instance[NG_CONTEXT] ? instance[NG_CONTEXT].rxRefMarkedId : 0;
         }
 
         markForCheck(): void {

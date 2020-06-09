@@ -1,0 +1,14 @@
+{
+  "title": "Rich form with validation",
+  "technical_contact": "technical contact",
+  "count": "count",
+  "_person": {
+    "first_name": "first name",
+    "last_name": "last name",
+    "middle_name": "middle name",
+    "email": "email"
+  },
+  "_buttons": {
+    "send": "send"
+  }
+}
