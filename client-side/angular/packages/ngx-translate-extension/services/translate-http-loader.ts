@@ -1,15 +1,17 @@
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { TranslateLoader } from "@ngx-translate/core"
-import { NGX_TRANSLATE_EXTENSION_CONFIG } from "../const/app.const";
 import { TranslateModuleConfig } from '../interface/translate-module-config'
 import { Inject, Injectable } from "@angular/core";
 import { replacer } from "@rxweb/translate"
+import { configContainer } from "../const/config.container";
 @Injectable()
 export class TranslateHttpLoader implements TranslateLoader {
-    constructor(private http: HttpClient, @Inject(NGX_TRANSLATE_EXTENSION_CONFIG) private config: TranslateModuleConfig) { }
+    private config: TranslateModuleConfig
+    constructor(private http: HttpClient) {}
 
     public getTranslation(lang: any): Observable<Object> {
+        this.config = configContainer.config;
         return this.http.get(this.getUrl(lang));
     }
 

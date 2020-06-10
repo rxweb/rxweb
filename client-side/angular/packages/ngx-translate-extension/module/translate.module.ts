@@ -11,6 +11,7 @@ import { CUSTOM_LOADER, NGX_TRANSLATE_EXTENSION_CONFIG } from '../const/app.cons
 import { RxTranslateModule, TranslationResolver } from '@rxweb/translate';
 import {  HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from "../services/translate-http-loader"
+import { configContainer } from '../const/config.container';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { TranslateHttpLoader } from "../services/translate-http-loader"
 })
 export class TranslateModule {
     constructor(translateService: TranslateService, @Inject(NGX_TRANSLATE_EXTENSION_CONFIG) config: TranslateModuleConfig, translationResolver: TranslationResolver) {
+        configContainer.config = config;
         if (config.controlErrorMessage)
             translationResolver.controlErrorMessage = config.controlErrorMessage
     }
@@ -46,7 +48,7 @@ export class TranslateModule {
                 { provide: USE_DEFAULT_LANG, useValue: config.useDefaultLang },
                 { provide: USE_EXTEND, useValue: config.extend },
                 { provide: DEFAULT_LANGUAGE, useValue: config.defaultLanguage },
-                config.loader ? { provide: CUSTOM_LOADER, useClass: (<any>config.loader).useClass } : { provide: CUSTOM_LOADER, useClass: TranslateHttpLoader },
+                config.loader && !(<any>config.loader).useFactory ? { provide: CUSTOM_LOADER, useClass: (<any>config.loader).useClass } : config.loader && (<any>config.loader).useFactory ? { provide: CUSTOM_LOADER, useFactory: (<any>config.loader).useFactory, deps: (<any>config.loader).deps } : { provide: CUSTOM_LOADER, useClass: TranslateHttpLoader },
                 { provide: "singleton", useValue: true },
                 {
                     provide: NGX_TRANSLATE_EXTENSION_CONFIG, useValue: config || {}},
