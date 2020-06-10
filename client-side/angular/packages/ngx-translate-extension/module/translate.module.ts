@@ -1,23 +1,27 @@
 import { NgModule, ModuleWithProviders, Injector, Inject } from '@angular/core';
-import {  TranslateModuleConfig, TranslateCompiler, TranslateParser, TranslateFakeCompiler, TranslateDefaultParser, MissingTranslationHandler, FakeMissingTranslationHandler, TranslateStore, USE_STORE, USE_DEFAULT_LANG, USE_EXTEND, DEFAULT_LANGUAGE, TranslateLoader } from '@ngx-translate/core';
+import { TranslateCompiler, TranslateParser, TranslateFakeCompiler, TranslateDefaultParser, MissingTranslationHandler, FakeMissingTranslationHandler, TranslateStore, USE_STORE, USE_DEFAULT_LANG, USE_EXTEND, DEFAULT_LANGUAGE, TranslateLoader } from '@ngx-translate/core';
+import { TranslateModuleConfig } from '../interface/translate-module-config'
 import { TranslatePipe } from '../pipes/translate.pipe'
 import { TranslateService } from '../services/translate.service'
 import { TranslateDirective } from "../directives/translate.directive"
 import { TranslateLoaderExtension } from '../services/translate-loader-extension';
 import { RouterModule } from '@angular/router';
 import { RequestState } from '../services/request.state';
-import { CUSTOM_LOADER } from '../const/app.const';
-import { RxTranslateModule } from '@rxweb/translate';
+import { CUSTOM_LOADER, NGX_TRANSLATE_EXTENSION_CONFIG } from '../const/app.const';
+import { RxTranslateModule, TranslationResolver } from '@rxweb/translate';
 import {  HttpClientModule } from '@angular/common/http';
-
-
+import { TranslateHttpLoader } from "../services/translate-http-loader"
 
 @NgModule({
     declarations: [
         TranslatePipe,
         TranslateDirective
     ],
-    imports: [RouterModule, RxTranslateModule, HttpClientModule],
+    imports: [RouterModule.forRoot([]),
+    RxTranslateModule.forRoot({
+        forNgxTranslate: true,
+        cacheLanguageWiseObject: true,
+    }), HttpClientModule],
     exports: [
         TranslatePipe,
         TranslateDirective,
@@ -25,8 +29,9 @@ import {  HttpClientModule } from '@angular/common/http';
     ]
 })
 export class TranslateModule {
-    constructor(translateService: TranslateService) {
-        
+    constructor(translateService: TranslateService, @Inject(NGX_TRANSLATE_EXTENSION_CONFIG) config: TranslateModuleConfig, translationResolver: TranslationResolver) {
+        if (config.controlErrorMessage)
+            translationResolver.controlErrorMessage = config.controlErrorMessage
     }
     static forRoot(config: TranslateModuleConfig = {}): ModuleWithProviders<TranslateModule> {
         return {
@@ -41,15 +46,17 @@ export class TranslateModule {
                 { provide: USE_DEFAULT_LANG, useValue: config.useDefaultLang },
                 { provide: USE_EXTEND, useValue: config.extend },
                 { provide: DEFAULT_LANGUAGE, useValue: config.defaultLanguage },
-                config.loader ? { provide: CUSTOM_LOADER, useClass: (<any>config.loader).useClass } : { provide: CUSTOM_LOADER, useValue: null },
-                { provide: "singleton", useValue: true},
+                config.loader ? { provide: CUSTOM_LOADER, useClass: (<any>config.loader).useClass } : { provide: CUSTOM_LOADER, useClass: TranslateHttpLoader },
+                { provide: "singleton", useValue: true },
+                {
+                    provide: NGX_TRANSLATE_EXTENSION_CONFIG, useValue: config || {}},
                 TranslateService,
                 RequestState
-          ]
+            ]
         };
     }
 
-    static forChild(config: TranslateModuleConfig  = {}): ModuleWithProviders<TranslateModule> {
+    static forChild(config: TranslateModuleConfig = {}): ModuleWithProviders<TranslateModule> {
         return {
             ngModule: TranslateModule,
             providers: []

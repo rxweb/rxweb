@@ -8,16 +8,5 @@ export * from './functions/equals';
 export * from './pure-pipes/rx-translate.pipe';
 export * from './module/rx-sanitize-module';
 export * from './decorators/translate-sanitizer.decorator'
-
-//change(languageCode, onComplete) {
-//    var baseResolver = new BaseResolver(translateConfigContainer.config, this.httpClient);
-//    baseResolver.languageChanged(languageCode, () => {
-//        //componentData.__proto__.data = componentData.__proto__.data == "a" ? "b" : "a";
-//        //console.log(componentData)
-//        //console.log(componentData.__proto__.data)
-//        debugger; if (onComplete)
-//            onComplete();
-//        console.log(componentData)
-//        var t = setTimeout(() => componentData.markForCheck())
-//    });
-//}
+export * from './interface/error-message-config'
+export * from './functions/replacer'

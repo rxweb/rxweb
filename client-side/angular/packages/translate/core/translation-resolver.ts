@@ -5,13 +5,18 @@ import { BaseResolver } from '../resolver/base-resolver'
 import { translateConfigContainer } from '../core/translate-config-container'
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core";
+import { ErrorMessageConfig } from "../interface/error-message-config";
 @Injectable()
 export class TranslationResolver {
     constructor(private httpClient:HttpClient) {
 
     }
 
-    private _allowedLanguages:Array<string> = [];
+    private _allowedLanguages: Array<string> = [];
+
+    set controlErrorMessage(value: ErrorMessageConfig) {
+        translateConfigContainer.config.controlErrorMessage = value;
+    }
 
     set resolver(value: Function) {
         translateConfigContainer.resolver = value;

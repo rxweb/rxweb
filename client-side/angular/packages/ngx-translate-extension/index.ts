@@ -9,3 +9,5 @@ export {
     TranslateStore, TranslationChangeEvent, USE_DEFAULT_LANG, USE_EXTEND, USE_STORE
 } from "@ngx-translate/core"
 export * from './decorators/translateComponent.decorator'
+export * from './services/translate-http-loader'
+export { NGX_TRANSLATE_EXTENSION_CONFIG } from './const/app.const'

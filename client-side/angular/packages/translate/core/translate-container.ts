@@ -63,6 +63,7 @@ export const translateContainer:
                 let instanceConfig: TranslateContainerConfig = { instance: model, config: config };
                 this.set(model, config)
                 let count = this.store.filter(t => t.instance == model).length;
+                count = this.additionalStore.filter(t => t.instance == model).length + count;
                 if (count == 1)
                     overrideDestroyMethod(model, config.translationName);
                 return instanceConfig;

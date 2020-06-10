@@ -10,6 +10,7 @@ import { getKeyName } from "../functions/get-key-name";
 import { Observable, of, Subscription, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from "@angular/common/http";
+import { replacer } from "../functions/replacer";
 export class BaseResolver {
     constructor(private baseConfig: RxTranslateConfig, private httpClient: HttpClient) {
         this.cloneBaseConfig = { ...baseConfig };
@@ -75,11 +76,11 @@ export class BaseResolver {
         languageCode = containerConfig.config.language || languageCode || this.cloneBaseConfig.languageCode;
         if (containerConfig.config.filePath || this.cloneBaseConfig.filePath) {
             if (containerConfig.config.filePath) {
-                let text = this.replace(splitKeywords, containerConfig.config.filePath, { "language-code": languageCode, "translation-name": containerConfig.config.translationName })
+                let text = replacer(splitKeywords, containerConfig.config.filePath, { "language-code": languageCode, "translation-name": containerConfig.config.translationName })
                 url = `/${text}`;
             }
             else {
-                let text = this.replace(splitKeywords, this.cloneBaseConfig.filePath, { "language-code": languageCode, "translation-name": containerConfig.config.translationName })
+                let text = replacer(splitKeywords, this.cloneBaseConfig.filePath, { "language-code": languageCode, "translation-name": containerConfig.config.translationName })
                 url = `/${text}`;
             }
         }
@@ -141,15 +142,6 @@ export class BaseResolver {
         return this.resolve(containerConfig, languageCode);
     }
     fakeResolveByName(name: string, fakeData: any, resolve: Function) {
-        //this.containerConfig = translateContainer.getByName(name);
-        //if (!this.containerConfig)
-        //    this.containerConfig = {
-        //        config: { translationName: name, }, instance: null
-        //    }
-        //this.xhr = <any>{
-        //    status: 200, response: fakeData, removeEventListener: (x, y) => { }
-        //};
-        //this.onLoad(resolve)();
     }
     private getKeys(languageCode: string) {
         return MultiLingualData.getActiveKeys().map(key => {
@@ -171,16 +163,6 @@ export class BaseResolver {
             if (onComplete)
                 onComplete();
         }
-    }
-    private replace(extractKeys: any, text: string, data: { [key: string]: any }): string {
-        if (text && text.indexOf("{{") != -1) {
-            let extractor = extract(extractKeys);
-            let keys = extractor(text);
-            keys.forEach(key => {
-                text = text.replace(`{{${key}}}`, getValue(key, data));
-            })
-        }
-        return text;
     }
 
     private setPageTitle(body: { [key: string]: string }) {
