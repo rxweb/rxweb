@@ -6,6 +6,7 @@ import { translateConfigContainer } from '../core/translate-config-container'
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core";
 import { ErrorMessageConfig } from "../interface/error-message-config";
+import { overrideErrorsProperty } from "../functions/override-errors-property";
 @Injectable()
 export class TranslationResolver {
     constructor(private httpClient:HttpClient) {
@@ -15,7 +16,11 @@ export class TranslationResolver {
     private _allowedLanguages: Array<string> = [];
 
     set controlErrorMessage(value: ErrorMessageConfig) {
-        translateConfigContainer.config.controlErrorMessage = value;
+        if (translateConfigContainer.config && !translateConfigContainer.config.controlErrorMessage) {
+            translateConfigContainer.config.controlErrorMessage = value;
+            overrideErrorsProperty(translateConfigContainer.config.controlErrorMessage);
+        }
+        
     }
 
     set resolver(value: Function) {

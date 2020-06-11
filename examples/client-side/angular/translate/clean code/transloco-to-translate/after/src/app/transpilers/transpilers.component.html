@@ -8,13 +8,13 @@
     <b>With translation reuse: </b> {{ transpilers.a.b.c }}
   </li>
   <li class="list-group-item">
-    <b>Using messageformat: </b>{{ transpilers.json.messageFormat | rxTranslate:{ gender: 'male' } }}
+    <b>Using messageformat: </b>{{ transpilers.raw.messageFormat | rxTranslate:{ gender: 'male' } }}
   </li>
   <li class="list-group-item" data-cy="with-message-format-dynamic">
     <b>Using messageformat with dynamic value: </b>{{ transpilers.messageFormat }}
   </li>
   <li class="list-group-item" data-cy="with-message-format-params">
-    <b>Using messageformat with transloco standard params: </b>{{ transpilers.json.messageFormatWithParams | rxTranslate:{ value: 'transloco params', gender: '' } }}
+    <b>Using messageformat with transloco standard params: </b>{{ transpilers.raw.messageFormatWithParams | rxTranslate:{ value: 'transloco params', gender: '' } }}
   </li>
 </ul>
 

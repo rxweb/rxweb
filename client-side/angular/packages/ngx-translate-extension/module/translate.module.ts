@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { RequestState } from '../services/request.state';
 import { CUSTOM_LOADER, NGX_TRANSLATE_EXTENSION_CONFIG } from '../const/app.const';
 import { RxTranslateModule, TranslationResolver } from '@rxweb/translate';
-import {  HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from "../services/translate-http-loader"
 import { configContainer } from '../const/config.container';
 
@@ -19,10 +19,7 @@ import { configContainer } from '../const/config.container';
         TranslateDirective
     ],
     imports: [RouterModule.forChild([]),
-    RxTranslateModule.forRoot({
-        forNgxTranslate: true,
-        cacheLanguageWiseObject: true,
-    }), HttpClientModule],
+        RxTranslateModule, HttpClientModule],
     exports: [
         TranslatePipe,
         TranslateDirective,
@@ -51,7 +48,15 @@ export class TranslateModule {
                 config.loader && !(<any>config.loader).useFactory ? { provide: CUSTOM_LOADER, useClass: (<any>config.loader).useClass } : config.loader && (<any>config.loader).useFactory ? { provide: CUSTOM_LOADER, useFactory: (<any>config.loader).useFactory, deps: (<any>config.loader).deps } : { provide: CUSTOM_LOADER, useClass: TranslateHttpLoader },
                 { provide: "singleton", useValue: true },
                 {
-                    provide: NGX_TRANSLATE_EXTENSION_CONFIG, useValue: config || {}},
+                    provide: "rxTranslateConfig",
+                    useValue: {
+                        forNgxTranslate: true,
+                        cacheLanguageWiseObject: true,
+                    }
+                },
+                {
+                    provide: NGX_TRANSLATE_EXTENSION_CONFIG, useValue: config || {}
+                },
                 TranslateService,
                 RequestState
             ]

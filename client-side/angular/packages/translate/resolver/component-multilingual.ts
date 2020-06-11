@@ -11,7 +11,7 @@ import { Observable } from "rxjs";
 
 export class ComponentGuard extends BaseResolver implements CanActivate, CanActivateChild {
 
-    constructor(@Inject(RX_TRANSLATE_CONFIG) config: RxTranslateConfig, injector: Injector, @Inject(CUSTOM_LOADER) customLoader: TranslationLoader, httpClient: HttpClient) { super(translateConfigContainer.config.forNgxTranslate ? translateConfigContainer.config : config, httpClient); translateConfigContainer.injector = injector; if (!translateConfigContainer.customLoader) translateConfigContainer.customLoader = customLoader; }
+    constructor(@Inject(RX_TRANSLATE_CONFIG) config: RxTranslateConfig, injector: Injector, @Inject(CUSTOM_LOADER) customLoader: TranslationLoader, httpClient: HttpClient) { super(config, httpClient); translateConfigContainer.injector = injector; if (!translateConfigContainer.customLoader) translateConfigContainer.customLoader = customLoader; }
 
 
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -23,6 +23,7 @@ export class ComponentGuard extends BaseResolver implements CanActivate, CanActi
     }
 
     private resolveGlobalTranslate(route: ActivatedRouteSnapshot) {
+        this.cloneBaseConfig = { ...translateConfigContainer.config };
         if (translateConfigContainer.globalTranslate) {
             return Observable.create(subscriber => {
                 translateConfigContainer.globalTranslate.subscribe(t => {

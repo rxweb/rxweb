@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="richForm._buttons">
     <div class="main-header">
         <h1>{{ richForm.title | titlecase }}</h1>
     </div>
@@ -34,14 +34,14 @@
                   <div class="form-group">
                     <label class="control-label control-label-sm text-muted">{{ richForm._person.last_name | titlecase }}</label>
                     <input class="form-control" type="text" formControlName="lastName" />
-                    <div class="error-container" *ngIf="form.controls.technicalContact.controls.lastName.hasError('required')">{{form.controls.technicalContact.controls.lastName.errors.required.message}}</div>
+                    <div class="error-container" *ngIf="technicalContact.controls.lastName.hasError('required')">{{technicalContact.controls.lastName.errors.required.message}}</div>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group">
                     <label class="control-label control-label-sm text-muted">{{ richForm._person.first_name | titlecase }}</label>
                     <input class="form-control" type="text" formControlName="firstName">
-                    <div class="error-container" *ngIf="form.controls.technicalContact.controls.firstName.hasError('required')">{{form.controls.technicalContact.controls.firstName.errors.required.message}}</div>
+                    <div class="error-container" *ngIf="technicalContact.controls.firstName.hasError('required')">{{technicalContact.controls.firstName.errors.required.message}}</div>
                   </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                   <div class="form-group">
                     <label class="control-label control-label-sm text-muted">{{ richForm._person.middle_name | titlecase }}</label>
                     <input class="form-control" type="text" formControlName="middleName">
-                    <div class="error-container" *ngIf="form.controls.technicalContact.controls.middleName.hasError('required')">{{form.controls.technicalContact.controls.middleName.errors.required.message}}</div>
+                    <div class="error-container" *ngIf="technicalContact.controls.middleName.hasError('required')">{{technicalContact.controls.middleName.errors.required.message}}</div>
                   </div>
                 </div>
                 <div class="col-6">

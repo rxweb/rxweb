@@ -40,7 +40,7 @@ import { CommonModule } from '@angular/common';
             cacheLanguageWiseObject: true,
             globalFilePath: "locales/{{language-code}}.validation.json",
             filePath: "locales/{{language-code}}.{{translation-name}}.json",
-            controlErrorMessage: { path: "" }
+            controlErrorMessage: { path: "" }, languageCode:'en'
         }), RxTranslateSanitizeModule,
         //app
         AppRouterModule,

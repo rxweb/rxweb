@@ -18,7 +18,7 @@ import { RxTranslatePipe } from "../pure-pipes/rx-translate.pipe";
 @NgModule({
     imports: [RouterModule, HttpClientModule],
     declarations: [RxTranslateDirective, RxTranslatePipe],
-    providers: [ComponentGuard, RxTranslation, TranslationResolver],
+    providers: [ComponentGuard, RxTranslation, TranslationResolver,{ provide: CUSTOM_LOADER, useValue: null }],
     exports: [RxTranslateDirective, RxTranslatePipe],
 })
 export class RxTranslateModule {

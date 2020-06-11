@@ -11,7 +11,7 @@ import { RxTranslation, translate } from '@rxweb/translate';
 })
 export class HeaderLanguageComponent {
 
-    language: string = 'ru';
+    language: string = 'en';
     languages: string[] = ['ru', 'en'];
 
     constructor(private rxTranslation: RxTranslation) { }

@@ -14,7 +14,7 @@ export class TranslateLoaderExtension {
 
     getName(lang: string) {
         var splitText = lang.split('_');
-        if (this.translationResolver.allowedLanguages.indexOf(splitText[0]) !== -1)
+        if (this.translationResolver.allowedLanguages.indexOf(splitText[0]) !== -1 || splitText.length == 1)
             lang = "global"
         return splitText.length > 1 ? {
             lang: splitText[1],
