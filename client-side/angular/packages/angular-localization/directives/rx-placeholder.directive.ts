@@ -1,4 +1,4 @@
-import { ElementRef, Renderer,Directive, AfterViewInit, Input, OnDestroy, ViewContainerRef } from "@angular/core";
+import { ElementRef, Renderer2,Directive, AfterViewInit, Input, OnDestroy, ViewContainerRef } from "@angular/core";
 import { BaseDirective } from "./base.directive";
 import { PlaceholderDirective } from "@rxweb/localization"
 
@@ -9,7 +9,7 @@ export class RxPlaceholderDirective extends BaseDirective implements AfterViewIn
     @Input('rxPlaceholder') name: string;
 
     private placeholderDirective: PlaceholderDirective;
-    constructor(renderer: Renderer, elementRef: ElementRef,viewContainerRef:ViewContainerRef) {
+    constructor(renderer: Renderer2, elementRef: ElementRef,viewContainerRef:ViewContainerRef) {
         super(renderer, elementRef, viewContainerRef)
     }
     ngAfterViewInit(): void {

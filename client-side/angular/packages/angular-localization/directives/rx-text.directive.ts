@@ -1,4 +1,4 @@
-import { ElementRef, Renderer,Directive, AfterViewInit, Input, OnDestroy, ViewContainerRef } from "@angular/core";
+import { ElementRef, Renderer2,Directive, AfterViewInit, Input, OnDestroy, ViewContainerRef } from "@angular/core";
 import { BaseDirective } from "./base.directive";
 import { TextDirective } from "@rxweb/localization"
 
@@ -10,7 +10,7 @@ export class RxTextDirective extends BaseDirective implements AfterViewInit, OnD
 
     @Input() text: string;
 
-    constructor(renderer: Renderer, elementRef: ElementRef, viewContainerRef: ViewContainerRef) {
+    constructor(renderer: Renderer2, elementRef: ElementRef, viewContainerRef: ViewContainerRef) {
         super(renderer, elementRef, viewContainerRef)
     }
 

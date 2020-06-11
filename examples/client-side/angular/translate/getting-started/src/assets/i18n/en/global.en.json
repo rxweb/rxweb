@@ -1,0 +1,6 @@
+{
+    "morningText": "Good Morning",
+    "goodDayText": "Good Day",
+    "conditionalGreetText": "this.day == 'Good Day' ? this.global.goodDayText: this.global.morningText",
+    "greetMessage": "Hey! {{global.conditionalGreetText}}, I hope you are doing well 🙃. You can translate me by selecting"
+}

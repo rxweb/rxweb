@@ -18,7 +18,7 @@ import { configContainer } from '../const/config.container';
         TranslatePipe,
         TranslateDirective
     ],
-    imports: [RouterModule.forRoot([]),
+    imports: [RouterModule.forChild([]),
     RxTranslateModule.forRoot({
         forNgxTranslate: true,
         cacheLanguageWiseObject: true,

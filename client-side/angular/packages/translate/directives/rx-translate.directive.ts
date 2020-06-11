@@ -9,6 +9,7 @@ import { RX_TRANSLATE_CONFIG } from "../core/rx-translate-config.const";
 import { HttpClient } from "@angular/common/http";
 import { viewRefContainer } from "../core/view-ref-container";
 import { Subscription } from "rxjs";
+import { translateConfigContainer } from "../core/translate-config-container";
 
 @Directive({
     selector: '[rxTranslate]'
@@ -20,8 +21,10 @@ export class RxTranslateDirective implements OnDestroy {
     private config: TranslateContainerConfig;
     private component: any;
     private subscription: Subscription;
-    constructor(private viewContainerRef: ViewContainerRef, private templateRef: TemplateRef<any>, private injector: Injector, @Inject(RX_TRANSLATE_CONFIG) private baseConfig: RxTranslateConfig, private route: ActivatedRoute, private httpClient: HttpClient) {
+    private baseConfig: any;
+    constructor(private viewContainerRef: ViewContainerRef, private templateRef: TemplateRef<any>, private injector: Injector, @Inject(RX_TRANSLATE_CONFIG) baseConfig: RxTranslateConfig, private route: ActivatedRoute, private httpClient: HttpClient) {
         let ref: any = this.templateRef;
+        this.baseConfig = translateConfigContainer.config.forNgxTranslate ? translateConfigContainer.config : baseConfig;
         let elementName = null;
         if (ref._def) {
             elementName = ref._def.element.template.nodes[0].element.name

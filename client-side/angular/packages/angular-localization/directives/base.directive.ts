@@ -1,4 +1,4 @@
-import { ElementRef, Renderer, Input } from "@angular/core";
+import { ElementRef, Renderer2, Input } from "@angular/core";
 export abstract class BaseDirective{
     protected element: any;
     private _componentId: any = null;
@@ -12,7 +12,7 @@ export abstract class BaseDirective{
         return this._componentId;
     }
 
-    constructor(protected renderer: Renderer, protected elementRef: ElementRef, private viewContainerRef) {
+    constructor(protected renderer: Renderer2, protected elementRef: ElementRef, private viewContainerRef) {
         this.element = this.elementRef.nativeElement as Node
     }
 

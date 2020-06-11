@@ -5,7 +5,7 @@
 [![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
 
 
-### An extensible library of ngx-translate for Angular Internationalization with more than 50+ spectacular features 🌈.
+### An extensible library of ngx-translate for Angular Internationalization with more than 50+ [spectacular features](https://docs.rxweb.io/ngx-translate-extension/en/playground) 🌈.
 
 
 
