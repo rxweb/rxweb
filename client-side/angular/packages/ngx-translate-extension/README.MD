@@ -5,7 +5,7 @@
 [![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
 
 
-### An extensible library of ngx-translate for Angular Internationalization with spectacular features 🌈.
+### An extensible library of ngx-translate for Angular Internationalization with more than 50+ spectacular features 🌈.
 
 
 
@@ -14,12 +14,7 @@
 
 
 ### For existing ngx-translate developer community
-
-#### Three simple steps to avail the ngx-translate-extension features in existing ngx-translate package project.
-
-1. You have to replace the package name <b>@ngx-translate/core</b> to <b>@rxweb/ngx-translate-extesion</b>. Don't worry the base is same and will work expected 😍.
-2. ```TranslateModule.forChild``` will not work anymore, you have to use @componentTranslate or @translate decorator on component level with translation name(folder name). Again bit worry!, By doing this will not break anything, but you will get more 😎.
-3. Add ```RxTranslateModule``` on Root level.
+<img src="https://github.com/rxweb/rxweb.io/blob/master/src/assets/images/ngx-translate-extension.gif?raw=true"/>
 
 That's it.
 
@@ -30,7 +25,7 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 
 
 # 💪 Features
-<b>Attribute Directive </b> ([Working Example of below features](https://docs.rxweb.io))
+<b>Attribute Directive </b> ([Working Example of below features](https://docs.rxweb.io/ngx-translate-extension/attribute-directive))
 <hr/>
 
 ```html
@@ -49,11 +44,11 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 <span translate="dashboardHeading" translationName="dashboard"></span>
 ```
 
-<b>Pipe</b> ([Working Example of below features](https://docs.rxweb.io))
+<b>Impure Pipe</b> ([Working Example of below features](https://docs.rxweb.io/ngx-translate-extension/pipe))
 <hr/>
 
 ```html
-{{'introduction' | translate}}
+{{'greet' | translate}}
 ```
 ```html
 {{'notification' | translate:{name:'John'} }}
@@ -67,7 +62,18 @@ We have copied the spec from [@ngx-translate/core](https://github.com/ngx-transl
 {{'dashboardHeading' | translate:{translationName:'dashboard'} }}
 ```
 
-<b>Decorator</b> ([Working Example of below features](https://docs.rxweb.io))
+<b>Pure Pipe</b> ([Working Example of below features](https://docs.rxweb.io/ngx-translate-extension/pure-pipe))
+<hr/>
+
+```html
+{{global.raw.notification | rxTranslate:{'name':'Munad'} }}
+```
+```html
+{{global.raw.notification | rxTranslate:{'name':name} }}
+```
+
+
+<b>Decorator</b> ([Working Example of below features](https://docs.rxweb.io/ngx-translate-extension/decorator))
 <hr/>
 
 COMPONENT	
@@ -95,6 +101,16 @@ HTML
 ```
 
 ```js
+@translate({
+  translationName: 'inliners',
+  inlineTranslations: {
+      en: () => import('./i18n/en.json'),
+      fr: () => import('./i18n/fr.json')
+  }
+}) inline: any; // inline loader
+```
+
+```js
 @translateAsync({
     serviceModel: LanguageService,
     serviceMethod: LanguageService.prototype.get
@@ -104,17 +120,17 @@ HTML
 <b>FormControl Validation Message Translation</b>
 <hr/>
 
-1. [Binds Validation message in ```errors``` object of FormControl, as per active language.](https://docs.rxweb.io)
-2. [Binds Validation message with custom parameter.](https://docs.rxweb.io)
-3. [Binds Validation message with array values.](https://docs.rxweb.io)
+1. [Binds Validation message in ```errors``` object of FormControl, as per active language.](https://docs.rxweb.io/ngx-translate-extension/validation-message)
+2. [Binds Validation message with custom parameter.](https://docs.rxweb.io/ngx-translate-extension/validation-message)
+3. [Binds Validation message with array values.](https://docs.rxweb.io/ngx-translate-extension/validation-message)
 
-<b>Change Language</b> ([Working Example of below features](https://docs.rxweb.io))
+<b>Runtime Change Language By</b> ([Working Example of below features](https://docs.rxweb.io/ngx-translate-extension/en/change-language))
 <hr/>
 
-1. [By URL](https://docs.rxweb.io)
-2. [Through Code](https://docs.rxweb.io)
+1. [URL](https://docs.rxweb.io/ngx-translate-extension/en/change-language)
+2. [Code](https://docs.rxweb.io/ngx-translate-extension/en/change-language)
 
-<b>Structrual Directive</b> 
+<b>Structrual Directive</b> ([Working Example of below features](https://docs.rxweb.io/ngx-translate-extension/structural-directive))
 <hr/>
 
 ```html
@@ -124,8 +140,20 @@ HTML
 <b>Other Intuitive Features</b>
 <hr/>
 
-1. [Lazy Load Translation Files as per Angular PreLoadModule Stratergy.](https://docs.rxweb.io)
-2. [Automatically set the page title.](https://docs.rxweb.io)
+1. [Automatically set the page title.](https://docs.rxweb.io/ngx-translate-extension/other-intuitive-features)
+2. [Lazy Load Translation Files as per Angular PreLoadModule Stratergy.](https://docs.rxweb.io/ngx-translate-extension/other-intuitive-features)
+
+<b>Sanitizers</b>
+<hr/>
+
+1. [Currency](https://docs.rxweb.io/ngx-translate-extension/sanitize/currency)
+2. [Date](https://docs.rxweb.io/ngx-translate-extension/sanitize/date)
+3. [Decimal](https://docs.rxweb.io/ngx-translate-extension/sanitize/decimal)
+4. [Percent](https://docs.rxweb.io/ngx-translate-extension/sanitize/percent)
+5. [LowerCase](https://docs.rxweb.io/ngx-translate-extension/sanitize/lower-case)
+6. [UpperCase](https://docs.rxweb.io/ngx-translate-extension/sanitize/upper-case)
+7. [TitleCase](https://docs.rxweb.io/ngx-translate-extension/sanitize/title-case)
+8. [Custom](https://docs.rxweb.io/ngx-translate-extension/sanitize/custom)
 
 
 
@@ -139,38 +167,13 @@ npm install @rxweb/ngx-translate-extension
 ```
 
 
-Here, First we are going to create a ```TranslateLoader```, which resolves our translation content.
-
-```js
-import { Injectable } from "@angular/core"
-import { HttpClient } from "@angular/common/http";
-import { TranslateLoader } from "@rxweb/ngx-translate-extension";
-@Injectable()
-export class TranslateHttpLoader implements TranslateLoader {
-    constructor(private http: HttpClient) { }
-
-    public getTranslation(lang: any): Observable<Object> {
-        if (lang && lang.translationName)
-            return this.http.get(`assets/i18n/${lang.translationName}/${lang.lang}.json`);
-	else if(lang && lang.filePath)
-	    return this.http.get(lang.filePath);
-        return this.http.get(`assets/i18n/${lang}.json`);
-    }
-}
-```
-
 Now we are going to register the module in the root module of the application.
 
 ```js
 @NgModule({
   declarations: [...],
   imports: [
-	TranslateModule.forRoot({loader:{ provide: TranslateLoader, useClass: TranslateHttpLoader }}),
-      	RxTranslateModule.forRoot({
-          controlErrorMessage: {path: 'validationErrorMessages'},
-          forNgxTranslate: true,
-          cacheLanguageWiseObject: true,
-      })
+	TranslateModule.forRoot()
   ],
   providers: [],
   bootstrap: [...]
