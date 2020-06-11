@@ -10,17 +10,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rxweb/rxweb/tree/master/packages/translate#readme"
+    "url": "https://github.com/rxweb/rxweb/tree/master/client-side/angular/packages/ngx-translate-extension#readme"
   },
   "bugs": {
     "url": "https://github.com/rxweb/rxweb/issues"
   },
-  "homepage": "https://docs.rxweb.io",
+  "homepage": "https://docs.rxweb.io/ngx-translate-extension/getting-started",
   "license": "MIT",
   "sideEffects": false,
-  "dependencies": {
+  "peerDependencies": {
     "tslib": "^1.9.0",
-    "@rxweb/translate": "1.0.5",
+    "@rxweb/translate": "1.0.10",
     "@ngx-translate/core": "12.1.2"
   }
 }

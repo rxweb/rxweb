@@ -21,7 +21,7 @@
     "@angular/router": "~9.1.9",
     "@rxweb/cli": "0.0.10",
     "@rxweb/i18n": "0.0.10",
-    "@rxweb/translate": "^1.0.9",
+    "@rxweb/translate": "^1.0.10",
     "ngx-build-plus": "^9.0.6",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",

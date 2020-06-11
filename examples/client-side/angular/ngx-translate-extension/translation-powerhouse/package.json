@@ -20,8 +20,8 @@
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
     "@ngx-translate/core": "^12.1.2",
-    "@rxweb/ngx-translate-extension": "^1.0.0-rc2",
-    "@rxweb/translate": "^1.0.7",
+    "@rxweb/ngx-translate-extension": "^1.0.6",
+    "@rxweb/translate": "^1.0.10",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

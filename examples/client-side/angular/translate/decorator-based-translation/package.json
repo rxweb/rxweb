@@ -20,7 +20,7 @@
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
     "@rxweb/i18n": "0.0.9",
-    "@rxweb/translate": "^1.0.5",
+    "@rxweb/translate": "^1.0.10",
     "ngx-build-plus": "^9.0.4",
     "prismjs": "^1.20.0",
     "rxjs": "~6.4.0",

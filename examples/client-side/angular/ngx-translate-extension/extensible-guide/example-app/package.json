@@ -21,8 +21,8 @@
     "@angular/router": "~9.1.9",
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
-    "@rxweb/ngx-translate-extension": "^1.0.4",
-    "@rxweb/translate": "^1.0.8",
+    "@rxweb/ngx-translate-extension": "^1.0.6",
+    "@rxweb/translate": "^1.0.10",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
