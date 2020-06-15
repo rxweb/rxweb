@@ -410,6 +410,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         let instanceContainer: InstanceContainer = this.getInstanceContainer(model, entityObject);
         this.checkObjectPropAdditionalValidation(instanceContainer, entityObject, formBuilderConfiguration);
         let formGroupObject = {};
+        let extendedProperties = {};
         let formChildGroup = undefined;
         let formArrayGroup = undefined;
         var additionalValidations: { [key: string]: PropValidationConfig } = {};
@@ -446,6 +447,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                             this.isNested = false;
                         } else
                             formGroupObject[property.name] = super.getDefaultValue(property, entityObject[property.name], formBuilderConfiguration);
+                        extendedProperties[property.name] = true;
                         break;
                     case OBJECT_PROPERTY:
                         let objectValue = entityObject[property.name];
@@ -513,9 +515,39 @@ export class RxFormBuilder extends BaseFormBuilder {
             this.builderConfigurationConditionalObjectProps = [];
         }
         let formGroup = new RxFormGroup(json.model, json.entityObject, formGroupObject, undefined);
+        if (defaultContainer.isExperimental) {
+            json.entityObject["formGroup"] = formGroup;
+            this.overrideProperties(formGroup, json.entityObject, extendedProperties);
+        }
         if (!this.isNestedBinding && !this.isGroupCalled)
             formGroup.refreshDisable();
         return formGroup;
 
+    }
+
+    private overrideProperties(formGroup: RxFormGroup,entityObject:any, properties: { [key: string]: boolean }) {
+        Object.keys(properties).forEach(t => {
+            this.overrideProp(entityObject, t, formGroup);
+        })
+    }
+
+    private overrideProp(entityObject:any,propName:string,formGroup:RxFormGroup) {
+        let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(entityObject), propName);
+        let value = entityObject[propName];
+        let oldValue = null;
+        Object.defineProperty(entityObject, propName, {
+            get: () => { return descriptor ? descriptor.get.call(entityObject) : value },
+            set: (v) => {
+                value = v;
+                if (oldValue != v) {
+                    if (descriptor)
+                        descriptor.set.call(entityObject, v);
+                    if (!formGroup.changing && formGroup.controls[propName]) {
+                        formGroup.controls[propName].setValue(v);
+                    } 
+                }
+                oldValue = v;
+            }
+        })
     }
 }

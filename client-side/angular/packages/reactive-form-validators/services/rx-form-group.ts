@@ -14,6 +14,7 @@ export class RxFormGroup extends FormGroup {
     private _submitted: boolean;
     private _modified: { [key: string]: any } = {};
     private _isModified: boolean = false;
+    changing: boolean = false;
     constructor(private model: any, private entityObject: { [key: string]: any }, controls: {
         [key: string]: AbstractControl;
     }, validatorOrOpts?: any, asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null) {

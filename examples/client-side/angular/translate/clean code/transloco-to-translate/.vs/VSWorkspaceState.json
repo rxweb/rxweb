@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\after",
+    "\\after\\e2e",
+    "\\after\\e2e\\src",
+    "\\after\\src",
+    "\\after\\src\\app",
+    "\\after\\src\\app\\transpilers"
+  ],
+  "SelectedNode": "\\after\\package.json",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\packages",
+    "\\packages\\form-error-messages",
+    "\\packages\\form-error-messages\\extensions",
+    "\\packages\\form-error-messages\\extensions\\form-control-extension",
+    "\\packages\\form-error-messages\\extensions\\form-group-extension",
+    "\\packages\\form-error-messages\\functions",
+    "\\packages\\form-error-messages\\model",
+    "\\packages\\form-error-messages\\module"
+  ],
+  "SelectedNode": "\\packages\\form-error-messages\\model\\conditional-strategy.ts",
+  "PreviewInSolutionExplorer": false
+}

@@ -121,6 +121,7 @@ export class RxFormControl extends FormControl {
         emitEvent?: boolean;
         isThroughDynamic?: boolean;
     }): void {
+        (<any>this.parent).changing = true;
         let parsedValue = this.getSanitizedValue(value)
         if (options && options.dirty)
             this.baseObject[this.keyName] = value;
@@ -134,6 +135,7 @@ export class RxFormControl extends FormControl {
         if (options && !options.updateChanged && this.root[VALUE_CHANGED_SYNC]) {
             this.root[VALUE_CHANGED_SYNC]();
         }
+        (<any>this.parent).changing = false;
     }
 
     getControlValue() {

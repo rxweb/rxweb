@@ -21,7 +21,9 @@ export const defaultContainer:
         setLogicalConditional(instance: any, annotationType: string, fieldName: string, propertyName: string): void,
         addSanitizer(target: any, parameterIndex: any, propertyKey: string, decoratorType: string, value?: any): void,
         addPropsConfig(target: any, configs: PropsConfig[]): void,
+        isExperimental: boolean;
     } = new (class {
+        isExperimental: boolean;
         private instances: InstanceContainer[] = [];
         modelIncrementCount: number = 0;
         get<T>(instanceFunc: any): InstanceContainer {
