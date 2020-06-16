@@ -1,4 +1,6 @@
 # Strongly Typed Angular Reactive Form
+![image](https://user-images.githubusercontent.com/20392302/84733287-73840b00-afbb-11ea-9c8c-c2de3207f1bf.png)
+
 If you are thinking the reactive form code must be readable, extensible and maintainable without writing more business logic in the Component. Expecting the below problems intuitive solution then I would suggest Class Driven Strongly Typed solution would be the best solution.
 Here are the problems in Standard Approach:
 1. Not able to easily work on Complex Objects.
@@ -24,13 +26,12 @@ As we all are familiar with OOP practices, the class gives us more flexibility a
 5. With this approach, we can don't need to write the business logic in the template, like we are putting the ```*ngIf``` with multiple conditions for showing the error messages. I believe the templates are not meant for writing the business logic.
 6. Lot more...
 
-**StackBlitz Example** : [**Open**](https://stackblitz.com/edit/strongly-typed-reactive-form?file=src%2Fapp%2Fstrongly-typed-reactive-form%2Fstrongly-typed-reactive-form.component.ts)
-
-## Component
-![image](https://user-images.githubusercontent.com/20392302/84733287-73840b00-afbb-11ea-9c8c-c2de3207f1bf.png)
-
-
 ## HTML
 ![image](https://user-images.githubusercontent.com/20392302/84733000-b7c2db80-afba-11ea-8188-a5a1f8b1dfa8.png)
+
+**StackBlitz Example** : [**Open**](https://stackblitz.com/edit/strongly-typed-reactive-form?file=src%2Fapp%2Fstrongly-typed-reactive-form%2Fstrongly-typed-reactive-form.component.ts)
+
+**Documentation** : [docs.rxweb.io](https://docs.rxweb.io)
+
 
 
