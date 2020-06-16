@@ -3,6 +3,7 @@ import { RxFormBuilder } from "./rx-form-builder";
 import { FUNCTION_STRING } from "../const/app.const"
 import { Options } from "../models/interface/options"
 import { RxFormGroup } from "./rx-form-group";
+import { IFormGroup } from "../models/interface/i-form-group";
 export class TypedFormBuilder {
     private formBuilder: FormBuilder;
     private rxFormBuilder: RxFormBuilder;
@@ -18,7 +19,7 @@ export class TypedFormBuilder {
     } | null): FormGroup | T {
         let paramOptions = <Options>options || <any>{};
         if (typeof controlsConfig == FUNCTION_STRING)
-            paramOptions && paramOptions.config && paramOptions.config.isFormGroup ? this.rxFormBuilder.formGroup(controlsConfig, paramOptions.data, paramOptions.config) : (<RxFormGroup>this.rxFormBuilder.formGroup(controlsConfig, paramOptions.data, paramOptions.config)).modelInstance;
+            return !(paramOptions && paramOptions.isInstance) ? this.rxFormBuilder.formGroup(controlsConfig, paramOptions.data, paramOptions.config) as IFormGroup<T> : (<RxFormGroup>this.rxFormBuilder.formGroup(controlsConfig, paramOptions.data, paramOptions.config)).modelInstance as T;
         return this.formBuilder.group(controlsConfig,options);
     }
 }

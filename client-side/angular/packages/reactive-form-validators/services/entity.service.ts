@@ -1,3 +1,5 @@
+import { FormGroup } from "@angular/forms";
+
 function isObjectType(value:any) {
     return !(typeof value == "string" || typeof value === "number" || typeof value === "boolean" || value instanceof Date);
 }
@@ -10,18 +12,22 @@ export function clone(jsonObject: { [key: string]: any }) {
     let jObject: any = {};
     if (isObjectType(jsonObject)) {
         for (var columnName in jsonObject) {
-            if (Array.isArray(jsonObject[columnName])) {
-                jObject[columnName] = [];
-                for (let row of jsonObject[columnName]) {
-                    if (isObject(row))
-                        jObject[columnName].push(clone(row))
-                    else
-                        jObject[columnName].push(row)
-                }
-            } else if (typeof jsonObject[columnName] == "object" && !(jsonObject[columnName] instanceof RegExp))
-                jObject[columnName] = clone(jsonObject[columnName]);
-            else
+            if (!(jsonObject instanceof FormGroup)) {
+                if (Array.isArray(jsonObject[columnName])) {
+                    jObject[columnName] = [];
+                    for (let row of jsonObject[columnName]) {
+                        if (isObject(row))
+                            jObject[columnName].push(clone(row))
+                        else
+                            jObject[columnName].push(row)
+                    }
+                } else if (typeof jsonObject[columnName] == "object" && !(jsonObject[columnName] instanceof RegExp))
+                    jObject[columnName] = clone(jsonObject[columnName]);
+                else
+                    jObject[columnName] = jsonObject[columnName]
+            } else
                 jObject[columnName] = jsonObject[columnName]
+
         }
         return jObject;
     }

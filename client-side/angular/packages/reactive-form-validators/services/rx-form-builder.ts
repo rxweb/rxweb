@@ -493,7 +493,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                             if (ReactiveFormConfig.autoInstancePush) {
                                 arrayObjectValue.push = (instance: any[]): number => { let formGroup = this.formGroup(instance.constructor, instance, objectValidationConfig); formGroupObject[property.name].push(formGroup, true); return 0; };
                                 arrayObjectValue.splice = (start, deleteCount): any[] => {
-                                    let end = start + deleteCount;
+                                    let end = (start + deleteCount) -1;
                                     for (var i = start; i <= end; i++) {
                                         formGroupObject[property.name].removeAt(i, true)
                                     }

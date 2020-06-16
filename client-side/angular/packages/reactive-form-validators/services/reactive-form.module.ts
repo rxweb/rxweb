@@ -12,6 +12,7 @@ import { ImageFileControlDirective } from "../directives/template-validations/im
 import { AsyncValidationDirective } from "../directives/template-validations/async-validation.directive"
 import { defaultContainer } from "../core/defaultContainer";
 import { TypedFormBuilder } from "./typed-form-builder";
+import { ReactiveFormConfig } from "../util/reactive-form-config"
 @NgModule({
     declarations: [RxwebFormDirective, HtmlControlTemplateDirective, ControlHostDirective, RxFormControlDirective, FileControlDirective, ImageFileControlDirective, AsyncValidationDirective  ],
     imports: [CommonModule,FormsModule, ReactiveFormsModule],
@@ -19,19 +20,20 @@ import { TypedFormBuilder } from "./typed-form-builder";
     exports: [AsyncValidationDirective,RxwebFormDirective,HtmlControlTemplateDirective,RxFormControlDirective,FileControlDirective ,ImageFileControlDirective ]
 })
 export class RxReactiveFormsModule {
-    static forRoot(): ModuleWithProviders { return { ngModule: RxReactiveFormsModule, providers: [] }; }
+    static forRoot(): ModuleWithProviders<RxReactiveFormsModule> { return { ngModule: RxReactiveFormsModule, providers: [] }; }
 }
 
 // Experimental
 @NgModule({
-    declarations: [RxwebFormDirective, HtmlControlTemplateDirective, ControlHostDirective, RxFormControlDirective, FileControlDirective, ImageFileControlDirective, AsyncValidationDirective],
-    imports: [CommonModule, FormsModule, ReactiveFormsModule],
-    providers: [RxFormBuilder, DecimalProvider, DecimalPipe],
-    exports: [AsyncValidationDirective, RxwebFormDirective, HtmlControlTemplateDirective, RxFormControlDirective, FileControlDirective, ImageFileControlDirective]
+    declarations: [],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, RxReactiveFormsModule.forRoot()],
+    providers: [{ provide: FormBuilder, useClass: TypedFormBuilder }, TypedFormBuilder],
+    exports: [ReactiveFormsModule, FormsModule, ReactiveFormsModule]
 })
 export class ReactiveTypedFormsModule {
     constructor() {
         defaultContainer.isExperimental = true;
+        ReactiveFormConfig.autoInstancePush = true;
     }
-    static forRoot(): ModuleWithProviders { return { ngModule: RxReactiveFormsModule, providers: [{ provide: FormBuilder, useClass: TypedFormBuilder}] }; }
+    static forRoot(): ModuleWithProviders<ReactiveTypedFormsModule> { return { ngModule: ReactiveTypedFormsModule, providers: [] }; }
 }
