@@ -1,4 +1,4 @@
-# Strongly Typed Angular Reactive Form
+# Strongly Typed Angular Reactive Form - Clean Code 😍
 ![image](https://user-images.githubusercontent.com/20392302/84733287-73840b00-afbb-11ea-9c8c-c2de3207f1bf.png)
 
 If you are thinking the reactive form code must be readable, extensible and maintainable without writing more business logic in the Component. Expecting the below problems intuitive solution then I would suggest Class Driven Strongly Typed solution would be the best solution.
