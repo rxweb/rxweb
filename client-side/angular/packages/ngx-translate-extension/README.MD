@@ -16,11 +16,11 @@
 ### For existing ngx-translate developer community
 <img src="https://github.com/rxweb/rxweb.io/blob/master/src/assets/images/ngx-translate-extension.gif?raw=true"/>
 
-That's it.
+And it's Done.
 
 #### How can be sure that after replacing the package name, everything will work as expected?
 
-We have copied the spec from [@ngx-translate/core](https://github.com/ngx-translate/core/tree/master/projects/ngx-translate/core/tests) project and follows the above mentioned steps, [it's working as expected](https://github.com/rxweb/rxweb/tree/master/test/ngx-translate-extension). Please refer the [Spec Code Comparision Page](https://docs.rxweb.io/ngx-translate-extension/comparison/translate-store).
+We have copied the spec from [@ngx-translate/core](https://github.com/ngx-translate/core/tree/master/projects/ngx-translate/core/tests) project and follows the above mentioned steps, [it's working as expected](https://github.com/rxweb/rxweb/tree/master/examples/client-side/angular/ngx-translate-extension). Please refer the [Spec Code Comparision Page](https://docs.rxweb.io/ngx-translate-extension/spec-comparison/missing-translation-handler).
 
 
 
