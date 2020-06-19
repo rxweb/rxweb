@@ -15,7 +15,7 @@ import { ExtendFormModel } from "../extensions/extend-form-model";
     providers: [CurrencyPipe, DatePipe, DecimalPipe, I18nPluralPipe, I18nSelectPipe, LowerCasePipe, PercentPipe, SlicePipe, TitleCasePipe, UpperCasePipe],
     exports: []
 })
-export class RxFormErrorMessagesModule {
+export class RxFormStategyModule {
     constructor(@Inject(CONFIG) config: FormErrorMessageModuleConfig, injector: Injector) {
         if (!errorMessageContainer.config) {
             errorMessageContainer.config = config;
@@ -24,9 +24,9 @@ export class RxFormErrorMessagesModule {
         }
         errorMessageContainer.injector = injector;
     }
-    static forRoot(config: FormErrorMessageModuleConfig): ModuleWithProviders<RxFormErrorMessagesModule> {
+    static forRoot(config: FormErrorMessageModuleConfig): ModuleWithProviders<RxFormStategyModule> {
         return {
-            ngModule: RxFormErrorMessagesModule, providers: [{ provide: CONFIG, useValue: config }, FormErrorMessageService]
+            ngModule: RxFormStategyModule, providers: [{ provide: CONFIG, useValue: config }, FormErrorMessageService]
         };
     }
 }

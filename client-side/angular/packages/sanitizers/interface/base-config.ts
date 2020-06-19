@@ -1,3 +1,3 @@
 export interface BaseConfig {
-expression:Function;
+expression?:Function;
 }

@@ -3,6 +3,11 @@ import { AbstractControl} from "@angular/forms"
 import { ControlState } from './control-state';
 
 export interface IAbstractControl<T, Entity = any> extends AbstractControl {
+
+    readonly errorMessages: string[]; // only for RxWeb Packages
+
+    readonly errorMessage: string; // only for RxWeb Packages
+
     readonly value: T | null;
 
     readonly valueChanges: Observable<T | null>;

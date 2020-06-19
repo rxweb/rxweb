@@ -29,4 +29,8 @@ export interface IFormGroup<T> extends IAbstractControl<T, T> {
         onlySelf?: boolean;
         emitEvent?: boolean;
     }): void;
+
+    controlsError: { [key: string]: any }; // only for RxWeb Packages
+
+    submitted: boolean; // only for RxWeb Packages
 }

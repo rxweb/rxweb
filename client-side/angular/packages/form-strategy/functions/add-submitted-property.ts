@@ -1,8 +1,8 @@
 import { FormGroup, FormArray } from "@angular/forms";
 import { AppFormGroup } from "../interface/i-form-group";
-
+const SUBMITTED: string = "submitted";
 export function addSubmittedProperty() {
-    Object.defineProperty(FormGroup.prototype, "submitted", {
+    Object.defineProperty(FormGroup.prototype, SUBMITTED, {
         get: function () {
             return this._submitted
         },

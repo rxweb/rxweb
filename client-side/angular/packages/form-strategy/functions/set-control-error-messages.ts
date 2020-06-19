@@ -1,10 +1,9 @@
 import { CONTROLS_ERROR,MESSAGE } from '../const/app.const'
 import { AbstractControl } from '@angular/forms';
 
-export function setControlErrorMessages() {
+export function setControlErrorMessages(errors) {
     if (!this.name)
         this.name = getFormControlName(this);
-    let errors = this.cloneErrors;
     this._errorMessages = [];
     if (errors) {
         Object.keys(errors).forEach(t => {

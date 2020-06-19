@@ -6,7 +6,7 @@ import { AppFormGroup } from '../interface/i-form-group';
 export function checkErrorMessageStrategy(formControl:FormControl,config: FormErrorMessageModuleConfig) {
     let isBind: boolean = true;
     let parentFormGroup = <AppFormGroup<any>>formControl.parent;
-    let controlBindingStrategy = formControl.strategy && formControl.strategy.binding ? formControl.strategy.binding : config.bindingStrategy;
+    let controlBindingStrategy = formControl.strategy && formControl.strategy.conditional.bindingStrategy ? formControl.strategy.conditional.bindingStrategy  : config.messageBindingStrategy;
     switch (controlBindingStrategy) {
         case ErrorMessageBindingStrategy.OnSubmit:
             isBind = parentFormGroup.submitted;

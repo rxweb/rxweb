@@ -725,19 +725,19 @@
       }
     },
     "@rxweb/form-strategy": {
-      "root": "packages/form-error-messsages",
-      "sourceRoot": "packages/form-error-messages",
+      "root": "packages/form-strategy",
+      "sourceRoot": "packages/form-strategy",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "project": "packages/form-error-messages/ng-package.json"
+            "project": "packages/form-strategy/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "packages/form-error-messages/ng-package.prod.json"
+              "project": "packages/form-strategy/ng-package.prod.json"
             }
           }
         },
@@ -746,8 +746,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "packages/ngx-translate-extension/tsconfig.lib.json",
-              "packages/ngx-translate-extension/tsconfig.spec.json"
+              "packages/form-strategy/tsconfig.lib.json",
+              "packages/form-strategy/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

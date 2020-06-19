@@ -5,6 +5,7 @@ import { extract } from "./extract";
 import { FormErrorMessageModuleConfig } from "../interface/form-error-message-module-config";
 import { checkErrorMessageStrategy } from "./error-message-binding-strategy";
 import { FormControl } from "../interface/form-control";
+import { setControlErrorMessages } from "./set-control-error-messages"
 const NOT_IN: string[] = ["min", "max"];
 
 export function getTranslatedErrorMessages(formControl:FormControl,errorMessageConfig: FormErrorMessageModuleConfig, errors: any) {
@@ -40,10 +41,13 @@ export function getTranslatedErrorMessages(formControl:FormControl,errorMessageC
                     });
                     errors["languageCode"] = errorMessageConfig.language;
                 }
-            } else
-                return undefined;
+            } else {
+                errors = undefined;
+            }
+            
         }
     }
+    setControlErrorMessages.call(formControl,errors)
     return errors;
 }
 

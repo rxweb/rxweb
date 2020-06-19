@@ -2,14 +2,19 @@ import { CondtionalStrategyOptions } from "../interface/conditional-strategy-opt
 import { FormControl } from "../interface/form-control";
 import { runExpression } from "../functions/run-expression";
 import { ApplicationUtil } from "../util/app-util";
+import { ErrorMessageBindingStrategy } from "../enums/error-message-binding-strategy";
+import { errorMessageContainer } from "../core/error-message.containter";
 
 export class ConditionalStrategy {
     private message: Function;
     private disable: Function;
 
+    bindingStrategy: ErrorMessageBindingStrategy;
+
     constructor(strategyOptions: CondtionalStrategyOptions) {
         this.message = strategyOptions.message;
         this.disable = strategyOptions.disable;
+        this.bindingStrategy = strategyOptions.messageBindingStrategy || errorMessageContainer.config.messageBindingStrategy;
     }
 
     formControl: FormControl;
@@ -19,9 +24,13 @@ export class ConditionalStrategy {
     }
 
     get controlDisable(): boolean {
-        return this.disable ? runExpression(this.disable, this.formControl.parent.value,[this.formControl.parent.value, ApplicationUtil.rootFormGroup(this.formControl).value]) : null;
+        return this.disable ? this.disable.call(this.formControl.parent.value,this.formControl.parent.value, ApplicationUtil.rootFormGroup(this.formControl).value) : null;
     }
 
+    runBindingStrategy() {
+        if (this.bindingStrategy && !this.message)
+            this.formControl.errors;
+    }
 
     runStrategy(isSelf: boolean) {
         if (!isSelf && this.message)
@@ -30,8 +39,10 @@ export class ConditionalStrategy {
         if (allowDisable !== null) {
             if (allowDisable)
                 this.formControl.disable();
-            else
+            else if (this.formControl.disabled)
                 this.formControl.enable();
         }
     }
+
+   
 }

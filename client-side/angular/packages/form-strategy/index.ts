@@ -1,4 +1,4 @@
-export * from './module/rx-form-error-messages.module'
+export * from './module/rx-form-strategy.module'
 export * from './decorators/rx-pipe.decorator'
 export * from "./service/form-error-message.service"
 export * from './enums'

@@ -1,9 +1,8 @@
 export enum ErrorMessageBindingStrategy {
-    OnSubmit,
+    OnSubmit = 1,
     OnDirty,
     OnTouched,
     OnDirtyOrTouched,
     OnDirtyOrSubmit,
-    OnTouchedOrDirty,
     OnTouchedOrSubmit
 }
