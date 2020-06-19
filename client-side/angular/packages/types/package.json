@@ -1,0 +1,20 @@
+{
+  "name": "@rxweb/types",
+  "version": "1.0.0",
+  "keywords": [
+    "angular reactive form strongly typed"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/client-side/angular/packages/translate#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
+  },
+  "homepage": "https://docs.rxweb.io/ngx-translate-extension/getting-started",
+  "license": "MIT",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

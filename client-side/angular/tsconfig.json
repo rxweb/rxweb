@@ -30,7 +30,9 @@
       "@rxweb/angular-router": [ "packages/angular-router" ],
       "@rxweb/localization": [ "packages/localization" ],
       "@rxweb/translate": [ "packages/translate" ],
-      "@rxweb/ngx-translate-extension": [ "packages/ngx-translate-extension" ]
+      "@rxweb/ngx-translate-extension": [ "packages/ngx-translate-extension" ],
+      "@rxweb/types": [ "packages/types" ]
+
     },
     "lib": [
       "es2017",

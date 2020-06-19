@@ -755,8 +755,39 @@
           }
         }
       }
+    },
+    "@rxweb/types": {
+      "root": "packages/types",
+      "sourceRoot": "packages/types",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "packages/types/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/types/ng-package.prod.json"
+            }
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/strongly-typed/tsconfig.lib.json",
+              "packages/strongly-typed/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-
     "defaultProject": "rxweb"
   }
