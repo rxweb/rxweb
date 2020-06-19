@@ -1,4 +1,4 @@
-# Strongly Typed Angular Reactive Form
+# Strongly Typed Angular Reactive Form - Clean Code 😍
 ![image](https://user-images.githubusercontent.com/20392302/84733287-73840b00-afbb-11ea-9c8c-c2de3207f1bf.png)
 
 If you are thinking the reactive form code must be readable, extensible and maintainable without writing more business logic in the Component. Expecting the below problems intuitive solution then I would suggest Class Driven Strongly Typed solution would be the best solution.
@@ -15,8 +15,10 @@ Here are the problems in Standard Approach:
 Manually configure the validators on every respective property(FormControl).
 10. If there is a specific need to perform some other operation based on respective FormControl value change then we have to subscribe to the respective value change of FormControl and do the further activity, which is a bit difficult to manage in large forms.
 11 Writing too much code to manage cross-field validation and conditional validation, if there are more than one validator on respective FormControl.
+# Why?
+[Refer the detailed information on the ticket of Strongly Typed Reactive Form On Angular Repository](https://github.com/angular/angular/issues/13721#issuecomment-644575874).
 
-#### How Class Approach is beneficial?
+# How Class Approach is beneficial?
 As we all are familiar with OOP practices, the class gives us more flexibility and maintainability of the code. few of the benefits I am highlighting below:
 
 1. Decouple our code.
