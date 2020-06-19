@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators,FormGroup, FormControl,FormArray } from "@angular/forms"
+import { FormBuilder, Validators,FormControl } from "@angular/forms"
 import { User } from './models/user';
 import { Address } from './models/address';
 import { Skill } from './models/skill';
