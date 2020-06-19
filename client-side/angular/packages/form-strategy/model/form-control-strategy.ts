@@ -86,11 +86,11 @@ export class FormControlStrategy {
         let control = ApplicationUtil.getControl(controlPath, <FormGroup>this.formControl.parent);
         if (control && control.strategy && !notifierType)
             control.strategy.conditional.runStrategy(false);
-        else if (notifierType)
-            control.strategy.sanitize();
+        //else if (notifierType)
+        //    control.strategy.sanitize("abc");
     }
 
-    sanitize() {
+    sanitize(value:any) {
         let parsedValue = value;
         Object.keys(this.sanitizers).forEach(sanitizerName => {
             let config = this.sanitizers[sanitizerName];
