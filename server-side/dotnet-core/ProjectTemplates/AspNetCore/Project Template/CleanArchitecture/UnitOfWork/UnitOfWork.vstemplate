@@ -1,0 +1,29 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>UnitOfWork</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>UnitOfWork</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="UnitOfWork.csproj" File="UnitOfWork.csproj" ReplaceParameters="true">
+      <Folder Name="DbEntityAudit" TargetFolderName="DbEntityAudit">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AuditLog.cs">AuditLog.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Main" TargetFolderName="Main">
+        <ProjectItem ReplaceParameters="true" TargetFileName="LoginUow.cs">LoginUow.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="BaseUow.cs">BaseUow.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

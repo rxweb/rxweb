@@ -1,0 +1,34 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>BoundedContext</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>BoundedContext</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="BoundedContext.csproj" File="BoundedContext.csproj" ReplaceParameters="true">
+      <Folder Name="DbContext" TargetFolderName="DbContext">
+        <Folder Name="Main" TargetFolderName="Main">
+          <ProjectItem ReplaceParameters="true" TargetFileName="LoginContext.cs">LoginContext.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Singleton" TargetFolderName="Singleton">
+        <ProjectItem ReplaceParameters="true" TargetFileName="TenantDbConnectionInfo.cs">TenantDbConnectionInfo.cs</ProjectItem>
+      </Folder>
+      <Folder Name="SqlDbContext" TargetFolderName="SqlDbContext">
+        <ProjectItem ReplaceParameters="true" TargetFileName="LogSqlDbContext.cs">LogSqlDbContext.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="MainSqlDbContext.cs">MainSqlDbContext.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

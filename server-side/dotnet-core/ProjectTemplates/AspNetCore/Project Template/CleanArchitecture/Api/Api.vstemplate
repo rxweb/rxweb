@@ -1,0 +1,46 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Api</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Api</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+     <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Api.csproj" File="Api.csproj" ReplaceParameters="true">
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+      </Folder>
+      <Folder Name="Bootstrap" TargetFolderName="Bootstrap">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AddDbContext.cs">AddDbContext.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ConfigurationOptions.cs">ConfigurationOptions.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Performance.cs">Performance.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Scoped.cs">Scoped.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Security.cs">Security.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Singleton.cs">Singleton.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Swagger.cs">Swagger.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Controllers" TargetFolderName="Controllers">
+        <Folder Name="Api" TargetFolderName="Api">
+          <Folder Name="Core" TargetFolderName="Core">
+            <ProjectItem ReplaceParameters="true" TargetFileName="AuthenticationController.cs">AuthenticationController.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="AuthorizeController.cs">AuthorizeController.cs</ProjectItem>
+          </Folder>
+        </Folder>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="appsettings.json">appsettings.json</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Startup.cs">Startup.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="web.config">web.config</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
