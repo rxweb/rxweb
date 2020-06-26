@@ -18,7 +18,7 @@ export class ConditionalMessagingComponent implements OnInit {
     ngOnInit() {
         this.formGroup = this.formBuilder.group({
             firstName: ['', [Validators.required]],
-            countryName: ['', [Validators.required], new FormControlStrategy({ conditional: { disable: (x) => x.firstName == "Bharat" } })],
+            countryName: ['', [Validators.required], new FormControlStrategy({ conditional: { message: (x) => x.firstName == "Bharat" } })],
         }) as IFormGroup<ConditionalErrorMessaging>;
     }
 }

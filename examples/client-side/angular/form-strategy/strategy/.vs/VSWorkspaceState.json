@@ -1,12 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\node_modules\\@rxweb\\form-strategy\\bundles",
-    "\\node_modules\\@rxweb\\form-strategy\\__ivy_ngcc__",
-    "\\node_modules\\@rxweb\\form-strategy\\__ivy_ngcc__\\fesm2015",
     "\\src",
     "\\src\\app"
   ],
-  "SelectedNode": "\\src\\app\\app.component.ts",
+  "SelectedNode": "\\src\\app",
   "PreviewInSolutionExplorer": false
 }
