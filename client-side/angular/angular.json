@@ -24,7 +24,7 @@
               "src/assets/multilingual/en"
             ],
             "styles": [
-              "src/styles.css"
+              
             ],
             "scripts": [
             ]
@@ -82,7 +82,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "styles": [
-              "src/styles.css"
+              
             ],
             "scripts": [],
             "assets": [
