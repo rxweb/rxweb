@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\node_modules\\@rxweb",
+    "\\node_modules\\@rxweb\\types",
+    "\\node_modules\\@rxweb\\types\\reactive-form",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\models"
+    "\\src\\app"
   ],
   "PreviewInSolutionExplorer": false
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators,FormControl } from "@angular/forms"
+import { FormBuilder, Validators, FormControl, FormGroup, FormArray } from "@angular/forms"
 import { User } from './models/user';
 import { Address } from './models/address';
 import { Skill } from './models/skill';
-import { IFormBuilder,IFormGroup,IFormArray} from "@rxweb/types"
+import { IFormControl, ControlState,  IFormBuilder, IFormGroup, IFormArray, ControlProp } from "@rxweb/types"
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -18,6 +19,13 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+
+        
+
+        
+
+       
+        
         this.formGroup = this.formBuilder.group<User>({
             firstName: ['', [Validators.required]],
             address: this.formBuilder.group<Address>({
@@ -29,7 +37,7 @@ export class AppComponent implements OnInit {
                 })
             ])
         });
-        
+        this.formGroup.controls.firstName.errors
 
         this.formGroup.addControl("lastName", new FormControl("abc"));
 
@@ -62,7 +70,7 @@ export class AppComponent implements OnInit {
 
 
         this.formGroup.controls.fakeControl;
-                          
+
 
         this.formGroup.controls.firstName.valueChanges.subscribe(value => {
             let fakeValue: Date = value;
@@ -84,10 +92,10 @@ export class AppComponent implements OnInit {
 
         this.formGroup.controls.firstName.reset(new Date())
 
-        
+
 
         //Nested FormGroup
-        
+
         let addressFormGroup = this.formGroup.controls.address as IFormGroup<Address>;
         addressFormGroup.controls.countryName.setValue(new Date());
 
@@ -117,7 +125,43 @@ export class AppComponent implements OnInit {
         skillFormArray.reset([{
             name: new Date()
         }]);
-        
 
+
+    }
+
+    formGroupClassInstance() {
+        let formGroup: IFormGroup<User> = new FormGroup(<ControlProp<User>>{
+            firstName: new FormControl((<ControlState<Date>>new Date())),
+            address: this.formBuilder.group<Address>({
+                countryName: ["", Validators.required]
+            }),
+            skills: this.formBuilder.array<Skill>([
+                this.formBuilder.group({
+                    name: ["", Validators.required]
+                })
+            ])
+        }) as IFormGroup<User>;
+        let control = formGroup.controls.fakeControl;
+    }
+
+
+    formArrayClassInstance() {
+        let formArray: IFormArray<Skill> = new FormArray([
+            new FormGroup(<ControlProp<Skill>>{
+                name: new FormControl((<ControlState<Date>>new Date()))
+            }) as IFormGroup<Skill>
+        ])
+        let address: Address[] = formArray.value;
+    }
+
+
+    formControlClassInstance() {
+        let formControl: IFormControl<string> = new FormControl(<ControlState<string>>"");
+        let value: Date = formControl.value;
+    }
+
+    formControlsOnlyInArray() {
+        let array = this.formBuilder.array<string>([this.formBuilder.control("")]);
+        let value:Date = array.controls[0].value
     }
 }
