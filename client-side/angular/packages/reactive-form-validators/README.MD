@@ -1,5 +1,5 @@
 
-[![Board Status](https://dev.azure.com/ajayojha/3238bdcf-dd2f-4ba6-84a3-fec7246d4f63/bb217727-dd31-4294-8bfc-d4763e21aa8a/_apis/work/boardbadge/4652c98e-cf37-40fa-99cc-89560ad7f105?columnOptions=1)](https://dev.azure.com/ajayojha/3238bdcf-dd2f-4ba6-84a3-fec7246d4f63/_boards/board/t/bb217727-dd31-4294-8bfc-d4763e21aa8a/Microsoft.RequirementCategory/)
+[![Build Status](https://dev.azure.com/ajayojha/rxweb/_apis/build/status/rxweb-CI?branchName=master)](https://dev.azure.com/ajayojha/rxweb/_build/latest?definitionId=39&branchName=master)
 [![Gitter](https://badges.gitter.im/rx-web/Lobby.svg)](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 [![npm version](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators.svg)](https://badge.fury.io/js/%40rxweb%2Freactive-form-validators)
 [![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
