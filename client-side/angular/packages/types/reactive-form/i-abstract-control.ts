@@ -23,7 +23,7 @@ export interface IAbstractControl<T, Entity = any> extends AbstractControl {
         emitViewToModelChange?: boolean;
     }): void;
 
-    patchValue(value: null | T, options?: {
+    patchValue(value: null | T | Partial<T>, options?: {
         onlySelf?: boolean;
         emitEvent?: boolean;
         emitModelToViewChange?: boolean;
