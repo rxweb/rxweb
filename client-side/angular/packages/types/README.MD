@@ -1,4 +1,4 @@
-﻿[![Board Status](https://dev.azure.com/ajayojha/3238bdcf-dd2f-4ba6-84a3-fec7246d4f63/bb217727-dd31-4294-8bfc-d4763e21aa8a/_apis/work/boardbadge/4652c98e-cf37-40fa-99cc-89560ad7f105?columnOptions=1)](https://dev.azure.com/ajayojha/3238bdcf-dd2f-4ba6-84a3-fec7246d4f63/_boards/board/t/bb217727-dd31-4294-8bfc-d4763e21aa8a/Microsoft.RequirementCategory/)
+﻿[![Build Status](https://dev.azure.com/ajayojha/rxweb/_apis/build/status/rxweb-CI?branchName=master)](https://dev.azure.com/ajayojha/rxweb/_build/latest?definitionId=39&branchName=master)
 [![Gitter](https://badges.gitter.im/rx-web/Lobby.svg)](https://gitter.im/rxweb-project/rxweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 [![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/rxweb/rxweb)	
@@ -13,6 +13,14 @@
 ## How Code Looks Like?
 <img src="https://user-images.githubusercontent.com/20392302/85085119-6ef66700-b1f4-11ea-852e-052de1d85ce2.png"/>
 
+## Through FormGroup Class
+![formgroup](https://user-images.githubusercontent.com/20392302/86140589-a4f9ec00-bb0e-11ea-82b0-9b9c31545316.png)
+
+## Through FormArray Class
+![formarray](https://user-images.githubusercontent.com/20392302/86140601-a7f4dc80-bb0e-11ea-94fd-26c423136b37.png)
+
+## Through FormControl Class
+![formcontrol](https://user-images.githubusercontent.com/20392302/86140611-a9bea000-bb0e-11ea-92d2-d91b948daafe.png)
 
 ## Refer Type Mismatch Errors
 * [FormGroup](https://docs.rxweb.io/strongly-typed/angular-strongly-typed#formgroup)
