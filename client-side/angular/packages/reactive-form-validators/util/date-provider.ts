@@ -1,6 +1,6 @@
 import { ReactiveFormConfig } from "./reactive-form-config";
 import {ApplicationUtil } from './app-util'
-const ISO_DATE_REGEX = /^(\d{4}-\d{1,2}-\d{1,2})$/;
+const ISO_DATE_REGEX = /^(?:[\+-]?\d{4}(?!\d{2}\b))(?:(-?)(?:(?:0[1-9]|1[0-2])(?:\1(?:[12]\d|0[1-9]|3[01]))?|W(?:[0-4]\d|5[0-2])(?:-?[1-7])?|(?:00[1-9]|0[1-9]\d|[12]\d{2}|3(?:[0-5]\d|6[1-6])))(?:[T\s](?:(?:(?:[01]\d|2[0-3])(?:(:?)[0-5]\d)?|24\:?00)(?:[\.,]\d+(?!:))?)?(?:\2[0-5]\d(?:[\.,]\d+)?)?(?:[zZ]|(?:[\+-])(?:[01]\d|2[0-3]):?(?:[0-5]\d)?)?)?)?$/;
 export class DateProvider{
 
   isDate(value: any): Boolean {
@@ -34,12 +34,11 @@ export class DateProvider{
 
   getDate(value:string | Date,isBaseFormat:boolean = false): Date{
     let year,month,day;
-    if(!this.isDate(value)){
+      if (!this.isDate(value) && !ISO_DATE_REGEX.test(<string>value)){
       let seperator:string;
       let dateFormat:string;
       if(ISO_DATE_REGEX.test(<string>value)){
-        seperator = "-";
-        dateFormat = "ymd"
+          return new Date(value);
       }else{
         seperator = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.seperator ? ReactiveFormConfig.json.baseConfig.seperator : "/";
         dateFormat = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.dateFormat ? ReactiveFormConfig.json.baseConfig.dateFormat : "mdy";

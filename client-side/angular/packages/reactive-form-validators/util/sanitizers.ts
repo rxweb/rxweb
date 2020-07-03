@@ -85,10 +85,10 @@ function whitelist(value: any, chars: string) {
     return value;
 }
 
-function toDate(value: any) {
+function toDate(value: any, config: any) {
     var dateProvider = new DateProvider();
     if (isNotBlank(value))
-        if (typeof value === "string" && dateProvider.isValid(value, {})) {
+        if (typeof value === "string" && dateProvider.isValid(value, config)) {
             value = dateProvider.getDate(value);
             return value;
         }
