@@ -9,6 +9,7 @@ export class User {
     @toDate()
     dob: any;
 
+    @prop()
     @toDate({ allowISODate: true })
     dateISO: Date;
 
@@ -63,8 +64,8 @@ export class User {
             ///fix bug https://github.com/rxweb/rxweb/issues/342
             it('set iso date.',
                 () => {
-                    let user = new User();
-                    let formGroup = <RxFormGroup>formBuilder.formGroup(user);
+                    let formGroup = <RxFormGroup>formBuilder.formGroup(User);
+                    debugger;
                     formGroup.controls.dateISO.setValue("2018-06-11T00:00:00.000Z");
                     expect(formGroup.modelInstance.dateISO).toEqual(new Date("2018-06-11T00:00:00.000Z"));
                 });

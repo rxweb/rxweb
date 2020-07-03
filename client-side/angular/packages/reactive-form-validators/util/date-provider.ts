@@ -34,7 +34,7 @@ export class DateProvider{
 
   getDate(value:string | Date,isBaseFormat:boolean = false): Date{
     let year,month,day;
-      if (!this.isDate(value) && !ISO_DATE_REGEX.test(<string>value)){
+      if (!this.isDate(value)){
       let seperator:string;
       let dateFormat:string;
       if(ISO_DATE_REGEX.test(<string>value)){
