@@ -2,7 +2,6 @@
     'danish': /^[A-ZÆØÅ]+$/,
     'french': /^[A-ZÀÂÆÇÉÈÊËÏÎÔŒÙÛÜŸ]+$/,
     'german': /^[A-ZÄÖÜß]+$/,
-    'greek': /^[Α-ω]+$/,
     'spanish': /^[a-zñáéíóúü]+$/i,
     'russian': /^[А-ЯЁ]+$/,
 
@@ -12,7 +11,6 @@ export const alphaWithWhitespace = {
     'danish': /^[A-ZÆØÅ\s]+$/,
     'french': /^[A-ZÀÂÆÇÉÈÊËÏÎÔŒÙÛÜŸ\s]+$/,
     'german': /^[A-ZÄÖÜß\s]+$/,
-    'greek': /^[Α-ω\s]+$/,
     'spanish': /^[a-zñáéíóúü\s]+$/i,
     'russian': /^[А-ЯЁ\s]+$/,
 
