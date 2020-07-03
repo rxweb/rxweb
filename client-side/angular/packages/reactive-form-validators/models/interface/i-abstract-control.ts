@@ -9,4 +9,8 @@ export abstract class IAbstractControl extends AbstractControl {
 
     refresh: () => void;
 
+    setBackEndErrors: (errors: { [key: string]: any }) => void;
+
+    clearBackEndErrors: (errors?: { [key: string]: any }) => void;
+
     }

@@ -276,6 +276,29 @@ export class RxFormGroup extends FormGroup {
         }
     }
 
+    setBackEndErrors(errors: { [key: string]: any }) {
+        Object.keys(errors).forEach(controlName => {
+            if (this.controls[controlName]) {
+                if (this.controls[controlName] instanceof FormGroup)
+                    (<RxFormGroup>this.controls[controlName]).setBackEndErrors(errors[controlName])
+                else
+                    (<RxFormControl>this.controls[controlName]).setBackEndErrors(errors[controlName]);
+            }
+        })
+    }
+
+    clearBackEndErrors(errors?: { [key: string]: any }) {
+        let clearErrors = errors ? Object.keys(errors) : Object.keys(this.controls);
+        clearErrors.forEach(controlName => {
+            if (this.controls[controlName]) {
+                if (this.controls[controlName] instanceof FormGroup)
+                    (<RxFormGroup>this.controls[controlName]).clearBackEndErrors(errors[controlName])
+                else
+                    (<RxFormControl>this.controls[controlName]).clearBackEndErrors(errors[controlName]);
+            }
+        })
+    }
+
     private nestedFormsModification() {
         for (var controlName in this.controls) {
             if (this.controls[controlName] instanceof RxFormGroup) 

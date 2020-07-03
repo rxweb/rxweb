@@ -18,6 +18,10 @@ export interface AppFormGroup<T> extends FormGroup {
         emitEvent?: boolean;
     }) => void;
 
+    setBackEndErrors: (errors: { [key: string]: any })=> void;
+
+    clearBackEndErrors: (errors?: { [key: string]: any }) => void;
+
     valueChangedSync: () => void;
 
     refreshDisable: () => void;

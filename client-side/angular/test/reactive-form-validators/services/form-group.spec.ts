@@ -25,4 +25,16 @@ describe('form-group', () => {
         userFormGroup.controls.lastName.setValue("Doe");
         expect(userFormGroup.controls.lastName.value).toEqual('Doe');
     })
+
+    it('should pass.', () => {
+        let userFormGroup: RxFormGroup = <RxFormGroup>formbuilder.formGroup(User);
+        userFormGroup.removeControl('lastName');
+        userFormGroup.addControl('lastName', new FormControl('', {
+            validators: [Validators.required, Validators.email],
+            updateOn: 'blur'
+        }));
+        userFormGroup.controls.firstName.setValue("John");
+        userFormGroup.controls.lastName.setValue("Doe");
+        expect(userFormGroup.controls.lastName.value).toEqual('Doe');
+    })
 })

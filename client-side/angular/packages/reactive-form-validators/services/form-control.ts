@@ -38,6 +38,7 @@ export class RxFormControl extends FormControl {
     private _isModified: boolean;
     private _errors: any;
     private _dirty: boolean = false;
+    backEndErrors: { [key: string]: string } = {};
     updateOnElementClass: boolean | Function;
     preHook: Function;
     postHook: Function;
@@ -158,7 +159,18 @@ export class RxFormControl extends FormControl {
     }
 
 
+    setBackEndErrors(error: { [key: string]: string }) {
+        Object.keys(error).forEach(key => this.backEndErrors[key] = error[key]);
+        this.setControlErrorMessages();
+    }
 
+    clearBackEndErrors(errors?: { [key: string]: any }) {
+        if (!errors)
+            this.backEndErrors = {};
+        else
+            Object.keys(errors).forEach(t => delete this.backEndErrors[t]);
+        this.setControlErrorMessages();
+    }
 
     markAsTouched(opts?: {
         onlySelf?: boolean;
@@ -331,11 +343,14 @@ export class RxFormControl extends FormControl {
                     delete this.parent[CONTROLS_ERROR][this.keyName];
                 }
             }
+            let backEndErrors = Object.keys(this.backEndErrors);
+            if (backEndErrors.length > 0)
+                backEndErrors.forEach(t => { this._errorMessages.push(this._errorMessage = this.backEndErrors[t]); })
         } else {
             this._errorMessages = [];
             this._errorMessage = undefined;
         }
-
+        
     }
 
     private getErrorMessage(errorObject: { [key: string]: string }, keyName: string) {
