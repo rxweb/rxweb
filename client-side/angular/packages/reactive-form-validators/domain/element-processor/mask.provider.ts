@@ -50,6 +50,8 @@ export class MaskProvider {
 
     filled: boolean;
 
+    minLength: number;
+
     constructor(private input: HTMLInputElement, private mask: string, private renderer: Renderer2, private formControl: FormControl, private config: MaskConfig) {
         this.bind();
     }
@@ -90,7 +92,7 @@ export class MaskProvider {
                 this.tests.push(null);
             }
         }
-
+        this.minLength = this.config.minLength ? this.lastRequiredNonMaskPos - (this.lastRequiredNonMaskPos - this.config.minLength) : this.lastRequiredNonMaskPos;
         this.buffer = [];
         for (let i = 0; i < maskTokens.length; i++) {
             let c = maskTokens[i];
@@ -177,9 +179,10 @@ export class MaskProvider {
         }
     }
 
-    isCompleted(): boolean {
+    isCompleted(lastRequiredNonMaskPos?:number): boolean {
         let completed: boolean;
-        for (let i = this.firstNonMaskPos; i <= this.lastRequiredNonMaskPos; i++) {
+        lastRequiredNonMaskPos = lastRequiredNonMaskPos || this.lastRequiredNonMaskPos;
+        for (let i = this.firstNonMaskPos; i <= lastRequiredNonMaskPos; i++) {
             if (this.tests[i] && this.buffer[i] === this.getPlaceholder(i)) {
                 return false;
             }
@@ -265,7 +268,7 @@ export class MaskProvider {
 
             this.caret(pos.begin, pos.begin);
         }
-
+        
         if (this.isCompleted()) {
             this.isInvalid = false;
         } else {
@@ -298,7 +301,7 @@ export class MaskProvider {
             end;
         let iPhone = false;
         this.oldVal = this.input.value;
-
+        let controlValid = this.config.minLength ? this.isCompleted(this.minLength+1) : false;
         if (k === 8 || k === 46 || (iPhone && k === 127)) {
             pos = this.caret();
             begin = pos.begin;
@@ -312,18 +315,18 @@ export class MaskProvider {
 
             this.clearBuffer(begin, end);
             this.shiftL(begin, end - 1);
-            this.setControlValue(e,false);
+            this.setControlValue(e, false, controlValid);
             this.updateModel(e);
             e.preventDefault();
         } else if (k === 13) { 
             this.onBlur(e);
-            this.setControlValue(e, false);
+            this.setControlValue(e, false, controlValid);
             this.updateModel(e);
         } else if (k === 27) { 
             this.input.value = this.focusText;
             this.caret(0, this.checkVal());
             this.updateModel(e);
-            this.setControlValue(e, false);
+            this.setControlValue(e, false, controlValid);
             e.preventDefault();
             
         }
@@ -337,7 +340,6 @@ export class MaskProvider {
             c,
             next,
             completed;
-
         if (e.ctrlKey || e.altKey || e.metaKey || k < 32) {
             return;
         } else if (k && k !== 13) {
@@ -365,12 +367,11 @@ export class MaskProvider {
             }
             e.preventDefault();
         }
-
+        
         this.updateModel(e);
         if (completed === undefined)
             completed = this.isCompleted()
-        this.setControlValue(e, completed);
-        
+        this.setControlValue(e, completed, this.config.minLength ? this.isCompleted(this.minLength) : false);
     }
     internalProcess: boolean = false;
     clearBuffer(start, end) {
@@ -419,7 +420,7 @@ export class MaskProvider {
         }
         if (allow) {
             this.writeBuffer();
-        } else if (lastMatch + 1 < this.partialPosition) {
+        } else if ((lastMatch + 1 < this.partialPosition) && (!this.config.minLength || !(lastMatch >= this.minLength))) {
             if (this.autoClear || this.buffer.join('') === this.defaultBuffer) {
                 this.isInvalid = true
             } else {
@@ -465,8 +466,8 @@ export class MaskProvider {
             this.handleInputChange(event);
     }
 
-    setControlValue(e, isValid) {
-        this.isInvalid = !isValid;
+    setControlValue(e, isValid, isValidControl?: boolean) {
+        this.isInvalid = isValidControl ? !isValidControl : !isValid;
         let value = this.input.value;
         let controlValue = '';
         if (!this.isInvalid)
