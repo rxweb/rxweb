@@ -12,7 +12,7 @@ export function rangeValidator(configModel: RangeConfig): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
     let config = getConfigObject(configModel,control,RANGE_CONFIG);
       if (ValidatorValueChecker.pass(control, config)) {
-          if (!(control.value && parseFloat(control.value) >= config.minimumNumber && parseFloat(control.value) <= config.maximumNumber))
+          if (!((control.value != null && control.value != undefined) && parseFloat(control.value) >= config.minimumNumber && parseFloat(control.value) <= config.maximumNumber))
         return ObjectMaker.toJson(AnnotationTypes.range, config, [control.value, config.minimumNumber, config.maximumNumber])
     }
     return ObjectMaker.null();
