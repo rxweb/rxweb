@@ -173,7 +173,7 @@ export class EmployeeInfo {
                 expect(formGroup.controls.bonus.errors).toBeNull();
             });
 
-        it('percentageExample should be valid with zero value.',
+        it("percentageExample should be valid with zero value.",
             () => {
             let employeeInfo = new EmployeeInfo();
             let formGroup = formBuilder.formGroup(employeeInfo);
