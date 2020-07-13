@@ -2,6 +2,7 @@ import {Input, Directive ,forwardRef,ElementRef} from '@angular/core';
 import {ValidationErrors, AbstractControl, NG_ASYNC_VALIDATORS,AsyncValidator } from '@angular/forms';
 import {ImageConfig} from '../../models/config'
 import { APP_VALIDATORS } from "../../const/app-validators.const";
+import { Observable, of } from 'rxjs';
 const VALIDATOR_CONFIG = "validatorConfig";
 @Directive({
     selector: "input[type=file]",
@@ -32,12 +33,12 @@ export class ImageFileControlDirective implements AsyncValidator  {
       this.isProcessed = true;
     }
 
-    validate(control: AbstractControl): Promise<ValidationErrors | null> {
+    validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
       if(!this.isProcessed)
         this.setConfig(control);
       if(this.imageValidation){
           return this.imageValidation(control,this.element.files);
       }
-      return new Promise((resolve, reject) => { resolve(null); })
+        return of(null);
     }    
 }
