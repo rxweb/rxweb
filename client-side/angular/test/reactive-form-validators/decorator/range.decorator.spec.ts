@@ -20,6 +20,10 @@ export class EmployeeInfo {
     @numeric({ allowDecimal: true })
     bonus: number;
 
+    @range({ minimumNumber: 0, maximumNumber: 100 })
+    @numeric({ allowDecimal: true })
+    percentageExample: number;
+
 }
 
 
@@ -169,7 +173,13 @@ export class EmployeeInfo {
                 expect(formGroup.controls.bonus.errors).toBeNull();
             });
 
-
+        it("percentageExample should be valid with zero value.",
+            () => {
+            let employeeInfo = new EmployeeInfo();
+            let formGroup = formBuilder.formGroup(employeeInfo);
+            formGroup.controls.percentageExample.setValue(0);
+            expect(formGroup.controls.percentageExample.valid).toEqual(true);
+         });
 
 	//end
     });
