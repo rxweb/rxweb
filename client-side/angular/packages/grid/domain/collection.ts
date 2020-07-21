@@ -21,12 +21,13 @@ export class Collection {
     private _source: any[];
     private _items: any[];
     private _gridSource: Item[];
-    private gridConfig: ContainerConfig;
+    protected gridConfig: ContainerConfig;
     gridColumns: GridColumnConfig[] = [];
     private columns: string[] = [];
     protected activeColumns: string[] = [];
     protected searchColumns: string[] = [];
     protected eventSubscriber: EventSubscriber;
+    protected isTranslateModuleUsed: boolean;
     constructor(source: any[], model: Function, private configuration: GridConfig) {
         this.source = source;
         this.model = model;
@@ -221,6 +222,7 @@ export class Collection {
                 let value = descriptor ? descriptor.get() : instanceObject[propName];
                 let oldValue = value;
                 Object.defineProperty(instanceObject, propName, {
+                    configurable: true,
                     get: () => { return descriptor ? descriptor.get.call(instanceObject) : value },
                     set: (v) => {
                         if (oldValue !== v) {

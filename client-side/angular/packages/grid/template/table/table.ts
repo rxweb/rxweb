@@ -5,34 +5,62 @@ import { TemplateConfig } from "../..";
 import { TableTemplateConfig } from "../../interface/config/table-template-config";
 import { GridColumnConfig } from "../../interface/config/grid-column-config";
 import { EVENTS } from "../../const/events.const";
-import { customTemplateParser } from "../../static/custom-template-parser";
+import { customTemplateParser, getTemplate } from "../../static/custom-template-parser";
+import { TranslationCore } from "@rxweb/translate";
+import { GridConfiguration } from "../../interface/config/grid-configuration";
+
+function designTopHeaders(columns: Item[], configuration: GridConfiguration) {
+    let parentNode = [];
+    if (configuration && configuration.groupColumnHeader && Array.isArray(columns)) {
+        configuration.groupColumnHeader.forEach(headerItem => {
+            let childrens = []
+            headerItem.items.forEach(t => {
+                let columnCount = 0;
+                t.columns.forEach(x => { columns.filter(y => y.instance.name == x)[0] ? columnCount++ : 0 })
+                var cloneTemplate: any = getTemplate(t.templateName)
+                let gridData = { ...t.data, groupColumnCount: columnCount };
+                Object.keys(cloneTemplate).forEach(t => cloneTemplate[t].gridData = gridData);
+                childrens.push(cloneTemplate);
+            })
+            let parentTemplate = getTemplate(headerItem.parentTemplateName);
+            Object.keys(parentTemplate).forEach(t => parentTemplate[t].childrens = childrens);
+            parentNode.push(parentTemplate)
+        })
+    }
+    return parentNode;
+}
 
 export function table(templateConfig: TableTemplateConfig, source: Item[]) {
     var config = getHeaderAndRowConfiguration(templateConfig)
     var headerTemplate = {};
-    if (!templateConfig.hideHeaderFooter && !templateConfig.hideHeader)
-    headerTemplate = {
-        [templateConfig.isDivBase ? "div" : "thead"]: {
-            class: templateConfig.classConfig.headerClass,
-            childrens: [{
-                [templateConfig.isDivBase ? "div":"tr"]: {
-                    sourceItems: config.headerColumns,
-                    class: templateConfig.classConfig.headerRowClass,
-                    childrens: config.headerTemplateChildrens
-                }
-            }]
+    let childrens =[]
+    if (!templateConfig.hideHeaderFooter && !templateConfig.hideHeader) {
+        childrens = designTopHeaders(config.headerColumns, templateConfig.gridConfiguration);
+        childrens.push({
+            [templateConfig.isDivBase ? "div" : "tr"]: {
+                sourceItems: config.headerColumns,
+                class: templateConfig.classConfig.headerRowClass,
+                childrens: config.headerTemplateChildrens
+            }
+        })
+        headerTemplate = {
+            [templateConfig.isDivBase ? "div" : "thead"]: {
+                class: templateConfig.classConfig.headerClass,
+                childrens: childrens
+            }
         }
     }
+
     var bodyTemplate = {
         [templateConfig.isDivBase ? "div" : "tbody"]: {
             id: "tbody-id",
             class: templateConfig.classConfig.bodyClass,
             sourceItems: source,
-            rowItem:true,
+            rowItem: true,
             childrens: [config.rowTemplateConfg]
         }
     }
-    return { headerTemplate: headerTemplate, bodyTemplate: bodyTemplate, headerColumns: Object.keys(headerTemplate).length > 0 ? headerTemplate[templateConfig.isDivBase ? "div" : "thead"].childrens[0][templateConfig.isDivBase ? "div" : "tr"].sourceItems:[] };
+    return { headerTemplate: headerTemplate, bodyTemplate: bodyTemplate, headerColumns: Object.keys(headerTemplate).length > 0 ? headerTemplate[templateConfig.isDivBase ? "div" : "thead"].childrens[childrens.length -1][templateConfig.isDivBase ? "div" : "tr"].sourceItems : [] };
 }
 function getText(columnConfig: GridColumnConfig) {
     return columnConfig.headerKey || columnConfig.name;
@@ -61,7 +89,7 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
                     if (templateConfig.authorization[keyName]) {
                         isAccess = templateConfig.authroizationMethod(templateConfig.authorization[keyName]);
                         if (!isAccess)
-                            loopCount += 1; 
+                            loopCount += 1;
                     }
                 }
                 columnConfig.visible = columnConfig.visible ? !(templateConfig.authorization[columnConfig.name].length == loopCount) : columnConfig.visible;
@@ -71,42 +99,44 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
             var headerCellChildrens: TemplateConfig[] = [];
             if (columnConfig.configuredHeaderTemplate) {
                 let item = customTemplateParser(columnConfig.configuredHeaderTemplate, columnConfig)
-                if(item)
+                if (item)
                     headerCellChildrens.push(item);
             }
-                
+
             headerCellChildrens.push({
                 text: {
-                    text: columnConfig.headerTitle ? columnConfig.headerTitle : MultiLingualData.get(`${templateConfig.multiLingualPath}.${getText(columnConfig)}_gh`)
+                    text: columnConfig.headerTitle ? columnConfig.headerTitle : templateConfig.isTranslateModuleUsed ? TranslationCore.getText(columnConfig.headerKey) : MultiLingualData.get(`${templateConfig.multiLingualPath}.${getText(columnConfig)}_gh`),
+                    ref: 'headerTitle'
                 }
             });
             if (columnConfig.isAscending === undefined)
                 columnConfig.isAscending = false;
-            var headerItem = new Item({ ...columnConfig }, Object.keys(columnConfig));
+            let cloneColumnConfig = { ...columnConfig, ...{ isMultilingual: true } };
+            var headerItem = new Item(cloneColumnConfig, Object.keys(cloneColumnConfig));
             headerColumns.push(headerItem);
             var th: TemplateConfig = {};
-                headerCellChildrens.push({
-                    i: {
-                        parameterConfig: { columnConfig: columnConfig },
-                        class: [function (y: GridColumnConfig) { return this.allowSorting && this.isAscending ? templateConfig.classConfig.ascendingClass : '' }, function (y: GridColumnConfig) { return this.allowSorting &&  this.isAscending === false ? templateConfig.classConfig.descendingClass : '' }]
-                    }
-                });
-                th = {
-                    [templateConfig.isDivBase ? "div" : "th"]: {
-                        parameterConfig: { columnConfig: columnConfig },
-                        style: columnConfig.style,
-                        event: {
-                            click: (event) => {
-                                templateConfig.eventSubscriber.dispatch(EVENTS.SORTING, headerItem.instance)
-                            }
+            headerCellChildrens.push({
+                i: {
+                    parameterConfig: { columnConfig: columnConfig },
+                    class: [function (y: GridColumnConfig) { return this.allowSorting && this.isAscending ? templateConfig.classConfig.ascendingClass : '' }, function (y: GridColumnConfig) { return this.allowSorting && this.isAscending === false ? templateConfig.classConfig.descendingClass : '' }]
+                }
+            });
+            th = {
+                [templateConfig.isDivBase ? "div" : "th"]: {
+                    parameterConfig: { columnConfig: columnConfig },
+                    style: columnConfig.style,
+                    event: {
+                        click: (event) => {
+                            templateConfig.eventSubscriber.dispatch(EVENTS.SORTING, headerItem.instance)
+                        }
 
 
-                        },
-                    }
+                    },
+                }
             };
             th[templateConfig.isDivBase ? "div" : "th"].class = getHeaderCellClass(templateConfig, columnConfig);
             th[templateConfig.isDivBase ? "div" : "th"].childrens = headerCellChildrens;
-                _rowHeaderChildrens.push(th);
+            _rowHeaderChildrens.push(th);
             let tableData = {
                 [templateConfig.isDivBase ? "div" : "td"]: {
                     attributes: { id: columnConfig.name },
@@ -132,7 +162,7 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
         headerTemplateChildrens: _rowHeaderChildrens,
         rowTemplateConfg: {
             [templateConfig.isDivBase ? "div" : "tr"]: {
-                
+
                 class: templateConfig.classConfig.rowClass,
                 id: `row-id`,
                 childrens: _rowChildrens

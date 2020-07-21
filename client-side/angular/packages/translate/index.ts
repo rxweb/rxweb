@@ -10,3 +10,4 @@ export * from './module/rx-sanitize-module';
 export * from './decorators/translate-sanitizer.decorator'
 export * from './interface/error-message-config'
 export * from './functions/replacer'
+export * from './core/translation-core';

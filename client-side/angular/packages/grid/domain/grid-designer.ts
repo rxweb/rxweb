@@ -1,4 +1,5 @@
 import { DomManipulation } from "@rxweb/dom";
+import { TranslationCore } from "@rxweb/translate"
 
 import { TemplateConfig, ElementConfig } from "../interface/config/template-config";
 import { ControlState } from './control-state'
@@ -8,6 +9,8 @@ import { EVENTS } from "../const/events.const";
 import { paginator } from '../template/paginator';
 import { GridConfig } from "../interface/config/grid-config";
 import { ElementOnDemand } from "../interface/config/element-on-demand"
+import { translatedText } from "../functions/translated-text";
+import { Subscription } from "rxjs";
 export class GridDesigner extends GridTemplate {
     childDom: DomManipulation;
     private element: HTMLElement;
@@ -20,6 +23,9 @@ export class GridDesigner extends GridTemplate {
     private DomManipulations: DomManipulation[];
     authorization: { [key: string]: any };
     private gridConfiguration: GridConfig;
+
+    subscription: Subscription
+    
     constructor(source: any[], model: Function, configuration: GridConfig) {
         super(source, model, configuration);
         this.gridConfiguration = configuration;
@@ -28,7 +34,16 @@ export class GridDesigner extends GridTemplate {
         this.controlState = new ControlState();
     }
 
+    languageChange() {
+        if (this.headerColumns)
+        translatedText(this.headerColumns, "headerKey", "headerTitle");
+        this.paginationMultilingual();
+    }
+
+
     design(element: HTMLElement) {
+        if (this.isTranslateModuleUsed)
+            this.subscription = TranslationCore.languageChanged.subscribe(t => { this.languageChange(); });
         this.element = element;
         this.bindSource();
         var isRowEvent = this.gridConfiguration && this.gridConfiguration.actions && this.gridConfiguration.actions.onRowSelect !== undefined;
@@ -46,7 +61,9 @@ export class GridDesigner extends GridTemplate {
             multiLingualPath: this.componentId,
             isRowEvent: isRowEvent,
             authorization: this.authorization,
-            authroizationMethod: this.authorize.bind(this)
+            authroizationMethod: this.authorize.bind(this),
+            isTranslateModuleUsed: this.isTranslateModuleUsed,
+            gridConfiguration: this.gridConfig.configuration
         }, this.gridSource);
         if (!this.isReDesign)
             this.pagination();
@@ -77,7 +94,6 @@ export class GridDesigner extends GridTemplate {
         return null;
     }
     private createElement(parentElement: HTMLElement, elementName: string, elementConfig: ElementConfig, modelObject: any, index: number) {
-
         let authorizationPassed = (this.authorization && elementConfig && elementConfig.authorize && this.authorization[elementConfig.authorize]) ? this.authorize(this.authorization[elementConfig.authorize]) : true;
         if (authorizationPassed) {
             var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, this.gridConfiguration);
@@ -105,7 +121,7 @@ export class GridDesigner extends GridTemplate {
             }
             else
                 if (elementConfig.childrens)
-                    this.createChildElements(domManipulation.element, elementConfig.childrens, modelObject, 0);
+                    this.createChildElements(domManipulation.element, elementConfig.childrens, elementConfig.gridData ? { ...{ gridData: elementConfig.gridData, ...modelObject } } : modelObject, 0);
             return domManipulation;
         }
     }
@@ -158,6 +174,8 @@ export class GridDesigner extends GridTemplate {
 
 
     destroy() {
+        if (this.subscription)
+            this.subscription.unsubscribe();
         this.removeChildrens();
         this.removeChildren(this.element);
     }

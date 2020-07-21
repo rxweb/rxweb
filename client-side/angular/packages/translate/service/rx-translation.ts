@@ -5,10 +5,10 @@ import { BaseResolver } from "../resolver/base-resolver";
 import { HttpClient } from '@angular/common/http';
 import { Injectable, ApplicationRef } from '@angular/core';
 import { viewRefContainer } from '../core/view-ref-container';
+import { TranslationCore } from '../core/translation-core';
 @Injectable()
 export class RxTranslation {
     constructor(private httpClient: HttpClient, private ref: ApplicationRef) {
-
     }
     get language() {
         return translateConfigContainer.config.languageCode;
@@ -16,7 +16,7 @@ export class RxTranslation {
 
     change(languageCode: string, onComplete?: Function) {
         var baseResolver = new BaseResolver(translateConfigContainer.config, this.httpClient);
-        baseResolver.languageChanged(languageCode, () => { viewRefContainer.markForCheck(); if (onComplete) onComplete() });
+        baseResolver.languageChanged(languageCode, () => { viewRefContainer.markForCheck(); if (onComplete) onComplete(); TranslationCore.languageChangedSubject.next(true); });
     }
 
 

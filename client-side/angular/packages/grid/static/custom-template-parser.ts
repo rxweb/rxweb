@@ -13,6 +13,9 @@ export function customTemplateParser(configuredTemplate: CustomTemplateConfig, c
         cloned = mergeChildrens(configuredTemplate, { ...template });
     return template ? parse(cloned, replacers, columnConfig,true) : undefined;
 }
+export function getTemplate(templateName) {
+    return parseTemplate(GridCustomTemplate.getTemplate(templateName));
+}
 
 function mergeChildrens(configuredTemplate: CustomTemplateConfig, cloned: TemplateConfig) {
     if (configuredTemplate && configuredTemplate.childrenTemplateNames)
@@ -67,4 +70,29 @@ function isObjectType(value: any) {
 
 function isObject(value: any): boolean {
     return Object.prototype.toString.call(value) === '[object Object]';
+}
+
+function parseTemplate(jsonObject: { [key: string]: any }) {
+    if (jsonObject) {
+        let jObject: any = {};
+        for (var columnName in jsonObject) {
+            if (Array.isArray(jsonObject[columnName])) {
+                jObject[columnName] = [];
+                for (let row of jsonObject[columnName]) {
+                    if (isObject(row)) {
+                        row = parseTemplate(row);
+                        jObject[columnName].push(row)
+                    }
+                    else
+                        jObject[columnName].push(row)
+                }
+            } else if (typeof jsonObject[columnName] == "object") {
+                jObject[columnName] = parseTemplate(jsonObject[columnName]);
+            }
+            else
+                jObject[columnName] = jsonObject[columnName];
+        }
+        return jObject;
+    }
+    return undefined;
 }

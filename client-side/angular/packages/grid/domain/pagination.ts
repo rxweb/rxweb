@@ -4,18 +4,19 @@ import { TemplateConfig } from "../interface/config/template-config";
 import { FooterDesignClass } from './footer-design-class';
 import { EVENTS } from "../const/events.const";
 import { GridConfig } from '../interface/config/grid-config'
-
+import { MultiLingualData } from "@rxweb/localization";
+import { TranslationCore } from "@rxweb/translate";
 
 export class Pagination extends Collection {
 
-    
-    
+
+
 
     private _maxPerPage: number = 5;
 
     maxNavigationPage: number = 5;
 
-    
+
 
     pagingSource: number[] = [5, 10, 100, 500, 1000, 50000];
 
@@ -24,6 +25,12 @@ export class Pagination extends Collection {
     currentPage: number;
 
     private startCount: number = 1;
+
+    private showing: string;
+    private to: string;
+    private of: string;
+    private entriesText: string;
+    private show: string;
 
     private endCount: number = this.maxPerPage;
 
@@ -70,6 +77,7 @@ export class Pagination extends Collection {
     }
 
     pagination() {
+        this.paginationMultilingual();
         var pages = this.getPages();
         pages.forEach(i => {
             this.paginationConfigs.push(new Item({ text: i, disabled: true, active: this.currentPage == i }, ["text", "disabled", "active"]))
@@ -107,7 +115,7 @@ export class Pagination extends Collection {
         return Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
     }
 
-    
+
 
     protected onMaxPerPageChanging(element: Event) {
         this.maxPerPage = parseInt((<HTMLSelectElement>element.currentTarget).value);
@@ -134,9 +142,16 @@ export class Pagination extends Collection {
         }
     }
 
-
+    protected paginationMultilingual() {
+        this.showing = this.isTranslateModuleUsed ? TranslationCore.getText('global.grid.showing') : MultiLingualData.get(`global.showing_gf`) || 'showing ';
+        this.to = this.isTranslateModuleUsed ? TranslationCore.getText('global.grid.to') : MultiLingualData.get(`global.to_gf`) || ' to ';
+        this.of = this.isTranslateModuleUsed ? TranslationCore.getText('global.grid.of') :  MultiLingualData.get(`global.of_gf`) || ' of ';
+        this.entriesText = this.isTranslateModuleUsed ? TranslationCore.getText('global.grid.entries') : MultiLingualData.get(`global.entries_gf`) || ' entries';
+        this.show = this.isTranslateModuleUsed ? TranslationCore.getText('global.grid.show') : MultiLingualData.get(`global.show_gf`) || 'Show'
+    }
 
     protected updatePagination() {
+
         var pageConfigLength = this.paginationConfigs.length;
         var pages = this.getPages();
         for (var i = 0, j = pages.length; i < j; i++) {
@@ -155,7 +170,7 @@ export class Pagination extends Collection {
     remove(id: number) {
         var item = this.source.filter(t => t[this.primaryKey] == id)[0];
         var indexOf = this.source.indexOf(item);
-        if (indexOf != -1 ) {
+        if (indexOf != -1) {
             this.source.splice(indexOf, 1);
             item = this.bindingSource.filter(t => t[this.primaryKey] == id)[0];
             indexOf = this.bindingSource.indexOf(item);
@@ -165,7 +180,7 @@ export class Pagination extends Collection {
             this.updatePagination();
             this.updateStartEndCount();
         }
-        
+
     }
 
     protected changeSource() {

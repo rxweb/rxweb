@@ -35,8 +35,10 @@ export class ElementConfig {
     parameterConfig?: ParameterConfig;
     authorize?: string;
     isBind?: (x: any) => boolean;
+    gridData?: { [key: string]: any };
 }
 
 export class TextConfig {
     text: string | Function;
+    ref?: string;
 }

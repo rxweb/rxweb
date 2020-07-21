@@ -1,6 +1,7 @@
 import { EventSubscriber } from "../../domain/event-subscriber";
 import { DesignClass } from "../../domain/design-class";
 import { GridColumnConfig } from "./grid-column-config";
+import { GridConfiguration } from "./grid-configuration";
 
 export interface TableTemplateConfig {
     hideHeader: boolean;
@@ -15,4 +16,6 @@ export interface TableTemplateConfig {
     isRowEvent: boolean;
     authorization: { [key: string]: any };
     authroizationMethod: Function;
+    isTranslateModuleUsed: boolean;
+    gridConfiguration: GridConfiguration
 }

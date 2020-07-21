@@ -51,13 +51,13 @@ function textTemplate() {
         div: {
             class: ["col-4"],
             childrens: [
-                { text: { text: MultiLingualData.get(`global.showing_gf`) || 'showing ' } },
+                { text: { text: ":showing" } },
                 { text: { text: ':startCount' } },
-                { text: { text: MultiLingualData.get(`global.to_gf`) || ' to ' } },
+                { text: { text: ':to' } },
                 { text: { text: ':endCount' } },
-                { text: { text: MultiLingualData.get(`global.of_gf`) || ' of ' } },
+                { text: { text: ':of'} },
                 { text: { text: ':sourceLength' } },
-                { text: { text: MultiLingualData.get(`global.entries_gf`) || ' entries' } }]
+                { text: { text: ':entriesText' } }]
         }
     };
 }
@@ -73,7 +73,7 @@ function dropdownTemplate(paginatorTemplateConfig: PaginatorTemplateConfig) {
                         childrens: [
                             {
                                 text: {
-                                    text: MultiLingualData.get(`global.show_gf`) || 'Show'
+                                    text: ':show'
                                 }
                             },
                             {
@@ -87,7 +87,7 @@ function dropdownTemplate(paginatorTemplateConfig: PaginatorTemplateConfig) {
                             },
                             {
                                 text: {
-                                    text: MultiLingualData.get(`global.entries_gf`) || 'entries'
+                                    text: ':entriesText'
                                 }
                             }
                         ]

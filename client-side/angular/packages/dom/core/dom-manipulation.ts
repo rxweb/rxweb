@@ -13,11 +13,14 @@ export class DomManipulation {
     private oldClassState: string[];
 
     constructor(parentNode: any, private elementName: string, private config, private modelObject: { [key: string]: any }, index: number, private additionalConfiguration: { [key: string]: any } = null) {
-
+        if (config && config.gridData) 
+            config.parameterConfig = (config.parameterConfig) ? { ...config.parameterConfig, ...config.gridData } : config.gridData
         if (modelObject instanceof Item) {
             this.itemObject = modelObject;
             this.modelObject = this.itemObject.value;
             this.instanceObject = this.itemObject.instance;
+            if (this.modelObject && this.modelObject.isMultilingual && this.elementName === "text" && this.config && this.config.ref)
+                this.overrideProp(this.config.ref);
         }
         this.createNodeElement(parentNode);
         if (config.id) {
@@ -209,6 +212,7 @@ export class DomManipulation {
         let value = descriptor && descriptor.get ? descriptor.get() : this.modelObject[propName];
         let oldValue = null;
         Object.defineProperty(this.modelObject, propName, {
+            configurable: true,
             get: () => { return descriptor && descriptor.get ? descriptor.get.call(this.modelObject) : value },
             set: (v) => {
                 if (oldValue != v) {

@@ -3,7 +3,7 @@ import { Item } from "@rxweb/dom";
 import { EVENTS } from '../const/events.const'
 import { GridConfig } from '../interface/config/grid-config'
 export class SortCollection extends Pagination {
-    protected headerColumns: Item[];
+    headerColumns: Item[];
     constructor(source: any[], model: Function, gridConfiguration: GridConfig) {
         super(source, model, gridConfiguration);
     }

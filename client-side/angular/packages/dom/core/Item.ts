@@ -47,6 +47,7 @@ export class Item {
         let value = descriptor ? descriptor.get() : instanceObject[propName];
         let oldValue = value;
         Object.defineProperty(instanceObject, propName, {
+            configurable: true,
             get: () => { return descriptor ? descriptor.get.call(instanceObject) : value },
             set: (v) => {
                 if (oldValue != v) {
@@ -65,6 +66,7 @@ export class Item {
         let value = descriptor ? descriptor.get() : instanceObject[propName];
         let oldValue = value;
         Object.defineProperty(instanceObject, propName, {
+            configurable:true,
             get: () => { return descriptor ? descriptor.get.call(instanceObject) : value },
             set: (v) => {
                 if (oldValue !== v) {
