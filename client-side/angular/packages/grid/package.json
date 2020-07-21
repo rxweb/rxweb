@@ -1,6 +1,6 @@
 {
   "name": "@rxweb/grid",
-  "version": "#version",
+  "version": "0.0.2-beta8",
   "keywords": [
     "angular reactive dynamic forms",
     "dynamic forms"
@@ -16,6 +16,8 @@
   "license": "MIT",
   "sideEffects": false,
   "dependencies": {
-    "tslib": "^1.9.0"
+    "tslib": "^1.9.0",
+    "@rxweb/dom": "0.0.2-beta9",
+    "@rxweb/translate": "1.0.11"
   }
 }

@@ -6,7 +6,7 @@ export const gridContainer:
     {
         setGridConfiguration(instanceFunc: any, configuration: GridConfiguration),
         get(instanceFunc: any): ContainerConfig,
-        addColumn(instanceFunc: any, propertyName: string, columnConfig: GridColumnConfig): void,
+        addColumn(instanceFunc: any,propertyName:string, columnConfig: GridColumnConfig): void,
     } = new (class {
         private instances: ContainerConfig[] = [];
 
@@ -21,7 +21,7 @@ export const gridContainer:
             return instance;
         }
 
-        addColumn(instanceFunc: any, propertyName: string, columnConfig: GridColumnConfig) {
+        addColumn(instanceFunc: any,propertyName: string, columnConfig: GridColumnConfig) {
             let instance = this.get(instanceFunc) as ContainerConfig;
             if (!instance) {
                 instance = { instance: instanceFunc };

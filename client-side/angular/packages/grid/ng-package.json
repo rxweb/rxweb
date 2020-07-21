@@ -9,5 +9,7 @@
       "@rxweb/core": "@rxweb/core",
       "@rxweb/localization": "@rxweb/localization"
     }
-  }
+
+  },
+  "whitelistedNonPeerDependencies": [ "@rxweb/dom", "@rxweb/translate" ]
 }

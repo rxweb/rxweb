@@ -1,0 +1,10 @@
+{
+  "greet": "Good Morning {{name}}",
+  "grid": {
+    "showing": "showing ",
+    "to": " to ",
+    "of": " of ",
+    "entries": " entries ",
+    "show": "Show "
+  }
+}

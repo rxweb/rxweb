@@ -1,0 +1,6 @@
+<h1>{{global.greet}}</h1>
+
+<button class="btn btn-light" [class.active]="global.languageCode == 'en'" (click)="changeLanguage('en')">English</button>
+<button class="btn btn-light" [class.active]="global.languageCode == 'fr'" (click)="changeLanguage('fr')">French</button>
+
+<app-data *rxTranslate="true"></app-data>
