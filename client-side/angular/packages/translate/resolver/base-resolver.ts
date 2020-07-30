@@ -41,17 +41,27 @@ export class BaseResolver {
                 }).pipe(map(this.setData(lang, containerConfig).bind(this)))
             }
             else if (!translateConfigContainer.customLoader) {
-                let url = this.getPath(containerConfig,languageCode);
+                let url = this.getPath(containerConfig, languageCode);
                 if (url)
                     return this.httpClient.get(url).pipe(map(this.setData(lang, containerConfig).bind(this)));
             } else {
                 let translationObject = lang;
                 if (config.config.translationName != "global")
-                    translationObject = { ...config.config, ...{ filePath: this.getPath(containerConfig,languageCode), lang: lang } };
-                return translateConfigContainer.customLoader.getTranslation(translationObject).pipe(map(this.setData(lang,containerConfig).bind(this)))
+                    translationObject = { ...config.config, ...{ filePath: this.getPath(containerConfig, languageCode), lang: lang } };
+                return translateConfigContainer.customLoader.getTranslation(translationObject).pipe(map(this.setData(lang, containerConfig).bind(this)))
             }
-        } else
-            return of(true);
+        }
+        else if ((containerConfig && MultiLingualData.contains(getKeyName(containerConfig.config.translationName, languageCode || this.cloneBaseConfig.languageCode), languageCode || this.cloneBaseConfig.languageCode))) {
+            let body = MultiLingualData.get(getKeyName(containerConfig.config.translationName, languageCode || this.cloneBaseConfig.languageCode))
+            this.setTitle(body, containerConfig);
+        }
+        return of(true);
+
+    }
+
+    setTitle(body, containerConfig: TranslateContainerConfig) {
+        if (translateConfigContainer.activePageTranslationName == containerConfig.config.translationName)
+            this.setPageTitle(body);
     }
 
     setData(languageCode: string, containerConfig: TranslateContainerConfig) {
@@ -61,8 +71,7 @@ export class BaseResolver {
             if (translateConfigContainer.resolver)
                 data = translateConfigContainer.resolver(name.replace("global_", "").replace("global", ""), data);
             MultiLingualData.addOrUpdate(name, data, containerConfig.config.translationName, this.cloneBaseConfig.languageCode);
-            if (translateConfigContainer.activePageTranslationName == containerConfig.config.translationName)
-                this.setPageTitle(body)
+            this.setTitle(body, containerConfig)
             setTimeout(() => { MultiLingualData.clearInActives(this.cloneBaseConfig) }, 10);
             return body;
         }
@@ -109,12 +118,12 @@ export class BaseResolver {
         return of(true);
     }
 
-    resolveData(containerConfig: TranslateContainerConfig,languageCode:string, isRouteLanguageChanged: boolean = false) {
+    resolveData(containerConfig: TranslateContainerConfig, languageCode: string, isRouteLanguageChanged: boolean = false) {
         let additionalContainerConfigs = translateContainer.additionalGet(containerConfig.instance);
-            let observables = new Array<Observable<any>>();
-            additionalContainerConfigs.forEach(config => {
-                observables.push(this.resolve(config, languageCode, isRouteLanguageChanged));
-            })
+        let observables = new Array<Observable<any>>();
+        additionalContainerConfigs.forEach(config => {
+            observables.push(this.resolve(config, languageCode, isRouteLanguageChanged));
+        })
         observables.push(this.resolve(containerConfig, languageCode, isRouteLanguageChanged))
         return forkJoin(observables).pipe(map((response: any) => {
             this.baseConfig.languageCode = this.cloneBaseConfig.languageCode;
