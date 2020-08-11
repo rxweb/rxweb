@@ -33,7 +33,7 @@ function designTopHeaders(columns: Item[], configuration: GridConfiguration) {
 export function table(templateConfig: TableTemplateConfig, source: Item[]) {
     var config = getHeaderAndRowConfiguration(templateConfig)
     var headerTemplate = {};
-    let childrens =[]
+    let childrens = []
     if (!templateConfig.hideHeaderFooter && !templateConfig.hideHeader) {
         childrens = designTopHeaders(config.headerColumns, templateConfig.gridConfiguration);
         childrens.push({
@@ -60,7 +60,7 @@ export function table(templateConfig: TableTemplateConfig, source: Item[]) {
             childrens: [config.rowTemplateConfg]
         }
     }
-    return { headerTemplate: headerTemplate, bodyTemplate: bodyTemplate, headerColumns: Object.keys(headerTemplate).length > 0 ? headerTemplate[templateConfig.isDivBase ? "div" : "thead"].childrens[childrens.length -1][templateConfig.isDivBase ? "div" : "tr"].sourceItems : [] };
+    return { headerTemplate: headerTemplate, bodyTemplate: bodyTemplate, headerColumns: Object.keys(headerTemplate).length > 0 ? headerTemplate[templateConfig.isDivBase ? "div" : "thead"].childrens[childrens.length - 1][templateConfig.isDivBase ? "div" : "tr"].sourceItems : [] };
 }
 function getText(columnConfig: GridColumnConfig) {
     return columnConfig.headerKey || columnConfig.name;
@@ -121,16 +121,27 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
                     class: [function (y: GridColumnConfig) { return this.allowSorting && this.isAscending ? templateConfig.classConfig.ascendingClass : '' }, function (y: GridColumnConfig) { return this.allowSorting && this.isAscending === false ? templateConfig.classConfig.descendingClass : '' }]
                 }
             });
+            if ((columnConfig.isFilter === true || columnConfig.isFilter === undefined) && templateConfig.onFilter)
+                headerCellChildrens.push({
+                    i: {
+                        event: {
+                            click: (event) => {
+                                templateConfig.onFilter(event)
+                            }
+                        },
+                        parameterConfig: { columnConfig: columnConfig },
+                        class: templateConfig.classConfig.filter
+                    }
+                });
             th = {
                 [templateConfig.isDivBase ? "div" : "th"]: {
                     parameterConfig: { columnConfig: columnConfig },
                     style: columnConfig.style,
                     event: {
-                        click: (event) => {
-                            templateConfig.eventSubscriber.dispatch(EVENTS.SORTING, headerItem.instance)
+                        click: (event, x) => {
+                            if (x.target.tagName !== "I")
+                                templateConfig.eventSubscriber.dispatch(EVENTS.SORTING, headerItem.instance)
                         }
-
-
                     },
                 }
             };

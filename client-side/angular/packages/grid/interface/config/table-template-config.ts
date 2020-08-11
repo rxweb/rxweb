@@ -18,4 +18,5 @@ export interface TableTemplateConfig {
     authroizationMethod: Function;
     isTranslateModuleUsed: boolean;
     gridConfiguration: GridConfiguration
+    onFilter: Function;
 }

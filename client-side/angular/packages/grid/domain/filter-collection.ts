@@ -2,7 +2,9 @@ import { SortCollection } from "./sort-collection";
 import { GridConfig } from "../interface/config/grid-config"
 
 export class FilterCollection extends SortCollection {
+    onFilter(columnConfig: any) {
 
+    };
     constructor(source: any[], model: Function, gridConfiguration: GridConfig) {
         super(source, model, gridConfiguration);
         

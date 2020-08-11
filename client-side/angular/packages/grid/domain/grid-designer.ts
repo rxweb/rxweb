@@ -50,6 +50,7 @@ export class GridDesigner extends GridTemplate {
         if (isRowEvent && !this.isReDesign)
             this.overrideRowSelect();
         var template = table({
+            onFilter: this.onFilter,
             hideHeader: this.hideHeader,
             hideFooter: this.hideFooter,
             hideHeaderFooter: this.hideHeaderFooter,

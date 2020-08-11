@@ -14,6 +14,15 @@ export class DesignClass{
     _row: any[] = [];
     _cell: any[] = [];
     _table: any[] = [];
+    private _filter: any[] = [];
+
+    get filter() {
+        return this._filter;
+    }
+
+    set filter(value: any[]) {
+        this._filter = value;
+    }
 
     get tableClass() {
         return this._table;

@@ -21,4 +21,5 @@ export class GridColumnConfig{
     keyColumn?: boolean;
     parameter?: any;
     preventRowSelect?: boolean; 
+    isFilter?: boolean;
 }
