@@ -14,6 +14,8 @@ export class MaskProvider {
 
     private eventListeners: any[] = [];
 
+    oldValue: string = '';
+
     type: string = 'text';
 
     slotChar: string = '_';
@@ -119,7 +121,11 @@ export class MaskProvider {
     }
     isInvalid: boolean = false;
     validate() {
-        
+        if ((this.input.value && this.oldValue != this.input.value)) {
+            this.checkVal(true);
+            this.isCompleted(null,true);
+            this.oldValue = this.input.value
+        }
         let config = getConfigObject(this.config, this.formControl);
         if (RegexValidator.isNotBlank(this.getUnmaskedValue()) && FormProvider.ProcessRule(this.formControl, config)) {
             if (this.isInvalid) {
@@ -179,7 +185,7 @@ export class MaskProvider {
         }
     }
 
-    isCompleted(lastRequiredNonMaskPos?:number): boolean {
+    isCompleted(lastRequiredNonMaskPos?:number,isNotRunValidator?:boolean): boolean {
         let completed: boolean;
         lastRequiredNonMaskPos = lastRequiredNonMaskPos || this.lastRequiredNonMaskPos;
         for (let i = this.firstNonMaskPos; i <= lastRequiredNonMaskPos; i++) {
@@ -188,6 +194,7 @@ export class MaskProvider {
             }
         }
         this.isInvalid = false;
+        if (!isNotRunValidator)
         this.formControl.updateValueAndValidity();
         return true;
     }
@@ -433,7 +440,7 @@ export class MaskProvider {
         }
         return (this.partialPosition ? i : this.firstNonMaskPos);
     }
-
+    
     onFocus(event) {
         
         this.focus = true;
@@ -465,7 +472,6 @@ export class MaskProvider {
         else
             this.handleInputChange(event);
     }
-
     setControlValue(e, isValid, isValidControl?: boolean) {
         this.isInvalid = isValidControl ? !isValidControl : !isValid;
         let value = this.input.value;
@@ -473,7 +479,7 @@ export class MaskProvider {
         if (!this.isInvalid)
             controlValue = this.getUnmaskedValue()
         this.formControl.setValue(controlValue);
-        this.input.value = value;
+        this.oldValue = this.input.value = value;
         if (!isValid)
         this.onFocus(e);
     }
@@ -495,7 +501,6 @@ export class MaskProvider {
                 unmaskedBuffer.push(c);
             }
         }
-
         return unmaskedBuffer.join('');
     }
 
