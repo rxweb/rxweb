@@ -1,23 +1,24 @@
 {
   "name": "@rxweb/grid",
-  "version": "0.0.2-beta8",
+  "version": "0.2.2",
   "keywords": [
-    "angular reactive dynamic forms",
-    "dynamic forms"
+    "grid"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rxweb/rxweb/tree/master/packages/reactive-dynamic-forms#readme"
+    "url": "https://github.com/rxweb/rxweb/tree/master/client-side/angular/packages/grid#readme"
   },
   "bugs": {
     "url": "https://github.com/rxweb/rxweb/issues"
   },
-  "homepage": "https://rxweb.io",
+  "homepage": "https://docs.rxweb.io",
   "license": "MIT",
   "sideEffects": false,
-  "dependencies": {
-    "tslib": "^1.9.0",
+  "peerDependencies": {
     "@rxweb/dom": "0.0.2-beta9",
     "@rxweb/translate": "1.0.11"
+  },
+  "dependencies": {
+    "tslib": "^1.9.0"
   }
 }

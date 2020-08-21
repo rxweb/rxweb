@@ -185,8 +185,10 @@ export class GridDesigner extends GridTemplate {
         let controlId = element.getAttribute("data-rxwebid");
         let rxinner = element.getAttribute("data-rxinner");
         while (element.firstElementChild)
-            if (controlId && this.controlState.elements[controlId] && this.controlState.elements[controlId].onDemand)
+            if (controlId && this.controlState.elements[controlId] && this.controlState.elements[controlId].onDemand) {
                 this.controlState.elements[controlId].onDemand.onDestroy();
+                break;
+            }
             else {
                 if (!rxinner)
                     this.removeChildren(element.firstElementChild);
