@@ -443,6 +443,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                             let abstractControlOptions: AbstractControlOptions = { validators: validators, asyncValidators: this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]) };
                             if (formBuilderConfiguration && formBuilderConfiguration.abstractControlOptions && formBuilderConfiguration.abstractControlOptions[property.name])
                                 abstractControlOptions.updateOn = formBuilderConfiguration.abstractControlOptions[property.name];
+                            abstractControlOptions = this.getAbstractControlOptions(property.name, formBuilderConfiguration ? formBuilderConfiguration.baseAbstractControlOptions : {}, abstractControlOptions)
                             formGroupObject[property.name] = new RxFormControl(sanitizeValue, abstractControlOptions, [], json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
                             this.isNested = false;
                         } else
@@ -493,7 +494,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                             if (ReactiveFormConfig.autoInstancePush) {
                                 arrayObjectValue.push = (instance: any[]): number => { let formGroup = this.formGroup(instance.constructor, instance, objectValidationConfig); formGroupObject[property.name].push(formGroup, true); return 0; };
                                 arrayObjectValue.splice = (start, deleteCount): any[] => {
-                                    let end = (start + deleteCount) -1;
+                                    let end = (start + deleteCount) - 1;
                                     for (var i = start; i <= end; i++) {
                                         formGroupObject[property.name].removeAt(i, true)
                                     }
@@ -514,7 +515,8 @@ export class RxFormBuilder extends BaseFormBuilder {
             this.conditionalValidationInstance = {};
             this.builderConfigurationConditionalObjectProps = [];
         }
-        let formGroup = new RxFormGroup(json.model, json.entityObject, formGroupObject, undefined);
+        let abstractControlOptions = this.getAbstractControlOptions("global", formBuilderConfiguration ? formBuilderConfiguration.baseAbstractControlOptions : {}, { validators: [], asyncValidators: [] })
+        let formGroup = new RxFormGroup(json.model, json.entityObject, formGroupObject, abstractControlOptions.validators, abstractControlOptions.asyncValidators);
         if (defaultContainer.isExperimental) {
             json.entityObject["formGroup"] = formGroup;
             this.overrideProperties(formGroup, json.entityObject, extendedProperties);
@@ -525,13 +527,32 @@ export class RxFormBuilder extends BaseFormBuilder {
 
     }
 
-    private overrideProperties(formGroup: RxFormGroup,entityObject:any, properties: { [key: string]: boolean }) {
+    private overrideProperties(formGroup: RxFormGroup, entityObject: any, properties: { [key: string]: boolean }) {
         Object.keys(properties).forEach(t => {
             this.overrideProp(entityObject, t, formGroup);
         })
     }
+    private getAbstractControlOptions(name: string, controlOptions: { [key: string]: AbstractControlOptions }, abstractControlOptions: AbstractControlOptions) {
+        if (controlOptions && controlOptions[name]) {
+            if (controlOptions[name].updateOn)
+                abstractControlOptions.updateOn = controlOptions[name].updateOn;
+            if (controlOptions[name].validators) {
+                if (Array.isArray(controlOptions[name].validators))
+                    (<ValidatorFn[]>controlOptions[name].validators).forEach(validator => (<ValidatorFn[]>abstractControlOptions.validators).push(validator))
+                else
+                    (<ValidatorFn[]>abstractControlOptions.validators).push(<ValidatorFn>controlOptions[name].validators);
+            }
 
-    private overrideProp(entityObject:any,propName:string,formGroup:RxFormGroup) {
+            if (controlOptions[name].asyncValidators) {
+                if (Array.isArray(controlOptions[name].asyncValidators))
+                    (<ValidatorFn[]>controlOptions[name].asyncValidators).forEach(validator => (<ValidatorFn[]>abstractControlOptions.asyncValidators).push(validator))
+                else
+                    (<ValidatorFn[]>abstractControlOptions.asyncValidators).push(<ValidatorFn>controlOptions[name].validators);
+            }
+        }
+        return abstractControlOptions;
+    }
+    private overrideProp(entityObject: any, propName: string, formGroup: RxFormGroup) {
         let descriptor = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(entityObject), propName);
         let value = entityObject[propName];
         let oldValue = null;
@@ -544,7 +565,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                         descriptor.set.call(entityObject, v);
                     if (!formGroup.changing && formGroup.controls[propName]) {
                         formGroup.controls[propName].setValue(v);
-                    } 
+                    }
                 }
                 oldValue = v;
             }

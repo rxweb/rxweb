@@ -28,5 +28,7 @@ export class FormBuilderConfiguration{
     autoInstanceConfig?: AutoInstanceConfig
 
     abstractControlOptions?: { [key: string]: 'change' | 'blur' | 'submit' }
+
+    baseAbstractControlOptions?: { [key: string]: AbstractControlOptions }
 }
 

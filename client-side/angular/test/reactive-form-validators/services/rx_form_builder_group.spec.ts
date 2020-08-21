@@ -1,6 +1,6 @@
-import {FormGroup, FormControl, Validators } from '@angular/forms';
-import {NumericValueType, RxwebValidators, ReactiveFormConfig, RxFormBuilder, FormGroupExtension, RxFormControl, RxFormArray } from '@rxweb/reactive-form-validators';
-import { tick,fakeAsync } from '@angular/core/testing';
+import { ValidationErrors, ValidatorFn, AbstractControl, FormGroup, FormControl, Validators } from '@angular/forms';
+import { NumericValueType, RxwebValidators, ReactiveFormConfig, RxFormBuilder, FormGroupExtension, RxFormControl, RxFormArray } from '@rxweb/reactive-form-validators';
+import { tick, fakeAsync } from '@angular/core/testing';
 describe('Validator', () => {
     beforeEach(() => {
         ReactiveFormConfig.set({
@@ -300,23 +300,23 @@ describe('Validator', () => {
                 expect(formGroup.controls.dob instanceof RxFormControl).toBe(true);
             });
 
-//issue : https://github.com/rxweb/rxweb/issues/161
-            it("should validate nested formgroup, formcontrol with conditional expression",
-            fakeAsync( () => {
+        //issue : https://github.com/rxweb/rxweb/issues/161
+        it("should validate nested formgroup, formcontrol with conditional expression",
+            fakeAsync(() => {
                 let formBuilder = new RxFormBuilder();
                 let formGroup = formBuilder.group({
                     nested: formBuilder.group({
-                typeValue:[''],
-                value:['',[
-                   
-                  RxwebValidators.numeric({
-                            conditionalExpression: (x, y) => {
-                                return x.typeValue === '1';
-                            },
-                            acceptValue: NumericValueType.PositiveNumber,
-                            allowDecimal: false,
-                            message: 'Positive Integer'
-                        }),
+                        typeValue: [''],
+                        value: ['', [
+
+                            RxwebValidators.numeric({
+                                conditionalExpression: (x, y) => {
+                                    return x.typeValue === '1';
+                                },
+                                acceptValue: NumericValueType.PositiveNumber,
+                                allowDecimal: false,
+                                message: 'Positive Integer'
+                            }),
                             RxwebValidators.numeric({
                                 conditionalExpression: (x, y) => {
                                     return x.typeValue === '2';
@@ -324,22 +324,22 @@ describe('Validator', () => {
                                 isFormat: true,
                                 digitsInfo: '1.0-2',
                                 allowDecimal: true,
-                            message: 'Positive Decimal',
+                                message: 'Positive Decimal',
                             }),
-                  RxwebValidators.required({
-                            conditionalExpression: (x, y) => {
-                                return y.nested.typeValue === '3';
-                            },  
-                            message: 'Field Required'
-                        })]]
-                    })      
-                }) 
+                            RxwebValidators.required({
+                                conditionalExpression: (x, y) => {
+                                    return y.nested.typeValue === '3';
+                                },
+                                message: 'Field Required'
+                            })]]
+                    })
+                })
                 let nestedFormGroup = formGroup.controls.nested as FormGroup;
                 expect(nestedFormGroup.controls.value.errors).toBeNull();
                 nestedFormGroup.controls.typeValue.setValue('3');
                 tick(1000);
                 expect(nestedFormGroup.controls.value.errors != null).toBeTruthy();
-                
+
             }));
 
         //issue : https://github.com/rxweb/rxweb/issues/269
@@ -365,6 +365,28 @@ describe('Validator', () => {
                 let formArray = formGroup.controls.addresses as RxFormArray;
                 expect(formGroup.controls.addresses instanceof RxFormArray).toBe(true);
                 expect(formArray.controls.length).toEqual(0);
+            });
+
+        //issue : https://github.com/rxweb/rxweb/issues/332
+        it("bind validators at FormGroup level.",
+            () => {
+                let globalValidator = (): ValidatorFn => {
+                    return (c: AbstractControl): ValidationErrors => {
+                        return { global: true };
+                    }
+                }
+                let date = new Date();
+                let formBuilder = new RxFormBuilder();
+                let formGroup = formBuilder.group({
+                    addresses: []
+                }, {
+                    baseAbstractControlOptions: {
+                        global: {
+                            validators: [globalValidator()]
+                        }
+                    }
+                })
+                expect(formGroup.errors).toEqual({ global: true });
             });
     });
 });
