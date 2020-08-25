@@ -38,6 +38,10 @@ export class RxFormControl extends FormControl {
     private _isModified: boolean;
     private _errors: any;
     private _dirty: boolean = false;
+    private _validators: ValidatorFn[] ;
+    private _asyncValidators: AsyncValidatorFn[] ;
+
+
     backEndErrors: { [key: string]: string } = {};
     updateOnElementClass: boolean | Function;
     preHook: Function;
@@ -80,6 +84,8 @@ export class RxFormControl extends FormControl {
         this._baseValue = formState === undefined ? null : this.getFormState(formState);
         this._isModified = false;
         this.keyName = controlName;
+        this._validators = (validator as AbstractControlOptions).validators as ValidatorFn[];
+        this._asyncValidators = (validator as AbstractControlOptions).asyncValidators as AsyncValidatorFn[];
         this._errorMessageBindingStrategy = ReactiveFormConfig.get("reactiveForm.errorMessageBindingStrategy") as ErrorMessageBindingStrategy;
         if (this._sanitizers) {
             var floatSanitizer = this._sanitizers.filter(t => t.name == "toFloat")[0]
@@ -113,6 +119,30 @@ export class RxFormControl extends FormControl {
 
     set dirty(value: boolean) {
         this._dirty = value;
+    }
+
+    getValidators(): ValidatorFn[] {
+        return this.getValidatorSource(this._validators);
+    }
+
+    getAsyncValidators(): AsyncValidatorFn[] {
+        return this.getValidatorSource(this._asyncValidators);        
+    }
+
+    private getValidatorSource(validators:any[]) {
+        if (validators)
+            return Array.isArray(validators) ? [...validators] : [validators]
+        return [];
+    }
+
+    setValidators(newValidator: ValidatorFn | ValidatorFn[] | null) {
+        this._validators = newValidator as ValidatorFn[];
+        super.setValidators(newValidator);
+    }
+
+    setAsyncValidators(newValidator: AsyncValidatorFn | AsyncValidatorFn[] | null): void {
+        this._asyncValidators = newValidator as AsyncValidatorFn[];
+        super.setAsyncValidators(newValidator);
     }
 
     setValue(value: any, options?: {
