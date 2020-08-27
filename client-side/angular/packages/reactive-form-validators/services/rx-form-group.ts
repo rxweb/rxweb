@@ -287,14 +287,14 @@ export class RxFormGroup extends FormGroup {
         })
     }
 
-    clearBackEndErrors(errors?: { [key: string]: any }) {
+   clearBackEndErrors(errors?: { [key: string]: any }) {
         let clearErrors = errors ? Object.keys(errors) : Object.keys(this.controls);
         clearErrors.forEach(controlName => {
             if (this.controls[controlName]) {
                 if (this.controls[controlName] instanceof FormGroup)
-                    (<RxFormGroup>this.controls[controlName]).clearBackEndErrors(errors[controlName])
+                    errors ? (<RxFormGroup>this.controls[controlName]).clearBackEndErrors(errors[controlName]) : (<RxFormGroup>this.controls[controlName]).clearBackEndErrors()
                 else
-                    (<RxFormControl>this.controls[controlName]).clearBackEndErrors(errors[controlName]);
+                    errors ? (<RxFormControl>this.controls[controlName]).clearBackEndErrors(errors[controlName]) : (<RxFormGroup>this.controls[controlName]).clearBackEndErrors()
             }
         })
     }
