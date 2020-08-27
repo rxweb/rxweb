@@ -55,4 +55,15 @@ describe('back-end-errors', () => {
         expect((<RxFormControl>userFormGroup.controls.firstName).errorMessage).toEqual(undefined);
         expect((<RxFormControl>userFormGroup.controls.firstName).errorMessages).toEqual([]);
     })
+    
+      it('set backend error messages through formgroup', () => {
+        let userFormGroup: RxFormGroup = <RxFormGroup>formbuilder.formGroup(User,{ firstName: 'John', address: {cityName:'Boston'}});
+        userFormGroup.clearBackEndErrors();
+        let addressFormGroup = userFormGroup.controls.address as RxFormGroup;
+        expect((<RxFormControl>userFormGroup.controls.firstName).errorMessage).toEqual(undefined);
+        expect((<RxFormControl>userFormGroup.controls.firstName).errorMessages).toEqual([]);
+        expect((<RxFormControl>addressFormGroup.controls.cityName).errorMessages).toEqual([]);
+        expect((<RxFormControl>addressFormGroup.controls.cityName).errorMessage).toEqual(undefined);
+    })
+
 })
