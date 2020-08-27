@@ -1,4 +1,4 @@
-﻿import { AbstractControl } from "@angular/forms"
+﻿import { AbstractControl, ValidatorFn, AsyncValidatorFn} from "@angular/forms"
 
 export abstract class IAbstractControl extends AbstractControl {
     errorMessages: string[];
@@ -13,4 +13,7 @@ export abstract class IAbstractControl extends AbstractControl {
 
     clearBackEndErrors: (errors?: { [key: string]: any }) => void;
 
+    getValidators: () => ValidatorFn[]; 
+
+    getAsyncValidators: () => AsyncValidatorFn[];
     }
