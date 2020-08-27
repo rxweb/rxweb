@@ -1,7 +1,9 @@
 import { ReactiveFormConfig } from "./reactive-form-config";
 
 export class ObjectMaker{
-    static toJson(key: string, config:any, values: any) {
+    static language: string = "";
+    static toJson(key: string, config: any, values: any) {
+        ObjectMaker.setMessage();
         let message = config ? config.message : null;
         let messageKey = undefined;
         if(!message && config && config.messageKey)
@@ -25,5 +27,14 @@ export class ObjectMaker{
     static getPasswordMessage() {
         let messageKey = "password";
         return (ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.validationMessage && ReactiveFormConfig.json.validationMessage[messageKey]) ? ReactiveFormConfig.json.validationMessage[messageKey] : ''
+    }
+
+    static setMessage() {
+        if (ReactiveFormConfig.i18n && ReactiveFormConfig.i18n.validationMessage && ObjectMaker.language !== ReactiveFormConfig.i18n.language) {
+            if (!ReactiveFormConfig.json)
+                ReactiveFormConfig.json = {};
+            ReactiveFormConfig.json.validationMessage = ReactiveFormConfig.i18n.validationMessage();
+            ObjectMaker.language = ReactiveFormConfig.i18n.language;
+        }
     }
 }

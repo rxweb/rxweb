@@ -18,6 +18,7 @@ const PRISTINE: string = "pristine";
 const PENDING: string = "pending";
 
 export class RxFormControl extends FormControl {
+    private _language: string;
     private keyName: string;
     private _errorMessage: string;
     private _errorMessages: string[] = [];
@@ -44,6 +45,9 @@ export class RxFormControl extends FormControl {
     postHook: Function;
 
     get errors() {
+        if (this._language && this._language != this.getLanguage() && this.validator) {
+            this.errors = this.validator(this)
+        }
         return this._errors;
     }
 
@@ -61,6 +65,8 @@ export class RxFormControl extends FormControl {
             return [];
         if (!this.errors && this._errorMessages.length > 0)
             this.setControlErrorMessages();
+        if (this._language != this.getLanguage())
+            this.setControlErrorMessages();
         return this._errorMessages;
     }
 
@@ -72,6 +78,8 @@ export class RxFormControl extends FormControl {
         else if (this._messageExpression && !this._isPassedExpression)
             return undefined;
         if (!this.errors && this._errorMessage)
+            this.setControlErrorMessages();
+        if (this._language != this.getLanguage())
             this.setControlErrorMessages();
         return this._errorMessage;
     }
@@ -350,7 +358,12 @@ export class RxFormControl extends FormControl {
             this._errorMessages = [];
             this._errorMessage = undefined;
         }
+        this._language = this.getLanguage();
         
+    }
+
+    private getLanguage() {
+        return (ReactiveFormConfig.i18n && ReactiveFormConfig.i18n.language) ? ReactiveFormConfig.i18n.language : undefined;
     }
 
     private getErrorMessage(errorObject: { [key: string]: string }, keyName: string) {
