@@ -471,13 +471,13 @@ export class MaskProvider {
             this.handleAndroidInput(event);
         else
             this.handleInputChange(event);
-    }
+    }   
     setControlValue(e, isValid, isValidControl?: boolean) {
         this.isInvalid = isValidControl ? !isValidControl : !isValid;
         let value = this.input.value;
         let controlValue = '';
         if (!this.isInvalid)
-            controlValue = this.getUnmaskedValue()
+            controlValue = this.config.valueWithMask ? value: this.getUnmaskedValue()
         this.formControl.setValue(controlValue);
         this.oldValue = this.input.value = value;
         if (!isValid)
