@@ -56,8 +56,13 @@ describe('back-end-errors', () => {
         expect((<RxFormControl>userFormGroup.controls.firstName).errorMessages).toEqual([]);
     })
     
-      it('set backend error messages through formgroup', () => {
-        let userFormGroup: RxFormGroup = <RxFormGroup>formbuilder.formGroup(User,{ firstName: 'John', address: {cityName:'Boston'}});
+      it('clear backend error messages through formgroup', () => {
+          let userFormGroup: RxFormGroup = <RxFormGroup>formbuilder.formGroup(User, { firstName: 'John', address: { cityName: 'Boston' } });
+          userFormGroup.setBackEndErrors(
+              {
+                  address: { cityName: { 'required': 'Invalid City' } },
+                  firstName: { 'required': 'The entered value is Invalid' }
+              });
         userFormGroup.clearBackEndErrors();
         let addressFormGroup = userFormGroup.controls.address as RxFormGroup;
         expect((<RxFormControl>userFormGroup.controls.firstName).errorMessage).toEqual(undefined);
