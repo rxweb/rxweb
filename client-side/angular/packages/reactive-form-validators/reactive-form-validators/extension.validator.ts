@@ -23,12 +23,16 @@ export function extensionValidator(configModel: ExtensionConfig): any {
           let file = files.item(i);
           let splitText = file.name.split(".");
           extension = splitText[splitText.length - 1];
-          let result = config.extensions.filter(t => { return extension.toLowerCase() == t.toLowerCase() })[0];
-          if (!result) {
-            testResult = false;
-            break;
-          }
-
+            let result = config.extensions.filter(t => { return extension.toLowerCase() == t.toLowerCase() })[0];
+            if (!result && !configModel.isExcludeExtensions) {
+                testResult = false;
+                break;
+            } else {
+                if (result && configModel.isExcludeExtensions) {
+                    testResult = false;
+                    break;
+                }
+            }
         }
         if (!testResult)
           return ObjectMaker.toJson(AnnotationTypes.extension, config, [extension, config.extensions.join(",")]);
