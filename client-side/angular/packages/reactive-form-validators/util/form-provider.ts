@@ -1,4 +1,4 @@
-import {Linq } from './linq';
+import { Linq } from './linq';
 import { ApplicationUtil } from './app-util';
 import {
     AbstractControl
@@ -6,11 +6,13 @@ import {
 
 import { RxFormGroup } from "../services/rx-form-group"
 
-export class FormProvider{
+export class FormProvider {
 
-   
 
-    static ProcessRule(control:AbstractControl,config:any,isDynamicConfig:boolean = false) : boolean | {[key:string]:any} {
+
+    static ProcessRule(control: AbstractControl, config: any, isDynamicConfig: boolean = false): boolean | { [key: string]: any } {
+        if (config && config.expressionProcessed)
+            return true;
         const formGroupValue = ApplicationUtil.getParentObjectValue(control);
         const parentObject = (control.parent) ? ApplicationUtil.cloneValue(control.parent.value) : undefined;
         let modelInstance = undefined;
@@ -22,19 +24,19 @@ export class FormProvider{
         }
         else if (config.conditionalExpression)
             return false;
-        return Linq.execute(formGroupValue, config, parentObject,modelInstance,isDynamicConfig); 
+        return Linq.execute(formGroupValue, config, parentObject, modelInstance, isDynamicConfig);
     }
 
-    private static updateFormControlValue(parentObject:{[key:string]:any},controls:any,control:AbstractControl,config:any){
-        for(var controlName in parentObject){
-            if(!(parentObject[controlName] instanceof Object))
-                if(controls[controlName] === control){
-                    parentObject[controlName]= control.value;
+    private static updateFormControlValue(parentObject: { [key: string]: any }, controls: any, control: AbstractControl, config: any) {
+        for (var controlName in parentObject) {
+            if (!(parentObject[controlName] instanceof Object))
+                if (controls[controlName] === control) {
+                    parentObject[controlName] = control.value;
                     break;
                 }
         }
     }
-    private static forDisableUpdate(parentObject,config) {
+    private static forDisableUpdate(parentObject, config) {
         if (config.disableConfig)
             Object.keys(config.disableConfig).forEach(column => {
                 parentObject[column] = config.disableConfig[column];

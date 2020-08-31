@@ -1,6 +1,6 @@
 ﻿import { DynamicNodeConfig } from "../../models/interface/dynamic-node-config";
 import { BaseObjectAccessor } from './base-object-accessor';
-import { CHECKBOX, SELECT_MULTIPLE, RADIO } from '../../const/app.const'
+import { CHECKBOX, SELECT_MULTIPLE, RADIO, FILE } from '../../const/app.const'
 import { ControlState } from '../../statics/control-state';
 import { dynamicContainer } from "../../core/dynamicContainer";
 import { ComponentView } from "../component-viewer/component-view";
@@ -43,6 +43,10 @@ export abstract class ElementAccessor extends BaseObjectAccessor{
     setControlConfigValue(targetElement) {
         let value = targetElement.value === "" ? null : targetElement.value;
         switch (targetElement.type) {
+            case FILE:
+                this.controlConfig.formControl.setValue(targetElement.files)
+                this.controlConfig.value = targetElement.files;
+                break;
             case CHECKBOX:
                 this.setCheckboxValue(targetElement);
                 break;
