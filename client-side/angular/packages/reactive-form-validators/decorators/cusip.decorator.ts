@@ -5,4 +5,3 @@ import { BaseConfig } from "../models/config/base-config";
 export function cusip(config?:BaseConfig) {
     return baseDecoratorFunction(AnnotationTypes.cusip, config);
 }
-

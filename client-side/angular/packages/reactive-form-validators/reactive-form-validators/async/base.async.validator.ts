@@ -9,6 +9,7 @@ import { FormProvider } from '../../util/form-provider';
 
 export function baseAsyncValidator(configModel: any, validatorName: string): AsyncValidatorFn {
     return (control: AbstractControl): Observable<{ [key: string]: any }> => {
+        configModel = configModel || {};
         if (configModel.validatorConfig) {
             if (FormProvider.ProcessRule(control, configModel)) {
                 return (<Observable<any>>configModel.validatorConfig).pipe(map(resolveConfig(configModel, validatorName, control)));
