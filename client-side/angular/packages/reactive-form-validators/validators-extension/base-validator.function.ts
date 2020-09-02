@@ -22,7 +22,7 @@ export function baseValidator(config: any, type: any, validator: Function): Vali
     return rxwebValidator;
 }
 
-export function baseAsyncValidator(config: any, type: any, validator: Function): AsyncValidatorFn {
+export function baseAsyncValidatorExtension(config: any, type: any, validator: Function): AsyncValidatorFn {
     var rxwebValidator = (control: any, target?: object): Observable<{ [key: string]: any }> => {
         if (typeof control == STRING)
             defaultContainer.init(target, 0, control, type, config, true);
