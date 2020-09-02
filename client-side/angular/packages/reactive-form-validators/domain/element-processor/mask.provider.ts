@@ -296,7 +296,7 @@ export class MaskProvider {
             event.initEvent('change', true, false);
             this.input.dispatchEvent(event);
             let maskedValue = this.input.value;
-            this.formControl.setValue(this.getUnmaskedValue());
+            this.formControl.setValue(this.config.valueWithMask ? maskedValue : this.getUnmaskedValue());
             this.input.value = maskedValue;
         }
     }
@@ -477,7 +477,8 @@ export class MaskProvider {
         let value = this.input.value;
         let controlValue = '';
         if (!this.isInvalid)
-            controlValue = this.config.valueWithMask ? value: this.getUnmaskedValue()
+            controlValue = this.config.valueWithMask ? value : this.getUnmaskedValue()
+        console.log(controlValue)
         this.formControl.setValue(controlValue);
         this.oldValue = this.input.value = value;
         if (!isValid)
