@@ -1,6 +1,6 @@
 
 export class ReactiveFormConfig {
-    static i18n: { language?: string, validationMessage: () => any };
+    static i18n: { language?: string, validationMessage?: () => any } = {};
     static number:{[key:string]:any} = {}
     static json: { [key: string]: any } = {};
     static autoInstancePush: boolean = false;
