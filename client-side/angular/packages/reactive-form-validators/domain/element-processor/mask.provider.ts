@@ -478,7 +478,6 @@ export class MaskProvider {
         let controlValue = '';
         if (!this.isInvalid)
             controlValue = this.config.valueWithMask ? value : this.getUnmaskedValue()
-        console.log(controlValue)
         this.formControl.setValue(controlValue);
         this.oldValue = this.input.value = value;
         if (!isValid)
