@@ -125,10 +125,6 @@ export class RxFormControl extends FormControl {
         return this._dirty
     }
 
-    set dirty(value: boolean) {
-        this._dirty = value;
-    }
-
     getValidators(): ValidatorFn[] {
         return this.getValidatorSource(this._validators);
     }
@@ -232,10 +228,10 @@ export class RxFormControl extends FormControl {
     markAsDirty(opts?: {
         onlySelf?: boolean;
     }): void {
-        let currentState = this.dirty;
+        let currentState = this._dirty;
         super.markAsDirty(opts);
-        this.dirty = true;
-        if (currentState != this.dirty)
+        this._dirty = true;
+        if (currentState != this._dirty)
             this.runControlPropChangeExpression([DIRTY])
     }
 
@@ -281,7 +277,7 @@ export class RxFormControl extends FormControl {
             this.setValue(value);
         else
             this.setValue(this.getFormState(this._baseValue));
-        this.dirty = false;
+        this._dirty = false;
     }
 
     commit() {
@@ -302,16 +298,16 @@ export class RxFormControl extends FormControl {
                 isBind = (<any>this.parent).submitted;
                 break;
             case ErrorMessageBindingStrategy.OnDirty:
-                isBind = this.dirty;
+                isBind = this._dirty;
                 break;
             case ErrorMessageBindingStrategy.OnTouched:
                 isBind = this.touched;
                 break;
             case ErrorMessageBindingStrategy.OnDirtyOrTouched:
-                isBind = this.dirty || this.touched;
+                isBind = this._dirty || this.touched;
                 break;
             case ErrorMessageBindingStrategy.OnDirtyOrSubmit:
-                isBind = this.dirty || (<any>this.parent).submitted;
+                isBind = this._dirty || (<any>this.parent).submitted;
                 break;
             case ErrorMessageBindingStrategy.OnTouchedOrSubmit:
                 isBind = this.touched || (<any>this.parent).submitted;
