@@ -124,6 +124,9 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
             if ((columnConfig.isFilter === true || columnConfig.isFilter === undefined) && templateConfig.onFilter)
                 headerCellChildrens.push({
                     i: {
+                        attributes: {
+                            "data-controltype":"filter"
+                        },
                         event: {
                             click: (event) => {
                                 templateConfig.onFilter(event)
@@ -139,7 +142,7 @@ function getHeaderAndRowConfiguration(templateConfig: TableTemplateConfig) {
                     style: columnConfig.style,
                     event: {
                         click: (event, x) => {
-                            if (x.target.tagName !== "I")
+                            if (!(x.target.tagName === "I" && x.target.getAttribute("data-controltype") === "filter"))
                                 templateConfig.eventSubscriber.dispatch(EVENTS.SORTING, headerItem.instance)
                         }
                     },
