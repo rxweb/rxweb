@@ -8,6 +8,7 @@ import { FormDataProvider } from "../domain/form-data";
 import { ResetFormType } from "../enums/reset-type";
 import { isResetControl, getNestedOptions } from '../util/reset-form'
 import { defaultContainer } from '../core/defaultContainer'
+import { FormDataConfig } from "../models/interface/form-data-config";
 export class RxFormGroup extends FormGroup {
     private baseObject: { [key: string]: any }
     private formDataProvider: FormDataProvider;
@@ -255,8 +256,8 @@ export class RxFormGroup extends FormGroup {
         return this.getErrorSummary(true);
     }
 
-    toFormData(): FormData {
-        return this.formDataProvider.convertToFormData(this.value);
+    toFormData(options?: FormDataConfig): FormData {
+        return this.formDataProvider.convertToFormData(this.value, options);
     }
 
     private processModified(controlName:string,control: any) {

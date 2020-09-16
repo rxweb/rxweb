@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\packages"
+    "\\packages",
+    "\\packages\\grid",
+    "\\packages\\grid\\template",
+    "\\packages\\grid\\template\\table",
+    "\\packages\\reactive-form-validators",
+    "\\packages\\reactive-form-validators\\domain",
+    "\\packages\\reactive-form-validators\\services",
+    "\\test",
+    "\\test\\reactive-form-validators"
   ],
+  "SelectedNode": "\\packages\\reactive-form-validators\\domain\\form-data.ts",
   "PreviewInSolutionExplorer": false
 }
