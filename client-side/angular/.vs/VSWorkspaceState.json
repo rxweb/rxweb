@@ -7,10 +7,12 @@
     "\\packages\\grid\\template\\table",
     "\\packages\\reactive-form-validators",
     "\\packages\\reactive-form-validators\\domain",
+    "\\packages\\reactive-form-validators\\models",
+    "\\packages\\reactive-form-validators\\models\\interface",
     "\\packages\\reactive-form-validators\\services",
     "\\test",
     "\\test\\reactive-form-validators"
   ],
-  "SelectedNode": "\\packages\\reactive-form-validators\\domain\\form-data.ts",
+  "SelectedNode": "\\packages\\reactive-form-validators\\services\\rx-form-group.ts",
   "PreviewInSolutionExplorer": false
 }

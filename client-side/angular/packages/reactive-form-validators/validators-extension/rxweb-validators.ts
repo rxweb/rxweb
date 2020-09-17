@@ -42,7 +42,9 @@ import {
     minTimeAsyncValidatorExtension, noneOfAsyncValidatorExtension, numericAsyncValidatorExtension, oneOfAsyncValidatorExtension,
     passwordAsyncValidatorExtension, patternAsyncValidatorExtension, rangeAsyncValidatorExtension, startsWithAsyncValidatorExtension, urlAsyncValidatorExtension,
     greaterThanAsyncValidatorExtension,
-    timeAsyncValidatorExtension
+    timeAsyncValidatorExtension,
+    ibanValidatorExtension,
+    ibanAsyncValidatorExtension
 
 } from './index'
 
@@ -114,6 +116,7 @@ export class RxwebValidators {
     static readonly maxTime = maxTimeValidatorExtension;
     static readonly requiredTrue = requiredTrueValidatorExtension;
     static readonly mask = maskValidatorExtension;
+    static readonly iban = ibanValidatorExtension;
     static readonly alphaAsync = alphaAsyncValidatorExtension;
     static readonly alphaNumericAsync = alphaNumericAsyncValidatorExtension;
     static readonly allOfAsync = allOfAsyncValidatorExtension;
@@ -150,4 +153,5 @@ export class RxwebValidators {
     static readonly startsWithAsync = startsWithAsyncValidatorExtension;
     static readonly timeAsync = timeAsyncValidatorExtension;
     static readonly urlAsync = urlAsyncValidatorExtension;
+    static readonly ibanAsync = ibanAsyncValidatorExtension;
 }

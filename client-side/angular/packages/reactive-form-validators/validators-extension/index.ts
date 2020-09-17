@@ -64,3 +64,4 @@ export * from './minTime-validator.extension';
 export * from './maxTime-validator.extension';
 export * from './requiredTrue-validator.extension';
 export * from './mask-validator.extension';
+export * from './iban-validator.extension';
