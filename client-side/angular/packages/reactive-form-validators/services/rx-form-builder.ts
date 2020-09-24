@@ -358,51 +358,32 @@ export class RxFormBuilder extends BaseFormBuilder {
         let includeProps = [];
         let ignoreUndefinedProps = [];
         let abstractControlOptions = {};
-        if (validatorConfig) {
-            for (let propName in validatorConfig.dynamicValidation) {
-                if (propName.indexOf(rootPropertyName) != -1 || (arrayPropertyName && propName.indexOf(arrayPropertyName) != -1)) {
-                    let splitProp = propName.split(".")[1];
-                    if (splitProp)
-                        validationProps[splitProp] = validatorConfig.dynamicValidation[propName];
-                }
-            }
 
-            for (let propName in validatorConfig.abstractControlOptions) {
-              if (propName.startsWith(rootPropertyName) || (arrayPropertyName && propName.startsWith(arrayPropertyName))) {
-                let splitProp = propName.split(".", 2)[1];
-                  if (splitProp)
-                    abstractControlOptions[splitProp] = validatorConfig.abstractControlOptions[propName];
-              }
-            }
+        if (!validatorConfig) return {};
 
-            if (validatorConfig.excludeProps)
-                excludeProps = this.getProps(validatorConfig.excludeProps, rootPropertyName);
-
-            if (validatorConfig.includeProps)
-                includeProps = this.getProps(validatorConfig.includeProps, rootPropertyName);
-
-            if (validatorConfig.ignoreUndefinedProps)
-                ignoreUndefinedProps = this.getProps(validatorConfig.ignoreUndefinedProps, rootPropertyName, true);
-
-            if (!Object.keys(abstractControlOptions).length && rootPropertyName.endsWith('.') && validatorConfig.abstractControlOptions
-              && validatorConfig.abstractControlOptions[rootPropertyName.substring(0, rootPropertyName.length - 1)])
-              abstractControlOptions['global'] = validatorConfig.abstractControlOptions[rootPropertyName.substring(0, rootPropertyName.length - 1)];
-
-            const dynamicValidation = (validatorConfig.dynamicValidationConfigurationPropertyName &&
-                                          entityObject[validatorConfig.dynamicValidationConfigurationPropertyName])
-                                        ? entityObject[validatorConfig.dynamicValidationConfigurationPropertyName]
-                                        : validationProps;
-
-            return {
-               ignoreUndefinedProps: ignoreUndefinedProps,
-               includeProps: includeProps,
-               dynamicValidation: dynamicValidation,
-               excludeProps: excludeProps,
-               abstractControlOptions: abstractControlOptions
+        for (let propName in validatorConfig.dynamicValidation) {
+            if (propName.indexOf(rootPropertyName) != -1 || (arrayPropertyName && propName.indexOf(arrayPropertyName) != -1)) {
+                let splitProp = propName.split(".")[1];
+                if (splitProp) validationProps[splitProp] = validatorConfig.dynamicValidation[propName];
             }
         }
-        return {}
+        for (let propName in validatorConfig.abstractControlOptions) {
+            if (propName.startsWith(rootPropertyName) || (arrayPropertyName && propName.startsWith(arrayPropertyName))) {
+                let splitProp = propName.split(".", 2)[1];
+                if (splitProp) abstractControlOptions[splitProp] = validatorConfig.abstractControlOptions[propName];
+            }
+        }
+        if (validatorConfig.excludeProps)
+            excludeProps = this.getProps(validatorConfig.excludeProps, rootPropertyName);
+        if (validatorConfig.includeProps)
+            includeProps = this.getProps(validatorConfig.includeProps, rootPropertyName);
+        if (validatorConfig.ignoreUndefinedProps)
+            ignoreUndefinedProps = this.getProps(validatorConfig.ignoreUndefinedProps, rootPropertyName, true);
+        if (!Object.keys(abstractControlOptions).length && rootPropertyName.endsWith('.') && validatorConfig.abstractControlOptions && validatorConfig.abstractControlOptions[rootPropertyName.substring(0, rootPropertyName.length - 1)])
+            abstractControlOptions['global'] = validatorConfig.abstractControlOptions[rootPropertyName.substring(0, rootPropertyName.length - 1)];
 
+        const dynamicValidation = (validatorConfig.dynamicValidationConfigurationPropertyName && entityObject[validatorConfig.dynamicValidationConfigurationPropertyName]) ? entityObject[validatorConfig.dynamicValidationConfigurationPropertyName] : validationProps;
+        return { ignoreUndefinedProps: ignoreUndefinedProps, includeProps: includeProps, dynamicValidation: dynamicValidation, excludeProps: excludeProps, abstractControlOptions: abstractControlOptions }
     }
 
     private getProps(properties: string[], rootPropertyName: string, isIgnoreProp: boolean = false) {
@@ -468,8 +449,6 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 entityObject[property.name] = sanitizeValue;
                             let validators = this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject);
                             let abstractControlOptions: AbstractControlOptions = { validators: validators, asyncValidators: this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]) };
-                            if (formBuilderConfiguration && formBuilderConfiguration.abstractControlOptions && formBuilderConfiguration.abstractControlOptions[property.name])
-                                abstractControlOptions.updateOn = formBuilderConfiguration.abstractControlOptions[property.name];
                             abstractControlOptions = this.getAbstractControlOptions(property.name, formBuilderConfiguration ? formBuilderConfiguration.baseAbstractControlOptions : {}, abstractControlOptions)
                             formGroupObject[property.name] = new RxFormControl(sanitizeValue, abstractControlOptions, [], json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
                             this.isNested = false;
@@ -517,10 +496,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 this.conditionalObjectProps = [];
                                 this.builderConfigurationConditionalObjectProps = [];
                             }
-                            let abstractControlOptions: AbstractControlOptions = { };
-                            if (formBuilderConfiguration && formBuilderConfiguration.abstractControlOptions && formBuilderConfiguration.abstractControlOptions[property.name])
-                              abstractControlOptions.updateOn = formBuilderConfiguration.abstractControlOptions[property.name];
-                            abstractControlOptions = this.getAbstractControlOptions(property.name, formBuilderConfiguration ? formBuilderConfiguration.baseAbstractControlOptions : {}, abstractControlOptions)
+                            let abstractControlOptions = this.getAbstractControlOptions(property.name, formBuilderConfiguration , { })
                             formGroupObject[property.name] = new RxFormArray(arrayObjectValue, formArrayGroup, abstractControlOptions, null, property.arrayConfig);
                             if (ReactiveFormConfig.autoInstancePush) {
                                 arrayObjectValue.push = (instance: any[]): number => { let formGroup = this.formGroup(instance.constructor, instance, objectValidationConfig); formGroupObject[property.name].push(formGroup, true); return 0; };
@@ -546,17 +522,14 @@ export class RxFormBuilder extends BaseFormBuilder {
             this.conditionalValidationInstance = {};
             this.builderConfigurationConditionalObjectProps = [];
         }
-        let abstractControlOptions = this.getAbstractControlOptions("global",
-          formBuilderConfiguration
-          ? formBuilderConfiguration.baseAbstractControlOptions
-          : {},
-          {
+        let abstractControlOptions: AbstractControlOptions = {
             validators: [],
             asyncValidators: [],
             updateOn: formBuilderConfiguration && formBuilderConfiguration.abstractControlOptions && formBuilderConfiguration.abstractControlOptions['global']
                         ? formBuilderConfiguration.abstractControlOptions['global']
                         : undefined
-          });
+          };
+        abstractControlOptions = this.getAbstractControlOptions("global", formBuilderConfiguration, abstractControlOptions);
         let formGroup = new RxFormGroup(json.model, json.entityObject, formGroupObject, abstractControlOptions);
         if (defaultContainer.isExperimental) {
             json.entityObject["formGroup"] = formGroup;
@@ -573,7 +546,11 @@ export class RxFormBuilder extends BaseFormBuilder {
             this.overrideProp(entityObject, t, formGroup);
         })
     }
-    private getAbstractControlOptions(name: string, controlOptions: { [key: string]: AbstractControlOptions }, abstractControlOptions: AbstractControlOptions) {
+    private getAbstractControlOptions(name: string, formBuilderConfiguration: FormBuilderConfiguration, abstractControlOptions: AbstractControlOptions) {
+        if (formBuilderConfiguration && formBuilderConfiguration.abstractControlOptions && formBuilderConfiguration.abstractControlOptions[name])
+            abstractControlOptions.updateOn = formBuilderConfiguration.abstractControlOptions[name];
+
+        const controlOptions = formBuilderConfiguration ? formBuilderConfiguration.baseAbstractControlOptions : null;
         if (controlOptions && controlOptions[name]) {
             if (controlOptions[name].updateOn)
                 abstractControlOptions.updateOn = controlOptions[name].updateOn;
