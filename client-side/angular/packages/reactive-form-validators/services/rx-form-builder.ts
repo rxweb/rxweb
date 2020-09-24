@@ -28,7 +28,6 @@ import { IAbstractControl } from "../models/interface/i-abstract-control"
 const LOGICAL_VALIDATORS: { [key: string]: Function } = { and: andValidator, or: orValidator, not: notValidator }
 const ASYNC: string = "async"
 const ENTITY_OBJECT: string = "entityObject";
-type IStringIndexable<T> = { [key: string]: T };
 @Injectable()
 export class RxFormBuilder extends BaseFormBuilder {
     private nestedProp: string;
@@ -357,7 +356,7 @@ export class RxFormBuilder extends BaseFormBuilder {
         let excludeProps = [];
         let includeProps = [];
         let ignoreUndefinedProps = [];
-        
+
         if (!validatorConfig) return {};
 
         const validationProps = this.getObjectForProperty(validatorConfig.dynamicValidation, rootPropertyName, arrayPropertyName);
@@ -376,15 +375,16 @@ export class RxFormBuilder extends BaseFormBuilder {
         return { ignoreUndefinedProps: ignoreUndefinedProps, includeProps: includeProps, dynamicValidation: dynamicValidation, excludeProps: excludeProps, abstractControlOptions: abstractControlOptions }
     }
 
-    private getObjectForProperty<T>(rootObject: IStringIndexable<T>, rootPropertyName: string, arrayPropertyName?: string): IStringIndexable<T> {
-        const result: IStringIndexable<T> = {};
+    private getObjectForProperty<T>(rootObject: { [key: string]: T }, rootPropertyName: string, arrayPropertyName?: string): { [key: string]: T } {
+        const result: { [key: string]: T } = {};
 
         for (let propName in rootObject) {
-            if (propName.startsWith(rootPropertyName) || (arrayPropertyName && propName.startsWith(arrayPropertyName))) {
-                let splitProp = propName.split(".", 2)[1];
-                if (splitProp)
-                    result[splitProp] = rootObject[propName];
-            }
+            if (!propName.startsWith(rootPropertyName) && (!arrayPropertyName || !propName.startsWith(arrayPropertyName)))
+              continue;
+            let splitProp = propName.split(".", 2)[1];
+            if (!splitProp)
+              continue;
+            result[splitProp] = rootObject[propName];
         }
 
         return result;
