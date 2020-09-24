@@ -28,6 +28,7 @@ import { IAbstractControl } from "../models/interface/i-abstract-control"
 const LOGICAL_VALIDATORS: { [key: string]: Function } = { and: andValidator, or: orValidator, not: notValidator }
 const ASYNC: string = "async"
 const ENTITY_OBJECT: string = "entityObject";
+type IStringIndexable<T> = { [key: string]: T };
 @Injectable()
 export class RxFormBuilder extends BaseFormBuilder {
     private nestedProp: string;
@@ -375,13 +376,14 @@ export class RxFormBuilder extends BaseFormBuilder {
         return { ignoreUndefinedProps: ignoreUndefinedProps, includeProps: includeProps, dynamicValidation: dynamicValidation, excludeProps: excludeProps, abstractControlOptions: abstractControlOptions }
     }
 
-    private getObjectForProperty<T>(rootObject: { [key: string]: T}, rootPropertyName: string, arrayPropertyName?: string): { [key: string]: T} {
-        const result: { [key: string]: T} = {};
+    private getObjectForProperty<T>(rootObject: IStringIndexable<T>, rootPropertyName: string, arrayPropertyName?: string): IStringIndexable<T> {
+        const result: IStringIndexable<T> = {};
 
         for (let propName in rootObject) {
             if (propName.startsWith(rootPropertyName) || (arrayPropertyName && propName.startsWith(arrayPropertyName))) {
                 let splitProp = propName.split(".", 2)[1];
-                if (splitProp) result[splitProp] = rootObject[propName];
+                if (splitProp)
+                    result[splitProp] = rootObject[propName];
             }
         }
 

@@ -186,9 +186,9 @@ export class UserModel {
                 });
 
             // feature : https://github.com/rxweb/rxweb/issues/402
-            it('should set updateOn for properties, arrays and objects',
+            it("should set updateOn for properties, arrays and objects",
             () => {
-                const updateOn: 'change' | 'blur' | 'submit' = 'blur';
+                const updateOn: "change" | "blur" | "submit" = "blur";
                 const formBuilderConfig: FormBuilderConfiguration = {
                     abstractControlOptions: {
                         address: updateOn,
@@ -199,9 +199,8 @@ export class UserModel {
                 const person: Person = {
                     address: new Address(),
                     skills: new Array<Skill>(),
-                    name: ''
+                    name: "",
                 };
-                debugger;
                 const formGroup = <RxFormGroup>formBuilder.formGroup(Person, person, formBuilderConfig);
                 expect(formGroup.controls.address.updateOn).toEqual(updateOn);
                 expect(formGroup.controls.skills.updateOn).toEqual(updateOn);
@@ -209,25 +208,25 @@ export class UserModel {
             });
 
             // feature : https://github.com/rxweb/rxweb/issues/402
-            it('should set updateOn for nested properties, arrays and objects',
+            it("should set updateOn for nested properties, arrays and objects",
             () => {
-                const updateOn: 'change' | 'blur' | 'submit' = 'blur';
+                const updateOn: "change" | "blur" | "submit" = "blur";
                 const formBuilderConfig: FormBuilderConfiguration = {
                     abstractControlOptions: {
-                        'person1.address': updateOn,
-                        'person1.skills': updateOn,
-                        'person2.address.city': updateOn,
+                        "person1.address": updateOn,
+                        "person1.skills": updateOn,
+                        "person2.address.city": updateOn,
                     }
                 };
                 const person1: Person = {
                     address: new Address(),
                     skills: new Array<Skill>(),
-                    name: ''
+                    name: "",
                 };
                 const person2: Person = {
                     address: new Address(),
                     skills: new Array<Skill>(),
-                    name: ''
+                    name: "",
                 };
                 const personGroup: PersonGroup = { person1, person2};
                 const formGroup = <RxFormGroup>formBuilder.formGroup(PersonGroup, personGroup, formBuilderConfig);
