@@ -353,26 +353,15 @@ export class RxFormBuilder extends BaseFormBuilder {
     }
 
     private getValidatorConfig(validatorConfig: FormBuilderConfiguration, entityObject: any, rootPropertyName: string, arrayPropertyName?: string): any {
-        let validationProps = {};
         let excludeProps = [];
         let includeProps = [];
         let ignoreUndefinedProps = [];
-        let abstractControlOptions = {};
-
+        
         if (!validatorConfig) return {};
 
-        for (let propName in validatorConfig.dynamicValidation) {
-            if (propName.indexOf(rootPropertyName) != -1 || (arrayPropertyName && propName.indexOf(arrayPropertyName) != -1)) {
-                let splitProp = propName.split(".")[1];
-                if (splitProp) validationProps[splitProp] = validatorConfig.dynamicValidation[propName];
-            }
-        }
-        for (let propName in validatorConfig.abstractControlOptions) {
-            if (propName.startsWith(rootPropertyName) || (arrayPropertyName && propName.startsWith(arrayPropertyName))) {
-                let splitProp = propName.split(".", 2)[1];
-                if (splitProp) abstractControlOptions[splitProp] = validatorConfig.abstractControlOptions[propName];
-            }
-        }
+        const validationProps = this.getObjectForProperty(validatorConfig.dynamicValidation, rootPropertyName, arrayPropertyName);
+        const abstractControlOptions = this.getObjectForProperty(validatorConfig.abstractControlOptions, rootPropertyName, arrayPropertyName);
+
         if (validatorConfig.excludeProps)
             excludeProps = this.getProps(validatorConfig.excludeProps, rootPropertyName);
         if (validatorConfig.includeProps)
@@ -384,6 +373,19 @@ export class RxFormBuilder extends BaseFormBuilder {
 
         const dynamicValidation = (validatorConfig.dynamicValidationConfigurationPropertyName && entityObject[validatorConfig.dynamicValidationConfigurationPropertyName]) ? entityObject[validatorConfig.dynamicValidationConfigurationPropertyName] : validationProps;
         return { ignoreUndefinedProps: ignoreUndefinedProps, includeProps: includeProps, dynamicValidation: dynamicValidation, excludeProps: excludeProps, abstractControlOptions: abstractControlOptions }
+    }
+
+    private getObjectForProperty<T>(rootObject: { [key: string]: T}, rootPropertyName: string, arrayPropertyName?: string): { [key: string]: T} {
+        const result: { [key: string]: T} = {};
+
+        for (let propName in rootObject) {
+            if (propName.startsWith(rootPropertyName) || (arrayPropertyName && propName.startsWith(arrayPropertyName))) {
+                let splitProp = propName.split(".", 2)[1];
+                if (splitProp) result[splitProp] = rootObject[propName];
+            }
+        }
+
+        return result;
     }
 
     private getProps(properties: string[], rootPropertyName: string, isIgnoreProp: boolean = false) {
@@ -449,7 +451,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 entityObject[property.name] = sanitizeValue;
                             let validators = this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject);
                             let abstractControlOptions: AbstractControlOptions = { validators: validators, asyncValidators: this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]) };
-                            abstractControlOptions = this.getAbstractControlOptions(property.name, formBuilderConfiguration ? formBuilderConfiguration.baseAbstractControlOptions : {}, abstractControlOptions)
+                            abstractControlOptions = this.getAbstractControlOptions(property.name, formBuilderConfiguration, abstractControlOptions)
                             formGroupObject[property.name] = new RxFormControl(sanitizeValue, abstractControlOptions, [], json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
                             this.isNested = false;
                         } else
