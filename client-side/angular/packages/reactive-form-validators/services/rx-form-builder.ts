@@ -441,8 +441,10 @@ export class RxFormBuilder extends BaseFormBuilder {
                                 entityObject[property.name] = sanitizeValue;
                             let validators = this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject);
                             let abstractControlOptions: AbstractControlOptions = { validators: validators, asyncValidators: this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]) };
-                            if (formBuilderConfiguration && formBuilderConfiguration.abstractControlOptions && formBuilderConfiguration.abstractControlOptions[property.name])
+                            if ((formBuilderConfiguration && formBuilderConfiguration.abstractControlOptions && formBuilderConfiguration.abstractControlOptions[property.name]))
                                 abstractControlOptions.updateOn = formBuilderConfiguration.abstractControlOptions[property.name];
+                            else if (property.updateOn)
+                                abstractControlOptions.updateOn = property.updateOn;
                             abstractControlOptions = this.getAbstractControlOptions(property.name, formBuilderConfiguration ? formBuilderConfiguration.baseAbstractControlOptions : {}, abstractControlOptions)
                             formGroupObject[property.name] = new RxFormControl(sanitizeValue, abstractControlOptions, [], json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
                             this.isNested = false;
