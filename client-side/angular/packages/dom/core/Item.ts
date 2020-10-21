@@ -3,7 +3,7 @@ export class Item {
 
     private propListners: PropChangeListner[] = new Array<PropChangeListner>();
     private _instance: { [key: string]: any };
-
+    private isRefresh: boolean;
     set instance(value: { [key: string]: any }) {
         this._instance = value;
         this.setValue(value);
@@ -20,9 +20,11 @@ export class Item {
         this.override(columns);
     }
 
-    setValue(value: { [key: string]: any }) {
+    setValue(value: { [key: string]: any }, isRefresh?: boolean) {
+        this.isRefresh = isRefresh? true : false;
         for (var column in value)
             this.value[column] = value[column];
+        this.isRefresh = false;
     }
 
     private override(columns: string[]) {
@@ -69,7 +71,7 @@ export class Item {
             configurable:true,
             get: () => { return descriptor ? descriptor.get.call(instanceObject) : value },
             set: (v) => {
-                if (oldValue !== v) {
+                if (oldValue !== v || this.isRefresh) {
                     value = v;
                     var propListner = this.propListners.filter(t => t.name == propName)[0];
                     if (propListner)

@@ -83,7 +83,6 @@ export class Collection {
         var gridSourceLength = this._gridSource.length;
         for (var i = 0, j = source.length; i < j; i++) {
             var key = source[i][this.primaryKey];
-
             if (this.sourceKeyValue[key] === undefined) {
                 var instance = this.getInstance(this.model);
                 var item = source[i];
@@ -96,7 +95,7 @@ export class Collection {
 
             if (gridSourceLength > i) {
                 if (this._gridSource[i].value[this.primaryKey] != source[i][this.primaryKey]) {
-                    this._gridSource[i].setValue(source[i]);
+                    this._gridSource[i].setValue(source[i],true);
                 }
             }
             else {
@@ -203,14 +202,12 @@ export class Collection {
 
     private updateDom(currentObject,newObject,index) {
         for (var column in newObject) {
-            if (currentObject[column] != newObject[column]) {
                 if (this.DomRows.length > index) {
                     let filterValues = this.DomRows[index].filter(x => x.subscribeProps.indexOf(column) !== -1)
                     filterValues.forEach(y => {
                         y.updateElement(newObject);
                     })
                 }
-            }
         }
     }
 
