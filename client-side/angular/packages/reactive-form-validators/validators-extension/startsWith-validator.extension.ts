@@ -11,5 +11,5 @@ export function startsWithValidatorExtension(config: StringComparisonConfig): Va
   return baseValidator(config, AnnotationTypes.startsWithWith, startsWithValidator(config))
 }
 export function startsWithAsyncValidatorExtension(config?: StringComparisonConfig): AsyncValidatorFn {
-    return baseAsyncValidatorExtension(config, AnnotationTypes.startsWithWith, baseAsyncValidator(config, AnnotationTypes.startsWithWith));
+    return baseAsyncValidatorExtension(config, AnnotationTypes.startsWithWith, baseAsyncValidator(config, AnnotationTypes.startsWith));
 }
