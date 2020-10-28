@@ -116,7 +116,13 @@ import { RxwebValidators,ReactiveFormConfig  } from '@rxweb/reactive-form-valida
       it("Should error, as incorrect value in input 'https:/#/www.google.com'",
         () => { 
           expect(RxwebValidators.url()(new FormControl('https:/#/www.google.com'))).toEqual({'url':{ message: 'Please enter proper url format', refValues: [ 'https:/#/www.google.com' ] } }); 
-        });
+          });
+
+         // this is the spec of issue #405 resolution.
+        it("Should not error, 'https://fb.com'",
+            () => {
+                expect(RxwebValidators.url()(new FormControl('https://fb.com'))).toBeNull();
+            });
 
 
 	//end

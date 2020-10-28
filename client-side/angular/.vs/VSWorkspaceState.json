@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\packages"
+    "\\packages",
+    "\\packages\\grid",
+    "\\packages\\grid\\domain",
+    "\\src",
+    "\\src\\app",
+    "\\test",
+    "\\test\\reactive-form-validators"
   ],
+  "SelectedNode": "\\src\\app\\app.component.ts",
   "PreviewInSolutionExplorer": false
 }
