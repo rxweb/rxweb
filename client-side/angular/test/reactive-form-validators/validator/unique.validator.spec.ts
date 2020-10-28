@@ -71,7 +71,28 @@ import { RxwebValidators,ReactiveFormConfig  } from '@rxweb/reactive-form-valida
           let hobbyFormGroup = <FormGroup>hobbiesFormArray.controls[1];
           hobbyFormGroup.controls.name.setValue('Cricket');
           expect(hobbyFormGroup.controls.name.errors).toEqual({ "unique": { "message": "You must enter a unique value", "refValues": [ "Cricket" ] } })
-        });
+            });
+
+
+        //issue https://github.com/rxweb/rxweb/issues/425
+        it('should error. if the value starts with space or the ends with space.',
+            () => {
+                let formBuilder = new FormBuilder();
+                let userFormGroup = formBuilder.group({
+                    hobbies: formBuilder.array([
+                        formBuilder.group({
+                            name: [' cricket', RxwebValidators.unique({ message: 'You must enter a unique value' })]
+                        }),
+                        formBuilder.group({
+                            name: ['', RxwebValidators.unique({ message: 'You must enter a unique value' })]
+                        }),
+                    ])
+                });
+                let hobbiesFormArray = <FormArray>userFormGroup.controls.hobbies;
+                let hobbyFormGroup = <FormGroup>hobbiesFormArray.controls[1];
+                hobbyFormGroup.controls.name.setValue('cricket');
+                expect(hobbyFormGroup.controls.name.errors).toEqual({ "unique": { "message": "You must enter a unique value", "refValues": ["cricket"] } })
+            });
 
 	//end
     });

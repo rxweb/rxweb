@@ -4,13 +4,11 @@
     "\\packages",
     "\\packages\\grid",
     "\\packages\\grid\\domain",
-    "\\packages\\grid\\template\\table",
-    "\\packages\\reactive-form-validators\\models\\interface",
     "\\src",
     "\\src\\app",
     "\\test",
     "\\test\\reactive-form-validators"
   ],
-  "SelectedNode": "\\packages\\grid\\domain\\pagination.ts",
+  "SelectedNode": "\\src\\app\\app.component.ts",
   "PreviewInSolutionExplorer": false
 }
