@@ -78,7 +78,7 @@ export class Collection {
 
     private sourceKeyValue: { [key: string]: any } = {};
 
-    protected mapWithModel(source: any[], isDispatchEvent: boolean = true) {
+    protected mapWithModel(source: any[], isDispatchEvent: boolean = true,isUpdateSource:boolean = false) {
         this.removeChildrens();
         var gridSourceLength = this._gridSource.length;
         for (var i = 0, j = source.length; i < j; i++) {
@@ -95,6 +95,8 @@ export class Collection {
 
             if (gridSourceLength > i) {
                 if (this._gridSource[i].value[this.primaryKey] != source[i][this.primaryKey]) {
+                    if (isUpdateSource)
+                        this.overrideValueProp(source[i], this.columns);
                     this._gridSource[i].setValue(source[i],true);
                 }
             }
@@ -108,6 +110,8 @@ export class Collection {
         }
         if (gridSourceLength > source.length)
             this.removeItem(this.gridSource, source.length, gridSourceLength, "row-id");
+        if (isUpdateSource)
+            this.source = source;
     }
 
 
@@ -223,6 +227,7 @@ export class Collection {
                     get: () => { return descriptor ? descriptor.get.call(instanceObject) : value },
                     set: (v) => {
                         if (oldValue !== v) {
+                            debugger;
                             value = v;
                             this._gridSource.forEach((t, i) => {
                                 if (t.value[this.primaryKey] == instanceObject[this.primaryKey]) {

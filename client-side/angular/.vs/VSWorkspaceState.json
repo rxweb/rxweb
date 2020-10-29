@@ -3,12 +3,13 @@
     "",
     "\\packages",
     "\\packages\\grid",
+    "\\packages\\grid\\component",
     "\\packages\\grid\\domain",
     "\\src",
     "\\src\\app",
     "\\test",
-    "\\test\\reactive-form-validators"
+    "\\test\\reactive-form-validators\\rxweb-validators"
   ],
-  "SelectedNode": "\\src\\app\\app.component.ts",
+  "SelectedNode": "\\packages\\grid\\domain\\grid-designer.ts",
   "PreviewInSolutionExplorer": false
 }

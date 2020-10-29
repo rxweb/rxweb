@@ -193,7 +193,7 @@ export class Pagination extends Collection {
 
     updateSource(source: any[]) {
         this.currentPage = this.storeProcedure.nextPage;
-        this.mapWithModel(source);
+        this.mapWithModel(source,true,true);
         this.updatePagination();
         this.updateStartEndCount();
     }
