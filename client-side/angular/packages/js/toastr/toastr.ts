@@ -27,7 +27,7 @@ export abstract class Toastr extends BaseDomProvider {
     }
     show(message: string, messageType: ToastrMessageType, config?: ToastrConfig, customTemplate?: TemplateConfig) {
         message = this.getMessage(message);
-        let hideConfig: ToastrHideConfig = { toastrConfig: toastrConfig, hideFunc: this.hide.bind(this) }; 
+        let hideConfig: ToastrHideConfig = { toastrConfig: toastrConfig, hideFunc: this.baseHide.bind(this) }; 
         var toastrConfig = config ? { ...config, ...{ messageType: messageType, message: message } } : { ...this.defaultConfig, ...{ messageType: messageType, message: message } };
         var template = customTemplate || this.getDefaultTemplate(config, hideConfig);
         this.createRoot();
@@ -49,19 +49,23 @@ export abstract class Toastr extends BaseDomProvider {
 
     hide(domManipulation: DomManipulation, toastrConfig: ToastrConfig) {
         setTimeout(() => {
-            if (this.designClass.hideClass) {
-                domManipulation.addOrRemoveClass(this.designClass.showClass, false);
-                domManipulation.addOrRemoveClass(this.designClass.hideClass);
-            }
-            setTimeout(() => {
-                this.removeChildren(domManipulation.element);
-                var elements = this.domManipulations.filter(t => t.element != null);
-                if (elements.length == 0) {
-                    this.domManipulations = [];
-                    this.removeChildren(this.rootElement.element);
-                    this.rootElement = null;
-                }
-            }, 50);
+            this.baseHide(domManipulation, toastrConfig);            
         }, toastrConfig.timeOut);
+    }
+
+    private baseHide(domManipulation: DomManipulation, toastrConfig: ToastrConfig){
+        if (this.designClass.hideClass) {
+            domManipulation.addOrRemoveClass(this.designClass.showClass, false);
+            domManipulation.addOrRemoveClass(this.designClass.hideClass);
+        }
+        setTimeout(() => {
+            this.removeChildren(domManipulation.element);
+            var elements = this.domManipulations.filter(t => t.element != null);
+            if (elements.length == 0) {
+                this.domManipulations = [];
+                this.removeChildren(this.rootElement.element);
+                this.rootElement = null;
+            }
+        }, 50);
     }
 }

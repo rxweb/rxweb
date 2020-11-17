@@ -1,9 +1,9 @@
 import { DomManipulation } from "@rxweb/dom"
 
 export class ToastrConfig {
-    timeOut: number = 7000;
+    timeOut?: number = 7000;
     message?: string;
-    autoHideDisable: boolean;
+    autoHideDisable?: boolean;
 }
 
 export interface ToastrHideConfig {
