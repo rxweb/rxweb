@@ -2,7 +2,7 @@ import { DomManipulation, TemplateConfig, ElementConfig } from "@rxweb/dom"
 import { MultiLingualData } from "@rxweb/localization"
 import { BaseDomProvider } from "../core/base-dom-provider";
 import { TemplateCategory } from '../enums/template-category'
-import { ToastrDesignClass, ToastrConfig } from "./toastr-design-class";
+import { ToastrDesignClass, ToastrConfig, ToastrHideConfig } from "./toastr-design-class";
 import { getToastrTemplate } from "./toastr-template";
 import { ToastrMessageType } from "./toastr-message-type";
 export abstract class Toastr extends BaseDomProvider {
@@ -19,33 +19,38 @@ export abstract class Toastr extends BaseDomProvider {
         this.domManipulations = new Array<DomManipulation>();
     }
 
-    protected getDefaultTemplate() {
-        return getToastrTemplate(this.designClass);
+    protected getDefaultTemplate(config: ToastrConfig, hideConfig: ToastrHideConfig) {
+        return getToastrTemplate(this.designClass, config, hideConfig);
     }
     private getMessage(message: string) {
         return message.charAt(0) == ':' ? MultiLingualData.get(message.replace(":", "")) : message;
     }
     show(message: string, messageType: ToastrMessageType, config?: ToastrConfig, customTemplate?: TemplateConfig) {
         message = this.getMessage(message);
+        let hideConfig: ToastrHideConfig = { toastrConfig: toastrConfig, hideFunc: this.hide.bind(this) }; 
         var toastrConfig = config ? { ...config, ...{ messageType: messageType, message: message } } : { ...this.defaultConfig, ...{ messageType: messageType, message: message } };
-        var template = customTemplate || this.getDefaultTemplate();
+        var template = customTemplate || this.getDefaultTemplate(config, hideConfig);
         this.createRoot();
         var domManipulation = this.createElement(this.rootElement.element, 'div', template.div, toastrConfig, 0, {});
+        hideConfig.domManipulation = domManipulation;
+        hideConfig.toastrConfig = toastrConfig;
         if (this.designClass.showClass)
             domManipulation.addOrRemoveClass(this.designClass.showClass);
-        this.hide(domManipulation, toastrConfig);
+        
+        if (!config || (config && !config.autoHideDisable))
+            this.hide(domManipulation, toastrConfig);
         this.domManipulations.push(domManipulation);
     }
 
     createRoot() {
-        if (!this.rootElement) 
+        if (!this.rootElement)
             this.rootElement = this.createElement(document.body, "div", {}, {}, 0, {});
     }
 
     hide(domManipulation: DomManipulation, toastrConfig: ToastrConfig) {
         setTimeout(() => {
             if (this.designClass.hideClass) {
-                domManipulation.addOrRemoveClass(this.designClass.showClass,false);
+                domManipulation.addOrRemoveClass(this.designClass.showClass, false);
                 domManipulation.addOrRemoveClass(this.designClass.hideClass);
             }
             setTimeout(() => {
@@ -56,7 +61,7 @@ export abstract class Toastr extends BaseDomProvider {
                     this.removeChildren(this.rootElement.element);
                     this.rootElement = null;
                 }
-            },50);
+            }, 50);
         }, toastrConfig.timeOut);
     }
 }
