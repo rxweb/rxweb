@@ -78,12 +78,11 @@ export class Collection {
 
     private sourceKeyValue: { [key: string]: any } = {};
 
-    protected mapWithModel(source: any[], isDispatchEvent: boolean = true) {
+    protected mapWithModel(source: any[], isDispatchEvent: boolean = true,isUpdateSource:boolean = false) {
         this.removeChildrens();
         var gridSourceLength = this._gridSource.length;
         for (var i = 0, j = source.length; i < j; i++) {
             var key = source[i][this.primaryKey];
-
             if (this.sourceKeyValue[key] === undefined) {
                 var instance = this.getInstance(this.model);
                 var item = source[i];
@@ -96,7 +95,9 @@ export class Collection {
 
             if (gridSourceLength > i) {
                 if (this._gridSource[i].value[this.primaryKey] != source[i][this.primaryKey]) {
-                    this._gridSource[i].setValue(source[i]);
+                    if (isUpdateSource)
+                        this.overrideValueProp(source[i], this.columns);
+                    this._gridSource[i].setValue(source[i],true);
                 }
             }
             else {
@@ -109,6 +110,8 @@ export class Collection {
         }
         if (gridSourceLength > source.length)
             this.removeItem(this.gridSource, source.length, gridSourceLength, "row-id");
+        if (isUpdateSource)
+            this.source = source;
     }
 
 
@@ -203,14 +206,12 @@ export class Collection {
 
     private updateDom(currentObject,newObject,index) {
         for (var column in newObject) {
-            if (currentObject[column] != newObject[column]) {
                 if (this.DomRows.length > index) {
                     let filterValues = this.DomRows[index].filter(x => x.subscribeProps.indexOf(column) !== -1)
                     filterValues.forEach(y => {
                         y.updateElement(newObject);
                     })
                 }
-            }
         }
     }
 
@@ -226,6 +227,7 @@ export class Collection {
                     get: () => { return descriptor ? descriptor.get.call(instanceObject) : value },
                     set: (v) => {
                         if (oldValue !== v) {
+                            debugger;
                             value = v;
                             this._gridSource.forEach((t, i) => {
                                 if (t.value[this.primaryKey] == instanceObject[this.primaryKey]) {

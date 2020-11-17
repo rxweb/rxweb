@@ -17,4 +17,7 @@ export interface IFormArray<Item> extends IAbstractControl<Item[]> {
     readonly value: Item[];
     readonly valueChanges: Observable<Item[]>;
     at(index: number): IAbstractControl<Item>;
+
+    removeAt(index: number): void;
+    clear(): void
 }

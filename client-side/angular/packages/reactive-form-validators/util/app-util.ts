@@ -57,8 +57,8 @@ export class ApplicationUtil{
     }
 
     static toLower(value){
-        if(value)
-          return String(value).toLowerCase();
+        if (value)
+            return String(value).toLowerCase().trim();
         return value;
     }
 

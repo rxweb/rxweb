@@ -37,6 +37,7 @@ export interface PropertyInfo {
         messageKey?: string;
         createBlank?: boolean;
     }
+    updateOn?: 'change' | 'blur' | 'submit';
 }
 
 export interface ControlInfo {

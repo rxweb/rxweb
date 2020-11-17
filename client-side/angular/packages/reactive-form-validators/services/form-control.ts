@@ -121,10 +121,6 @@ export class RxFormControl extends FormControl {
         return this._isModified;
     }
 
-    get dirty() {
-        return this._dirty
-    }
-
     getValidators(): ValidatorFn[] {
         return this.getValidatorSource(this._validators);
     }

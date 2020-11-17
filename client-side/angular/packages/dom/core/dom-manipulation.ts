@@ -116,10 +116,15 @@ export class DomManipulation {
             if (attribute == "value")
                 this.element.value = value;
             else if (attribute == "checked" || attribute == "selected") {
-                if (value === true || value === 1 || value === "true")
+                if (value === true || value === 1 || value === "true") {
                     this.element.setAttribute(attribute, value);
-                else
+                    this.element.checked = true;
+                }
+                else {
                     this.element.removeAttribute(attribute);
+                    this.element.checked = false;
+                }
+                
             } else if (attribute == "innerHTML") {
                 this.addAttributes({ "data-rxinner": true })
                 this.element.innerHTML = value;
