@@ -1,6 +1,5 @@
-import { ToastrDesignClass } from "./toastr-design-class";
-
-export function getToastrTemplate(toastrDesign: ToastrDesignClass){
+import { ToastrDesignClass, ToastrConfig, ToastrHideConfig } from "./toastr-design-class";
+export function getToastrTemplate(toastrDesign: ToastrDesignClass, config: ToastrConfig, hideConfig: ToastrHideConfig){
     return {
         div: {
             class: toastrDesign.root,
@@ -10,7 +9,21 @@ export function getToastrTemplate(toastrDesign: ToastrDesignClass){
                     childrens: [{
                         div: {
                             class: toastrDesign.thirdLevelDiv,
-                            childrens: [{
+                            childrens: [
+                                {
+                                    button: {
+                                        childrens: [{ text: { text: "x" }}],
+                                        class: ["toast-close-button", config && config.autoHideDisable ?"dummy": "toast-close-display-none"],
+                                        event: {
+                                            click: (event) => {
+                                                if (config && config.autoHideDisable) {
+                                                    hideConfig.hideFunc(hideConfig.domManipulation, hideConfig.toastrConfig);
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                {
                                 text: { text: ":message" }
                             }]
                         }
