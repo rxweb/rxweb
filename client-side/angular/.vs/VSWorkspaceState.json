@@ -2,14 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\packages",
+    "\\packages\\angular-router",
+    "\\packages\\angular-router\\guard",
     "\\packages\\grid",
-    "\\packages\\grid\\component",
     "\\packages\\grid\\domain",
     "\\src",
-    "\\src\\app",
-    "\\test",
-    "\\test\\reactive-form-validators\\rxweb-validators"
+    "\\src\\app"
   ],
-  "SelectedNode": "\\packages\\grid\\domain\\grid-designer.ts",
+  "SelectedNode": "\\packages\\angular-router\\guard\\base-can-activate.guard.ts",
   "PreviewInSolutionExplorer": false
 }

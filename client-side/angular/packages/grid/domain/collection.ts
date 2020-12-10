@@ -47,7 +47,7 @@ export class Collection {
                 gridColumn.template = customTemplateParser(gridColumn.configuredTemplate, gridColumn);
             this.gridColumns.push(gridColumn);
         })
-        this.bindingSource = source;
+        this.bindingSource = this.overrideSourceProp(source);
         this.gridSource = [];
         this.eventSubscriber = new EventSubscriber();
     }
@@ -78,7 +78,8 @@ export class Collection {
 
     private sourceKeyValue: { [key: string]: any } = {};
 
-    protected mapWithModel(source: any[], isDispatchEvent: boolean = true,isUpdateSource:boolean = false) {
+    protected mapWithModel(source: any[], isDispatchEvent: boolean = true, isUpdateSource: boolean = false) {
+        debugger;
         this.removeChildrens();
         var gridSourceLength = this._gridSource.length;
         for (var i = 0, j = source.length; i < j; i++) {
@@ -95,14 +96,15 @@ export class Collection {
 
             if (gridSourceLength > i) {
                 if (this._gridSource[i].value[this.primaryKey] != source[i][this.primaryKey]) {
-                    if (isUpdateSource)
-                        this.overrideValueProp(source[i], this.columns);
+                    //if (isUpdateSource)
+                    //    this.overrideValueProp(source[i], this.columns);
+                    //console.log(source[i]);
                     this._gridSource[i].setValue(source[i],true);
                 }
             }
             else {
                 var row = new Item(source[i], this.columns);
-                this.overrideValueProp(source[i], this.columns);
+                //this.overrideValueProp(source[i], this.columns);
                 this._gridSource.push(row);
                 if (isDispatchEvent)
                     this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i, identity: 'tbody-id' });
@@ -215,6 +217,13 @@ export class Collection {
         }
     }
 
+    private overrideSourceProp(source:any) {
+        for (let item of source) {
+            this.overrideValueProp(item, this.columns)
+        }
+        return source;
+    }
+
     private overrideValueProp(instanceObject, columns:string[]) {
         if (!instanceObject.grid) {
             instanceObject.grid = true;
@@ -227,7 +236,6 @@ export class Collection {
                     get: () => { return descriptor ? descriptor.get.call(instanceObject) : value },
                     set: (v) => {
                         if (oldValue !== v) {
-                            debugger;
                             value = v;
                             this._gridSource.forEach((t, i) => {
                                 if (t.value[this.primaryKey] == instanceObject[this.primaryKey]) {
