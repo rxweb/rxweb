@@ -39,7 +39,7 @@ export class Collection {
                 if (t.allowSearch === undefined || t.allowSearch === true)
                     this.searchColumns.push(t.name);
             }
-            
+
             if (t.keyColumn)
                 this.primaryKey = t.name;
             var gridColumn = { ...t };
@@ -96,15 +96,15 @@ export class Collection {
 
             if (gridSourceLength > i) {
                 if (this._gridSource[i].value[this.primaryKey] != source[i][this.primaryKey]) {
-                    //if (isUpdateSource)
-                    //    this.overrideValueProp(source[i], this.columns);
-                    //console.log(source[i]);
-                    this._gridSource[i].setValue(source[i],true);
+                    if (isUpdateSource && !source[i].grid)
+                        this.overrideValueProp(source[i], this.columns);
+                    this._gridSource[i].setValue(source[i], true);
                 }
             }
             else {
                 var row = new Item(source[i], this.columns);
-                //this.overrideValueProp(source[i], this.columns);
+                if (!source[i].grid)
+                    this.overrideValueProp(source[i], this.columns);
                 this._gridSource.push(row);
                 if (isDispatchEvent)
                     this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i, identity: 'tbody-id' });
@@ -185,8 +185,8 @@ export class Collection {
             this.removeChildGrid(t);
         })
     }
-    
-    removeChildGrid(id:any) {
+
+    removeChildGrid(id: any) {
         if (this.childrens[id]) {
             this.childrens[id].destroy();
             if (this.childrens[id].childDom)
@@ -199,32 +199,32 @@ export class Collection {
         let domManipulation: DomManipulation = undefined;
         for (var i = 0; i < this._gridSource.length; i++) {
             if (this._gridSource[i].value[this.primaryKey] == id) {
-                domManipulation= this.controlState.elements[`row-id-${i}`];
+                domManipulation = this.controlState.elements[`row-id-${i}`];
                 break;
             }
         }
         return domManipulation.element;
     }
 
-    private updateDom(currentObject,newObject,index) {
+    private updateDom(currentObject, newObject, index) {
         for (var column in newObject) {
-                if (this.DomRows.length > index) {
-                    let filterValues = this.DomRows[index].filter(x => x.subscribeProps.indexOf(column) !== -1)
-                    filterValues.forEach(y => {
-                        y.updateElement(newObject);
-                    })
-                }
+            if (this.DomRows.length > index) {
+                let filterValues = this.DomRows[index].filter(x => x.subscribeProps.indexOf(column) !== -1)
+                filterValues.forEach(y => {
+                    y.updateElement(newObject);
+                })
+            }
         }
     }
 
-    private overrideSourceProp(source:any) {
+    private overrideSourceProp(source: any) {
         for (let item of source) {
             this.overrideValueProp(item, this.columns)
         }
         return source;
     }
 
-    private overrideValueProp(instanceObject, columns:string[]) {
+    private overrideValueProp(instanceObject, columns: string[]) {
         if (!instanceObject.grid) {
             instanceObject.grid = true;
             columns.forEach(propName => {

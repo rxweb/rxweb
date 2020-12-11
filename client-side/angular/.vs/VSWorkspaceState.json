@@ -2,13 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\packages",
-    "\\packages\\angular-router",
-    "\\packages\\angular-router\\guard",
+    "\\packages\\dom",
+    "\\packages\\dom\\core",
     "\\packages\\grid",
     "\\packages\\grid\\domain",
     "\\src",
-    "\\src\\app"
+    "\\src\\grid-template"
   ],
-  "SelectedNode": "\\packages\\angular-router\\guard\\base-can-activate.guard.ts",
+  "SelectedNode": "\\packages\\dom\\core\\dom-manipulation.ts",
   "PreviewInSolutionExplorer": false
 }
