@@ -79,7 +79,6 @@ export class Collection {
     private sourceKeyValue: { [key: string]: any } = {};
 
     protected mapWithModel(source: any[], isDispatchEvent: boolean = true, isUpdateSource: boolean = false) {
-        debugger;
         this.removeChildrens();
         var gridSourceLength = this._gridSource.length;
         for (var i = 0, j = source.length; i < j; i++) {
@@ -103,8 +102,8 @@ export class Collection {
             }
             else {
                 var row = new Item(source[i], this.columns);
-                if (!source[i].grid)
-                    this.overrideValueProp(source[i], this.columns);
+                //if (!source[i].grid)
+                //    this.overrideValueProp(source[i], this.columns);
                 this._gridSource.push(row);
                 if (isDispatchEvent)
                     this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i, identity: 'tbody-id' });
@@ -218,9 +217,9 @@ export class Collection {
     }
 
     private overrideSourceProp(source: any) {
-        for (let item of source) {
-            this.overrideValueProp(item, this.columns)
-        }
+        //for (let item of source) {
+        //    this.overrideValueProp(item, this.columns)
+        //}
         return source;
     }
 
@@ -237,14 +236,9 @@ export class Collection {
                     set: (v) => {
                         if (oldValue !== v) {
                             value = v;
-                            this._gridSource.forEach((t, i) => {
-                                if (t.value[this.primaryKey] == instanceObject[this.primaryKey]) {
-                                    let filterValues = this.DomRows[i].filter(x => x.subscribeProps.indexOf(propName) !== -1)
-                                    filterValues.forEach(y => {
-                                        y.updateElement(instanceObject);
-                                    })
-                                }
-                            })
+                            let object = this._gridSource.filter(t => t.value[this.primaryKey] == instanceObject[this.primaryKey])[0];
+                            if (object)
+                                object.value[propName] = v;
                             oldValue = v;
                         }
                     }

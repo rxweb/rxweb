@@ -13,10 +13,10 @@ export function getToastrTemplate(toastrDesign: ToastrDesignClass, config: Toast
                                 {
                                     button: {
                                         childrens: [{ text: { text: "x" }}],
-                                        class: ["toast-close-button", config && config.autoHideDisable ?"dummy": "toast-close-display-none"],
+                                        class: ["toast-close-button", config && (config.autoHideDisable || config.enableCloseButton) ? "dummy": "toast-close-display-none"],
                                         event: {
                                             click: (event) => {
-                                                if (config && config.autoHideDisable) {
+                                                if (config && (config.autoHideDisable || config.enableCloseButton) && hideConfig.domManipulation) {
                                                     hideConfig.hideFunc(hideConfig.domManipulation, hideConfig.toastrConfig);
                                                 }
                                             }

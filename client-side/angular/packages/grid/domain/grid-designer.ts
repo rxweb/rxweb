@@ -108,8 +108,9 @@ export class GridDesigner extends GridTemplate {
             this.controlState.elements[domManipulation.controlId] = domManipulation;
             if (elementConfig.sourceItems && elementConfig.childrens) {
                 elementConfig.sourceItems.forEach((t, index) => {
-                    if (elementConfig["rowItem"])
+                    if (elementConfig["rowItem"]) {
                         this.DomManipulations = this.DomRows[index] = []
+                    } 
                     var childrenLength = elementConfig.childrens.length;
                     let x = {};
                     if (modelObject.value) {
@@ -153,7 +154,7 @@ export class GridDesigner extends GridTemplate {
                 this.removeChildren(control.element);
         }
     }
-
+    
     reDesign() {
         this.isReDesign = true;
         this.removeChildren(this.element, false);

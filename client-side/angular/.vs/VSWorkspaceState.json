@@ -2,13 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\packages",
-    "\\packages\\dom",
-    "\\packages\\dom\\core",
     "\\packages\\grid",
     "\\packages\\grid\\domain",
     "\\src",
-    "\\src\\grid-template"
+    "\\src\\app"
   ],
-  "SelectedNode": "\\packages\\dom\\core\\dom-manipulation.ts",
+  "SelectedNode": "\\packages\\grid\\domain\\pagination.ts",
   "PreviewInSolutionExplorer": false
 }

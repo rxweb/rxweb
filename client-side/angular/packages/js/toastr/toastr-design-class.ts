@@ -4,6 +4,7 @@ export class ToastrConfig {
     timeOut?: number = 7000;
     message?: string;
     autoHideDisable?: boolean;
+    enableCloseButton?: boolean;
 }
 
 export interface ToastrHideConfig {

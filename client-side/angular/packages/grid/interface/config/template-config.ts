@@ -19,6 +19,7 @@ export class TemplateConfig {
     label?: ElementConfig;
     img?: ElementConfig;
     input?: ElementConfig;
+    textarea?: ElementConfig;
 }
 
 export class ElementConfig {

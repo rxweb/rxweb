@@ -27,8 +27,8 @@ export abstract class Toastr extends BaseDomProvider {
     }
     show(message: string, messageType: ToastrMessageType, config?: ToastrConfig, customTemplate?: TemplateConfig) {
         message = this.getMessage(message);
-        let hideConfig: ToastrHideConfig = { toastrConfig: toastrConfig, hideFunc: this.baseHide.bind(this) }; 
-        var toastrConfig = config ? { ...config, ...{ messageType: messageType, message: message } } : { ...this.defaultConfig, ...{ messageType: messageType, message: message } };
+        let hideConfig: ToastrHideConfig = { toastrConfig: toastrConfig, hideFunc: this.baseHide.bind(this) };
+        var toastrConfig = config ? { ...config, ...{ messageType: messageType, message: message, timeOut: this.defaultConfig.timeOut } } : { ...this.defaultConfig, ...{ messageType: messageType, message: message } };
         var template = customTemplate || this.getDefaultTemplate(config, hideConfig);
         this.createRoot();
         var domManipulation = this.createElement(this.rootElement.element, 'div', template.div, toastrConfig, 0, {});
@@ -36,8 +36,8 @@ export abstract class Toastr extends BaseDomProvider {
         hideConfig.toastrConfig = toastrConfig;
         if (this.designClass.showClass)
             domManipulation.addOrRemoveClass(this.designClass.showClass);
-        
-        if (!config || (config && !config.autoHideDisable))
+
+        if (!config || (config && (!config.autoHideDisable && config.enableCloseButton)) || (config && (!config.autoHideDisable && !config.enableCloseButton)))
             this.hide(domManipulation, toastrConfig);
         this.domManipulations.push(domManipulation);
     }
@@ -59,12 +59,14 @@ export abstract class Toastr extends BaseDomProvider {
             domManipulation.addOrRemoveClass(this.designClass.hideClass);
         }
         setTimeout(() => {
-            this.removeChildren(domManipulation.element);
-            var elements = this.domManipulations.filter(t => t.element != null);
-            if (elements.length == 0) {
-                this.domManipulations = [];
-                this.removeChildren(this.rootElement.element);
-                this.rootElement = null;
+            if (this.rootElement) {
+                this.removeChildren(domManipulation.element);
+                var elements = this.domManipulations.filter(t => t.element != null);
+                if (elements.length == 0) {
+                    this.domManipulations = [];
+                    this.removeChildren(this.rootElement.element);
+                    this.rootElement = null;
+                }
             }
         }, 50);
     }
