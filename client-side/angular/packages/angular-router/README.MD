@@ -157,7 +157,11 @@ export class AuthorizationResolver implements IAuthorize {
 ```
 
 ## Middleware
-To invoke some task pre navigation globally whenever any request is made to perform data management and communication. In this example there is a global breadcrumb resolver which resolves the data whenever the navigation is taking place into the component it will serve the component with the data to be bind in the breadcrumb globally.
+Global middleware are used for invoking an action pre-route navigation whenever the particular route is called throughout the application. 
+
+This usage is explained using a case where the configuration of the application is resolved using the global middleware in which the configuration of the application from a configuration json stored in the assets of the application, These configuration store the keys like default language, change detection, default theme, cache keys etc.. which are resolved in a centralized manner.
+
+Lets begin by creating a class `ConfigurationResolver` which implements `IMiddleware` interface to use the invoke method to resolve the configuration.
 
 ```js
 import { Injectable } from "@angular/core";
@@ -165,28 +169,24 @@ import { IMiddleware } from "@rxweb/angular-router";
 import { Router, ActivatedRouteSnapshot } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 
-export var breadCrumdata: any;
+export var configurationData: any;
 @Injectable({
   providedIn: "root"
 })
-export abstract class BreadCrumbContentResolver implements IMiddleware {
+export class ConfigurationResolver implements IMiddleware {
   constructor(private http: HttpClient, private router: Router) {}
   invoke(user: { [key: string]: any }) {
-    let name = this.router.url.split("/")[1];
-    if (name) {
-      const promise = new Promise<any>((resolve, reject) => {
-        if (breadCrumdata == undefined || breadCrumdata == null)
-          this.http
-            .get(`/assets/breadcrumb/${name}.json`)
-            .subscribe(response => {
-              resolve(response);
-            });
-      });
-      return promise;
-    }
+    const promise = new Promise<any>((resolve, reject) => {
+      if (configurationData == undefined || configurationData == null)
+        this.http.get(`/assets/configuration.json`).subscribe(response => {
+          resolve(true);
+          configurationData = response;
+        });
+      else resolve(true);
+    });
+    return promise;
   }
 }
-
 ```
 
 The `@routerModule` after making these three classes is as below:
@@ -195,7 +195,7 @@ The `@routerModule` after making these three classes is as below:
 @routerModule({
     authentication:AuthResolver,
     authorization: AuthorizationResolver,
-    middleware: BreadCrumbContentResolver
+    middleware: ConfigurationResolver
   })
 @NgModule({...})
 export class AppModule { }
