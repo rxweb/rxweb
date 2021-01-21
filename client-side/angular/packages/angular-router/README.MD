@@ -134,6 +134,7 @@ export class ConfigurationResolver implements IMiddleware {
     // Wite the custom logic here..
    ...
   }
+}
 ```
 
 ## Step 2:
