@@ -42,7 +42,7 @@ namespace NewProjectSolution.Api
             services.AddMvc(options =>
             {
                 options.AddRxWebSanitizers();
-                options.AddValidation();
+                options.AddValidation(typeof(RxWeb.Core.Annotations.Interface.IValidatorResponse));
             }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddNewtonsoftJson(
                 oo =>
                 {

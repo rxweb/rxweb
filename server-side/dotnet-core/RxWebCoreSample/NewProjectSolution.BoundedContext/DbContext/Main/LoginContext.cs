@@ -21,7 +21,7 @@ namespace NewProjectSolution.BoundedContext.Main
 		public DbSet<RolePermission> RolePermissions { get; set; }
         public DbSet<vUser> Users { get; set; }
 
-        public DbSet<Person> Persons { get; set; }
+        
 
         #endregion DbSets
 

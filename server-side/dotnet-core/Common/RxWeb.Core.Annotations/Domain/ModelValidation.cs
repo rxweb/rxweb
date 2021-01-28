@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using RxWeb.Core.Annotations.Extensions;
+using RxWeb.Core.Annotations.Interface;
 using RxWeb.Core.Annotations.Models;
+using RxWeb.Core.Annotations.Static;
 using RxWeb.Core.Sanitizers.Extensions;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +11,11 @@ namespace RxWeb.Core.Annotations
 {
     public class ModelValidation : IModelValidation
     {
-        public ValidationResultModel Validate(object value, HttpContext httpContext)
+        private IValidatorResponse ResponseValidation { get; set; }
+        public object Validate(object value, HttpContext httpContext)
         {
             var resolveLocalization = (ILocalizationInfo)httpContext.RequestServices.GetService(typeof(ILocalizationInfo));
+            ResponseValidation = ValidatorResponse.Response != null ? (IValidatorResponse)httpContext.RequestServices.GetService(ValidatorResponse.Response) : null;
             var errors = new Dictionary<string, string>();
             if (value != null)
             {
@@ -43,17 +47,15 @@ namespace RxWeb.Core.Annotations
             return null;
         }
 
-        private ValidationResultModel CreateInvalidResponse(Dictionary<string, string> errors, string title)
+        private object CreateInvalidResponse(Dictionary<string, string> errors, string title)
         {
-
-            var validationResult = new ValidationResultModel
+            return ResponseValidation != null ? ResponseValidation.CreateInvalidResponse(errors, title) : new ValidationResultModel
             {
                 Errors = errors,
                 Status = 400,
                 Title = title,
+                Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1"
             };
-            validationResult.Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1";
-            return validationResult;
         }
     }
 }

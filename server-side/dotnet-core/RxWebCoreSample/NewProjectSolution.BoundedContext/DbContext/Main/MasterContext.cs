@@ -16,7 +16,7 @@ namespace NewProjectSolution.BoundedContext.Main
         public MasterContext(MainSqlDbContext sqlDbContext,  IOptions<DatabaseConfig> databaseConfig, IHttpContextAccessor contextAccessor,ITenantDbConnectionInfo tenantDbConnection): base(sqlDbContext, databaseConfig.Value, contextAccessor,tenantDbConnection){ }
 
             #region DbSets
-            		public DbSet<Person> Persons { get; set; }
+            		
             #endregion DbSets
 
 

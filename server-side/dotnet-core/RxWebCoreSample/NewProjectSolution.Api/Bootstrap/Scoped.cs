@@ -1,13 +1,15 @@
 #region Namespace
+using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 using NewProjectSolution.BoundedContext.Main;
 using NewProjectSolution.Infrastructure.Security;
 using NewProjectSolution.UnitOfWork.DbEntityAudit;
 using NewProjectSolution.UnitOfWork.Main;
 using RxWeb.Core.Annotations;
+using RxWeb.Core.Annotations.Interface;
 using RxWeb.Core.Data;
 using RxWeb.Core.Security;
-            #endregion Namespace
+#endregion Namespace
 
 
 
@@ -15,6 +17,13 @@ using RxWeb.Core.Security;
 
 namespace NewProjectSolution.Api.Bootstrap
 {
+    public class ValidatorResponse : RxWeb.Core.Annotations.Interface.IValidatorResponse
+    {
+        public object CreateInvalidResponse(Dictionary<string, string> errors, string title)
+        {
+            return new { abc = "ab" };
+        }
+    }
     public static class ScopedExtension
     {
 
@@ -25,6 +34,7 @@ namespace NewProjectSolution.Api.Bootstrap
             serviceCollection.AddScoped<IModelValidation, ModelValidation>();
             serviceCollection.AddScoped<IAuditLog, AuditLog>();
             serviceCollection.AddScoped<IApplicationTokenProvider, ApplicationTokenProvider>();
+            serviceCollection.AddScoped<IValidatorResponse, ValidatorResponse>();
 
             #region ContextService
 

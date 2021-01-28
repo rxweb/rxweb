@@ -2,11 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\packages",
-    "\\packages\\grid",
-    "\\packages\\grid\\domain",
+    "\\packages\\sanitizers",
+    "\\packages\\sanitizers\\functions\\string",
     "\\src",
     "\\src\\app"
   ],
-  "SelectedNode": "\\packages\\grid\\domain\\pagination.ts",
+  "SelectedNode": "\\packages\\sanitizers",
   "PreviewInSolutionExplorer": false
 }

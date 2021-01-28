@@ -32,7 +32,7 @@ namespace NewProjectSolution.Api.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymousUser]
+        [AllowAnonymous]
         public async Task<IActionResult> Post(AuthenticationModel authentication)
         {
             //var person = new Person
@@ -41,8 +41,8 @@ namespace NewProjectSolution.Api.Controllers
             //};
             //await LoginUow.RegisterNewAsync<Person>(person);
             //await LoginUow.CommitAsync();
-            var person = LoginUow.Repository<Person>().FindByKey(15);
-            await LoginUow.RegisterDeletedAsync<Person>(person);
+            //var person = LoginUow.Repository<Person>().FindByKey(15);
+            //await LoginUow.RegisterDeletedAsync<Person>(person);
             await LoginUow.CommitAsync();
             var user = await LoginUow.Repository<vUser>().SingleOrDefaultAsync(t => t.UserName == authentication.UserName && !t.LoginBlocked);
             if (user != null && PasswordHash.VerifySignature(authentication.Password, user.Password, user.Salt))

@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using RxWeb.Core.Annotations.Interface;
 using System;
 
 namespace RxWeb.Core.Annotations.Conventions
 {
     public class ModelValidationFilterConvention : IApplicationModelConvention 
     {
-        private readonly ModelValidationFilterFactory validationFilterFactory = new ModelValidationFilterFactory();
+        private ModelValidationFilterFactory validationFilterFactory = new ModelValidationFilterFactory();
 
         public void Apply(ActionModel action)
         {
@@ -28,5 +29,6 @@ namespace RxWeb.Core.Annotations.Conventions
         }
 
         protected virtual bool ShouldApply(ActionModel action) => true;
+
     }
 }

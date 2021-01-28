@@ -1,6 +1,6 @@
 {
   "name": "@rxweb/sanitizers",
-  "version": "#version",
+  "version": "0.0.1",
   "keywords": [
     "sanitization through typescript decorator"
   ],
