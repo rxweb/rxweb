@@ -3,24 +3,71 @@
 [![GitHub license](https://img.shields.io/github/license/rxweb/rxweb.svg)](https://github.com/rxweb/rxweb/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/rxweb/rxweb)	
 
-
-![image](https://user-images.githubusercontent.com/20392302/85145383-1bbefb80-b26a-11ea-81f9-26c26afea2f7.png)
-
-
-<img src="https://user-images.githubusercontent.com/20392302/85050307-83663f80-b1b3-11ea-97e0-f3e395e862f2.gif"/>
-
-
 ## How Code Looks Like?
-<img src="https://user-images.githubusercontent.com/20392302/85085119-6ef66700-b1f4-11ea-852e-052de1d85ce2.png"/>
+
+```js
+import { Component, OnInit } from "@angular/core";
+import {
+  FormBuilder,
+  Validators,
+  FormGroup,
+  FormControl,
+  FormArray
+} from "@angular/forms";
+import { User } from "./models/user";
+import { Address } from "./models/address";
+import { Skill } from "./models/skill";
+import { IFormBuilder, IFormGroup, IFormArray } from "@rxweb/types";
+
+@Component({
+  selector: "my-app",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
+})
+export class AppComponent {
+  formGroup: IFormGroup<User>;
+  formBuilder: IFormBuilder;
+
+  constructor(formBuilder: FormBuilder) {
+    this.formBuilder = formBuilder;
+  }
+
+  ngOnInit() {
+    this.formGroup = this.formBuilder.group<User>({
+      firstName: ["", [Validators.required]],
+      address: this.formBuilder.group<Address>({
+        countryName: ["", Validators.required]
+      }),
+      skills: this.formBuilder.array<Skill>([
+        this.formBuilder.group({
+          name: ["", Validators.required]
+        })
+      ])
+    });
+  }
+}
+```
 
 ## Through FormGroup Class
-![formgroup](https://user-images.githubusercontent.com/20392302/86140589-a4f9ec00-bb0e-11ea-82b0-9b9c31545316.png)
+```js
+let formGroup: IFormGroup<User> = new FormGroup(<ControlProp<User>>{
+    firstName: new FormControl((<ControlState<string>>"")),
+}) as IFormGroup<User>;
+```
 
 ## Through FormArray Class
-![formarray](https://user-images.githubusercontent.com/20392302/86140601-a7f4dc80-bb0e-11ea-94fd-26c423136b37.png)
+```js
+let formArray: IFormGroup<Skill> = new FormArray([
+    new FormGroup(<ControlProp<Skill>>{
+    name: new FormControl((<ControlState<string>>"")),
+  }) as IFormGroup<Skill>
+])
+```
 
 ## Through FormControl Class
-![formcontrol](https://user-images.githubusercontent.com/20392302/86140611-a9bea000-bb0e-11ea-92d2-d91b948daafe.png)
+```js
+let formControl: FormControl<string> = new FormControl(<ControlState<string>>"");
+```
 
 ## Refer Type Mismatch Errors
 * [FormGroup](https://docs.rxweb.io/strongly-typed/angular-strongly-typed#formgroup)
