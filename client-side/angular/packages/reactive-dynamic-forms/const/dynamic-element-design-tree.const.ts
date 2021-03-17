@@ -8,7 +8,8 @@ const commonAttributes = {
 const commonEvents = {
     focus: ':focus',
     input: 'true',
-    blur: 'blur'
+    blur: 'blur',
+    change:"{config.events.change"
 };
 
 

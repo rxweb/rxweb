@@ -1,6 +1,6 @@
 ﻿import { ElementAccessor } from './element-accessor';
 import { DynamicNodeConfig } from '../../models/interface/dynamic-node-config';
-import { CONDITIONAL_VALIDATOR, BLUR, FOCUS, SELECT, INPUT, CLICK, EVENTS } from '../../const/app.const';
+import { CONDITIONAL_VALIDATOR, BLUR, FOCUS, SELECT, INPUT, CLICK, EVENTS, CHANGE } from '../../const/app.const';
 import { ValidatorFn } from '@angular/forms';
 
 export class ElementEventProcessor extends ElementAccessor{
@@ -24,10 +24,19 @@ export class ElementEventProcessor extends ElementAccessor{
                 case CLICK:
                     this.setClick(this.getValue(events[eventName]));
                     break;
+                case CHANGE:
+                    this.setChange(this.getValue(events[eventName]));
+                    break;
             }
             if (isSubscribe && this.isSubscribeProp(events[eventName]))
                 this.setPropSubscription(this.getPropName(events[eventName]), EVENTS, eventName);
         })
+    }
+    setChange(functionName: string) {
+        this.element.onchange = () => {
+            if (this.controlConfig[functionName])
+                this.controlConfig[functionName].call(this.controlConfig);
+        }
     }
 
     setClick(functionName:string) {

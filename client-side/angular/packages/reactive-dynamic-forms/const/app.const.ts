@@ -44,6 +44,8 @@ export const COLON: string = ":";
 
 export const CLICK: string = "click";
 
+export const CHANGE: string = "change";
+
 export const INPUT: string = "input";
 
 export const TEXT:string = "text";

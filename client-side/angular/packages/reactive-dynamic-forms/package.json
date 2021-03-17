@@ -1,6 +1,6 @@
 {
   "name": "@rxweb/reactive-dynamic-forms",
-  "version": "#version",
+  "version": "0.0.5",
   "keywords": [
     "angular reactive dynamic forms",
     "dynamic forms"

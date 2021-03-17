@@ -1,12 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\packages",
-    "\\packages\\sanitizers",
-    "\\packages\\sanitizers\\functions\\string",
-    "\\src",
-    "\\src\\app"
+    "\\node_modules\\@angular",
+    "\\node_modules\\@angular\\common",
+    "\\node_modules\\@angular\\common\\bundles"
   ],
-  "SelectedNode": "\\packages\\sanitizers",
+  "SelectedNode": "\\node_modules",
   "PreviewInSolutionExplorer": false
 }

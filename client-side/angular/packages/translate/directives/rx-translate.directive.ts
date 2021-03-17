@@ -34,7 +34,7 @@ export class RxTranslateDirective implements OnDestroy {
         } else if (ref._declarationTContainer) {
             let tagName = ref._declarationTContainer.tagName;
             elementName = tagName.toLowerCase();
-            let tView = ref._declarationTContainer.tView_;
+            let tView = ref._declarationTContainer.tView_ || ref._declarationTContainer.tViews;
             let node = tView.directiveRegistry.filter(t => t.selectors.filter(y => y == tagName)[0] != undefined)[0];
             if (node) {
                 this.config = translateContainer.get(node.type);
