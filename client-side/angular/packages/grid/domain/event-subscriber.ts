@@ -12,4 +12,8 @@ export class EventSubscriber{
         if (this.listners[key])
             this.listners[key].forEach(t => { t.call(data, data); })
     }
+
+    remove(key) {
+        delete this.listners[key];
+    }
 }

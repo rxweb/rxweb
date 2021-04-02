@@ -12,6 +12,7 @@ export class SortCollection extends Pagination {
         this.gridColumns = this.gridColumns.sort(this.customSort(t => t["columnIndex"], false))
         let source = this.take(this.bindingSource, Math.max(0, this.maxPerPage));
         this.mapWithModel(source, false);
+        this.eventSubscriber.remove(EVENTS.SORTING)
         this.eventSubscriber.subscribe(EVENTS.SORTING, this.sortColumn.bind(this));
         
     }

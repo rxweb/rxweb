@@ -1,10 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\node_modules\\@angular",
-    "\\node_modules\\@angular\\common",
-    "\\node_modules\\@angular\\common\\bundles"
+    "\\node_modules\\@angular\\common\\fesm5",
+    "\\packages",
+    "\\packages\\grid\\dom",
+    "\\packages\\grid\\domain",
+    "\\packages\\grid\\template",
+    "\\packages\\grid\\template\\table",
+    "\\packages\\reactive-dynamic-forms\\domain",
+    "\\packages\\reactive-dynamic-forms\\domain\\dom",
+    "\\packages\\storage"
   ],
-  "SelectedNode": "\\node_modules",
+  "SelectedNode": "\\packages\\storage\\core\\storage.ts",
   "PreviewInSolutionExplorer": false
 }
