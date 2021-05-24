@@ -18,8 +18,10 @@
   "homepage": "https://docs.rxweb.io/ngx-translate-extension/getting-started",
   "license": "MIT",
   "sideEffects": false,
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "peerDependencies": {
-    "tslib": "^1.9.0",
     "@rxweb/translate": "1.0.10",
     "@ngx-translate/core": "12.1.2"
   }

@@ -2,10 +2,10 @@
   "compilerOptions": {
     "declaration": true,
     "module": "es2015",
+    "declarationMap": true,
     "target": "es5",
     "baseUrl": ".",
     "stripInternal": true,
-    "emitDecoratorMetadata": false,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "outDir": "../build",

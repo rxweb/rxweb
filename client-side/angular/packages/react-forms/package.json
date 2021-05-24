@@ -12,5 +12,8 @@
     "url": "https://github.com/rxweb/rxweb/issues"
   },
   "homepage": "https://rxweb.io",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "license": "MIT"
 }
