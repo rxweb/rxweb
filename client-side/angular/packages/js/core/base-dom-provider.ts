@@ -38,7 +38,7 @@ export abstract class BaseDomProvider {
 
     removeChildren(element: any, isRemoveRoot: boolean = true) {
         if (element) {
-            while (element.firstElementChild)
+            while (element.firstElementChild && element.firstElementChild.tagName.indexOf("-") === -1)
                 this.removeChildren(element.firstElementChild);
             if (isRemoveRoot) {
                 let controlId = element.getAttribute("data-rxwebid");

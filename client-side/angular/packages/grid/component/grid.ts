@@ -1,18 +1,23 @@
+import { Component, ElementRef, Input } from "@angular/core"
 import { GridDesigner } from "../domain/grid-designer";
+import { template } from "@angular-devkit/core";
+@Component({
+    selector: 'rx-grid',
+    template: ''
+})
+export class GridElement {
 
-export class GridElement extends HTMLElement  {
+    private element: HTMLDivElement;
 
-    
-
-    constructor() {
-        super();
+    constructor(elementRef: ElementRef) {
+        this.element = elementRef.nativeElement;
     }
 
     _design: GridDesigner;
 
-    set design(value: GridDesigner) {
+    @Input() set design(value: GridDesigner) {
         if (value)
-            value.design(this);
+            value.design(this.element);
         this._design = value;
     }
 
@@ -20,7 +25,10 @@ export class GridElement extends HTMLElement  {
         return this._design;
     }
 
-
+    ngOnDestroy() {
+        if (this._design !== undefined && this._design.destroy)
+            this._design.destroy();
+    }
 }
 
-customElements.define('rx-grid', GridElement);
+//customElements.define('rx-grid', GridElement);

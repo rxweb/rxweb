@@ -6,3 +6,4 @@ export * from './static/grid-custom-templates';
 export * from './interface/config/grid-column-config';
 export * from './component/grid'
 export * from "./interface/config/element-on-demand"
+export * from './component/grid.module'
