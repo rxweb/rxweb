@@ -103,7 +103,7 @@ describe("module", () => {
 
             expect(translate.instant('TEST')).toEqual('Root');
 
-            router.resetConfig([{ path: 'lazy', loadChildren: 'expected' }]);
+            router.resetConfig([{ path: 'lazy', loadChildren: () => import('expected').then(m => m.default) }]);
 
             router.navigateByUrl('/lazy/loaded/child');
             advance(fixture);
@@ -128,7 +128,7 @@ describe("module", () => {
 
             expect(translate.instant('TEST')).toEqual('Root');
 
-            router.resetConfig([{ path: 'lazy', loadChildren: 'expected' }]);
+            router.resetConfig([{ path: 'lazy', loadChildren: () => import('expected').then(m => m.default) }]);
 
             router.navigateByUrl('/lazy/loaded/child');
             advance(fixture);
@@ -156,7 +156,7 @@ describe("module", () => {
 
             expect(spy).toHaveBeenCalledTimes(0);
 
-            router.resetConfig([{ path: 'lazy', loadChildren: 'expected' }]);
+            router.resetConfig([{ path: 'lazy', loadChildren: () => import('expected').then(m => m.default) }]);
 
             router.navigateByUrl('/lazy/loaded/child');
             advance(fixture);

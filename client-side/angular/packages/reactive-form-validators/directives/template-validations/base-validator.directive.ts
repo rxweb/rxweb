@@ -1,4 +1,4 @@
-import { Input } from "@angular/core"
+import { Input, Directive } from "@angular/core"
 import {  ValidatorFn, AbstractControl, FormControl } from '@angular/forms';
 import {
     INPUT, SELECT, CHECKBOX, TEXTAREA, 
@@ -8,6 +8,7 @@ import {
 import { ControlExpressionProcess } from './control-expression-process'
 import { MaskProvider } from '../../domain/element-processor/mask.provider';
 
+@Directive()
 export class BaseValidator extends ControlExpressionProcess {
     @Input() formControl: FormControl | AbstractControl;
 

@@ -1,4 +1,4 @@
-﻿import { Input, ComponentFactoryResolver, ViewContainerRef } from "@angular/core";
+﻿import { Input, ComponentFactoryResolver, ViewContainerRef, Directive } from "@angular/core";
 import { FormControlConfig, ControlConfig } from "../services/form-control-config"
 import { DynamicFormBuildConfig } from "../models/interface/dynamic-form-build-config";
 import { DYNAMIC_ELEMENT_DESIGN_TREE } from '../const/dynamic-element-design-tree.const';
@@ -10,6 +10,7 @@ import { objectPropValue } from '../functions/object-prop-value.function';
 import { INLINE,PREPEND_BOTH, PREPEND_LEFT, PREPEND_RIGHT, INPUT_TEXT,SQUARE_ERROR, SQUARE_SMALL, SQUARE_LABEL,SQUARE_CONTROL,ADVANCE, INPUT, TEXT, RANGE, FILE, STRING, CONTROL } from '../const/app.const';
 import { DynamicNodeConfig } from "../models/interface/dynamic-node-config";
 
+@Directive()
 export class ControlConfigProcessor {
     isBuild: boolean = false;
     _viewMode: any;

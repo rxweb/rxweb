@@ -1,8 +1,9 @@
-import { Input } from "@angular/core";
+import { Input, Directive } from "@angular/core";
 import {  AbstractControl,FormControl,ValidatorFn } from '@angular/forms';
 import { VALIDATOR_CONFIG } from "../../const/app.const";
 
 
+@Directive()
 export abstract class ControlExpressionProcess {
 
     protected validator: ValidatorFn;

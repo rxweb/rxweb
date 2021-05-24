@@ -23,7 +23,7 @@ export class SelectModel {
   exportAs: 'select',
 })
 export class RxSelectComponent extends RxHttp  implements AfterContentInit, OnDestroy, OnChanges {
-    @ViewChild("selectSearch", { static:false }) selectSearch;
+    @ViewChild("selectSearch") selectSearch;
   private propagateChange: any = () => { };
   element: Element;
   private currentValue: string;

@@ -7,8 +7,10 @@ import { getInstance } from "../functions/get-instance.function";
 import { DynamicFormBuildConfig } from '../models/interface/dynamic-form-build-config'
 import { ApplicationUtil } from "../util/application-util";
 import { NotificationState } from "../statics/control-state";
+import { Injectable } from "@angular/core";
 
 const ARRAY: string = "array";
+@Injectable()
 export class RxDynamicFormBuilder {
     private formConfiguration: DynamicFormConfiguration;
     formGroup(fields: any[], dynamicFormConfig?: DynamicFormConfiguration): DynamicFormBuildConfig {

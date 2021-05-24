@@ -4,6 +4,8 @@ import { FUNCTION_STRING } from "../const/app.const"
 import { Options } from "../models/interface/options"
 import { RxFormGroup } from "./rx-form-group";
 import { IFormGroup } from "../models/interface/i-form-group";
+import { Injectable } from "@angular/core";
+@Injectable()
 export class TypedFormBuilder {
     private formBuilder: FormBuilder;
     private rxFormBuilder: RxFormBuilder;

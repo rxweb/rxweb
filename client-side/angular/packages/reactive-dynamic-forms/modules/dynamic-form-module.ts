@@ -9,5 +9,5 @@ import { RxDynamicFormBuilder } from "../services/dynamic-form-builder"
     exports: [RxDynamicFormDirective]
 })
 export class RxReactiveDynamicFormsModule {
-    static forRoot(): ModuleWithProviders { return { ngModule: RxReactiveDynamicFormsModule, providers: [] }; }
+    static forRoot(): ModuleWithProviders<RxReactiveDynamicFormsModule> { return { ngModule: RxReactiveDynamicFormsModule, providers: [] }; }
 }

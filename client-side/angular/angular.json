@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/rxweb",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -51,6 +52,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ],
               "serviceWorker": false
@@ -149,7 +154,8 @@
           "configurations": {
             "production": {
               "project": "packages/reactive-form-validators/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/reactive-form-validators/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -181,7 +187,8 @@
           "configurations": {
             "production": {
               "project": "packages/reactive-dynamic-forms/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/reactive-dynamic-forms/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -213,7 +220,8 @@
           "configurations": {
             "production": {
               "project": "packages/generics/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/generics/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -245,7 +253,8 @@
           "configurations": {
             "production": {
               "project": "packages/sanitizers/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/sanitizers/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -277,7 +286,8 @@
           "configurations": {
             "production": {
               "project": "packages/http/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/http/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -309,7 +319,8 @@
           "configurations": {
             "production": {
               "project": "packages/core/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/core/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -341,7 +352,8 @@
           "configurations": {
             "production": {
               "project": "packages/dom/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/dom/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -373,7 +385,8 @@
           "configurations": {
             "production": {
               "project": "packages/grid/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/grid/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -405,7 +418,8 @@
           "configurations": {
             "production": {
               "project": "packages/js/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/js/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -437,7 +451,8 @@
           "configurations": {
             "production": {
               "project": "packages/framework/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/framework/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -469,7 +484,8 @@
           "configurations": {
             "production": {
               "project": "packages/reactive-forms/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/reactive-forms/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -501,7 +517,8 @@
           "configurations": {
             "production": {
               "project": "packages/react-forms/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/react-forms/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -529,7 +546,12 @@
             "project": "packages/angular/ng-package.json",
             "tsConfig": "packages/angular/tsconfig.lib.json"
           }
-        }
+        ,          "configurations": {
+            "production": {
+              "tsConfig": "packages/tsconfig.lib.prod.json"
+            }
+          }
+}
       }
     },
     "@rxweb/angular-router": {
@@ -546,7 +568,8 @@
           "configurations": {
             "production": {
               "project": "packages/angular-router/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/angular-router/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -578,7 +601,8 @@
           "configurations": {
             "production": {
               "project": "packages/storage/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/storage/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -610,7 +634,8 @@
           "configurations": {
             "production": {
               "project": "packages/localization/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/localization/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -642,7 +667,8 @@
           "configurations": {
             "production": {
               "project": "packages/angular-localization/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/angular-localization/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -674,7 +700,8 @@
           "configurations": {
             "production": {
               "project": "packages/translate/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/translate/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -706,7 +733,8 @@
           "configurations": {
             "production": {
               "project": "packages/ngx-translate-extension/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/ngx-translate-extension/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -738,7 +766,8 @@
           "configurations": {
             "production": {
               "project": "packages/form-strategy/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/form-strategy/tsconfig.lib.prod.json"
+}
           }
         },
 
@@ -770,7 +799,8 @@
           "configurations": {
             "production": {
               "project": "packages/types/ng-package.prod.json"
-            }
+            ,              "tsConfig": "packages/types/tsconfig.lib.prod.json"
+}
           }
         },
 

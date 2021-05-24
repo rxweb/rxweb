@@ -1,10 +1,11 @@
-import { Input } from "@angular/core";
+import { Input, Directive } from "@angular/core";
 import { AbstractControl } from "@angular/forms"
 import {defaultContainer } from "../core/defaultContainer"
 import {  OBJECT_PROPERTY, PROPERTY} from "../const"
 import {  InstanceContainer, PropertyInfo } from '../core/validator.interface';
 import { ApplicationUtil } from "../util/app-util";
 import { TEMPLATE_VALIDATION_CONFIG  } from '../const/app.const'
+@Directive()
 export abstract class BaseDirective {
     @Input() model:any;
     

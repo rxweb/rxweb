@@ -31,9 +31,9 @@ class App {
     @ViewChild('withParams', { static: true }) withParams: ElementRef;
     @ViewChild('withParamsNoKey', { static: true }) withParamsNoKey: ElementRef;
     @ViewChild('noContent', { static: true }) noContent: ElementRef;
-    @ViewChild('leadingSpaceNoKeyNoParams', { static: false}) leadingSpaceNoKeyNoParams: ElementRef;
-    @ViewChild('trailingSpaceNoKeyNoParams', { static: false }) trailingSpaceNoKeyNoParams: ElementRef;
-    @ViewChild('withSpaceAndLineBreakNoKeyNoParams', { static: false }) withSpaceAndLineBreakNoKeyNoParams: ElementRef;
+    @ViewChild('leadingSpaceNoKeyNoParams') leadingSpaceNoKeyNoParams: ElementRef;
+    @ViewChild('trailingSpaceNoKeyNoParams') trailingSpaceNoKeyNoParams: ElementRef;
+    @ViewChild('withSpaceAndLineBreakNoKeyNoParams') withSpaceAndLineBreakNoKeyNoParams: ElementRef;
     value = { value: 'ok' };
 
     constructor(viewContainerRef: ViewContainerRef) {
