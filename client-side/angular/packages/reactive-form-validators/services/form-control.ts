@@ -48,17 +48,6 @@ export class RxFormControl extends FormControl {
     preHook: Function;
     postHook: Function;
 
-    get errors() {
-        if (this._language && this._language != this.getLanguage() && this.validator) {
-            this.errors = this.validator(this)
-        }
-        return this._errors;
-    }
-
-    set errors(value: any) {
-        this._errors = value;
-    }
-
 
     get errorMessages(): string[] {
         if (!this._messageExpression) {
@@ -89,6 +78,7 @@ export class RxFormControl extends FormControl {
     }
     constructor(formState: any, validator: ValidatorFn | AbstractControlOptions | ValidatorFn[] | null, asyncValidator: AsyncValidatorFn | AsyncValidatorFn[] | null, private entityObject: { [key: string]: any }, private baseObject: { [key: string]: any }, controlName: string, private _sanitizers: DataSanitizer[]) {
         super(formState, validator, asyncValidator)
+        this.defineErrorsProperty();
         this._baseValue = formState === undefined ? null : this.getFormState(formState);
         this._isModified = false;
         this.keyName = controlName;
@@ -106,6 +96,18 @@ export class RxFormControl extends FormControl {
 
             }
         }
+    }
+
+    private defineErrorsProperty() {
+        Object.defineProperty(this,"errors", {
+            configurable: true,
+            get() {
+                if (this._language && this._language != this.getLanguage() && this.validator) {
+                    this["errors"] = this.validator(this)
+                }
+                return this._errors;},
+            set(value) { this._errors = value; },
+        })
     }
 
     private getFormState(value) {
@@ -177,7 +179,8 @@ export class RxFormControl extends FormControl {
         if (this._messageExpression)
             this._isPassedExpression = this.executeExpression(this._messageExpression, this);
         this.setControlErrorMessages();
-        this.errors = this.errors;
+        var t: any = this;
+        t["errors"] = this.errors;
     }
 
     bindClassName() {

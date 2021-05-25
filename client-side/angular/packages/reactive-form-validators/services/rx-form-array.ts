@@ -17,11 +17,14 @@ export class RxFormArray extends FormArray {
         return this._isModified;
     }
 
-    push(control: any, isAddedInstance: boolean = false) {
+    push(control: any, options: {
+        emitEvent?: boolean,
+        isAddedInstance: boolean 
+    } = { isAddedInstance: false}) {
         let formGroup: any = this.root;
         if (this.arrayObject)
             if (control.modelInstance) {
-                if (!isAddedInstance)
+                if (!options.isAddedInstance)
                     this.arrayObject.push(control.modelInstance);
                 else
                     this.arrayObject[this.arrayObject.length] = control.modelInstance
@@ -77,9 +80,9 @@ export class RxFormArray extends FormArray {
     }
 
 
-    removeAt(index: number, isRemovedInstance: boolean = false) {
+    removeAt(index: number, options: { emitEvent?: boolean, isRemovedInstance?: boolean } = { isRemovedInstance: false }) {
         let formGroup: any = this.root;
-        if (!isRemovedInstance)
+        if (!options.isRemovedInstance)
             this.arrayObject.splice(index, 1);
         else {
             for (var i = index; i < this.arrayObject.length - 1; i++)
@@ -88,7 +91,7 @@ export class RxFormArray extends FormArray {
         }
 
 
-        super.removeAt(index);
+        super.removeAt(index,options);
         if (formGroup[VALUE_CHANGED_SYNC])
             formGroup.valueChangedSync()
         this.patch()

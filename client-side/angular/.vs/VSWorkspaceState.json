@@ -2,15 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\packages",
-    "\\packages\\grid",
-    "\\packages\\grid\\domain",
-    "\\packages\\grid\\static",
-    "\\packages\\grid\\template",
     "\\packages\\grid\\template\\table",
     "\\packages\\reactive-form-validators",
-    "\\packages\\reactive-form-validators\\services",
-    "\\packages\\reactive-form-validators\\util"
+    "\\packages\\reactive-form-validators\\services"
   ],
-  "SelectedNode": "\\packages\\reactive-form-validators\\services\\base-form-builder.ts",
+  "SelectedNode": "\\packages\\reactive-form-validators\\services\\form-control.ts",
   "PreviewInSolutionExplorer": false
 }

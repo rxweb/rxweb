@@ -27,7 +27,7 @@ export class RxFormGroup extends FormGroup {
     }
 
     bindPrimaryKey(modelInstance: any, jObject: { [key: string]: any }) {
-        let instanceContainer = defaultContainer.get(modelInstance.constructor);
+        let instanceContainer = defaultContainer.get(modelInstance.constructor);    
         if (instanceContainer)
         {
             let primaryKeyProp = instanceContainer.properties.filter(x => x.isPrimaryKey)[0];
