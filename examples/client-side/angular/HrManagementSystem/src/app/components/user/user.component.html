@@ -1,0 +1,54 @@
+
+<div class="container">
+  <form class="row g-3" [formGroup]="userFormGroup">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">{{user.firstName}}</label>
+      <input type="text" formControlName="firstName" class="form-control">
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.firstName.errors">{{userFormGroup.controls.firstName.errors.alpha.message}}<br/></small>	
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">{{user.lastName}}</label>
+      <input type="password" formControlName="lastName" class="form-control" id="inputPassword4">
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.lastName.errors">{{userFormGroup.controls.lastName.errors?.alpha?.message}}<br/></small>	
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">{{user.email}}</label>
+      <input type="text" class="form-control" formControlName="email" id="inputAddress">
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.email.errors">{{userFormGroup.controls.email.errors?.alpha?.message}}<br/></small>	
+    </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">{{user.password}}</label>
+      <input type="text" class="form-control" formControlName="password" id="inputAddress2">
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.password.errors">{{userFormGroup.controls.email.errors?.alpha?.message}}<br/></small>	
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">{{user.city}}</label>
+      <input type="text" class="form-control" formControlName="city" id="inputCity">
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.city.errors">{{userFormGroup.controls.city.errors?.alpha?.message}}<br/></small>	
+    </div>
+    <div class="col-md-4">
+      <label for="inputState" class="form-label">{{user.state}}</label>
+      <select id="inputState" formControlName="state" class="form-select">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="inputZip" class="form-label">{{user.zip}}</label>
+      <input type="text" class="form-control" formControlName="zip"  id="inputZip">
+      <small class="form-text text-danger" *ngIf="userFormGroup.controls.zip.errors">{{userFormGroup.controls.zip.errors?.alpha?.message}}<br/></small>	
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          Check me out
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">{{user.signin}}</button>
+    </div>
+  </form>
+
+</div>
