@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Extensions.Options;
 using RxWeb.Core.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,9 @@ namespace RxWeb.Core.Data
 
         private IDbContextTransaction DbContextTransaction { get; set; }
         private DatabaseConfig DatabaseConfig { get; set; }
-        public DbContextManager(IServiceProvider serviceProvider, DatabaseConfig databaseConfig) {
+        public DbContextManager(IServiceProvider serviceProvider, IOptions<DatabaseConfig> databaseConfig) {
             Context = (DbContext)serviceProvider.GetService(typeof(DbContextEntity));
-            DatabaseConfig = databaseConfig;
+            DatabaseConfig = databaseConfig.Value;
         }
 
         public async Task<IEnumerable<TEntity>> StoreProc<TEntity>(string name, SqlParameter[] sqlParameters) where TEntity : new()
