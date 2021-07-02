@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using RxWeb.Core.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,8 +16,10 @@ namespace RxWeb.Core.Data
         private DbContext  Context { get; set; }
 
         private IDbContextTransaction DbContextTransaction { get; set; }
-        public DbContextManager(IServiceProvider serviceProvider) {
+        private DatabaseConfig DatabaseConfig { get; set; }
+        public DbContextManager(IServiceProvider serviceProvider, DatabaseConfig databaseConfig) {
             Context = (DbContext)serviceProvider.GetService(typeof(DbContextEntity));
+            DatabaseConfig = databaseConfig;
         }
 
         public async Task<IEnumerable<TEntity>> StoreProc<TEntity>(string name, SqlParameter[] sqlParameters) where TEntity : new()
@@ -24,6 +27,7 @@ namespace RxWeb.Core.Data
             var sqlConnection = new SqlConnection(Context.Database.GetDbConnection().ConnectionString);
             SqlCommand sqlCommand = new SqlCommand(name, sqlConnection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.CommandTimeout = DatabaseConfig.CommandTimeout;
             foreach (var param in sqlParameters) 
                 sqlCommand.Parameters.Add(param);
             await sqlConnection.OpenAsync();
