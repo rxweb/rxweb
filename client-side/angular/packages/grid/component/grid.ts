@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input } from "@angular/core"
 import { GridDesigner } from "../domain/grid-designer";
-import { template } from "@angular-devkit/core";
 @Component({
     selector: 'rx-grid',
     template: ''

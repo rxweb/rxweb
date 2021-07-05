@@ -12,6 +12,7 @@ import { ElementOnDemand } from "../interface/config/element-on-demand"
 import { translatedText } from "../functions/translated-text";
 import { Subscription } from "rxjs";
 export class GridDesigner extends GridTemplate {
+    valueSanitizer: Function;
     childDom: DomManipulation;
     private element: HTMLElement;
     private isReDesign: boolean = false;
@@ -97,7 +98,7 @@ export class GridDesigner extends GridTemplate {
     private createElement(parentElement: HTMLElement, elementName: string, elementConfig: ElementConfig, modelObject: any, index: number) {
         let authorizationPassed = (this.authorization && elementConfig && elementConfig.authorize && this.authorization[elementConfig.authorize]) ? this.authorize(this.authorization[elementConfig.authorize]) : true;
         if (authorizationPassed) {
-            var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, this.gridConfiguration);
+            var domManipulation = new DomManipulation(parentElement, elementName, elementConfig, modelObject, index, this.gridConfiguration, this.valueSanitizer);
             domManipulation.bind();
             if (elementConfig.onDemandSelector) {
                 domManipulation.onDemand = this.resolveOnDemandSelector(elementConfig.onDemandSelector, modelObject.instance ? modelObject.instance : modelObject) as ElementOnDemand

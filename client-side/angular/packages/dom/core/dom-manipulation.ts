@@ -12,7 +12,7 @@ export class DomManipulation {
     private events: { [key: string]: Function } = {};
     private oldClassState: string[];
 
-    constructor(parentNode: any, private elementName: string, private config, private modelObject: { [key: string]: any }, index: number, private additionalConfiguration: { [key: string]: any } = null) {
+    constructor(parentNode: any, private elementName: string, private config, private modelObject: { [key: string]: any }, index: number, private additionalConfiguration: { [key: string]: any } = null,private sanitizer:Function = null) {
         if (config && config.gridData) 
             config.parameterConfig = (config.parameterConfig) ? { ...config.parameterConfig, ...config.gridData } : config.gridData
         if (modelObject instanceof Item) {
@@ -237,15 +237,18 @@ export class DomManipulation {
     objectPropValue(key: string, valueObject: { [key: string]: any }) {
         let jObject = undefined;
         let splitTexts = key.split('.');
+        var columnName: string = '';
         for (var column of splitTexts) {
             if (!jObject)
                 jObject = valueObject;
-            if (jObject)
+            if (jObject) {
                 jObject = jObject[column];
+                columnName = column;
+            }
             else
                 break;
         }
-        return jObject;
+        return this.sanitizer ? this.sanitizer(jObject, columnName) : jObject;
     }
 
     destroy() {
