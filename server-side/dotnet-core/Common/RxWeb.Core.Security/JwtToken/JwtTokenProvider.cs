@@ -25,7 +25,7 @@ namespace RxWeb.Core.Security.JwtToken
 
         public virtual ClaimsPrincipal ValidateToken(string securityKey, string jsonWebToken)
         {
-            var decryptToken = this.DataProtector.Unprotect(jsonWebToken);
+            var decryptToken = jsonWebToken;
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(securityKey));
             var t = new TokenValidationParameters
             {
@@ -53,7 +53,7 @@ namespace RxWeb.Core.Security.JwtToken
               signingCredentials: credentials
               );
             var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
-            var keyObject = new KeyValuePair<string, string>(securityKey, this.DataProtector.Protect(jwtToken.ToString()));
+            var keyObject = new KeyValuePair<string, string>(securityKey, jwtToken.ToString());
             return keyObject;
         }
 
