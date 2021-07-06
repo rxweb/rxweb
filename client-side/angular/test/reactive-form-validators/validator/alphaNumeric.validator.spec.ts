@@ -107,5 +107,18 @@ import { RxwebValidators, ReactiveFormConfig } from '@rxweb/reactive-form-valida
         () => {
           expect(RxwebValidators.alphaNumeric({ message: 'Please enter only alphanumerics, special characters are not allowed.' })(new FormControl('16 amphi-theatre'))).toEqual({ 'alphaNumeric': { message: 'Please enter only alphanumerics, special characters are not allowed.', refValues: ['16 amphi-theatre'] } });
         });
-    })
+    
+      it("Should error, alphaNumeric validator Shows custom message",
+        () => {
+          expect(RxwebValidators.alphaNumeric({ message: 'Please enter only alphanumerics, special characters are not allowed.' })(new FormControl('16 amphi-theatre'))).toEqual({ 'alphaNumeric': { message: 'Please enter only alphanumerics, special characters are not allowed.', refValues: ['16 amphi-theatre'] } });
+        });
+        it("Should error, alphaNumeric validator allow characters",
+        () => {
+          expect(RxwebValidators.alphaNumeric({ allowCharacters:'*&' })(new FormControl('Ampi&theatre)'))).toEqual({ 'alphaNumeric': { message: 'Only alphanumerics are allowed.', refValues: ['Ampi&theatre)'] } });
+        });
+        it("Should error, alphaNumeric validator allow characters",
+        () => {
+          expect(RxwebValidators.alphaNumeric({ allowCharacters:'*&' })(new FormControl('Ampi&theatre'))).toBeNull();
+        });
+      })
   });
