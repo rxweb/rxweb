@@ -1,0 +1,17 @@
+
+    [
+        {
+            "id": 1,
+            "firstName": "Ajay",
+            "lastName": "Ojha",
+            "email": "ajay.ojha@radixweb.com",
+            "password": "ajay@123"
+        },
+        {
+            "id": 1,
+            "firstName": "Srishti",
+            "lastName": "Khandelwal",
+            "email": "srishti.khandelwal@radixweb.com",
+            "password": "srishti@123"
+        }
+    ]

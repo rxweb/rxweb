@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center vh-100">
+      <div class="col-md-6 col-lg-5">
+        <div class="accordion-group accordion-group-portal" data-accordion-group="">
+          <div class="accordion open" data-accordion="">
+            <div class="accordion-control" data-control="">
+              <h5>Sign In</h5>
+            </div>
+            <div class="accordion-content" data-content="" style="transition: max-height 300ms ease 0s; max-height: 284px; overflow: hidden;">
+              <div class="accordion-content-wrapper">
+                <form [formGroup]="loginFormGroup">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input type="email" formControlName="userName" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlInput2">Password</label>
+                    <input type="password" formControlName="password" class="form-control" id="exampleFormControlInput2">
+                  </div><br/>
+                  <a (click)="OnSubmit()" class="btn btn-primary btn-block">Sign In</a>
+          
+                </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
