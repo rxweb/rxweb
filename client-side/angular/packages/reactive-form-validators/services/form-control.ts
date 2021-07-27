@@ -238,7 +238,7 @@ export class RxFormControl extends FormControl {
         onlySelf?: boolean;
     }): void {
         let currentState = this.pristine;
-        super.markAsDirty(opts);
+        super.markAsPristine(opts);
         if (currentState != this.pristine)
             this.runControlPropChangeExpression([PRISTINE])
     }
