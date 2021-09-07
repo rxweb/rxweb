@@ -28,7 +28,7 @@ export function fileSizeValidator(configModel: SizeConfig): any {
             break;
         }
         if (testResult)
-          return ObjectMaker.toJson(AnnotationTypes.fileSize, config, [fileSize, config.maxSize]);
+            return ObjectMaker.toJson(AnnotationTypes.fileSize, config, [fileSize, minFileSize, config.maxSize]);
       }
     } return ObjectMaker.null();
   }
