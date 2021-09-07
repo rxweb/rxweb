@@ -271,11 +271,11 @@ export class RxFormControl extends FormControl {
         this.bindError();
     }
 
-    reset(value?: any) {
+    reset(value?: any, options: any = {}) {
         if (value !== undefined)
-            this.setValue(value);
+            this.setValue(value, options);
         else
-            this.setValue(this.getFormState(this._baseValue));
+            this.setValue(this.getFormState(this._baseValue), options);
         this._dirty = false;
     }
 
