@@ -58,15 +58,22 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
                     if (formControl.validatorConfig[validatorName] && formControl.validatorConfig[validatorName].disableExpression) {
                         formControl["disableExpression"] = formControl.validatorConfig[validatorName].disableExpression;
                         let columns = Linq.expressionColumns(formControl.validatorConfig[validatorName].disableExpression);
-                        defaultContainer.addChangeValidation(this.validationRule, rootFieldName + fieldName, columns);
+                        columns.forEach(t => {
+                            defaultContainer.setConditionalValueProp(this.validationRule, rootFieldName + t.propName, fieldName);
+                        })
                     }
                     if (formControl.validatorConfig[validatorName] && formControl.validatorConfig[validatorName].conditionalExpression) {
                         let columns = Linq.expressionColumns(formControl.validatorConfig[validatorName].conditionalExpression);
-                        defaultContainer.addChangeValidation(this.validationRule, rootFieldName + fieldName, columns);
+                        columns.forEach(t => {
+                            defaultContainer.setConditionalValueProp(this.validationRule, rootFieldName + t.propName, fieldName);
+                        })
                     }
                     if (formControl.validatorConfig[validatorName] && formControl.validatorConfig[validatorName].dynamicConfig) {
                         let columns = Linq.dynamicConfigParser(formControl.validatorConfig[validatorName].dynamicConfig, fieldName);
-                        defaultContainer.addChangeValidation(this.validationRule, rootFieldName + fieldName, columns);
+                        columns.forEach(t => {
+                            defaultContainer.setConditionalValueProp(this.validationRule, rootFieldName + t.propName, fieldName);
+                        })                      
+
                     }
                     if (formControl.validatorConfig[validatorName] && (validatorName == AnnotationTypes.and || validatorName == AnnotationTypes.or || validatorName == AnnotationTypes.not)) {
                         Object.keys(formControl.validatorConfig[validatorName].validation).forEach(t => {
@@ -91,6 +98,7 @@ export class RxwebFormDirective extends BaseDirective implements AfterContentIni
     }
 
     private setConditionalValidator(controls) {
+        console.log(this.validationRule)
         Object.keys(controls).forEach(fieldName => {
             if (this.validationRule.conditionalValidationProps && this.validationRule.conditionalValidationProps[fieldName]) {
                 controls[fieldName][CONDITIONAL_VALIDATOR] = conditionalChangeValidator(this.validationRule.conditionalValidationProps[fieldName]);
