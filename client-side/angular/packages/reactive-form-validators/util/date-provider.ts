@@ -70,6 +70,8 @@ export class DateProvider {
             if (config && config.allowISODate && ISO_DATE_REGEX.test(<string>value))
                 return true;
             let seperator = '/'
+            if(ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.seperator)
+                seperator = ReactiveFormConfig.json.baseConfig.seperator;
             if (ReactiveFormConfig.json && ReactiveFormConfig.json.internationalization && ReactiveFormConfig.json.internationalization.seperator)
                 seperator = ReactiveFormConfig.json.internationalization.seperator;
             if (value.split(seperator).length !== 3)
