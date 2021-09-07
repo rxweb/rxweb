@@ -13,7 +13,7 @@ export class ValidatorValueChecker {
 
   static passArrayValue(control: AbstractControl, config: any) {
     if (FormProvider.ProcessRule(control, config))
-      return control.value instanceof Array;
+        return typeof control.value === "string" ? RegexValidator.isNotBlank(control.value) : control.value instanceof Array;
     else
       return false;
   }
