@@ -15,3 +15,4 @@ export * from './const/validation-alphabet-locale.const'
 export * from './abstract/typed-form'
 export * from './models/interface/options'
 export * from './services/typed-form-builder'
+export * from "./enums/url-validation-type";
