@@ -32,7 +32,7 @@ export class DateProvider {
         return regExp;
     }
 
-    getDate(value: string | Date,configDateFormat:string,isBaseFormat: boolean = false): Date {
+    getDate(value: string | Date,configDateFormat:string = undefined,isBaseFormat: boolean = false): Date {
         let year, month, day;
         if (!this.isDate(value)) {
             let seperator: string;
