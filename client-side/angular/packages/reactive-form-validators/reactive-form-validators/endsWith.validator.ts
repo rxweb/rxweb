@@ -16,7 +16,7 @@ export function endsWithValidator(configModel: StringValueConfig): ValidatorFn {
           let values = config.values ? config.values : [config.value];
           for (let value of values) {
               var endString = String(control.value).substr(control.value.length - value.length, value.length);
-              failed = (endString != config.value);
+              failed = (endString != value);
               if (!failed)
                   break;
           }
