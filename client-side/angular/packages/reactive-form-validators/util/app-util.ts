@@ -155,4 +155,29 @@ export class ApplicationUtil{
     static cloneValue(value: any): any {
         return ApplicationUtil.isObject(value) ? ApplicationUtil.isArray(value) ? [...value] : {...value} : value;
     }
+
+    static getDateString(value: Date) {
+        let seperator = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.seperator ? ReactiveFormConfig.json.baseConfig.seperator : "/";
+        let dateFormat = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.dateFormat ? ReactiveFormConfig.json.baseConfig.dateFormat : "mdy";
+        if (ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.internationalization && ReactiveFormConfig.json.internationalization.dateFormat && ReactiveFormConfig.json.internationalization.seperator) {
+            seperator = ReactiveFormConfig.json.internationalization.seperator;
+            dateFormat = ReactiveFormConfig.json.internationalization.dateFormat;
+        }
+        let result: string = '';
+        let year = value.getFullYear().toString();
+        let month = String(value.getMonth() + 1);
+        let day = String(value.getDay());
+        switch (dateFormat) {
+            case 'ymd':
+                result = "".concat(year, seperator, month, seperator, day)
+                break;
+            case 'dmy':
+                result = "".concat(day, seperator, month, seperator, year)
+                break;
+            case 'mdy':
+                result = "".concat(month, seperator, day, seperator, year)
+                break;
+        }
+        return result;
+    }
 }

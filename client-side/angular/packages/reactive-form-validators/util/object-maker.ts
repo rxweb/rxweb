@@ -1,3 +1,4 @@
+import { ApplicationUtil } from "./app-util";
 import { ReactiveFormConfig } from "./reactive-form-config";
 
 export class ObjectMaker{
@@ -9,7 +10,9 @@ export class ObjectMaker{
         if(!message && config && config.messageKey)
             messageKey = config.messageKey;
         let messageText = (message) ? message : (ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.validationMessage && ReactiveFormConfig.json.validationMessage[messageKey || key])? ReactiveFormConfig.json.validationMessage[messageKey || key] : '';
-        values.forEach((t ,index)=> {
+        values.forEach((t, index) => {
+            if (t instanceof Date) 
+                t = ApplicationUtil.getDateString(t);
             messageText = messageText.replace(`{{${index}}}`, t);
         });
         let jObject = {};
