@@ -12,7 +12,7 @@ export class ObjectMaker{
         let messageText = (message) ? message : (ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.validationMessage && ReactiveFormConfig.json.validationMessage[messageKey || key])? ReactiveFormConfig.json.validationMessage[messageKey || key] : '';
         values.forEach((t, index) => {
             if (t instanceof Date) 
-                t = ApplicationUtil.getDateString(t);
+                t = this.getDateString(t);
             messageText = messageText.replace(`{{${index}}}`, t);
         });
         let jObject = {};
@@ -39,5 +39,30 @@ export class ObjectMaker{
             ReactiveFormConfig.json.validationMessage = ReactiveFormConfig.i18n.validationMessage();
             ObjectMaker.language = ReactiveFormConfig.i18n.language;
         }
+    }
+
+    static getDateString(value: Date) {
+        let seperator = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.seperator ? ReactiveFormConfig.json.baseConfig.seperator : "/";
+        let dateFormat = ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.baseConfig && ReactiveFormConfig.json.baseConfig.dateFormat ? ReactiveFormConfig.json.baseConfig.dateFormat : "mdy";
+        if (ReactiveFormConfig && ReactiveFormConfig.json && ReactiveFormConfig.json.internationalization && ReactiveFormConfig.json.internationalization.dateFormat && ReactiveFormConfig.json.internationalization.seperator) {
+            seperator = ReactiveFormConfig.json.internationalization.seperator;
+            dateFormat = ReactiveFormConfig.json.internationalization.dateFormat;
+        }
+        let result: string = '';
+        let year = value.getFullYear().toString();
+        let month = String(value.getMonth() + 1);
+        let day = String(value.getDay());
+        switch (dateFormat) {
+            case 'ymd':
+                result = "".concat(year, seperator, month, seperator, day)
+                break;
+            case 'dmy':
+                result = "".concat(day, seperator, month, seperator, year)
+                break;
+            case 'mdy':
+                result = "".concat(month, seperator, day, seperator, year)
+                break;
+        }
+        return result;
     }
 }
