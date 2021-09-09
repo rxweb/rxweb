@@ -12,8 +12,15 @@ export function startsWithValidator(configModel: StringComparisonConfig): Valida
     return (control: AbstractControl): { [key: string]: any } => {
         let config = getConfigObject(configModel, control);
         if (ValidatorValueChecker.pass(control, config)) {
-            var startString = String(control.value).substr(0, config.value.length);
-            if ((config.isRestrict && String(startString).toLowerCase() == String(config.value).toLowerCase()) || (!config.isRestrict && startString != config.value))
+            let failed = false;
+            let values = config.values ? config.values : [config.value];
+            for (let value of values) {
+                let startString = String(control.value).substr(0, value.length);
+                failed = (config.isRestrict && String(startString).toLowerCase() == String(value).toLowerCase()) || (!config.isRestrict && startString != value)
+                if (!failed)
+                    break;
+            }
+            if (failed)
                 return ObjectMaker.toJson(AnnotationTypes.startsWith, config, [control.value, config.value]);
         }
         return ObjectMaker.null();
