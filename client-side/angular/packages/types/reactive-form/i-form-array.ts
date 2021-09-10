@@ -2,7 +2,7 @@ import { IAbstractControl } from "./i-abstract-control"
 import { Observable } from "rxjs";
 
 export interface IFormArray<Item> extends IAbstractControl<Item[]> {
-    controls: Item extends IAbstractControl<any> ? Item[] : Array<IAbstractControl<Item>>;
+    controls: IAbstractControl<Item>[];
     getRawValue(): Item[];
     insert(index: number, control: IAbstractControl<Item>): void;
     

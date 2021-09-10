@@ -1,10 +1,9 @@
 import { IAbstractControl } from './i-abstract-control'
 import { AbstractControl } from '@angular/forms';
-import { IFormArray } from './i-form-array';
 
 export interface IFormGroup<T> extends IAbstractControl<T, T> {
     controls: {
-        [key in keyof T]: T[key] extends IFormArray<any> ? T[key] : IAbstractControl<T[key], T>
+        [key in keyof T]: IAbstractControl<T[key], T>;
     }
 
     addControl<K extends keyof T>(name: Extract<keyof T, string>, control: AbstractControl | IAbstractControl<T[K]>): void;
