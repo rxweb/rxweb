@@ -22,6 +22,10 @@ export class Pagination extends Collection {
 
     paginationConfigs: Item[] = new Array<Item>();
 
+    topPaginationConfigs: Item[] = new Array<Item>();
+
+    cloneFooterOnTop: boolean = false;
+
     currentPage: number;
 
     private startCount: number = 1;
@@ -81,6 +85,7 @@ export class Pagination extends Collection {
         var pages = this.getPages();
         pages.forEach(i => {
             this.paginationConfigs.push(new Item({ text: i, disabled: true, active: this.currentPage == i }, ["text", "disabled", "active"]))
+            this.topPaginationConfigs.push(new Item({ text: i, disabled: true, active: this.currentPage == i }, ["text", "disabled", "active"]))
         })
         this.updateStartEndCount();
     }
@@ -117,8 +122,12 @@ export class Pagination extends Collection {
 
 
 
-    protected onMaxPerPageChanging(element: Event) {
+    protected onMaxPerPageChanging(element: any) {
+        var currentRxWebId = element.currentTarget.getAttribute("data-rxwebid");
+        let topOrBottomStateName = currentRxWebId === "top-select-0" ? "bottom-select-0" : "top-select-0";
         this.maxPerPage = parseInt((<HTMLSelectElement>element.currentTarget).value);
+        if (this.controlState.elements[topOrBottomStateName])
+            this.controlState.elements[topOrBottomStateName].element.value = this.maxPerPage;
         if (this.storeProcedure) {
             this.storeProcedure.onPageChanging(1);
         } else {
@@ -151,20 +160,31 @@ export class Pagination extends Collection {
     }
 
     protected updatePagination() {
-
         var pageConfigLength = this.paginationConfigs.length;
         var pages = this.getPages();
         for (var i = 0, j = pages.length; i < j; i++) {
-            if (pageConfigLength > i)
+            if (pageConfigLength > i) {
                 this.paginationConfigs[i].setValue({ text: pages[i], active: this.currentPage == pages[i] });
+                if (this.cloneFooterOnTop)
+                    this.topPaginationConfigs[i].setValue({ text: pages[i], active: this.currentPage == pages[i] });
+            }
             else {
                 var row = new Item({ text: pages[i], disabled: true }, ["text", "disabled", "active"]);
                 this.paginationConfigs.push(row);
+                if (this.cloneFooterOnTop) {
+                    this.topPaginationConfigs.push(row);
+                    this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i, identity: "top-pagination" });
+                }
                 this.eventSubscriber.dispatch(EVENTS.ADD_ROWS, { row: row, index: i, identity: "pagination" });
             }
         }
-        if (pages.length < this.paginationConfigs.length)
+        if (pages.length < this.paginationConfigs.length) {
             this.removeItem(this.paginationConfigs, pages.length, this.paginationConfigs.length, "list-item")
+            if (this.cloneFooterOnTop) {
+                this.removeItem(this.topPaginationConfigs, pages.length, this.topPaginationConfigs.length, "top-list-item")
+            }
+        }
+        
     }
 
     remove(id: number) {

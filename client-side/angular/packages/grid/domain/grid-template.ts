@@ -8,6 +8,9 @@ export class GridTemplate extends FilterCollection {
     private _footerLeftTemplate: TemplateConfig;
     private _footerCenterTemplate: TemplateConfig;
     private _footerRightTemplate: TemplateConfig;
+    private _topFooterLeftTemplate: TemplateConfig;
+    private _topFooterCenterTemplate: TemplateConfig;
+    private _topFooterRightTemplate: TemplateConfig;
     footerDesignClass: FooterDesignClass;
     constructor(source: any[], model: Function, gridConfiguration: GridConfig) {
         super(source, model, gridConfiguration);
@@ -40,6 +43,14 @@ export class GridTemplate extends FilterCollection {
         };
     }
 
+    get topFooterTemplate() {
+        return {
+            div: {
+                class: this.footerDesignClass.rootClass,
+                childrens: [this.topFooterLeftTemplate, this.topFooterCenterTemplate, this.topFooterRightTemplate]
+            }
+        }
+    }
 
     get footerTemplate() {
         return {
@@ -58,6 +69,14 @@ export class GridTemplate extends FilterCollection {
         return this._footerLeftTemplate;
     }
 
+    set topFooterLeftTemplate(value: TemplateConfig) {
+        this._topFooterLeftTemplate = value;
+    }
+
+    get topFooterLeftTemplate() {
+        return this._topFooterLeftTemplate;
+    }
+
     set footerCenterTemplate(value: TemplateConfig) {
         this._footerCenterTemplate = value;
     }
@@ -66,12 +85,28 @@ export class GridTemplate extends FilterCollection {
         return this._footerCenterTemplate;
     }
 
+    set topFooterCenterTemplate(value: TemplateConfig) {
+        this._topFooterCenterTemplate = value;
+    }
+
+    get topFooterCenterTemplate() {
+        return this._topFooterCenterTemplate;
+    }
+
     set footerRightTemplate(value: TemplateConfig) {
         this._footerRightTemplate = value;
     }
 
     get footerRightTemplate() {
         return this._footerRightTemplate;
+    }
+
+    set topFooterRightTemplate(value: TemplateConfig) {
+        this._topFooterRightTemplate = value;
+    }
+
+    get topFooterRightTemplate() {
+        return this._topFooterRightTemplate;
     }
 
     set pagingDropDownTemplate(value: TemplateConfig) {
