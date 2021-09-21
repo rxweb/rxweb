@@ -46,6 +46,7 @@ export class GridDesigner extends GridTemplate {
         if (this.isTranslateModuleUsed)
             this.subscription = TranslationCore.languageChanged.subscribe(t => { this.languageChange(); });
         this.element = element;
+        this.startNodeName = this.isDivBase ? "div" : "table";
         this.bindSource();
         var isRowEvent = this.gridConfiguration && this.gridConfiguration.actions && this.gridConfiguration.actions.onRowSelect !== undefined;
         if (isRowEvent && !this.isReDesign)
