@@ -6,7 +6,9 @@ export interface IFormGroup<T> extends IAbstractControl<T, T> {
         [key in keyof T]: IAbstractControl<T[key], T>;
     }
 
-    addControl<K extends keyof T>(name: Extract<keyof T, string>, control: AbstractControl | IAbstractControl<T[K]>): void;
+    addControl<K extends keyof T>(name: Extract<keyof T, string>, control: AbstractControl | IAbstractControl<T[K]>, options?: {
+        emitEvent?: boolean;
+    }): void;
 
     contains(controlName: keyof T): boolean;
 
@@ -18,13 +20,17 @@ export interface IFormGroup<T> extends IAbstractControl<T, T> {
     }): void;
 
     registerControl<K extends keyof T>(name: Extract<keyof T, string>, control: AbstractControl | IAbstractControl<T[K]>): AbstractControl;
-    removeControl(name: keyof T): void;
+    removeControl(name: keyof T, options?: {
+        emitEvent?: boolean;
+    }): void;
     reset(value?: T, options?: {
         onlySelf?: boolean;
         emitEvent?: boolean;
     }): void;
 
-    setControl<K extends keyof T>(name: Extract<keyof T, string>, control: AbstractControl | IAbstractControl<T[K]>): void;
+    setControl<K extends keyof T>(name: Extract<keyof T, string>, control: AbstractControl | IAbstractControl<T[K]>, options?: {
+        emitEvent?: boolean;
+    }): void;
     setValue<K extends keyof T>(value: T, options?: {
         onlySelf?: boolean;
         emitEvent?: boolean;
