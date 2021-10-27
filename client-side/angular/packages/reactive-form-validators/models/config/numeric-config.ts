@@ -5,5 +5,6 @@ export interface NumericConfig extends BaseConfigFn<NumericConfig> {
   allowDecimal?:boolean;
   acceptValue?:NumericValueType;
   isFormat?:boolean;
-  digitsInfo?:string;
+  digitsInfo?: string;
+    persistZero: boolean;
 }
