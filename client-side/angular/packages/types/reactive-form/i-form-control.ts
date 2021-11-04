@@ -12,7 +12,7 @@ export interface IFormControl<T> extends FormControl {
 
     readonly valueChanges: Observable<T | null>;
 
-    readonly statusChanges: Observable<"VALID" | "INVALID" | "PENDING" | "DISABLED" | null>;
+    readonly statusChanges: Observable<"VALID" | "INVALID" | "PENDING" | "DISABLED">;
 
     get(path: string): IAbstractControl<T> | null;
 
