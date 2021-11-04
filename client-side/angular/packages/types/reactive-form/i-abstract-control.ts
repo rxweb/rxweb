@@ -12,7 +12,7 @@ export interface IAbstractControl<T, Entity = any> extends AbstractControl {
 
     readonly valueChanges: Observable<T | null>;
 
-    readonly statusChanges: Observable<"VALID" | "INVALID" | "PENDING" | "DISABLED" | null>;
+    readonly statusChanges: Observable<"VALID" | "INVALID" | "PENDING" | "DISABLED">;
 
     get<T, K extends keyof Entity>(path: Array<Extract<K, string> | number> | Extract<K, string>): IAbstractControl<Entity[K]> | null;
 
