@@ -54,6 +54,8 @@ export class MaskProvider {
 
     minLength: number;
 
+    initialValue: string;
+
     constructor(private input: HTMLInputElement, private mask: string, private renderer: Renderer2, private formControl: FormControl, private config: MaskConfig) {
         this.bind();
     }
@@ -61,6 +63,7 @@ export class MaskProvider {
     bind() {
         if (RegexValidator.isNotBlank(this.formControl.value))
             this.input.value = this.formControl.value;
+        this.initialValue = this.input.value
         this.tests = [];
         this.partialPosition = this.mask.length;
         this.len = this.mask.length;
@@ -96,6 +99,9 @@ export class MaskProvider {
         }
         this.minLength = this.config.minLength ? this.lastRequiredNonMaskPos - (this.lastRequiredNonMaskPos - this.config.minLength) : this.lastRequiredNonMaskPos;
         this.buffer = [];
+        if (this.config.customPlaceholder?.length) {
+            this.slotChar = this.config.customPlaceholder;
+        }
         for (let i = 0; i < maskTokens.length; i++) {
             let c = maskTokens[i];
             if (c != '?') {
@@ -285,10 +291,8 @@ export class MaskProvider {
     }
 
     onBlur(e) {
-        
-        
         this.focus = false;
-        this.checkVal();
+        this.checkVal(undefined, true);
         this.updateModel(e);
         this.updateFilledState();
         if (this.input.value != this.focusText) {
@@ -394,7 +398,7 @@ export class MaskProvider {
         this.input.value = this.buffer.join('');
     }
 
-    checkVal(allow?: boolean) {
+    checkVal(allow?: boolean, isBlur?: boolean ) {
         let test = this.input.value,
             lastMatch = -1,
             i,
@@ -428,10 +432,20 @@ export class MaskProvider {
         if (allow) {
             this.writeBuffer();
         } else if ((lastMatch + 1 < this.partialPosition) && (!this.config.minLength || !(lastMatch >= this.minLength))) {
-            if (this.autoClear || this.buffer.join('') === this.defaultBuffer) {
-                this.isInvalid = true
-            } else {
-                this.isInvalid = true
+            if (isBlur && this.config.clearOnInvalid) {
+                this.isInvalid = true;
+                if (this.buffer.join('') === this.defaultBuffer) {
+                    this.initialValue = '';
+                } 
+        
+                this.buffer = this.initialValue.length ? [...this.initialValue] : [...this.defaultBuffer];
+        
+                this.writeBuffer();
+                this.formControl.setValue(this.initialValue);
+            } else if (this.autoClear || this.buffer.join('') === this.defaultBuffer) {
+                this.isInvalid = true;
+            } else {         
+                this.isInvalid = true;
                 this.writeBuffer();
             }
         } else {
@@ -449,6 +463,9 @@ export class MaskProvider {
         let pos;
 
         this.focusText = this.input.value;
+
+        if (event.type === 'focus')
+            this.initialValue = this.focusText;
 
         pos = this.checkVal();
 
