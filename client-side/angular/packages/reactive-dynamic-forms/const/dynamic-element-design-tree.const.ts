@@ -9,7 +9,15 @@ const commonEvents = {
     focus: ':focus',
     input: 'true',
     blur: 'blur',
-    change:"{config.events.change"
+    change: "{config.events.change",
+    keyup: "{config.events.keyup",
+    keypress: "{config.events.keypress",
+    keydown: "{config.events.keydown",
+    onfocus: "{config.events.onfocus",
+    focusout: "{config.events.focusout",
+    mousedown: "{config.events.mousedown",
+    mouseenter: "{config.events.mouseenter",
+    onblur: '{config.events.onblur',
 };
 
 
