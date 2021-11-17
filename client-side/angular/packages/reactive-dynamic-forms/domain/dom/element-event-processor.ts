@@ -2,7 +2,7 @@
 import { DynamicNodeConfig } from '../../models/interface/dynamic-node-config';
 import { CONDITIONAL_VALIDATOR, BLUR, FOCUS, SELECT, INPUT, CLICK, EVENTS, CHANGE } from '../../const/app.const';
 import { ValidatorFn } from '@angular/forms';
-import { FOCUSOUT, KEYDOWN, KEYPRESS, KEYUP, MOUSEDOWN, MOUSEENTER, ONBLUR, ONFOCUS } from 'packages/reactive-forms/const';
+import { FOCUSOUT, KEYDOWN, KEYPRESS, KEYUP, MOUSEDOWN, MOUSEENTER, ONBLUR, ONFOCUS } from '../../const/events.const';
 
 export class ElementEventProcessor extends ElementAccessor {
     eventListeners: any[];
