@@ -1,6 +1,6 @@
 {
   "name": "@rxweb/types",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "keywords": [
     "angular reactive form strongly typed"
   ],

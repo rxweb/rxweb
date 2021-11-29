@@ -25,6 +25,7 @@ export interface IFormArray<Item> extends IAbstractControl<Item[]> {
     }): void;
     clear(options?: {
         emitEvent?: boolean;
-    }): void
-    get length(): number;
+    }): void;
+
+    length: number;
 }
