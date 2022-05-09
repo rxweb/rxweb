@@ -130,7 +130,9 @@ export const defaultContainer:
                 propertyType: propertyType,
                 entity: entity,
                 dataPropertyName: config ? config.name : undefined,
-                entityProvider: config ? config.entityProvider : undefined
+                entityProvider: config ? config.entityProvider : undefined,
+                defaultValue:config ? config.defaultValue : undefined,
+                objectConfig:config && config.autoCreate ? {autoCreate:config.autoCreate}: undefined
             }
             defaultContainer.addProperty(target.constructor, propertyInfo); 
         }

@@ -7,6 +7,7 @@ export interface PropConfig {
 
 export interface PropObjectConfig extends PropConfig {
     entityProvider?: Function;
+    autoCreate?:boolean;
 }
 
 export interface PropArrayConfig extends PropObjectConfig {

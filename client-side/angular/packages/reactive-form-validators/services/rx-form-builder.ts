@@ -465,6 +465,9 @@ export class RxFormBuilder extends BaseFormBuilder {
                         break;
                     case OBJECT_PROPERTY:
                         let objectValue = entityObject[property.name];
+                        objectValue = !objectValue && property.defaultValue ? property.defaultValue:objectValue
+                        if(!objectValue && property.objectConfig && property.objectConfig.autoCreate)
+                            objectValue = this.createClassObject(property.entity,{});
                         if (objectValue && objectValue instanceof Object && !(objectValue instanceof FormGroup || objectValue instanceof RxFormGroup)) {
                             this.isNestedBinding = this.isNested = true;
                             if (instanceContainer && instanceContainer.conditionalObjectProps)

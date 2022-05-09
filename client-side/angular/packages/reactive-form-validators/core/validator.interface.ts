@@ -33,6 +33,9 @@ export interface PropertyInfo {
     ignore?: (x: any) => boolean;
     isPrimaryKey?: boolean;
     entityProvider?: Function;
+    objectConfig?:{
+        autoCreate?:boolean
+    }
     arrayConfig?: {
         allowMaxIndex?: number;
         messageKey?: string;
