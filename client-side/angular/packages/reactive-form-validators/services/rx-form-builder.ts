@@ -447,15 +447,16 @@ export class RxFormBuilder extends BaseFormBuilder {
                 switch (property.propertyType) {
                     case PROPERTY:
                         if (!(entityObject[property.name] instanceof FormControl || entityObject[property.name] instanceof RxFormControl)) {
-                            let propertyValidators = instanceContainer.propertyAnnotations.filter(t => t.propertyName == property.name);
+                            let propertyValidators = instanceContainer.propertyAnnotations.filter(t => t.propertyName == property.name && t.isValidator);
+                            let updateOn = instanceContainer.propertyAnnotations.filter(t => t.propertyName == property.name && !t.isValidator && t.annotationType === "updateOn")[0];
                             let sanitizeValue = super.sanitizeValue(instanceContainer, property.name, super.getDefaultValue(property, entityObject[property.name], formBuilderConfiguration), json.entityObject, Object.assign({}, json.entityObject));
                             if (entityObject[property.name] === undefined && sanitizeValue)
                                 entityObject[property.name] = sanitizeValue;
                             let validators = this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject);
                             let abstractControlOptions: AbstractControlOptions = { validators: validators, asyncValidators: this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]) };
                             abstractControlOptions = this.getAbstractControlOptions(property.name, formBuilderConfiguration, abstractControlOptions)
-                            if (property.updateOn && !abstractControlOptions.updateOn)
-                                abstractControlOptions.updateOn = property.updateOn;
+                            if (updateOn && !abstractControlOptions.updateOn)
+                                abstractControlOptions.updateOn = updateOn.config.runOn;
                             formGroupObject[property.name] = new RxFormControl(sanitizeValue, abstractControlOptions, [], json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
                             this.isNested = false;
                         } else

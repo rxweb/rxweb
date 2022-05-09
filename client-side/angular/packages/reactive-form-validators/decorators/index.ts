@@ -89,3 +89,4 @@ export * from './maxTime.decorator';
 export * from './compose.decorator';
 export * from './requiredTrue.decorator';
 export * from './mask.decorator';
+export * from './non-validation-decorators/update-on.decorator';

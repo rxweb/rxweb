@@ -7,6 +7,7 @@ export interface DecoratorConfiguration {
     propertyConstructor?: any;
     config?: any;
     isAsync: boolean;
+    isValidator?:boolean;
 }
 
 export interface InstanceContainer {

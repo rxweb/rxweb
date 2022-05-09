@@ -117,7 +117,8 @@ export const defaultContainer:
                 propertyName: propertyKey,
                 annotationType: annotationType,
                 config: config,
-                isAsync: isAsync
+                isAsync: isAsync,
+                isValidator : annotationType !== "updateOn"
             }
             let isPropertyKey = (propertyKey != undefined);
             this.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);
