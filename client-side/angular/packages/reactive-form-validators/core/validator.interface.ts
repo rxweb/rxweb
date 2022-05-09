@@ -42,6 +42,7 @@ export interface PropertyInfo {
         createBlank?: boolean;
     }
     updateOn?: 'change' | 'blur' | 'submit';
+    messageNexus?:{[key:string]:string};
 }
 
 export interface ControlInfo {

@@ -111,20 +111,24 @@ export class RxFormBuilder extends BaseFormBuilder {
                 validators.push(conditionalChangeValidator(columns));
         }
         for (let propertyValidator of propertyValidators) {
-            if (!propertyValidator.isAsync)
+            if (!propertyValidator.isAsync){
+                let config = propertyValidator.config;
+                if(property.messageNexus)
+                    config = config ? {...{messageNexus:property.messageNexus},...config} :{messageNexus:property.messageNexus};
                 switch (propertyValidator.annotationType) {
                     case AnnotationTypes.rule:
-                        validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config, entity))
+                        validators.push(APP_VALIDATORS[propertyValidator.annotationType](config, entity))
                         break;
                     case AnnotationTypes.and:
                     case AnnotationTypes.or:
                     case AnnotationTypes.not:
-                        validators.push(LOGICAL_VALIDATORS[propertyValidator.annotationType](propertyValidator.config))
+                        validators.push(LOGICAL_VALIDATORS[propertyValidator.annotationType](config))
                         break;
                     default:
-                        validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config))
+                        validators.push(APP_VALIDATORS[propertyValidator.annotationType](config))
                         break;
                 }
+            }                
         }
         if (propValidationConfig)
             this.additionalValidation(validators, propValidationConfig);

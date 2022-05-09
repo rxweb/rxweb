@@ -2,6 +2,7 @@ export interface PropConfig {
   name?: string;
   defaultValue?: any;
   ignore?: (x: any) => boolean;
+  messageNexus?:{[key:string]:string};
   isPrimaryKey?: boolean;
 }
 
