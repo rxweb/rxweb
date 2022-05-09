@@ -15,6 +15,10 @@ export class ObjectMaker{
                 t = this.getDateString(t);
             messageText = messageText.replace(`{{${index}}}`, t);
         });
+        if(config && config.messageNexus)
+            Object.keys(config.messageNexus).forEach(propName=>{
+                messageText = messageText.replace(`{{${propName}}}`, config.messageNexus[propName]);
+            })
         let jObject = {};
         jObject[key] = {
             message: messageText, refValues: values
