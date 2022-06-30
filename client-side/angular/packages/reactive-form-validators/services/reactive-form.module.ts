@@ -17,7 +17,7 @@ import { TypedFormBuilder } from "./typed-form-builder";
     declarations: [RxwebFormDirective, HtmlControlTemplateDirective, ControlHostDirective, RxFormControlDirective, FileControlDirective, ImageFileControlDirective, AsyncValidationDirective  ],
     imports: [CommonModule,FormsModule, ReactiveFormsModule],
     providers: [RxFormBuilder,DecimalProvider, DecimalPipe],
-//    exports: [AsyncValidationDirective,RxwebFormDirective,HtmlControlTemplateDirective,RxFormControlDirective,FileControlDirective ,ImageFileControlDirective ]
+    exports: [AsyncValidationDirective,RxwebFormDirective,HtmlControlTemplateDirective,RxFormControlDirective,FileControlDirective ,ImageFileControlDirective ]
 })
 export class RxReactiveFormsModule {
     static forRoot(): ModuleWithProviders<RxReactiveFormsModule> { return { ngModule: RxReactiveFormsModule, providers: [] }; }
