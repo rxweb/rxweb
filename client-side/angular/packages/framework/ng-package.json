@@ -3,11 +3,6 @@
   "dest": "../../dist/@rxweb/framework",
   "deleteDestPath": true,
   "lib": {
-    "entryFile": "index.ts",
-    "umdModuleIds": {
-      "@rxweb/dom": "@rxweb/dom",
-      "@rxweb/core": "@rxweb/core",
-      "@rxweb/http": "@rxweb/http"
-    }
+    "entryFile": "index.ts"
   }
 }

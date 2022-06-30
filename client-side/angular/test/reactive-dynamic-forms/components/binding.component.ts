@@ -7,8 +7,7 @@ import { AddressSectionComponent } from "./sections/address-section.component";
     <form [formGroup]="dynamicFormBuildConfig.formGroup">
         <div [viewMode]="viewMode" [rxwebDynamicForm]="dynamicFormBuildConfig" [uiBindings]="uiBindings"></div>
     </form>
-    `,
-    entryComponents: [AddressSectionComponent],
+    `
 })
 export class BindingComponent implements OnInit {
     serverData: Array<{ [key: string]: any}> = [];

@@ -99,18 +99,6 @@
               "src/multilingual"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -129,15 +117,6 @@
             "production": {
               "devServerTarget": "rxweb:serve:production"
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -160,19 +139,6 @@
             ,              "tsConfig": "packages/reactive-form-validators/tsconfig.lib.prod.json"
 }
           }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/reactive-form-validatorstsconfig.lib.json",
-              "packages/reactive-form-validatorstsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -192,19 +158,6 @@
               "project": "packages/reactive-dynamic-forms/ng-package.prod.json"
             ,              "tsConfig": "packages/reactive-dynamic-forms/tsconfig.lib.prod.json"
 }
-          }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/reactive-dynamic-forms/tsconfig.lib.json",
-              "packages/reactive-dynamic-forms/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -226,19 +179,6 @@
             ,              "tsConfig": "packages/generics/tsconfig.lib.prod.json"
 }
           }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/generics/tsconfig.lib.json",
-              "packages/generics/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -258,19 +198,6 @@
               "project": "packages/sanitizers/ng-package.prod.json"
             ,              "tsConfig": "packages/sanitizers/tsconfig.lib.prod.json"
 }
-          }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/sanitizers/tsconfig.lib.json",
-              "packages/sanitizers/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -292,19 +219,6 @@
             ,              "tsConfig": "packages/http/tsconfig.lib.prod.json"
 }
           }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/http/tsconfig.lib.json",
-              "packages/http/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -324,19 +238,6 @@
               "project": "packages/core/ng-package.prod.json"
             ,              "tsConfig": "packages/core/tsconfig.lib.prod.json"
 }
-          }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/core/tsconfig.lib.json",
-              "packages/core/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -358,19 +259,6 @@
             ,              "tsConfig": "packages/dom/tsconfig.lib.prod.json"
 }
           }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/dom/tsconfig.lib.json",
-              "packages/dom/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -390,19 +278,6 @@
               "project": "packages/grid/ng-package.prod.json"
             ,              "tsConfig": "packages/grid/tsconfig.lib.prod.json"
 }
-          }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/grid/tsconfig.lib.json",
-              "packages/grid/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -424,19 +299,6 @@
             ,              "tsConfig": "packages/js/tsconfig.lib.prod.json"
 }
           }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/js/tsconfig.lib.json",
-              "packages/js/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -456,19 +318,6 @@
               "project": "packages/framework/ng-package.prod.json"
             ,              "tsConfig": "packages/framework/tsconfig.lib.prod.json"
 }
-          }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/js/tsconfig.lib.json",
-              "packages/js/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -490,19 +339,6 @@
             ,              "tsConfig": "packages/reactive-forms/tsconfig.lib.prod.json"
 }
           }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/reactive-forms/tsconfig.lib.json",
-              "packages/reactive-forms/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -522,19 +358,6 @@
               "project": "packages/react-forms/ng-package.prod.json"
             ,              "tsConfig": "packages/react-forms/tsconfig.lib.prod.json"
 }
-          }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/react-forms/tsconfig.lib.json",
-              "packages/react-forms/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -574,19 +397,6 @@
             ,              "tsConfig": "packages/angular-router/tsconfig.lib.prod.json"
 }
           }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/angular-router/tsconfig.lib.json",
-              "packages/angular-router/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -606,19 +416,6 @@
               "project": "packages/storage/ng-package.prod.json"
             ,              "tsConfig": "packages/storage/tsconfig.lib.prod.json"
 }
-          }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/storage/tsconfig.lib.json",
-              "packages/storage/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -640,19 +437,6 @@
             ,              "tsConfig": "packages/localization/tsconfig.lib.prod.json"
 }
           }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/localization/tsconfig.lib.json",
-              "packages/localization/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -672,19 +456,6 @@
               "project": "packages/angular-localization/ng-package.prod.json"
             ,              "tsConfig": "packages/angular-localization/tsconfig.lib.prod.json"
 }
-          }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/angular-localization/tsconfig.lib.json",
-              "packages/angular-localization/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -706,19 +477,6 @@
             ,              "tsConfig": "packages/translate/tsconfig.lib.prod.json"
 }
           }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/translate/tsconfig.lib.json",
-              "packages/translate/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -738,19 +496,6 @@
               "project": "packages/ngx-translate-extension/ng-package.prod.json"
             ,              "tsConfig": "packages/ngx-translate-extension/tsconfig.lib.prod.json"
 }
-          }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/ngx-translate-extension/tsconfig.lib.json",
-              "packages/ngx-translate-extension/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -772,19 +517,6 @@
             ,              "tsConfig": "packages/form-strategy/tsconfig.lib.prod.json"
 }
           }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/form-strategy/tsconfig.lib.json",
-              "packages/form-strategy/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -804,19 +536,6 @@
               "project": "packages/types/ng-package.prod.json"
             ,              "tsConfig": "packages/types/tsconfig.lib.prod.json"
 }
-          }
-        },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "packages/strongly-typed/tsconfig.lib.json",
-              "packages/strongly-typed/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
