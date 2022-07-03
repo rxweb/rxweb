@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
     imports: [CommonModule
     ],
     providers: [],
-    exports: [GridElement],
-    entryComponents: [],
+    exports: [GridElement]
 })
 export class GridModule { }

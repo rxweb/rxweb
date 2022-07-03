@@ -1,10 +1,8 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/@rxweb/grid",
+  "dest": "../../dist/@rxweb/reactive-forms",
   "deleteDestPath": false,
   "lib": {
     "entryFile": "index.ts"
-
-  },
-  "whitelistedNonPeerDependencies": [ "@rxweb/dom", "@rxweb/translate" ]
+  }
 }

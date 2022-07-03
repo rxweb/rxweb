@@ -27,18 +27,16 @@ import { RxMonthPicker } from './rx-month-picker.component';
 
 
 @Component({
-  selector: "rx-date",
-  template: `<div class="input-group"><input [tabindex]="controlTabIndex" type="text" #inputDate [disabled]="pickerDisabled" [placeholder]="placeholder" [class]="pickerClass" (click)="onFocus($event)" (focus)="onFocus($event)" 
+    selector: "rx-date",
+    template: `<div class="input-group"><input [tabindex]="controlTabIndex" type="text" #inputDate [disabled]="pickerDisabled" [placeholder]="placeholder" [class]="pickerClass" (click)="onFocus($event)" (focus)="onFocus($event)" 
                         (blur)="onBlur($event,$event.target)" (keyup)="onKeyup($event.target.value)" [(ngModel)]="selectedDate" />
     <div *ngIf="showAddon" class="input-group-append" (click)="prependClick($event)">
                               <span class="input-group-text"><i class="fa fa-calendar" ></i></span>
                             </div></div>
 `,
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => RxDateComponent), multi: true },
-  ],
-
-  entryComponents: [RxPickerComponent]
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => RxDateComponent), multi: true },
+    ]
 })
 export class RxDateComponent implements OnDestroy, OnInit {
   @ViewChildren('inputDate') inputDate: QueryList<ElementRef>;

@@ -3,11 +3,6 @@
   "dest": "../../dist/@rxweb/js",
   "deleteDestPath": false,
   "lib": {
-    "entryFile": "index.ts",
-    "umdModuleIds": {
-      "@rxweb/dom": "@rxweb/dom",
-      "@rxweb/core": "@rxweb/core",
-      "@rxweb/localization": "@rxweb/localization"
-    }
+    "entryFile": "index.ts"
   }
 }

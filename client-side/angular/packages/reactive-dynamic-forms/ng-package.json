@@ -3,9 +3,6 @@
   "dest": "../../dist/@rxweb/reactive-dynamic-forms",
   "deleteDestPath": false,
   "lib": {
-    "entryFile": "index.ts",
-    "umdModuleIds": {
-      "@rxweb/reactive-form-validators": "@rxweb/reactive-form-validators"
-    }
+    "entryFile": "index.ts"
   }
 }

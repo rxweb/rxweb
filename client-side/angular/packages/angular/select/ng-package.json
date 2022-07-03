@@ -1,9 +1,6 @@
 {
   "$schema": "ng-packagr/ng-package.schema.json",
   "lib": {
-    "entryFile": "public_api.ts",
-    "umdModuleIds": {
-      "@rxweb/http": "@rxweb/http"
-    }
+    "entryFile": "public_api.ts"
   }
 }

@@ -3,9 +3,6 @@
   "dest": "../../dist/@rxweb/angular-localization",
   "deleteDestPath": true,
   "lib": {
-    "entryFile": "index.ts",
-    "umdModuleIds": {
-      "@rxweb/localization": "@rxweb/localization"
-    }
+    "entryFile": "index.ts"
   }
 }
