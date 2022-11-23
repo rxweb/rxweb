@@ -143,35 +143,32 @@
       }
     },
     "@rxweb/reactive-form-validators": {
-      "root": "packages/reactive-form-validators",
-      "sourceRoot": "packages/reactive-form-validators",
       "projectType": "library",
+      "root": "packages/reactive-form-validators",
+      "sourceRoot": "packages/reactive-form-validators/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-
             "project": "packages/reactive-form-validators/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "packages/reactive-form-validators/ng-package.prod.json"
-            ,              "tsConfig": "packages/reactive-form-validators/tsconfig.lib.prod.json"
-}
-          }
+              "tsConfig": "packages/reactive-form-validators/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "packages/reactive-form-validators/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
         },
-
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": [
-              "packages/reactive-form-validatorstsconfig.lib.json",
-              "packages/reactive-form-validatorstsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "main": "packages/reactive-form-validators/src/test.ts",
+            "tsConfig": "packages/reactive-form-validators/tsconfig.spec.json",
+            "karmaConfig": "packages/reactive-form-validators/karma.conf.js"
           }
         }
       }

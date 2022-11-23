@@ -1,42 +1,37 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "module": "es2020",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false,
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
+    "downlevelIteration": false,
     "experimentalDecorators": true,
-    "downlevelIteration": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "moduleResolution": "node",
+    "importHelpers": true,
     "paths": {
-      "@rxweb/reactive-form-validators": [ "packages/reactive-form-validators" ],
-      "@rxweb/reactive-dynamic-forms": [ "packages/reactive-dynamic-forms" ],
-      "@rxweb/sanitizers": [ "packages/sanitizers" ],
-      "@rxweb/generics": [ "packages/generics" ],
-      "@rxweb/http": [ "packages/http" ],
-      "@rxweb/core": [ "packages/core" ],
-      "@rxweb/grid": [ "packages/grid" ],
-      "@rxweb/dom": [ "packages/dom" ],
-      "@rxweb/framework": [ "packages/framework" ],
-      "@rxweb/js": [ "packages/js" ],
-      "@rxweb/reactive-forms": [ "packages/reactive-forms" ],
-      "@rxweb/angular/*": [ "packages/angular/*/public_api" ],
-      "@rxweb/storage": [ "packages/storage" ],
-      "@rxweb/angular-router": [ "packages/angular-router" ],
-      "@rxweb/localization": [ "packages/localization" ],
-      "@rxweb/translate": [ "packages/translate" ],
-      "@rxweb/ngx-translate-extension": [ "packages/ngx-translate-extension" ],
-      "@rxweb/types": [ "packages/types" ]
-
+      "reactive-form-validators": [
+        "dist/reactive-form-validators"
+      ]
     },
+    "target": "es2020",
+    "module": "es2020",
     "lib": [
-      "es2017",
+      "es2020",
       "dom"
     ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@rxweb/reactive-form-validators",
-  "version": "2.1.7",
+  "version": "13.0.0-rc.1",
   "keywords": [
     "angular",
     "formgroup",
@@ -34,7 +34,7 @@
   },
   "homepage": "https://docs.rxweb.io",
   "dependencies": {
-    "tslib": "2.2.0"
+    "tslib": "2.3.0"
   },
   "license": "MIT"
 }
