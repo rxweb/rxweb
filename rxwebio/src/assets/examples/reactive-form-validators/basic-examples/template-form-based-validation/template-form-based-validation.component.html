@@ -1,8 +1,0 @@
-<form #countryForm="ngForm">
-<div class="form-group">
-    <label>Country</label>
-        <input type="text" class="form-control" name="countryName" [(ngModel)]="country.countryName"  alpha=""/>
-      <small class="form-text text-danger" *ngIf="countryForm.controls.countryName?.errors">{{countryForm.controls.countryName?.errors?.alpha.message}}<br></small>  
-</div>
-<button [disabled]="!countryForm.valid" class="btn btn-primary">Submit</button>
-</form>

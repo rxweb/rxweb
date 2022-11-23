@@ -1,0 +1,18 @@
+{
+  "plainText": "Affichage du texte en anglais.",
+  "scopedText": "Hey {{name}}!",
+  "conditionalText": "this.meridiem == 'am' ? 'Bonjour' : 'Bonne journée'",
+  "selectedRecord": "Vous avez sélectionné l'enregistrement de '{name}'",
+  "keyOne": "Key One",
+  "nested": {
+    "keyOne": "Clé imbriquée"
+  },
+  "reuseText": "{{global.scopedText}} {{global.conditionalText}}",
+  "validationErrorMessages": {
+    "required": "Ce champ est requis.",
+    "maxlength": "Missing Text of fr"
+  },
+  "placeholder": {
+    "freeText": "Missing Text of fr"
+  }
+}

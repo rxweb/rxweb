@@ -1,0 +1,18 @@
+﻿{
+    "application_title": "Demo: angular-i18next",
+    "intro": "This application is demonstrating itegration of i18next library with angular. You can switch language in the navbar.",
+    "simple_demo": "Simple demo",
+    "rich_form_title": "Rich form with validation",
+    "parametrized_string_title": "parametrized string demo",
+    "case_demo_title": "i18next pipe 'format' option demo",
+    "case_demo": "rise and shine, Mr.Freeman",
+    "parametrized_string": "I am parametrized sting with a value: {{value}} and a string: '{{str}}'",
+    "email": "email",
+    "_languages": {
+        "ru": "Русский",
+        "en": "English"
+    },
+    "_buttons": {
+        "send": "send"
+    }
+}

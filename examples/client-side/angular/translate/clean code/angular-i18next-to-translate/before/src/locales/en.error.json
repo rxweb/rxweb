@@ -1,0 +1,15 @@
+{
+  "oops": "Oops!",
+  "error_occured": "Error has occured",
+  "error_occured_onload": "$t(error:error_occured)",
+  "access_denied": "Access is denied",
+  "reload": "Reload",
+  "restart": "Restart",
+  "contact_administrator_or_try_to_clear_browser_chache_and_restart_application": "Contact your administrator or clear browser cache and restart page.",
+  "need_help_write_to_us": "Need help? Contact us.",
+  "write": "Contact",
+  "cookies": {
+    "how_to": "How to clear browser cache and cookies",
+    "chrome_clear": "Если у вас Google Chrome, то:<ol><li>Запустите Chrome.</li><li>Нажмите на значок&nbsp;<img src=\"//storage.googleapis.com/support-kms-prod/5C6FB52C8BBB2C12DC89B5F42F16B9B5E9CF\" width=\"18\" height=\"18\" alt=\"Настройка и управление Google Chrome\" title=\"Настройка и управление Google Chrome\"> на панели инструментов.</li><li>В меню <strong>Дополнительные инструменты</strong> нажмите <strong>Удаление данных о просмотренных страницах</strong>.</li><li>В окне \"Очистить историю\" выберите пункты <strong>Файлы cookie, а также другие данные сайтов и плагинов</strong> и <strong>Изображения и другие файлы, сохраненные в кеше</strong>.</li><li>В раскрывающемся меню в верхней части страницы выберите период, данные за который нужно удалить. Выберите вариант <strong>за все время</strong>, если вы хотите удалить все сведения.</li><li>Нажмите кнопку <strong>Очистить историю</strong>.</li></ol>"
+  }
+}

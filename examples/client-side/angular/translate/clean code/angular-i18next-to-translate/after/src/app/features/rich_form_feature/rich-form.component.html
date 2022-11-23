@@ -1,0 +1,69 @@
+<div *ngIf="richForm._buttons">
+    <div class="main-header">
+        <h1>{{ richForm.title | titlecase }}</h1>
+    </div>
+    <br/>
+    <form #requestHtmlForm class="form-default" name="requestHtmlForm" [formGroup]="form" (ngSubmit)="onSubmit($event)">
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                  <label class="control-label control-label-sm text-muted">{{ richForm._person.email }}</label>
+                    <input name="email" type="email" class="form-control" formControlName="email" />
+                    <div class="error-container" *ngIf="form.controls.email.hasError('email')">{{form.controls.email.errors.email.message}}</div>
+                </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="control-label control-label-sm text-muted">{{ richForm.count }}</label>
+                <input name="count" type="number" class="form-control" formControlName="count" />
+                <div class="error-container" *ngIf="form.controls.count.hasError('min')">{{form.controls.count.errors.min.message}}</div>
+                <div class="error-container" *ngIf="form.controls.count.hasError('max')">{{form.controls.count.errors.max.message}}</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>{{ richForm.technical_contact }}</div>
+        </div>
+
+        <div formGroupName="technicalContact">
+
+            <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label class="control-label control-label-sm text-muted">{{ richForm._person.last_name | titlecase }}</label>
+                    <input class="form-control" type="text" formControlName="lastName" />
+                    <div class="error-container" *ngIf="technicalContact.controls.lastName.hasError('required')">{{technicalContact.controls.lastName.errors.required.message}}</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label class="control-label control-label-sm text-muted">{{ richForm._person.first_name | titlecase }}</label>
+                    <input class="form-control" type="text" formControlName="firstName">
+                    <div class="error-container" *ngIf="technicalContact.controls.firstName.hasError('required')">{{technicalContact.controls.firstName.errors.required.message}}</div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label class="control-label control-label-sm text-muted">{{ richForm._person.middle_name | titlecase }}</label>
+                    <input class="form-control" type="text" formControlName="middleName">
+                    <div class="error-container" *ngIf="technicalContact.controls.middleName.hasError('required')">{{technicalContact.controls.middleName.errors.required.message}}</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">{{ richForm._buttons.send }}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

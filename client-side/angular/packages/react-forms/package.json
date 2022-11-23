@@ -1,0 +1,19 @@
+{
+  "name": "@rxweb/react-forms",
+  "version": "0.0.0-beta1",
+  "keywords": [
+    
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/react-forms#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
+  },
+  "homepage": "https://rxweb.io",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "license": "MIT"
+}

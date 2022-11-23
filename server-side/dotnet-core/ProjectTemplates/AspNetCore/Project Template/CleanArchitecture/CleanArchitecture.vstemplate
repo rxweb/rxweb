@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <DisplayName>Clean Architecture of AspNetCore Api</DisplayName>
+    <Name>Clean Architecture of AspNetCore Api</Name>
+    <Description>A template solution for building RESTful API's with good design patterns and practices for enterprise application.</Description>
+    <Icon>icon.png</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>CleanArchitecture</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+    <SolutionFolder Name="Api">
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Api" CopyParameters="true">
+        Api\Api.vstemplate
+      </ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="Core">
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Infrastructure" CopyParameters="true">
+        Infrastructure\Infrastructure.vstemplate
+      </ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="Domain">
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Domain" CopyParameters="true">
+        Domain\Domain.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.BoundedContext" CopyParameters="true">
+        BoundedContext\BoundedContext.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.UnitOfWork" CopyParameters="true">
+        UnitOfWork\UnitOfWork.vstemplate
+      </ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="Models">
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Models" CopyParameters="true">
+            Models\Models.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>

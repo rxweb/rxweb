@@ -1,1 +1,0 @@
-{"device":{"fileSize":true},"photographStorageSize":{"maxSize":"50","conditionalExpression":"'x => x.device ==\"SmartPhone\"'"},"videoStorageSize":{"maxSize":"50","message":"'{{0}} is not a valid size'"}}

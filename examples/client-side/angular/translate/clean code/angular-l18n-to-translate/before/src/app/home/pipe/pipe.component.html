@@ -1,0 +1,9 @@
+<h3>Pure Pipes</h3>
+<p title="{{ 'home.greeting' | translate:locale.language }}">{{ 'home.greeting' | translate:locale.language }}</p>
+<p>{{ 'home.whoIAm' | translate:locale.language:{ name: 'Angular l10n' } }}</p>
+<p innerHTML="{{ 'home.description' | translate:locale.language }}"></p>
+<br>
+<p>{{ today | l10nDate:locale.language:{ dateStyle: 'full', timeStyle: 'short' } }}</p>
+<p>{{ timeAgo | l10nTimeAgo:locale.language:'second':{ numeric:'always', style:'long' } }}</p>
+<br>
+<p>{{ value | l10nNumber:locale.language:{ digits: '1.2-2', style: 'currency' } }}</p>

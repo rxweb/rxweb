@@ -1,8 +1,0 @@
-<div class="model-ts" *ngIf="content">
-    <div class="code">
-        <a class="float-right copy-icon" ngxClipboard [cbContent]="content" (cbOnSuccess)="CodeContentCopied = true" [class.copied]="CodeContentCopied"><i class="fa fa-files-o" aria-hidden="true"></i></a>
-        <div highlight="pre code">
-            <pre><code [textContent]="content"></code></pre>
-        </div>
-    </div>
-</div>

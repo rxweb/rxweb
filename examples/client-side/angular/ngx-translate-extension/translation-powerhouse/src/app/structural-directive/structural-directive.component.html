@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="display-4">Structural Directive Example</h1>
+  <table class="table" width="100%">
+    <thead>
+      <tr>
+        <th width="50%">Category</th>
+        <th width="50%">Output</th>
+      </tr>
+    </thead>
+    <tr>
+      <td class="category">Directive</td>
+      <td>
+        <span translate="directive" class="badge badge-{{translate.currentLang}}"></span>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="category">Pipe</td>
+      <td>
+        <span class="badge badge-{{translate.currentLang}}"> {{'pipe' | translate }}</span>
+      </td>
+    </tr>
+
+  </table>
+</div>

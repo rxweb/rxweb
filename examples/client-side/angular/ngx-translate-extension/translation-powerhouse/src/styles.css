@@ -1,0 +1,85 @@
+/* You can add global styles to this file, and also import other style files */
+.mt-2 {
+  margin-left: 5px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.text-right {
+  text-align: right !important;
+}
+.active-language {
+  font-weight: bold;
+}
+.english {
+  background-color: #ffdc72;
+  color: black !important;
+  border-bottom-left-radius: 5px;
+}
+.blue-link {
+  cursor: pointer;
+  color: #0b0c0d !important;
+  padding: 10px;
+}
+.french {
+  background-color: #aad4f8;
+  color: black !important;
+  border-bottom-right-radius: 5px;
+}
+.badge {
+  padding: 9px;
+  font-weight: 600;
+}
+.badge-en {
+  background-color: #ffdc72;
+}
+.badge-fr {
+  color: #000;
+  background-color: #aad4f8;
+}
+.pd-0 {
+  padding:5px;
+}
+.category {
+  color: #0c4b83;
+}
+.display-4 {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+th {
+  font-weight: 500;
+}
+
+.form-control {
+  height: auto !important;
+  width: 30% !important;
+  display: inline !important;
+  padding: 0.175rem .75rem;
+  font-size: 15px;
+}
+.margin-left {
+  margin-left: 10px;
+}
+.opac {
+  opacity:1;
+  transition: opacity 1s;
+  cursor:pointer;
+}
+  .opac:hover {
+    opacity: 1;
+    
+  }
+
+.red {
+  color: #d70f2b;
+}
+
+.light {
+  background-color: #dae0e5;
+}
+.ft-small {
+  background-color: #fafafa;
+  font-weight:normal;
+}

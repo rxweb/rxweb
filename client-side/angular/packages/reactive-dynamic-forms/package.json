@@ -1,0 +1,30 @@
+{
+  "name": "@rxweb/reactive-dynamic-forms",
+  "version": "0.0.6",
+  "keywords": [
+    "angular reactive dynamic forms",
+    "dynamic forms"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/reactive-dynamic-forms#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
+  },
+  "homepage": "https://rxweb.io",
+  "license": "MIT",
+  "main": "bundles/rxweb-reactive-dynamic-forms.umd.js",
+  "module": "fesm5/rxweb-reactive-dynamic-forms.js",
+  "es2015": "fesm2015/rxweb-reactive-dynamic-forms.js",
+  "esm5": "esm5/rxweb-reactive-dynamic-forms.js",
+  "esm2015": "esm2015/rxweb-reactive-dynamic-forms.js",
+  "fesm5": "fesm5/rxweb-reactive-dynamic-forms.js",
+  "fesm2015": "fesm2015/rxweb-reactive-dynamic-forms.js",
+  "typings": "rxweb-reactive-dynamic-forms.d.ts",
+  "metadata": "rxweb-reactive-dynamic-forms.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

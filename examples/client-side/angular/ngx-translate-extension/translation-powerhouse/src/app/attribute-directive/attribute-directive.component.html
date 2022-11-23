@@ -1,0 +1,48 @@
+<div class="container">
+  <h1 class="display-4">Attribute Directive Examples</h1>
+  <table class="table" width="100%">
+    <thead>
+      <tr>
+        <th width="50%">Category</th>
+        <th width="50%">Output</th>
+      </tr>
+    </thead>
+    <tr>
+      <td class="category">Simple Multilingual Text</td>
+      <td>
+
+        <span translate="greet" class="badge badge-{{translate.currentLang}}"></span>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="category">Multilingual Text with Custom Parameter</td>
+      <td>
+        <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" class="form-control">
+
+        <span translate="notification" [translateParams]="{'name':name}" class="margin-left badge badge-{{translate.currentLang}}"></span>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="category">Bind the text on basis of translation name.</td>
+      <td>
+
+        <span translate="dashboardHeading" translationName="dashboard" class="badge badge-{{translate.currentLang}}"></span>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="category">Bind text in fixed <span class="badge badge-fr pd-0">french</span>  language</td>
+      <td>
+
+        <span translate="note" translateLang="fr" class="badge badge-fr"></span>
+
+      </td>
+    </tr>
+
+  </table>
+</div>

@@ -1,0 +1,66 @@
+<div>
+  <div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 lead" style="padding-top:10px; font-weight:400;color:#871a6a">
+          The most powerful flexible, faster, simple translation binding for Angular Applications.            
+        </div>
+        <div class="col-md-2" >
+          <p style="position:fixed" class="text-right ">
+            <a (click)="translate.use('en')" [class.active-language]="translate.currentLang == 'en'" class="blue-link english active-language">English</a>
+            <a (click)="translate.use('fr')" [class.active-language]="translate.currentLang == 'fr'" class="blue-link french">French</a>
+            <iframe style="margin-left:10px; " src="https://ghbtns.com/github-btn.html?user=rxweb&repo=rxweb&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+
+
+  <div style="margin-top:30px;" class="opac">
+    <!--Attribute Directive Example Binding-->
+    <app-attribute-directive></app-attribute-directive>
+  </div>
+  <div class="opac">
+    <!--Pipe Example Binding-->
+    <app-pipe></app-pipe>
+  </div>
+
+  <div class="opac">
+    <!--Decorator Example Binding-->
+    <app-decorator *rxTranslate="true"></app-decorator>
+  </div>
+
+  <div class="opac">
+    <!--Pure Pipe Example Binding-->
+    <app-pure-pipe *rxTranslate="true"></app-pure-pipe>
+  </div>
+
+
+  <div class="opac">
+    <!--Validation Message Example-->
+    <app-validation-message></app-validation-message>
+  </div>
+
+  <div class="opac">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="opac">
+    <!--Other Intuitive Features-->
+    <app-other-intuitive-feature></app-other-intuitive-feature>
+  </div>
+
+  <div class="opac">
+    <!--Structural Directive Example-->
+    <app-structural-directive *rxTranslate="true"></app-structural-directive>
+  </div>
+
+  <div class="opac">
+    <!--Sanitize Example-->
+    <app-sanitize *rxTranslate="true"></app-sanitize>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+{
+  "greet": "Hello! How are you",
+  "notification": "Hello {{name}}",
+  "note": "This is ngx-translate-extension package",
+  "validationErrorMessages": {
+    "required": "This Field is Required.",
+    "maxlength": "Maximum alloed length is {{requiredLength}} and you have entered {{actualLength}}.",
+    "identityRevealed": "You have entered '{{0}}', only '{{1}}' value is allowed."
+
+  },
+  "conditionalText": "this.meridiem == 'am' ? 'Good Morning' : 'Have a Good Day'",
+  "reuseText": "{{global.notification}}, {{global.conditionalText}}",
+  "selectedRecord": "You have selected record of '{name}'",
+  "keyOne": "Key One",
+  "nested": {
+    "keyOne": "Nested Key One"
+  }
+}

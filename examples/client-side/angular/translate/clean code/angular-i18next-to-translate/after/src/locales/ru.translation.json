@@ -1,0 +1,18 @@
+﻿{
+    "application_title": "Демо: angular-i18next",
+    "intro": "Данное приложение демонстрирует интеграцию библиотеки i18next с angular. Вы можете сменить язык в шапке.",
+    "simple_demo": "простое демо",
+    "rich_form_title": "Форма с валидацией",
+    "parametrized_string_title": "демонстрация параметризованной строки",
+    "case_demo_title": "демонстрация опции 'format'",
+    "case_demo": "проснись и пой, мистер Фримэн",
+    "parametrized_string": "Я параметризованная строка значением: {{value}} и строкой: '{{str}}'",
+    "email": "email адрес",
+    "_languages": {
+        "ru": "Русский",
+        "en": "English"
+    },
+    "_buttons": {
+        "send": "отправить"
+    }
+}

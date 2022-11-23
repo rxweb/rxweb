@@ -1,0 +1,376 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~assets/css/bootstrap.min.css";
+@import "~assets/css/fontawesome.css";
+@import "~assets/css/custom.css";
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: black;
+  background: none;
+  text-shadow: 0 1px white;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+  pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+  code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background: #b3d4fc;
+  }
+
+  pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+  code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+  }
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+.token.punctuation {
+  color: #999;
+}
+
+.token.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #9a6e3a;
+  background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a;
+}
+
+.token.function,
+.token.class-name {
+  color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e90;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+
+
+
+.table tr td {
+  vertical-align:middle;
+}
+.opacity-td {
+  opacity:0.5;
+  cursor:pointer;
+}
+.opacity-td:hover {
+  opacity: 1;
+}
+
+.alert {
+  color: #0c63bd;
+}
+.btn-click {
+  margin-left: 10px;
+  border: solid 1px #d4dff4;
+  font-weight: 100;
+  cursor: pointer;
+}
+.btn-gray {
+  background-color: #5e82a9;
+  border-color: #7892ad;
+}
+.btn-gray:hover {
+  background-color: #5e82a9;
+  border-color: #7892ad;
+}
+.show-code {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #7ea4db;
+}
+  .show-code:hover {
+    color: #5a7baa;
+  }
+.pre-code {
+  /*background-color: #fafafa;*/
+  
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0px;
+}
+.max-width-popover {
+  max-width:600px !important;
+}
+.json {
+  color: #161313;
+}
+
+.typescript {
+  color: #194f91;
+}
+.html {
+  color: #2b9376;
+}
+.table {
+  margin-bottom:0px;
+}
+
+  .table th {
+    border-top: 0px;
+  }
+.text-title {
+  color: #0f1011;
+  font-weight: 600;
+}
+.mt-2 {
+  margin-left:5px;
+  margin-top:20px;
+  margin-bottom:40px;
+}
+.blue-link {
+  cursor: pointer;
+  color: #046ba3 !important;
+  padding: 10px;
+}
+.active-language {
+  font-weight:bold;
+}
+.english {
+  background-color: #ffdc72;
+  color: black !important;
+  border-bottom-left-radius: 5px;
+}
+.french {
+  background-color: #aad4f8;
+  color: black !important;
+  border-bottom-right-radius: 5px;
+}
+.badge-warning {
+  background-color: #ffdc72;
+}
+.badge-success {
+  color: #000;
+  background-color: #aad4f8;
+}
+.badge {
+  padding: 9px;
+  font-weight: 600;
+
+}
+.active-language {
+  font-weight:bold;
+}
+.form-control {
+  height: auto !important;
+  width: 30% !important;
+  display: inline !important;
+  padding: 0.175rem .75rem;
+  font-size: 15px;
+}
+
+.margin-left {
+  margin-left:10px;
+}
+
+.red {
+  color: #d70f2b;
+}
+.border-red {
+  border: solid 1px #d70f2b;
+}
+.font-size-eight {
+  font-size: 10px;
+  color: #83aed1;
+  letter-spacing: 1px;
+}
+
+.token.property {
+  color: #2b79bc !important;
+}
+.token.string {
+  color: #b20f0f !important;
+}
+
+
+.token.function {
+  color: #3f7ac4 !important;
+}
+
+.token.builtin {
+  color: #1375db !important;
+}
+.code-div {
+  cursor: pointer;
+  font-weight: bold;
+  /*padding:10px;*/
+}
+.code-div:hover {
+  font-weight: bold;
+}
+.code-section {
+  padding:10px;
+  opacity:0.8;
+}
+.code-section:hover {
+  background-color: #fcfcfc;
+  opacity:1;
+}
+.token.punctuation {
+  color: #000
+}
+.token.attr-name {
+  color: #b20f0f !important;
+}
+
+.td-height {
+  height:100px;
+}
+.row-style {
+  border-bottom: solid 1px #f3f8fc;
+  cursor:pointer;
+}
+.row-style:hover {
+  background-color: #fcfcfc;
+  
+}
+.col-style {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.col-text-style {
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #0f456c;
+  font-weight: 500;
+}
+
+.col-hash-text {
+  color: #7cbaf0;
+  font-weight: 700;
+  font-size: 16px;
+}
+.col-hash-text-red {
+  color:#e5a7b8;
+}
+.col-hash-text-green {
+  color: #5eae8c;
+}
+.col-hash-text-color {
+  color:#babc27;
+}
+.col-hash-text-marron {
+  color: #9a28a8;
+}
+.col-hash-text-gray {
+  color: #5c5859;
+}
+.example-col-title {
+  font-size: 25px;
+  font-weight: 400;
+  color: #083f70;
+  opacity: 0.4;
+  cursor:pointer;
+}
+  .example-col-title:hover {
+    opacity:1;
+  }
+
+.example-table-color {
+  color: #757f87;
+}
+.padding-zero {
+  padding:0px;
+}
+
+.popover-header {
+  background-color: #f8fafc
+}
+.form-control-text {
+  width:30%
+}

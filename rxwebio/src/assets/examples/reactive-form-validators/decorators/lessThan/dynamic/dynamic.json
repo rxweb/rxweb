@@ -1,1 +1,0 @@
-{"obtainedMarks":{"lessThan":true},"passingMarks":{"fieldName":"'obtainedMarks'","conditionalExpression":"'x => x.obtainedMarks < 35'"},"otherMarks":{"fieldName":"'obtainedMarks'","message":"'Please enter number greater than 100.'"}}

@@ -1,0 +1,9 @@
+.box {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    
+    div {
+        flex: 1 1 auto;
+    }
+}

@@ -1,0 +1,19 @@
+<h4>Scope is set to <code>todos-page</code> in module's providers.</h4>
+
+<h5>Structural</h5>
+<p data-cy="todos-page-scope">{{ todos.title }}</p>
+<p data-cy="global">{{ global.home }}</p>
+
+<h5>Directive</h5>
+<h6>Scope is set to `lazy-page` inline</h6>
+<p data-cy="d-lazy-page-scope">{{ lazyPage.title }}</p>
+<p data-cy="d-global">{{ global.b }}</p>
+
+<h5>Pipe</h5>
+<p data-cy="p-todos-page-scope">{{ todos.title }}</p>
+<p data-cy="p-global">{{ global.home }}</p>
+
+<h5>Use read to get translations of a nested property</h5>
+
+<h5>{{ global.nested.title }}</h5>
+<p>{{ global.nested.desc }}</p>

@@ -1,0 +1,8 @@
+﻿using System;
+
+namespace RxWeb.Core.Data.Annotations
+{
+    public class TableKeyAttribute : Attribute
+    {
+    }
+}

@@ -1,0 +1,65 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Models</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Models</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Models.csproj" File="Models.csproj" ReplaceParameters="true">
+      <Folder Name="DbEntities" TargetFolderName="DbEntities">
+        <Folder Name="Log" TargetFolderName="Log">
+          <ProjectItem ReplaceParameters="true" TargetFileName="AuditRecord.cs">AuditRecord.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="AuditRecordDetail.cs">AuditRecordDetail.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="AuditRequest.cs">AuditRequest.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ExceptionLog.cs">ExceptionLog.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="RequestTrace.cs">RequestTrace.cs</ProjectItem>
+        </Folder>
+        <Folder Name="Main" TargetFolderName="Main">
+          <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationLocale.cs">ApplicationLocale.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationModule.cs">ApplicationModule.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationObject.cs">ApplicationObject.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationObjectType.cs">ApplicationObjectType.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationTimeZone.cs">ApplicationTimeZone.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationUserToken.cs">ApplicationUserToken.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ComponentLanguageContent.cs">ComponentLanguageContent.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="LanguageContent.cs">LanguageContent.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="LanguageContentKey.cs">LanguageContentKey.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ModuleMaster.cs">ModuleMaster.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Role.cs">Role.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="RolePermission.cs">RolePermission.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="User.cs">User.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="UserRole.cs">UserRole.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="vUser.cs">vUser.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Enums" TargetFolderName="Enums">
+        <Folder Name="Main" TargetFolderName="Main">
+          <ProjectItem ReplaceParameters="true" TargetFileName="Status.cs">Status.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Interface" TargetFolderName="Interface">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ILogDatabaseFacade.cs">ILogDatabaseFacade.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IMainDatabaseFacade.cs">IMainDatabaseFacade.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Models" TargetFolderName="Models">
+        <ProjectItem ReplaceParameters="true" TargetFileName="SecurityConfig.cs">SecurityConfig.cs</ProjectItem>
+      </Folder>
+      <Folder Name="ViewModels" TargetFolderName="ViewModels">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AuthenticationModel.cs">AuthenticationModel.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="StoreProcResult.cs">StoreProcResult.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="UserConfig.cs">UserConfig.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

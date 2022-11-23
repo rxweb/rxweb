@@ -1,0 +1,51 @@
+
+<form [formGroup]="formGroup">
+  <h1 class="lead">Messaging Strategy</h1>
+  <div class="form-group">
+    <label>OnDirty</label>
+    <input type="text" formControlName="onDirty" class="form-control" />
+    <span class="margin-left small red">{{formGroup.controls.onDirty.errorMessage}}</span>
+  </div>
+
+  <div class="form-group">
+    <label>OnTouched</label>
+    <input type="text" formControlName="onTouched" class="form-control" />
+    <span class="margin-left small red">{{formGroup.controls.onTouched.errorMessage}}</span>
+  </div>
+
+  <div class="form-group">
+    <label>OnDirtyOrTouched</label>
+    <input type="text" formControlName="onDirtyOrTouched" class="form-control" />
+    <span class="margin-left small red">{{formGroup.controls.onDirtyOrTouched.errorMessage}}</span>
+  </div>
+
+  <div class="form-group">
+    <label>OnDirtyOrSubmit</label>
+    <input type="text" formControlName="onDirtyOrSubmit" class="form-control" />
+    <span class="margin-left small red">{{formGroup.controls.onDirtyOrSubmit.errorMessage}}</span>
+  </div>
+
+  <div class="form-group">
+    <label>OnTouchedOrSubmit</label>
+    <input type="text" formControlName="onTouchedOrSubmit" class="form-control" />
+    <span class="margin-left small red">{{formGroup.controls.onTouchedOrSubmit.errorMessage}}</span>
+  </div>
+
+  <div class="form-group">
+    <label>OnSubmit</label>
+    <input type="text" formControlName="onSubmit" class="form-control" />
+    <span class="margin-left small red">{{formGroup.controls.onSubmit.errorMessage}}</span>
+  </div>
+  <div class="form-group">
+    <label>Conditional</label>
+  </div>
+  <div class="form-group">
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label" for="exampleCheck1">I Agree</label>
+    <input type="text" formControlName="onSubmit" />
+    <span class="margin-left small red">{{formGroup.controls.onSubmit.errorMessage}}</span>
+  </div>
+
+  <button (click)="submit()" class="btn btn-primary">Submit</button>
+</form>
+

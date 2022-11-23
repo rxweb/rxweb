@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitUseStrict": true,
+    "removeComments": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "target": "es2019",
+    "lib": [
+      "es2019"
+    ],
+    "module": "commonjs",
+    "outDir": "../../dist/@rxweb/i18n",
+    "sourceMap": true,
+    "typeRoots": [
+      "../../node_modules/@types"
+    ]
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": ["dist/i18n"]
+}

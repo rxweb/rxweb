@@ -1,0 +1,40 @@
+{
+  "name": "@rxweb/reactive-forms",
+  "version": "0.0.0-beta1",
+  "keywords": [
+    "angular",
+    "formgroup",
+    "formarray",
+    "reactive form validation",
+    "angular2 validation",
+    "angular5 validation",
+    "validators",
+    "conditional form validation",
+    "dynamic form validation",
+    "dynamic reactive form validation",
+    "dynamic template driven form validation",
+    "formcontrol",
+    "dirty check",
+    "reset form",
+    "reset nested form",
+    "model based validation",
+    "angular validators",
+    "angular advanced validators",
+    "pattern based validation",
+    "model based value changes",
+    "alpha validator",
+    "alphaNumeric validator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/reactive-form-validators#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
+  },
+  "homepage": "https://rxweb.io",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "license": "MIT"
+}

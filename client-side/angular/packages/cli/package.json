@@ -1,0 +1,32 @@
+{
+  "name": "@rxweb/cli",
+  "version": "0.0.8",
+  "description": "CLI for Angular Projects",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "bin/",
+    "dist/"
+  ],
+  "bin": {
+    "rxweb": "bin/cli.js"
+  },
+  "scripts": {
+    "watch": "npm run clean && tsc --watch",
+    "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2",
+    "rxjs": "~6.4.0",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1",
+    "fs": "0.0.1-security",
+    "path": "0.12.7",
+    "@rxweb/i18n": "0.0.8"
+  },
+  "devDependencies": {
+    "ts-node": "~7.0.0",
+    "tslint": "~5.15.0",
+    "typescript": "~3.5.3"
+  }
+}

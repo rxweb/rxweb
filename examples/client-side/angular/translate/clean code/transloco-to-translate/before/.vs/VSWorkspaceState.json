@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\dynamic-translation",
+    "\\src\\app\\dynamic-translation\\dynamic-translation",
+    "\\src\\app\\home",
+    "\\src\\app\\multilangs",
+    "\\src\\app\\multilangs\\provider-lang",
+    "\\src\\assets",
+    "\\src\\assets\\i18n"
+  ],
+  "SelectedNode": "\\src\\app\\multilangs\\multilangs.component.html",
+  "PreviewInSolutionExplorer": false
+}

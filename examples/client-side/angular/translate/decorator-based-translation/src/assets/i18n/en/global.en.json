@@ -1,0 +1,19 @@
+{
+  "plainText": "Showing Text in English.",
+  "scopedText": "Hey {{name}}!",
+  "conditionalText": "this.meridiem == 'am' ? 'Good Morning' : 'Have a Good Day'",
+  "selectedRecord": "You have selected record of '{name}'",
+  "keyOne": "Key One",
+  "nested": {
+    "keyOne": "Nested Key One"
+  },
+  "reuseText": "{{global.scopedText}} {{global.conditionalText}}",
+
+  "validationErrorMessages": {
+    "required": "This Field is Required.",
+    "maxlength": "MaxLength"
+  },
+  "placeholder": {
+    "freeText": "en freeText Absent!"
+  }
+}

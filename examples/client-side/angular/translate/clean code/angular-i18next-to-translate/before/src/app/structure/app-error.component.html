@@ -1,0 +1,41 @@
+<div class="error-page">
+    <div class="viewport">
+        <div class="page-404">
+            <div class="cols">
+                <div class="col">
+                    <div class="error-code">{{ 'error:oops' | i18next }}</div>
+                </div>
+                <div class="col">
+                    <div class="error-description">{{ 'error:error_occured_onload' | i18next }}</div>
+                    <ul>
+                        <li>
+                            <p>{{ 'error:contact_administrator_or_try_to_clear_browser_chache_and_restart_application' | i18next }}</p>
+                            <button class="btn btn-success btn-block" (click)="reload()">{{ 'error:restart' | i18next }}</button>
+                            <div class="popover-wrapper">
+                                <div *ngIf="showed">
+                                    <svg class="icon" (click)="close()">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#cross"></use>
+                                    </svg>
+                                    <div class="popover-header">{{ 'error:cookies.how_to' | i18next }}</div>
+                                    <div class="popover-body">{{ 'error:cookies.clear_chrome' | i18next }}</div>
+                                </div>
+                                <svg class="icon icon-question-circle-black" placement="right" (click)="toggle()">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#question-circle-black"></use>
+                                </svg>
+                            </div>
+                        </li>
+                        <li>
+                            <p>{{ 'error:need_help_write_to_us' | i18next }}</p>
+                            <a class="link text-sm" href="#">
+                                {{ 'error:write' | i18next }}
+                                <svg class="icon icon_link-arrow">
+                                    <use xlink:href="assets/images/icons.svg#link-arrow" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

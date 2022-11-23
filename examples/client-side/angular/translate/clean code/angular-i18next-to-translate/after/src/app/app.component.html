@@ -1,0 +1,21 @@
+<div class="app-wrapper">
+  <div class="app-loader" *ngIf="loading">
+    <div class="loader-pusher">
+      <div class="spinner">
+        <div class="spinner-tail"></div>
+      </div>
+    </div>
+  </div>
+  <app-header *rxTranslate="true"></app-header>
+  <main>
+    <div class="app-body">
+      <div class="container">
+        <hr />
+        <!--<p class="lead">{{ 'intro' | i18next }}</p>-->
+        <hr />
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </main>
+  <app-footer></app-footer>
+</div>

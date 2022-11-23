@@ -1,0 +1,8 @@
+{
+  
+  "maxLength": "The allowed max length is {0}",
+  "range": "You can enter {0} to {1} length",
+  "required": "The {0} field is required",
+  "unique": "The {0} Field Should be unique",
+  "validationTitle": "This model has been failed."
+}

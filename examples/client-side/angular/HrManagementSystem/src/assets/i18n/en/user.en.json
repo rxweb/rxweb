@@ -1,0 +1,11 @@
+{
+    "firstName": "FirstName",
+    "lastName": "LastName",
+    "email": "Email",
+    "password": "Password",
+    "city": "City",
+    "state": "state",
+    "zip": "zip",
+    "signin": "Sign In",
+    "pageTitle":"User SignIn"
+}

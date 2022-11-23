@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "es2015",
+    "declarationMap": true,
+    "target": "es5",
+    "baseUrl": ".",
+    "stripInternal": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "outDir": "../build",
+    "rootDir": ".",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "types": [],
+    "paths": {
+      "@rxweb/angular/*": [ "packages/angular/*/public_api" ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableIvy": false,
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true,
+    "flatModuleOutFile": "primeng.js",
+    "flatModuleId": "primeng"
+  },
+  "files": [
+    "./public_api.ts"
+  ]
+}

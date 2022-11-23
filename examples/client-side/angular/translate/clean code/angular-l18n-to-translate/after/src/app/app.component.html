@@ -1,0 +1,12 @@
+<a routerLink="home">Home</a>&nbsp;
+<a routerLink="on-push">OnPush</a>&nbsp;
+<a routerLink="validation">Validation</a>&nbsp;
+<a routerLink="lazy">Lazy</a>&nbsp;
+
+
+
+
+
+<button *ngFor="let item of [{id:'en-US',name: 'English United States'},{id:'it-IT',name: 'Italy'}]" (click)="setLocale(item.id)">{{ item.name }}</button>
+
+<router-outlet></router-outlet>

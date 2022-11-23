@@ -1,1 +1,0 @@
-{"browser":{"port":true},"shoppingWebsitePort":{"conditionalExpression":"'x => x.browser ==\"Chrome\"'"},"educationalWebsitePort":{"message":"'{{0}} is not a proper port number'"}}

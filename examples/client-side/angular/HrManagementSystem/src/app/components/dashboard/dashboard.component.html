@@ -1,0 +1,48 @@
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header">{{dashboard.total_users}}</div>
+                <div class="card-content">
+                    <p class="pt-2 pl-2 text-muted" style="padding-left: 15px;">1000</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header">{{dashboard.pending_users}}</div>
+                <div class="card-content">
+                    <p class="pt-2 pl-2 text-muted" style="padding-left: 15px;">100</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header">{{dashboard.approved_users}}</div>
+                <div class="card-content">
+                    <p class="pt-2 pl-2 text-muted" style="padding-left: 15px;">900</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <form  [formGroup]="userFormGroup">
+      <div class="form-group">
+        <label>UserName</label>
+        <input type="text" formControlName="userName" class="form-control"  />
+       <small class="form-text text-danger">{{userFormGroup.controls.userName['errorMessage']}}<br/></small>	
+      </div>
+  
+       <div class="form-group">
+        <label>Password</label>
+        <input type="text" formControlName="password" class="form-control"  />
+       <small class="form-text text-danger" *ngFor="let errorMessage of userFormGroup.controls.password['errorMessages']">
+         {{errorMessage}}<br/>
+       </small>
+      </div>
+  
+      <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+    </form>
+  </div>

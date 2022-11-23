@@ -1,0 +1,10 @@
+{
+  "greet": "Bonjour {{name}} ",
+  "grid": {
+    "showing": "showing_fr",
+    "to": " to _fr ",
+    "of": " of _fr ",
+    "entries": " entries _fr ",
+    "show": "Show_fr"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\after",
+    "\\after\\node_modules\\@rxweb",
+    "\\after\\node_modules\\@rxweb\\translate",
+    "\\after\\node_modules\\@rxweb\\translate\\__ivy_ngcc__",
+    "\\after\\node_modules\\@rxweb\\translate\\__ivy_ngcc__\\fesm2015",
+    "\\after\\src",
+    "\\after\\src\\app",
+    "\\after\\src\\app\\structure",
+    "\\after\\src\\app\\structure\\header-controls",
+    "\\after\\src\\assets",
+    "\\after\\src\\locales"
+  ],
+  "SelectedNode": "\\after\\src\\app\\app.module.ts",
+  "PreviewInSolutionExplorer": false
+}

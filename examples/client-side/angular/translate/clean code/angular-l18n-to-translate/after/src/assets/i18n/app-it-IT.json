@@ -1,0 +1,29 @@
+{
+    "changeLocale": "Cambia località",
+  "home": {
+    "title": "Localizzazione in Angular",
+    "subtitle": "Il mondo è piccolo",
+    "greeting": "Ciao mondo!",
+    "whoIAm": "Sono {{name}}",
+    "description": "<em>Una libreria Angular per tradurre testi, date e numeri</em>",
+    "formattedToday": "{{ today | date }}",
+    "formattedTimeAgo": "{{ timeAgo | timeAgo }}",
+    "formattedValue": "{{ value | formatNumber }}"
+  },
+    "onPush": {
+        "title": "Strategia di rilevamento del cambiamento OnPush"
+    },
+  "validation": {
+    "required": "Questo campo è obbligatorio.",
+    "min": "La lunghezza minima consentita è {{min}} e hai inserito {{actual}}.",
+    "max": "La lunghezza massima consentita è {{max}} e hai inserito {{actual}}.",
+    "title": "Validazione",
+    "numbers": "Numeri",
+    "numberIsInvalid": "Il numero non è valido. Il formato richiesto è: {{ format }}",
+    "minValueError": "Il valore minimo è: {{ minValue }}",
+    "maxValueError": "Il valore massimo è: {{ maxValue }}",
+    "numberIsRequired": "Il numero è richiesto",
+    "numberValue": "Valore del numero: {{ parsedValue }}",
+    "submit": "Invia"
+  }
+}

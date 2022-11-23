@@ -1,0 +1,5 @@
+{
+  "text": "Le contenu est résolu en fonction du composant de page routé.",
+  "preLoadText": "Voir la demande de réseau, vous verrez `` module de préchargement '' qui se charge en fonction de la startegy de préchargement, chaque fois que cela active, il charge tous les composants JSON multilingues respectifs, comme si vous vérifiez la demande, vous verrez la demande de 'pre-load.en.json'.",
+  "pageTitle": "Exemple de traduction en français."
+}

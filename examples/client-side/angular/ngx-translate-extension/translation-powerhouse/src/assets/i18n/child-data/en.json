@@ -1,0 +1,5 @@
+{
+  "directive": "Binding through `translate` directive.",
+  "pipe": "Binding through `translate` pipe.",
+  "decorator": "Binding through `translate` decorator."
+}

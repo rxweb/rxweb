@@ -1,0 +1,48 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  projectName: 'CleanArchitecture'
+  solutionFile: 'CleanArchitecture.sln' 
+  apiProject: 'CleanArchitecture.Api/CleanArchitecture.Api.csproj' 
+
+  publishApiProjectPath: 'CleanArchitecture.Api/bin/Release/netcoreapp3.0/**'
+  
+  
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: '5.2.0'
+  displayName: 'Use Nuget 5.2'
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solutionFile)'
+  displayName: 'Nuget Restore'
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '3.x'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    projects: |
+      $(apiProject)
+    arguments: '/p:configuration=Release'
+    zipAfterPublish: false
+  displayName: 'Publish Projects'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(publishApiProjectPath)'
+    ArtifactName: '$(projectName)' 
+    publishLocation: 'Container'
+  displayName: 'Publish $(projectName)' 

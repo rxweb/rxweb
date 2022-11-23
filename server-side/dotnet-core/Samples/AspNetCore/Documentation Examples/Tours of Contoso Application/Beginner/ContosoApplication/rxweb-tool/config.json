@@ -1,0 +1,32 @@
+{
+  "projects": {
+    "api": "ContosoApplication.Api",
+    "model": "ContosoApplication.Models",
+    "context": "ContosoApplication.BoundedContext",
+    "domain": "ContosoApplication.Domain",
+	"unitOfWork": "ContosoApplication.UnitOfWork",
+    "infrastructure": "ContosoApplication.Infrastructure",
+    "azureFunctionHttp":"",
+    "portal":"",
+    "azureFunctionBackground":""
+  },
+  "path": {
+    "dbConnection": {
+      "main": "Database.ConnectionString.Main"
+    },
+    "folder": {
+      "model": "DbEntities",
+      "context": "",
+	  "enums": "",
+	  "localizeValidationMessage": "wwwroot"
+    }
+  },
+  "annotations": {
+    "rxweb": false
+  },
+  "config": {
+    "generateEnums": false,
+    "commanTableSchema": "dbo",
+    "validationMessageLocalizationId": "15"
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "countryName": "India",
+    "countryId": 1
+  },
+  {
+    "countryName": "Japan",
+    "countryId": 2
+  },
+  {
+    "countryName": "China",
+    "countryId": 3
+  },
+  {
+    "countryName": "Singapore",
+    "countryId": 4
+  }
+]

@@ -1,0 +1,23 @@
+<h4>Set Translation</h4>
+
+  <p>{{ global.home }}</p>
+  <p>Press Add new key to see me: {{ global.newKey }}</p>
+
+<button class="btn btn-outline-primary my-2 my-sm-0" (click)="updateTitle()">
+  Update the home key
+</button>
+
+<button class="btn btn-outline-primary my-2 my-sm-0" (click)="addNewKey()">
+  Add new key
+</button>
+
+<hr />
+
+<h4>Add Translation Object</h4>
+<div >
+  <p>New translation object title: <span *ngIf="global.newTranslation">{{ global.newTranslation.title }}</span></p>
+</div>
+
+<button class="btn btn-outline-primary my-2 my-sm-0" (click)="addTranslationObj()">
+  Add Translation Object
+</button>

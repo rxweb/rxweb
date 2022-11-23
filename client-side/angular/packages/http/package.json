@@ -1,0 +1,24 @@
+{
+  "name": "@rxweb/http",
+  "version": "#version",
+  "keywords": [
+    "typescript","xhr request","http request"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/packages/http#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
+  },
+  "homepage": "https://rxweb.io",
+  "license": "MIT",
+  "sideEffects": false,
+  "dependencies": {
+    "rxjs": "~6.4.0",
+    "tslib": "^2.0.0"
+  },
+  "whitelistedNonPeerDependencies": [
+    "rxjs"
+  ]
+}

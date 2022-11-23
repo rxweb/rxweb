@@ -1,0 +1,24 @@
+{
+  "name": "@rxweb/grid",
+  "version": "0.2.14",
+  "keywords": [
+    "grid"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/client-side/angular/packages/grid#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
+  },
+  "homepage": "https://docs.rxweb.io",
+  "license": "MIT",
+  "sideEffects": false,
+  "peerDependencies": {
+    "@rxweb/dom": "0.0.2-beta9",
+    "@rxweb/translate": "1.0.11"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

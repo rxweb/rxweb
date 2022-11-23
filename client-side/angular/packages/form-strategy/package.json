@@ -1,0 +1,18 @@
+{
+  "name": "@rxweb/form-strategy",
+  "version": "1.0.4",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rxweb/rxweb/tree/master/client-side/angular/packages/translate#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/rxweb/rxweb/issues"
+  },
+  "homepage": "https://docs.rxweb.io/ngx-translate-extension/getting-started",
+  "license": "MIT",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

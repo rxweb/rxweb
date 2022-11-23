@@ -1,0 +1,13 @@
+<h4>English: (global)</h4>
+  <p>{{ global.home }}</p>
+
+<h4>Spanish: (inline lang, scope: lazy-page)</h4>
+  <p>{{ lazyPage.title }}</p>
+
+<provider-lang *rxTranslate="true"></provider-lang>
+
+<h4>Static Lang: <code>es</code></h4>
+  <p>{{ globalSpanish.home }}</p>
+
+<h4>Static Lang with scope <code>lazy-page/es</code></h4>
+  <p>{{ lazyPageSpanish.title }}</p>

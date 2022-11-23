@@ -1,0 +1,11 @@
+{
+    "firstName": "Prénom",
+    "lastName": "nom de famille",
+    "email": "e-mail",
+    "password": "le mot de passe",
+    "city": "Ville",
+    "state": "Etat",
+    "zip": "code postal",
+    "signin": "S'identifier",
+   "pageTitle": "Connexion utilisateur"
+}

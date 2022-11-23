@@ -1,0 +1,826 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "rxweb": {
+      "root": "",
+      "sourceRoot": "./",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/rxweb",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/assets/multilingual/en"
+            ],
+            "styles": [
+
+            ],
+            "scripts": [
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+              "serviceWorker": false
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "rxweb:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "rxweb:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "rxweb:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "test.ts",
+            "polyfills": "polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "styles": [
+              
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/multilingual"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "rxweb-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "rxweb:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "rxweb:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/reactive-form-validators": {
+      "root": "packages/reactive-form-validators",
+      "sourceRoot": "packages/reactive-form-validators",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+
+            "project": "packages/reactive-form-validators/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/reactive-form-validators/ng-package.prod.json"
+            ,              "tsConfig": "packages/reactive-form-validators/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/reactive-form-validatorstsconfig.lib.json",
+              "packages/reactive-form-validatorstsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/reactive-dynamic-forms": {
+      "root": "packages/reactive-dynamic-forms",
+      "sourceRoot": "packages/reactive-dynamic-forms",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/reactive-dynamic-forms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/reactive-dynamic-forms/ng-package.prod.json"
+            ,              "tsConfig": "packages/reactive-dynamic-forms/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/reactive-dynamic-forms/tsconfig.lib.json",
+              "packages/reactive-dynamic-forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/generics": {
+      "root": "packages/generics",
+      "sourceRoot": "packages/generics",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/generics/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/generics/ng-package.prod.json"
+            ,              "tsConfig": "packages/generics/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/generics/tsconfig.lib.json",
+              "packages/generics/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/sanitizers": {
+      "root": "packages/sanitizers",
+      "sourceRoot": "packages/sanitizers",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/sanitizers/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/sanitizers/ng-package.prod.json"
+            ,              "tsConfig": "packages/sanitizers/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/sanitizers/tsconfig.lib.json",
+              "packages/sanitizers/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/http": {
+      "root": "packages/http",
+      "sourceRoot": "packages/http",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/http/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/http/ng-package.prod.json"
+            ,              "tsConfig": "packages/http/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/http/tsconfig.lib.json",
+              "packages/http/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/core": {
+      "root": "packages/core",
+      "sourceRoot": "packages/core",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/core/ng-package.prod.json"
+            ,              "tsConfig": "packages/core/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/core/tsconfig.lib.json",
+              "packages/core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/dom": {
+      "root": "packages/dom",
+      "sourceRoot": "packages/dom",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/dom/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/dom/ng-package.prod.json"
+            ,              "tsConfig": "packages/dom/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/dom/tsconfig.lib.json",
+              "packages/dom/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/grid": {
+      "root": "packages/grid",
+      "sourceRoot": "packages/grid",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/grid/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/grid/ng-package.prod.json"
+            ,              "tsConfig": "packages/grid/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/grid/tsconfig.lib.json",
+              "packages/grid/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/js": {
+      "root": "packages/js",
+      "sourceRoot": "packages/js",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/js/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/js/ng-package.prod.json"
+            ,              "tsConfig": "packages/js/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/js/tsconfig.lib.json",
+              "packages/js/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/framework": {
+      "root": "packages/framework",
+      "sourceRoot": "packages/framework",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/framework/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/framework/ng-package.prod.json"
+            ,              "tsConfig": "packages/framework/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/js/tsconfig.lib.json",
+              "packages/js/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/reactive-forms": {
+      "root": "packages/reactive-forms",
+      "sourceRoot": "packages/reactive-forms",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/reactive-forms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/reactive-forms/ng-package.prod.json"
+            ,              "tsConfig": "packages/reactive-forms/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/reactive-forms/tsconfig.lib.json",
+              "packages/reactive-forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/react-forms": {
+      "root": "packages/react-forms",
+      "sourceRoot": "packages/react-forms",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/react-forms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/react-forms/ng-package.prod.json"
+            ,              "tsConfig": "packages/react-forms/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/react-forms/tsconfig.lib.json",
+              "packages/react-forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/angular": {
+      "root": "packages",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/angular/ng-package.json",
+            "tsConfig": "packages/angular/tsconfig.lib.json"
+          }
+        ,          "configurations": {
+            "production": {
+              "tsConfig": "packages/tsconfig.lib.prod.json"
+            }
+          }
+}
+      }
+    },
+    "@rxweb/angular-router": {
+      "root": "packages/angular-router",
+      "sourceRoot": "packages/angular-router",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/angular-router/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/angular-router/ng-package.prod.json"
+            ,              "tsConfig": "packages/angular-router/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/angular-router/tsconfig.lib.json",
+              "packages/angular-router/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/storage": {
+      "root": "packages/storage",
+      "sourceRoot": "packages/storage",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/storage/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/storage/ng-package.prod.json"
+            ,              "tsConfig": "packages/storage/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/storage/tsconfig.lib.json",
+              "packages/storage/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/localization": {
+      "root": "packages/localization",
+      "sourceRoot": "packages/localization",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/localization/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/localization/ng-package.prod.json"
+            ,              "tsConfig": "packages/localization/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/localization/tsconfig.lib.json",
+              "packages/localization/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/angular-localization": {
+      "root": "packages/angular-localization",
+      "sourceRoot": "packages/angular-localization",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/angular-localization/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/angular-localization/ng-package.prod.json"
+            ,              "tsConfig": "packages/angular-localization/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/angular-localization/tsconfig.lib.json",
+              "packages/angular-localization/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/translate": {
+      "root": "packages/translate",
+      "sourceRoot": "packages/translate",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/translate/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/translate/ng-package.prod.json"
+            ,              "tsConfig": "packages/translate/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/translate/tsconfig.lib.json",
+              "packages/translate/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/ngx-translate-extension": {
+      "root": "packages/ngx-translate-extension",
+      "sourceRoot": "packages/ngx-translate-extension",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/ngx-translate-extension/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/ngx-translate-extension/ng-package.prod.json"
+            ,              "tsConfig": "packages/ngx-translate-extension/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/ngx-translate-extension/tsconfig.lib.json",
+              "packages/ngx-translate-extension/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/form-strategy": {
+      "root": "packages/form-strategy",
+      "sourceRoot": "packages/form-strategy",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/form-strategy/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/form-strategy/ng-package.prod.json"
+            ,              "tsConfig": "packages/form-strategy/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/form-strategy/tsconfig.lib.json",
+              "packages/form-strategy/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@rxweb/types": {
+      "root": "packages/types",
+      "sourceRoot": "packages/types",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "packages/types/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "packages/types/ng-package.prod.json"
+            ,              "tsConfig": "packages/types/tsconfig.lib.prod.json"
+}
+          }
+        },
+
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/strongly-typed/tsconfig.lib.json",
+              "packages/strongly-typed/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+    "defaultProject": "rxweb"
+  }

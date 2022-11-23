@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup">
+  <h1 class="lead">Conditional Error Messaging </h1>
+  <div class="form-group">
+    <label>First Name</label>
+    <input type="text" formControlName="firstName" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label>Country Name</label>
+    <input type="text" formControlName="countryName" class="form-control" />
+    <span class="margin-left small red">{{formGroup.controls.countryName.errorMessage}}</span>
+  </div>
+</form>
+
