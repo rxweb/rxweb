@@ -3,6 +3,10 @@
   "dest": "../../dist/@rxweb/angular-router",
   "deleteDestPath": true,
   "lib": {
-    "entryFile": "index.ts"
+    "entryFile": "index.ts",
+    "umdModuleIds": {
+      "@rxweb/http": "@rxweb/http",
+      "@rxweb/storage": "@rxweb/storage"
+    }
   }
 }
