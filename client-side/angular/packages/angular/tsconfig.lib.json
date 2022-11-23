@@ -21,7 +21,7 @@
     }
   },
   "angularCompilerOptions": {
-    "compilationMode": "partial",
+    "enableIvy": false,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "primeng.js",
