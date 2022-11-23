@@ -16,6 +16,14 @@ This validation framework is an extension of angular forms library, which will h
 
 For More Information on ***[rxweb](http://rxweb.io)***
 
+**Which Version to use?**
+
+| Angular version | Reactive Form Validators version         |
+| --------------- | ---------------------- |
+| Angular >= 13   | `@rxweb/reactive-form-validators@13.x` |
+| Angular <= 12    | less than  `@rxweb/reactive-form-validators@13.x` |
+
+
 # Prerequisites
 Reactive Form Validators will work in angular projects.
 
