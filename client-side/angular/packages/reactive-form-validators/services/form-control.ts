@@ -137,17 +137,17 @@ export class RxFormControl extends FormControl {
         return [];
     }
 
-    setValidators(newValidator: ValidatorFn | ValidatorFn[] | null) {
+    override setValidators(newValidator: ValidatorFn | ValidatorFn[] | null) {
         this._validators = newValidator as ValidatorFn[];
         super.setValidators(newValidator);
     }
 
-    setAsyncValidators(newValidator: AsyncValidatorFn | AsyncValidatorFn[] | null): void {
+    override setAsyncValidators(newValidator: AsyncValidatorFn | AsyncValidatorFn[] | null): void {
         this._asyncValidators = newValidator as AsyncValidatorFn[];
         super.setAsyncValidators(newValidator);
     }
 
-    setValue(value: any, options?: {
+    override setValue(value: any, options?: {
         dirty?: boolean;
         updateChanged?: boolean;
         onlySelf?: boolean;
@@ -205,7 +205,7 @@ export class RxFormControl extends FormControl {
         this.setControlErrorMessages();
     }
 
-    markAsTouched(opts?: {
+    override markAsTouched(opts?: {
         onlySelf?: boolean;
     }): void {
         let currentState = this.touched;
@@ -215,7 +215,7 @@ export class RxFormControl extends FormControl {
 
     }
 
-    markAsUntouched(opts?: {
+    override markAsUntouched(opts?: {
         onlySelf?: boolean;
     }): void {
         let currentState = this.untouched;
@@ -224,7 +224,7 @@ export class RxFormControl extends FormControl {
             this.runControlPropChangeExpression([UNTOUCHED, TOUCHED])
     }
 
-    markAsDirty(opts?: {
+    override markAsDirty(opts?: {
         onlySelf?: boolean;
     }): void {
         let currentState = this._dirty;
@@ -234,7 +234,7 @@ export class RxFormControl extends FormControl {
             this.runControlPropChangeExpression([DIRTY])
     }
 
-    markAsPristine(opts?: {
+    override markAsPristine(opts?: {
         onlySelf?: boolean;
     }): void {
         let currentState = this.pristine;
@@ -243,7 +243,7 @@ export class RxFormControl extends FormControl {
             this.runControlPropChangeExpression([PRISTINE])
     }
 
-    markAsPending(opts?: {
+    override markAsPending(opts?: {
         onlySelf?: boolean;
         emitEvent?: boolean;
     }): void {
@@ -271,7 +271,7 @@ export class RxFormControl extends FormControl {
         this.bindError();
     }
 
-    reset(value?: any, options: any = {}) {
+    override reset(value?: any, options: any = {}) {
         if (value !== undefined)
             this.setValue(value, options);
         else

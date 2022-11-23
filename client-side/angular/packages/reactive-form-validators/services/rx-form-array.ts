@@ -17,7 +17,7 @@ export class RxFormArray extends FormArray {
         return this._isModified;
     }
 
-    push(control: any, options: {
+    override push(control: any, options: {
         emitEvent?: boolean,
         isAddedInstance: boolean 
     } = { isAddedInstance: false}) {
@@ -80,7 +80,7 @@ export class RxFormArray extends FormArray {
     }
 
 
-    removeAt(index: number, options: { emitEvent?: boolean, isRemovedInstance?: boolean } = { isRemovedInstance: false }) {
+    override removeAt(index: number, options: { emitEvent?: boolean, isRemovedInstance?: boolean } = { isRemovedInstance: false }) {
         let formGroup: any = this.root;
         if (!options.isRemovedInstance)
             this.arrayObject.splice(index, 1);
