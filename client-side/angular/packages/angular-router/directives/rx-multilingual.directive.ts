@@ -31,7 +31,9 @@ export class RxMultilingualDirective {
                 })
         }
     }
-
+    ngOnInit() {
+        this.component = null;
+    }
     private updateView(value: boolean) {
         if (this.viewRef) {
             this.viewContainerRef.clear();
