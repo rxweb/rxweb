@@ -5,13 +5,13 @@ import { localizationContainer } from "../../core/localization-container";
 
 export class PlaceholderDirective extends BaseDirective {
 
-    constructor(private element: HTMLInputElement, private name: string, private target: Function) {
+    constructor(private element: any, private name: string, private target: Function) {
         super();
         this.subscribe(this.bind.bind(this));
     }
 
     bind() {
-        var decoratorConfig = localizationContainer.getModelDecorator(this.target, 'multilingual');
+        var decoratorConfig = localizationContainer.getModelDecorator(this.target ?? this.element.componentName, 'multilingual');;
         if (decoratorConfig) {
             var componentId = decoratorConfig.config;
             var value = MultiLingualData.get(`${componentId}.${this.name}_p`);

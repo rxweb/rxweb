@@ -12,7 +12,10 @@ export const localizationContainer:
         }
 
         getModelDecorator(target: Function, name: string): DecoratorConfig {
-            return this.modelDecorators.filter(t => t.target == target && t.name == name)[0];
+            if (typeof (target) == "string")	
+                return this.modelDecorators.filter(t => t.config == target && t.name == name)[0];	
+            else
+                return this.modelDecorators.filter(t => t.target == target && t.name == name)[0];
         }
 
     })();
