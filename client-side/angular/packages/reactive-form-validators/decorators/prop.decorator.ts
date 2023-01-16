@@ -13,7 +13,8 @@ export function prop(config?:PropConfig) {
             dataPropertyName: config ? config.name : undefined,
             defaultValue: config ? config.defaultValue : undefined,
             ignore: config ? config.ignore : undefined,
-            isPrimaryKey: config ? config.isPrimaryKey: undefined
+            isPrimaryKey: config ? config.isPrimaryKey: undefined,
+            messageNexus:config?config.messageNexus:undefined
         }
         defaultContainer.addProperty(target.constructor, propertyInfo);
     }

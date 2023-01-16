@@ -46,6 +46,7 @@ export class GridDesigner extends GridTemplate {
         if (this.isTranslateModuleUsed)
             this.subscription = TranslationCore.languageChanged.subscribe(t => { this.languageChange(); });
         this.element = element;
+        this.startNodeName = this.isDivBase ? "div" : "table";
         this.bindSource();
         var isRowEvent = this.gridConfiguration && this.gridConfiguration.actions && this.gridConfiguration.actions.onRowSelect !== undefined;
         if (isRowEvent && !this.isReDesign)
@@ -73,9 +74,17 @@ export class GridDesigner extends GridTemplate {
         this.bodyTemplate = template.bodyTemplate;
         this.headerTemplate = template.headerTemplate;
         this.headerColumns = template.headerColumns;
+        var footerTemplate = undefined
+        if ((!this.hideHeaderFooter && !this.hideFooter) && this.cloneFooterOnTop) {
+            footerTemplate = paginator({ onPageChanging: this.onPageChanging.bind(this), designClass: this.footerDesignClass, dropdownOptions: this.pagingSource, eventSubscriber: this.eventSubscriber, onMaxPerPageChanging: this.onMaxPerPageChanging.bind(this), paginatorSource: this.topPaginationConfigs, isTop:true });
+            this.topFooterLeftTemplate = footerTemplate.leftTemplate;
+            this.topFooterCenterTemplate = footerTemplate.centerTemplate;
+            this.topFooterRightTemplate = footerTemplate.rightTemplate;
+            this.createChildElements(element, [this.topFooterTemplate], this, 0);
+        }
         this.createElement(element, this.startNodeName, this.tableElementConfig, this, 0);
         if (!this.hideHeaderFooter && !this.hideFooter) {
-            var footerTemplate = paginator({ onPageChanging: this.onPageChanging.bind(this), designClass: this.footerDesignClass, dropdownOptions: this.pagingSource, eventSubscriber: this.eventSubscriber, onMaxPerPageChanging: this.onMaxPerPageChanging.bind(this), paginatorSource: this.paginationConfigs });
+            footerTemplate = paginator({ onPageChanging: this.onPageChanging.bind(this), designClass: this.footerDesignClass, dropdownOptions: this.pagingSource, eventSubscriber: this.eventSubscriber, onMaxPerPageChanging: this.onMaxPerPageChanging.bind(this), paginatorSource: this.paginationConfigs, isTop: false });
             this.footerLeftTemplate = footerTemplate.leftTemplate;
             this.footerCenterTemplate = footerTemplate.centerTemplate;
             this.footerRightTemplate = footerTemplate.rightTemplate;
@@ -214,6 +223,9 @@ export class GridDesigner extends GridTemplate {
                 break;
             case "pagination-0":
                 return this.footerTemplate.div.childrens[2].div.childrens[0].ul.childrens;
+                break;
+            case "top-pagination-0":
+                return this.topFooterTemplate.div.childrens[2].div.childrens[0].ul.childrens;
                 break;
         }
     }

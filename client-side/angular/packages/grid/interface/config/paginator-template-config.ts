@@ -9,4 +9,5 @@ export interface PaginatorTemplateConfig {
     onMaxPerPageChanging: Function;
     onPageChanging: Function;
     paginatorSource: Item[];
+    isTop: boolean;
 }

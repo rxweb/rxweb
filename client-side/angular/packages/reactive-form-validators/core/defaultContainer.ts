@@ -117,7 +117,8 @@ export const defaultContainer:
                 propertyName: propertyKey,
                 annotationType: annotationType,
                 config: config,
-                isAsync: isAsync
+                isAsync: isAsync,
+                isValidator : annotationType !== "updateOn"
             }
             let isPropertyKey = (propertyKey != undefined);
             this.addAnnotation(!isPropertyKey ? target : target.constructor, decoratorConfiguration);
@@ -129,7 +130,9 @@ export const defaultContainer:
                 propertyType: propertyType,
                 entity: entity,
                 dataPropertyName: config ? config.name : undefined,
-                entityProvider: config ? config.entityProvider : undefined
+                entityProvider: config ? config.entityProvider : undefined,
+                defaultValue:config ? config.defaultValue : undefined,
+                objectConfig:config && config.autoCreate ? {autoCreate:config.autoCreate}: undefined
             }
             defaultContainer.addProperty(target.constructor, propertyInfo); 
         }
@@ -178,6 +181,8 @@ export const defaultContainer:
                 instance.properties.push(propertyInfo);
             else if (isAddProperty)
                 this.updateProperty(property, propertyInfo);
+            if(property && propertyInfo.messageNexus)
+                property.messageNexus = propertyInfo.messageNexus;
         }
 
         addAnnotation(instanceFunc: any, decoratorConfiguration: DecoratorConfiguration): void {

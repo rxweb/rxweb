@@ -111,20 +111,24 @@ export class RxFormBuilder extends BaseFormBuilder {
                 validators.push(conditionalChangeValidator(columns));
         }
         for (let propertyValidator of propertyValidators) {
-            if (!propertyValidator.isAsync)
+            if (!propertyValidator.isAsync){
+                let config = propertyValidator.config;
+                if(property.messageNexus)
+                    config = config ? {...{messageNexus:property.messageNexus},...config} :{messageNexus:property.messageNexus};
                 switch (propertyValidator.annotationType) {
                     case AnnotationTypes.rule:
-                        validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config, entity))
+                        validators.push(APP_VALIDATORS[propertyValidator.annotationType](config, entity))
                         break;
                     case AnnotationTypes.and:
                     case AnnotationTypes.or:
                     case AnnotationTypes.not:
-                        validators.push(LOGICAL_VALIDATORS[propertyValidator.annotationType](propertyValidator.config))
+                        validators.push(LOGICAL_VALIDATORS[propertyValidator.annotationType](config))
                         break;
                     default:
-                        validators.push(APP_VALIDATORS[propertyValidator.annotationType](propertyValidator.config))
+                        validators.push(APP_VALIDATORS[propertyValidator.annotationType](config))
                         break;
                 }
+            }                
         }
         if (propValidationConfig)
             this.additionalValidation(validators, propValidationConfig);
@@ -447,15 +451,16 @@ export class RxFormBuilder extends BaseFormBuilder {
                 switch (property.propertyType) {
                     case PROPERTY:
                         if (!(entityObject[property.name] instanceof FormControl || entityObject[property.name] instanceof RxFormControl)) {
-                            let propertyValidators = instanceContainer.propertyAnnotations.filter(t => t.propertyName == property.name);
+                            let propertyValidators = instanceContainer.propertyAnnotations.filter(t => t.propertyName == property.name && t.isValidator);
+                            let updateOn = instanceContainer.propertyAnnotations.filter(t => t.propertyName == property.name && !t.isValidator && t.annotationType === "updateOn")[0];
                             let sanitizeValue = super.sanitizeValue(instanceContainer, property.name, super.getDefaultValue(property, entityObject[property.name], formBuilderConfiguration), json.entityObject, Object.assign({}, json.entityObject));
                             if (entityObject[property.name] === undefined && sanitizeValue)
                                 entityObject[property.name] = sanitizeValue;
                             let validators = this.addFormControl(property, propertyValidators, additionalValidations[property.name], instanceContainer, entityObject);
                             let abstractControlOptions: AbstractControlOptions = { validators: validators, asyncValidators: this.addAsyncValidation(property, propertyValidators, additionalValidations[property.name]) };
                             abstractControlOptions = this.getAbstractControlOptions(property.name, formBuilderConfiguration, abstractControlOptions)
-                            if (property.updateOn && !abstractControlOptions.updateOn)
-                                abstractControlOptions.updateOn = property.updateOn;
+                            if (updateOn && !abstractControlOptions.updateOn)
+                                abstractControlOptions.updateOn = updateOn.config.runOn;
                             formGroupObject[property.name] = new RxFormControl(sanitizeValue, abstractControlOptions, undefined, json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
                             this.isNested = false;
                         } else
@@ -464,6 +469,9 @@ export class RxFormBuilder extends BaseFormBuilder {
                         break;
                     case OBJECT_PROPERTY:
                         let objectValue = entityObject[property.name];
+                        objectValue = !objectValue && property.defaultValue ? property.defaultValue:objectValue
+                        if(!objectValue && property.objectConfig && property.objectConfig.autoCreate)
+                            objectValue = this.createClassObject(property.entity,{});
                         if (objectValue && objectValue instanceof Object && !(objectValue instanceof FormGroup || objectValue instanceof RxFormGroup)) {
                             this.isNestedBinding = this.isNested = true;
                             if (instanceContainer && instanceContainer.conditionalObjectProps)

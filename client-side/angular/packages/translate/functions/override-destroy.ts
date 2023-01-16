@@ -7,6 +7,6 @@ export function overrideDestroyMethod(model: Function, name: string) {
         MultiLingualData.remove(name);
         viewRefContainer.destroy(this);
         if (onDestroy)
-            onDestroy();
+            onDestroy.bind(this).call();
     }
 }

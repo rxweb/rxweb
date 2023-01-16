@@ -11,7 +11,7 @@ export class TextDirective extends BaseDirective {
     }
 
     bind() {
-        var decoratorConfig:any = localizationContainer.getModelDecorator(this.config.target, 'multilingual');
+        var decoratorConfig:any = localizationContainer.getModelDecorator(this.config.target ?? this.config.element.componentName, 'multilingual');
         if (typeof this.config.target == "string") 
             decoratorConfig = { config: this.config.target };
         if (decoratorConfig == undefined)

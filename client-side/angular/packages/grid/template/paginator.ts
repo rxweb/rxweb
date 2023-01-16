@@ -16,12 +16,12 @@ function paginatorTemplate(paginatorTemplateConfig: PaginatorTemplateConfig) {
             childrens: [
                 {
                     ul: {
-                        id: "pagination",
+                        id: paginatorTemplateConfig.isTop ? "top-pagination": "pagination",
                         class: paginatorTemplateConfig.designClass.paginatorClass.unorderedListItemClass,
                         sourceItems: paginatorTemplateConfig.paginatorSource,
                         childrens: [{
                             li: {
-                                id: "list-item",
+                                id: paginatorTemplateConfig.isTop ? "top-list-item" : "list-item",
                                 event: {
                                     click: paginatorTemplateConfig.onPageChanging
                                 },
@@ -78,6 +78,7 @@ function dropdownTemplate(paginatorTemplateConfig: PaginatorTemplateConfig) {
                             },
                             {
                                 select: {
+                                    id: paginatorTemplateConfig.isTop ? "top-select" : "bottom-select",
                                     event: {
                                         change: paginatorTemplateConfig.onMaxPerPageChanging
                                     },

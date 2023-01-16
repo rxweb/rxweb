@@ -10,7 +10,6 @@ import { objectPropValue } from '../functions/object-prop-value.function';
 import { INLINE,PREPEND_BOTH, PREPEND_LEFT, PREPEND_RIGHT, INPUT_TEXT,SQUARE_ERROR, SQUARE_SMALL, SQUARE_LABEL,SQUARE_CONTROL,ADVANCE, INPUT, TEXT, RANGE, FILE, STRING, CONTROL } from '../const/app.const';
 import { DynamicNodeConfig } from "../models/interface/dynamic-node-config";
 
-@Directive()
 export class ControlConfigProcessor {
     isBuild: boolean = false;
     _viewMode: any;
@@ -42,7 +41,7 @@ export class ControlConfigProcessor {
 
     @Input() uiBindings: any[];
 
-    constructor(protected element: Node, private renderer, private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef) { }
+    constructor(protected element: any, private renderer, private componentFactoryResolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef) { }
 
 
     build() {

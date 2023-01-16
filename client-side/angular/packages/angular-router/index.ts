@@ -1,6 +1,7 @@
 export * from './decorators';
 export * from './modules/rx-routing-module';
 export * from './core/route-provider'
+export * from './core/route-container'
 export * from './interfaces/i-multilingual'
 export * from './interfaces/i-authorize'
 export * from './interfaces/i-auth-resolver'

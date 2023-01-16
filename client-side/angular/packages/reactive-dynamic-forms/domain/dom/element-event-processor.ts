@@ -2,13 +2,14 @@
 import { DynamicNodeConfig } from '../../models/interface/dynamic-node-config';
 import { CONDITIONAL_VALIDATOR, BLUR, FOCUS, SELECT, INPUT, CLICK, EVENTS, CHANGE } from '../../const/app.const';
 import { ValidatorFn } from '@angular/forms';
+import { FOCUSOUT, KEYDOWN, KEYPRESS, KEYUP, MOUSEDOWN, MOUSEENTER, ONBLUR, ONFOCUS } from '../../const/events.const';
 
-export class ElementEventProcessor extends ElementAccessor{
+export class ElementEventProcessor extends ElementAccessor {
     eventListeners: any[];
     private conditionalValidator: ValidatorFn;
     constructor(public dynamicNodeConfig: DynamicNodeConfig) { super(dynamicNodeConfig); }
 
-    bindEvents(events: { [key: string]: any },isSubscribe:boolean) {
+    bindEvents(events: { [key: string]: any }, isSubscribe: boolean) {
         Object.keys(events).forEach(eventName => {
             switch (eventName) {
                 case FOCUS:
@@ -19,7 +20,7 @@ export class ElementEventProcessor extends ElementAccessor{
                     this.setInput();
                     break;
                 case BLUR:
-                    this.setBlur();
+                    this.setBlur(this.getValue(events[ONBLUR]));
                     break;
                 case CLICK:
                     this.setClick(this.getValue(events[eventName]));
@@ -27,6 +28,17 @@ export class ElementEventProcessor extends ElementAccessor{
                 case CHANGE:
                     this.setChange(this.getValue(events[eventName]));
                     break;
+                case KEYUP:
+                case KEYPRESS:
+                case KEYDOWN:
+                case FOCUSOUT:
+                case MOUSEDOWN:
+                case MOUSEENTER:    
+                    this.setEvent(eventName,this.getValue(events[eventName]));
+                    break;
+                case ONFOCUS:
+                    this.setEvent(FOCUS,this.getValue(events[eventName]));
+
             }
             if (isSubscribe && this.isSubscribeProp(events[eventName]))
                 this.setPropSubscription(this.getPropName(events[eventName]), EVENTS, eventName);
@@ -38,8 +50,16 @@ export class ElementEventProcessor extends ElementAccessor{
                 this.controlConfig[functionName].call(this.controlConfig);
         }
     }
+    setEvent(eventName, functionName) {
+        if (this.controlConfig[functionName]) {
+            let listen = this.dynamicNodeConfig.renderer.listen(this.element, eventName, (v) => {
+                this.controlConfig[functionName].call(this.controlConfig, v);
+            });
+            this.eventListeners.push(listen);
+        }
+    }
 
-    setClick(functionName:string) {
+    setClick(functionName: string) {
         this.element.onclick = () => {
             if (this.controlConfig[functionName])
                 this.controlConfig[functionName].call(this.controlConfig);
@@ -47,13 +67,15 @@ export class ElementEventProcessor extends ElementAccessor{
     }
 
     setFocus(value: boolean) {
-        if (value && this.element.focus) 
-            setTimeout(t => { this.element.focus()} , 1000);
+        if (value && this.element.focus)
+            setTimeout(t => { this.element.focus() }, 1000);
     }
 
-    setBlur() {
+    setBlur(functionName) {
         let listen = this.dynamicNodeConfig.renderer.listen(this.element, BLUR, () => {
             this.dynamicNodeConfig.controlConfig.formControl.markAsTouched();
+            if (this.controlConfig[functionName])
+                this.controlConfig[functionName].call(this.controlConfig);
         })
         this.eventListeners.push(listen);
     }
@@ -62,7 +84,7 @@ export class ElementEventProcessor extends ElementAccessor{
         let listen = this.dynamicNodeConfig.renderer.listen(this.element, INPUT, (v) => {
             let isPassed = true;
             if (this.controlConfig.hooks && this.controlConfig.hooks.preValue) {
-                isPassed = this.controlConfig.hooks.preValue.call(this.controlConfig,v.target.value);
+                isPassed = this.controlConfig.hooks.preValue.call(this.controlConfig, v.target.value);
                 if (!isPassed) {
                     this.controlConfig.formControl.patchValue(this.controlConfig.formControl.value);
                     this.resetElementValue(this.controlConfig.formControl.value);
@@ -83,11 +105,11 @@ export class ElementEventProcessor extends ElementAccessor{
                 this.conditionalValidator = this.controlConfig.formControl[CONDITIONAL_VALIDATOR];
                 delete this.controlConfig.formControl[CONDITIONAL_VALIDATOR];
             }
-        },50)
-        
+        }, 50)
+
 
     }
 
 
-    
+
 }

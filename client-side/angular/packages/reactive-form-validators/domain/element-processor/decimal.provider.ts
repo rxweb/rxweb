@@ -31,12 +31,24 @@ export class DecimalProvider {
         return value;
     }
 
-    transFormDecimal(value: any, digitsInfo: string): string {
+    transFormDecimal(value: any, digitsInfo: string,persistZero:boolean): string {
         value = String(value);
         if (!value) {
             return value;
         }
-        return this.decimalPipe.transform(value.replace(ReactiveFormConfig.number.groupSymbol,   "").replace(this.decimalSeperator, "."), digitsInfo, this.localeId);
+        let transformedValue = this.decimalPipe.transform(value.replace(ReactiveFormConfig.number.groupSymbol, "").replace(this.decimalSeperator, "."), digitsInfo, this.localeId);
+        if (persistZero && value.indexOf(this.decimalSeperator)) {
+            let splitTransformed = transformedValue.split(".");
+            let splitDigitsInfo = digitsInfo ? digitsInfo.split("-") : [];
+            let digits = splitDigitsInfo.length > 1 ? parseInt(splitDigitsInfo[splitDigitsInfo.length - 1]) : 0;
+            if (splitTransformed.length > 1 && splitDigitsInfo.length > 0 && digits !== 0 && splitTransformed[1].length !== digits) {
+                let diff = digits - splitTransformed[1].length;
+                for (let i = 0; i < diff; i++) {
+                    transformedValue += "0";
+                }
+            }
+        }
+        return transformedValue;
     }
 
     private setSymbolInConfig() {

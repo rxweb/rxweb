@@ -15,7 +15,14 @@ export class RxMultilingualDirective {
         let childMultiLingual = routeContainer.get().childMultilingualResolver
         if (childMultiLingual) {
             var childMultilingual = this.injector.get(childMultiLingual) as IMultilingual;
-            var result = childMultilingual.resolveChildren(this.viewContainerRef["_view"].component.constructor);
+            var result =null;// childMultilingual.resolveChildren(this.viewContainerRef["_view"].component.constructor);
+            const viewContainer:any = this.viewContainerRef;
+            if (viewContainer["_view"] && viewContainer["_view"].component != null)
+                result = childMultilingual.resolveChildren(viewContainer["_view"].component.constructor);
+            else {
+                var component = viewContainer._hostLView[0].__ngContext__[viewContainer._hostLView[0].__ngContext__.length - 1];
+                result = childMultilingual.resolveChildren(component.constructor);
+            }
             if(typeof result == "boolean")
                 this.updateView(result);
             else
@@ -24,7 +31,9 @@ export class RxMultilingualDirective {
                 })
         }
     }
-
+    ngOnInit() {
+        this.component = null;
+    }
     private updateView(value: boolean) {
         if (this.viewRef) {
             this.viewContainerRef.clear();

@@ -7,6 +7,7 @@ export interface DecoratorConfiguration {
     propertyConstructor?: any;
     config?: any;
     isAsync: boolean;
+    isValidator?:boolean;
 }
 
 export interface InstanceContainer {
@@ -32,12 +33,16 @@ export interface PropertyInfo {
     ignore?: (x: any) => boolean;
     isPrimaryKey?: boolean;
     entityProvider?: Function;
+    objectConfig?:{
+        autoCreate?:boolean
+    }
     arrayConfig?: {
         allowMaxIndex?: number;
         messageKey?: string;
         createBlank?: boolean;
     }
     updateOn?: 'change' | 'blur' | 'submit';
+    messageNexus?:{[key:string]:string};
 }
 
 export interface ControlInfo {
