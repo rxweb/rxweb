@@ -456,7 +456,7 @@ export class RxFormBuilder extends BaseFormBuilder {
                             abstractControlOptions = this.getAbstractControlOptions(property.name, formBuilderConfiguration, abstractControlOptions)
                             if (property.updateOn && !abstractControlOptions.updateOn)
                                 abstractControlOptions.updateOn = property.updateOn;
-                            formGroupObject[property.name] = new RxFormControl(sanitizeValue, abstractControlOptions, [], json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
+                            formGroupObject[property.name] = new RxFormControl(sanitizeValue, abstractControlOptions, undefined, json.entityObject, Object.assign({}, json.entityObject), property.name, instanceContainer.sanitizers[property.name]);
                             this.isNested = false;
                         } else
                             formGroupObject[property.name] = super.getDefaultValue(property, entityObject[property.name], formBuilderConfiguration);
