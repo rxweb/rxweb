@@ -41,8 +41,9 @@ export function timeChecker(control: AbstractControl,config:any,operationType:st
                 let crossControlValue = crossFormControl ? getTime(crossFormControl.value) : getTime(config.value);  
                 let currentControlValue = getTime(control.value);
                 let isValid = operationType == AnnotationTypes.minTime ? runCondition(currentControlValue, crossControlValue, config.operator || OPERATORS.greaterThanEqualTo) : runCondition(crossControlValue, currentControlValue, config.operator || OPERATORS.lessThanEqualTo)
+                let additionalValue={[operationType == AnnotationTypes.minTime ? "min":"max"]:crossControlValue}
                 if (!isValid)
-                    return ObjectMaker.toJson(operationType, config, [control.value])
+                    return ObjectMaker.toJson(operationType, config, [control.value],additionalValue )
             } else
                 return ObjectMaker.toJson(operationType, config, [control.value])
         }

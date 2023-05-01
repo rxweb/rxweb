@@ -3,7 +3,7 @@ import { ReactiveFormConfig } from "./reactive-form-config";
 
 export class ObjectMaker{
     static language: string = "";
-    static toJson(key: string, config: any, values: any) {
+    static toJson(key: string, config: any, values: any,additional:{min?:any,max?:any}={}) {
         ObjectMaker.setMessage();
         let message = config ? config.message : null;
         let messageKey = undefined;
@@ -19,12 +19,18 @@ export class ObjectMaker{
             Object.keys(config.messageNexus).forEach(propName=>{
                 messageText = messageText.replace(`{{${propName}}}`, config.messageNexus[propName]);
             })
-        let jObject = {};
+        let jObject:any = {};
         jObject[key] = {
             message: messageText, refValues: values
         };
         if (config && config.isAddMessageKey)
             jObject["messageKey"] = messageKey;
+        if(additional){
+            if(additional.min)
+                jObject[key].min = additional.min;
+            if(additional.max)
+                jObject[key].max = additional.max;
+        }
         return jObject;
     }
     static null() {
