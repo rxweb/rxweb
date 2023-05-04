@@ -21,7 +21,7 @@ For More Information on ***[rxweb](http://rxweb.io)***
 | Angular version | Reactive Form Validators version         |
 | --------------- | ---------------------- |
 | Angular >= 13   | `@rxweb/reactive-form-validators@13.x` |
-| Angular <= 12    | less than  `@rxweb/reactive-form-validators@13.x` |
+| Angular <= 12    | less than  `@rxweb/reactive-form-validators@2.1.8` |
 
 
 # Prerequisites
