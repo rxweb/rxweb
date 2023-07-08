@@ -14,6 +14,7 @@ export abstract class BaseDirective{
 
     constructor(protected renderer: Renderer2, protected elementRef: ElementRef, private viewContainerRef) {
         this.element = this.elementRef.nativeElement as Node
+        this.element['isPopulated'] = false;
     }
 
 }

@@ -38,13 +38,13 @@ export class RxPlaceholderDirective extends BaseDirective implements AfterViewIn
                         component = this.elementRef.nativeElement.__ngContext__[componentViewIndex][componentIndex];	
                 }	
             }	
-            if (component != null)	
+            if (component != null && !this.element.isPopulated)	
                 this.placeholderDirective = new PlaceholderDirective(this.element, this.name, component != null ? component.constructor : null);	
             else	
                 if (this.element) {	
                     while (component == null) {	
                         componentViewIndex = -1;	
-                        if (element.parentElement && element.parentElement.__ngContext__) {	
+                        if (element && element.parentElement && element.parentElement.__ngContext__) {	
                             element.parentElement.__ngContext__.forEach((x, i) => { if (x != null) { if (x.constructor.name.indexOf("LComponentView_") > -1) { componentViewIndex = i } } })	
                             var component = null;	
                             if (componentViewIndex != -1) {	
@@ -60,17 +60,22 @@ export class RxPlaceholderDirective extends BaseDirective implements AfterViewIn
                             }	
                         }	
                         if (component == null) {	
-                            element = element.parentElement;	
+                            element = element ? element.parentElement : null;	
                             FindTry = FindTry + 1;	
                         }	
                         if (FindTry > 20)	
                             break;	
                     }	
-                    this.placeholderDirective = new PlaceholderDirective(this.element, this.name, component != null ? component.constructor : null);	
+                    if(!this.element.isPopulated) this.placeholderDirective = new PlaceholderDirective(this.element, this.name, component != null ? component.constructor : null);	
                 }	
-        } else
-        this.placeholderDirective = new PlaceholderDirective(this.element, this.name, this.component);
-        this.placeholderDirective.bind();
+        } else{
+            if(!this.element.isPopulated){
+                this.placeholderDirective = new PlaceholderDirective(this.element, this.name, this.component);
+                
+            }
+        }
+        if(!this.element.isPopulated)
+            this.placeholderDirective.bind();
     }
 
     ngOnDestroy(): void {

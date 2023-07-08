@@ -23,6 +23,7 @@ export class TextDirective extends BaseDirective {
             if (value) {
                 this.textNodeElement = document.createTextNode(value);
                 this.config.element.appendChild(this.textNodeElement);
+                this.config.element.isPopulated = true;
             }
         }
     }

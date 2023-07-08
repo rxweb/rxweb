@@ -11,12 +11,19 @@ export class PlaceholderDirective extends BaseDirective {
     }
 
     bind() {
-        var decoratorConfig = localizationContainer.getModelDecorator(this.target ?? this.element.componentName, 'multilingual');;
+        var decoratorConfig:any = localizationContainer.getModelDecorator(this.target ?? this.element.componentName, 'multilingual');;
+        if(typeof this.target == "string")
+            decoratorConfig = {config:this.target};
+        if(decoratorConfig == undefined)
+            decoratorConfig = {config:this.element.getAttribute("component-id")}
         if (decoratorConfig) {
             var componentId = decoratorConfig.config;
             var value = MultiLingualData.get(`${componentId}.${this.name}_p`);
-            if (value)
+            if (value){
                 this.element.placeholder = value;
+                this.element.isPopulated = true;
+            }
+                
         }
     }
 

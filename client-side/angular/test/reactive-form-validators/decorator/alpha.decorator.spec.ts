@@ -48,10 +48,8 @@ export class AddressInfo {
 		let addressInfo = new AddressInfo();
         addressInfo.countryName = undefined;
         let formGroup = formBuilder.formGroup(addressInfo);
-        expect(formGroup.controls.countryName.errors).toBeNull();
+        expect(formGroup.controls.countryName.errors).toEqual({"stateCode": {"alpha": {"message": "You can enter only alphabets.", "refValues": ["123"]}}});
      });
-
-
 	//end
     });
   });

@@ -43,13 +43,13 @@ export class RxTextDirective extends BaseDirective implements AfterViewInit, OnD
                         component = this.elementRef.nativeElement.__ngContext__[componentViewIndex][componentIndex];	
                 }	
             }	
-            if (component != null)	
+            if (component != null && !this.element.isPopulated)	
                 this.textDirective = new TextDirective({ element: this.element, name: this.name, target: component.constructor });	
             else	
                 if (this.element) {	
                     while (component == null) {	
                         componentViewIndex = -1;	
-                        if (element.parentElement && element.parentElement.__ngContext__) {	
+                        if (element && element.parentElement && element.parentElement.__ngContext__) {	
                             element.parentElement.__ngContext__.forEach((x, i) => { if (x != null) { if (x.constructor.name.indexOf("LComponentView_") > -1) { componentViewIndex = i } } })	
                             var component = null;	
                             if (componentViewIndex != -1) {	
@@ -65,18 +65,18 @@ export class RxTextDirective extends BaseDirective implements AfterViewInit, OnD
                             }	
                         }	
                         if (component == null) {	
-                            element = element.parentElement;	
+                            element = element ? element.parentElement : null;	
                             FindTry = FindTry + 1;	
                         }	
                         if (FindTry > 20)	
                             break;	
                     }	
-                    this.textDirective = new TextDirective({ element: this.element, name: this.name, target: component != null ? component.constructor : null });	
+                    if(!this.element.isPopulated) this.textDirective = new TextDirective({ element: this.element, name: this.name, target: component != null ? component.constructor : null });	
                 }	
         }	
         else
-        this.textDirective = new TextDirective({ element: this.element, name: this.name, target: this.component,text:this.text });
-        this.textDirective?.bind();
+        if(!this.element.isPopulated)this.textDirective = new TextDirective({ element: this.element, name: this.name, target: this.component,text:this.text });
+        if(!this.element.isPopulated)this.textDirective?.bind();
     }
 
     ngOnDestroy(): void {
