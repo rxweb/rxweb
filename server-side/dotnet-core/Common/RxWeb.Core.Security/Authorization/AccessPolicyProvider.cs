@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 using RxWeb.Core.Security.Singleton;
-using System;
-using System.Threading.Tasks;
 
 namespace RxWeb.Core.Security.Authorization
 {

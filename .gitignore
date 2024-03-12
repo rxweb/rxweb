@@ -61,12 +61,9 @@ Thumbs.db
 /Web.config
 /node_modules_delete
 /node_modules_final
-/rxweb.csproj
-/rxweb.csproj.user
 /node_modules_release
 /rxwebio/package-lock.json
 /rxwebio/rxwebio.csproj
-*.csproj
 /src/app
 
 /rxwebio/.vs/config

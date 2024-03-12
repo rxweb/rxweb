@@ -1,4 +1,3 @@
-
 namespace RxWeb.Core.Security
 {
     public class CustomClaimTypes

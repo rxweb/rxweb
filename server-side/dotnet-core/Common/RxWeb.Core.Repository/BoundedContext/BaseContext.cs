@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using RxWeb.Core.Data.Models;
-using System.Collections.Generic;
 
 namespace RxWeb.Core.Data.BoundedContext
 {

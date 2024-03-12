@@ -1,7 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
 
-
 namespace RxWeb.Core.Security.Cryptography
 {
     public class PasswordHash : IPasswordHash

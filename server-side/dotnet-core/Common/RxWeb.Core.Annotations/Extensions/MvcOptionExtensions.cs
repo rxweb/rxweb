@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RxWeb.Core.Annotations.Conventions;
-using RxWeb.Core.Annotations.Interface;
 using RxWeb.Core.Annotations.Static;
-using System;
 
 namespace RxWeb.Core.AspNetCore.Extensions
 {

@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RxWeb.Core.Sanitizers.Formatters;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RxWeb.Core.AspNetCore.Extensions
 {

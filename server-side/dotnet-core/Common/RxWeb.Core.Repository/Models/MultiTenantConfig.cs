@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace RxWeb.Core.Data.Models
 {
     public class MultiTenantConfig
@@ -8,9 +6,5 @@ namespace RxWeb.Core.Data.Models
         public SchemaBased Schema { get; set; } = new SchemaBased();
         public string TenantColumnName { get; set; }
     }
-
-   
-
-    
 }
 

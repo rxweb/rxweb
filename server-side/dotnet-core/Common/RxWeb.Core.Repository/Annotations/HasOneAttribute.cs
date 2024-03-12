@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-
-namespace RxWeb.Core.Data.Annotations
+﻿namespace RxWeb.Core.Data.Annotations
 {
     public class HasOneAttribute : Attribute
     {

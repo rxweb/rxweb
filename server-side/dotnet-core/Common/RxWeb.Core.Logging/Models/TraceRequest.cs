@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RxWeb.Core.Logging
+﻿namespace RxWeb.Core.Logging
 {
     public class TraceRequest : Attribute
     {

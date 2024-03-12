@@ -2,9 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using RxWeb.Core.Common.Models;
 using RxWeb.Core.Common.Sms;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RxWeb.Core.Common.Extensions
 {

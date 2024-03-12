@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc.ApplicationModels;
-using RxWeb.Core.Annotations.Interface;
-using System;
 
 namespace RxWeb.Core.Annotations.Conventions
 {

@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using RxWeb.Core.Annotations;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace RxWeb.Core.Logging
 {

@@ -1,5 +1,4 @@
 ﻿using RxWeb.Core.Sanitizers.Interface;
-using System;
 
 namespace RxWeb.Core.Sanitizers
 {

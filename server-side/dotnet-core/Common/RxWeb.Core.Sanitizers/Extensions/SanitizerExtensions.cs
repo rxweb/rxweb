@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using RxWeb.Core.Sanitizers.Interface;
-using System;
 using System.Reflection;
 
 namespace RxWeb.Core.Sanitizers.Extensions

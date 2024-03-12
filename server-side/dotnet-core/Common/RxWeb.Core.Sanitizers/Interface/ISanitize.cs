@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RxWeb.Core.Sanitizers.Interface
+﻿namespace RxWeb.Core.Sanitizers.Interface
 {
     internal interface ISanitize
     {

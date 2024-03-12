@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
 
 namespace RxWeb.Core.Sanitizers.Interface
 {

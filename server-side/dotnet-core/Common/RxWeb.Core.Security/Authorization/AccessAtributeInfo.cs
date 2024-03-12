@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RxWeb.Core.Security.Authorization
+﻿namespace RxWeb.Core.Security.Authorization
 {
     public class AccessAtributeInfo
     {

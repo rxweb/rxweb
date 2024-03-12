@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using RxWeb.Core.Localization.Singleton;
-using System.Linq;
 using System.Security.Claims;
 
 namespace RxWeb.Core.Localization

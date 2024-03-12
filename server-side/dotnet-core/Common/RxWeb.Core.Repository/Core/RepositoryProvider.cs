@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace RxWeb.Core.Data
+﻿namespace RxWeb.Core.Data
 {
     public class RepositoryProvider : IRepositoryProvider
     {

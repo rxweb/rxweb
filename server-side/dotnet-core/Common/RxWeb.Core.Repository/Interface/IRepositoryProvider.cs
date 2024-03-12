@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RxWeb.Core.Data
+﻿namespace RxWeb.Core.Data
 {
     public interface IRepositoryProvider : IDisposable
     {

@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RxWeb.Core.Data.Interface;
 using RxWeb.Core.Data.Singleton;
-using System;
 
 namespace RxWeb.Core.Data.Annotations
 {

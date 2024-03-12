@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using RxWeb.Core.Annotations.Filters;
-using RxWeb.Core.Annotations.Interface;
-using System;
 
 namespace RxWeb.Core.Annotations
 {

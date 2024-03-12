@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RxWeb.Core.Annotations.Static
+﻿namespace RxWeb.Core.Annotations.Static
 {
     public class ValidatorResponse
     {

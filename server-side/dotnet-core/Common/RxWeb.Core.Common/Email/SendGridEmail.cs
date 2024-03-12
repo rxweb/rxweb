@@ -1,8 +1,6 @@
 ﻿using RxWeb.Core.Common.Models;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace RxWeb.Core.Common.Email
 {

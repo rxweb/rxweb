@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using RxWeb.Core.Security.Authorization;
-using System.Threading.Tasks;
 
 namespace RxWeb.Core.Security
 {

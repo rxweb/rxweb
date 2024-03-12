@@ -1,8 +1,6 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
 using RxWeb.Core.Common.Models;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RxWeb.Core.Common.Email
 {

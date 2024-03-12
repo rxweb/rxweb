@@ -4,8 +4,6 @@ using RxWeb.Core.Annotations.Interface;
 using RxWeb.Core.Annotations.Models;
 using RxWeb.Core.Annotations.Static;
 using RxWeb.Core.Sanitizers.Extensions;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace RxWeb.Core.Annotations
 {

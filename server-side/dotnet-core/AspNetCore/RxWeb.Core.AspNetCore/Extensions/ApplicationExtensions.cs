@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace RxWeb.Core.AspNetCore.Extensions
 {

@@ -1,7 +1,6 @@
 ﻿using RxWeb.Core.Common.Models;
 using System.Net;
 using System.Net.Mail;
-using System.Threading.Tasks;
 
 namespace RxWeb.Core.Common.Email
 {

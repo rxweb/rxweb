@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace RxWeb.Core.Common
+﻿namespace RxWeb.Core.Common
 {
     public interface IEmail
     {

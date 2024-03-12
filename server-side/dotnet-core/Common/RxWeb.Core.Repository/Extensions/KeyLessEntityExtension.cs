@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RxWeb.Core.Data.Annotations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace RxWeb.Core.Data
 {

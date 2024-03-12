@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System;
-using System.Linq;
 using System.Security.Claims;
 
 namespace RxWeb.Core.Security.Filters

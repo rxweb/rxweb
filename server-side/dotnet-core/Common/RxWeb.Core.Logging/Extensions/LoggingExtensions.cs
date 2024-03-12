@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using RxWeb.Core.Logging;
-using System;
 
 namespace RxWeb.Core.AspNetCore.Extensions
 {

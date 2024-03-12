@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RxWeb.Core.Annotations
+﻿namespace RxWeb.Core.Annotations
 {
     public class ModelValidationAttribute : Attribute
     {

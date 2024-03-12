@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RxWeb.Core.Localization;
 using RxWeb.Core.Localization.Singleton;
-using System.Collections.Generic;
 
 namespace RxWeb.Core.AspNetCore.Extensions
 {

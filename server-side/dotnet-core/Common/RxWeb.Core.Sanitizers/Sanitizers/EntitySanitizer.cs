@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RxWeb.Core.Sanitizers
+﻿namespace RxWeb.Core.Sanitizers
 {
     public class EntitySanitizer : Attribute
     {

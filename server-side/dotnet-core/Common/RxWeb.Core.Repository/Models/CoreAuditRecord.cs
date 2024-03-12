@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace RxWeb.Core.Data.Models
+﻿namespace RxWeb.Core.Data.Models
 {
     public class CoreAuditRecord
     {

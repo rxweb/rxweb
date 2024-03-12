@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json;
 using RxWeb.Core.Sanitizers.Extensions;
-using System;
-using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization;
-using System.Threading.Tasks;
 
 namespace RxWeb.Core.Sanitizers.Formatters
 {

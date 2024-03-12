@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-
-namespace RxWeb.Core.Common
+﻿namespace RxWeb.Core.Common
 {
     public class MailConfig
     {

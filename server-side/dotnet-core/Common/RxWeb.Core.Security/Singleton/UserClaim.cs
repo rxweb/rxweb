@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Linq;
 using System.Security.Claims;
 
 namespace RxWeb.Core.Security

@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using RxWeb.Core.Sanitizers.Enums;
 using RxWeb.Core.Sanitizers.Interface;
-using System;
-using System.Linq;
 using System.Security.Claims;
 
 namespace RxWeb.Core.Sanitizers

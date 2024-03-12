@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace RxWeb.Core.Annotations.Models
+﻿namespace RxWeb.Core.Annotations.Models
 {
     public class ValidationResultModel
     {

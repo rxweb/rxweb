@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace RxWeb.Core.Annotations.Interface
+﻿namespace RxWeb.Core.Annotations.Interface
 {
     public interface IValidatorResponse
     {

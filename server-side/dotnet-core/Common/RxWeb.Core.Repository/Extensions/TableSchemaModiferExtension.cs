@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RxWeb.Core.Data.Annotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 
 namespace RxWeb.Core.Data
 {
