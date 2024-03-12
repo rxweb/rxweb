@@ -1082,6 +1082,43 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@rxweb/core@0.0.1-beta1":
+  version "0.0.1-beta1"
+  resolved "https://registry.yarnpkg.com/@rxweb/core/-/core-0.0.1-beta1.tgz#d01a97e06f4fc1d86512832692bbef3439baec04"
+  integrity sha512-tXpfbsen/68p0852PQyAu2IVW5kcac1Rxa+Xs0p/ckC5ua7tjC0EXNUe+N2Qw55xok109rhPbkJ3t58IYXo9eQ==
+  dependencies:
+    tslib "^1.9.0"
+
+"@rxweb/dom@0.0.2-beta9":
+  version "0.0.2-beta9"
+  resolved "https://registry.yarnpkg.com/@rxweb/dom/-/dom-0.0.2-beta9.tgz#3eac758da05752ff3e206df5511a828cdc4469e6"
+  integrity sha512-/IzHEAxyUvnMWH50k7ro7XfjR3mS9Cu3wpzulSKGymXyPmLmWe7shGVYoiNWHkKBMOkyW6N0DYv1yTWut5gb6w==
+  dependencies:
+    tslib "^1.9.0"
+
+"@rxweb/grid@0.0.2-beta8":
+  version "0.0.2-beta8"
+  resolved "https://registry.yarnpkg.com/@rxweb/grid/-/grid-0.0.2-beta8.tgz#a9b4eec7b67e3a78c4fb2a95a3f747f9e6721063"
+  integrity sha512-O43yiV6jTccfBZFWLrQdDPGx37FOgCfTte+80szw+wd30FxRSYBmQAZ2XFBzfH34TJ9YIxK8bMEKIZTOkBKyhw==
+  dependencies:
+    "@rxweb/dom" "0.0.2-beta9"
+    "@rxweb/translate" "1.0.11"
+    tslib "^1.9.0"
+
+"@rxweb/localization@0.0.2-beta2":
+  version "0.0.2-beta2"
+  resolved "https://registry.yarnpkg.com/@rxweb/localization/-/localization-0.0.2-beta2.tgz#7b425256ae52f776c6df3c1d19be5e14ab0aecd4"
+  integrity sha512-TEVNx5O7WvYWr3KRjl5fljEnZLLC7AKf7nSOgdkEK4hx0vR6QLugqJFX96arncp1wNkLmn6Nak1VfrV4U0rELw==
+  dependencies:
+    tslib "^1.9.0"
+
+"@rxweb/translate@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@rxweb/translate/-/translate-1.0.11.tgz#d50239a999686773855c5fe29708bd4ef5b1d733"
+  integrity sha512-EonU5V4G3KdOtzE9L4ifL2cspMIqONhng5IhSoXTL5zTsi6wgZNmVqYz/jXrQlLeExys5hTvHfVBoe7zjm0WeQ==
+  dependencies:
+    tslib "^1.9.0"
+
 "@schematics/angular@10.0.3":
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-10.0.3.tgz#a4d54389918a7f9c82345d4f639d930f22b62c6b"
@@ -7546,18 +7583,18 @@ socket.io-client@2.3.0:
     to-array "0.1.4"
 
 socket.io-parser@~3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-3.3.0.tgz#2b52a96a509fdf31440ba40fed6094c7d4f1262f"
-  integrity sha512-hczmV6bDgdaEbVqhAeVMM/jfUfzuEZHsQg6eOmLgJht6G3mPKMxYm75w2+qhAQZ+4X+1+ATZ+QFKeOZD5riHng==
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-3.3.3.tgz#3a8b84823eba87f3f7624e64a8aaab6d6318a72f"
+  integrity sha512-qOg87q1PMWWTeO01768Yh9ogn7chB9zkKtQnya41Y355S0UmpXgpcrFwAgjYJxu9BdKug5r5e9YtVSeWhKBUZg==
   dependencies:
-    component-emitter "1.2.1"
+    component-emitter "~1.3.0"
     debug "~3.1.0"
     isarray "2.0.1"
 
 socket.io-parser@~3.4.0:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-3.4.1.tgz#b06af838302975837eab2dc980037da24054d64a"
-  integrity sha512-11hMgzL+WCLWf1uFtHSNvliI++tcRUWdoeYuwIl+Axvwy9z2gQM+7nJyN3STj1tLj5JyIUH8/gpDGxzAlDdi0A==
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-3.4.3.tgz#b19bdaad38ed39fd68fba3f9d86768f667df0c29"
+  integrity sha512-1rE4dZN3kCI/E5wixd393hmbqa78vVpkKmnEJhLeWoS/C5hbFYAbcSfnWoaVH43u9ToUVtzKjguxEZq+1XZfCQ==
   dependencies:
     component-emitter "1.2.1"
     debug "~4.1.0"
