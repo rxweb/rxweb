@@ -1,4 +1,4 @@
-namespace PrimePro_Sample.Models.Enums.Main
+namespace CleanArchitecture.Models.Enums.Main
 {
     public enum Status
     {

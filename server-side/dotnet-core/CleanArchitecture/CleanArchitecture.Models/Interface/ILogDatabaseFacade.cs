@@ -1,6 +1,6 @@
 using RxWeb.Core.Annotations;
 
-namespace PrimePro_Sample.BoundedContext.SqlContext
+namespace CleanArchitecture.BoundedContext.SqlContext
 {
     public interface ILogDatabaseFacade : IDatabaseFacade
     {

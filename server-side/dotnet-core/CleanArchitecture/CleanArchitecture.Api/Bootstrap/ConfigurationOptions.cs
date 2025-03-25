@@ -1,9 +1,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PrimePro_Sample.Models;
+using CleanArchitecture.Models;
 using RxWeb.Core.Data.Models;
 
-namespace PrimePro_Sample.Api.Bootstrap
+namespace CleanArchitecture.Api.Bootstrap
 {
     public static class ConfigurationOptions
     {

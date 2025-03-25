@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using RxWeb.Core.Annotations;
 using RxWeb.Core.Data.Annotations;
 using RxWeb.Core.Sanitizers;
-using PrimePro_Sample.Models.Enums.Main;
-using PrimePro_Sample.BoundedContext.SqlContext;
-namespace PrimePro_Sample.Models.Main
+using CleanArchitecture.Models.Enums.Main;
+using CleanArchitecture.BoundedContext.SqlContext;
+namespace CleanArchitecture.Models.Main
 {
     [Table("LanguageContents",Schema="dbo")]
     public partial class LanguageContent
@@ -48,7 +48,7 @@ namespace PrimePro_Sample.Models.Main
 
 		#region LanguageContentKey Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(LanguageContentKeyId),}, nameof(PrimePro_Sample.Models.Main.LanguageContentKey.LanguageContents))]
+        [HasOne(foreignKeys: new string[] { nameof(LanguageContentKeyId),}, nameof(CleanArchitecture.Models.Main.LanguageContentKey.LanguageContents))]
 		#endregion LanguageContentKey Annotations
 
         public virtual LanguageContentKey LanguageContentKey { get; set; }

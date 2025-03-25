@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.IO.Compression;
 using System.Linq;
 
-namespace PrimePro_Sample.Api.Bootstrap
+namespace CleanArchitecture.Api.Bootstrap
 {
     public static class Performance
     {

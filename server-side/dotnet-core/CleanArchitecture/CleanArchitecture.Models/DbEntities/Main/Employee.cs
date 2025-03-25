@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using RxWeb.Core.Annotations;
 using RxWeb.Core.Data.Annotations;
 using RxWeb.Core.Sanitizers;
-using PrimePro_Sample.Models.Enums.Main;
-using PrimePro_Sample.BoundedContext.SqlContext;
-namespace PrimePro_Sample.Models.Main
+using CleanArchitecture.Models.Enums.Main;
+using CleanArchitecture.BoundedContext.SqlContext;
+namespace CleanArchitecture.Models.Main
 {
     [Table("Employee",Schema="dbo")]
     public partial class Employee
@@ -36,7 +36,7 @@ namespace PrimePro_Sample.Models.Main
 
 		#region DepartmentIDNavigation Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(DepartmentID),}, nameof(PrimePro_Sample.Models.Main.Department.Employee))]
+        [HasOne(foreignKeys: new string[] { nameof(DepartmentID),}, nameof(CleanArchitecture.Models.Main.Department.Employee))]
 		#endregion DepartmentIDNavigation Annotations
 
         public virtual Department DepartmentIDNavigation { get; set; }

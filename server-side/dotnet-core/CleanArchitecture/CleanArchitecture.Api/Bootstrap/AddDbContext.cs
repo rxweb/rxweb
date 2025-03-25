@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
-using PrimePro_Sample.BoundedContext.SqlContext;
+using CleanArchitecture.BoundedContext.SqlContext;
 
-namespace PrimePro_Sample.Api.Bootstrap
+namespace CleanArchitecture.Api.Bootstrap
 {
     public static class AddDbContextExtension
     {

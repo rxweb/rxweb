@@ -1,13 +1,13 @@
 
-using PrimePro_Sample.Models.Main;
-using PrimePro_Sample.UnitOfWork.Main;
+using CleanArchitecture.Models.Main;
+using CleanArchitecture.UnitOfWork.Main;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PrimePro_Sample.Infrastructure.Singleton
+namespace CleanArchitecture.Infrastructure.Singleton
 {
     public class UserAccessConfigInfo
     {

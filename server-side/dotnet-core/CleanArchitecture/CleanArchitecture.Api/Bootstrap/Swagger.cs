@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System.Collections.Generic;
 
-namespace PrimePro_Sample.Api.Bootstrap
+namespace CleanArchitecture.Api.Bootstrap
 {
     public static class SwaggerIntegration
     {

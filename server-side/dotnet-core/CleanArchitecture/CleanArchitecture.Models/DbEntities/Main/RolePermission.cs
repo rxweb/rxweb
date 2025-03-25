@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using RxWeb.Core.Annotations;
 using RxWeb.Core.Data.Annotations;
 using RxWeb.Core.Sanitizers;
-using PrimePro_Sample.Models.Enums.Main;
-using PrimePro_Sample.BoundedContext.SqlContext;
-namespace PrimePro_Sample.Models.Main
+using CleanArchitecture.Models.Enums.Main;
+using CleanArchitecture.BoundedContext.SqlContext;
+namespace CleanArchitecture.Models.Main
 {
     [Table("RolePermissions",Schema="dbo")]
     public partial class RolePermission
@@ -59,14 +59,14 @@ namespace PrimePro_Sample.Models.Main
 
 		#region ApplicationModule Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(ApplicationModuleId),}, nameof(PrimePro_Sample.Models.Main.ApplicationModule.RolePermissions))]
+        [HasOne(foreignKeys: new string[] { nameof(ApplicationModuleId),}, nameof(CleanArchitecture.Models.Main.ApplicationModule.RolePermissions))]
 		#endregion ApplicationModule Annotations
 
         public virtual ApplicationModule ApplicationModule { get; set; }
 
 		#region Role Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(RoleId),}, nameof(PrimePro_Sample.Models.Main.Role.RolePermissions))]
+        [HasOne(foreignKeys: new string[] { nameof(RoleId),}, nameof(CleanArchitecture.Models.Main.Role.RolePermissions))]
 		#endregion Role Annotations
 
         public virtual Role Role { get; set; }

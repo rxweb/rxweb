@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
-using PrimePro_Sample.Api.Bootstrap;
+using CleanArchitecture.Api.Bootstrap;
 using RxWeb.Core.AspNetCore.Extensions;
 using RxWeb.Core.Extensions;
 

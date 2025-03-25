@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace PrimePro_Sample.Models
+namespace CleanArchitecture.Models
 {
     public class SecurityConfig
     {

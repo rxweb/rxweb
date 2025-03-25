@@ -1,6 +1,6 @@
 using RxWeb.Core.Data;
 
-namespace PrimePro_Sample.UnitOfWork
+namespace CleanArchitecture.UnitOfWork
 {
     public class BaseUow : CoreUnitOfWork
     {

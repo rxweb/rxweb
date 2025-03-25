@@ -1,7 +1,7 @@
 using RxWeb.Core.Data;
-using PrimePro_Sample.BoundedContext.Main;
+using CleanArchitecture.BoundedContext.Main;
 
-namespace PrimePro_Sample.UnitOfWork.Main
+namespace CleanArchitecture.UnitOfWork.Main
 {
     public class MasterUow : BaseUow, IMasterUow
     {

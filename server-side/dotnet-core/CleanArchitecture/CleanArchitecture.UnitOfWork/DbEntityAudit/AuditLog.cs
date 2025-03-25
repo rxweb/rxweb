@@ -5,7 +5,7 @@ using RxWeb.Core.Data.Models;
 using System;
 using System.Collections.Generic;
 
-namespace PrimePro_Sample.UnitOfWork.DbEntityAudit
+namespace CleanArchitecture.UnitOfWork.DbEntityAudit
 {
     public class AuditLog : IAuditLog
     {

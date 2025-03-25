@@ -1,7 +1,7 @@
-using PrimePro_Sample.BoundedContext.DbContext.Main;
+using CleanArchitecture.BoundedContext.DbContext.Main;
 using RxWeb.Core.Data;
 
-namespace PrimePro_Sample.UnitOfWork.Main
+namespace CleanArchitecture.UnitOfWork.Main
 {
     public class LoginUow : BaseUow, ILoginUow
     {

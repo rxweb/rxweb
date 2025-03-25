@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using PrimePro_Sample.BoundedContext.SqlContext;
-using PrimePro_Sample.Models.Main;
-using PrimePro_Sample.Models;
-using PrimePro_Sample.BoundedContext.Singleton;
+using CleanArchitecture.BoundedContext.SqlContext;
+using CleanArchitecture.Models.Main;
+using CleanArchitecture.Models;
+using CleanArchitecture.BoundedContext.Singleton;
 using RxWeb.Core.Data;
 using RxWeb.Core.Data.Models;
 using RxWeb.Core.Data.BoundedContext;
 
-namespace PrimePro_Sample.BoundedContext.Main
+namespace CleanArchitecture.BoundedContext.Main
 {
     public class MasterContext : BaseBoundedContext, IMasterContext
     {

@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PrimePro_Sample.BoundedContext.SqlContext;
-using PrimePro_Sample.Infrastructure.Security;
-using PrimePro_Sample.Models;
+using CleanArchitecture.BoundedContext.SqlContext;
+using CleanArchitecture.Infrastructure.Security;
+using CleanArchitecture.Models;
 using RxWeb.Core.AspNetCore.Extensions;
 using RxWeb.Core.Extensions;
 using RxWeb.Core.Logging;
@@ -19,7 +19,7 @@ using System;
 using System.Linq;
 using System.Net;
 
-namespace PrimePro_Sample.Api.Bootstrap
+namespace CleanArchitecture.Api.Bootstrap
 {
     public static class Security
     {

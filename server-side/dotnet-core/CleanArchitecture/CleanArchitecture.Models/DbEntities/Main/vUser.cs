@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using RxWeb.Core.Annotations;
 using RxWeb.Core.Data.Annotations;
 using RxWeb.Core.Sanitizers;
-using PrimePro_Sample.BoundedContext.SqlContext;
-namespace PrimePro_Sample.Models.Main
+using CleanArchitecture.BoundedContext.SqlContext;
+namespace CleanArchitecture.Models.Main
 {
     [Table("vUsers",Schema="dbo")]
     [KeyLessEntity]

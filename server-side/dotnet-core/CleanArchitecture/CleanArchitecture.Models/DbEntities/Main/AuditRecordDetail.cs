@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using RxWeb.Core.Annotations;
 using RxWeb.Core.Data.Annotations;
 using RxWeb.Core.Sanitizers;
-using PrimePro_Sample.Models.Enums.Main;
-using PrimePro_Sample.BoundedContext.SqlContext;
-namespace PrimePro_Sample.Models.Main
+using CleanArchitecture.Models.Enums.Main;
+using CleanArchitecture.BoundedContext.SqlContext;
+namespace CleanArchitecture.Models.Main
 {
     [Table("AuditRecordDetails",Schema="dbo")]
     public partial class AuditRecordDetail
@@ -42,7 +42,7 @@ namespace PrimePro_Sample.Models.Main
 
 		#region AuditRecord Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(AuditRecordId),}, nameof(PrimePro_Sample.Models.Main.AuditRecord.AuditRecordDetails))]
+        [HasOne(foreignKeys: new string[] { nameof(AuditRecordId),}, nameof(CleanArchitecture.Models.Main.AuditRecord.AuditRecordDetails))]
 		#endregion AuditRecord Annotations
 
         public virtual AuditRecord AuditRecord { get; set; }

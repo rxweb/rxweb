@@ -1,16 +1,16 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PrimePro_Sample.Infrastructure.Security;
-using PrimePro_Sample.Models.Main;
-using PrimePro_Sample.Models.ViewModels;
-using PrimePro_Sample.UnitOfWork.Main;
+using CleanArchitecture.Infrastructure.Security;
+using CleanArchitecture.Models.Main;
+using CleanArchitecture.Models.ViewModels;
+using CleanArchitecture.UnitOfWork.Main;
 using RxWeb.Core.Security.Cryptography;
 using RxWeb.Core.Security.Filters;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PrimePro_Sample.Api.Controllers
+namespace CleanArchitecture.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

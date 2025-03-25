@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using PrimePro_Sample.BoundedContext.SqlContext;
-using PrimePro_Sample.Models.Main;
+using CleanArchitecture.BoundedContext.SqlContext;
+using CleanArchitecture.Models.Main;
 using RxWeb.Core.Data;
 using RxWeb.Core.Data.BoundedContext;
 using RxWeb.Core.Data.Models;
 
-namespace PrimePro_Sample.BoundedContext.DbContext.Main
+namespace CleanArchitecture.BoundedContext.DbContext.Main
 {
     public class LoginContext : BaseBoundedContext, ILoginContext
     {

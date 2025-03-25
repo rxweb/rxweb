@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using RxWeb.Core.Annotations;
 using RxWeb.Core.Data.Annotations;
 using RxWeb.Core.Sanitizers;
-using PrimePro_Sample.Models.Enums.Main;
-using PrimePro_Sample.BoundedContext.SqlContext;
-namespace PrimePro_Sample.Models.Main
+using CleanArchitecture.Models.Enums.Main;
+using CleanArchitecture.BoundedContext.SqlContext;
+namespace CleanArchitecture.Models.Main
 {
     [Table("ApplicationObjects",Schema="dbo")]
     public partial class ApplicationObject
@@ -46,7 +46,7 @@ namespace PrimePro_Sample.Models.Main
 
 		#region ApplicationObjectType Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(ApplicationObjectTypeId),}, nameof(PrimePro_Sample.Models.Main.ApplicationObjectType.ApplicationObjects))]
+        [HasOne(foreignKeys: new string[] { nameof(ApplicationObjectTypeId),}, nameof(CleanArchitecture.Models.Main.ApplicationObjectType.ApplicationObjects))]
 		#endregion ApplicationObjectType Annotations
 
         public virtual ApplicationObjectType ApplicationObjectType { get; set; }

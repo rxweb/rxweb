@@ -1,9 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
-using PrimePro_Sample.BoundedContext.Singleton;
-using PrimePro_Sample.Infrastructure.Singleton;
+using CleanArchitecture.BoundedContext.Singleton;
+using CleanArchitecture.Infrastructure.Singleton;
 using RxWeb.Core.Data;
 
-namespace PrimePro_Sample.Api.Bootstrap
+namespace CleanArchitecture.Api.Bootstrap
 {
     public static class Singleton
     {

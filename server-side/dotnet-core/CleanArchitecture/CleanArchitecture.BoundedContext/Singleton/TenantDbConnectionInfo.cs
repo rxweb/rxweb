@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Options;
-using PrimePro_Sample.Models;
+using CleanArchitecture.Models;
 using RxWeb.Core.Data;
 using RxWeb.Core.Data.Models;
 using System.Collections.Concurrent;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
-namespace PrimePro_Sample.BoundedContext.Singleton
+namespace CleanArchitecture.BoundedContext.Singleton
 {
     public class TenantDbConnectionInfo : ITenantDbConnectionInfo
     {

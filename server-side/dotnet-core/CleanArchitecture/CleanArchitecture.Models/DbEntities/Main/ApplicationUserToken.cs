@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using RxWeb.Core.Annotations;
 using RxWeb.Core.Data.Annotations;
 using RxWeb.Core.Sanitizers;
-using PrimePro_Sample.Models.Enums.Main;
-using PrimePro_Sample.BoundedContext.SqlContext;
-namespace PrimePro_Sample.Models.Main
+using CleanArchitecture.Models.Enums.Main;
+using CleanArchitecture.BoundedContext.SqlContext;
+namespace CleanArchitecture.Models.Main
 {
     [Table("ApplicationUserTokens",Schema="dbo")]
     public partial class ApplicationUserToken
@@ -60,7 +60,7 @@ namespace PrimePro_Sample.Models.Main
 
 		#region User Annotations
 
-        [HasOne(foreignKeys: new string[] { nameof(UserId),}, nameof(PrimePro_Sample.Models.Main.User.ApplicationUserTokens))]
+        [HasOne(foreignKeys: new string[] { nameof(UserId),}, nameof(CleanArchitecture.Models.Main.User.ApplicationUserTokens))]
 		#endregion User Annotations
 
         public virtual User User { get; set; }

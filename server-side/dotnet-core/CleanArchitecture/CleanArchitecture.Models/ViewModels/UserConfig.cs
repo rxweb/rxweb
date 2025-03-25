@@ -1,5 +1,5 @@
 
-namespace PrimePro_Sample.Models.ViewModels
+namespace CleanArchitecture.Models.ViewModels
 {
     public class UserConfig
     {

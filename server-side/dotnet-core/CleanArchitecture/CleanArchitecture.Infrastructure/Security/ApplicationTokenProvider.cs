@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Http;
-using PrimePro_Sample.Infrastructure.Singleton;
-using PrimePro_Sample.Models.Main;
-using PrimePro_Sample.Models.ViewModels;
-using PrimePro_Sample.UnitOfWork.Main;
+using CleanArchitecture.Infrastructure.Singleton;
+using CleanArchitecture.Models.Main;
+using CleanArchitecture.Models.ViewModels;
+using CleanArchitecture.UnitOfWork.Main;
 using RxWeb.Core.Security;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace PrimePro_Sample.Infrastructure.Security
+namespace CleanArchitecture.Infrastructure.Security
 {
     public class ApplicationTokenProvider : IApplicationTokenProvider
     {

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace PrimePro_Sample.Models.ViewModels
+namespace CleanArchitecture.Models.ViewModels
 {
     public partial class AuthenticationModel
     {

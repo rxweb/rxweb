@@ -1,21 +1,21 @@
 #region Namespace
 using Microsoft.Extensions.DependencyInjection;
-using PrimePro_Sample.BoundedContext.DbContext.Main;
-using PrimePro_Sample.Infrastructure.Security;
-using PrimePro_Sample.UnitOfWork.DbEntityAudit;
-using PrimePro_Sample.UnitOfWork.Main;
+using CleanArchitecture.BoundedContext.DbContext.Main;
+using CleanArchitecture.Infrastructure.Security;
+using CleanArchitecture.UnitOfWork.DbEntityAudit;
+using CleanArchitecture.UnitOfWork.Main;
 using RxWeb.Core.Annotations;
 using RxWeb.Core.Data;
 using RxWeb.Core.Security;
 
-using PrimePro_Sample.BoundedContext.Main;
+using CleanArchitecture.BoundedContext.Main;
             #endregion Namespace
 
 
 
 
 
-namespace PrimePro_Sample.Api.Bootstrap
+namespace CleanArchitecture.Api.Bootstrap
 {
     public static class ScopedExtension
     {
