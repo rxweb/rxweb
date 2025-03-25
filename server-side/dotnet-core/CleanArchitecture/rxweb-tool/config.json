@@ -1,11 +1,11 @@
 {
   "projects": {
-    "api": "CleanArchitecture.Api",
-    "model": "CleanArchitecture.Models",
-    "context": "CleanArchitecture.BoundedContext",
-    "domain": "CleanArchitecture.Domain",
-	"unitOfWork": "CleanArchitecture.UnitOfWork",
-    "infrastructure": "CleanArchitecture.Infrastructure",
+    "api": "PrimePro_Sample.Api",
+    "model": "PrimePro_Sample.Models",
+    "context": "PrimePro_Sample.BoundedContext",
+    "domain": "PrimePro_Sample.Domain",
+	"unitOfWork": "PrimePro_Sample.UnitOfWork",
+    "infrastructure": "PrimePro_Sample.Infrastructure",
     "azureFunctionHttp":"",
     "portal":"",
     "azureFunctionBackground":""

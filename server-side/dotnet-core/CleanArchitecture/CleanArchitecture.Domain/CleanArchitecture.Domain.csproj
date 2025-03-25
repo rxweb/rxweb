@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\CleanArchitecture.BoundedContext\CleanArchitecture.BoundedContext.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.UnitOfWork\CleanArchitecture.UnitOfWork.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Models\CleanArchitecture.Models.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
