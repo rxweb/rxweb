@@ -54,7 +54,7 @@ export const defaultContainer:
                 }
             } else if (configs === undefined)
                 this.addInstanceContainer(target);
-            
+
         }
         addPropConfig(target:any,properties: PropertyInfo[], config: PropsConfig) {
             for (var propertyInfo of properties) {
@@ -129,12 +129,13 @@ export const defaultContainer:
                 name: name,
                 propertyType: propertyType,
                 entity: entity,
-                dataPropertyName: config ? config.name : undefined,
-                entityProvider: config ? config.entityProvider : undefined,
-                defaultValue:config ? config.defaultValue : undefined,
-                objectConfig:config && config.autoCreate ? {autoCreate:config.autoCreate}: undefined
+                dataPropertyName: config?.name,
+                entityProvider: config?.entityProvider,
+                defaultValue: config?.defaultValue,
+                objectConfig: config && config.autoCreate ? {autoCreate:config.autoCreate}: undefined,
+                messageNexus: config?.messageNexus
             }
-            defaultContainer.addProperty(target.constructor, propertyInfo); 
+            defaultContainer.addProperty(target.constructor, propertyInfo);
         }
 
         addInstanceContainer(instanceFunc: any): InstanceContainer {
